@@ -312,6 +312,30 @@ body {
 
 .collapsible.open > .collapsible-body { display: block; }
 
+/* Nested sub-sections (e.g. Equipment > Accessory) */
+.collapsible .collapsible {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin: 4px 0;
+}
+.collapsible .collapsible > .collapsible-header {
+  padding: 10px 14px;
+  background: var(--surface-2);
+  font-size: 14px;
+}
+.collapsible .collapsible > .collapsible-header .left .title {
+  font-weight: 600;
+  color: var(--secondary);
+  font-size: 14px;
+}
+.collapsible .collapsible > .collapsible-header .left::before {
+  content: '›';
+  margin-right: 8px;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 16px;
+}
+
 /* ============================================
    Warning/Info Banners
    ============================================ */
@@ -782,6 +806,7 @@ const TABS = [
   { id: 'skills',    label: 'Skills',      icon: ICONS.swords },
   { id: 'crafting',  label: 'Crafting',    icon: ICONS.hammer },
   { id: 'items',     label: 'Items',       icon: ICONS.scrollText },
+  { id: 'equipment', label: 'Equipment',   icon: ICONS.swords },
   { id: 'cashshop',  label: 'Cash Shop',   icon: ICONS.shoppingBag },
   { id: 'quests',    label: 'Quests',      icon: ICONS.bookOpen }
 ];
@@ -1435,8 +1460,6 @@ function renderCrafting() {
 // ---- ITEMS ----
 function renderItems() {
   let searchQuery = '';
-  let hideCosmetic = true;
-  let classFilter = 0; // 0=All, 1=Warrior, 2=Mage, 4=Bowman, 8=Thief
   const container = el('div');
 
   const TIER_COLORS = {
@@ -1448,121 +1471,12 @@ function renderItems() {
 
   const scrollIdSet = new Set(items.scrolls.map(s => String(s.id)));
 
-  const JOB_NAMES = { 0: 'All', 1: 'Warrior', 2: 'Mage', 4: 'Bowman', 8: 'Thief' };
-  const ASPD_LABELS = { 2: 'Faster', 3: 'Faster', 4: 'Fast', 5: 'Fast', 6: 'Normal', 7: 'Slow', 8: 'Slow', 9: 'Slower' };
-
-  function decodeJob(v) {
-    if (!v || v === 0) return 'All';
-    const jobs = [];
-    for (const [bit, name] of Object.entries(JOB_NAMES)) {
-      if (+bit > 0 && (v & +bit)) jobs.push(name);
-    }
-    return jobs.length ? jobs.join('/') : 'All';
-  }
-
-  function matchesClass(item) {
-    if (classFilter === 0) return true;
-    if (!item.stats) return classFilter === 0;
-    const rj = item.stats.reqJob || 0;
-    if (rj === 0) return true; // All classes
-    return (rj & classFilter) !== 0;
-  }
-
-  function renderEquipStats(stats) {
-    if (!stats) return null;
-    const parts = [];
-    const accent = 'var(--accent)';
-
-    // Offensive stats
-    if (stats.incPAD) parts.push({ t: `ATK +${stats.incPAD}`, c: 'var(--secondary)' });
-    if (stats.incMAD) parts.push({ t: `MATK +${stats.incMAD}`, c: 'var(--secondary)' });
-    if (stats.incPDD) parts.push({ t: `DEF +${stats.incPDD}`, c: null });
-    if (stats.incMDD) parts.push({ t: `MDEF +${stats.incMDD}`, c: null });
-
-    // Base stats
-    const baseStats = [];
-    if (stats.incSTR) baseStats.push(`STR +${stats.incSTR}`);
-    if (stats.incDEX) baseStats.push(`DEX +${stats.incDEX}`);
-    if (stats.incINT) baseStats.push(`INT +${stats.incINT}`);
-    if (stats.incLUK) baseStats.push(`LUK +${stats.incLUK}`);
-    if (baseStats.length) parts.push({ t: baseStats.join(', '), c: null });
-
-    // HP/MP
-    if (stats.incMHP) parts.push({ t: `HP +${stats.incMHP}`, c: null });
-    if (stats.incMMP) parts.push({ t: `MP +${stats.incMMP}`, c: null });
-
-    // Utility stats
-    if (stats.incACC) parts.push({ t: `ACC +${stats.incACC}`, c: null });
-    if (stats.incEVA) parts.push({ t: `EVA +${stats.incEVA}`, c: null });
-    if (stats.incSpeed) parts.push({ t: `Speed +${stats.incSpeed}`, c: null });
-    if (stats.incJump) parts.push({ t: `Jump +${stats.incJump}`, c: null });
-    if (stats.knockback) parts.push({ t: `KB ${stats.knockback}%`, c: null });
-
-    // NEW stats (highlighted)
-    if (stats.incCRT) parts.push({ t: `Crit Rate +${stats.incCRT}`, c: accent });
-    if (stats.incCRD) parts.push({ t: `Crit Damage +${stats.incCRD}`, c: accent });
-    if (stats.recovery) parts.push({ t: `Recovery ×${stats.recovery}`, c: accent });
-
-    // Attack speed
-    if (stats.attackSpeed) {
-      const label = ASPD_LABELS[stats.attackSpeed] || stats.attackSpeed;
-      parts.push({ t: `Speed: ${label}(${stats.attackSpeed})`, c: null });
-    }
-
-    // Slots
-    if (stats.tuc) parts.push({ t: `Slots: ${stats.tuc}`, c: null });
-
-    // Build stat line
-    const statLine = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '4px 8px', fontSize: '12px', marginTop: '4px', lineHeight: '1.6' } });
-    parts.forEach((p, i) => {
-      if (i > 0) statLine.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '·' }));
-      statLine.appendChild(el('span', { style: { color: p.c || 'var(--dim)' }, textContent: p.t }));
-    });
-
-    // Requirements line
-    const reqs = [];
-    if (stats.reqLevel) reqs.push(`Lv.${stats.reqLevel}`);
-    if (stats.reqSTR) reqs.push(`STR ${stats.reqSTR}`);
-    if (stats.reqDEX) reqs.push(`DEX ${stats.reqDEX}`);
-    if (stats.reqINT) reqs.push(`INT ${stats.reqINT}`);
-    if (stats.reqLUK) reqs.push(`LUK ${stats.reqLUK}`);
-    const jobStr = decodeJob(stats.reqJob);
-
-    const reqLine = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '4px 8px', fontSize: '11px', marginTop: '2px', lineHeight: '1.5' } });
-    if (reqs.length || jobStr !== 'All') {
-      reqLine.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: 'Req: ' }));
-      if (jobStr !== 'All') {
-        reqLine.appendChild(el('span', { style: { color: '#c084fc' }, textContent: `[${jobStr}]` }));
-      }
-      reqs.forEach(r => reqLine.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: r })));
-    }
-
-    // Badges
-    const badges = el('span', { style: { display: 'inline-flex', gap: '6px', marginLeft: '4px' } });
-    if (stats.tradeBlock) {
-      badges.appendChild(el('span', { style: { fontSize: '11px', padding: '1px 5px', borderRadius: '3px', background: '#ef444422', color: '#ef4444', border: '1px solid #ef444444' }, textContent: '🔒 Untradeable' }));
-    }
-    if (stats.reqPOP) {
-      badges.appendChild(el('span', { style: { fontSize: '11px', padding: '1px 5px', borderRadius: '3px', background: '#eab30822', color: '#eab308', border: '1px solid #eab30844' }, textContent: `⭐ Fame ${stats.reqPOP}` }));
-    }
-
-    const wrapper = el('div');
-    if (parts.length) wrapper.appendChild(statLine);
-    if (reqs.length || jobStr !== 'All') wrapper.appendChild(reqLine);
-    if (stats.tradeBlock || stats.reqPOP) wrapper.appendChild(badges);
-    return wrapper.children.length ? wrapper : null;
-  }
-
   function renderItemRow(item) {
     const row = el('div', { className: 'item-row' });
     const topLine = el('div', { className: 'top-line' });
     
-    // Name + Cash badge
     const nameWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '8px', minWidth: '0' } });
     nameWrap.appendChild(el('span', { className: 'name', textContent: item.name }));
-    if (item.cash) {
-      nameWrap.appendChild(el('span', { style: { fontSize: '11px', padding: '1px 6px', borderRadius: '3px', background: '#a855f722', color: '#a855f7', border: '1px solid #a855f744', flexShrink: '0', whiteSpace: 'nowrap' }, textContent: '💎 Cosmetic' }));
-    }
     topLine.appendChild(nameWrap);
 
     // Sub-category tag (for scrolls, show tier-colored tag on right)
@@ -1592,19 +1506,194 @@ function renderItems() {
       row.appendChild(el('p', { className: 'desc', textContent: item.description.replace(/\\n/g, '\n') }));
     }
 
-    // Equipment stats
+    return row;
+  }
+
+  container.appendChild(makeSearchBox('Search items...', v => { searchQuery = v; renderData(); }));
+  const dataDiv = el('div');
+  container.appendChild(dataDiv);
+
+  function renderData() {
+    dataDiv.innerHTML = '';
+
+    const sq = searchQuery.toLowerCase();
+    const allItems = items.items.filter(i => i.category !== 'Equipment' && (!sq || i.name.toLowerCase().includes(sq) || (i.description || '').toLowerCase().includes(sq)));
+    const allScrolls = items.scrolls.filter(s => !sq || s.name.toLowerCase().includes(sq) || (s.description || '').toLowerCase().includes(sq));
+
+    const consumables = allItems.filter(i => i.category === 'Consumable' && !scrollIdSet.has(String(i.id)));
+    const etcItems = allItems.filter(i => i.category === 'Etc');
+    const setupItems = allItems.filter(i => i.category === 'Setup');
+
+    // Scrolls
+    if (allScrolls.length > 0) {
+      const scrollContent = el('div');
+      allScrolls.forEach(s => {
+        const item = {
+          ...s,
+          sub_category: [s.tier, s.equip_slot, s.stat_type].filter(Boolean).join(' · ')
+        };
+        scrollContent.appendChild(renderItemRow(item));
+      });
+      dataDiv.appendChild(makeCollapsible(`Scrolls`, allScrolls.length, true, null, scrollContent));
+    }
+
+    // Consumables
+    if (consumables.length > 0) {
+      const conContent = el('div');
+      consumables.forEach(i => conContent.appendChild(renderItemRow(i)));
+      dataDiv.appendChild(makeCollapsible('Consumables', consumables.length, true, null, conContent));
+    }
+
+    // Etc
+    if (etcItems.length > 0) {
+      const etcContent = el('div');
+      etcItems.forEach(i => etcContent.appendChild(renderItemRow(i)));
+      dataDiv.appendChild(makeCollapsible('Etc', etcItems.length, true, null, etcContent));
+    }
+
+    // Setup
+    if (setupItems.length > 0) {
+      const setupContent = el('div');
+      setupItems.forEach(i => setupContent.appendChild(renderItemRow(i)));
+      dataDiv.appendChild(makeCollapsible('Setup', setupItems.length, true, null, setupContent));
+    }
+  }
+
+  renderData();
+  return container;
+}
+
+
+// ---- EQUIPMENT ----
+function renderEquipment() {
+  let searchQuery = '';
+  let hideCosmetic = true;
+  let classFilter = 0;
+  const container = el('div');
+
+  const JOB_NAMES = { 0: 'All', 1: 'Warrior', 2: 'Mage', 4: 'Bowman', 8: 'Thief' };
+  const ASPD_LABELS = { 2: 'Faster', 3: 'Faster', 4: 'Fast', 5: 'Fast', 6: 'Normal', 7: 'Slow', 8: 'Slow', 9: 'Slower' };
+
+  function decodeJob(v) {
+    if (!v || v === 0) return 'All';
+    const jobs = [];
+    for (const [bit, name] of Object.entries(JOB_NAMES)) {
+      if (+bit > 0 && (v & +bit)) jobs.push(name);
+    }
+    return jobs.length ? jobs.join('/') : 'All';
+  }
+
+  function matchesClass(item) {
+    if (classFilter === 0) return true;
+    if (!item.stats) return true;
+    const rj = item.stats.reqJob || 0;
+    if (rj === 0) return true;
+    return (rj & classFilter) !== 0;
+  }
+
+  // Weapon type grouping by ID range
+  function getWeaponType(id) {
+    const s = String(id).padStart(8, '0');
+    const prefix = s.substring(0, 5);
+    const typeMap = {
+      '01302': '1H Sword', '01312': '1H Axe', '01322': '1H Blunt Weapon',
+      '01332': 'Dagger', '01382': 'Staff', '01372': 'Wand',
+      '01402': '2H Sword', '01412': '2H Axe', '01422': '2H Blunt Weapon',
+      '01432': 'Spear', '01442': 'Polearm',
+      '01452': 'Bow', '01462': 'Crossbow',
+      '01472': 'Claw', '01482': 'Knuckle',
+      '01702': 'Cash Weapon'
+    };
+    return typeMap[prefix] || typeMap[s.substring(0, 4)] || 'Other';
+  }
+
+  function renderEquipRow(item) {
+    const row = el('div', { className: 'item-row' });
+    const topLine = el('div', { className: 'top-line' });
+
+    const nameWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '8px', minWidth: '0' } });
+    nameWrap.appendChild(el('span', { className: 'name', textContent: item.name }));
+    if (item.cash) {
+      nameWrap.appendChild(el('span', { style: { fontSize: '11px', padding: '1px 6px', borderRadius: '3px', background: '#a855f722', color: '#a855f7', border: '1px solid #a855f744', flexShrink: '0', whiteSpace: 'nowrap' }, textContent: '💎 Cosmetic' }));
+    }
+    topLine.appendChild(nameWrap);
+    topLine.appendChild(el('span', { className: 'id', textContent: item.id }));
+    row.appendChild(topLine);
+
+    if (item.description) {
+      row.appendChild(el('p', { className: 'desc', textContent: item.description.replace(/\\n/g, '\n') }));
+    }
+
     if (item.stats) {
-      const statsEl = renderEquipStats(item.stats);
-      if (statsEl) row.appendChild(statsEl);
+      const s = item.stats;
+      const parts = [];
+      const accent = 'var(--accent)';
+
+      if (s.incPAD) parts.push({ t: `ATK +${s.incPAD}`, c: 'var(--secondary)' });
+      if (s.incMAD) parts.push({ t: `MATK +${s.incMAD}`, c: 'var(--secondary)' });
+      if (s.incPDD) parts.push({ t: `DEF +${s.incPDD}`, c: null });
+      if (s.incMDD) parts.push({ t: `MDEF +${s.incMDD}`, c: null });
+
+      const baseStats = [];
+      if (s.incSTR) baseStats.push(`STR +${s.incSTR}`);
+      if (s.incDEX) baseStats.push(`DEX +${s.incDEX}`);
+      if (s.incINT) baseStats.push(`INT +${s.incINT}`);
+      if (s.incLUK) baseStats.push(`LUK +${s.incLUK}`);
+      if (baseStats.length) parts.push({ t: baseStats.join(', '), c: null });
+
+      if (s.incMHP) parts.push({ t: `HP +${s.incMHP}`, c: null });
+      if (s.incMMP) parts.push({ t: `MP +${s.incMMP}`, c: null });
+      if (s.incACC) parts.push({ t: `ACC +${s.incACC}`, c: null });
+      if (s.incEVA) parts.push({ t: `EVA +${s.incEVA}`, c: null });
+      if (s.incSpeed) parts.push({ t: `Speed +${s.incSpeed}`, c: null });
+      if (s.incJump) parts.push({ t: `Jump +${s.incJump}`, c: null });
+      if (s.knockback) parts.push({ t: `KB ${s.knockback}%`, c: null });
+      if (s.incCRT) parts.push({ t: `Crit Rate +${s.incCRT}`, c: accent });
+      if (s.incCRD) parts.push({ t: `Crit Damage +${s.incCRD}`, c: accent });
+      if (s.recovery) parts.push({ t: `Recovery ×${s.recovery}`, c: accent });
+
+      if (s.attackSpeed) {
+        const label = ASPD_LABELS[s.attackSpeed] || s.attackSpeed;
+        parts.push({ t: `Speed: ${label}(${s.attackSpeed})`, c: null });
+      }
+      if (s.tuc) parts.push({ t: `Slots: ${s.tuc}`, c: null });
+
+      const statLine = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '4px 8px', fontSize: '12px', marginTop: '4px', lineHeight: '1.6' } });
+      parts.forEach((p, i) => {
+        if (i > 0) statLine.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '·' }));
+        statLine.appendChild(el('span', { style: { color: p.c || 'var(--dim)' }, textContent: p.t }));
+      });
+      row.appendChild(statLine);
+
+      const reqs = [];
+      if (s.reqLevel) reqs.push(`Lv.${s.reqLevel}`);
+      if (s.reqSTR) reqs.push(`STR ${s.reqSTR}`);
+      if (s.reqDEX) reqs.push(`DEX ${s.reqDEX}`);
+      if (s.reqINT) reqs.push(`INT ${s.reqINT}`);
+      if (s.reqLUK) reqs.push(`LUK ${s.reqLUK}`);
+      const jobStr = decodeJob(s.reqJob);
+      if (reqs.length || jobStr !== 'All') {
+        const reqLine = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '4px 8px', fontSize: '11px', marginTop: '2px', lineHeight: '1.5' } });
+        reqLine.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: 'Req: ' }));
+        if (jobStr !== 'All') reqLine.appendChild(el('span', { style: { color: '#c084fc' }, textContent: `[${jobStr}]` }));
+        reqs.forEach(r => reqLine.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: r })));
+        row.appendChild(reqLine);
+      }
+
+      if (s.tradeBlock || s.reqPOP) {
+        const badges = el('div', { style: { display: 'flex', gap: '6px', marginTop: '4px' } });
+        if (s.tradeBlock) badges.appendChild(el('span', { style: { fontSize: '11px', padding: '1px 5px', borderRadius: '3px', background: '#ef444422', color: '#ef4444', border: '1px solid #ef444444' }, textContent: '🔒 Untradeable' }));
+        if (s.reqPOP) badges.appendChild(el('span', { style: { fontSize: '11px', padding: '1px 5px', borderRadius: '3px', background: '#eab30822', color: '#eab308', border: '1px solid #eab30844' }, textContent: `⭐ Fame ${s.reqPOP}` }));
+        row.appendChild(badges);
+      }
     }
 
     return row;
   }
 
-  // Filter bar: Cash toggle + Class pills
+  // Filter bar
   const filterBar = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', marginBottom: '12px' } });
 
-  // Cosmetic toggle (hidden by default)
   const cashBtn = el('button', {
     textContent: '💎 Show Cosmetics',
     style: { padding: '4px 12px', borderRadius: '6px', border: '1px solid #a855f744', background: 'transparent', color: '#a855f7', cursor: 'pointer', fontSize: '13px' }
@@ -1618,10 +1707,8 @@ function renderItems() {
   });
   filterBar.appendChild(cashBtn);
 
-  // Separator
   filterBar.appendChild(el('span', { style: { color: 'var(--dim)', margin: '0 4px' }, textContent: '|' }));
 
-  // Class filter pills
   const classOptions = [
     { label: 'All Classes', value: 0 },
     { label: '⚔️ Warrior', value: 1 },
@@ -1650,83 +1737,67 @@ function renderItems() {
   });
 
   container.appendChild(filterBar);
-  container.appendChild(makeSearchBox('Search items...', v => { searchQuery = v; renderData(); }));
+  container.appendChild(makeSearchBox('Search equipment...', v => { searchQuery = v; renderData(); }));
   const dataDiv = el('div');
   container.appendChild(dataDiv);
 
   function renderData() {
     dataDiv.innerHTML = '';
 
+    let equips = items.items.filter(i => i.category === 'Equipment');
     const sq = searchQuery.toLowerCase();
-    let allItems = items.items.filter(i => !sq || i.name.toLowerCase().includes(sq) || (i.description || '').toLowerCase().includes(sq));
-    let allScrolls = items.scrolls.filter(s => !sq || s.name.toLowerCase().includes(sq) || (s.description || '').toLowerCase().includes(sq));
+    if (sq) equips = equips.filter(e => e.name.toLowerCase().includes(sq) || (e.description || '').toLowerCase().includes(sq));
+    if (hideCosmetic) equips = equips.filter(e => !e.cash);
+    if (classFilter !== 0) equips = equips.filter(e => matchesClass(e));
 
-    // Apply cosmetic filter (hidden by default)
-    if (hideCosmetic) {
-      allItems = allItems.filter(i => !i.cash);
-    }
+    // Group: Weapons get sub-grouped by type, everything else by sub_category
+    const weapons = equips.filter(e => e.sub_category === 'Weapon');
+    const armor = equips.filter(e => e.sub_category !== 'Weapon');
 
-    // Apply class filter
-    if (classFilter !== 0) {
-      allItems = allItems.filter(i => matchesClass(i));
-    }
-
-    const equipment = allItems.filter(i => i.category === 'Equipment');
-    const consumables = allItems.filter(i => i.category === 'Consumable' && !scrollIdSet.has(String(i.id)));
-    const etcItems = allItems.filter(i => i.category === 'Etc');
-    const setupItems = allItems.filter(i => i.category === 'Setup');
-
-    // Scrolls
-    if (allScrolls.length > 0) {
-      const scrollContent = el('div');
-      allScrolls.forEach(s => {
-        const item = {
-          ...s,
-          sub_category: [s.tier, s.equip_slot, s.stat_type].filter(Boolean).join(' · ')
-        };
-        scrollContent.appendChild(renderItemRow(item));
-      });
-      dataDiv.appendChild(makeCollapsible(`Scrolls`, allScrolls.length, true, null, scrollContent));
-    }
-
-    // Equipment by sub_category
-    if (equipment.length > 0) {
+    // Weapons section with sub-groups
+    if (weapons.length > 0) {
       const grouped = {};
-      equipment.forEach(i => {
-        const sub = i.sub_category || 'Other';
-        (grouped[sub] = grouped[sub] || []).push(i);
+      weapons.forEach(w => {
+        const type = getWeaponType(w.id);
+        (grouped[type] = grouped[type] || []).push(w);
       });
-      const eqContent = el('div');
-      Object.keys(grouped).sort().forEach(sub => {
-        const subSection = makeCollapsible(sub, grouped[sub].length, true, null, (() => {
-          const c = el('div');
-          grouped[sub].forEach(i => c.appendChild(renderItemRow(i)));
-          return c;
-        })());
-        eqContent.appendChild(subSection);
+      const typeOrder = ['1H Sword', 'Dagger', '1H Axe', '1H Blunt Weapon', '2H Sword', '2H Axe', '2H Blunt Weapon', 'Spear', 'Polearm', 'Wand', 'Staff', 'Bow', 'Crossbow', 'Claw', 'Knuckle', 'Cash Weapon', 'Other'];
+      const sortedTypes = Object.keys(grouped).sort((a, b) => {
+        const ai = typeOrder.indexOf(a), bi = typeOrder.indexOf(b);
+        return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
       });
-      dataDiv.appendChild(makeCollapsible('Equipment', equipment.length, true, null, eqContent));
+
+      const weapContent = el('div');
+      sortedTypes.forEach(type => {
+        const weps = grouped[type].sort((a, b) => (a.stats?.reqLevel || 0) - (b.stats?.reqLevel || 0));
+        const content = el('div');
+        weps.forEach(w => content.appendChild(renderEquipRow(w)));
+        weapContent.appendChild(makeCollapsible(type, weps.length, true, null, content));
+      });
+      dataDiv.appendChild(makeCollapsible('Weapons', weapons.length, true, null, weapContent));
     }
 
-    // Consumables
-    if (consumables.length > 0) {
-      const conContent = el('div');
-      consumables.forEach(i => conContent.appendChild(renderItemRow(i)));
-      dataDiv.appendChild(makeCollapsible('Consumables', consumables.length, true, null, conContent));
-    }
+    // Armor/accessories by sub_category
+    const armorOrder = ['Cap', 'Coat', 'Longcoat', 'Pants', 'Shoes', 'Glove', 'Shield', 'Cape', 'Ring', 'Accessory', 'PetEquip'];
+    const armorGrouped = {};
+    armor.forEach(i => {
+      const sub = i.sub_category || 'Other';
+      (armorGrouped[sub] = armorGrouped[sub] || []).push(i);
+    });
+    const sortedArmor = Object.keys(armorGrouped).sort((a, b) => {
+      const ai = armorOrder.indexOf(a), bi = armorOrder.indexOf(b);
+      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+    });
 
-    // Etc
-    if (etcItems.length > 0) {
-      const etcContent = el('div');
-      etcItems.forEach(i => etcContent.appendChild(renderItemRow(i)));
-      dataDiv.appendChild(makeCollapsible('Etc', etcItems.length, true, null, etcContent));
-    }
+    sortedArmor.forEach(sub => {
+      const eqs = armorGrouped[sub].sort((a, b) => (a.stats?.reqLevel || 0) - (b.stats?.reqLevel || 0));
+      const content = el('div');
+      eqs.forEach(e => content.appendChild(renderEquipRow(e)));
+      dataDiv.appendChild(makeCollapsible(sub, eqs.length, true, null, content));
+    });
 
-    // Setup
-    if (setupItems.length > 0) {
-      const setupContent = el('div');
-      setupItems.forEach(i => setupContent.appendChild(renderItemRow(i)));
-      dataDiv.appendChild(makeCollapsible('Setup', setupItems.length, true, null, setupContent));
+    if (weapons.length === 0 && armor.length === 0) {
+      dataDiv.appendChild(el('p', { style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' }, textContent: 'No equipment matches your filters.' }));
     }
   }
 
@@ -1909,6 +1980,7 @@ const renderers = {
   skills: renderSkills,
   crafting: renderCrafting,
   items: renderItems,
+  equipment: renderEquipment,
   cashshop: renderCashShop,
   quests: renderQuests
 };
