@@ -30,6 +30,27 @@
 html, body {
   background-color: var(--bg) !important;
   color: var(--text) !important;
+  margin: 0;
+  min-height: 100vh;
+}
+[data-generated-space-root] {
+  position: static !important;
+  inset: unset !important;
+  min-height: 100vh;
+  height: auto !important;
+  overflow-y: auto !important;
+  scrollbar-width: auto !important;
+}
+[data-generated-space-root]::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
+}
+[data-generated-space-root]::-webkit-scrollbar-track {
+  background: var(--bg) !important;
+}
+[data-generated-space-root]::-webkit-scrollbar-thumb {
+  background: var(--border) !important;
+  border-radius: 4px !important;
 }
 </style>
   </head>
