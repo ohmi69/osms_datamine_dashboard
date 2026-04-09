@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MSCW Datamine — MapleStory Classic World</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>">
 <style>
 /* ============================================
    CSS Variables — Dark MapleStory Theme
@@ -53434,6 +53435,21 @@ const TABS = [
 let activeTab = 'overview';
 
 /* ============================================
+   State Persistence (localStorage)
+   ============================================ */
+const STORAGE_KEY = 'mscw-datamine-state';
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { return {}; }
+}
+function saveState(key, val) {
+  try {
+    const s = loadState();
+    s[key] = val;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+  } catch(e) { /* sandbox or quota — silently fail */ }
+}
+const _savedState = loadState();
+/* ============================================
    Utility Helpers
    ============================================ */
 function $(sel, ctx) { return (ctx || document).querySelector(sel); }
@@ -53633,7 +53649,7 @@ function renderMonsters() {
     { id: 'hp', label: 'HP', on: true },
     { id: 'mp', label: 'MP', on: false },
     { id: 'exp', label: 'EXP', on: true },
-    { id: 'exp_hp', label: 'EXP/HP', on: true },
+    { id: 'exp_hp', label: 'EXP/HP', on: false },
     { id: 'PADamage', label: 'PATK', on: false },
     { id: 'PDDamage', label: 'PDEF', on: false },
     { id: 'MADamage', label: 'MATK', on: false },
@@ -53645,12 +53661,13 @@ function renderMonsters() {
     { id: 'undead', label: 'Undead', on: false }
   ];
   const colState = {};
-  allCols.forEach(c => colState[c.id] = c.on);
+  const ms = _savedState.monsters || {};
+  allCols.forEach(c => colState[c.id] = ms.cols ? (ms.cols[c.id] !== undefined ? ms.cols[c.id] : c.on) : c.on);
 
   let filter = '';
-  let typeFilter = '';
-  let sortCol = 'level';
-  let sortDir = 1; // 1 = asc, -1 = desc
+  let typeFilter = ms.typeFilter || '';
+  let sortCol = ms.sortCol || 'level';
+  let sortDir = ms.sortDir || 1;
 
   const container = el('div');
   const dataContainer = el('div');
@@ -53665,7 +53682,7 @@ function renderMonsters() {
     pills.innerHTML = '';
     [['All', ''], ['Bosses', 'boss'], ['New', 'new']].forEach(([label, val]) => {
       const p = el('button', { className: 'pill' + (typeFilter === val ? ' active' : ''), textContent: label });
-      p.addEventListener('click', () => { typeFilter = val; rebuildPills(); renderData(); });
+      p.addEventListener('click', () => { typeFilter = val; saveState('monsters', { cols: {...colState}, sortCol, sortDir, typeFilter: val }); rebuildPills(); renderData(); });
       pills.appendChild(p);
     });
   }
@@ -53680,7 +53697,7 @@ function renderMonsters() {
     toggles.appendChild(el('span', { className: 'label', textContent: 'Columns:' }));
     allCols.forEach(c => {
       const btn = el('button', { className: 'col-toggle' + (colState[c.id] ? ' active' : ''), textContent: c.label });
-      btn.addEventListener('click', () => { colState[c.id] = !colState[c.id]; rebuildToggles(); renderData(); });
+      btn.addEventListener('click', () => { colState[c.id] = !colState[c.id]; saveState('monsters', { cols: {...colState}, sortCol, sortDir, typeFilter }); rebuildToggles(); renderData(); });
       toggles.appendChild(btn);
     });
   }
@@ -53712,6 +53729,7 @@ function renderMonsters() {
     const nameHeader = el('th', { textContent: 'Name', style: { cursor: 'pointer' } });
     nameHeader.addEventListener('click', () => {
       if (sortCol === 'name') { sortDir *= -1; } else { sortCol = 'name'; sortDir = 1; }
+      saveState('monsters', { cols: {...colState}, sortCol, sortDir, typeFilter });
       renderData();
     });
     if (sortCol === 'name') nameHeader.textContent = 'Name ' + (sortDir === 1 ? '▲' : '▼');
@@ -53725,6 +53743,7 @@ function renderMonsters() {
       if (c.id !== 'elemAttr') {
         th.addEventListener('click', () => {
           if (sortCol === c.id) { sortDir *= -1; } else { sortCol = c.id; sortDir = 1; }
+          saveState('monsters', { cols: {...colState}, sortCol, sortDir, typeFilter });
           renderData();
         });
         if (sortCol === c.id) th.textContent = c.label + ' ' + (sortDir === 1 ? '▲' : '▼');
@@ -54210,7 +54229,7 @@ function renderItems() {
 // ---- EQUIPMENT ----
 function renderEquipment() {
   let searchQuery = '';
-  let classFilter = 0;
+  let classFilter = (_savedState.equipment || {}).classFilter || 0;
   const container = el('div');
 
   const JOB_NAMES = { 0: 'All', 1: 'Warrior', 2: 'Mage', 4: 'Bowman', 8: 'Thief' };
@@ -54344,10 +54363,11 @@ function renderEquipment() {
   classOptions.forEach(opt => {
     const btn = el('button', {
       textContent: opt.label,
-      style: { padding: '4px 12px', borderRadius: '6px', border: '1px solid var(--border)', background: opt.value === 0 ? 'var(--accent)' : 'transparent', color: opt.value === 0 ? 'var(--bg)' : 'var(--secondary)', cursor: 'pointer', fontSize: '13px' }
+      style: { padding: '4px 12px', borderRadius: '6px', border: '1px solid ' + (opt.value === classFilter ? 'var(--accent)' : 'var(--border)'), background: opt.value === classFilter ? 'var(--accent)' : 'transparent', color: opt.value === classFilter ? 'var(--bg)' : 'var(--secondary)', cursor: 'pointer', fontSize: '13px' }
     });
     btn.addEventListener('click', () => {
       classFilter = opt.value;
+      saveState('equipment', { classFilter });
       classBtns.forEach((b, i) => {
         const active = classOptions[i].value === classFilter;
         b.style.background = active ? 'var(--accent)' : 'transparent';
@@ -54642,8 +54662,14 @@ const renderers = {
 
 const panelCache = {};
 
-function switchTab(tabId) {
+function switchTab(tabId, pushState = true) {
   activeTab = tabId;
+
+  // Update URL hash without scrolling
+  if (pushState) {
+    history.replaceState(null, '', '#' + tabId);
+    saveState('activeTab', tabId);
+  }
 
   // Update nav buttons
   $$('.tab-btn').forEach(btn => {
@@ -54665,6 +54691,12 @@ function switchTab(tabId) {
   window.scrollTo(0, 0);
 }
 
+// Handle back/forward navigation
+window.addEventListener('hashchange', () => {
+  const tab = location.hash.slice(1);
+  if (tab && renderers[tab]) switchTab(tab, false);
+});
+
 function init() {
   // Build tab nav
   const nav = $('#tabNav');
@@ -54678,8 +54710,10 @@ function init() {
     nav.appendChild(btn);
   });
 
-  // Render default tab
-  switchTab('overview');
+  // Render tab from hash or default to overview
+  const hashTab = location.hash.slice(1);
+  const savedTab = _savedState.activeTab;
+  switchTab(hashTab && renderers[hashTab] ? hashTab : savedTab && renderers[savedTab] ? savedTab : 'overview');
 }
 
 // Go!
