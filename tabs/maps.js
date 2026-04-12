@@ -351,11 +351,18 @@ export function renderMaps(data) {
       : maps.regions;
     regions.forEach((region) => {
       const filtered = sq
-        ? region.maps.filter(
-            (m) =>
-              (m.name || '').toLowerCase().includes(sq) ||
-              (m.street_name || '').toLowerCase().includes(sq)
-          )
+        ? region.maps.filter((m) => {
+            // Match map name or street name
+            if ((m.name || '').toLowerCase().includes(sq) || (m.street_name || '').toLowerCase().includes(sq)) {
+              return true;
+            }
+            // Match mob names that spawn on this map
+            const mobs = mapMobs.get(m.id);
+            if (mobs && mobs.some(mob => (mob.name || '').toLowerCase().includes(sq))) {
+              return true;
+            }
+            return false;
+          })
         : region.maps;
       if (!filtered.length) return;
       dataDiv.appendChild(
