@@ -13,37 +13,30 @@
 }
 
 .nav-card {
-  background: var(--card);
-  border: 2px solid var(--border);
-  border-radius: 12px;
-  padding: 20px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 12px 14px;
   cursor: pointer;
-  transition: all .2s;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  text-align: left;
 }
-.nav-card::after {
-  content: '→';
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  font-size: 18px;
-  color: var(--dim);
-  transition: all .2s;
-  opacity: .5;
-}
-.nav-card:hover::after { opacity: 1; color: var(--accent); transform: translateX(3px); }
 .nav-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.4);
-  background: var(--accent-bg, rgba(245,158,11,.05));
+  background: var(--surface-2);
 }
-.nav-card:active { transform: translateY(0); }
-.nav-card .nav-label { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-.nav-card .nav-count { font-size: 24px; font-weight: 900; color: var(--accent); }
-.nav-card .nav-desc  { font-size: 11px; color: var(--dim); margin-top: 4px; }
+.nav-card .nav-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.nav-card .nav-count {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.nav-card .nav-desc { font-size: 11px; color: var(--dim); }
 
 @media (max-width: 640px) {
   .nav-grid { grid-template-columns: repeat(2, 1fr); }

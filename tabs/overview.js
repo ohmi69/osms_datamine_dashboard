@@ -5,70 +5,49 @@ export function renderOverview(data, { switchTab }) {
   const stats = overview.stats;
   const frag = document.createDocumentFragment();
 
-  const titleDiv = el('div', {
-    style: { textAlign: 'center', padding: '24px 0 40px' },
-  });
-  titleDiv.appendChild(
-    el('h2', {
-      style: {
-        fontSize: '36px',
-        fontWeight: '900',
-        letterSpacing: '-0.5px',
-        color: 'var(--accent)',
-      },
-      textContent: 'MSCW DATAMINE',
-    })
-  );
-
-  titleDiv.appendChild(
-    el('div', {
-      style: {
-        display: 'inline-block',
-        marginTop: '12px',
-        padding: '4px 12px',
-        borderRadius: '4px',
-        background: 'var(--secondary)',
-        color: 'var(--bg)',
-        fontSize: '13px',
-        fontWeight: '700',
-        letterSpacing: '0.5px',
-      },
-      textContent: 'Current Version: Closed Beta Test (CBT)',
-    })
-  );
-
-  const subtitle = el('p', {
+  // Hero banner (compact, since site header now carries the branding)
+  const heroBanner = el('div', {
     style: {
-      color: 'var(--dim)',
-      marginTop: '8px',
-      fontSize: '16px',
-      maxWidth: '560px',
-      margin: '8px auto 0',
+      background: 'var(--surface)',
+      border: '1px solid var(--border)',
+      borderLeft: '6px solid var(--accent)',
+      borderRadius: '0 10px 10px 0',
+      padding: '14px 20px',
+      marginBottom: '24px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '16px',
+      boxShadow: '0 2px 8px rgba(0,0,0,.2)',
     },
   });
-  subtitle.append('MapleStory Classic World — reverse-engineered from WZ metadata. Content era ');
-  subtitle.appendChild(
-    el('span', {
-      style: { color: 'var(--secondary)', fontWeight: '700' },
-      textContent: stats.version,
-    })
-  );
-  titleDiv.appendChild(subtitle);
-  frag.appendChild(titleDiv);
+  const heroBadge = el('div', {
+    style: {
+      padding: '4px 10px',
+      borderRadius: '4px',
+      background: 'var(--secondary)',
+      color: 'var(--bg)',
+      fontSize: '11px',
+      fontWeight: '800',
+      letterSpacing: '1px',
+      whiteSpace: 'nowrap',
+      flexShrink: '0',
+    },
+    textContent: 'Patch: Closed Beta Test (CBT)',
+  });
+  const heroText = el('p', {
+    style: { color: 'var(--dim)', fontSize: '13px', lineHeight: '1.6' },
+  });
+  heroText.appendChild(el('span', {
+    style: { color: 'var(--accent)', fontWeight: '700' },
+    textContent: stats.version,
+  }));
+  heroText.append('.');
+  heroBanner.appendChild(heroBadge);
+  heroBanner.appendChild(heroText);
+  frag.appendChild(heroBanner);
 
   const navSection = el('div');
-  navSection.appendChild(
-    el('h3', {
-      style: {
-        fontSize: '18px',
-        fontWeight: '700',
-        textTransform: 'uppercase',
-        letterSpacing: '1px',
-        marginBottom: '12px',
-      },
-      textContent: 'Explore',
-    })
-  );
+  navSection.appendChild(el('div', { className: 'section-heading', textContent: 'Explore' }));
 
   const navGrid = el('div', { className: 'nav-grid' });
   const navItems = [
@@ -95,18 +74,7 @@ export function renderOverview(data, { switchTab }) {
   frag.appendChild(navSection);
 
   const findingsSection = el('div', { style: { marginBottom: '24px' } });
-  findingsSection.appendChild(
-    el('h3', {
-      style: {
-        fontSize: '18px',
-        fontWeight: '700',
-        textTransform: 'uppercase',
-        letterSpacing: '1px',
-        marginBottom: '12px',
-      },
-      textContent: 'Key Findings',
-    })
-  );
+  findingsSection.appendChild(el('div', { className: 'section-heading', textContent: 'Key Findings' }));
 
   const findingsGrid = el('div', { className: 'findings-grid' });
   [

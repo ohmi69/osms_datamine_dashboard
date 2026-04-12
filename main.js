@@ -11,6 +11,8 @@ import { renderEquipment } from './tabs/equipment.js';
 import { renderCashShop }  from './tabs/cashshop.js';
 import { renderQuests }    from './tabs/quests.js';
 
+document.documentElement.setAttribute('data-theme', 'mapletip');
+
 let appData = null;
 let activeTab = 'overview';
 const panelCache = {};

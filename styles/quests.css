@@ -21,13 +21,17 @@
 }
 
 .quest-chain {
-  border: 2px solid;
-  border-radius: 10px;
+  border: 1px solid var(--border);
+  border-radius: 0;
   padding: 0;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   overflow: hidden;
 }
-.quest-chain-header { padding: 10px 16px; font-weight: 700; font-size: 14px; }
+.quest-chain-header {
+  padding: 11px 16px;
+  font-weight: 700;
+  font-size: 13px;
+}
 
 .quest-card {
   padding: 12px 16px;
@@ -46,22 +50,34 @@
 }
 .quest-card .quest-npc  { font-size: 12px; color: var(--secondary); margin-top: 2px; }
 .quest-card .quest-desc { font-size: 13px; color: var(--dim); margin-top: 6px; line-height: 1.6; }
-.quest-card .quest-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.quest-card .quest-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; align-items: flex-start; }
 
 .quest-meta-box {
   font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 6px;
+  padding: 6px 10px;
+  border-radius: 0;
   background: var(--surface);
   border: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }
 .quest-meta-box .label { color: var(--dim); }
-.quest-meta-box .value { color: var(--text); font-weight: 500; }
+.quest-meta-box .value { color: var(--text); font-weight: 600; }
+
+.quest-stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  font-size: 12px;
+}
 
 .quest-reward-chip .item-thumb {
   width: 22px;
   height: 22px;
-  border-radius: 999px;
 }
 
 .quest-requirement-chip .item-thumb,
@@ -71,7 +87,6 @@
 }
 
 .quest-requirement-chip .monster-thumb {
-  border-radius: 999px;
 }
 
 .quest-next { font-size: 12px; color: var(--secondary); margin-top: 6px; }
@@ -79,7 +94,7 @@
 .level-badge {
   font-size: 10px;
   padding: 2px 6px;
-  border-radius: 4px;
+  border-radius: 0;
   background: var(--surface-2);
   color: var(--secondary);
   font-family: monospace;

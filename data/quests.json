@@ -38,7 +38,7 @@
       "parent": "Olaf's Training",
       "area": 11,
       "region": "Victoria Island",
-      "description": "It seems like Olaf in Lith Harbor has something to say to the beginner adventurers who have just arrived on Victoria Island.\nI met Olaf at Lith Harbor. Olaf mentioned that once I reach level 10, I could advance my job, but wondered if I truly had what it takes. To prove myself, Olaf gave me a task to hunt monsters outside the village. I’m feeling a bit nervous since there seem to be stronger monsters on Victoria Island...\nI successfully passed Olaf's training. But is this really enough?",
+      "description": "It seems like Olaf in Lith Harbor has something to say to the beginner adventurers who have just arrived on Victoria Island.\nI met Olaf at Lith Harbor. Olaf mentioned that once I reach level 10, I could advance my job, but wondered if I truly had what it takes. To prove myself, Olaf gave me a task to hunt monsters outside the village. I’m feeling a bit nervous since there seem to be stronger monsters on Victoria Island...\nI successfully passed Olaf's training. But is this really enough",
       "npc_name": "Olaf",
       "requirements": "Defeat Stump x 10, Defeat Slime x 10",
       "requirements_list": [
@@ -442,7 +442,7 @@
       "parent": "Jane the Alchemist",
       "area": 11,
       "region": "Victoria Island",
-      "description": "I hear Jane's got herself a new life ambition...\nLast time, I got?Jane some mushroom caps and boar's teeth to convince her dad to let her travel. That didn't work. Now she has a new dream: she wants to be an alchemist! A bit fickle, but whatever. Now, she needs materials... I can guess where this is going. She wants me to collect 1 Pure Water, 25 Drake Skull, and 25 Medicine With Weird Vibes by defeating several monsters so she can make some Elixirs.\nI got the materials Jane needed to make some Elixirs. If she fails... is the whole place going to blow up?",
+      "description": "I hear Jane's got herself a new life ambition...\nLast time, I got Jane some mushroom caps and boar's teeth to convince her dad to let her travel. That didn't work. Now she has a new dream: she wants to be an alchemist! A bit fickle, but whatever. Now, she needs materials... I can guess where this is going. She wants me to collect 1 Pure Water, 25 Drake Skull, and 25 Medicine With Weird Vibes by defeating several monsters so she can make some Elixirs.\nI got the materials Jane needed to make some Elixirs. If she fails... is the whole place going to blow up",
       "npc_name": "Jane",
       "requirements": "Defeat Copper Drake x 50, Defeat Wraith x 50, Pure Water x 1, Drake Skull x 25, Medicine With Weird Vibes x 25",
       "requirements_list": [
@@ -757,7 +757,7 @@
       "parent": "[Deep Forest of Patience] John's Present",
       "area": 11,
       "region": "Victoria Island",
-      "description": "Let's go meet John in Lith Harbor.\nI met a fisherman named John in Lith Harbor. He wanted to get his wife a nice flower basket for their upcoming anniversary. He asked me if I could get him 10 Pink Violas for her. According to him, a Mysterious Statue can lead me to where the flower is. Sleepywood... Sleepywood??? That's FAR!!!\nI got John all 10 Pink Violas. With these, he can make a beautiful flower basket for his wife on their anniversary. As a sign of appreciation, John got me a whole bunch of screws left over from parts of a ship. By the way, if there are this many screws that have fallen out of that ship, then how in the world is it even working...? Is it still carrying passengers???",
+      "description": "Let's go meet John in Lith Harbor.\nI met a fisherman named John in Lith Harbor. He wanted to get his wife a nice flower basket for their upcoming anniversary. He asked me if I could get him 10 Pink Violas for her. According to him, a Mysterious Statue can lead me to where the flower is. Sleepywood... Sleepywood That's FAR!!!\nI got John all 10 Pink Violas. With these, he can make a beautiful flower basket for his wife on their anniversary. As a sign of appreciation, John got me a whole bunch of screws left over from parts of a ship. By the way, if there are this many screws that have fallen out of that ship, then how in the world is it even working... Is it still carrying passengers",
       "npc_name": "John",
       "requirements": "Pink Viola x 10",
       "requirements_list": [
@@ -808,7 +808,7 @@
       "parent": "[Deep Forest of Patience] John's Present",
       "area": 11,
       "region": "Victoria Island",
-      "description": "Let's go see John in Lith Harbor again.\nI ran into John the fisherman again in Lith Harbor. This time, he wanted to get his wife Blue Violas for her birthday. He asked me to get 20 Blue Violas for him. The scent of Blue Viola last over 500 years... and according to John, they can be found in the Mysterious Statue again, where the flower may be found. Man... do I HAVE to go in there again??\nI got John all 20 Blue Violas. They have a nice scent, but 20 of them? Makes my head spin... As a sign of appreciation, John gave me a nice glove he found inside the ship. I mean, it looks like someone accidentally left that glove in there... is he allowed to give it to me like that? What if I wear this around town and run into its actual owner??",
+      "description": "Let's go see John in Lith Harbor again.\nI ran into John the fisherman again in Lith Harbor. This time, he wanted to get his wife Blue Violas for her birthday. He asked me to get 20 Blue Violas for him. The scent of Blue Viola last over 500 years... and according to John, they can be found in the Mysterious Statue again, where the flower may be found. Man... do I HAVE to go in there again\nI got John all 20 Blue Violas. They have a nice scent, but 20 of them Makes my head spin... As a sign of appreciation, John gave me a nice glove he found inside the ship. I mean, it looks like someone accidentally left that glove in there... is he allowed to give it to me like that What if I wear this around town and run into its actual owner",
       "npc_name": "John",
       "requirements": "Blue Viola x 20",
       "requirements_list": [
@@ -902,7 +902,7 @@
       "parent": "[Deep Forest of Patience] John's Present",
       "area": 11,
       "region": "Victoria Island",
-      "description": "I heard John has one final thing to ask me...\nI ran into John the fisherman again in Lith Harbor. This time, he told me his mother passed away recently, and he wanted to get some White Violas for her. He asked me to get 30 White Violas for him. The scent of White Violas last over 1000 years... and according to John, they can be found through the Mysterious Statue again, where the flowers may be found. Man... do I HAVE to go in there again??\nI got John all 30 White Violas. They have a nice scent, but 30 of them? Makes my head spin... As a sign of appreciation, John gave me a set of his mother's earrings. These earrings look like they are made of some common flowers, but it seems there's something to it...",
+      "description": "I heard John has one final thing to ask me...\nI ran into John the fisherman again in Lith Harbor. This time, he told me his mother passed away recently, and he wanted to get some White Violas for her. He asked me to get 30 White Violas for him. The scent of White Violas last over 1000 years... and according to John, they can be found through the Mysterious Statue again, where the flowers may be found. Man... do I HAVE to go in there again\nI got John all 30 White Violas. They have a nice scent, but 30 of them Makes my head spin... As a sign of appreciation, John gave me a set of his mother's earrings. These earrings look like they are made of some common flowers, but it seems there's something to it...",
       "npc_name": "John",
       "requirements": "White Viola x 30",
       "requirements_list": [
@@ -954,7 +954,7 @@
       "parent": "Olaf's Training",
       "area": 11,
       "region": "Victoria Island",
-      "description": "It looks like Olaf in Lith Harbor has prepared another round of training.\nI met Olaf again in Lith Harbor. He says my training is still far from over and gave me a mission to hunt stronger monsters outside the town. Will I finally become a true adventurer once I finish this training?\nI passed Olaf's second training with flying colors! Once I reach Level 10, I'll be all set to choose my job!",
+      "description": "It looks like Olaf in Lith Harbor has prepared another round of training.\nI met Olaf again in Lith Harbor. He says my training is still far from over and gave me a mission to hunt stronger monsters outside the town. Will I finally become a true adventurer once I finish this training\nI passed Olaf's second training with flying colors! Once I reach Level 10, I'll be all set to choose my job!",
       "npc_name": "Olaf",
       "requirements": "Defeat Pig x 10, Defeat Orange Mushroom x 10",
       "requirements_list": [
@@ -1110,7 +1110,7 @@
       "parent": "Teo's Collection",
       "area": 11,
       "region": "Victoria Island",
-      "description": "It seems like Teo in Lith Harbor still has more weird stuff he wants to collect.\nTeo from Lith Harbor is asking for even weirder items to complete his collection. He says he absolutely needs an intact Pig's Head... Why is he even collecting this kind of stuff?\nI delivered a Pig's Head to Teo in Lith Harbor. I guess I should keep his weird hobby a secret between us.",
+      "description": "It seems like Teo in Lith Harbor still has more weird stuff he wants to collect.\nTeo from Lith Harbor is asking for even weirder items to complete his collection. He says he absolutely needs an intact Pig's Head... Why is he even collecting this kind of stuff\nI delivered a Pig's Head to Teo in Lith Harbor. I guess I should keep his weird hobby a secret between us.",
       "npc_name": "Teo",
       "requirements": "Defeat Pig x 15, Pig's Head x 1",
       "requirements_list": [
@@ -1314,7 +1314,7 @@
       "parent": "",
       "area": 1,
       "region": "Maple Island",
-      "description": "Sam has some advice for beginner adventurers...\nWhen you talk to Sam, he tells you to head to the east and hunt 10 Snail before meeting Mai.\nAs Sam suggested, you hunted 10 Snails, then met Mai. Is this person a master? They definitely give off a strong, powerful vibe.",
+      "description": "Sam has some advice for beginner adventurers...\nWhen you talk to Sam, he tells you to head to the east and hunt 10 Snail before meeting Mai.\nAs Sam suggested, you hunted 10 Snails, then met Mai. Is this person a master They definitely give off a strong, powerful vibe.",
       "npc_name": "Sam",
       "requirements": "Defeat Snail x 10",
       "requirements_list": [
@@ -1361,7 +1361,7 @@
       "parent": "Please bring this letter to Lucas",
       "area": 1,
       "region": "Maple Island",
-      "description": "Maria needs someone to help her...\nMaria needs someone to help her. She wants you to deliver a letter to Lucas inAmherst.\nYou delivered?Maria's Letter to Lucas in Amherst.",
+      "description": "Maria needs someone to help her...\nMaria needs someone to help her. She wants you to deliver a letter to Lucas inAmherst.\nYou delivered Maria's Letter to Lucas in Amherst.",
       "npc_name": "Maria",
       "requirements": "Maria's Letter x 1",
       "requirements_list": [
@@ -1567,7 +1567,7 @@
       "parent": "Mai's Training",
       "area": 1,
       "region": "Maple Island",
-      "description": "Mai at A Split Road seems like a martial arts specialist who can train beginners.\nYou're under the tutelage of the famous swordmaster, Mai, in A Split Road.?She wants you to hunt Blue Snails, Shrooms, and Red Snails. Ah, Mai also said to meet with Biggs in Southperry to get another quest.\nMai trained you, and you feel stronger.",
+      "description": "Mai at A Split Road seems like a martial arts specialist who can train beginners.\nYou're under the tutelage of the famous swordmaster, Mai, in A Split Road. She wants you to hunt Blue Snails, Shrooms, and Red Snails. Ah, Mai also said to meet with Biggs in Southperry to get another quest.\nMai trained you, and you feel stronger.",
       "npc_name": "Mai",
       "requirements": "Defeat Blue Snail x 10, Defeat Shroom x 10, Defeat Red Snail x 5",
       "requirements_list": [
@@ -1632,7 +1632,7 @@
       "parent": "Mai's Training",
       "area": 1,
       "region": "Maple Island",
-      "description": "Mai’s training is just about defeating monsters, but it seems really useful for learning how to hunt. Let’s continue with Mai’s training.\nMai believes that while knowing your abilities is important, defeating stronger monsters is also great training to improve them. They asked you to defeat Orange Mushroom.?\nOrange Mushroom...? It sounds really strong. Do you think you can defeat it?\nAfter Mai's training, you feel much, much stronger. Time to get off Maple Island! Go to Southperry and take the boat to Victoria Island.",
+      "description": "Mai’s training is just about defeating monsters, but it seems really useful for learning how to hunt. Let’s continue with Mai’s training.\nMai believes that while knowing your abilities is important, defeating stronger monsters is also great training to improve them. They asked you to defeat Orange Mushroom. Orange Mushroom... It sounds really strong. Do you think you can defeat it\nAfter Mai's training, you feel much, much stronger. Time to get off Maple Island! Go to Southperry and take the boat to Victoria Island.",
       "npc_name": "Mai",
       "requirements": "Defeat Orange Mushroom x 1",
       "requirements_list": [
@@ -1887,7 +1887,7 @@
       "parent": "",
       "area": 12,
       "region": "Henesys",
-      "description": "Find Pia in Henesys Park.\nUnder the watchtower in Henesys Park, you see Pia, wearing a teddy bear costume. How cute! She tells you that she ran into a bully Blue Mushroom on her way to Ellinia, and now she wants you to show the rude mushroom who's boss! Collect 20 Green Mushroom Caps and 20 Blue Mushroom Caps as proof.?You contemplate telling Pia she's asking to be teased, walking around the forest in a bear costume, but you decide against it.\nYou delivered 20 Green Mushroom Caps and 20 Blue Mushroom Caps to Pia in Henesys Park. She was thrilled that she got vengeance on the mushrooms and gave you a Scroll for hat.?All you have to do is click on it in the Use tab of your Item Inventory and drag it to your helmet in the Equipment window...?Oh, and you'll have to cross your fingers and hope the Scroll doesn't fail.",
+      "description": "Find Pia in Henesys Park.\nUnder the watchtower in Henesys Park, you see Pia, wearing a teddy bear costume. How cute! She tells you that she ran into a bully Blue Mushroom on her way to Ellinia, and now she wants you to show the rude mushroom who's boss! Collect 20 Green Mushroom Caps and 20 Blue Mushroom Caps as proof. You contemplate telling Pia she's asking to be teased, walking around the forest in a bear costume, but you decide against it.\nYou delivered 20 Green Mushroom Caps and 20 Blue Mushroom Caps to Pia in Henesys Park. She was thrilled that she got vengeance on the mushrooms and gave you a Scroll for hat. All you have to do is click on it in the Use tab of your Item Inventory and drag it to your helmet in the Equipment window... Oh, and you'll have to cross your fingers and hope the Scroll doesn't fail.",
       "npc_name": "Pia",
       "requirements": "Green Mushroom Cap x 20, Blue Mushroom Cap x 20",
       "requirements_list": [
@@ -2090,7 +2090,7 @@
       "parent": "Maya and the Weird Medicine",
       "area": 12,
       "region": "Henesys",
-      "description": "I heard that Maya in Henesys is very sick...\nA girl named Maya in Henesys Townstreet has been ill for a long time. It looks like she can't live a normal life at all. I agreed to help her. Weird Medicine... What a strange name! She says she'll get a little better by taking that... I should go to Lith Harbor and see this guy Teo...\nMaya wanted me to go see Teo of Lith Harbor, so I did just that. He promised to give me the Weird Medicine only after I get him a Sparkling Rock. Geez, he won't even give any free medicine for a sick girl?",
+      "description": "I heard that Maya in Henesys is very sick...\nA girl named Maya in Henesys Townstreet has been ill for a long time. It looks like she can't live a normal life at all. I agreed to help her. Weird Medicine... What a strange name! She says she'll get a little better by taking that... I should go to Lith Harbor and see this guy Teo...\nMaya wanted me to go see Teo of Lith Harbor, so I did just that. He promised to give me the Weird Medicine only after I get him a Sparkling Rock. Geez, he won't even give any free medicine for a sick girl",
       "npc_name": "Maya",
       "requirements": "",
       "requirements_list": [],
@@ -2265,7 +2265,7 @@
       "parent": "",
       "area": 1,
       "region": "Maple Island",
-      "description": "Biggs in Southperry has a task for you.\nYou meet Biggs in Southperry. He wants you to get him 1 Orange Mushroom Cap and 10 Blue Snail Shells.?He doesn't look too convinced that you can do it, but it sounds like a piece of cake.\nYou gathered 1 Orange Mushroom Cap and 10 Blue Snail Shells for Biggs in Southperry. The weapon he gave you as a reward was pretty decent.",
+      "description": "Biggs in Southperry has a task for you.\nYou meet Biggs in Southperry. He wants you to get him 1 Orange Mushroom Cap and 10 Blue Snail Shells. He doesn't look too convinced that you can do it, but it sounds like a piece of cake.\nYou gathered 1 Orange Mushroom Cap and 10 Blue Snail Shells for Biggs in Southperry. The weapon he gave you as a reward was pretty decent.",
       "npc_name": "Biggs",
       "requirements": "Blue Snail Shell x 10, Orange Mushroom Cap x 1",
       "requirements_list": [
@@ -2526,7 +2526,7 @@
       "parent": "",
       "area": 12,
       "region": "Henesys",
-      "description": "Let's meet Luke the Security Guy at the Henesys Dungeon Entrance.\nAt the dungeon entrance, I met Luke, the guard. He said he wanted to make a nourishing meal for his mother and asked me to hunt 20 Jr. Neckis and 20 Stirges, then bring back 10 Jr. Necki Skins, 10 Stirge Wings, and 1 Salad. He said he’s too busy with his guard duties... but honestly, he just looks like he’s about to fall asleep...?!\nI got Luke, who is protecting the entrance of the Dungeon, the stuff he asked for. Since he's making the \"Snake Drink\" and all... I want a taste of that myself! In return, Luke gave me a nicely refined jewel he found from around the area. It's not like refined jewels fall from the sky... did someone lose it while traveling? Anyway, I should drop by later when the \"Snake Drink\" is ready...",
+      "description": "Let's meet Luke the Security Guy at the Henesys Dungeon Entrance.\nAt the dungeon entrance, I met Luke, the guard. He said he wanted to make a nourishing meal for his mother and asked me to hunt 20 Jr. Neckis and 20 Stirges, then bring back 10 Jr. Necki Skins, 10 Stirge Wings, and 1 Salad. He said he’s too busy with his guard duties... but honestly, he just looks like he’s about to fall asleep... !\nI got Luke, who is protecting the entrance of the Dungeon, the stuff he asked for. Since he's making the \"Snake Drink\" and all... I want a taste of that myself! In return, Luke gave me a nicely refined jewel he found from around the area. It's not like refined jewels fall from the sky... did someone lose it while traveling Anyway, I should drop by later when the \"Snake Drink\" is ready...",
       "npc_name": "Luke",
       "requirements": "Defeat Jr. Necki x 20, Defeat Stirge x 20, Salad x 1, Jr. Necki Skin x 10, Stirge Wing x 10",
       "requirements_list": [
@@ -2740,7 +2740,7 @@
       "parent": "",
       "area": 12,
       "region": "Henesys",
-      "description": "I hear that Luke the Security Guy made up his mind on something...\nI met Luke at the entrance of the dungeon again. The Snake Drink from back then is gone now because he and his mom drank it all... Anyway, Luke said he’s done with the boring life of a security guard and has decided to go on an adventure. To make a glove fit for the journey, Silas Irons of Perion asked for 1 Black Feather, 10 Orihalcon Ingots, 30 Drake Skulls, 20 Dragon Skins, and 20 Screws! I’m guessing he wants me to gather them for him... Oh, and apparently, the fairies of Ellinia might know something about Black Feather~\nI brought Luke the materials he needed to make the gloves and received the treasured heirloom helmet, Bronze Crusader Helm, in return. It feels like I got the short end of the deal... but since it’s a family heirloom passed down for generations, I can’t really complain...",
+      "description": "I hear that Luke the Security Guy made up his mind on something...\nI met Luke at the entrance of the dungeon again. The Snake Drink from back then is gone now because he and his mom drank it all... Anyway, Luke said he’s done with the boring life of a security guard and has decided to go on an adventure. To make a glove fit for the journey, Silas Irons of Perion asked for 1 Black Feather, 10 Orihalcon Ingots, 30 Drake Skulls, 20 Dragon Skins, and 20 Screws! I’m guessing he wants me to gather them for him... Oh, and apparently, the fairies of Ellinia might know something about Black Feather~\nI brought Luke the materials he needed to make the gloves and received the treasured heirloom helmet, Bronze Crusader Helm, in return. It feels like I got the short end of the deal... but since it’s a family heirloom passed down for generations, I can’t really complain...",
       "npc_name": "Luke",
       "requirements": "Black Feather x 1, Orihalcon Ingot x 10, Screw x 20, Drake Skull x 30, Dragon Skin x 20",
       "requirements_list": [
@@ -2842,7 +2842,7 @@
       "parent": "Collecting For Maya",
       "area": 12,
       "region": "Henesys",
-      "description": "Go see Maya in Henesys.\nI got a request from Maya of Henesys, who has been collecting various items. She wanted 20 each of Orange Mushroom Cap, Green Mushroom Cap, Blue Mushroom Cap, and Horny Mushroom Cap. Maybe... well it looks like I can get these from the monsters around the prairie...\nI got everything Maya asked for, but when do I get rewarded for this? What? How many more times do I have to do this??",
+      "description": "Go see Maya in Henesys.\nI got a request from Maya of Henesys, who has been collecting various items. She wanted 20 each of Orange Mushroom Cap, Green Mushroom Cap, Blue Mushroom Cap, and Horny Mushroom Cap. Maybe... well it looks like I can get these from the monsters around the prairie...\nI got everything Maya asked for, but when do I get rewarded for this What How many more times do I have to do this",
       "npc_name": "Maya",
       "requirements": "Orange Mushroom Cap x 20, Green Mushroom Cap x 20, Blue Mushroom Cap x 20, Horny Mushroom Cap x 20",
       "requirements_list": [
@@ -3058,7 +3058,7 @@
       "parent": "Maya’s Another Collection",
       "area": 12,
       "region": "Henesys",
-      "description": "Go see Maya in Henesys.\nMaya asked me to gather some items: 1 Diamond, and 50 each of Stone Golem Rubble and Dark Stone Golem Rubble. Apparently, I can get them by defeating monsters at the Golem’s Temple on the way from Henesys to the Dungeon... but this is way too tough!\nI got all the items Maya requested for the last time... or is it? As a sign of appreciation, she gave me a cape her grandma made for Athena Pierce, the chief of this town. It may be really old, but it still looks?like it's brand new!",
+      "description": "Go see Maya in Henesys.\nMaya asked me to gather some items: 1 Diamond, and 50 each of Stone Golem Rubble and Dark Stone Golem Rubble. Apparently, I can get them by defeating monsters at the Golem’s Temple on the way from Henesys to the Dungeon... but this is way too tough!\nI got all the items Maya requested for the last time... or is it As a sign of appreciation, she gave me a cape her grandma made for Athena Pierce, the chief of this town. It may be really old, but it still looks like it's brand new!",
       "npc_name": "Maya",
       "requirements": "Stone Golem Rubble x 50, Dark Stone Golem Rubble x 50, Diamond x 1",
       "requirements_list": [
@@ -3123,7 +3123,7 @@
       "parent": "Pia's Present For a Friend",
       "area": 12,
       "region": "Henesys",
-      "description": "Let's go to Pia in Henesys.\nI ran into that same teddy-bear-costume-wearing Pia at the Henesys Park. I did her a favor and took care of the Blue Mushrooms before. This time, she wants to make a claw as a present for a friend in Ellinia who wants to go out on a journey. The claw she wants to make requires 15 Silver Ingots, 30 Dragon Skins, and 30 Screws... If I get her all these... am I going to be richly rewarded?\nPia asked me to get a gift for her friend who decided to set out on an adventure, and I brought it back for her. But it seems this alone isn’t enough.",
+      "description": "Let's go to Pia in Henesys.\nI ran into that same teddy-bear-costume-wearing Pia at the Henesys Park. I did her a favor and took care of the Blue Mushrooms before. This time, she wants to make a claw as a present for a friend in Ellinia who wants to go out on a journey. The claw she wants to make requires 15 Silver Ingots, 30 Dragon Skins, and 30 Screws... If I get her all these... am I going to be richly rewarded\nPia asked me to get a gift for her friend who decided to set out on an adventure, and I brought it back for her. But it seems this alone isn’t enough.",
       "npc_name": "Pia",
       "requirements": "Silver Ingot x 15, Dragon Skin x 30, Screw x 30",
       "requirements_list": [
@@ -3185,7 +3185,7 @@
       "parent": "",
       "area": 1,
       "region": "Maple Island",
-      "description": "Pio in Amherst wants you to help collect recycled goods.\nYou ran into Pio, who is famous in Amherst for fixing broken goods.?He asks you to break down scrap boxes from around town and bring back Rusty Screws and Old Wooden Boards.?\nYou broke the boxes and collected supplies for Pio. It was fun because you found other useful items in the boxes as well.",
+      "description": "Pio in Amherst wants you to help collect recycled goods.\nYou ran into Pio, who is famous in Amherst for fixing broken goods. He asks you to break down scrap boxes from around town and bring back Rusty Screws and Old Wooden Boards.\nYou broke the boxes and collected supplies for Pio. It was fun because you found other useful items in the boxes as well.",
       "npc_name": "Pio",
       "requirements": "Rusty Screw x 3, Old Wooden Board x 3",
       "requirements_list": [
@@ -3283,7 +3283,7 @@
       "parent": "Pia's Present For a Friend",
       "area": 12,
       "region": "Henesys",
-      "description": "It seems Rina has her own reasons for not returning what she borrowed from Pia.\nI went to see Rina in Henesys, and instead, she tells me she took that red cape because Pia didn't return the items she borrowed from her. She said that she would return the cape if she gets her items back... the items are 1 Black Crystal, 1 Ancient Scroll, and 30 Medicine With Weird Vibes.\nI paid off Pia's debt to Rina on her behalf and received the Red Cape in return. Now I just need to bring this back to Pia, right?",
+      "description": "It seems Rina has her own reasons for not returning what she borrowed from Pia.\nI went to see Rina in Henesys, and instead, she tells me she took that red cape because Pia didn't return the items she borrowed from her. She said that she would return the cape if she gets her items back... the items are 1 Black Crystal, 1 Ancient Scroll, and 30 Medicine With Weird Vibes.\nI paid off Pia's debt to Rina on her behalf and received the Red Cape in return. Now I just need to bring this back to Pia, right",
       "npc_name": "Rina",
       "requirements": "Medicine With Weird Vibes x 30, Ancient Scroll x 1, Black Crystal x 1",
       "requirements_list": [
@@ -3467,7 +3467,7 @@
       "parent": "The Reason Behind the Mushroom Studies",
       "area": 12,
       "region": "Henesys",
-      "description": "I should go see Bruce in Henesys...\nI got to meet Bruce, who has been studying monsters and animals in Henesys. His bright smile and the easygoing demeanor belies the painful fact that his daughter has been missing for some time, and that he's been studying the mushroom monsters for the sake of finding clues of his daughter's whereabouts. He asks me if I can help him out, and I just can't say no to a worthy cause like this...\nI helped Bruce gather up the materials necessary for his studies. Will these help him find his daughter?",
+      "description": "I should go see Bruce in Henesys...\nI got to meet Bruce, who has been studying monsters and animals in Henesys. His bright smile and the easygoing demeanor belies the painful fact that his daughter has been missing for some time, and that he's been studying the mushroom monsters for the sake of finding clues of his daughter's whereabouts. He asks me if I can help him out, and I just can't say no to a worthy cause like this...\nI helped Bruce gather up the materials necessary for his studies. Will these help him find his daughter",
       "npc_name": "Bruce",
       "requirements": "Defeat Shroom x 20, Defeat Orange Mushroom x 20, Mushroom Spore x 10, Orange Mushroom Cap x 10",
       "requirements_list": [
@@ -3546,7 +3546,7 @@
       "parent": "I Need to Find My Daughter",
       "area": 12,
       "region": "Henesys",
-      "description": "I wonder how Bruce is doing in Henesys these days...\nI met up with Bruce in Henesys, and he had great news: He finally found his daughter!!! There was one problem, however... She seems to be suffering from amnesia. Bruce gave me a toy that his daughter played with while growing up, and asked me to give it to her.?\nI found Ayan and gave her Ayan's Toy Sword.?",
+      "description": "I wonder how Bruce is doing in Henesys these days...\nI met up with Bruce in Henesys, and he had great news: He finally found his daughter!!! There was one problem, however... She seems to be suffering from amnesia. Bruce gave me a toy that his daughter played with while growing up, and asked me to give it to her.\nI found Ayan and gave her Ayan's Toy Sword.",
       "npc_name": "Bruce",
       "requirements": "Ayan's Toy Sword x 1",
       "requirements_list": [
@@ -3674,7 +3674,7 @@
       "parent": "Rain's Maple Quiz",
       "area": 1,
       "region": "Maple Island",
-      "description": "Solve Rain's second question.\nWhat's Rain's second question?\nRain's question was about equippable items, which can be worn by double-clicking on them.",
+      "description": "Solve Rain's second question.\nWhat's Rain's second question\nRain's question was about equippable items, which can be worn by double-clicking on them.",
       "npc_name": "Rain",
       "requirements": "",
       "requirements_list": [],
@@ -3782,7 +3782,7 @@
       "parent": "Rain's Maple Quiz",
       "area": 1,
       "region": "Maple Island",
-      "description": "Rain's fifth question. Wonder what it's about.\nWhat's the fifth question?\nRain asked about job advancements. Warriors, Thieves, Bowmen, and Magicians all need to be at least level 10 to advance.",
+      "description": "Rain's fifth question. Wonder what it's about.\nWhat's the fifth question\nRain asked about job advancements. Warriors, Thieves, Bowmen, and Magicians all need to be at least level 10 to advance.",
       "npc_name": "Rain",
       "requirements": "",
       "requirements_list": [],
@@ -3854,7 +3854,7 @@
       "parent": "Rain's Maple Quiz",
       "area": 1,
       "region": "Maple Island",
-      "description": "This is Rain's last question. Excited?\nFinally the last question. After this, you'll no longer be a beginner.\nRain advised that it's time to leave Maple Island. In Victoria Island, you can choose a job and start a lot of new adventures. Head to Southperryto get to Victoria Island!",
+      "description": "This is Rain's last question. Excited\nFinally the last question. After this, you'll no longer be a beginner.\nRain advised that it's time to leave Maple Island. In Victoria Island, you can choose a job and start a lot of new adventures. Head to Southperryto get to Victoria Island!",
       "npc_name": "Rain",
       "requirements": "",
       "requirements_list": [],
@@ -4698,7 +4698,7 @@
       "parent": "Ronnie & the Fairies Building a New House",
       "area": 13,
       "region": "Henesys",
-      "description": "Let's go meet Ronnie in the woods in Ellinia.\nRonnie from the forest of Ellinia asked me a favor of gathering up materials to build a house for the newborn fairies that are to come down the road. By hunting Horny Mushrooms and Curse Eyes, I’ll need to collect 30 Horny Mushroom Caps and 30 Curse Eye Tails... I guess I can get most of these from the monsters scattered around Ellinia...\nI got all the items Ronnie requested, but when do I get rewarded for this? What? How many more times do I have to do this??",
+      "description": "Let's go meet Ronnie in the woods in Ellinia.\nRonnie from the forest of Ellinia asked me a favor of gathering up materials to build a house for the newborn fairies that are to come down the road. By hunting Horny Mushrooms and Curse Eyes, I’ll need to collect 30 Horny Mushroom Caps and 30 Curse Eye Tails... I guess I can get most of these from the monsters scattered around Ellinia...\nI got all the items Ronnie requested, but when do I get rewarded for this What How many more times do I have to do this",
       "npc_name": "Ronnie",
       "requirements": "Defeat Horny Mushroom x 50, Defeat Curse Eye x 50, Horny Mushroom Cap x 30, Curse Eye Tail x 30",
       "requirements_list": [
@@ -4842,7 +4842,7 @@
       "parent": "Ronnie & the Fairies Building a New House",
       "area": 13,
       "region": "Henesys",
-      "description": "Meet Ronnie in the Humid Swamp.\nRonnie has now asked me to hunt Fire Boars and Copper Drakes and collect 30 each of Fire Boar's Tooths and Drake Skulls. I should be able to get them from the monsters around Perion. Things are starting to get a bit tricky…\nI got everything for Ronnie. I'm still not getting anything?? How many more times do I have to do this??",
+      "description": "Meet Ronnie in the Humid Swamp.\nRonnie has now asked me to hunt Fire Boars and Copper Drakes and collect 30 each of Fire Boar's Tooths and Drake Skulls. I should be able to get them from the monsters around Perion. Things are starting to get a bit tricky…\nI got everything for Ronnie. I'm still not getting anything How many more times do I have to do this",
       "npc_name": "Ronnie",
       "requirements": "Defeat Fire Boar x 50, Defeat Copper Drake x 50, Fire Boar's Tooth x 30, Drake Skull x 30",
       "requirements_list": [
@@ -4914,7 +4914,7 @@
       "parent": "Ronnie & the Fairies Building a New House",
       "area": 13,
       "region": "Henesys",
-      "description": "Meet Ronnie in the Humid Swamp.\nRonnie asked for the last time. This time he wanted 30 Cold Eye Tails, 10 Dragon Skins, and 1 Diamond by taking down Cold Eyes and Drakes. I can sort of get this, but for me to hunt at the deep parts of the Ant Tunnel… this is way too hard!!\nI got all the materials Ronnie needed for the last time. Is this it? For the reward, he gave me a scroll for shoes he got as a gift from the fairies, who found it somewhere around the forest. He couldn't figure out how to use the scroll, so I'm getting it... hopefully it works... haha...",
+      "description": "Meet Ronnie in the Humid Swamp.\nRonnie asked for the last time. This time he wanted 30 Cold Eye Tails, 10 Dragon Skins, and 1 Diamond by taking down Cold Eyes and Drakes. I can sort of get this, but for me to hunt at the deep parts of the Ant Tunnel… this is way too hard!!\nI got all the materials Ronnie needed for the last time. Is this it For the reward, he gave me a scroll for shoes he got as a gift from the fairies, who found it somewhere around the forest. He couldn't figure out how to use the scroll, so I'm getting it... hopefully it works... haha...",
       "npc_name": "Ronnie",
       "requirements": "Defeat Cold Eye x 50, Defeat Drake x 50, Cold Eye Tail x 30, Dragon Skin x 10, Diamond x 1",
       "requirements_list": [
@@ -5104,7 +5104,7 @@
       "parent": "Father's Mushroom Stew",
       "area": 13,
       "region": "Henesys",
-      "description": "It looks like Shane in Ellinia is looking for an adventurer to lend a hand.\nShane in Ellinia mentioned wanting to eat a delicious mushroom dish and asked me to find some ingredients. He said Green Mushroom Caps taste especially good, so I should head out and hunt Green Mushrooms near the forest.\nI gave Green Mushroom Caps to Shane in Ellinia. Can he really make a delicious meal out of this?",
+      "description": "It looks like Shane in Ellinia is looking for an adventurer to lend a hand.\nShane in Ellinia mentioned wanting to eat a delicious mushroom dish and asked me to find some ingredients. He said Green Mushroom Caps taste especially good, so I should head out and hunt Green Mushrooms near the forest.\nI gave Green Mushroom Caps to Shane in Ellinia. Can he really make a delicious meal out of this",
       "npc_name": "Shane",
       "requirements": "Defeat Green Mushroom x 30, Green Mushroom Cap x 15",
       "requirements_list": [
@@ -5162,7 +5162,7 @@
       "parent": "Father's Mushroom Stew",
       "area": 13,
       "region": "Henesys",
-      "description": "It looks like Shane in Ellinia has another favor to ask.\nShane in Ellinia says he learned an even better way to cook Green Mushroom Caps and asked me to bring some Green Mushroom Caps, as well as a Lemon.\nI delivered the Green Mushroom Caps and Lemon to Shane in Ellinia. It feels like the dish might actually taste better than the last one, doesn't it?",
+      "description": "It looks like Shane in Ellinia has another favor to ask.\nShane in Ellinia says he learned an even better way to cook Green Mushroom Caps and asked me to bring some Green Mushroom Caps, as well as a Lemon.\nI delivered the Green Mushroom Caps and Lemon to Shane in Ellinia. It feels like the dish might actually taste better than the last one, doesn't it",
       "npc_name": "Shane",
       "requirements": "Defeat Green Mushroom x 30, Green Mushroom Cap x 15, Lemon x 1",
       "requirements_list": [
@@ -5863,7 +5863,7 @@
       "parent": "Mystery of Naora Hospital",
       "area": 14,
       "region": "Kerning City",
-      "description": "I heard there is someone in Niora Hospital in Kerning City...\nI met Jane Doe in Niora Hospital in Kerning City. Jane Doe needed to take off the bandages to see the surgery result, but there was no mirror. Jane Doe asked me to defeat 40 Stirges and collect 20 Broken Mirror Glasss...\nFor the Stranger I met in Niora Hospital, I actually collected Broken Mirror Glass and brought?it back to her.",
+      "description": "I heard there is someone in Niora Hospital in Kerning City...\nI met Jane Doe in Niora Hospital in Kerning City. Jane Doe needed to take off the bandages to see the surgery result, but there was no mirror. Jane Doe asked me to defeat 40 Stirges and collect 20 Broken Mirror Glasss...\nFor the Stranger I met in Niora Hospital, I actually collected Broken Mirror Glass and brought it back to her.",
       "npc_name": "Jane Doe",
       "requirements": "Defeat Stirge x 40, Broken Mirror Glass x 20",
       "requirements_list": [
@@ -5976,7 +5976,7 @@
       "parent": "First Time Together",
       "area": 14,
       "region": "Kerning City",
-      "description": "It seems that?Lakelis in Kerning City is looking for a party to take on a party quest that requires multiple adventurers to work together.\nLakelis in Kerning City asked me to challenge the party quest \"First Time Together” and defeat the King Slime inside. The party quest must be attempted by a party of four adventurers, all level 21 or higher. Once the party is ready, the party leader should speak to Lakelis. Better start looking for some friends to join me.\nAs requested by Lakelis, my friends and I challenged the party quest \"First Time Together” and defeated King Slime. When everyone works together, there’s nothing that can’t be done!",
+      "description": "It seems that Lakelis in Kerning City is looking for a party to take on a party quest that requires multiple adventurers to work together.\nLakelis in Kerning City asked me to challenge the party quest \"First Time Together” and defeat the King Slime inside. The party quest must be attempted by a party of four adventurers, all level 21 or higher. Once the party is ready, the party leader should speak to Lakelis. Better start looking for some friends to join me.\nAs requested by Lakelis, my friends and I challenged the party quest \"First Time Together” and defeated King Slime. When everyone works together, there’s nothing that can’t be done!",
       "npc_name": "Lakelis",
       "requirements": "Defeat King Slime x 1",
       "requirements_list": [
@@ -6191,7 +6191,7 @@
       "parent": "[Construction Site B1] What Shumi Lost",
       "area": 14,
       "region": "Kerning City",
-      "description": "Let's go look for Shumi in Kerning City.\nI ran into Shumi again in Kerning City. She seemed really worried about how she lost her rent money because a Stirge flew over and snatched a bundle of money away from her. Man... do I have to walk back in there again... can I just pay the rent for her? Anyway like last time, I need to go back in there, this time to Construction Site B2 and find the bundle of money she lost. Aye, better go in there now...?\nI got Shumi from Kerning City the lost bundle of money. Guess she can pay her rent now... and as a reward, she got me 30 Blue Potions... She also said I can find other items at the Construction Site B2... I should go check it out sometime...",
+      "description": "Let's go look for Shumi in Kerning City.\nI ran into Shumi again in Kerning City. She seemed really worried about how she lost her rent money because a Stirge flew over and snatched a bundle of money away from her. Man... do I have to walk back in there again... can I just pay the rent for her Anyway like last time, I need to go back in there, this time to Construction Site B2 and find the bundle of money she lost. Aye, better go in there now...\nI got Shumi from Kerning City the lost bundle of money. Guess she can pay her rent now... and as a reward, she got me 30 Blue Potions... She also said I can find other items at the Construction Site B2... I should go check it out sometime...",
       "npc_name": "Shumi",
       "requirements": "Shumi's Roll of Cash x 1",
       "requirements_list": [
@@ -6242,7 +6242,7 @@
       "parent": "[Construction Site B1] What Shumi Lost",
       "area": 14,
       "region": "Kerning City",
-      "description": "Let's go look for Shumi in Kerning City.\nI ran into Shumi again at Kerning City. A while ago, she got a favor from JM From tha Streetz to get?some Screws for him, only to have the sack of money fall down and lose everything in the process. I guess I can find the sack of money in the deep part of the subway station, the Construction Site B3, again.\nI found Shumi's lost Money Sack in the Kerning City subway. Shumi can now buy what JM From tha Streetz asked for. I received mesos and some potions as a gift. I should go to Construction Site B3 in the subway to look for more stuff.",
+      "description": "Let's go look for Shumi in Kerning City.\nI ran into Shumi again at Kerning City. A while ago, she got a favor from JM From tha Streetz to get some Screws for him, only to have the sack of money fall down and lose everything in the process. I guess I can find the sack of money in the deep part of the subway station, the Construction Site B3, again.\nI found Shumi's lost Money Sack in the Kerning City subway. Shumi can now buy what JM From tha Streetz asked for. I received mesos and some potions as a gift. I should go to Construction Site B3 in the subway to look for more stuff.",
       "npc_name": "Shumi",
       "requirements": "Shumi's Sack of Cash x 1",
       "requirements_list": [
@@ -6293,7 +6293,7 @@
       "parent": "I'm Bored",
       "area": 14,
       "region": "Kerning City",
-      "description": "I should go see Icarus, who's at the top of a building in Kerning City. He seems to be bored out of his mind.?\nI got to talk to Icarus in Kerning City. Just what exactly is he doing staring aimlessly at the sky anyway? He seemed to be really bored, and asked me if I can answer his questions.\nI answered all the questions that Icarus of Kerning City asked. That was easy.",
+      "description": "I should go see Icarus, who's at the top of a building in Kerning City. He seems to be bored out of his mind.\nI got to talk to Icarus in Kerning City. Just what exactly is he doing staring aimlessly at the sky anyway He seemed to be really bored, and asked me if I can answer his questions.\nI answered all the questions that Icarus of Kerning City asked. That was easy.",
       "npc_name": "Icarus",
       "requirements": "",
       "requirements_list": [],
@@ -6547,7 +6547,7 @@
       "parent": "Icarus and the Flying Pill",
       "area": 14,
       "region": "Kerning City",
-      "description": "It doesn’t seem easy to talk to Wing the Fairy.\nI met Wing the Fairy in Ellinia, and he doesn't seem to like people in general. How is he best friends with Icarus in the first place? Anyway, he says in order to make the Flying Medicine, he's going to need 50 Medicine With Weird Vibes and 20 Witchgrass Leafs. So that's all it takes?\nAs Wing the Fairy asked, I got him Medicine With Weird Vibes and Witchgrass Leafs. Can he make Flying Medicine with these?",
+      "description": "It doesn’t seem easy to talk to Wing the Fairy.\nI met Wing the Fairy in Ellinia, and he doesn't seem to like people in general. How is he best friends with Icarus in the first place Anyway, he says in order to make the Flying Medicine, he's going to need 50 Medicine With Weird Vibes and 20 Witchgrass Leafs. So that's all it takes\nAs Wing the Fairy asked, I got him Medicine With Weird Vibes and Witchgrass Leafs. Can he make Flying Medicine with these",
       "npc_name": "Wing the Fairy",
       "requirements": "Medicine With Weird Vibes x 50, Witchgrass Leaf x 20",
       "requirements_list": [
@@ -6598,7 +6598,7 @@
       "parent": "Icarus and the Flying Pill",
       "area": 14,
       "region": "Kerning City",
-      "description": "It looks like the Flying Medicine that will finally fulfill Icarus’s dream has been completed.\nWing the Fairy of Ellinia asked me to take the Flying Medicine to Icarus. So this little pill is all it takes to fly? I need to get this to Icarus ASAP.\nI got Icarus the Flying Medicine that Wing the Fairy of Ellinia made. I hope it works for him.",
+      "description": "It looks like the Flying Medicine that will finally fulfill Icarus’s dream has been completed.\nWing the Fairy of Ellinia asked me to take the Flying Medicine to Icarus. So this little pill is all it takes to fly I need to get this to Icarus ASAP.\nI got Icarus the Flying Medicine that Wing the Fairy of Ellinia made. I hope it works for him.",
       "npc_name": "Wing the Fairy",
       "requirements": "Flying Medicine x 1",
       "requirements_list": [
@@ -6704,7 +6704,7 @@
       "parent": "",
       "area": 15,
       "region": "Perion",
-      "description": "I heard that \"Blackbull\" in Perion is fixing up his house.\nRight here, in this dusty town of Perion, I ran into an oddly-dressed man named \"Blackbull.\" He told me he needs to fix his house and wondered if I could help him out by defeating 20 Stumps and 20 Dark Stumps and getting him 10 Tree Branches and 10 Leafs. If I do him a favor, I'll get a nice shield from him, but what if I say no? I wouldn't... be... EATEN BY HIM... no?? I really hope not...\nI got \"Blackbull\" of Perion 10 Tree Branches and 10 Leafs after defeating 20 Stumps and 20 Dark Stumps. With these, he can finally fix his house. I got this shield as a reward... and... well, scratch marks here and there, and it looks pretty old... is this even usable?",
+      "description": "I heard that \"Blackbull\" in Perion is fixing up his house.\nRight here, in this dusty town of Perion, I ran into an oddly-dressed man named \"Blackbull.\" He told me he needs to fix his house and wondered if I could help him out by defeating 20 Stumps and 20 Dark Stumps and getting him 10 Tree Branches and 10 Leafs. If I do him a favor, I'll get a nice shield from him, but what if I say no I wouldn't... be... EATEN BY HIM... no I really hope not...\nI got \"Blackbull\" of Perion 10 Tree Branches and 10 Leafs after defeating 20 Stumps and 20 Dark Stumps. With these, he can finally fix his house. I got this shield as a reward... and... well, scratch marks here and there, and it looks pretty old... is this even usable",
       "npc_name": "Blackbull",
       "requirements": "Defeat Stump x 20, Defeat Dark Stump x 20, Tree Branch x 10, Leaf x 10",
       "requirements_list": [
@@ -6815,7 +6815,7 @@
       "parent": "",
       "area": 15,
       "region": "Perion",
-      "description": "I heard that \"Blackbull\" in Perion is building a new house...\nI ran into \"Blackbull\" again, the guy whose house I helped fix. He was surprised at how strong I looked and asked me for a much harder favor. His cousins from Henesys are all trying to move to Perion, so he needs to build a new house! To build a new house, he said he needed 100 Stone Golem Rubbles, 30 Screws, 30 Processed Wood, and \"Blackbull's\" deed to the land. His son had the deed to the land, but it was stolen by Curse Eyes near Sleepywood... hmmm... I should be looking for those wandering around the deep forest...\nSo that all of \"Blackbull's\" cousins could move to Perion, I got him the items he requested. It was really tough, and I hope he doesn't ask me to BUILD a house for him next time...?",
+      "description": "I heard that \"Blackbull\" in Perion is building a new house...\nI ran into \"Blackbull\" again, the guy whose house I helped fix. He was surprised at how strong I looked and asked me for a much harder favor. His cousins from Henesys are all trying to move to Perion, so he needs to build a new house! To build a new house, he said he needed 100 Stone Golem Rubbles, 30 Screws, 30 Processed Wood, and \"Blackbull's\" deed to the land. His son had the deed to the land, but it was stolen by Curse Eyes near Sleepywood... hmmm... I should be looking for those wandering around the deep forest...\nSo that all of \"Blackbull's\" cousins could move to Perion, I got him the items he requested. It was really tough, and I hope he doesn't ask me to BUILD a house for him next time...",
       "npc_name": "Blackbull",
       "requirements": "Stone Golem Rubble x 100, Screw x 30, Processed Wood x 30, \"Blackbull's\" deed to the land x 1",
       "requirements_list": [
@@ -7135,7 +7135,7 @@
       "parent": "Manji's Old Gladius",
       "area": 15,
       "region": "Perion",
-      "description": "Find Manji in?Perion.\nI came across Manji again, whom I had first met in Perion when making the medicine for Maya, the little girl in Henesys. Surprised at how much stronger I had become, Manji asked me for a favor. Long ago, when he was in danger of being struck down by Balrog, he was saved by the legendary hero Tristan, who died in his place. Ever since then, Manji had held onto Tristan’s sword. But the blade, corrupted by Balrog’s evil aura, has become so worn down that it can hardly even be called a sword anymore…\nManji handed me the Old Gladius he had been keeping and asked me to awaken it back to its true form. Once fully awakened, it is said to become the Hero's Gladius. Just as Manji said, I should seek out Chrishrama in Sleepywood.\nI met Chrishrama in Sleepywood and was able to ask him how to awaken the Old Gladius.",
+      "description": "Find Manji in Perion.\nI came across Manji again, whom I had first met in Perion when making the medicine for Maya, the little girl in Henesys. Surprised at how much stronger I had become, Manji asked me for a favor. Long ago, when he was in danger of being struck down by Balrog, he was saved by the legendary hero Tristan, who died in his place. Ever since then, Manji had held onto Tristan’s sword. But the blade, corrupted by Balrog’s evil aura, has become so worn down that it can hardly even be called a sword anymore… Manji handed me the Old Gladius he had been keeping and asked me to awaken it back to its true form. Once fully awakened, it is said to become the Hero's Gladius. Just as Manji said, I should seek out Chrishrama in Sleepywood.\nI met Chrishrama in Sleepywood and was able to ask him how to awaken the Old Gladius.",
       "npc_name": "Manji",
       "requirements": "Old Gladius x 1",
       "requirements_list": [
@@ -7183,7 +7183,7 @@
       "parent": "Manji's Old Gladius",
       "area": 15,
       "region": "Perion",
-      "description": "See Chrishrama in Sleepywood?to awaken the?Old Gladius.\nI showed Chrishrama Manji's Old Gladius, and he claimed to have made it himself. He said he needs 1 Star Rock, 1 Piece of Ice, 1 Ancient Scroll, and 1 Flaming Feather to awaken it. Unfortunately, I've never heard of any of those items... He recommended talking to Mike in Perion Dungeon Entrance to find them.\nI gathered the materials needed for the awakening and took them to Chrishrama. Chrishrama used the materials to reawaken the Old Gladius into the Hero's Gladius. It's a nice sword radiating a mysterious light... It's a shame I have to give it to Manji.",
+      "description": "See Chrishrama in Sleepywood to awaken the Old Gladius.\nI showed Chrishrama Manji's Old Gladius, and he claimed to have made it himself. He said he needs 1 Star Rock, 1 Piece of Ice, 1 Ancient Scroll, and 1 Flaming Feather to awaken it. Unfortunately, I've never heard of any of those items... He recommended talking to Mike in Perion Dungeon Entrance to find them.\nI gathered the materials needed for the awakening and took them to Chrishrama. Chrishrama used the materials to reawaken the Old Gladius into the Hero's Gladius. It's a nice sword radiating a mysterious light... It's a shame I have to give it to Manji.",
       "npc_name": "Chrishrama",
       "requirements": "Star Rock x 1, Piece of Ice x 1, Ancient Scroll x 1, Flaming Feather x 1",
       "requirements_list": [
@@ -7337,7 +7337,7 @@
       "parent": "Winston's Fossil Dig-up",
       "area": 15,
       "region": "Perion",
-      "description": "I heard that Winston the archeologist is searching for something in the Rocky Mountains on the east side of Perion...\nWinston, the archeologist who I ran into in the rocky mountains on the east side of Perion, said he lost the fossils he collected near Perion. He asked me to bring back 12 Animal Fossils and 12 Plant Fossils that were taken by Green Mushrooms and Axe Stumps. How can he lose something so important like that? He's more careless than he looks...\nI found the fossils that Winston lost.",
+      "description": "I heard that Winston the archeologist is searching for something in the Rocky Mountains on the east side of Perion...\nWinston, the archeologist who I ran into in the rocky mountains on the east side of Perion, said he lost the fossils he collected near Perion. He asked me to bring back 12 Animal Fossils and 12 Plant Fossils that were taken by Green Mushrooms and Axe Stumps. How can he lose something so important like that He's more careless than he looks...\nI found the fossils that Winston lost.",
       "npc_name": "Winston",
       "requirements": "Defeat Green Mushroom x 25, Defeat Axe Stump x 25, Plant Fossil x 12, Animal Fossil x 12",
       "requirements_list": [
@@ -7406,7 +7406,7 @@
       "parent": "Winston's Fossil Dig-up",
       "area": 15,
       "region": "Perion",
-      "description": "It seems the archaeologist Winston in the Rocky Mountains on the East side of Perion has another request.\nWinston the Archeologist said that it is not safe to leave the valuable fossils in the tent. He asked me to take the fossils and deliver them to Dr. Betty in Ellinia. He also wrote a letter of introduction for me to show her.?\nWinston the Archeologist in Perion said that it is not safe to leave the valuable fossils in his tent. He asked me to deliver them to Dr. Betty in Ellinia. Dr. Betty said she's going to be really busy from now, and she asked me to stop by again and give her a hand afterwards. Fossils huh...? Should I give it a try?",
+      "description": "It seems the archaeologist Winston in the Rocky Mountains on the East side of Perion has another request.\nWinston the Archeologist said that it is not safe to leave the valuable fossils in the tent. He asked me to take the fossils and deliver them to Dr. Betty in Ellinia. He also wrote a letter of introduction for me to show her.\nWinston the Archeologist in Perion said that it is not safe to leave the valuable fossils in his tent. He asked me to deliver them to Dr. Betty in Ellinia. Dr. Betty said she's going to be really busy from now, and she asked me to stop by again and give her a hand afterwards. Fossils huh... Should I give it a try",
       "npc_name": "Winston",
       "requirements": "Winston's Recommendation x 1, Fossil Box x 1",
       "requirements_list": [
@@ -7516,7 +7516,7 @@
       "parent": "Dr. Betty's Research on Plants",
       "area": 15,
       "region": "Perion",
-      "description": "It seems the biologist?Dr. Betty near Ellinia has another request.\nDr. Betty in Ellinia told me that she needs 1 Stuffed Drake Skull for her research. She asked me to find her daughter near Henesys, and bring it back to her. Where would Anne be?\nI met Dr. Betty's daughter, Anne, playing near Henesys by herself.",
+      "description": "It seems the biologist Dr. Betty near Ellinia has another request.\nDr. Betty in Ellinia told me that she needs 1 Stuffed Drake Skull for her research. She asked me to find her daughter near Henesys, and bring it back to her. Where would Anne be\nI met Dr. Betty's daughter, Anne, playing near Henesys by herself.",
       "npc_name": "Betty",
       "requirements": "",
       "requirements_list": [],
@@ -7600,7 +7600,7 @@
       "parent": "Dr. Betty's Research on Plants",
       "area": 15,
       "region": "Perion",
-      "description": "I heard Dr. Betty has finished her fossil research. Maybe I should go and see the results.\nI met Dr. Betty again. She told me the research was finished and explained it to me, then asked me to take the research report and deliver it to Dr. Winston in Perion. Dr. Betty also informed me that if I take 20 Leafs, 15 Firewoods, 1 Stump's Teardrop, and 1 pair of Weighted Earrings, Dr. Winston would be really happy.?\nI delivered Dr. Betty's Fossil Report to Dr. Winston in Perion. Along with the report, I also gave him the Leafs, Firewoods, Stump's Teardrop, and Weighted Earrings. In return, Dr. Winston gave me the Leaf Earrings.",
+      "description": "I heard Dr. Betty has finished her fossil research. Maybe I should go and see the results.\nI met Dr. Betty again. She told me the research was finished and explained it to me, then asked me to take the research report and deliver it to Dr. Winston in Perion. Dr. Betty also informed me that if I take 20 Leafs, 15 Firewoods, 1 Stump's Teardrop, and 1 pair of Weighted Earrings, Dr. Winston would be really happy.\nI delivered Dr. Betty's Fossil Report to Dr. Winston in Perion. Along with the report, I also gave him the Leafs, Firewoods, Stump's Teardrop, and Weighted Earrings. In return, Dr. Winston gave me the Leaf Earrings.",
       "npc_name": "Betty",
       "requirements": "Leaf x 20, Firewood x 15, Fossil Report x 1, Stump's Teardrop x 1, Weighted Earrings x 1",
       "requirements_list": [
@@ -7679,7 +7679,7 @@
       "parent": "The Stump Horror Story",
       "area": 15,
       "region": "Perion",
-      "description": "Ayan of Perion says she can't take one step out of town. I wonder why...\nI met Ayan in Perion. Apparently, she cannot remember anything about her childhood, and she lives everyday in fear of Stumps. She's so scared that she can't even dare to look at them. Due to?this paralyzing fear of Stumps, she cannot take one step out of Perion, and asks me to take them out for her sake. Are they really THAT scary?\nI took out Stumps for Ayan's sake in Perion. She can finally venture outside without having to worry about them!",
+      "description": "Ayan of Perion says she can't take one step out of town. I wonder why...\nI met Ayan in Perion. Apparently, she cannot remember anything about her childhood, and she lives everyday in fear of Stumps. She's so scared that she can't even dare to look at them. Due to this paralyzing fear of Stumps, she cannot take one step out of Perion, and asks me to take them out for her sake. Are they really THAT scary\nI took out Stumps for Ayan's sake in Perion. She can finally venture outside without having to worry about them!",
       "npc_name": "Ayan",
       "requirements": "Defeat Stump x 30",
       "requirements_list": [
@@ -8043,7 +8043,7 @@
       "parent": "The Alligators at the Swamp",
       "area": 15,
       "region": "Perion",
-      "description": "Ayan of Perion is desperately looking for me. Is something wrong?\nI found Ayan, and she seemed to be panicking. She was walking around the swamp when she ran into a bigger, stronger, and more dangerous group of alligators than the previous one. She ran back to Perion and has been looking for me to ask me for help ever since. This time, I'll need to kill 120 Crocos and bring back 50 Croco Skins along the way.\nAt Ayan's request, I took out 120 Crocos in the swamp. I'll have to revisit that spot from time to time and take out the alligators before they spawn out of control.",
+      "description": "Ayan of Perion is desperately looking for me. Is something wrong\nI found Ayan, and she seemed to be panicking. She was walking around the swamp when she ran into a bigger, stronger, and more dangerous group of alligators than the previous one. She ran back to Perion and has been looking for me to ask me for help ever since. This time, I'll need to kill 120 Crocos and bring back 50 Croco Skins along the way.\nAt Ayan's request, I took out 120 Crocos in the swamp. I'll have to revisit that spot from time to time and take out the alligators before they spawn out of control.",
       "npc_name": "Ayan",
       "requirements": "Defeat Croco x 120, Croco Skin x 50",
       "requirements_list": [
@@ -8163,7 +8163,7 @@
       "parent": "Mr. Wetbottom's Secret Book",
       "area": 16,
       "region": "Sleepywood",
-      "description": "I heard Mr. Wetbottom in Sleepywood is going through hard times... I should go check on him.\nAt the VIP sauna in Sleepywood, I met this bald man called Mr. Wetbottom. He has a son, and apparently he ran away from home one day with a book that he cares deeply for. He requested that I find his son and get the book back from him. For a reward, he's offering me a nice sauna robe. He also told me his son Ronnie hangs out at a tree tunnel around Ellinia, so maybe I can find him there. Anyway, is that book more important to him than his son?? What kind of a book is it anyway...????\nI found Ronnie in the tree tunnel of Ellinia, as requested by Mr. Wetbottom, whom I met at the VIP Sauna.",
+      "description": "I heard Mr. Wetbottom in Sleepywood is going through hard times... I should go check on him.\nAt the VIP sauna in Sleepywood, I met this bald man called Mr. Wetbottom. He has a son, and apparently he ran away from home one day with a book that he cares deeply for. He requested that I find his son and get the book back from him. For a reward, he's offering me a nice sauna robe. He also told me his son Ronnie hangs out at a tree tunnel around Ellinia, so maybe I can find him there. Anyway, is that book more important to him than his son What kind of a book is it anyway...\nI found Ronnie in the tree tunnel of Ellinia, as requested by Mr. Wetbottom, whom I met at the VIP Sauna.",
       "npc_name": "Mr. Wetbottom",
       "requirements": "",
       "requirements_list": [],
@@ -8597,7 +8597,7 @@
       "parent": "[Forest of Patience] Sabitrama and the Mysterious Medicine",
       "area": 16,
       "region": "Sleepywood",
-      "description": "Let's go look for Sabitrama in Sleepywood.\nIn front of the Sleepywood Hotel, I met Sabitrama, a medicinal herb trader who seems to be the younger brother of Chrishrama. He said he found a place where he can finally find the herb that he needed for this medicine he's working on... and he asked if I could go in that forest and grab an herb called Pink Anthurium. It consists of green grass and a small pink flower... I should remember this well and get him the exact same one. I heard the place is near Ellinia... I should go there and talk to this guy Shane...\nThankfully I got the flower that Sabitrama wanted from the Forest of Patience, and as a sign of appreciation, he gave me a scroll for overall armor. Oh, and he also said that from here on out, I can enter the Forest of Patience without having to pay?Shane of Ellinia. From what I've heard, the diet medicine?Sabitrama's working on is for Shane's fiance... I better get back in the Forest of Patience when I have some time...",
+      "description": "Let's go look for Sabitrama in Sleepywood.\nIn front of the Sleepywood Hotel, I met Sabitrama, a medicinal herb trader who seems to be the younger brother of Chrishrama. He said he found a place where he can finally find the herb that he needed for this medicine he's working on... and he asked if I could go in that forest and grab an herb called Pink Anthurium. It consists of green grass and a small pink flower... I should remember this well and get him the exact same one. I heard the place is near Ellinia... I should go there and talk to this guy Shane...\nThankfully I got the flower that Sabitrama wanted from the Forest of Patience, and as a sign of appreciation, he gave me a scroll for overall armor. Oh, and he also said that from here on out, I can enter the Forest of Patience without having to pay Shane of Ellinia. From what I've heard, the diet medicine Sabitrama's working on is for Shane's fiance... I better get back in the Forest of Patience when I have some time...",
       "npc_name": "Sabitrama",
       "requirements": "Pink Anthurium x 1",
       "requirements_list": [
@@ -8845,7 +8845,7 @@
       "parent": "",
       "area": 17,
       "region": "Forgotten Hollow",
-      "description": "The cave fairy Zelya in Forgotten Hollow seems to have yet another request.\nZelya restored her precious map and tried to follow it back to her old home, but she could not make it past the fierce monsters blocking the way. She asked me to defeat the monsters west of the Forgotten Hollow to help her get home safely.\nAs Zelya requested, I defeated Aqumanders and Echopuses. Yet it felt as though monsters continued to pour out from deeper within the cave. What on earth could be happening inside?",
+      "description": "The cave fairy Zelya in Forgotten Hollow seems to have yet another request.\nZelya restored her precious map and tried to follow it back to her old home, but she could not make it past the fierce monsters blocking the way. She asked me to defeat the monsters west of the Forgotten Hollow to help her get home safely.\nAs Zelya requested, I defeated Aqumanders and Echopuses. Yet it felt as though monsters continued to pour out from deeper within the cave. What on earth could be happening inside",
       "npc_name": "Zelya",
       "requirements": "Defeat Aqumander x 50, Defeat Echopus x 50",
       "requirements_list": [
@@ -8974,7 +8974,7 @@
       "parent": "Myra’s Wish",
       "area": 17,
       "region": "Forgotten Hollow",
-      "description": "Myra in Perilous Descent I seems to be overcome with grief.\nMyra in Perilous Descent I wants her changed companions to rest in peace. At her request, I must put down the nearby Myewood, as well as the Sporewood deeper in the cave.?\nFollowing Myra’s plea, I had no choice but to fell the creatures that were once her companions. How did they end up like this...?",
+      "description": "Myra in Perilous Descent I seems to be overcome with grief.\nMyra in Perilous Descent I wants her changed companions to rest in peace. At her request, I must put down the nearby Myewood, as well as the Sporewood deeper in the cave.\nFollowing Myra’s plea, I had no choice but to fell the creatures that were once her companions. How did they end up like this...",
       "npc_name": "Myra",
       "requirements": "Defeat Myewood x 50, Defeat Sporewood x 30",
       "requirements_list": [
@@ -9073,7 +9073,7 @@
       "parent": "Special Taste of Florina Beach",
       "area": 18,
       "region": "Florina Beach",
-      "description": "A beautiful girl by the name of Riel from Florina Beach seems to be in need of help...\nRiel introduced me to a part time job, where I have to collect 10 Coconuts. Why don't I start collecting those delicious looking Coconuts over there on the right?\nI brought back fresh Coconuts just like Riel said. Riel told me I can come back for work anytime I want. I guess I won't be starving here in Florina Beach.",
+      "description": "A beautiful girl by the name of Riel from Florina Beach seems to be in need of help...\nRiel introduced me to a part time job, where I have to collect 10 Coconuts. Why don't I start collecting those delicious looking Coconuts over there on the right\nI brought back fresh Coconuts just like Riel said. Riel told me I can come back for work anytime I want. I guess I won't be starving here in Florina Beach.",
       "npc_name": "Riel",
       "requirements": "Coconut x 10",
       "requirements_list": [
@@ -9175,7 +9175,7 @@
       "parent": "Special Taste of Florina Beach",
       "area": 18,
       "region": "Florina Beach",
-      "description": "It seems that Riel in Florina Beach wants to ask for another favor.\nI have to bring ingredients for 30 people to?Riel in Florina Beach.\nI worked part-time gathering ingredients for cooked meals for the tourists coming to Florina Beach.",
+      "description": "It seems that Riel in Florina Beach wants to ask for another favor.\nI have to bring ingredients for 30 people to Riel in Florina Beach.\nI worked part-time gathering ingredients for cooked meals for the tourists coming to Florina Beach.",
       "npc_name": "Riel",
       "requirements": "Coconut x 30, Lupin's Banana x 30, Lorang Claw x 60, Clang Claw x 60",
       "requirements_list": [
@@ -9240,7 +9240,7 @@
       "parent": "Special Taste of Florina Beach",
       "area": 18,
       "region": "Florina Beach",
-      "description": "Riel is trying to develop a special dish in Florina Beach.\nI need to collect some ingredients to develop the Special Taste of Florina Beach. I heard that 10 Coconuts, 10 Lorang Claws, 10 Clang Claws, and 10 Lupin's Bananas are necessary. Will Valen's new recipe succeed~?\nI'm familiar with working in Florina Beach. I visited Riel one more time and helped her out. Why is she so desperate to help Valen?",
+      "description": "Riel is trying to develop a special dish in Florina Beach.\nI need to collect some ingredients to develop the Special Taste of Florina Beach. I heard that 10 Coconuts, 10 Lorang Claws, 10 Clang Claws, and 10 Lupin's Bananas are necessary. Will Valen's new recipe succeed~\nI'm familiar with working in Florina Beach. I visited Riel one more time and helped her out. Why is she so desperate to help Valen",
       "npc_name": "Riel",
       "requirements": "Coconut x 10, Lupin's Banana x 10, Lorang Claw x 10, Clang Claw x 10",
       "requirements_list": [
@@ -9593,7 +9593,7 @@
       "parent": "The Magician's Next Journey",
       "area": 101,
       "region": "Job Advancement",
-      "description": "Now that I’ve passed Magician Job Instructor’s test, my strength should be proven!\nAfter successfully passing Magician Job Instructor’s test, I received The Proof of a Hero as proof. Now, I should return to Grendel the Really Old in Ellinia, right?\nGrendel the Really Old in Ellinia welcomed me warmly, and I gained a new job, obtaining even greater power!",
+      "description": "Now that I’ve passed Magician Job Instructor’s test, my strength should be proven!\nAfter successfully passing Magician Job Instructor’s test, I received The Proof of a Hero as proof. Now, I should return to Grendel the Really Old in Ellinia, right\nGrendel the Really Old in Ellinia welcomed me warmly, and I gained a new job, obtaining even greater power!",
       "npc_name": "Magician Job Instructor",
       "requirements": "The Proof of a Hero x 1",
       "requirements_list": [
@@ -9757,7 +9757,7 @@
       "parent": "The Bowman's Next Journey",
       "area": 102,
       "region": "Job Advancement",
-      "description": "Now that I’ve passed Bowman Job Instructor’s test, my strength should be proven!\nAfter successfully passing Bowman Job Instructor’s test, I received The Proof of a Hero as proof. Now, I should return to Athena Pierce in Henesys, right?\nAthena Pierce in Henesys welcomed me warmly, and I gained a new job, obtaining even greater power!",
+      "description": "Now that I’ve passed Bowman Job Instructor’s test, my strength should be proven!\nAfter successfully passing Bowman Job Instructor’s test, I received The Proof of a Hero as proof. Now, I should return to Athena Pierce in Henesys, right\nAthena Pierce in Henesys welcomed me warmly, and I gained a new job, obtaining even greater power!",
       "npc_name": "Bowman Job Instructor",
       "requirements": "The Proof of a Hero x 1",
       "requirements_list": [
@@ -9921,7 +9921,7 @@
       "parent": "The Thief's Next Journey",
       "area": 103,
       "region": "Job Advancement",
-      "description": "Now that I’ve passed Thief Job Instructor’s test, my strength should be proven!\nAfter successfully passing Thief Job Instructor’s test, I received The Proof of a Hero as proof. Now, I should return to Dark Lord in Kerning City, right?\nDark Lord in Kerning City welcomed me warmly, and I gained a new job, obtaining even greater power!",
+      "description": "Now that I’ve passed Thief Job Instructor’s test, my strength should be proven!\nAfter successfully passing Thief Job Instructor’s test, I received The Proof of a Hero as proof. Now, I should return to Dark Lord in Kerning City, right\nDark Lord in Kerning City welcomed me warmly, and I gained a new job, obtaining even greater power!",
       "npc_name": "Thief Job Instructor",
       "requirements": "The Proof of a Hero x 1",
       "requirements_list": [
@@ -9961,7 +9961,7 @@
       "parent": "",
       "area": 99,
       "region": "Event",
-      "description": "Look for Arwen the Fairy in Ellinia.\nIt seems she has a favor to ask me.\nLet's take the Strange Mushroom Spore Strange Mushroom Spore given by Arwen the Fairy to Grendel the Really Old for analysis.\nThen talk to Arwen the Fairy again.\nI informed Arwen the Fairy about the results of Grendel the Really Old's analysis on the Strange Mushroom Spore Strange Mushroom Spore.",
+      "description": "Look for Arwen the Fairy in Ellinia. It seems she has a favor to ask me.\nLet's take the Strange Mushroom Spore Strange Mushroom Spore given by Arwen the Fairy to Grendel the Really Old for analysis. Then talk to Arwen the Fairy again.\nI informed Arwen the Fairy about the results of Grendel the Really Old's analysis on the Strange Mushroom Spore Strange Mushroom Spore.",
       "npc_name": "Arwen the Fairy",
       "requirements": "",
       "requirements_list": [],
@@ -10050,7 +10050,7 @@
       "parent": "",
       "area": 99,
       "region": "Event",
-      "description": "The Maple Administrator in Henesys has something to say regarding the mysterious letters dropping from monsters lately.\nI need to collect the mysterious letters dropped by monsters Lv. 10 and above such as Ribbon Pig, Dark Stump, Octopus and Green Mushroom..\nMaple Administrator in Henesys will exchange them for a helpful gift for my adventure...\nI collected all the mysterious letters and exchanged them for a gift today.\nLet's visit Maple Administrator in Henesys again tomorrow.",
+      "description": "The Maple Administrator in Henesys has something to say regarding the mysterious letters dropping from monsters lately.\nI need to collect the mysterious letters dropped by monsters Lv. 10 and above such as Ribbon Pig, Dark Stump, Octopus and Green Mushroom.. Maple Administrator in Henesys will exchange them for a helpful gift for my adventure...\nI collected all the mysterious letters and exchanged them for a gift today. Let's visit Maple Administrator in Henesys again tomorrow.",
       "npc_name": "Maple Administrator",
       "requirements": "Letter L x 1, Letter E x 1, Letter A x 1, Letter F x 1, Letter P x 1, Letter O x 1, Letter I x 1, Letter N x 1, Letter T x 1, Letter S x 1",
       "requirements_list": [
@@ -10615,7 +10615,7 @@
       "parent": "",
       "area": 19,
       "region": "Crafting",
-      "description": "The master blacksmith of Perion, Silas Irons, seems to be looking for someone worthy of becoming his apprentice.\nThe master blacksmith of Perion, Silas Irons, has given me a test to see if I’m fit to become his apprentice. He says a blacksmith needs proper strength and knowledge, and told me to defeat monsters around Perion and bring back raw ore. It looks like raw ore can be obtained from monsters.\nI passed the test given by Silas Irons, the master blacksmith of Perion. Does this mean I can become a true blacksmith in Maple World?",
+      "description": "The master blacksmith of Perion, Silas Irons, seems to be looking for someone worthy of becoming his apprentice.\nThe master blacksmith of Perion, Silas Irons, has given me a test to see if I’m fit to become his apprentice. He says a blacksmith needs proper strength and knowledge, and told me to defeat monsters around Perion and bring back raw ore. It looks like raw ore can be obtained from monsters.\nI passed the test given by Silas Irons, the master blacksmith of Perion. Does this mean I can become a true blacksmith in Maple World",
       "npc_name": "Silas Irons",
       "requirements": "Defeat Stump x 20, Defeat Dark Stump x 20, Bronze Ore x 5",
       "requirements_list": [
@@ -10791,7 +10791,7 @@
       "parent": "",
       "area": 19,
       "region": "Crafting",
-      "description": "It seems Mr. Thunder, the master weapon craftsman of Perion, is looking for someone worthy of becoming his apprentice.\nMr. Thunder, the master weapon craftsman of Perion, gave me a test when I asked to become his apprentice. He said that weaponcrafting requires proper strength and knowledge, and told me to use my Smithing skill to craft one Bronze Ingot and one Iron Ingot. As long as I have the materials, it shouldn’t be too difficult.\nI passed the test given by Mr. Thunder, the master weapon craftsman of Perion. Does this mean I can now become a true weaponcrafting specialist in Maple World?",
+      "description": "It seems Mr. Thunder, the master weapon craftsman of Perion, is looking for someone worthy of becoming his apprentice.\nMr. Thunder, the master weapon craftsman of Perion, gave me a test when I asked to become his apprentice. He said that weaponcrafting requires proper strength and knowledge, and told me to use my Smithing skill to craft one Bronze Ingot and one Iron Ingot. As long as I have the materials, it shouldn’t be too difficult.\nI passed the test given by Mr. Thunder, the master weapon craftsman of Perion. Does this mean I can now become a true weaponcrafting specialist in Maple World",
       "npc_name": "Mr. Thunder",
       "requirements": "Bronze Ingot x 1, Iron Ingot x 1",
       "requirements_list": [
@@ -10946,7 +10946,7 @@
       "parent": "",
       "area": 19,
       "region": "Crafting",
-      "description": "It seems Francois, the tailor of Ellinia, is looking for someone worthy of becoming his apprentice.\nWhen I told Francois, the tailor of Ellinia, that I wanted to become his apprentice, he gave me a test. He said tailoring requires the right balance of skill and knowledge, and asked me to defeat monsters near Henesys and collect Leafs.\nI passed the test given by Francois, the tailor of Ellinia. Does this mean I can now become a proper tailor in Maple World?",
+      "description": "It seems Francois, the tailor of Ellinia, is looking for someone worthy of becoming his apprentice.\nWhen I told Francois, the tailor of Ellinia, that I wanted to become his apprentice, he gave me a test. He said tailoring requires the right balance of skill and knowledge, and asked me to defeat monsters near Henesys and collect Leafs.\nI passed the test given by Francois, the tailor of Ellinia. Does this mean I can now become a proper tailor in Maple World",
       "npc_name": "Francois",
       "requirements": "Defeat Dark Stump x 30, Leaf x 20",
       "requirements_list": [
@@ -11101,7 +11101,7 @@
       "parent": "",
       "area": 19,
       "region": "Crafting",
-      "description": "It seems Vicious, the carpenter of Henesys, is looking for someone worthy of becoming his apprentice.\nWhen I told Vicious, the carpenter of Henesys, that I wanted to become his apprentice, he gave me a test. He said woodworking requires proper strength and knowledge, and asked me to defeat monsters near Henesys and collect Tree Branches.\nI passed the test given by Vicious, the carpenter of Henesys. Does this mean I can now become a proper carpenter in Maple World?",
+      "description": "It seems Vicious, the carpenter of Henesys, is looking for someone worthy of becoming his apprentice.\nWhen I told Vicious, the carpenter of Henesys, that I wanted to become his apprentice, he gave me a test. He said woodworking requires proper strength and knowledge, and asked me to defeat monsters near Henesys and collect Tree Branches.\nI passed the test given by Vicious, the carpenter of Henesys. Does this mean I can now become a proper carpenter in Maple World",
       "npc_name": "Vicious",
       "requirements": "Defeat Stump x 30, Tree Branch x 20",
       "requirements_list": [
@@ -11256,7 +11256,7 @@
       "parent": "",
       "area": 19,
       "region": "Crafting",
-      "description": "The leatherworking master JM From tha Streetz of Kerning City seems to be looking for someone who could become a business partner.\nThe leatherworking master JM From tha Streetz of Kerning City gave me a test to see if I’m worthy of becoming a partner. He said that proper strength and knowledge are required for leatherworking, and asked me to defeat monsters around Kerning City and Henesys to collect Leather.\nI passed the test given by the leatherworking master JM From tha Streetz of Kerning City. Could this mean that I, too, can stand proudly as a leatherworker in the Maple World?",
+      "description": "The leatherworking master JM From tha Streetz of Kerning City seems to be looking for someone who could become a business partner.\nThe leatherworking master JM From tha Streetz of Kerning City gave me a test to see if I’m worthy of becoming a partner. He said that proper strength and knowledge are required for leatherworking, and asked me to defeat monsters around Kerning City and Henesys to collect Leather.\nI passed the test given by the leatherworking master JM From tha Streetz of Kerning City. Could this mean that I, too, can stand proudly as a leatherworker in the Maple World",
       "npc_name": "JM From tha Streetz",
       "requirements": "Defeat Pig x 30, Leather x 5",
       "requirements_list": [
@@ -11303,7 +11303,7 @@
       "parent": "",
       "area": 19,
       "region": "Crafting",
-      "description": "It seems the leatherworking master JM From tha Streetz of Kerning City is finally ready to acknowledge my leatherworking skills.\nImpressed by my growth, the leatherworking master JM From tha Streetz of Kerning City suggested that I show what I’m capable of. I must defeat Wild Boars and craft 1 Red Chair, then bring it back.\nAmazed by my craftsmanship, the leatherworking master JM From tha Streetz of Kerning City handed me a Equipment Crafting Stimulator. It seems to be a special item that can alter equipment stats when used during crafting. Should I try using it?",
+      "description": "It seems the leatherworking master JM From tha Streetz of Kerning City is finally ready to acknowledge my leatherworking skills.\nImpressed by my growth, the leatherworking master JM From tha Streetz of Kerning City suggested that I show what I’m capable of. I must defeat Wild Boars and craft 1 Red Chair, then bring it back.\nAmazed by my craftsmanship, the leatherworking master JM From tha Streetz of Kerning City handed me a Equipment Crafting Stimulator. It seems to be a special item that can alter equipment stats when used during crafting. Should I try using it",
       "npc_name": "JM From tha Streetz",
       "requirements": "Defeat Wild Boar x 30, Red Chair x 1",
       "requirements_list": [
@@ -11357,7 +11357,7 @@
       "parent": "",
       "area": 19,
       "region": "Crafting",
-      "description": "It looks like the leatherworking master JM From tha Streetz of Kerning City needs help again. It's been a while, perhaps I should pay him a visit.\nThe leatherworking master JM From tha Streetz of Kerning City has received an important request but is struggling due to a lack of materials. To help him, I’ll need to defeat Jr. Neckis and gather Jr. Necki Skins.\nI was able to safely deliver the items requested by the leatherworking master JM From tha Streetz of Kerning City. At this point, wouldn’t I qualify as a reliable partner?",
+      "description": "It looks like the leatherworking master JM From tha Streetz of Kerning City needs help again. It's been a while, perhaps I should pay him a visit.\nThe leatherworking master JM From tha Streetz of Kerning City has received an important request but is struggling due to a lack of materials. To help him, I’ll need to defeat Jr. Neckis and gather Jr. Necki Skins.\nI was able to safely deliver the items requested by the leatherworking master JM From tha Streetz of Kerning City. At this point, wouldn’t I qualify as a reliable partner",
       "npc_name": "JM From tha Streetz",
       "requirements": "Defeat Jr. Necki x 25, Jr. Necki Skin x 10",
       "requirements_list": [
@@ -11411,7 +11411,7 @@
       "parent": "",
       "area": 19,
       "region": "Crafting",
-      "description": "The Arcforger master Chrishrama of Sleepywood seems to be searching for someone who could become his apprentice.\nThe Arcforger master Chrishrama of Sleepywood gave me a test when I asked to become his apprentice. He said true Arcforgers must possess great wisdom, and instructed me to defeat monsters around Sleepywood and gather a Garnet Ore.\nI passed the test given by the Arcforger master Chrishrama of Sleepywood. Does this mean I can finally stand as a true Arcforger in Maple World?",
+      "description": "The Arcforger master Chrishrama of Sleepywood seems to be searching for someone who could become his apprentice.\nThe Arcforger master Chrishrama of Sleepywood gave me a test when I asked to become his apprentice. He said true Arcforgers must possess great wisdom, and instructed me to defeat monsters around Sleepywood and gather a Garnet Ore.\nI passed the test given by the Arcforger master Chrishrama of Sleepywood. Does this mean I can finally stand as a true Arcforger in Maple World",
       "npc_name": "Chrishrama",
       "requirements": "Defeat Dark Stump x 30, Garnet Ore x 1",
       "requirements_list": [
@@ -11458,7 +11458,7 @@
       "parent": "",
       "area": 19,
       "region": "Crafting",
-      "description": "It seems the Arcforger master Chrishrama of Sleepywood is finally ready to recognize my Arcforging skills.\nThe Arcforger master Chrishrama of Sleepywood was impressed with my growth and challenged me to prove my skill. I must defeat Horny Mushrooms and craft 1 Topaz to bring back.\nAmazed by my craftsmanship, the Arcforger master Chrishrama of Sleepywood handed me a Scroll Crafting Stimulator. It appears to be a special item that can create even stronger scrolls when used during crafting. Should I give it a try?",
+      "description": "It seems the Arcforger master Chrishrama of Sleepywood is finally ready to recognize my Arcforging skills.\nThe Arcforger master Chrishrama of Sleepywood was impressed with my growth and challenged me to prove my skill. I must defeat Horny Mushrooms and craft 1 Topaz to bring back.\nAmazed by my craftsmanship, the Arcforger master Chrishrama of Sleepywood handed me a Scroll Crafting Stimulator. It appears to be a special item that can create even stronger scrolls when used during crafting. Should I give it a try",
       "npc_name": "Chrishrama",
       "requirements": "Defeat Horny Mushroom x 30, Topaz x 1",
       "requirements_list": [
@@ -11512,7 +11512,7 @@
       "parent": "",
       "area": 19,
       "region": "Crafting",
-      "description": "The Arcforger master Chrishrama of Sleepywood seems to need help. Perhaps I should visit him again.\nThe Arcforger master Chrishrama of Sleepywood has received an important research request, but he is struggling due to a lack of materials. To help him, I’ll need to defeat Green Mushrooms and gather 10 Fragment of Magic.\nI was able to safely deliver the item requested by the Arcforger master Chrishrama of Sleepywood. Does this mean I can now be called his apprentice?",
+      "description": "The Arcforger master Chrishrama of Sleepywood seems to need help. Perhaps I should visit him again.\nThe Arcforger master Chrishrama of Sleepywood has received an important research request, but he is struggling due to a lack of materials. To help him, I’ll need to defeat Green Mushrooms and gather 10 Fragment of Magic.\nI was able to safely deliver the item requested by the Arcforger master Chrishrama of Sleepywood. Does this mean I can now be called his apprentice",
       "npc_name": "Chrishrama",
       "requirements": "Defeat Green Mushroom x 25, Fragment of Magic x 10",
       "requirements_list": [

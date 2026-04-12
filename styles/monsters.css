@@ -4,16 +4,20 @@
   border-collapse: collapse;
   font-size: 14px;
 }
-.data-table th {
-  padding: 8px;
-  font-size: 11px;
-  color: var(--dim);
-  text-transform: uppercase;
-  letter-spacing: .5px;
-  font-weight: 600;
-  border-bottom: 1px solid var(--border);
+.data-table thead tr {
+  background: linear-gradient(90deg, var(--accent-bg) 0%, var(--surface) 60%);
+  border-left: 4px solid var(--accent);
 }
-.data-table td { padding: 8px; border-bottom: 1px solid var(--border); }
+.data-table th {
+  padding: 10px 8px;
+  font-size: 10px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  border-bottom: 2px solid var(--border);
+}
+.data-table td { padding: 9px 8px; border-bottom: 1px solid var(--border); }
 .data-table tr:hover { background: var(--surface-2); }
 .data-table .num    { text-align: right; font-family: monospace; }
 .data-table th.num  { text-align: right; }
@@ -33,16 +37,25 @@
 }
 .col-toggles .label { font-size: 11px; color: var(--dim); margin-right: 4px; }
 .col-toggle {
+  padding: 5px 14px;
+  border-radius: 6px;
   font-size: 11px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--dim);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
   cursor: pointer;
-  transition: all .2s;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--dim);
+  transition: all .15s;
 }
-.col-toggle.active { border-color: var(--accent); background: var(--accent); color: #000; }
+.col-toggle:hover { color: var(--text); border-color: var(--dim); }
+.col-toggle.active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
 
 .elem-badge {
   display: inline-flex;

@@ -147,13 +147,13 @@ export function renderEquipment(data) {
     filterBar.appendChild(button);
   });
 
-  container.appendChild(filterBar);
   container.appendChild(
     makeSearchBox('Search equipment...', (value) => {
       searchQuery = value;
       renderData();
     })
   );
+  container.appendChild(filterBar);
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);

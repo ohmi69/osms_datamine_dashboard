@@ -17,14 +17,6 @@ export function renderCrafting(data) {
     itemNameToId.set(item.name, item.id);
   });
 
-  const banner = el('div', { className: 'info-banner' });
-  const paragraph = el('p');
-  paragraph.append('Recipes require mob drops, refined materials, and meso. ');
-  paragraph.append(
-    `All ${overview.stats.num_disciplines} disciplines level from 1–10 with increasing craft EXP per recipe.`
-  );
-  banner.appendChild(paragraph);
-  container.appendChild(banner);
 
   container.appendChild(
     makeSearchBox('Search recipes...', (value) => {

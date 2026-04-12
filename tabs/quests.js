@@ -282,24 +282,26 @@ function renderQuestCard(quest) {
   }
 
   const meta = el('div', { className: 'quest-meta' });
-  if (quest.rewards_exp > 0) {
-    const box = el('div', { className: 'quest-meta-box' });
-    box.appendChild(el('span', { className: 'label', textContent: 'EXP: ' }));
-    box.appendChild(el('span', { className: 'value', textContent: fmt(quest.rewards_exp) }));
-    meta.appendChild(box);
-  }
-  if (quest.rewards_money > 0) {
-    const box = el('div', { className: 'quest-meta-box' });
-    box.appendChild(el('span', { className: 'label', textContent: 'Meso: ' }));
-    box.appendChild(el('span', { className: 'value', textContent: fmt(quest.rewards_money) }));
-    meta.appendChild(box);
-  }
-
   const rewardContent = renderRewardContent(quest);
-  if (rewardContent) {
+  const hasRewards = quest.rewards_exp > 0 || quest.rewards_money > 0 || rewardContent;
+  if (hasRewards) {
     const box = el('div', { className: 'quest-meta-box' });
     box.appendChild(el('span', { className: 'label', textContent: 'Reward: ' }));
-    box.appendChild(rewardContent);
+    if (rewardContent) {
+      box.appendChild(rewardContent);
+    }
+    if (quest.rewards_exp > 0) {
+      const expBox = el('span', { className: 'quest-stat-chip' });
+      expBox.appendChild(el('span', { className: 'label', textContent: 'EXP: ' }));
+      expBox.appendChild(el('span', { className: 'value', textContent: fmt(quest.rewards_exp) }));
+      box.appendChild(expBox);
+    }
+    if (quest.rewards_money > 0) {
+      const mesoBox = el('span', { className: 'quest-stat-chip' });
+      mesoBox.appendChild(el('span', { className: 'label', textContent: 'Meso: ' }));
+      mesoBox.appendChild(el('span', { className: 'value', textContent: fmt(quest.rewards_money) }));
+      box.appendChild(mesoBox);
+    }
     meta.appendChild(box);
   }
 

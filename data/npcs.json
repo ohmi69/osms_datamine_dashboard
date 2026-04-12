@@ -4,7 +4,7 @@
     "name": "Heena",
     "functions": [
       "Beautiful day today!",
-      "Press left Alt key and  you'll be able to jump.",
+      "Press left Alt key and you'll be able to jump.",
       "Press the arrow keys to move around here and there."
     ]
   },
@@ -19,7 +19,7 @@
     "id": 100,
     "name": "John",
     "functions": [
-      "How about buying one of these fishes?",
+      "How about buying one of these fishes",
       "I used to be an adventurer myself...but now I don't mind living a normal life...",
       "You don't need to be that scared of it. I've walked away from that lifestyle long ago."
     ]
@@ -29,7 +29,7 @@
     "name": "Phil",
     "functions": [
       "Open your item inventory and you'll find equip., use, set-up, and etc. and cash tabs.",
-      "The item you pick up is automatically stored in an appropriate item category. What do you think? Isn't  it cool?",
+      "The item you pick up is automatically stored in an appropriate item category. What do you think Isn't it cool",
       "Double-click on an item in the item inventory and you'll be able to use it"
     ]
   },
@@ -37,7 +37,7 @@
     "id": 102,
     "name": "Teo",
     "functions": [
-      "Hey, have you seen a whale around here? Hmmm... where did it go ...",
+      "Hey, have you seen a whale around here Hmmm... where did it go ...",
       "Haven't been able to shave in months ... now my chin is starting to itch like crazy",
       "The incredible feeling of sailing along the beautiful coast ... that's what life is all about!"
     ]
@@ -47,7 +47,7 @@
     "name": "Jane",
     "functions": [
       "I wanna travel too...",
-      "Why does my dad not want me to travel around?"
+      "Why does my dad not want me to travel around"
     ]
   },
   {
@@ -59,7 +59,7 @@
     "id": 105,
     "name": "Mr. Kim",
     "functions": [
-      "You need a place to store your items and mesos? This is just the place for you!",
+      "You need a place to store your items and mesos This is just the place for you!",
       "My storage is safe and secure, so no worries!"
     ]
   },
@@ -67,16 +67,16 @@
     "id": 106,
     "name": "Chef",
     "functions": [
-      "Who am I? Well...who AM I?",
-      "If you have a secret scroll by any chance, would you mind showing that to me?"
+      "Who am I Well...who AM I",
+      "If you have a secret scroll by any chance, would you mind showing that to me"
     ]
   },
   {
     "id": 107,
     "name": "Olaf",
     "functions": [
-      "Huh? Hey you come here!",
-      "Look at me~ Do you want to be strong like me?"
+      "Huh Hey you come here!",
+      "Look at me~ Do you want to be strong like me"
     ]
   },
   {
@@ -101,9 +101,9 @@
     "id": 11,
     "name": "Mai",
     "functions": [
-      "Do you know me by any chance? You don't? What's wrong with you? ",
+      "Do you know me by any chance You don't What's wrong with you",
       "If you are thinking of challenging me, I suggest you keep dreaming...",
-      "Is there anyone that can satisfy my desire to fight...?"
+      "Is there anyone that can satisfy my desire to fight..."
     ]
   },
   {
@@ -118,15 +118,15 @@
     "id": 111,
     "name": "Mr. Goldstein",
     "functions": [
-      "Hey, there! Is your buddy list full by any chance?",
-      "If you need to expand your buddy list, how about doing some business with me? Harharhar..."
+      "Hey, there! Is your buddy list full by any chance",
+      "If you need to expand your buddy list, how about doing some business with me Harharhar..."
     ]
   },
   {
     "id": 112,
     "name": "Pason",
     "functions": [
-      "Do you want to head over to Florina Beach?",
+      "Do you want to head over to Florina Beach",
       "There's a gorgeous beach called Florina Beach near Victoria Island..."
     ]
   },
@@ -143,7 +143,7 @@
     "id": 13,
     "name": "Yoona",
     "functions": [
-      "Whoa, what are you looking at?!?!"
+      "Whoa, what are you looking at ! !"
     ]
   },
   {
@@ -174,16 +174,16 @@
     "id": 17,
     "name": "Lucas",
     "functions": [
-      "Stranger...what are you doing here?",
+      "Stranger...what are you doing here",
       "I'm not too fond of the strangers. I'm only worried about the peace of this town.",
-      "You...if you're strong and powerful, can you take care of the monsters around town?"
+      "You...if you're strong and powerful, can you take care of the monsters around town"
     ]
   },
   {
     "id": 18,
     "name": "Pio",
     "functions": [
-      "Do you need my help by any chance? I can handle machinery really well...",
+      "Do you need my help by any chance I can handle machinery really well...",
       "I just ate a little bit ago...and yet I'm hungry already...!!",
       "Phew...work is hard. I need to take a break."
     ]
@@ -192,7 +192,7 @@
     "id": 19,
     "name": "Rain",
     "functions": [
-      "Isn't it nice out here today?",
+      "Isn't it nice out here today",
       "To jump, press the left Alt key.",
       "Press the arrow keys to move around here and there."
     ]
@@ -202,7 +202,7 @@
     "name": "Sera",
     "functions": [
       "It's a neverending pile of laundry I'll be hanging around here.",
-      "Have you met my sister Heena before?",
+      "Have you met my sister Heena before",
       "Just press the up arrow, and you can climb the ladder or rope.",
       "Click on us to start a chat!"
     ]
@@ -224,9 +224,9 @@
     "id": 201,
     "name": "Rina",
     "functions": [
-      "Have you met up with Athena Pierce, the one that watches over and takes care of our town?",
+      "Have you met up with Athena Pierce, the one that watches over and takes care of our town",
       "If you want to become a bowman, please go see Athena Pierce, who resides in the inner part of the park.",
-      "Hmm...is Ronnie doing well? I can't find him...I was thinking of fixing him a nice plate of Unagi."
+      "Hmm...is Ronnie doing well I can't find him...I was thinking of fixing him a nice plate of Unagi."
     ]
   },
   {
@@ -268,7 +268,7 @@
     "id": 208,
     "name": "Vicious",
     "functions": [
-      "You need something?"
+      "You need something"
     ]
   },
   {
@@ -276,7 +276,7 @@
     "name": "Doofus",
     "functions": [
       "Pet food for your precious pet!! On Sale!!",
-      "Do you need to get some food for your pet?"
+      "Do you need to get some food for your pet"
     ]
   },
   {
@@ -315,7 +315,7 @@
     "id": 213,
     "name": "Denma the Owner",
     "functions": [
-      "Do you want to have plastic surgery? Let me take care of you then...",
+      "Do you want to have plastic surgery Let me take care of you then...",
       "It's not a bad idea to change your face up every once in a while"
     ]
   },
@@ -324,16 +324,16 @@
     "name": "Dr. Feeble",
     "functions": [
       "I've been wearing these for so long, I can barely see what's in front of me now...",
-      "Ah ... you want a plastic surgery? Cough cough ...",
-      "Plastic surgery ... allow me to handle it ... haha ... by the way, where is the face ... ?"
+      "Ah ... you want a plastic surgery Cough cough ...",
+      "Plastic surgery ... allow me to handle it ... haha ... by the way, where is the face ..."
     ]
   },
   {
     "id": 215,
     "name": "Natalie",
     "functions": [
-      "You like my hairstyle? We hairdressers are supposed to keep up with the latest trends, you know?",
-      "Are you tired of your hairdo? Here, let me make it look nice and pretty for you..."
+      "You like my hairstyle We hairdressers are supposed to keep up with the latest trends, you know",
+      "Are you tired of your hairdo Here, let me make it look nice and pretty for you..."
     ]
   },
   {
@@ -349,7 +349,7 @@
     "name": "Ms. Tan",
     "functions": [
       "These days, everyone wants to tan their skin...",
-      "There's nothing as healthy-looking as a well-tanned skin. What do you think? Do you want to tan it like me?",
+      "There's nothing as healthy-looking as a well-tanned skin. What do you think Do you want to tan it like me",
       "Every once in a while, someone comes along that wants a clean, white skin. That's ok, too."
     ]
   },
@@ -366,15 +366,15 @@
     "id": 219,
     "name": "Cloy",
     "functions": [
-      "Do you have any questions about pets? Ask me anything about them...",
-      "Are you raising a pet? If you have any questions, feel free to ask"
+      "Do you have any questions about pets Ask me anything about them...",
+      "Are you raising a pet If you have any questions, feel free to ask"
     ]
   },
   {
     "id": 220,
     "name": "Mr. Lee",
     "functions": [
-      "You need a place to store your items and mesos? This is just the place for you!",
+      "You need a place to store your items and mesos This is just the place for you!",
       "My storage is safe and secure, so no worries!"
     ]
   },
@@ -382,14 +382,14 @@
     "id": 221,
     "name": "Athena Pierce",
     "functions": [
-      "Do you want to become a bowman?"
+      "Do you want to become a bowman"
     ]
   },
   {
     "id": 222,
     "name": "Trainer Bartos",
     "functions": [
-      "What? Your pet turned into a doll? Of course... it's originally a doll that came to life through a special magic.",
+      "What Your pet turned into a doll Of course... it's originally a doll that came to life through a special magic.",
       "Hehehe ... if you need to train your pet, I'll take care of it..."
     ]
   },
@@ -398,14 +398,14 @@
     "name": "Trainer Frod",
     "functions": [
       "Hmmm ... my brother keeps making me do these dumb assignments ...",
-      "Taking a walk around town with your pet...isn't that the best feeling in the world??"
+      "Taking a walk around town with your pet...isn't that the best feeling in the world"
     ]
   },
   {
     "id": 224,
     "name": "Anne",
     "functions": [
-      "When's Mom coming? She must be busy...",
+      "When's Mom coming She must be busy...",
       "I can only do this by myself for so long..."
     ]
   },
@@ -427,7 +427,7 @@
     "id": 227,
     "name": "Bowman Job Instructor",
     "functions": [
-      "Do you want to make the 2nd job advancement as the bowman? Go see \"Athena Pierce\" of Henesys first.",
+      "Do you want to make the 2nd job advancement as the bowman Go see \"Athena Pierce\" of Henesys first.",
       "Only the ones that pass my test can make the 2nd job advancement as the bowman."
     ]
   },
@@ -435,7 +435,7 @@
     "id": 228,
     "name": "Casey",
     "functions": [
-      "You tired of hunting? How about playing a minigame?",
+      "You tired of hunting How about playing a minigame",
       "Still no one to beat me...I'm the master of minigames..."
     ]
   },
@@ -444,7 +444,7 @@
     "name": "Roger",
     "functions": [
       "Open your item inventory and you'll find equip., use, set-up, etc. and cash tabs.",
-      "The item you pick up is automatically stored in an appropriate item category. What do you think? Isn't it cool?",
+      "The item you pick up is automatically stored in an appropriate item category. What do you think Isn't it cool",
       "Double-click on an item in the item inventory and you'll be able to use it."
     ]
   },
@@ -470,7 +470,7 @@
     "id": 303,
     "name": "Francois",
     "functions": [
-      "Do you need anything...?",
+      "Do you need anything...",
       "Here...I have some goods here, so come take a look at them!"
     ]
   },
@@ -478,7 +478,7 @@
     "id": 304,
     "name": "Arwen the Fairy",
     "functions": [
-      "Ah... my precious collection ... where are they???",
+      "Ah... my precious collection ... where are they",
       "I don't want to ask humans for a favor ... but ... there's no choice."
     ]
   },
@@ -486,7 +486,7 @@
     "id": 305,
     "name": "Rowen the Fairy",
     "functions": [
-      "Do you think my friend Ronnie is doing well...?",
+      "Do you think my friend Ronnie is doing well...",
       "Deep in the forest, Zombie Lupin's are threatening the safety of our town ...",
       "A few days ago, my friend Arwen lost her red heart-shaped earrings in the middle of the forrest owned by Shane ..."
     ]
@@ -495,7 +495,7 @@
     "id": 306,
     "name": "Shane",
     "functions": [
-      "Are you here at the request of Sabitrama?",
+      "Are you here at the request of Sabitrama",
       "I heard there's an incredible herb that can be found in here...but I can't just let you easily like that...",
       "Not everyone can enter this place~"
     ]
@@ -504,7 +504,7 @@
     "id": 307,
     "name": "Mr. Park",
     "functions": [
-      "You need a place to store your items and mesos? This is just the place for you!",
+      "You need a place to store your items and mesos This is just the place for you!",
       "My storage is safe and secure, so no worries!"
     ]
   },
@@ -512,7 +512,7 @@
     "id": 308,
     "name": "Betty",
     "functions": [
-      "Hey, if you got some time, can you help me out here?"
+      "Hey, if you got some time, can you help me out here"
     ]
   },
   {
@@ -543,7 +543,7 @@
     "id": 312,
     "name": "Len the Fairy",
     "functions": [
-      "Do you need potions by any chance? I have plenty in store...",
+      "Do you need potions by any chance I have plenty in store...",
       "If you want to return to Ellinia at will, then try buying the return scroll to this place."
     ]
   },
@@ -575,7 +575,7 @@
     "id": 317,
     "name": "Mar the Fairy",
     "functions": [
-      "Did your pet turned back into a doll by any chance?",
+      "Did your pet turned back into a doll by any chance",
       "If you have an unmoving pet with you, please take it to me."
     ]
   },
@@ -591,7 +591,7 @@
     "id": 319,
     "name": "Magician Job Instructor",
     "functions": [
-      "Do you want to make the 2nd job advancement as the magician? Go see \"Grendel the Really Old\" of Ellinia first.",
+      "Do you want to make the 2nd job advancement as the magician Go see \"Grendel the Really Old\" of Ellinia first.",
       "Only the ones that pass my test can make the 2nd job advancement as the magician."
     ]
   },
@@ -600,7 +600,7 @@
     "name": "Ronnie",
     "functions": [
       "I... actually snuck out with my dad's book.",
-      "I'm still a kid so I don't know much... but what exactly is in this book?"
+      "I'm still a kid so I don't know much... but what exactly is in this book"
     ]
   },
   {
@@ -612,7 +612,7 @@
     "id": 4,
     "name": "Nina",
     "functions": [
-      "What would be good for dinner?"
+      "What would be good for dinner"
     ]
   },
   {
@@ -624,7 +624,7 @@
     "id": 401,
     "name": "JM From tha Streetz",
     "functions": [
-      "Hmm... can I see you for a sec ...?",
+      "Hmm... can I see you for a sec ...",
       "Hmm ... the items you may need ... I have them all."
     ]
   },
@@ -639,7 +639,7 @@
     "id": 403,
     "name": "Shumi",
     "functions": [
-      "Oh no... where could it be ...??",
+      "Oh no... where could it be ...",
       "Crap~~!! I lost my money!!!!",
       "I hope someone can help me out ..."
     ]
@@ -648,7 +648,7 @@
     "id": 404,
     "name": "Mong from Kong",
     "functions": [
-      "Hey...are you logged on at Internet Cafe? Then come in...",
+      "Hey...are you logged on at Internet Cafe Then come in...",
       "It's an Internet Cafe right here, but not everyone can go in..."
     ]
   },
@@ -656,7 +656,7 @@
     "id": 405,
     "name": "Mr. Hong",
     "functions": [
-      "You need a place to store your items and mesos? Here it is!",
+      "You need a place to store your items and mesos Here it is!",
       "My storage is safe and secure, so no worries!"
     ]
   },
@@ -664,7 +664,7 @@
     "id": 406,
     "name": "Nella",
     "functions": [
-      "Man, I'm soooo busy! Anyone around here willing to help?",
+      "Man, I'm soooo busy! Anyone around here willing to help",
       "Strangers walking around everywhere here today."
     ]
   },
@@ -679,7 +679,7 @@
     "id": 408,
     "name": "Cutthroat Manny",
     "functions": [
-      "You need a weapon? Our store specializes in weapons for thieves...",
+      "You need a weapon Our store specializes in weapons for thieves...",
       "Alright! Pick and choose!"
     ]
   },
@@ -687,7 +687,7 @@
     "id": 409,
     "name": "Don Hwang",
     "functions": [
-      "Hello there, do you need something?",
+      "Hello there, do you need something",
       "There is no way in the world you're going to overpay for an item here~"
     ]
   },
@@ -695,7 +695,7 @@
     "id": 410,
     "name": "Dr. Faymus",
     "functions": [
-      "You need potions? Here you go...I have PLENTY!!",
+      "You need potions Here you go...I have PLENTY!!",
       "Here! Pick and choose!!"
     ]
   },
@@ -715,7 +715,7 @@
     "id": 413,
     "name": "Don Giovanni",
     "functions": [
-      "Hey, you! You seem to be having a bad-hair day...how about letting me take care of it??",
+      "Hey, you! You seem to be having a bad-hair day...how about letting me take care of it",
       "Hahahah! Welcome to my hair salon! Have a seat!"
     ]
   },
@@ -731,7 +731,7 @@
     "id": 415,
     "name": "Chris",
     "functions": [
-      "Do you have a raw ore of a mineral or a jewel by any chance? Allow me to do the rest for you...",
+      "Do you have a raw ore of a mineral or a jewel by any chance Allow me to do the rest for you...",
       "Phew ... I'm tired. I'll rest up a little bit for now."
     ]
   },
@@ -747,7 +747,7 @@
     "id": 417,
     "name": "Jake",
     "functions": [
-      "Do you want in? Then please purchase a ticket here.",
+      "Do you want in Then please purchase a ticket here.",
       "No one is allowed in without a ticket."
     ]
   },
@@ -780,7 +780,7 @@
     "id": 424,
     "name": "Thief Job Instructor",
     "functions": [
-      "Do you want to make the 2nd job advancement as the thief? Go see \"Dark Lord\" of Kerning City first.",
+      "Do you want to make the 2nd job advancement as the thief Go see \"Dark Lord\" of Kerning City first.",
       "Only the ones that pass my test can make the 2nd job advancement as the thief."
     ]
   },
@@ -789,7 +789,7 @@
     "name": "Sen",
     "functions": [
       "I'm... so ... hungry!",
-      "Can... I... eat this ...?"
+      "Can... I... eat this ..."
     ]
   },
   {
@@ -803,7 +803,7 @@
     "functions": [
       "Haven't seen you before...better be careful around here.",
       "Don't worry, we aren't cannibals here...*gulp*",
-      "Don't you like my hair? It's very popular around town."
+      "Don't you like my hair It's very popular around town."
     ]
   },
   {
@@ -820,7 +820,7 @@
     "name": "Mr. Thunder",
     "functions": [
       "There is nothing in this world that I can't make...hahah!",
-      "Do you have a jewel or a mineral by any chance? Show me then!"
+      "Do you have a jewel or a mineral by any chance Show me then!"
     ]
   },
   {
@@ -835,7 +835,7 @@
     "id": 505,
     "name": "Mr. Wang",
     "functions": [
-      "You need a place to store your items and mesos? This is just the place for you!",
+      "You need a place to store your items and mesos This is just the place for you!",
       "My storage is safe and secure, so no worries!"
     ]
   },
@@ -875,14 +875,14 @@
     "functions": [
       "Ok...I'm ready to do business...",
       "It's so boring around here...",
-      "Is Maya getting better from her sickness?"
+      "Is Maya getting better from her sickness"
     ]
   },
   {
     "id": 511,
     "name": "Dances with Balrog",
     "functions": [
-      "Do you want to become a warrior?",
+      "Do you want to become a warrior",
       "For those that want to become a warrior, come see me..."
     ]
   },
@@ -906,7 +906,7 @@
     "id": 514,
     "name": "Warrior Job Instructor",
     "functions": [
-      "Do you want to make the 2nd job advancement as the warrior? Go see \"Dances with Balrog\" of Perion first.",
+      "Do you want to make the 2nd job advancement as the warrior Go see \"Dances with Balrog\" of Perion first.",
       "Only the ones that pass my test can make the 2nd job advancement as the warrior."
     ]
   },
@@ -933,7 +933,7 @@
     "id": 602,
     "name": "Chrishrama",
     "functions": [
-      "You need something...?"
+      "You need something..."
     ]
   },
   {
@@ -947,7 +947,7 @@
     "id": 604,
     "name": "Mr. Oh",
     "functions": [
-      "You need a place to store your items and mesos? This is just the place for you!",
+      "You need a place to store your items and mesos This is just the place for you!",
       "My storage is safe and secure, so no worries!"
     ]
   },
@@ -968,7 +968,7 @@
     "id": 607,
     "name": "Mr. Sweatbottom",
     "functions": [
-      "A few minutes in sauna, and you'll feel much better. What do you think? Already working for you?",
+      "A few minutes in sauna, and you'll feel much better. What do you think Already working for you",
       "If you need an item, I have some available, so go take a look..."
     ]
   },
@@ -976,7 +976,7 @@
     "id": 608,
     "name": "Mr. Wetbottom",
     "functions": [
-      "Ah... you're using the VIP sauna. What do you think? Do you want to make a deal with me?"
+      "Ah... you're using the VIP sauna. What do you think Do you want to make a deal with me"
     ]
   },
   {
@@ -1029,7 +1029,7 @@
       "Watch out for the monsters",
       "You can attack the monsters, if you press \"Ctrl\".",
       "You can pick up the items, if you press \"z\".",
-      "If the monsters are strong, how about making a party with other players?"
+      "If the monsters are strong, how about making a party with other players"
     ]
   },
   {
@@ -1079,7 +1079,7 @@
       "Be careful! You'll see monsters around here.",
       "Press 'Ctrl' to attack the monster.",
       "Press Z and you'll be able to pick up the item the monster drops.",
-      "If it's a powerful monster, how about teaming up with someone else?"
+      "If it's a powerful monster, how about teaming up with someone else"
     ]
   },
   {
@@ -1094,7 +1094,7 @@
     "id": 800000,
     "name": "Lakelis",
     "functions": [
-      "Do you want to combine powers of your party members to solve this quest?",
+      "Do you want to combine powers of your party members to solve this quest",
       "There are lots of obstacles here where the only way you'll pass is by joining forces with your party members."
     ]
   },
@@ -1118,7 +1118,7 @@
     "id": 800003,
     "name": "Bowman Job Instructor",
     "functions": [
-      "Do you want to make the 2nd job advancement as the bowman? Go see \"Athena Pierce\" of Henesys first.",
+      "Do you want to make the 2nd job advancement as the bowman Go see \"Athena Pierce\" of Henesys first.",
       "Only the ones that pass my test can make the 2nd job advancement as the bowman."
     ]
   },
@@ -1126,7 +1126,7 @@
     "id": 800004,
     "name": "Magician Job Instructor",
     "functions": [
-      "Do you want to make the 2nd job advancement as the magician? Go see \"Grendel the Really Old\" of Ellinia first.",
+      "Do you want to make the 2nd job advancement as the magician Go see \"Grendel the Really Old\" of Ellinia first.",
       "Only the ones that pass my test can make the 2nd job advancement as the magician."
     ]
   },
@@ -1134,7 +1134,7 @@
     "id": 800005,
     "name": "Thief Job Instructor",
     "functions": [
-      "Do you want to make the 2nd job advancement as the thief? Go see \"Dark Lord\" of Kerning City first.",
+      "Do you want to make the 2nd job advancement as the thief Go see \"Dark Lord\" of Kerning City first.",
       "Only the ones that pass my test can make the 2nd job advancement as the thief"
     ]
   },
@@ -1142,7 +1142,7 @@
     "id": 800006,
     "name": "Warrior Job Instructor",
     "functions": [
-      "Do you want to make the 2nd job advancement as the warrior? Go see \"Dances with Balrog\" of Perion first.",
+      "Do you want to make the 2nd job advancement as the warrior Go see \"Dances with Balrog\" of Perion first.",
       "Only the ones that pass my test can make the 2nd job advancement as the warrior."
     ]
   },
@@ -1212,7 +1212,7 @@
     "name": "Riel",
     "functions": [
       "Welcome to Florina Beach~!",
-      "Aren't we hot?"
+      "Aren't we hot"
     ]
   },
   {
@@ -1220,7 +1220,7 @@
     "name": "Roel",
     "functions": [
       "Welcome to Florina Beach~!",
-      "Aren't we hot?"
+      "Aren't we hot"
     ]
   },
   {
@@ -1228,7 +1228,7 @@
     "name": "Rael",
     "functions": [
       "Welcome to Florina Beach~!",
-      "Aren't we hot?"
+      "Aren't we hot"
     ]
   },
   {
@@ -1238,23 +1238,23 @@
       "You can be even stronger, if you get a lesson from Mai.",
       "Go to the right and then you can meet bunch of other people.",
       "Press \"w\" to see the current position.",
-      "How about partying with other players?"
+      "How about partying with other players"
     ]
   },
   {
     "id": 900000,
     "name": "Maple Administrator",
     "functions": [
-      "Hello, there! How's the traveling?",
-      "Would you like to change your job?"
+      "Hello, there! How's the traveling",
+      "Would you like to change your job"
     ]
   },
   {
     "id": 900001,
     "name": "Maple Administrator",
     "functions": [
-      "Hello, there! How's the traveling?",
-      "Would you like to change your job?"
+      "Hello, there! How's the traveling",
+      "Would you like to change your job"
     ]
   },
   {
@@ -1267,7 +1267,7 @@
     "name": "Maya",
     "functions": [
       "Cough, cough... Welcome to MapleCon…",
-      "There’s said to be a place called Someone Else’s House in Henesys. Have you heard of it?"
+      "There’s said to be a place called Someone Else’s House in Henesys. Have you heard of it"
     ]
   },
   {
@@ -1275,7 +1275,7 @@
     "name": "Sabitrama",
     "functions": [
       "I'm collecting herbs...",
-      "Do you have any desire to challenge the Forest of Patience, hidden deep within Ellinia?"
+      "Do you have any desire to challenge the Forest of Patience, hidden deep within Ellinia"
     ]
   },
   {
@@ -1297,15 +1297,15 @@
     "id": 900007,
     "name": "Natalie",
     "functions": [
-      "You like my hairstyle? We hairdressers are supposed to keep up with the latest trends, you know?",
-      "Want to customize your character to your heart’s content? Then come talk to me!"
+      "You like my hairstyle We hairdressers are supposed to keep up with the latest trends, you know",
+      "Want to customize your character to your heart’s content Then come talk to me!"
     ]
   },
   {
     "id": 900008,
     "name": "Lakelis",
     "functions": [
-      "Do you want to combine powers of your party members to solve this quest?",
+      "Do you want to combine powers of your party members to solve this quest",
       "There are lots of obstacles here where the only way you'll pass is by joining forces with your party members."
     ]
   },
@@ -1318,7 +1318,7 @@
     "id": 900010,
     "name": "Paul",
     "functions": [
-      "Where's my brother...?",
+      "Where's my brother...",
       "I need to get to where the event takes place..."
     ]
   },
@@ -1350,7 +1350,7 @@
     "functions": [
       "Don't talk to me...",
       "Leave now...before you get hurt",
-      "Are you telling me I'm worse than Man Ji??"
+      "Are you telling me I'm worse than Man Ji"
     ]
   },
   {
@@ -1364,7 +1364,7 @@
     "id": 9010000,
     "name": "Maple Administrator",
     "functions": [
-      "Are you enjoying the sights of Maple World?",
+      "Are you enjoying the sights of Maple World",
       "Feel free to talk to me anytime if you need my help."
     ]
   }

@@ -18,17 +18,7 @@ export function renderSkills(data) {
   let classFilter = '';
   const container = el('div');
 
-  const banner = el('div', {
-    className: 'warning-banner',
-    style: { borderColor: 'var(--accent)' },
-  });
-  banner.appendChild(
-    el('p', {
-      style: { fontSize: '13px', color: 'var(--accent)' },
-      textContent: 'All skills are rebalanced.',
-    })
-  );
-  container.appendChild(banner);
+
 
   // Pills for class filtering (by main_class)
   const pillGroup = el('div', { className: 'pill-group' });
@@ -55,14 +45,13 @@ export function renderSkills(data) {
     });
   }
   rebuildPills();
-  container.appendChild(pillGroup);
-
   container.appendChild(
     makeSearchBox('Search skills...', (value) => {
       searchQuery = value;
       renderData();
     })
   );
+  container.appendChild(pillGroup);
   container.appendChild(
     el('div', { className: 'count-text', textContent: `${totalSkills} skills` })
   );
@@ -110,15 +99,11 @@ export function renderSkills(data) {
             el('span', { className: 'max-level', textContent: `Max Lv.${skill.max_level}` })
           );
         }
-        if (skill.id != null) {
-          nameRow.appendChild(el('span', { className: 'id', style: { marginLeft: 'auto' }, textContent: skill.id }));
-        }
         card.appendChild(nameRow);
 
         if (skill.description) {
-          card.appendChild(
-            el('p', { className: 'skill-desc', textContent: skill.description })
-          );
+          const desc = skill.description.replace(/^\[Master Level\s*:\s*\d+\]\n?/i, '').trim();
+          if (desc) card.appendChild(el('p', { className: 'skill-desc', textContent: desc }));
         }
 
         if (skill.required_skill) {

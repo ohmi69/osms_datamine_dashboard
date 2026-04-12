@@ -1,4 +1,4 @@
-import { el, makeCollapsible, makeThumbnail } from '../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeSearchBox } from '../lib/utils.js';
 
 export function renderMaps(data) {
   const { maps } = data;
@@ -7,6 +7,14 @@ export function renderMaps(data) {
     el('div', {
       className: 'count-text',
       textContent: `${maps.total} maps across ${maps.regions.length} regions`,
+    })
+  );
+
+  let searchQuery = '';
+  container.appendChild(
+    makeSearchBox('Search maps...', (value) => {
+      searchQuery = value;
+      renderData();
     })
   );
 
@@ -66,13 +74,22 @@ export function renderMaps(data) {
 
   function renderData() {
     dataDiv.innerHTML = '';
-    const regions = selectedRegion
+    const sq = searchQuery.toLowerCase();
+    let regions = selectedRegion
       ? maps.regions.filter((r) => r.region === selectedRegion)
       : maps.regions;
     regions.forEach((region) => {
+      const filtered = sq
+        ? region.maps.filter(
+            (m) =>
+              (m.name || '').toLowerCase().includes(sq) ||
+              (m.street_name || '').toLowerCase().includes(sq)
+          )
+        : region.maps;
+      if (!filtered.length) return;
       const content = el('div');
-      region.maps.forEach((mapEntry) => content.appendChild(renderMapEntry(mapEntry)));
-      dataDiv.appendChild(makeCollapsible(region.region, region.count, true, null, content));
+      filtered.forEach((mapEntry) => content.appendChild(renderMapEntry(mapEntry)));
+      dataDiv.appendChild(makeCollapsible(region.region, filtered.length, true, null, content));
     });
   }
 
