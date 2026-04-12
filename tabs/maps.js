@@ -1,5 +1,15 @@
 import { el, makeCollapsible, makeThumbnail, makeSearchBox } from '../lib/utils.js';
 
+function formatSpawnTime(seconds) {
+  if (seconds < 60) {
+    const s = Number.isInteger(seconds) ? seconds : seconds.toFixed(2).replace(/\.?0+$/, '');
+    return `${s}s`;
+  }
+  const m = Math.floor(seconds / 60);
+  const s = Math.round(seconds % 60);
+  return s > 0 ? `${m}m ${s}s` : `${m}m`;
+}
+
 export function renderMaps(data) {
   const { maps, monsters } = data;
   const container = el('div');
@@ -23,6 +33,7 @@ export function renderMaps(data) {
           thumbnail: mob.thumbnail,
           count: m.count,
           exp: mob.exp || 0,
+          mobTime: m.mob_time ?? null,
         });
       }
     }
@@ -102,6 +113,15 @@ export function renderMaps(data) {
         chip.appendChild(makeThumbnail(mob.thumbnail, mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
         chip.appendChild(el('span', { textContent: mob.name || `#${mob.id}` }));
         chip.appendChild(el('span', { style: { color: 'var(--dim)', marginLeft: '2px' }, textContent: `×${mob.count}` }));
+        const DEFAULT_SPAWN = 7.65;
+        const timerColor = mob.mobTime == null ? 'var(--dim)'
+          : mob.mobTime < DEFAULT_SPAWN ? '#9ece6a'
+          : mob.mobTime > DEFAULT_SPAWN ? '#f7768e'
+          : 'var(--dim)';
+        chip.appendChild(el('span', {
+          style: { color: timerColor, marginLeft: '4px', fontSize: '11px' },
+          textContent: `⏱ ${mob.mobTime != null ? formatSpawnTime(mob.mobTime) : '—'}`,
+        }));
         grid.appendChild(chip);
       }
       panel.appendChild(grid);
