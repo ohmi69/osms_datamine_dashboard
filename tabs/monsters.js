@@ -268,11 +268,16 @@ export function renderMonsters(data) {
       });
 
       const tagCell = el('td');
+      const tagRow = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' } });
       const tagWrap = el('span', { style: { display: 'flex', gap: '6px', flexWrap: 'wrap' } });
       if (monster.is_boss) {
         tagWrap.appendChild(el('span', { className: 'badge badge-boss', textContent: 'BOSS' }));
       }
-      tagCell.appendChild(tagWrap);
+      tagRow.appendChild(tagWrap);
+      if (monster.id != null) {
+        tagRow.appendChild(el('span', { className: 'id', textContent: monster.id }));
+      }
+      tagCell.appendChild(tagRow);
       row.appendChild(tagCell);
       tbody.appendChild(row);
     });

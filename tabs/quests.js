@@ -242,6 +242,9 @@ function renderQuestCard(quest) {
   const card = el('div', { className: 'quest-card' });
   const nameRow = el('div', { className: 'quest-name' });
   nameRow.appendChild(document.createTextNode(quest.name));
+  if (quest.id != null) {
+    nameRow.appendChild(el('span', { className: 'id', style: { marginLeft: 'auto' }, textContent: quest.id }));
+  }
   if (quest.level_min > 0) {
     nameRow.appendChild(
       el('span', { className: 'level-badge', textContent: `Lv.${quest.level_min}+` })

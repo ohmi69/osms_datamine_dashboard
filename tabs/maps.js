@@ -56,10 +56,8 @@ export function renderMaps(data) {
     row.appendChild(left);
     row.appendChild(
       el('span', {
-        style: {
-          fontSize: '11px', color: 'var(--dim)', fontFamily: 'monospace',
-          flexShrink: '0', marginLeft: '8px',
-        },
+        className: 'id',
+        style: { flexShrink: '0', marginLeft: '8px' },
         textContent: mapEntry.id,
       })
     );

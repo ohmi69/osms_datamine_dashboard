@@ -125,8 +125,8 @@
       "base_class": "warrior",
       "subclasses": [
         "Fighter",
-        "Spearman",
-        "Page"
+        "Page",
+        "Spearman"
       ]
     },
     {
@@ -850,8 +850,8 @@
       "main_class": "Archer",
       "base_class": "archer",
       "subclasses": [
-        "Crossbowman",
-        "Hunter"
+        "Hunter",
+        "Crossbowman"
       ]
     },
     {
@@ -1096,8 +1096,8 @@
       "main_class": "Rogue",
       "base_class": "rogue",
       "subclasses": [
-        "Bandit",
-        "Assassin"
+        "Assassin",
+        "Bandit"
       ]
     },
     {

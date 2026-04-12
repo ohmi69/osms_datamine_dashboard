@@ -161,16 +161,19 @@ export function renderCrafting(data) {
           level.recipes.forEach((recipe) => {
             const row = el('tr');
             const resultCell = el('td');
-            const resultWrap = el('div', { className: 'craft-item' });
-            resultWrap.appendChild(
+            const resultWrap = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' } });
+            const resultLeft = el('div', { className: 'craft-item' });
+            resultLeft.appendChild(
               makeThumbnail(toItemThumbPath(recipe.output_id), `${recipe.result_item_name} thumbnail`, {
                 className: 'item-thumb',
                 fallbackText: 'ITEM',
               })
             );
-            resultWrap.appendChild(
-              el('span', { style: { fontWeight: '500' }, textContent: recipe.result_item_name })
-            );
+            resultLeft.appendChild(el('span', { style: { fontWeight: '500' }, textContent: recipe.result_item_name }));
+            resultWrap.appendChild(resultLeft);
+            if (recipe.output_id != null) {
+              resultWrap.appendChild(el('span', { className: 'id', textContent: recipe.output_id }));
+            }
             resultCell.appendChild(resultWrap);
             row.appendChild(resultCell);
             row.appendChild(

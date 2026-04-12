@@ -1,6 +1,6 @@
 import { TABS } from './lib/config.js';
 import { el, $, $$ } from './lib/utils.js';
-import { loadData } from './lib/data.js';
+import { loadData, loadState, saveState } from './lib/data.js';
 import { renderOverview }  from './tabs/overview.js';
 import { renderMonsters }  from './tabs/monsters.js';
 import { renderMaps }      from './tabs/maps.js';
@@ -93,6 +93,23 @@ async function init() {
     button.addEventListener('click', () => switchTab(tab.id));
     nav.appendChild(button);
   });
+
+  const _state = loadState();
+  let showIds = _state.showIds;
+  if (!showIds) document.body.classList.add('hide-ids');
+
+  const idToggle = el('button', {
+    className: `id-toggle${showIds ? ' active' : ''}`,
+    title: 'Show/hide IDs',
+    textContent: 'IDs',
+  });
+  idToggle.addEventListener('click', () => {
+    showIds = !showIds;
+    document.body.classList.toggle('hide-ids', !showIds);
+    idToggle.classList.toggle('active', showIds);
+    saveState('showIds', showIds);
+  });
+  nav.appendChild(idToggle);
 
   let hashTab = location.hash.slice(1);
   if (hashTab === 'cash_shop') hashTab = 'cashshop';

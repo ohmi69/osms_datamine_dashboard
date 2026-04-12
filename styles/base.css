@@ -117,6 +117,26 @@ body {
 .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 .tab-btn svg { width: 16px; height: 16px; }
 
+.id-toggle {
+  margin-left: auto;
+  padding: 4px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--dim);
+  font-size: 11px;
+  font-weight: 600;
+  font-family: monospace;
+  letter-spacing: .5px;
+  cursor: pointer;
+  white-space: nowrap;
+  align-self: center;
+  flex-shrink: 0;
+  transition: all .2s;
+}
+.id-toggle:hover { color: var(--text); border-color: #374151; }
+.id-toggle.active { background: rgba(245,158,11,0.1); color: var(--accent); border-color: rgba(245,158,11,0.35); }
+
 /* ── Search box ─────────────────────────────────────────────── */
 .search-box { position: relative; margin-bottom: 16px; }
 .search-box input {
@@ -263,12 +283,16 @@ body {
 }
 .info-banner p { font-size: 13px; color: var(--dim); }
 
+/* ── ID display ─────────────────────────────────────────────── */
+.id { font-size: 11px; color: var(--dim); font-family: monospace; }
+body.hide-ids .id { display: none !important; }
+
 /* ── Item rows (shared: items + equipment + maps) ───────────── */
 .item-row { padding: 10px 16px; transition: background .2s; }
 .item-row:hover { background: var(--surface-2); }
 .item-row .top-line { display: flex; align-items: center; justify-content: space-between; }
 .item-row .name { font-size: 15px; color: var(--text); }
-.item-row .id { font-size: 11px; color: var(--dim); font-family: monospace; flex-shrink: 0; }
+.item-row .id { flex-shrink: 0; }
 .item-row .desc {
   font-size: 13px;
   color: var(--dim);

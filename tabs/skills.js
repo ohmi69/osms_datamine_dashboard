@@ -110,6 +110,9 @@ export function renderSkills(data) {
             el('span', { className: 'max-level', textContent: `Max Lv.${skill.max_level}` })
           );
         }
+        if (skill.id != null) {
+          nameRow.appendChild(el('span', { className: 'id', style: { marginLeft: 'auto' }, textContent: skill.id }));
+        }
         card.appendChild(nameRow);
 
         if (skill.description) {
