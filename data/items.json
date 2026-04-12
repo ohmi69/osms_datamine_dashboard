@@ -22531,7 +22531,7 @@
     },
     {
       "id": 2060003,
-      "name": "Adamantium?Arrow for Bow",
+      "name": "Adamantium Arrow for Bow",
       "category": "Consumable",
       "sub_category": "Consume",
       "description": "A barrel full of adamantium arrows. Only usable with bows. Weapon Attack +3.",
@@ -22579,7 +22579,7 @@
     },
     {
       "id": 2061003,
-      "name": "Mithril?Arrow for Crossbow",
+      "name": "Mithril Arrow for Crossbow",
       "category": "Consumable",
       "sub_category": "Consume",
       "description": "A case full of mithril arrows. Only usable with crossbows. Weapon Attack +3.",
@@ -23947,7 +23947,7 @@
     },
     {
       "id": 4003008,
-      "name": "Processed Cloth?",
+      "name": "Processed Cloth",
       "category": "Etc",
       "sub_category": "Etc",
       "description": "Softly processed cloth. Used as a material for crafting various items.",
@@ -25793,7 +25793,7 @@
     },
     {
       "id": 2040004,
-      "name": "Hat HP Scroll:?Lesser",
+      "name": "Hat HP Scroll: Lesser",
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "HP",
@@ -26018,7 +26018,7 @@
     },
     {
       "id": 2040317,
-      "name": "Earring Crit. Damage Scroll:?Intermediate",
+      "name": "Earring Crit. Damage Scroll: Intermediate",
       "equip_slot": "Earring",
       "tier": "Intermediate",
       "stat_type": "Other",
@@ -26027,7 +26027,7 @@
     },
     {
       "id": 2040318,
-      "name": "Earring Crit. Damage Scroll:?Greater",
+      "name": "Earring Crit. Damage Scroll: Greater",
       "equip_slot": "Earring",
       "tier": "Greater",
       "stat_type": "Other",
@@ -26045,7 +26045,7 @@
     },
     {
       "id": 2040320,
-      "name": "Earring Avoidability Scroll:?Lesser",
+      "name": "Earring Avoidability Scroll: Lesser",
       "equip_slot": "Earring",
       "tier": "Lesser",
       "stat_type": "Avoidability",
@@ -26054,7 +26054,7 @@
     },
     {
       "id": 2040321,
-      "name": "Earring Avoidability Scroll:?Intermediate",
+      "name": "Earring Avoidability Scroll: Intermediate",
       "equip_slot": "Earring",
       "tier": "Intermediate",
       "stat_type": "Avoidability",
@@ -26063,7 +26063,7 @@
     },
     {
       "id": 2040322,
-      "name": "Earring Avoidability Scroll:?Greater",
+      "name": "Earring Avoidability Scroll: Greater",
       "equip_slot": "Earring",
       "tier": "Greater",
       "stat_type": "Avoidability",
@@ -26234,7 +26234,7 @@
     },
     {
       "id": 2040505,
-      "name": "Overall Armor STR Scroll:?Intermediate",
+      "name": "Overall Armor STR Scroll: Intermediate",
       "equip_slot": "Overall",
       "tier": "Intermediate",
       "stat_type": "STR",
@@ -26243,7 +26243,7 @@
     },
     {
       "id": 2040506,
-      "name": "Overall Armor STR Scroll:?Greater",
+      "name": "Overall Armor STR Scroll: Greater",
       "equip_slot": "Overall",
       "tier": "Greater",
       "stat_type": "STR",
@@ -26270,7 +26270,7 @@
     },
     {
       "id": 2040509,
-      "name": "Overall Armor DEX Scroll:?Intermediate",
+      "name": "Overall Armor DEX Scroll: Intermediate",
       "equip_slot": "Overall",
       "tier": "Intermediate",
       "stat_type": "DEX",
@@ -26279,7 +26279,7 @@
     },
     {
       "id": 2040510,
-      "name": "Overall Armor DEX Scroll:?Greater",
+      "name": "Overall Armor DEX Scroll: Greater",
       "equip_slot": "Overall",
       "tier": "Greater",
       "stat_type": "DEX",
@@ -26306,7 +26306,7 @@
     },
     {
       "id": 2040513,
-      "name": "Overall Armor INT Scroll:?Intermediate",
+      "name": "Overall Armor INT Scroll: Intermediate",
       "equip_slot": "Overall",
       "tier": "Intermediate",
       "stat_type": "INT",
@@ -26315,7 +26315,7 @@
     },
     {
       "id": 2040514,
-      "name": "Overall Armor INT Scroll:?Greater",
+      "name": "Overall Armor INT Scroll: Greater",
       "equip_slot": "Overall",
       "tier": "Greater",
       "stat_type": "INT",
@@ -26333,7 +26333,7 @@
     },
     {
       "id": 2040516,
-      "name": "Overall Armor LUK Scroll:?Lesser",
+      "name": "Overall Armor LUK Scroll: Lesser",
       "equip_slot": "Overall",
       "tier": "Lesser",
       "stat_type": "LUK",
@@ -26342,7 +26342,7 @@
     },
     {
       "id": 2040517,
-      "name": "Overall Armor LUK Scroll:?Intermediate",
+      "name": "Overall Armor LUK Scroll: Intermediate",
       "equip_slot": "Overall",
       "tier": "Intermediate",
       "stat_type": "LUK",
@@ -26351,7 +26351,7 @@
     },
     {
       "id": 2040518,
-      "name": "Overall Armor LUK Scroll:?Greater",
+      "name": "Overall Armor LUK Scroll: Greater",
       "equip_slot": "Overall",
       "tier": "Greater",
       "stat_type": "LUK",
@@ -26450,7 +26450,7 @@
     },
     {
       "id": 2040609,
-      "name": "Bottomwear MP Scroll:?Intermediate",
+      "name": "Bottomwear MP Scroll: Intermediate",
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "MP",
@@ -26459,7 +26459,7 @@
     },
     {
       "id": 2040610,
-      "name": "Bottomwear MP Scroll:?Greater",
+      "name": "Bottomwear MP Scroll: Greater",
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "MP",
@@ -26549,7 +26549,7 @@
     },
     {
       "id": 2040708,
-      "name": "Shoes Avoidability Scroll:?Lesser",
+      "name": "Shoes Avoidability Scroll: Lesser",
       "equip_slot": "Shoes",
       "tier": "Lesser",
       "stat_type": "Avoidability",
@@ -26558,7 +26558,7 @@
     },
     {
       "id": 2040709,
-      "name": "Shoes Avoidability Scroll:?Intermediate",
+      "name": "Shoes Avoidability Scroll: Intermediate",
       "equip_slot": "Shoes",
       "tier": "Intermediate",
       "stat_type": "Avoidability",
@@ -26567,7 +26567,7 @@
     },
     {
       "id": 2040710,
-      "name": "Shoes Avoidability Scroll:?Greater",
+      "name": "Shoes Avoidability Scroll: Greater",
       "equip_slot": "Shoes",
       "tier": "Greater",
       "stat_type": "Avoidability",
@@ -26585,7 +26585,7 @@
     },
     {
       "id": 2040800,
-      "name": "Gloves Attack Scroll:?Lesser",
+      "name": "Gloves Attack Scroll: Lesser",
       "equip_slot": "Glove",
       "tier": "Lesser",
       "stat_type": "Attack",
@@ -26612,7 +26612,7 @@
     },
     {
       "id": 2040803,
-      "name": "Gloves Attack Scroll:?Chaos",
+      "name": "Gloves Attack Scroll: Chaos",
       "equip_slot": "Glove",
       "tier": "Chaos",
       "stat_type": "Attack",
@@ -26621,7 +26621,7 @@
     },
     {
       "id": 2040804,
-      "name": "Gloves Magic Attack Scroll:?Lesser",
+      "name": "Gloves Magic Attack Scroll: Lesser",
       "equip_slot": "Glove",
       "tier": "Lesser",
       "stat_type": "Attack",
@@ -26648,7 +26648,7 @@
     },
     {
       "id": 2040807,
-      "name": "Gloves Magic Attack Scroll:?Chaos",
+      "name": "Gloves Magic Attack Scroll: Chaos",
       "equip_slot": "Glove",
       "tier": "Chaos",
       "stat_type": "Attack",
@@ -26711,7 +26711,7 @@
     },
     {
       "id": 2040814,
-      "name": "Gloves Crit. Rate?Scroll: Greater",
+      "name": "Gloves Crit. Rate Scroll: Greater",
       "equip_slot": "Glove",
       "tier": "Greater",
       "stat_type": "Other",
@@ -26720,7 +26720,7 @@
     },
     {
       "id": 2040815,
-      "name": "Gloves Crit. Rate?Scroll: Chaos",
+      "name": "Gloves Crit. Rate Scroll: Chaos",
       "equip_slot": "Glove",
       "tier": "Chaos",
       "stat_type": "Other",
@@ -26837,7 +26837,7 @@
     },
     {
       "id": 2041004,
-      "name": "Cape Magic Def. Scroll:?Lesser",
+      "name": "Cape Magic Def. Scroll: Lesser",
       "equip_slot": "Cape",
       "tier": "Lesser",
       "stat_type": "Defense",
@@ -27017,9 +27017,9 @@
     },
     {
       "id": 2041024,
-      "name": "Cape Accuracy Scroll:?Lesser?",
+      "name": "Cape Accuracy Scroll: Lesser",
       "equip_slot": "Cape",
-      "tier": "",
+      "tier": "Lesser",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on capes. Success rate: 100%, Accuracy +1",
       "thumbnail": "images/items/02041024.png"
@@ -27035,9 +27035,9 @@
     },
     {
       "id": 2041026,
-      "name": "Cape Accuracy Scroll: Greater?",
+      "name": "Cape Accuracy Scroll: Greater",
       "equip_slot": "Cape",
-      "tier": "",
+      "tier": "Greater",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on capes. Success rate: 10%, Accuracy +3",
       "thumbnail": "images/items/02041026.png"
@@ -27575,9 +27575,9 @@
     },
     {
       "id": 2048002,
-      "name": "Pet Equip. Speed Scroll: Greater ",
+      "name": "Pet Equip. Speed Scroll: Greater",
       "equip_slot": "Other",
-      "tier": "",
+      "tier": "Greater",
       "stat_type": "Speed",
       "description": "Improves Speed on pet equip. Success rate:10%, Speed+3",
       "thumbnail": "images/items/02048002.png"
@@ -27611,9 +27611,9 @@
     },
     {
       "id": 2048006,
-      "name": "Pet Equip. Jump Scroll: Greater ",
+      "name": "Pet Equip. Jump Scroll: Greater",
       "equip_slot": "Other",
-      "tier": "",
+      "tier": "Greater",
       "stat_type": "Other",
       "description": "Improves Jump on pet equip. Success rate:10%, Jump+3",
       "thumbnail": "images/items/02048006.png"
