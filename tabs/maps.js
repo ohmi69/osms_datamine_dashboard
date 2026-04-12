@@ -1,5 +1,20 @@
 import { el, makeCollapsible, makeThumbnail, makeSearchBox } from '../lib/utils.js';
 
+// Load NPCs data for lookup
+
+// NPC lookup cache
+let npcLookup = null;
+async function getNpcLookup() {
+  if (npcLookup) return npcLookup;
+  const res = await fetch('data/npcs.json');
+  const npcsData = await res.json();
+  npcLookup = new Map();
+  for (const npc of npcsData) {
+    npcLookup.set(Number(npc.id), npc);
+  }
+  return npcLookup;
+}
+
 function formatSpawnTime(seconds) {
   // If input is a string, handle min-max [avg] or single value
   if (typeof seconds === 'string') {
@@ -106,71 +121,101 @@ export function renderMaps(data) {
 
   let selectedRegion = null;
 
-  function renderDetailRow(mapEntry, colSpan) {
-    const tr = el('tr', { className: 'map-detail-row' });
-    const td = el('td', { colSpan: String(colSpan) });
+    async function renderDetailRow(mapEntry, colSpan) {
+      const tr = el('tr', { className: 'map-detail-row' });
+      const td = el('td', { colSpan: String(colSpan) });
 
-    const panel = el('div', { className: 'map-detail-panel' });
+      const panel = el('div', { className: 'map-detail-panel' });
 
-    // Metadata chips
-    const hasMeta = mapEntry.bgm || mapEntry.mob_rate != null || mapEntry.return_map_name;
-    if (hasMeta) {
-      const meta = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', fontSize: '12px', marginBottom: '8px' } });
-      const tag = (label, value) => {
-        const chip = el('div', {
-          style: {
-            display: 'flex', gap: '4px', alignItems: 'center',
-            padding: '2px 7px', borderRadius: '4px',
-            border: '1px solid var(--border)',
-            background: 'var(--surface3, rgba(255,255,255,0.04))',
-          },
-        });
-        chip.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: label }));
-        chip.appendChild(el('span', { textContent: value }));
-        return chip;
-      };
-      if (mapEntry.bgm) meta.appendChild(tag('BGM', mapEntry.bgm.replace('Bgm', '').replace('/', ' / ')));
-      if (mapEntry.mob_rate != null) meta.appendChild(tag('Mob Rate', `×${mapEntry.mob_rate}`));
-      if (mapEntry.return_map_name) meta.appendChild(tag('Return', mapEntry.return_map_name));
-      panel.appendChild(meta);
-    }
-
-    // Mob spawns
-    const mobs = mapMobs.get(mapEntry.id);
-    if (!mobs || mobs.length === 0) {
-      panel.appendChild(el('span', { style: { fontSize: '13px', color: 'var(--dim)' }, textContent: 'No mob spawns' }));
-    } else {
-      const grid = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px' } });
-      for (const mob of mobs) {
-        const chip = el('div', {
-          style: {
-            display: 'flex', alignItems: 'center', gap: '6px',
-            padding: '4px 8px 4px 4px', borderRadius: '6px',
-            background: 'var(--surface3, rgba(255,255,255,0.05))',
-            border: '1px solid var(--border)', fontSize: '13px',
-          },
-        });
-        chip.appendChild(makeThumbnail(mob.thumbnail, mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
-        chip.appendChild(el('span', { textContent: mob.name || `#${mob.id}` }));
-        chip.appendChild(el('span', { style: { color: 'var(--dim)', marginLeft: '2px' }, textContent: `×${mob.count}` }));
-        const DEFAULT_SPAWN = 7.65;
-        const timerColor = mob.mobTime == null ? 'var(--dim)'
-          : mob.mobTime < DEFAULT_SPAWN ? '#9ece6a'
-          : mob.mobTime > DEFAULT_SPAWN ? '#f7768e'
-          : 'var(--dim)';
-        chip.appendChild(el('span', {
-          style: { color: timerColor, marginLeft: '4px', fontSize: '11px' },
-          textContent: `⏱ ${mob.mobTime != null ? formatSpawnTime(mob.mobTime) : '—'}`,
-        }));
-        grid.appendChild(chip);
+      // Metadata chips
+      const hasMeta = mapEntry.bgm || mapEntry.mob_rate != null || mapEntry.return_map_name;
+      if (hasMeta) {
+        const meta = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', fontSize: '12px', marginBottom: '8px' } });
+        const tag = (label, value) => {
+          const chip = el('div', {
+            style: {
+              display: 'flex', gap: '4px', alignItems: 'center',
+              padding: '2px 7px', borderRadius: '4px',
+              border: '1px solid var(--border)',
+              background: 'var(--surface3, rgba(255,255,255,0.04))',
+            },
+          });
+          chip.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: label }));
+          chip.appendChild(el('span', { textContent: value }));
+          return chip;
+        };
+        if (mapEntry.bgm) meta.appendChild(tag('BGM', mapEntry.bgm.replace('Bgm', '').replace('/', ' / ')));
+        if (mapEntry.mob_rate != null) meta.appendChild(tag('Mob Rate', `×${mapEntry.mob_rate}`));
+        if (mapEntry.return_map_name) meta.appendChild(tag('Return', mapEntry.return_map_name));
+        panel.appendChild(meta);
       }
-      panel.appendChild(grid);
-    }
 
-    td.appendChild(panel);
-    tr.appendChild(td);
-    return tr;
-  }
+      // Mob spawns
+      const mobs = mapMobs.get(mapEntry.id);
+      if (!mobs || mobs.length === 0) {
+        panel.appendChild(el('span', { style: { fontSize: '13px', color: 'var(--dim)' }, textContent: 'No mob spawns' }));
+      } else {
+        const grid = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px' } });
+        for (const mob of mobs) {
+          const chip = el('div', {
+            style: {
+              display: 'flex', alignItems: 'center', gap: '6px',
+              padding: '4px 8px 4px 4px', borderRadius: '6px',
+              background: 'var(--surface3, rgba(255,255,255,0.05))',
+              border: '1px solid var(--border)', fontSize: '13px',
+            },
+          });
+          chip.appendChild(makeThumbnail(mob.thumbnail, mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
+          chip.appendChild(el('span', { textContent: mob.name || `#${mob.id}` }));
+          chip.appendChild(el('span', { style: { color: 'var(--dim)', marginLeft: '2px' }, textContent: `×${mob.count}` }));
+          const DEFAULT_SPAWN = 7.56;
+          const timerColor = mob.mobTime == null ? 'var(--dim)'
+            : mob.mobTime < DEFAULT_SPAWN ? '#9ece6a'
+            : mob.mobTime > DEFAULT_SPAWN ? '#f7768e'
+            : 'var(--dim)';
+          chip.appendChild(el('span', {
+            style: { color: timerColor, marginLeft: '4px', fontSize: '11px' },
+            textContent: `⏱ ${mob.mobTime != null ? formatSpawnTime(mob.mobTime) : '—'}`,
+          }));
+          grid.appendChild(chip);
+        }
+        panel.appendChild(grid);
+      }
+
+      // --- NPCs on this map ---
+      if (Array.isArray(mapEntry.npcs) && mapEntry.npcs.length > 0) {
+        const npcGrid = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '10px' } });
+        const lookup = await getNpcLookup();
+        for (const npcId of mapEntry.npcs) {
+          const npc = lookup.get(Number(npcId));
+          const chip = el('div', {
+            style: {
+              display: 'flex', alignItems: 'center', gap: '6px',
+              padding: '4px 8px 4px 4px', borderRadius: '6px',
+              background: 'var(--surface3, rgba(255,255,255,0.05))',
+              border: '1px solid var(--border)', fontSize: '13px',
+            },
+          });
+          if (npc?.thumbnail) {
+            chip.appendChild(el('img', {
+              src: npc.thumbnail,
+              alt: npc.name || `NPC #${npcId}`,
+              style: { width: '32px', height: '32px', objectFit: 'contain', borderRadius: '4px',  marginRight: '4px' },
+              loading: 'lazy',
+            }));
+          }
+          chip.appendChild(el('span', { textContent: npc?.name || `NPC #${npcId}` }));
+          chip.appendChild(el('span', { style: { color: 'var(--dim)', marginLeft: '2px', fontSize: '11px' }, textContent: `#${npcId}` }));
+          npcGrid.appendChild(chip);
+        }
+        panel.appendChild(el('div', { style: { fontWeight: 'bold', margin: '10px 0 2px 0', fontSize: '13px' }, textContent: 'NPCs on this map:' }));
+        panel.appendChild(npcGrid);
+      }
+
+      td.appendChild(panel);
+      tr.appendChild(td);
+      return tr;
+    }
 
   // Sort state shared across all region tables
   let sortCol = null;
@@ -317,13 +362,13 @@ export function renderMaps(data) {
         // Expand detail on click
         let detailTr = null;
         let expanded = false;
-        tr.addEventListener('click', (e) => {
+        tr.addEventListener('click', async (e) => {
           if (e.target.closest('.thumb')) return;
           if (!hasDetail) return;
           expanded = !expanded;
           if (expanded) {
             if (!detailTr) {
-              detailTr = renderDetailRow(mapEntry, COL_SPAN);
+              detailTr = await renderDetailRow(mapEntry, COL_SPAN);
               tr.after(detailTr);
             } else {
               detailTr.style.display = '';
@@ -359,33 +404,43 @@ export function renderMaps(data) {
     return wrapper;
   }
 
-  function renderData() {
-    dataDiv.innerHTML = '';
-    const sq = searchQuery.toLowerCase();
-    let regions = selectedRegion
-      ? maps.regions.filter((r) => r.region === selectedRegion)
-      : maps.regions;
-    regions.forEach((region) => {
-      const filtered = sq
-        ? region.maps.filter((m) => {
-            // Match map name or street name
-            if ((m.name || '').toLowerCase().includes(sq) || (m.street_name || '').toLowerCase().includes(sq)) {
-              return true;
-            }
-            // Match mob names that spawn on this map
-            const mobs = mapMobs.get(m.id);
-            if (mobs && mobs.some(mob => (mob.name || '').toLowerCase().includes(sq))) {
-              return true;
-            }
-            return false;
-          })
-        : region.maps;
-      if (!filtered.length) return;
-      dataDiv.appendChild(
-        makeCollapsible(region.region, filtered.length, true, null, () => renderRegionTable(filtered))
-      );
-    });
-  }
+    async function renderData() {
+      dataDiv.innerHTML = '';
+      const sq = searchQuery.toLowerCase();
+      const npcLookup = await getNpcLookup();
+      let regions = selectedRegion
+        ? maps.regions.filter((r) => r.region === selectedRegion)
+        : maps.regions;
+      regions.forEach((region) => {
+        const filtered = sq
+          ? region.maps.filter((m) => {
+              // Match map name or street name
+              if ((m.name || '').toLowerCase().includes(sq) || (m.street_name || '').toLowerCase().includes(sq)) {
+                return true;
+              }
+              // Match mob names that spawn on this map
+              const mobs = mapMobs.get(m.id);
+              if (mobs && mobs.some(mob => (mob.name || '').toLowerCase().includes(sq))) {
+                return true;
+              }
+              // Match NPC names on this map
+              if (Array.isArray(m.npcs) && m.npcs.length > 0) {
+                for (const npcId of m.npcs) {
+                  const npc = npcLookup.get(Number(npcId));
+                  if ((npc?.name || '').toLowerCase().includes(sq)) {
+                    return true;
+                  }
+                }
+              }
+              return false;
+            })
+          : region.maps;
+        if (!filtered.length) return;
+        dataDiv.appendChild(
+          makeCollapsible(region.region, filtered.length, true, null, () => renderRegionTable(filtered))
+        );
+      });
+    }
 
   // Tab event listeners
   allTab.addEventListener('click', () => {

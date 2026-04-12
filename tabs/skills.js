@@ -113,20 +113,60 @@ export function renderSkills(data) {
           card.appendChild(req);
         }
 
-        if (skill.level1_stats || skill.max_level_stats) {
+        if (Array.isArray(skill.all_level_stats) && skill.all_level_stats.length > 0) {
           const statLevels = el('div', { className: 'stat-levels' });
-          if (skill.level1_stats) {
-            const lv1 = el('div', { className: 'lv1' });
-            lv1.appendChild(el('span', { className: 'label', textContent: 'Lv.1: ' }));
-            lv1.appendChild(document.createTextNode(skill.level1_stats));
-            statLevels.appendChild(lv1);
+          // Always show Lv.1
+          const lv1 = el('div', { className: 'lv1' });
+          lv1.appendChild(el('span', { className: 'label', textContent: 'Lv.1: ' }));
+          lv1.appendChild(document.createTextNode(skill.all_level_stats[0]));
+          statLevels.appendChild(lv1);
+
+          // Only show foldout if there are intermediate levels
+          if (skill.all_level_stats.length > 2) {
+            let expanded = false;
+            let levelsList = null;
+            const arrow = el('span', { className: 'all-levels-arrow', textContent: '▼', style: { fontSize: '13px', color: 'var(--dim)', marginLeft: 'auto', transition: 'transform .2s' } });
+            statLevels.appendChild(arrow);
+            statLevels.style.cursor = 'pointer';
+            statLevels.title = 'Show intermediate levels';
+            statLevels.addEventListener('click', () => {
+              expanded = !expanded;
+              arrow.textContent = expanded ? '▲' : '▼';
+              if (expanded) {
+                if (!levelsList) {
+                  levelsList = el('div', { className: 'all-levels-list' });
+                  // Show intermediate levels (Lv.2 to Lv.max-1)
+                  for (let idx = 1; idx < skill.all_level_stats.length - 1; idx++) {
+                    const stats = skill.all_level_stats[idx];
+                    const lv = el('div', { className: 'midlevel' });
+                    lv.appendChild(el('span', { className: 'label', textContent: `Lv.${idx + 1}: ` }));
+                    lv.appendChild(document.createTextNode(stats));
+                    levelsList.appendChild(lv);
+                  }
+                }
+                // Insert the levelsList right before Lv.max
+                const lvmaxIdx = skill.all_level_stats.length - 1;
+                const lvmaxDivs = Array.from(statLevels.getElementsByClassName('lvmax'));
+                if (lvmaxDivs.length > 0) {
+                  statLevels.insertBefore(levelsList, lvmaxDivs[0]);
+                } else {
+                  statLevels.appendChild(levelsList);
+                }
+                levelsList.style.display = '';
+              } else {
+                if (levelsList && levelsList.parentNode) {
+                  levelsList.style.display = 'none';
+                }
+              }
+            });
           }
-          if (skill.max_level_stats && skill.max_level > 0) {
+
+          // Always show Lv.max
+          const lvmaxIdx = skill.all_level_stats.length - 1;
+          if (lvmaxIdx > 0) {
             const lvmax = el('div', { className: 'lvmax' });
-            lvmax.appendChild(
-              el('span', { className: 'label', textContent: `Lv.${skill.max_level}: ` })
-            );
-            lvmax.appendChild(document.createTextNode(skill.max_level_stats));
+            lvmax.appendChild(el('span', { className: 'label', textContent: `Lv.${lvmaxIdx + 1}: ` }));
+            lvmax.appendChild(document.createTextNode(skill.all_level_stats[lvmaxIdx]));
             statLevels.appendChild(lvmax);
           }
           card.appendChild(statLevels);

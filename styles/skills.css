@@ -37,3 +37,35 @@
 .skill-card .stat-levels .lv1  .label { color: var(--secondary); }
 .skill-card .stat-levels .lvmax { color: var(--text); }
 .skill-card .stat-levels .lvmax .label { color: var(--accent); }
+
+/* Inline all-levels foldout */
+.skill-card .stat-levels { cursor: pointer; position: relative; }
+.skill-card .stat-levels .all-levels-arrow {
+  font-size: 13px;
+  color: var(--dim);
+  margin-left: auto;
+  transition: transform .2s;
+  position: absolute;
+  right: 0;
+  top: 6px;
+}
+.skill-card .stat-levels .all-levels-arrow {
+  font-size: 13px;
+  color: var(--dim);
+  transition: transform .2s;
+}
+.skill-card .stat-levels .all-levels-list {
+  padding: 0;
+  font-size: 13px;
+  font-family: monospace;
+  color: inherit;
+}
+.skill-card .stat-levels .all-levels-list .midlevel {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 4px;
+}
+.skill-card .stat-levels .all-levels-list .label {
+  color: var(--secondary);
+}
