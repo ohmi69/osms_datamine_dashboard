@@ -11,7 +11,14 @@ import { renderEquipment } from './tabs/equipment.js';
 import { renderCashShop }  from './tabs/cashshop.js';
 import { renderQuests }    from './tabs/quests.js';
 
-document.documentElement.setAttribute('data-theme', 'mapletip');
+// Apply theme immediately to avoid flash
+(function () {
+  try {
+    const stored = JSON.parse(localStorage.getItem('mscw-datamine-state') || '{}');
+    const theme = stored.theme || 'mapletip';
+    if (theme === 'mapletip') document.documentElement.setAttribute('data-theme', 'mapletip');
+  } catch {}
+})();
 
 let appData = null;
 let activeTab = 'overview';
@@ -100,6 +107,13 @@ async function init() {
   let showIds = _state.showIds;
   if (!showIds) document.body.classList.add('hide-ids');
 
+  let theme = _state.theme;
+  if (theme === 'mapletip') {
+    document.documentElement.setAttribute('data-theme', 'mapletip');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+
   const idToggle = el('button', {
     className: `id-toggle${showIds ? ' active' : ''}`,
     title: 'Show/hide IDs',
@@ -112,6 +126,27 @@ async function init() {
     saveState('showIds', showIds);
   });
   nav.appendChild(idToggle);
+
+  const themeToggle = el('button', {
+    className: `id-toggle theme-toggle${theme === 'mapletip' ? '' : ' active'}`,
+    title: 'Toggle dark/light theme',
+    innerHTML: theme === 'mapletip' ? '🌙' : '☀️',
+  });
+  themeToggle.addEventListener('click', () => {
+    if (theme === 'dark') {
+      theme = 'mapletip';
+      document.documentElement.setAttribute('data-theme', 'mapletip');
+      themeToggle.innerHTML = '🌙';
+      themeToggle.classList.remove('active');
+    } else {
+      theme = 'dark';
+      document.documentElement.removeAttribute('data-theme');
+      themeToggle.innerHTML = '☀️';
+      themeToggle.classList.add('active');
+    }
+    saveState('theme', theme);
+  });
+  nav.appendChild(themeToggle);
 
   let hashTab = location.hash.slice(1);
   if (hashTab === 'cash_shop') hashTab = 'cashshop';

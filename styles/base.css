@@ -46,20 +46,20 @@
 }
 .image-modal-close:hover { color: var(--accent); }
 :root {
-  --bg: #0a0e17;
-  --surface: #111827;
-  --surface-2: #1a2332;
+  --bg: #1a1f2e;
+  --surface: #242b3d;
+  --surface-2: #2d3650;
   --accent: #f59e0b;
   --text: #e5e7eb;
-  --dim: #6b7280;
-  --border: #1f2937;
+  --dim: #8b95aa;
+  --border: #323d54;
   --secondary: #60a5fa;
   --boss-badge: #ef4444;
   --new-badge: #22c55e;
   --card: var(--surface);
-  --accent-bg: rgba(245,158,11,.05);
-  --scrollbar-thumb: #374151;
-  --scrollbar-track: #111827;
+  --accent-bg: rgba(245,158,11,.07);
+  --scrollbar-thumb: #3d4a63;
+  --scrollbar-track: #242b3d;
 }
 
 /* ── Theme: MapleTip — warm parchment, 2007 nostalgia ───────── */
@@ -328,6 +328,13 @@ body {
 }
 .id-toggle:hover { color: var(--text); border-color: var(--dim); }
 .id-toggle.active { background: var(--accent-bg); color: var(--accent); border-color: var(--accent); }
+
+.theme-toggle {
+  font-size: 15px;
+  padding: 5px 9px;
+  line-height: 1;
+}
+.theme-toggle.active { background: var(--accent-bg); border-color: var(--accent); }
 
 /* ── Search box ─────────────────────────────────────────────── */
 .search-box { position: relative; margin-bottom: 16px; }
