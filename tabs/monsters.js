@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath } from '../lib/utils.js';
 import { loadState, saveState } from '../lib/data.js';
 
 const _savedState = loadState();
@@ -18,6 +18,154 @@ function getMonsterElements(monster) {
     effect,
     cls: ELEMENT_CLASSES[effect] || '',
   }));
+}
+
+function buildDetailRow(monster, colSpan) {
+  const detailTr = el('tr', { className: 'monster-detail-row' });
+  const detailTd = el('td', { colSpan: String(colSpan) });
+
+  const panel = el('div', { className: 'monster-detail-panel' });
+
+  // ── Header ──────────────────────────────────────────────────
+  const header = el('div', { className: 'monster-detail-header' });
+  const STATE_ORDER = ['stand', 'move', 'fly', 'jump', 'attack1', 'attack2', 'attack3', 'skill1', 'hit1', 'die1'];
+  const STATE_LABEL = { stand: 'Stand', move: 'Move', fly: 'Fly', jump: 'Jump', attack1: 'Atk 1', attack2: 'Atk 2', attack3: 'Atk 3', skill1: 'Skill', hit1: 'Hit', die1: 'Die' };
+
+  const gifs = monster.gifs || {};
+  const availableStates = STATE_ORDER.filter(s => gifs[s]);
+  const defaultSrc = normalizeAssetPath(monster.gif || monster.thumbnail);
+
+  const headerLeft = el('div', { className: 'monster-detail-header-left' });
+
+  // Animation display
+  const animWrap = el('div', { className: 'monster-anim-wrap' });
+  let gifImg;
+  if (defaultSrc) {
+    gifImg = el('img', { src: defaultSrc, alt: `${monster.name} animation`, className: 'monster-detail-gif' });
+    animWrap.appendChild(gifImg);
+  } else {
+    gifImg = null;
+    animWrap.appendChild(el('div', { className: 'monster-detail-gif monster-detail-gif-fallback', textContent: 'MOB' }));
+  }
+
+  // Animation picker tabs (only if multiple states exist)
+  if (availableStates.length > 1) {
+    const tabs = el('div', { className: 'monster-anim-tabs' });
+    let activeState = availableStates[0];
+    availableStates.forEach(state => {
+      const tab = el('button', {
+        className: `monster-anim-tab${state === activeState ? ' active' : ''}`,
+        textContent: STATE_LABEL[state] || state,
+      });
+      tab.addEventListener('click', () => {
+        activeState = state;
+        tabs.querySelectorAll('.monster-anim-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        if (gifImg) gifImg.src = normalizeAssetPath(gifs[state]);
+      });
+      tabs.appendChild(tab);
+    });
+    animWrap.appendChild(tabs);
+  }
+
+  headerLeft.appendChild(animWrap);
+  headerLeft.appendChild(el('span', { className: 'monster-detail-name', textContent: monster.name }));
+  header.appendChild(headerLeft);
+
+  const headerRight = el('div', { className: 'monster-detail-header-right' });
+  if (monster.id != null) {
+    headerRight.appendChild(el('span', { className: 'id', textContent: `#${monster.id}` }));
+  }
+  if (monster.is_boss) {
+    headerRight.appendChild(el('span', { className: 'badge badge-boss', textContent: 'BOSS' }));
+  }
+  if (monster.undead) {
+    headerRight.appendChild(
+      el('span', { className: 'elem-badge elem-undead', textContent: 'Undead' })
+    );
+  }
+  const elems = getMonsterElements(monster);
+  elems.forEach((elem) => {
+    headerRight.appendChild(
+      el('span', { className: `elem-badge ${elem.cls}`, textContent: `${elem.name} ${elem.effect}` })
+    );
+  });
+  header.appendChild(headerRight);
+  panel.appendChild(header);
+
+  // ── Body ────────────────────────────────────────────────────
+  const body = el('div', { className: 'monster-detail-body' });
+
+  // Stats column
+  const statsCol = el('div', { className: 'monster-detail-col' });
+
+  const statGroups = [
+    {
+      label: 'Base',
+      stats: [
+        { label: 'Level', value: monster.level, accent: true },
+        { label: 'HP',    value: monster.hp },
+        { label: 'MP',    value: monster.mp },
+        { label: 'EXP',   value: monster.exp },
+        { label: 'EXP/HP', value: monster.hp > 0 && monster.exp > 0 ? (monster.exp / monster.hp).toFixed(3) : null },
+      ],
+    },
+    {
+      label: 'Combat',
+      stats: [
+        { label: 'P.ATK', value: monster.PADamage },
+        { label: 'P.DEF', value: monster.PDDamage },
+        { label: 'M.ATK', value: monster.MADamage },
+        { label: 'M.DEF', value: monster.MDDamage },
+        { label: 'ACC',   value: monster.acc },
+        { label: 'EVA',   value: monster.eva },
+        { label: 'Speed', value: monster.speed },
+      ],
+    },
+  ];
+
+  statGroups.forEach(({ label, stats }) => {
+    const visible = stats.filter(({ value }) => value != null && value !== 0);
+    if (!visible.length) return;
+    const group = el('div', { className: 'monster-stat-group' });
+    group.appendChild(el('div', { className: 'monster-stat-group-label', textContent: label }));
+    const grid = el('div', { className: 'monster-stat-grid' });
+    visible.forEach(({ label: sLabel, value, accent }) => {
+      const cell = el('div', { className: 'monster-stat-cell' });
+      cell.appendChild(el('span', { className: 'monster-stat-label', textContent: sLabel }));
+      cell.appendChild(
+        el('span', { className: `monster-stat-value${accent ? ' accent' : ''}`, textContent: fmt(value) })
+      );
+      grid.appendChild(cell);
+    });
+    group.appendChild(grid);
+    statsCol.appendChild(group);
+  });
+
+  body.appendChild(statsCol);
+
+  // Maps column
+  const spawnMaps = monster.maps || [];
+  if (spawnMaps.length) {
+    const mapsCol = el('div', { className: 'monster-detail-col monster-detail-col-maps' });
+    mapsCol.appendChild(el('div', { className: 'monster-stat-group-label', textContent: 'Spawns In' }));
+    const mapList = el('div', { className: 'monster-map-list' });
+    [...spawnMaps].sort((a, b) => a.id - b.id).forEach((m) => {
+      const chip = el('span', { className: 'monster-map-chip' });
+      chip.appendChild(el('span', { textContent: m.name || String(m.id) }));
+      if (m.count > 1) {
+        chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${m.count}` }));
+      }
+      mapList.appendChild(chip);
+    });
+    mapsCol.appendChild(mapList);
+    body.appendChild(mapsCol);
+  }
+
+  panel.appendChild(body);
+  detailTd.appendChild(panel);
+  detailTr.appendChild(detailTd);
+  return detailTr;
 }
 
 export function renderMonsters(data) {
@@ -120,6 +268,9 @@ export function renderMonsters(data) {
   function renderData() {
     dataContainer.innerHTML = '';
     const visibleCols = allCols.filter((col) => colState[col.id]);
+    // +2 for Name col and Tags col
+    const totalCols = visibleCols.length + 2;
+
     const filtered = monsters.monsters.filter((monster) => {
       if (!matchSearch(monster.name, filter)) return false;
       if (typeFilter === 'boss' && !monster.is_boss) return false;
@@ -152,12 +303,13 @@ export function renderMonsters(data) {
     headRow.appendChild(nameHeader);
 
     visibleCols.forEach((col) => {
+      const sortable = col.id !== 'elements';
       const th = el('th', {
-        className: col.id !== 'elements' ? 'num' : '',
+        className: sortable ? 'num' : '',
         textContent: col.label,
-        style: { cursor: col.id !== 'elements' ? 'pointer' : 'default' },
+        style: { cursor: sortable ? 'pointer' : 'default' },
       });
-      if (col.id !== 'elements') {
+      if (sortable) {
         th.addEventListener('click', () => {
           if (sortCol === col.id) {
             sortDir *= -1;
@@ -198,11 +350,11 @@ export function renderMonsters(data) {
 
     const tbody = el('tbody');
     filtered.forEach((monster) => {
-      const row = el('tr');
+      const row = el('tr', { className: 'monster-row', style: { cursor: 'pointer' } });
       const nameCell = el('td', { style: { fontWeight: '500', whiteSpace: 'nowrap' } });
       const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', gap: '8px' } });
       nameWrap.appendChild(
-        makeThumbnail(monster.thumbnail, `${monster.name} thumbnail`, {
+        makeThumbnail(monster.gif || monster.thumbnail, `${monster.name} thumbnail`, {
           className: 'monster-thumb',
           fallbackText: 'MOB',
         })
@@ -279,6 +431,22 @@ export function renderMonsters(data) {
       }
       tagCell.appendChild(tagRow);
       row.appendChild(tagCell);
+
+      // Click to toggle detail row
+      let detailRow = null;
+      row.addEventListener('click', (e) => {
+        if (e.target.closest('.thumb')) return; // let thumbnail modal handle its own click
+        if (detailRow) {
+          detailRow.remove();
+          detailRow = null;
+          row.classList.remove('expanded');
+        } else {
+          detailRow = buildDetailRow(monster, totalCols);
+          row.after(detailRow);
+          row.classList.add('expanded');
+        }
+      });
+
       tbody.appendChild(row);
     });
 

@@ -18,7 +18,20 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000001.png"
+      "maps": [
+        {
+          "id": 30,
+          "name": "East Entrance to Mushroom Town",
+          "count": 3
+        }
+      ],
+      "thumbnail": "images/monsters/0000001.png",
+      "gifs": {
+        "move": "images/monsters/0000001.move.webp",
+        "hit1": "images/monsters/0000001.hit1.webp",
+        "die1": "images/monsters/0000001.die1.webp"
+      },
+      "gif": "images/monsters/0000001.move.webp"
     },
     {
       "id": 2,
@@ -38,7 +51,201 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000002.png"
+      "maps": [
+        {
+          "id": 40,
+          "name": "Snail Hunting Ground I",
+          "count": 40
+        },
+        {
+          "id": 41,
+          "name": "Snail Hunting Ground II",
+          "count": 32
+        },
+        {
+          "id": 42,
+          "name": "Snail Hunting Ground III",
+          "count": 20
+        },
+        {
+          "id": 1000,
+          "name": "The Field West of Amherst",
+          "count": 7
+        },
+        {
+          "id": 1001,
+          "name": "In a Small Forest",
+          "count": 12
+        },
+        {
+          "id": 1002,
+          "name": "Dangerous Forest",
+          "count": 14
+        },
+        {
+          "id": 1003,
+          "name": "Mushroom Garden",
+          "count": 7
+        },
+        {
+          "id": 1004,
+          "name": "Snail Garden",
+          "count": 11
+        },
+        {
+          "id": 1005,
+          "name": "Hunting Ground Middle of the Forest I",
+          "count": 14
+        },
+        {
+          "id": 1006,
+          "name": "Hunting Ground Middle of the Forest II",
+          "count": 10
+        },
+        {
+          "id": 1014,
+          "name": "Snail Field of Flowers",
+          "count": 6
+        },
+        {
+          "id": 1020,
+          "name": "The Field East of Amherst",
+          "count": 3
+        },
+        {
+          "id": 1021,
+          "name": "Tomato Field",
+          "count": 9
+        },
+        {
+          "id": 10000011,
+          "name": "Thicket Around the Beach I",
+          "count": 20
+        },
+        {
+          "id": 10000012,
+          "name": "Thicket Around the Beach II",
+          "count": 9
+        },
+        {
+          "id": 10000013,
+          "name": "Thicket Around the Beach III",
+          "count": 13
+        },
+        {
+          "id": 10000020,
+          "name": "3-Way Road-Split",
+          "count": 5
+        },
+        {
+          "id": 10000022,
+          "name": "Beach Hunting Ground",
+          "count": 2
+        },
+        {
+          "id": 10001030,
+          "name": "Forest West of Henesys",
+          "count": 13
+        },
+        {
+          "id": 10001080,
+          "name": "The Forest East of Henesys",
+          "count": 7
+        },
+        {
+          "id": 10002020,
+          "name": "The Forest of Wisdom",
+          "count": 3
+        },
+        {
+          "id": 10002030,
+          "name": "The Forest South of Ellinia",
+          "count": 15
+        },
+        {
+          "id": 10002050,
+          "name": "The Field Up North of Ellinia",
+          "count": 10
+        },
+        {
+          "id": 10002070,
+          "name": "The Forest North of Ellinia",
+          "count": 9
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 1
+        },
+        {
+          "id": 10003040,
+          "name": "L Forest III",
+          "count": 4
+        },
+        {
+          "id": 10003052,
+          "name": "Kerning City Middle Forest III",
+          "count": 5
+        },
+        {
+          "id": 10004030,
+          "name": "West Domain of Perion",
+          "count": 6
+        },
+        {
+          "id": 10004040,
+          "name": "Perion Street Corner",
+          "count": 6
+        },
+        {
+          "id": 10004053,
+          "name": "East Rocky Mountain IV",
+          "count": 11
+        },
+        {
+          "id": 10004060,
+          "name": "Rocky Road I",
+          "count": 9
+        },
+        {
+          "id": 10004070,
+          "name": "Rocky Road II",
+          "count": 12
+        },
+        {
+          "id": 10004090,
+          "name": "East Domain of Perion",
+          "count": 3
+        },
+        {
+          "id": 10005011,
+          "name": "Hunting Ground in the Deep Forest I",
+          "count": 1
+        },
+        {
+          "id": 10005012,
+          "name": "Hunting Ground in the Deep Forest II",
+          "count": 1
+        },
+        {
+          "id": 10005020,
+          "name": "Deep Forest",
+          "count": 7
+        },
+        {
+          "id": 10005090,
+          "name": "Drake's Meal Table",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0000002.png",
+      "gifs": {
+        "move": "images/monsters/0000002.move.webp",
+        "stand": "images/monsters/0000002.stand.webp",
+        "hit1": "images/monsters/0000002.hit1.webp",
+        "die1": "images/monsters/0000002.die1.webp"
+      },
+      "gif": "images/monsters/0000002.move.webp"
     },
     {
       "id": 3,
@@ -58,7 +265,220 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000003.png"
+      "maps": [
+        {
+          "id": 41,
+          "name": "Snail Hunting Ground II",
+          "count": 13
+        },
+        {
+          "id": 42,
+          "name": "Snail Hunting Ground III",
+          "count": 21
+        },
+        {
+          "id": 50,
+          "name": "A Split Road",
+          "count": 17
+        },
+        {
+          "id": 1000,
+          "name": "The Field West of Amherst",
+          "count": 13
+        },
+        {
+          "id": 1001,
+          "name": "In a Small Forest",
+          "count": 7
+        },
+        {
+          "id": 1002,
+          "name": "Dangerous Forest",
+          "count": 3
+        },
+        {
+          "id": 1004,
+          "name": "Snail Garden",
+          "count": 19
+        },
+        {
+          "id": 1005,
+          "name": "Hunting Ground Middle of the Forest I",
+          "count": 12
+        },
+        {
+          "id": 1006,
+          "name": "Hunting Ground Middle of the Forest II",
+          "count": 16
+        },
+        {
+          "id": 1014,
+          "name": "Snail Field of Flowers",
+          "count": 10
+        },
+        {
+          "id": 1020,
+          "name": "The Field East of Amherst",
+          "count": 11
+        },
+        {
+          "id": 1021,
+          "name": "Tomato Field",
+          "count": 8
+        },
+        {
+          "id": 10000010,
+          "name": "Right Around Lith Harbor",
+          "count": 20
+        },
+        {
+          "id": 10000011,
+          "name": "Thicket Around the Beach I",
+          "count": 12
+        },
+        {
+          "id": 10000013,
+          "name": "Thicket Around the Beach III",
+          "count": 1
+        },
+        {
+          "id": 10000020,
+          "name": "3-Way Road-Split",
+          "count": 14
+        },
+        {
+          "id": 10000021,
+          "name": "The Pig Beach",
+          "count": 2
+        },
+        {
+          "id": 10000022,
+          "name": "Beach Hunting Ground",
+          "count": 11
+        },
+        {
+          "id": 10001010,
+          "name": "Henesys Hunting Ground I",
+          "count": 4
+        },
+        {
+          "id": 10001011,
+          "name": "Henesys Hunting Ground II",
+          "count": 3
+        },
+        {
+          "id": 10001012,
+          "name": "Henesys Hunting Ground III",
+          "count": 2
+        },
+        {
+          "id": 10001020,
+          "name": "A Hill West of Henesys ",
+          "count": 1
+        },
+        {
+          "id": 10001030,
+          "name": "Forest West of Henesys",
+          "count": 20
+        },
+        {
+          "id": 10001060,
+          "name": "The Hill East of Henesys",
+          "count": 5
+        },
+        {
+          "id": 10001080,
+          "name": "The Forest East of Henesys",
+          "count": 3
+        },
+        {
+          "id": 10001081,
+          "name": "The Blue Mushroom Forest",
+          "count": 7
+        },
+        {
+          "id": 10001090,
+          "name": "The Road to the Dungeon",
+          "count": 4
+        },
+        {
+          "id": 10003010,
+          "name": "Kerning City Construction Site",
+          "count": 8
+        },
+        {
+          "id": 10003020,
+          "name": "L Forest I",
+          "count": 8
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 2
+        },
+        {
+          "id": 10003040,
+          "name": "L Forest III",
+          "count": 6
+        },
+        {
+          "id": 10003050,
+          "name": "Kerning City Middle Forest I",
+          "count": 14
+        },
+        {
+          "id": 10003051,
+          "name": "Kerning City Middle Forest II",
+          "count": 9
+        },
+        {
+          "id": 10003052,
+          "name": "Kerning City Middle Forest III",
+          "count": 6
+        },
+        {
+          "id": 10003070,
+          "name": "Sunset Sky",
+          "count": 7
+        },
+        {
+          "id": 10004010,
+          "name": "West Street Corner of Perion",
+          "count": 10
+        },
+        {
+          "id": 10004030,
+          "name": "West Domain of Perion",
+          "count": 8
+        },
+        {
+          "id": 10004040,
+          "name": "Perion Street Corner",
+          "count": 1
+        },
+        {
+          "id": 10004050,
+          "name": "East Rocky Mountain I",
+          "count": 9
+        },
+        {
+          "id": 10004090,
+          "name": "East Domain of Perion",
+          "count": 15
+        },
+        {
+          "id": 10004100,
+          "name": "Deep Valley I",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0000003.png",
+      "gifs": {
+        "move": "images/monsters/0000003.move.webp",
+        "hit1": "images/monsters/0000003.hit1.webp",
+        "die1": "images/monsters/0000003.die1.webp"
+      },
+      "gif": "images/monsters/0000003.move.webp"
     },
     {
       "id": 4,
@@ -78,7 +498,106 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000004.png"
+      "maps": [
+        {
+          "id": 50,
+          "name": "A Split Road",
+          "count": 14
+        },
+        {
+          "id": 1000,
+          "name": "The Field West of Amherst",
+          "count": 17
+        },
+        {
+          "id": 1001,
+          "name": "In a Small Forest",
+          "count": 12
+        },
+        {
+          "id": 1003,
+          "name": "Mushroom Garden",
+          "count": 23
+        },
+        {
+          "id": 1005,
+          "name": "Hunting Ground Middle of the Forest I",
+          "count": 10
+        },
+        {
+          "id": 1006,
+          "name": "Hunting Ground Middle of the Forest II",
+          "count": 7
+        },
+        {
+          "id": 10000022,
+          "name": "Beach Hunting Ground",
+          "count": 2
+        },
+        {
+          "id": 10001010,
+          "name": "Henesys Hunting Ground I",
+          "count": 10
+        },
+        {
+          "id": 10001011,
+          "name": "Henesys Hunting Ground II",
+          "count": 6
+        },
+        {
+          "id": 10001021,
+          "name": "Mushroom Garden",
+          "count": 10
+        },
+        {
+          "id": 10001060,
+          "name": "The Hill East of Henesys",
+          "count": 22
+        },
+        {
+          "id": 10001080,
+          "name": "The Forest East of Henesys",
+          "count": 2
+        },
+        {
+          "id": 10001090,
+          "name": "The Road to the Dungeon",
+          "count": 10
+        },
+        {
+          "id": 10003020,
+          "name": "L Forest I",
+          "count": 9
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 8
+        },
+        {
+          "id": 10003040,
+          "name": "L Forest III",
+          "count": 5
+        },
+        {
+          "id": 10003050,
+          "name": "Kerning City Middle Forest I",
+          "count": 3
+        },
+        {
+          "id": 10003051,
+          "name": "Kerning City Middle Forest II",
+          "count": 3
+        }
+      ],
+      "thumbnail": "images/monsters/0000004.png",
+      "gifs": {
+        "move": "images/monsters/0000004.move.webp",
+        "stand": "images/monsters/0000004.stand.webp",
+        "hit1": "images/monsters/0000004.hit1.webp",
+        "die1": "images/monsters/0000004.die1.webp"
+      },
+      "gif": "images/monsters/0000004.move.webp"
     },
     {
       "id": 5,
@@ -98,7 +617,255 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000005.png"
+      "maps": [
+        {
+          "id": 42,
+          "name": "Snail Hunting Ground III",
+          "count": 1
+        },
+        {
+          "id": 50,
+          "name": "A Split Road",
+          "count": 11
+        },
+        {
+          "id": 1000,
+          "name": "The Field West of Amherst",
+          "count": 24
+        },
+        {
+          "id": 1001,
+          "name": "In a Small Forest",
+          "count": 5
+        },
+        {
+          "id": 1002,
+          "name": "Dangerous Forest",
+          "count": 5
+        },
+        {
+          "id": 1004,
+          "name": "Snail Garden",
+          "count": 11
+        },
+        {
+          "id": 1005,
+          "name": "Hunting Ground Middle of the Forest I",
+          "count": 8
+        },
+        {
+          "id": 1006,
+          "name": "Hunting Ground Middle of the Forest II",
+          "count": 6
+        },
+        {
+          "id": 1014,
+          "name": "Snail Field of Flowers",
+          "count": 12
+        },
+        {
+          "id": 1020,
+          "name": "The Field East of Amherst",
+          "count": 12
+        },
+        {
+          "id": 1021,
+          "name": "Tomato Field",
+          "count": 4
+        },
+        {
+          "id": 10000010,
+          "name": "Right Around Lith Harbor",
+          "count": 12
+        },
+        {
+          "id": 10000011,
+          "name": "Thicket Around the Beach I",
+          "count": 13
+        },
+        {
+          "id": 10000013,
+          "name": "Thicket Around the Beach III",
+          "count": 2
+        },
+        {
+          "id": 10000020,
+          "name": "3-Way Road-Split",
+          "count": 11
+        },
+        {
+          "id": 10000021,
+          "name": "The Pig Beach",
+          "count": 4
+        },
+        {
+          "id": 10000022,
+          "name": "Beach Hunting Ground",
+          "count": 4
+        },
+        {
+          "id": 10001010,
+          "name": "Henesys Hunting Ground I",
+          "count": 6
+        },
+        {
+          "id": 10001011,
+          "name": "Henesys Hunting Ground II",
+          "count": 6
+        },
+        {
+          "id": 10001012,
+          "name": "Henesys Hunting Ground III",
+          "count": 6
+        },
+        {
+          "id": 10001020,
+          "name": "A Hill West of Henesys ",
+          "count": 5
+        },
+        {
+          "id": 10001021,
+          "name": "Mushroom Garden",
+          "count": 9
+        },
+        {
+          "id": 10001030,
+          "name": "Forest West of Henesys",
+          "count": 11
+        },
+        {
+          "id": 10001060,
+          "name": "The Hill East of Henesys",
+          "count": 7
+        },
+        {
+          "id": 10001080,
+          "name": "The Forest East of Henesys",
+          "count": 6
+        },
+        {
+          "id": 10001081,
+          "name": "The Blue Mushroom Forest",
+          "count": 1
+        },
+        {
+          "id": 10001090,
+          "name": "The Road to the Dungeon",
+          "count": 2
+        },
+        {
+          "id": 10003020,
+          "name": "L Forest I",
+          "count": 7
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 5
+        },
+        {
+          "id": 10003040,
+          "name": "L Forest III",
+          "count": 14
+        },
+        {
+          "id": 10003050,
+          "name": "Kerning City Middle Forest I",
+          "count": 10
+        },
+        {
+          "id": 10003051,
+          "name": "Kerning City Middle Forest II",
+          "count": 8
+        },
+        {
+          "id": 10003052,
+          "name": "Kerning City Middle Forest III",
+          "count": 8
+        },
+        {
+          "id": 10003080,
+          "name": "Construction Site North of Kerning City",
+          "count": 23
+        },
+        {
+          "id": 10004020,
+          "name": "West Rocky Mountain I",
+          "count": 22
+        },
+        {
+          "id": 10004021,
+          "name": "West Rocky Mountain II",
+          "count": 13
+        },
+        {
+          "id": 10004022,
+          "name": "West Rocky Mountain III",
+          "count": 9
+        },
+        {
+          "id": 10004030,
+          "name": "West Domain of Perion",
+          "count": 1
+        },
+        {
+          "id": 10004040,
+          "name": "Perion Street Corner",
+          "count": 7
+        },
+        {
+          "id": 10004050,
+          "name": "East Rocky Mountain I",
+          "count": 16
+        },
+        {
+          "id": 10004051,
+          "name": "East Rocky Mountain II",
+          "count": 9
+        },
+        {
+          "id": 10004052,
+          "name": "East Rocky Mountain III",
+          "count": 8
+        },
+        {
+          "id": 10004054,
+          "name": "East Rocky Mountain V",
+          "count": 5
+        },
+        {
+          "id": 10004060,
+          "name": "Rocky Road I",
+          "count": 11
+        },
+        {
+          "id": 10004070,
+          "name": "Rocky Road II",
+          "count": 4
+        },
+        {
+          "id": 10004080,
+          "name": "Rocky Road III",
+          "count": 8
+        },
+        {
+          "id": 10004090,
+          "name": "East Domain of Perion",
+          "count": 5
+        },
+        {
+          "id": 10004100,
+          "name": "Deep Valley I",
+          "count": 15
+        }
+      ],
+      "thumbnail": "images/monsters/0000005.png",
+      "gifs": {
+        "move": "images/monsters/0000005.move.webp",
+        "hit1": "images/monsters/0000005.hit1.webp",
+        "die1": "images/monsters/0000005.die1.webp"
+      },
+      "gif": "images/monsters/0000005.move.webp"
     },
     {
       "id": 6,
@@ -120,7 +887,185 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000006.png"
+      "maps": [
+        {
+          "id": 10000011,
+          "name": "Thicket Around the Beach I",
+          "count": 11
+        },
+        {
+          "id": 10000013,
+          "name": "Thicket Around the Beach III",
+          "count": 10
+        },
+        {
+          "id": 10001010,
+          "name": "Henesys Hunting Ground I",
+          "count": 4
+        },
+        {
+          "id": 10001011,
+          "name": "Henesys Hunting Ground II",
+          "count": 12
+        },
+        {
+          "id": 10001012,
+          "name": "Henesys Hunting Ground III",
+          "count": 10
+        },
+        {
+          "id": 10001020,
+          "name": "A Hill West of Henesys ",
+          "count": 16
+        },
+        {
+          "id": 10001030,
+          "name": "Forest West of Henesys",
+          "count": 5
+        },
+        {
+          "id": 10002010,
+          "name": "The Field South of Ellinia",
+          "count": 27
+        },
+        {
+          "id": 10002030,
+          "name": "The Forest South of Ellinia",
+          "count": 19
+        },
+        {
+          "id": 10002050,
+          "name": "The Field Up North of Ellinia",
+          "count": 12
+        },
+        {
+          "id": 10002060,
+          "name": "The Tree That Grew I",
+          "count": 8
+        },
+        {
+          "id": 10002061,
+          "name": "The Tree That Grew II",
+          "count": 28
+        },
+        {
+          "id": 10002062,
+          "name": "The Tree That Grew III",
+          "count": 27
+        },
+        {
+          "id": 10002070,
+          "name": "The Forest North of Ellinia",
+          "count": 21
+        },
+        {
+          "id": 10003010,
+          "name": "Kerning City Construction Site",
+          "count": 24
+        },
+        {
+          "id": 10003020,
+          "name": "L Forest I",
+          "count": 2
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 3
+        },
+        {
+          "id": 10003040,
+          "name": "L Forest III",
+          "count": 3
+        },
+        {
+          "id": 10003070,
+          "name": "Sunset Sky",
+          "count": 15
+        },
+        {
+          "id": 10004010,
+          "name": "West Street Corner of Perion",
+          "count": 24
+        },
+        {
+          "id": 10004020,
+          "name": "West Rocky Mountain I",
+          "count": 27
+        },
+        {
+          "id": 10004021,
+          "name": "West Rocky Mountain II",
+          "count": 21
+        },
+        {
+          "id": 10004022,
+          "name": "West Rocky Mountain III",
+          "count": 9
+        },
+        {
+          "id": 10004030,
+          "name": "West Domain of Perion",
+          "count": 15
+        },
+        {
+          "id": 10004040,
+          "name": "Perion Street Corner",
+          "count": 15
+        },
+        {
+          "id": 10004042,
+          "name": "Over the Wall",
+          "count": 4
+        },
+        {
+          "id": 10004050,
+          "name": "East Rocky Mountain I",
+          "count": 14
+        },
+        {
+          "id": 10004051,
+          "name": "East Rocky Mountain II",
+          "count": 16
+        },
+        {
+          "id": 10004052,
+          "name": "East Rocky Mountain III",
+          "count": 8
+        },
+        {
+          "id": 10004060,
+          "name": "Rocky Road I",
+          "count": 15
+        },
+        {
+          "id": 10004070,
+          "name": "Rocky Road II",
+          "count": 6
+        },
+        {
+          "id": 10004080,
+          "name": "Rocky Road III",
+          "count": 2
+        },
+        {
+          "id": 10004090,
+          "name": "East Domain of Perion",
+          "count": 8
+        },
+        {
+          "id": 10005020,
+          "name": "Deep Forest",
+          "count": 4
+        }
+      ],
+      "thumbnail": "images/monsters/0000006.png",
+      "gifs": {
+        "move": "images/monsters/0000006.move.webp",
+        "hit1": "images/monsters/0000006.hit1.webp",
+        "die1": "images/monsters/0000006.die1.webp"
+      },
+      "gif": "images/monsters/0000006.move.webp"
     },
     {
       "id": 7,
@@ -142,7 +1087,276 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000007.png"
+      "maps": [
+        {
+          "id": 10000010,
+          "name": "Right Around Lith Harbor",
+          "count": 11
+        },
+        {
+          "id": 10000011,
+          "name": "Thicket Around the Beach I",
+          "count": 11
+        },
+        {
+          "id": 10000012,
+          "name": "Thicket Around the Beach II",
+          "count": 12
+        },
+        {
+          "id": 10000020,
+          "name": "3-Way Road-Split",
+          "count": 17
+        },
+        {
+          "id": 10000022,
+          "name": "Beach Hunting Ground",
+          "count": 6
+        },
+        {
+          "id": 10001010,
+          "name": "Henesys Hunting Ground I",
+          "count": 5
+        },
+        {
+          "id": 10001011,
+          "name": "Henesys Hunting Ground II",
+          "count": 8
+        },
+        {
+          "id": 10001012,
+          "name": "Henesys Hunting Ground III",
+          "count": 17
+        },
+        {
+          "id": 10001020,
+          "name": "A Hill West of Henesys ",
+          "count": 6
+        },
+        {
+          "id": 10001030,
+          "name": "Forest West of Henesys",
+          "count": 9
+        },
+        {
+          "id": 10001060,
+          "name": "The Hill East of Henesys",
+          "count": 7
+        },
+        {
+          "id": 10001080,
+          "name": "The Forest East of Henesys",
+          "count": 7
+        },
+        {
+          "id": 10001081,
+          "name": "The Blue Mushroom Forest",
+          "count": 8
+        },
+        {
+          "id": 10001090,
+          "name": "The Road to the Dungeon",
+          "count": 6
+        },
+        {
+          "id": 10001100,
+          "name": "Henesys Dungeon Entrance",
+          "count": 14
+        },
+        {
+          "id": 10002010,
+          "name": "The Field South of Ellinia",
+          "count": 18
+        },
+        {
+          "id": 10002020,
+          "name": "The Forest of Wisdom",
+          "count": 25
+        },
+        {
+          "id": 10002027,
+          "name": "Downstairs at the Forest",
+          "count": 7
+        },
+        {
+          "id": 10002030,
+          "name": "The Forest South of Ellinia",
+          "count": 24
+        },
+        {
+          "id": 10002031,
+          "name": "Dungeon, Southern Forest I",
+          "count": 21
+        },
+        {
+          "id": 10002032,
+          "name": "Dungeon, Southern Forest II",
+          "count": 11
+        },
+        {
+          "id": 10002033,
+          "name": "Dungeon, Southern Forest III",
+          "count": 10
+        },
+        {
+          "id": 10002034,
+          "name": "Dungeon, Southern Forest IV",
+          "count": 2
+        },
+        {
+          "id": 10002050,
+          "name": "The Field Up North of Ellinia",
+          "count": 16
+        },
+        {
+          "id": 10002060,
+          "name": "The Tree That Grew I",
+          "count": 22
+        },
+        {
+          "id": 10002061,
+          "name": "The Tree That Grew II",
+          "count": 30
+        },
+        {
+          "id": 10002070,
+          "name": "The Forest North of Ellinia",
+          "count": 26
+        },
+        {
+          "id": 10002072,
+          "name": "Tree Dungeon, Forest Up North I",
+          "count": 15
+        },
+        {
+          "id": 10002073,
+          "name": "Tree Dungeon, Forest Up North II",
+          "count": 2
+        },
+        {
+          "id": 10002074,
+          "name": "Tree Dungeon, Forest Up North III",
+          "count": 12
+        },
+        {
+          "id": 10002075,
+          "name": "Tree Dungeon, Forest Up North IV",
+          "count": 13
+        },
+        {
+          "id": 10002076,
+          "name": "Tree Dungeon, Forest Up North V",
+          "count": 14
+        },
+        {
+          "id": 10003020,
+          "name": "L Forest I",
+          "count": 6
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 6
+        },
+        {
+          "id": 10003040,
+          "name": "L Forest III",
+          "count": 24
+        },
+        {
+          "id": 10003050,
+          "name": "Kerning City Middle Forest I",
+          "count": 10
+        },
+        {
+          "id": 10003051,
+          "name": "Kerning City Middle Forest II",
+          "count": 10
+        },
+        {
+          "id": 10003052,
+          "name": "Kerning City Middle Forest III",
+          "count": 13
+        },
+        {
+          "id": 10003090,
+          "name": "The Swamp of Despair I",
+          "count": 9
+        },
+        {
+          "id": 10003091,
+          "name": "The Swamp of Despair II",
+          "count": 6
+        },
+        {
+          "id": 10003092,
+          "name": "The Swamp of Despair III",
+          "count": 7
+        },
+        {
+          "id": 10003093,
+          "name": "Dangerous Croko I",
+          "count": 7
+        },
+        {
+          "id": 10003094,
+          "name": "Dangerous Croko II",
+          "count": 9
+        },
+        {
+          "id": 10005010,
+          "name": "Swampy Land in a Deep Forest",
+          "count": 16
+        },
+        {
+          "id": 10005011,
+          "name": "Hunting Ground in the Deep Forest I",
+          "count": 8
+        },
+        {
+          "id": 10005012,
+          "name": "Hunting Ground in the Deep Forest II",
+          "count": 2
+        },
+        {
+          "id": 10005020,
+          "name": "Deep Forest",
+          "count": 15
+        },
+        {
+          "id": 10005030,
+          "name": "Damp Tree-Forest",
+          "count": 13
+        },
+        {
+          "id": 10005031,
+          "name": "Damp Forest",
+          "count": 2
+        },
+        {
+          "id": 10005050,
+          "name": "Sleepy Dungeon I",
+          "count": 4
+        },
+        {
+          "id": 10005051,
+          "name": "Sleepy Dungeon II",
+          "count": 9
+        },
+        {
+          "id": 10005054,
+          "name": "Sleepy Dungeon V",
+          "count": 4
+        }
+      ],
+      "thumbnail": "images/monsters/0000007.png",
+      "gifs": {
+        "move": "images/monsters/0000007.move.webp",
+        "stand": "images/monsters/0000007.stand.webp",
+        "hit1": "images/monsters/0000007.hit1.webp",
+        "die1": "images/monsters/0000007.die1.webp"
+      },
+      "gif": "images/monsters/0000007.move.webp"
     },
     {
       "id": 8,
@@ -162,7 +1376,97 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000008.png"
+      "maps": [
+        {
+          "id": 10000012,
+          "name": "Thicket Around the Beach II",
+          "count": 18
+        },
+        {
+          "id": 10000020,
+          "name": "3-Way Road-Split",
+          "count": 6
+        },
+        {
+          "id": 10000021,
+          "name": "The Pig Beach",
+          "count": 8
+        },
+        {
+          "id": 10000022,
+          "name": "Beach Hunting Ground",
+          "count": 1
+        },
+        {
+          "id": 10001020,
+          "name": "A Hill West of Henesys ",
+          "count": 16
+        },
+        {
+          "id": 10001030,
+          "name": "Forest West of Henesys",
+          "count": 3
+        },
+        {
+          "id": 10001060,
+          "name": "The Hill East of Henesys",
+          "count": 3
+        },
+        {
+          "id": 10001070,
+          "name": "The Rain-Forest East of Henesys",
+          "count": 5
+        },
+        {
+          "id": 10001080,
+          "name": "The Forest East of Henesys",
+          "count": 15
+        },
+        {
+          "id": 10001090,
+          "name": "The Road to the Dungeon",
+          "count": 2
+        },
+        {
+          "id": 10003020,
+          "name": "L Forest I",
+          "count": 9
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 9
+        },
+        {
+          "id": 10003040,
+          "name": "L Forest III",
+          "count": 7
+        },
+        {
+          "id": 10003050,
+          "name": "Kerning City Middle Forest I",
+          "count": 3
+        },
+        {
+          "id": 10003051,
+          "name": "Kerning City Middle Forest II",
+          "count": 2
+        },
+        {
+          "id": 10003052,
+          "name": "Kerning City Middle Forest III",
+          "count": 3
+        }
+      ],
+      "thumbnail": "images/monsters/0000008.png",
+      "gifs": {
+        "move": "images/monsters/0000008.move.webp",
+        "jump": "images/monsters/0000008.jump.webp",
+        "stand": "images/monsters/0000008.stand.webp",
+        "hit1": "images/monsters/0000008.hit1.webp",
+        "die1": "images/monsters/0000008.die1.webp"
+      },
+      "gif": "images/monsters/0000008.move.webp"
     },
     {
       "id": 9,
@@ -182,7 +1486,171 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000009.png"
+      "maps": [
+        {
+          "id": 1000,
+          "name": "The Field West of Amherst",
+          "count": 5
+        },
+        {
+          "id": 1001,
+          "name": "In a Small Forest",
+          "count": 4
+        },
+        {
+          "id": 1002,
+          "name": "Dangerous Forest",
+          "count": 12
+        },
+        {
+          "id": 1003,
+          "name": "Mushroom Garden",
+          "count": 5
+        },
+        {
+          "id": 1006,
+          "name": "Hunting Ground Middle of the Forest II",
+          "count": 6
+        },
+        {
+          "id": 1014,
+          "name": "Snail Field of Flowers",
+          "count": 6
+        },
+        {
+          "id": 1020,
+          "name": "The Field East of Amherst",
+          "count": 12
+        },
+        {
+          "id": 1021,
+          "name": "Tomato Field",
+          "count": 4
+        },
+        {
+          "id": 10000012,
+          "name": "Thicket Around the Beach II",
+          "count": 9
+        },
+        {
+          "id": 10000013,
+          "name": "Thicket Around the Beach III",
+          "count": 8
+        },
+        {
+          "id": 10000020,
+          "name": "3-Way Road-Split",
+          "count": 9
+        },
+        {
+          "id": 10000022,
+          "name": "Beach Hunting Ground",
+          "count": 3
+        },
+        {
+          "id": 10001002,
+          "name": "An Empty House",
+          "count": 12
+        },
+        {
+          "id": 10001010,
+          "name": "Henesys Hunting Ground I",
+          "count": 5
+        },
+        {
+          "id": 10001011,
+          "name": "Henesys Hunting Ground II",
+          "count": 8
+        },
+        {
+          "id": 10001012,
+          "name": "Henesys Hunting Ground III",
+          "count": 11
+        },
+        {
+          "id": 10001021,
+          "name": "Mushroom Garden",
+          "count": 15
+        },
+        {
+          "id": 10001030,
+          "name": "Forest West of Henesys",
+          "count": 3
+        },
+        {
+          "id": 10001060,
+          "name": "The Hill East of Henesys",
+          "count": 2
+        },
+        {
+          "id": 10001080,
+          "name": "The Forest East of Henesys",
+          "count": 6
+        },
+        {
+          "id": 10001090,
+          "name": "The Road to the Dungeon",
+          "count": 2
+        },
+        {
+          "id": 10003010,
+          "name": "Kerning City Construction Site",
+          "count": 8
+        },
+        {
+          "id": 10003011,
+          "name": "Caution Falling Down",
+          "count": 5
+        },
+        {
+          "id": 10003020,
+          "name": "L Forest I",
+          "count": 7
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 3
+        },
+        {
+          "id": 10003050,
+          "name": "Kerning City Middle Forest I",
+          "count": 8
+        },
+        {
+          "id": 10003051,
+          "name": "Kerning City Middle Forest II",
+          "count": 8
+        },
+        {
+          "id": 10003052,
+          "name": "Kerning City Middle Forest III",
+          "count": 10
+        },
+        {
+          "id": 10003070,
+          "name": "Sunset Sky",
+          "count": 8
+        },
+        {
+          "id": 10003080,
+          "name": "Construction Site North of Kerning City",
+          "count": 9
+        },
+        {
+          "id": 10003081,
+          "name": "Northern Top of Construction Site",
+          "count": 6
+        }
+      ],
+      "thumbnail": "images/monsters/0000009.png",
+      "gifs": {
+        "move": "images/monsters/0000009.move.webp",
+        "stand": "images/monsters/0000009.stand.webp",
+        "hit1": "images/monsters/0000009.hit1.webp",
+        "die1": "images/monsters/0000009.die1.webp"
+      },
+      "gif": "images/monsters/0000009.move.webp"
     },
     {
       "id": 10,
@@ -202,7 +1670,91 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000010.png"
+      "maps": [
+        {
+          "id": 10000020,
+          "name": "3-Way Road-Split",
+          "count": 6
+        },
+        {
+          "id": 10000021,
+          "name": "The Pig Beach",
+          "count": 8
+        },
+        {
+          "id": 10000022,
+          "name": "Beach Hunting Ground",
+          "count": 5
+        },
+        {
+          "id": 10001020,
+          "name": "A Hill West of Henesys ",
+          "count": 10
+        },
+        {
+          "id": 10001030,
+          "name": "Forest West of Henesys",
+          "count": 1
+        },
+        {
+          "id": 10001060,
+          "name": "The Hill East of Henesys",
+          "count": 3
+        },
+        {
+          "id": 10001070,
+          "name": "The Rain-Forest East of Henesys",
+          "count": 4
+        },
+        {
+          "id": 10001080,
+          "name": "The Forest East of Henesys",
+          "count": 11
+        },
+        {
+          "id": 10001090,
+          "name": "The Road to the Dungeon",
+          "count": 7
+        },
+        {
+          "id": 10003020,
+          "name": "L Forest I",
+          "count": 21
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 10
+        },
+        {
+          "id": 10003040,
+          "name": "L Forest III",
+          "count": 6
+        },
+        {
+          "id": 10003050,
+          "name": "Kerning City Middle Forest I",
+          "count": 5
+        },
+        {
+          "id": 10003051,
+          "name": "Kerning City Middle Forest II",
+          "count": 5
+        },
+        {
+          "id": 10003052,
+          "name": "Kerning City Middle Forest III",
+          "count": 3
+        }
+      ],
+      "thumbnail": "images/monsters/0000010.png",
+      "gifs": {
+        "move": "images/monsters/0000010.move.webp",
+        "stand": "images/monsters/0000010.stand.webp",
+        "hit1": "images/monsters/0000010.hit1.webp",
+        "die1": "images/monsters/0000010.die1.webp"
+      },
+      "gif": "images/monsters/0000010.move.webp"
     },
     {
       "id": 11,
@@ -224,7 +1776,150 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000011.png"
+      "maps": [
+        {
+          "id": 10002010,
+          "name": "The Field South of Ellinia",
+          "count": 13
+        },
+        {
+          "id": 10002060,
+          "name": "The Tree That Grew I",
+          "count": 10
+        },
+        {
+          "id": 10002061,
+          "name": "The Tree That Grew II",
+          "count": 12
+        },
+        {
+          "id": 10002062,
+          "name": "The Tree That Grew III",
+          "count": 13
+        },
+        {
+          "id": 10003070,
+          "name": "Sunset Sky",
+          "count": 7
+        },
+        {
+          "id": 10003080,
+          "name": "Construction Site North of Kerning City",
+          "count": 11
+        },
+        {
+          "id": 10004010,
+          "name": "West Street Corner of Perion",
+          "count": 14
+        },
+        {
+          "id": 10004021,
+          "name": "West Rocky Mountain II",
+          "count": 10
+        },
+        {
+          "id": 10004022,
+          "name": "West Rocky Mountain III",
+          "count": 3
+        },
+        {
+          "id": 10004030,
+          "name": "West Domain of Perion",
+          "count": 21
+        },
+        {
+          "id": 10004040,
+          "name": "Perion Street Corner",
+          "count": 11
+        },
+        {
+          "id": 10004042,
+          "name": "Over the Wall",
+          "count": 4
+        },
+        {
+          "id": 10004050,
+          "name": "East Rocky Mountain I",
+          "count": 13
+        },
+        {
+          "id": 10004052,
+          "name": "East Rocky Mountain III",
+          "count": 14
+        },
+        {
+          "id": 10004053,
+          "name": "East Rocky Mountain IV",
+          "count": 17
+        },
+        {
+          "id": 10004054,
+          "name": "East Rocky Mountain V",
+          "count": 17
+        },
+        {
+          "id": 10004055,
+          "name": "East Rocky Mountain VI",
+          "count": 4
+        },
+        {
+          "id": 10004060,
+          "name": "Rocky Road I",
+          "count": 3
+        },
+        {
+          "id": 10004070,
+          "name": "Rocky Road II",
+          "count": 5
+        },
+        {
+          "id": 10004090,
+          "name": "East Domain of Perion",
+          "count": 10
+        },
+        {
+          "id": 10004091,
+          "name": "The Land of Wild Boar II",
+          "count": 2
+        },
+        {
+          "id": 10004100,
+          "name": "Deep Valley I",
+          "count": 6
+        },
+        {
+          "id": 10004110,
+          "name": "Deep Valley II",
+          "count": 5
+        },
+        {
+          "id": 10004120,
+          "name": "Deep Valley III",
+          "count": 10
+        },
+        {
+          "id": 10004121,
+          "name": "Perion Dungeon Entrance",
+          "count": 10
+        },
+        {
+          "id": 10005010,
+          "name": "Swampy Land in a Deep Forest",
+          "count": 4
+        },
+        {
+          "id": 10005020,
+          "name": "Deep Forest",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0000011.png",
+      "gifs": {
+        "move": "images/monsters/0000011.move.webp",
+        "hit1": "images/monsters/0000011.hit1.webp",
+        "die1": "images/monsters/0000011.die1.webp"
+      },
+      "gif": "images/monsters/0000011.move.webp"
     },
     {
       "id": 12,
@@ -246,7 +1941,60 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000012.png"
+      "maps": [
+        {
+          "id": 10003010,
+          "name": "Kerning City Construction Site",
+          "count": 10
+        },
+        {
+          "id": 10003011,
+          "name": "Caution Falling Down",
+          "count": 12
+        },
+        {
+          "id": 10003080,
+          "name": "Construction Site North of Kerning City",
+          "count": 8
+        },
+        {
+          "id": 10003081,
+          "name": "Northern Top of Construction Site",
+          "count": 12
+        },
+        {
+          "id": 10005010,
+          "name": "Swampy Land in a Deep Forest",
+          "count": 2
+        },
+        {
+          "id": 10005011,
+          "name": "Hunting Ground in the Deep Forest I",
+          "count": 2
+        },
+        {
+          "id": 10005030,
+          "name": "Damp Tree-Forest",
+          "count": 19
+        },
+        {
+          "id": 10005031,
+          "name": "Damp Forest",
+          "count": 15
+        },
+        {
+          "id": 10005050,
+          "name": "Sleepy Dungeon I",
+          "count": 2
+        }
+      ],
+      "thumbnail": "images/monsters/0000012.png",
+      "gifs": {
+        "stand": "images/monsters/0000012.stand.webp",
+        "hit1": "images/monsters/0000012.hit1.webp",
+        "die1": "images/monsters/0000012.die1.webp"
+      },
+      "gif": "images/monsters/0000012.stand.webp"
     },
     {
       "id": 13,
@@ -268,7 +2016,186 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000013.png"
+      "maps": [
+        {
+          "id": 10001010,
+          "name": "Henesys Hunting Ground I",
+          "count": 5
+        },
+        {
+          "id": 10001011,
+          "name": "Henesys Hunting Ground II",
+          "count": 4
+        },
+        {
+          "id": 10001012,
+          "name": "Henesys Hunting Ground III",
+          "count": 13
+        },
+        {
+          "id": 10001100,
+          "name": "Henesys Dungeon Entrance",
+          "count": 9
+        },
+        {
+          "id": 10002010,
+          "name": "The Field South of Ellinia",
+          "count": 8
+        },
+        {
+          "id": 10002020,
+          "name": "The Forest of Wisdom",
+          "count": 30
+        },
+        {
+          "id": 10002027,
+          "name": "Downstairs at the Forest",
+          "count": 12
+        },
+        {
+          "id": 10002030,
+          "name": "The Forest South of Ellinia",
+          "count": 3
+        },
+        {
+          "id": 10002032,
+          "name": "Dungeon, Southern Forest II",
+          "count": 16
+        },
+        {
+          "id": 10002033,
+          "name": "Dungeon, Southern Forest III",
+          "count": 16
+        },
+        {
+          "id": 10002034,
+          "name": "Dungeon, Southern Forest IV",
+          "count": 9
+        },
+        {
+          "id": 10002062,
+          "name": "The Tree That Grew III",
+          "count": 8
+        },
+        {
+          "id": 10002073,
+          "name": "Tree Dungeon, Forest Up North II",
+          "count": 14
+        },
+        {
+          "id": 10002074,
+          "name": "Tree Dungeon, Forest Up North III",
+          "count": 16
+        },
+        {
+          "id": 10002075,
+          "name": "Tree Dungeon, Forest Up North IV",
+          "count": 31
+        },
+        {
+          "id": 10002076,
+          "name": "Tree Dungeon, Forest Up North V",
+          "count": 13
+        },
+        {
+          "id": 10003010,
+          "name": "Kerning City Construction Site",
+          "count": 2
+        },
+        {
+          "id": 10003020,
+          "name": "L Forest I",
+          "count": 3
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 4
+        },
+        {
+          "id": 10003040,
+          "name": "L Forest III",
+          "count": 10
+        },
+        {
+          "id": 10003051,
+          "name": "Kerning City Middle Forest II",
+          "count": 2
+        },
+        {
+          "id": 10003052,
+          "name": "Kerning City Middle Forest III",
+          "count": 2
+        },
+        {
+          "id": 10003070,
+          "name": "Sunset Sky",
+          "count": 7
+        },
+        {
+          "id": 10004010,
+          "name": "West Street Corner of Perion",
+          "count": 5
+        },
+        {
+          "id": 10004022,
+          "name": "West Rocky Mountain III",
+          "count": 32
+        },
+        {
+          "id": 10004030,
+          "name": "West Domain of Perion",
+          "count": 14
+        },
+        {
+          "id": 10004060,
+          "name": "Rocky Road I",
+          "count": 6
+        },
+        {
+          "id": 10004090,
+          "name": "East Domain of Perion",
+          "count": 12
+        },
+        {
+          "id": 10005010,
+          "name": "Swampy Land in a Deep Forest",
+          "count": 16
+        },
+        {
+          "id": 10005011,
+          "name": "Hunting Ground in the Deep Forest I",
+          "count": 2
+        },
+        {
+          "id": 10005020,
+          "name": "Deep Forest",
+          "count": 8
+        },
+        {
+          "id": 10005050,
+          "name": "Sleepy Dungeon I",
+          "count": 4
+        },
+        {
+          "id": 10005051,
+          "name": "Sleepy Dungeon II",
+          "count": 7
+        },
+        {
+          "id": 80000500,
+          "name": "1st Accompaniment <Bonus>",
+          "count": 12
+        }
+      ],
+      "thumbnail": "images/monsters/0000013.png",
+      "gifs": {
+        "move": "images/monsters/0000013.move.webp",
+        "stand": "images/monsters/0000013.stand.webp",
+        "hit1": "images/monsters/0000013.hit1.webp",
+        "die1": "images/monsters/0000013.die1.webp"
+      },
+      "gif": "images/monsters/0000013.move.webp"
     },
     {
       "id": 14,
@@ -288,7 +2215,26 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000014.png"
+      "maps": [
+        {
+          "id": 10003061,
+          "name": "Line 1 <Area 1>",
+          "count": 64
+        },
+        {
+          "id": 10003102,
+          "name": "B1 <Subway Depot>",
+          "count": 9
+        }
+      ],
+      "thumbnail": "images/monsters/0000014.png",
+      "gifs": {
+        "move": "images/monsters/0000014.move.webp",
+        "stand": "images/monsters/0000014.stand.webp",
+        "hit1": "images/monsters/0000014.hit1.webp",
+        "die1": "images/monsters/0000014.die1.webp"
+      },
+      "gif": "images/monsters/0000014.move.webp"
     },
     {
       "id": 15,
@@ -308,7 +2254,110 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000015.png"
+      "maps": [
+        {
+          "id": 10002030,
+          "name": "The Forest South of Ellinia",
+          "count": 2
+        },
+        {
+          "id": 10002070,
+          "name": "The Forest North of Ellinia",
+          "count": 13
+        },
+        {
+          "id": 10003080,
+          "name": "Construction Site North of Kerning City",
+          "count": 2
+        },
+        {
+          "id": 10004020,
+          "name": "West Rocky Mountain I",
+          "count": 4
+        },
+        {
+          "id": 10004021,
+          "name": "West Rocky Mountain II",
+          "count": 7
+        },
+        {
+          "id": 10004022,
+          "name": "West Rocky Mountain III",
+          "count": 5
+        },
+        {
+          "id": 10004023,
+          "name": "West Rocky Mountain IV",
+          "count": 1
+        },
+        {
+          "id": 10004042,
+          "name": "Over the Wall",
+          "count": 11
+        },
+        {
+          "id": 10004051,
+          "name": "East Rocky Mountain II",
+          "count": 12
+        },
+        {
+          "id": 10004052,
+          "name": "East Rocky Mountain III",
+          "count": 12
+        },
+        {
+          "id": 10004053,
+          "name": "East Rocky Mountain IV",
+          "count": 6
+        },
+        {
+          "id": 10004055,
+          "name": "East Rocky Mountain VI",
+          "count": 3
+        },
+        {
+          "id": 10004070,
+          "name": "Rocky Road II",
+          "count": 5
+        },
+        {
+          "id": 10004080,
+          "name": "Rocky Road III",
+          "count": 3
+        },
+        {
+          "id": 10004090,
+          "name": "East Domain of Perion",
+          "count": 8
+        },
+        {
+          "id": 10004091,
+          "name": "The Land of Wild Boar II",
+          "count": 6
+        },
+        {
+          "id": 10004100,
+          "name": "Deep Valley I",
+          "count": 1
+        },
+        {
+          "id": 10004110,
+          "name": "Deep Valley II",
+          "count": 11
+        },
+        {
+          "id": 10004120,
+          "name": "Deep Valley III",
+          "count": 12
+        }
+      ],
+      "thumbnail": "images/monsters/0000015.png",
+      "gifs": {
+        "move": "images/monsters/0000015.move.webp",
+        "hit1": "images/monsters/0000015.hit1.webp",
+        "die1": "images/monsters/0000015.die1.webp"
+      },
+      "gif": "images/monsters/0000015.move.webp"
     },
     {
       "id": 16,
@@ -328,7 +2377,96 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000016.png"
+      "maps": [
+        {
+          "id": 10001080,
+          "name": "The Forest East of Henesys",
+          "count": 2
+        },
+        {
+          "id": 10001081,
+          "name": "The Blue Mushroom Forest",
+          "count": 16
+        },
+        {
+          "id": 10001090,
+          "name": "The Road to the Dungeon",
+          "count": 11
+        },
+        {
+          "id": 10001100,
+          "name": "Henesys Dungeon Entrance",
+          "count": 5
+        },
+        {
+          "id": 10001101,
+          "name": "The Breathing Rock",
+          "count": 12
+        },
+        {
+          "id": 10001102,
+          "name": "The Entrance of Golem's Temple",
+          "count": 12
+        },
+        {
+          "id": 10001103,
+          "name": "Golem's Temple I",
+          "count": 7
+        },
+        {
+          "id": 10001104,
+          "name": "Golem's Temple II",
+          "count": 4
+        },
+        {
+          "id": 10001105,
+          "name": "Golem's Temple III",
+          "count": 5
+        },
+        {
+          "id": 10001106,
+          "name": "Golem's Temple IV",
+          "count": 7
+        },
+        {
+          "id": 10002034,
+          "name": "Dungeon, Southern Forest IV",
+          "count": 1
+        },
+        {
+          "id": 10003011,
+          "name": "Caution Falling Down",
+          "count": 3
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 2
+        },
+        {
+          "id": 10003040,
+          "name": "L Forest III",
+          "count": 7
+        },
+        {
+          "id": 10003080,
+          "name": "Construction Site North of Kerning City",
+          "count": 1
+        },
+        {
+          "id": 10003081,
+          "name": "Northern Top of Construction Site",
+          "count": 3
+        }
+      ],
+      "thumbnail": "images/monsters/0000016.png",
+      "gifs": {
+        "move": "images/monsters/0000016.move.webp",
+        "stand": "images/monsters/0000016.stand.webp",
+        "hit1": "images/monsters/0000016.hit1.webp",
+        "die1": "images/monsters/0000016.die1.webp"
+      },
+      "gif": "images/monsters/0000016.move.webp"
     },
     {
       "id": 17,
@@ -348,7 +2486,40 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000017.png"
+      "maps": [
+        {
+          "id": 10003062,
+          "name": "Transfer Area",
+          "count": 38
+        },
+        {
+          "id": 10003063,
+          "name": "Line 1 <Area 2>",
+          "count": 21
+        },
+        {
+          "id": 10003064,
+          "name": "Line 1 <Area 3>",
+          "count": 18
+        },
+        {
+          "id": 10005064,
+          "name": "Dark Cave",
+          "count": 35
+        },
+        {
+          "id": 10005065,
+          "name": "Dangerous Steam",
+          "count": 38
+        }
+      ],
+      "thumbnail": "images/monsters/0000017.png",
+      "gifs": {
+        "fly": "images/monsters/0000017.fly.webp",
+        "hit1": "images/monsters/0000017.hit1.webp",
+        "die1": "images/monsters/0000017.die1.webp"
+      },
+      "gif": "images/monsters/0000017.fly.webp"
     },
     {
       "id": 18,
@@ -368,7 +2539,111 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000018.png"
+      "maps": [
+        {
+          "id": 10003066,
+          "name": "Line 2 <Area 1>",
+          "count": 14
+        },
+        {
+          "id": 10003067,
+          "name": "Line 2 <Area 2>",
+          "count": 18
+        },
+        {
+          "id": 10003090,
+          "name": "The Swamp of Despair I",
+          "count": 10
+        },
+        {
+          "id": 10003091,
+          "name": "The Swamp of Despair II",
+          "count": 17
+        },
+        {
+          "id": 10003092,
+          "name": "The Swamp of Despair III",
+          "count": 19
+        },
+        {
+          "id": 10003093,
+          "name": "Dangerous Croko I",
+          "count": 27
+        },
+        {
+          "id": 10003094,
+          "name": "Dangerous Croko II",
+          "count": 21
+        },
+        {
+          "id": 10003095,
+          "name": "Monkey Swamp I",
+          "count": 3
+        },
+        {
+          "id": 10003096,
+          "name": "Monkey Swamp II",
+          "count": 3
+        },
+        {
+          "id": 10003097,
+          "name": "Monkey Swamp III",
+          "count": 14
+        },
+        {
+          "id": 10005010,
+          "name": "Swampy Land in a Deep Forest",
+          "count": 3
+        },
+        {
+          "id": 10005011,
+          "name": "Hunting Ground in the Deep Forest I",
+          "count": 11
+        },
+        {
+          "id": 10005030,
+          "name": "Damp Tree-Forest",
+          "count": 8
+        },
+        {
+          "id": 10005031,
+          "name": "Damp Forest",
+          "count": 11
+        },
+        {
+          "id": 10005050,
+          "name": "Sleepy Dungeon I",
+          "count": 1
+        },
+        {
+          "id": 10005051,
+          "name": "Sleepy Dungeon II",
+          "count": 5
+        },
+        {
+          "id": 10005052,
+          "name": "Sleepy Dungeon III",
+          "count": 4
+        },
+        {
+          "id": 10005053,
+          "name": "Sleepy Dungeon IV",
+          "count": 3
+        },
+        {
+          "id": 10005054,
+          "name": "Sleepy Dungeon V",
+          "count": 9
+        }
+      ],
+      "thumbnail": "images/monsters/0000018.png",
+      "gifs": {
+        "move": "images/monsters/0000018.move.webp",
+        "stand": "images/monsters/0000018.stand.webp",
+        "hit1": "images/monsters/0000018.hit1.webp",
+        "die1": "images/monsters/0000018.die1.webp"
+      },
+      "gif": "images/monsters/0000018.move.webp"
     },
     {
       "id": 19,
@@ -388,7 +2663,136 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000019.png"
+      "maps": [
+        {
+          "id": 10002027,
+          "name": "Downstairs at the Forest",
+          "count": 17
+        },
+        {
+          "id": 10002034,
+          "name": "Dungeon, Southern Forest IV",
+          "count": 13
+        },
+        {
+          "id": 10002072,
+          "name": "Tree Dungeon, Forest Up North I",
+          "count": 14
+        },
+        {
+          "id": 10002073,
+          "name": "Tree Dungeon, Forest Up North II",
+          "count": 15
+        },
+        {
+          "id": 10002074,
+          "name": "Tree Dungeon, Forest Up North III",
+          "count": 16
+        },
+        {
+          "id": 10002076,
+          "name": "Tree Dungeon, Forest Up North V",
+          "count": 17
+        },
+        {
+          "id": 10003090,
+          "name": "The Swamp of Despair I",
+          "count": 3
+        },
+        {
+          "id": 10003091,
+          "name": "The Swamp of Despair II",
+          "count": 20
+        },
+        {
+          "id": 10005010,
+          "name": "Swampy Land in a Deep Forest",
+          "count": 9
+        },
+        {
+          "id": 10005012,
+          "name": "Hunting Ground in the Deep Forest II",
+          "count": 16
+        },
+        {
+          "id": 10005020,
+          "name": "Deep Forest",
+          "count": 6
+        },
+        {
+          "id": 10005050,
+          "name": "Sleepy Dungeon I",
+          "count": 10
+        },
+        {
+          "id": 10005051,
+          "name": "Sleepy Dungeon II",
+          "count": 12
+        },
+        {
+          "id": 10005060,
+          "name": "Ant Tunnel I",
+          "count": 15
+        },
+        {
+          "id": 10005061,
+          "name": "Ant Tunnel II",
+          "count": 15
+        },
+        {
+          "id": 10005062,
+          "name": "Ant Tunnel III",
+          "count": 38
+        },
+        {
+          "id": 10005063,
+          "name": "Ant Tunnel IV",
+          "count": 41
+        },
+        {
+          "id": 10005064,
+          "name": "Dark Cave",
+          "count": 9
+        },
+        {
+          "id": 10005065,
+          "name": "Dangerous Steam",
+          "count": 5
+        },
+        {
+          "id": 10005066,
+          "name": "Deep Ant Tunnel I",
+          "count": 16
+        },
+        {
+          "id": 10005067,
+          "name": "Deep Ant Tunnel II",
+          "count": 9
+        },
+        {
+          "id": 10005070,
+          "name": "Ant Tunnel Park",
+          "count": 4
+        },
+        {
+          "id": 10005075,
+          "name": "Drake Hunting Ground",
+          "count": 2
+        },
+        {
+          "id": 80000500,
+          "name": "1st Accompaniment <Bonus>",
+          "count": 24
+        }
+      ],
+      "thumbnail": "images/monsters/0000019.png",
+      "gifs": {
+        "move": "images/monsters/0000019.move.webp",
+        "stand": "images/monsters/0000019.stand.webp",
+        "hit1": "images/monsters/0000019.hit1.webp",
+        "die1": "images/monsters/0000019.die1.webp"
+      },
+      "gif": "images/monsters/0000019.move.webp"
     },
     {
       "id": 20,
@@ -410,7 +2814,135 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000020.png"
+      "maps": [
+        {
+          "id": 10004022,
+          "name": "West Rocky Mountain III",
+          "count": 9
+        },
+        {
+          "id": 10004023,
+          "name": "West Rocky Mountain IV",
+          "count": 14
+        },
+        {
+          "id": 10004041,
+          "name": "Land of Wild Boar",
+          "count": 7
+        },
+        {
+          "id": 10004042,
+          "name": "Over the Wall",
+          "count": 5
+        },
+        {
+          "id": 10004053,
+          "name": "East Rocky Mountain IV",
+          "count": 23
+        },
+        {
+          "id": 10004054,
+          "name": "East Rocky Mountain V",
+          "count": 25
+        },
+        {
+          "id": 10004055,
+          "name": "East Rocky Mountain VI",
+          "count": 17
+        },
+        {
+          "id": 10004056,
+          "name": "East Rocky Mountain VII",
+          "count": 15
+        },
+        {
+          "id": 10004070,
+          "name": "Rocky Road II",
+          "count": 5
+        },
+        {
+          "id": 10004080,
+          "name": "Rocky Road III",
+          "count": 11
+        },
+        {
+          "id": 10004090,
+          "name": "East Domain of Perion",
+          "count": 10
+        },
+        {
+          "id": 10004091,
+          "name": "The Land of Wild Boar II",
+          "count": 2
+        },
+        {
+          "id": 10004100,
+          "name": "Deep Valley I",
+          "count": 8
+        },
+        {
+          "id": 10004110,
+          "name": "Deep Valley II",
+          "count": 5
+        },
+        {
+          "id": 10004111,
+          "name": "The Burnt Land I",
+          "count": 7
+        },
+        {
+          "id": 10004112,
+          "name": "The Burnt Land II",
+          "count": 12
+        },
+        {
+          "id": 10004113,
+          "name": "The Burnt Land III",
+          "count": 13
+        },
+        {
+          "id": 10004114,
+          "name": "The Burnt Land IV",
+          "count": 10
+        },
+        {
+          "id": 10004115,
+          "name": "The Burnt Land V",
+          "count": 10
+        },
+        {
+          "id": 10004120,
+          "name": "Deep Valley III",
+          "count": 11
+        },
+        {
+          "id": 10004121,
+          "name": "Perion Dungeon Entrance",
+          "count": 16
+        },
+        {
+          "id": 10005020,
+          "name": "Deep Forest",
+          "count": 2
+        },
+        {
+          "id": 10005030,
+          "name": "Damp Tree-Forest",
+          "count": 6
+        },
+        {
+          "id": 10005051,
+          "name": "Sleepy Dungeon II",
+          "count": 7
+        }
+      ],
+      "thumbnail": "images/monsters/0000020.png",
+      "gifs": {
+        "move": "images/monsters/0000020.move.webp",
+        "hit1": "images/monsters/0000020.hit1.webp",
+        "die1": "images/monsters/0000020.die1.webp"
+      },
+      "gif": "images/monsters/0000020.move.webp"
     },
     {
       "id": 21,
@@ -432,7 +2964,96 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000021.png"
+      "maps": [
+        {
+          "id": 10005060,
+          "name": "Ant Tunnel I",
+          "count": 11
+        },
+        {
+          "id": 10005061,
+          "name": "Ant Tunnel II",
+          "count": 32
+        },
+        {
+          "id": 10005062,
+          "name": "Ant Tunnel III",
+          "count": 61
+        },
+        {
+          "id": 10005063,
+          "name": "Ant Tunnel IV",
+          "count": 23
+        },
+        {
+          "id": 10005064,
+          "name": "Dark Cave",
+          "count": 7
+        },
+        {
+          "id": 10005065,
+          "name": "Dangerous Steam",
+          "count": 6
+        },
+        {
+          "id": 10005066,
+          "name": "Deep Ant Tunnel I",
+          "count": 29
+        },
+        {
+          "id": 10005067,
+          "name": "Deep Ant Tunnel II",
+          "count": 9
+        },
+        {
+          "id": 10005070,
+          "name": "Ant Tunnel Park",
+          "count": 23
+        },
+        {
+          "id": 10005078,
+          "name": "The Grave of Mushmom",
+          "count": 13
+        },
+        {
+          "id": 10006031,
+          "name": "The Valley of Death",
+          "count": 8
+        },
+        {
+          "id": 10006080,
+          "name": "Forbidden Entrance",
+          "count": 4
+        },
+        {
+          "id": 10006090,
+          "name": "Perilous Descent I",
+          "count": 6
+        },
+        {
+          "id": 10006100,
+          "name": "Perilous Descent II",
+          "count": 8
+        },
+        {
+          "id": 10006110,
+          "name": "Perilous Descent III",
+          "count": 4
+        },
+        {
+          "id": 10006121,
+          "name": "Someone Else's Grave",
+          "count": 2
+        }
+      ],
+      "thumbnail": "images/monsters/0000021.png",
+      "gifs": {
+        "move": "images/monsters/0000021.move.webp",
+        "stand": "images/monsters/0000021.stand.webp",
+        "hit1": "images/monsters/0000021.hit1.webp",
+        "die1": "images/monsters/0000021.die1.webp"
+      },
+      "gif": "images/monsters/0000021.move.webp"
     },
     {
       "id": 22,
@@ -452,7 +3073,61 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000022.png"
+      "maps": [
+        {
+          "id": 10004023,
+          "name": "West Rocky Mountain IV",
+          "count": 15
+        },
+        {
+          "id": 10004041,
+          "name": "Land of Wild Boar",
+          "count": 22
+        },
+        {
+          "id": 10004070,
+          "name": "Rocky Road II",
+          "count": 4
+        },
+        {
+          "id": 10004080,
+          "name": "Rocky Road III",
+          "count": 7
+        },
+        {
+          "id": 10004091,
+          "name": "The Land of Wild Boar II",
+          "count": 23
+        },
+        {
+          "id": 10004100,
+          "name": "Deep Valley I",
+          "count": 5
+        },
+        {
+          "id": 10004110,
+          "name": "Deep Valley II",
+          "count": 5
+        },
+        {
+          "id": 10004120,
+          "name": "Deep Valley III",
+          "count": 7
+        },
+        {
+          "id": 10004121,
+          "name": "Perion Dungeon Entrance",
+          "count": 11
+        }
+      ],
+      "thumbnail": "images/monsters/0000022.png",
+      "gifs": {
+        "move": "images/monsters/0000022.move.webp",
+        "stand": "images/monsters/0000022.stand.webp",
+        "hit1": "images/monsters/0000022.hit1.webp",
+        "die1": "images/monsters/0000022.die1.webp"
+      },
+      "gif": "images/monsters/0000022.move.webp"
     },
     {
       "id": 23,
@@ -472,7 +3147,56 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000023.png"
+      "maps": [
+        {
+          "id": 10005066,
+          "name": "Deep Ant Tunnel I",
+          "count": 21
+        },
+        {
+          "id": 10005067,
+          "name": "Deep Ant Tunnel II",
+          "count": 16
+        },
+        {
+          "id": 10005070,
+          "name": "Ant Tunnel Park",
+          "count": 31
+        },
+        {
+          "id": 10005071,
+          "name": "The Cave of Evil Eye I",
+          "count": 19
+        },
+        {
+          "id": 10005072,
+          "name": "The Cave of Evil Eye II",
+          "count": 36
+        },
+        {
+          "id": 10005073,
+          "name": "The Cave of Evil Eye III",
+          "count": 38
+        },
+        {
+          "id": 10005074,
+          "name": "The Cave of Evil Eye IV",
+          "count": 23
+        },
+        {
+          "id": 10006120,
+          "name": "Decayed Tunnel I",
+          "count": 9
+        }
+      ],
+      "thumbnail": "images/monsters/0000023.png",
+      "gifs": {
+        "move": "images/monsters/0000023.move.webp",
+        "stand": "images/monsters/0000023.stand.webp",
+        "hit1": "images/monsters/0000023.hit1.webp",
+        "die1": "images/monsters/0000023.die1.webp"
+      },
+      "gif": "images/monsters/0000023.move.webp"
     },
     {
       "id": 24,
@@ -492,7 +3216,52 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000024.png"
+      "maps": [
+        {
+          "id": 10000021,
+          "name": "The Pig Beach",
+          "count": 1
+        },
+        {
+          "id": 10001003,
+          "name": "Pig Park",
+          "count": 20
+        },
+        {
+          "id": 10001004,
+          "name": "Pig Park II",
+          "count": 22
+        },
+        {
+          "id": 10001005,
+          "name": "Someone Else's House",
+          "count": 13
+        },
+        {
+          "id": 10001090,
+          "name": "The Road to the Dungeon",
+          "count": 2
+        },
+        {
+          "id": 10001100,
+          "name": "Henesys Dungeon Entrance",
+          "count": 3
+        },
+        {
+          "id": 10003020,
+          "name": "L Forest I",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0000024.png",
+      "gifs": {
+        "move": "images/monsters/0000024.move.webp",
+        "stand": "images/monsters/0000024.stand.webp",
+        "skill1": "images/monsters/0000024.skill1.webp",
+        "hit1": "images/monsters/0000024.hit1.webp",
+        "die1": "images/monsters/0000024.die1.webp"
+      },
+      "gif": "images/monsters/0000024.move.webp"
     },
     {
       "id": 25,
@@ -512,7 +3281,15 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000025.png"
+      "maps": [],
+      "thumbnail": "images/monsters/0000025.png",
+      "gifs": {
+        "move": "images/monsters/0000025.move.webp",
+        "skill1": "images/monsters/0000025.skill1.webp",
+        "hit1": "images/monsters/0000025.hit1.webp",
+        "die1": "images/monsters/0000025.die1.webp"
+      },
+      "gif": "images/monsters/0000025.move.webp"
     },
     {
       "id": 26,
@@ -532,7 +3309,21 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000026.png"
+      "maps": [
+        {
+          "id": 10001005,
+          "name": "Someone Else's House",
+          "count": 2
+        }
+      ],
+      "thumbnail": "images/monsters/0000026.png",
+      "gifs": {
+        "move": "images/monsters/0000026.move.webp",
+        "skill1": "images/monsters/0000026.skill1.webp",
+        "hit1": "images/monsters/0000026.hit1.webp",
+        "die1": "images/monsters/0000026.die1.webp"
+      },
+      "gif": "images/monsters/0000026.move.webp"
     },
     {
       "id": 27,
@@ -552,7 +3343,31 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000027.png"
+      "maps": [
+        {
+          "id": 10002080,
+          "name": "Tree Dungeon, Forest Up North VI",
+          "count": 2
+        },
+        {
+          "id": 10002081,
+          "name": "Tree Dungeon, Forest Up North VII",
+          "count": 2
+        },
+        {
+          "id": 10006121,
+          "name": "Someone Else's Grave",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0000027.png",
+      "gifs": {
+        "move": "images/monsters/0000027.move.webp",
+        "skill1": "images/monsters/0000027.skill1.webp",
+        "hit1": "images/monsters/0000027.hit1.webp",
+        "die1": "images/monsters/0000027.die1.webp"
+      },
+      "gif": "images/monsters/0000027.move.webp"
     },
     {
       "id": 28,
@@ -572,7 +3387,46 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000028.png"
+      "maps": [
+        {
+          "id": 10001101,
+          "name": "The Breathing Rock",
+          "count": 2
+        },
+        {
+          "id": 10001102,
+          "name": "The Entrance of Golem's Temple",
+          "count": 3
+        },
+        {
+          "id": 10001103,
+          "name": "Golem's Temple I",
+          "count": 1
+        },
+        {
+          "id": 10001104,
+          "name": "Golem's Temple II",
+          "count": 1
+        },
+        {
+          "id": 10001105,
+          "name": "Golem's Temple III",
+          "count": 1
+        },
+        {
+          "id": 10001106,
+          "name": "Golem's Temple IV",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0000028.png",
+      "gifs": {
+        "move": "images/monsters/0000028.move.webp",
+        "skill1": "images/monsters/0000028.skill1.webp",
+        "hit1": "images/monsters/0000028.hit1.webp",
+        "die1": "images/monsters/0000028.die1.webp"
+      },
+      "gif": "images/monsters/0000028.move.webp"
     },
     {
       "id": 29,
@@ -595,7 +3449,36 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000029.png"
+      "maps": [
+        {
+          "id": 10003090,
+          "name": "The Swamp of Despair I",
+          "count": 41
+        },
+        {
+          "id": 10003091,
+          "name": "The Swamp of Despair II",
+          "count": 36
+        },
+        {
+          "id": 10003092,
+          "name": "The Swamp of Despair III",
+          "count": 28
+        },
+        {
+          "id": 10003093,
+          "name": "Dangerous Croko I",
+          "count": 14
+        }
+      ],
+      "thumbnail": "images/monsters/0000029.png",
+      "gifs": {
+        "move": "images/monsters/0000029.move.webp",
+        "stand": "images/monsters/0000029.stand.webp",
+        "hit1": "images/monsters/0000029.hit1.webp",
+        "die1": "images/monsters/0000029.die1.webp"
+      },
+      "gif": "images/monsters/0000029.move.webp"
     },
     {
       "id": 30,
@@ -618,7 +3501,86 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000030.png"
+      "maps": [
+        {
+          "id": 10004054,
+          "name": "East Rocky Mountain V",
+          "count": 4
+        },
+        {
+          "id": 10004055,
+          "name": "East Rocky Mountain VI",
+          "count": 10
+        },
+        {
+          "id": 10004056,
+          "name": "East Rocky Mountain VII",
+          "count": 20
+        },
+        {
+          "id": 10004100,
+          "name": "Deep Valley I",
+          "count": 4
+        },
+        {
+          "id": 10004101,
+          "name": "Dangerous Valley",
+          "count": 21
+        },
+        {
+          "id": 10004102,
+          "name": "Dangerous Valley II",
+          "count": 8
+        },
+        {
+          "id": 10004110,
+          "name": "Deep Valley II",
+          "count": 5
+        },
+        {
+          "id": 10004111,
+          "name": "The Burnt Land I",
+          "count": 18
+        },
+        {
+          "id": 10004112,
+          "name": "The Burnt Land II",
+          "count": 19
+        },
+        {
+          "id": 10004113,
+          "name": "The Burnt Land III",
+          "count": 24
+        },
+        {
+          "id": 10004114,
+          "name": "The Burnt Land IV",
+          "count": 21
+        },
+        {
+          "id": 10004115,
+          "name": "The Burnt Land V",
+          "count": 26
+        },
+        {
+          "id": 10004120,
+          "name": "Deep Valley III",
+          "count": 9
+        },
+        {
+          "id": 10004121,
+          "name": "Perion Dungeon Entrance",
+          "count": 9
+        }
+      ],
+      "thumbnail": "images/monsters/0000030.png",
+      "gifs": {
+        "move": "images/monsters/0000030.move.webp",
+        "stand": "images/monsters/0000030.stand.webp",
+        "hit1": "images/monsters/0000030.hit1.webp",
+        "die1": "images/monsters/0000030.die1.webp"
+      },
+      "gif": "images/monsters/0000030.move.webp"
     },
     {
       "id": 31,
@@ -640,7 +3602,91 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000031.png"
+      "maps": [
+        {
+          "id": 10002022,
+          "name": "Tree Dungeon, Monkey Forest I",
+          "count": 5
+        },
+        {
+          "id": 10002024,
+          "name": "Tree Dungeon, Monkey Forest II",
+          "count": 4
+        },
+        {
+          "id": 10002080,
+          "name": "Tree Dungeon, Forest Up North VI",
+          "count": 15
+        },
+        {
+          "id": 10002081,
+          "name": "Tree Dungeon, Forest Up North VII",
+          "count": 13
+        },
+        {
+          "id": 10002082,
+          "name": "Tree Dungeon, Forest Up North VIII",
+          "count": 17
+        },
+        {
+          "id": 10002083,
+          "name": "Tree Dungeon, Forest Up North IX",
+          "count": 20
+        },
+        {
+          "id": 10005011,
+          "name": "Hunting Ground in the Deep Forest I",
+          "count": 11
+        },
+        {
+          "id": 10005012,
+          "name": "Hunting Ground in the Deep Forest II",
+          "count": 20
+        },
+        {
+          "id": 10005050,
+          "name": "Sleepy Dungeon I",
+          "count": 2
+        },
+        {
+          "id": 10005051,
+          "name": "Sleepy Dungeon II",
+          "count": 2
+        },
+        {
+          "id": 10005052,
+          "name": "Sleepy Dungeon III",
+          "count": 19
+        },
+        {
+          "id": 10005053,
+          "name": "Sleepy Dungeon IV",
+          "count": 14
+        },
+        {
+          "id": 10005054,
+          "name": "Sleepy Dungeon V",
+          "count": 24
+        },
+        {
+          "id": 10006060,
+          "name": "Forgotten Entrance III",
+          "count": 11
+        },
+        {
+          "id": 10006071,
+          "name": "Forgotten Dungeon Tunnel",
+          "count": 4
+        }
+      ],
+      "thumbnail": "images/monsters/0000031.png",
+      "gifs": {
+        "move": "images/monsters/0000031.move.webp",
+        "stand": "images/monsters/0000031.stand.webp",
+        "hit1": "images/monsters/0000031.hit1.webp",
+        "die1": "images/monsters/0000031.die1.webp"
+      },
+      "gif": "images/monsters/0000031.move.webp"
     },
     {
       "id": 32,
@@ -663,7 +3709,41 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000032.png"
+      "maps": [
+        {
+          "id": 10003063,
+          "name": "Line 1 <Area 2>",
+          "count": 69
+        },
+        {
+          "id": 10003064,
+          "name": "Line 1 <Area 3>",
+          "count": 31
+        },
+        {
+          "id": 10003066,
+          "name": "Line 2 <Area 1>",
+          "count": 83
+        },
+        {
+          "id": 10003067,
+          "name": "Line 2 <Area 2>",
+          "count": 32
+        },
+        {
+          "id": 10003105,
+          "name": "B2 <Subway Depot>",
+          "count": 12
+        }
+      ],
+      "thumbnail": "images/monsters/0000032.png",
+      "gifs": {
+        "move": "images/monsters/0000032.move.webp",
+        "stand": "images/monsters/0000032.stand.webp",
+        "hit1": "images/monsters/0000032.hit1.webp",
+        "die1": "images/monsters/0000032.die1.webp"
+      },
+      "gif": "images/monsters/0000032.move.webp"
     },
     {
       "id": 33,
@@ -683,7 +3763,52 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000033.png"
+      "maps": [
+        {
+          "id": 10003105,
+          "name": "B2 <Subway Depot>",
+          "count": 1
+        },
+        {
+          "id": 10003109,
+          "name": "B3 <Subway Depot>",
+          "count": 1
+        },
+        {
+          "id": 10004041,
+          "name": "Land of Wild Boar",
+          "count": 3
+        },
+        {
+          "id": 10005011,
+          "name": "Hunting Ground in the Deep Forest I",
+          "count": 1
+        },
+        {
+          "id": 10005052,
+          "name": "Sleepy Dungeon III",
+          "count": 1
+        },
+        {
+          "id": 10005053,
+          "name": "Sleepy Dungeon IV",
+          "count": 3
+        },
+        {
+          "id": 10005054,
+          "name": "Sleepy Dungeon V",
+          "count": 5
+        }
+      ],
+      "thumbnail": "images/monsters/0000033.png",
+      "gifs": {
+        "move": "images/monsters/0000033.move.webp",
+        "stand": "images/monsters/0000033.stand.webp",
+        "skill1": "images/monsters/0000033.skill1.webp",
+        "hit1": "images/monsters/0000033.hit1.webp",
+        "die1": "images/monsters/0000033.die1.webp"
+      },
+      "gif": "images/monsters/0000033.move.webp"
     },
     {
       "id": 34,
@@ -703,7 +3828,72 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000034.png"
+      "maps": [
+        {
+          "id": 10003109,
+          "name": "B3 <Subway Depot>",
+          "count": 1
+        },
+        {
+          "id": 10004041,
+          "name": "Land of Wild Boar",
+          "count": 3
+        },
+        {
+          "id": 10005053,
+          "name": "Sleepy Dungeon IV",
+          "count": 3
+        },
+        {
+          "id": 10005054,
+          "name": "Sleepy Dungeon V",
+          "count": 5
+        },
+        {
+          "id": 10005066,
+          "name": "Deep Ant Tunnel I",
+          "count": 2
+        },
+        {
+          "id": 10005071,
+          "name": "The Cave of Evil Eye I",
+          "count": 2
+        },
+        {
+          "id": 10005072,
+          "name": "The Cave of Evil Eye II",
+          "count": 2
+        },
+        {
+          "id": 10005073,
+          "name": "The Cave of Evil Eye III",
+          "count": 2
+        },
+        {
+          "id": 10005074,
+          "name": "The Cave of Evil Eye IV",
+          "count": 2
+        },
+        {
+          "id": 10005075,
+          "name": "Drake Hunting Ground",
+          "count": 2
+        },
+        {
+          "id": 10005078,
+          "name": "The Grave of Mushmom",
+          "count": 2
+        }
+      ],
+      "thumbnail": "images/monsters/0000034.png",
+      "gifs": {
+        "move": "images/monsters/0000034.move.webp",
+        "stand": "images/monsters/0000034.stand.webp",
+        "skill1": "images/monsters/0000034.skill1.webp",
+        "hit1": "images/monsters/0000034.hit1.webp",
+        "die1": "images/monsters/0000034.die1.webp"
+      },
+      "gif": "images/monsters/0000034.move.webp"
     },
     {
       "id": 35,
@@ -723,7 +3913,131 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000035.png"
+      "maps": [
+        {
+          "id": 10001100,
+          "name": "Henesys Dungeon Entrance",
+          "count": 4
+        },
+        {
+          "id": 10001101,
+          "name": "The Breathing Rock",
+          "count": 6
+        },
+        {
+          "id": 10001103,
+          "name": "Golem's Temple I",
+          "count": 3
+        },
+        {
+          "id": 10001104,
+          "name": "Golem's Temple II",
+          "count": 3
+        },
+        {
+          "id": 10001105,
+          "name": "Golem's Temple III",
+          "count": 7
+        },
+        {
+          "id": 10002021,
+          "name": "Monkey Forest I",
+          "count": 13
+        },
+        {
+          "id": 10002023,
+          "name": "Monkey Forest II",
+          "count": 10
+        },
+        {
+          "id": 10002027,
+          "name": "Downstairs at the Forest",
+          "count": 3
+        },
+        {
+          "id": 10003030,
+          "name": "L Forest II",
+          "count": 1
+        },
+        {
+          "id": 10003095,
+          "name": "Monkey Swamp I",
+          "count": 28
+        },
+        {
+          "id": 10003096,
+          "name": "Monkey Swamp II",
+          "count": 10
+        },
+        {
+          "id": 10004023,
+          "name": "West Rocky Mountain IV",
+          "count": 3
+        },
+        {
+          "id": 10004055,
+          "name": "East Rocky Mountain VI",
+          "count": 3
+        },
+        {
+          "id": 10004114,
+          "name": "The Burnt Land IV",
+          "count": 14
+        },
+        {
+          "id": 10004115,
+          "name": "The Burnt Land V",
+          "count": 12
+        },
+        {
+          "id": 10005012,
+          "name": "Hunting Ground in the Deep Forest II",
+          "count": 15
+        },
+        {
+          "id": 10005050,
+          "name": "Sleepy Dungeon I",
+          "count": 2
+        },
+        {
+          "id": 10005051,
+          "name": "Sleepy Dungeon II",
+          "count": 10
+        },
+        {
+          "id": 10005052,
+          "name": "Sleepy Dungeon III",
+          "count": 12
+        },
+        {
+          "id": 10005054,
+          "name": "Sleepy Dungeon V",
+          "count": 23
+        },
+        {
+          "id": 10006050,
+          "name": "Forgotten Entrance II",
+          "count": 8
+        },
+        {
+          "id": 10007010,
+          "name": "A Look-Out Shed Around the Beach",
+          "count": 27
+        },
+        {
+          "id": 10007020,
+          "name": "Lorang Lorang",
+          "count": 5
+        }
+      ],
+      "thumbnail": "images/monsters/0000035.png",
+      "gifs": {
+        "move": "images/monsters/0000035.move.webp",
+        "attack1": "images/monsters/0000035.attack1.webp",
+        "hit1": "images/monsters/0000035.hit1.webp",
+        "die1": "images/monsters/0000035.die1.webp"
+      },
+      "gif": "images/monsters/0000035.move.webp"
     },
     {
       "id": 36,
@@ -745,7 +4059,42 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000036.png"
+      "maps": [
+        {
+          "id": 10007010,
+          "name": "A Look-Out Shed Around the Beach",
+          "count": 36
+        },
+        {
+          "id": 10007020,
+          "name": "Lorang Lorang",
+          "count": 35
+        },
+        {
+          "id": 10007021,
+          "name": "Lorang Lorang Lorang",
+          "count": 18
+        },
+        {
+          "id": 10007030,
+          "name": "Lorang and Clang",
+          "count": 18
+        },
+        {
+          "id": 10007031,
+          "name": "Clang and Lorang",
+          "count": 8
+        }
+      ],
+      "thumbnail": "images/monsters/0000036.png",
+      "gifs": {
+        "move": "images/monsters/0000036.move.webp",
+        "jump": "images/monsters/0000036.jump.webp",
+        "stand": "images/monsters/0000036.stand.webp",
+        "hit1": "images/monsters/0000036.hit1.webp",
+        "die1": "images/monsters/0000036.die1.webp"
+      },
+      "gif": "images/monsters/0000036.move.webp"
     },
     {
       "id": 37,
@@ -768,7 +4117,67 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000037.png"
+      "maps": [
+        {
+          "id": 10002081,
+          "name": "Tree Dungeon, Forest Up North VII",
+          "count": 4
+        },
+        {
+          "id": 10005076,
+          "name": "The Tunnel That Lost Light I",
+          "count": 32
+        },
+        {
+          "id": 10005077,
+          "name": "The Tunnel That Lost Light II",
+          "count": 25
+        },
+        {
+          "id": 10005090,
+          "name": "Drake's Meal Table",
+          "count": 22
+        },
+        {
+          "id": 10005091,
+          "name": "Wild Kargo's Area",
+          "count": 17
+        },
+        {
+          "id": 10005100,
+          "name": "Another Path",
+          "count": 23
+        },
+        {
+          "id": 10005101,
+          "name": "Sanctuary Entrance I",
+          "count": 13
+        },
+        {
+          "id": 10005102,
+          "name": "Sanctuary Entrance II",
+          "count": 15
+        },
+        {
+          "id": 10005103,
+          "name": "Sanctuary Entrance III",
+          "count": 8
+        },
+        {
+          "id": 10005104,
+          "name": "Sanctuary Entrance IV",
+          "count": 5
+        }
+      ],
+      "thumbnail": "images/monsters/0000037.png",
+      "gifs": {
+        "move": "images/monsters/0000037.move.webp",
+        "jump": "images/monsters/0000037.jump.webp",
+        "stand": "images/monsters/0000037.stand.webp",
+        "hit1": "images/monsters/0000037.hit1.webp",
+        "die1": "images/monsters/0000037.die1.webp"
+      },
+      "gif": "images/monsters/0000037.move.webp"
     },
     {
       "id": 38,
@@ -790,7 +4199,62 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000038.png"
+      "maps": [
+        {
+          "id": 10002021,
+          "name": "Monkey Forest I",
+          "count": 14
+        },
+        {
+          "id": 10002022,
+          "name": "Tree Dungeon, Monkey Forest I",
+          "count": 26
+        },
+        {
+          "id": 10002023,
+          "name": "Monkey Forest II",
+          "count": 25
+        },
+        {
+          "id": 10002024,
+          "name": "Tree Dungeon, Monkey Forest II",
+          "count": 26
+        },
+        {
+          "id": 10002025,
+          "name": "The Forest of Evil I",
+          "count": 11
+        },
+        {
+          "id": 10002026,
+          "name": "The Forest of Evil II",
+          "count": 16
+        },
+        {
+          "id": 10003096,
+          "name": "Monkey Swamp II",
+          "count": 13
+        },
+        {
+          "id": 10003097,
+          "name": "Monkey Swamp III",
+          "count": 31
+        },
+        {
+          "id": 10006031,
+          "name": "The Valley of Death",
+          "count": 8
+        }
+      ],
+      "thumbnail": "images/monsters/0000038.png",
+      "gifs": {
+        "move": "images/monsters/0000038.move.webp",
+        "stand": "images/monsters/0000038.stand.webp",
+        "attack1": "images/monsters/0000038.attack1.webp",
+        "hit1": "images/monsters/0000038.hit1.webp",
+        "die1": "images/monsters/0000038.die1.webp"
+      },
+      "gif": "images/monsters/0000038.move.webp"
     },
     {
       "id": 40,
@@ -810,7 +4274,31 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000040.png"
+      "maps": [
+        {
+          "id": 10004056,
+          "name": "East Rocky Mountain VII",
+          "count": 22
+        },
+        {
+          "id": 10004101,
+          "name": "Dangerous Valley",
+          "count": 13
+        },
+        {
+          "id": 10004102,
+          "name": "Dangerous Valley II",
+          "count": 5
+        }
+      ],
+      "thumbnail": "images/monsters/0000040.png",
+      "gifs": {
+        "move": "images/monsters/0000040.move.webp",
+        "stand": "images/monsters/0000040.stand.webp",
+        "hit1": "images/monsters/0000040.hit1.webp",
+        "die1": "images/monsters/0000040.die1.webp"
+      },
+      "gif": "images/monsters/0000040.move.webp"
     },
     {
       "id": 41,
@@ -830,7 +4318,26 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000041.png"
+      "maps": [
+        {
+          "id": 10007031,
+          "name": "Clang and Lorang",
+          "count": 6
+        },
+        {
+          "id": 10007040,
+          "name": "Hot Sand",
+          "count": 25
+        }
+      ],
+      "thumbnail": "images/monsters/0000041.png",
+      "gifs": {
+        "move": "images/monsters/0000041.move.webp",
+        "attack1": "images/monsters/0000041.attack1.webp",
+        "hit1": "images/monsters/0000041.hit1.webp",
+        "die1": "images/monsters/0000041.die1.webp"
+      },
+      "gif": "images/monsters/0000041.move.webp"
     },
     {
       "id": 43,
@@ -852,7 +4359,41 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000043.png"
+      "maps": [
+        {
+          "id": 10003064,
+          "name": "Line 1 <Area 3>",
+          "count": 48
+        },
+        {
+          "id": 10003065,
+          "name": "Line 1 <Area 4>",
+          "count": 59
+        },
+        {
+          "id": 10003067,
+          "name": "Line 2 <Area 2>",
+          "count": 57
+        },
+        {
+          "id": 10003068,
+          "name": "Line 2 <Area 3>",
+          "count": 68
+        },
+        {
+          "id": 10003109,
+          "name": "B3 <Subway Depot>",
+          "count": 10
+        }
+      ],
+      "thumbnail": "images/monsters/0000043.png",
+      "gifs": {
+        "move": "images/monsters/0000043.move.webp",
+        "stand": "images/monsters/0000043.stand.webp",
+        "hit1": "images/monsters/0000043.hit1.webp",
+        "die1": "images/monsters/0000043.die1.webp"
+      },
+      "gif": "images/monsters/0000043.move.webp"
     },
     {
       "id": 44,
@@ -874,7 +4415,32 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000044.png"
+      "maps": [
+        {
+          "id": 10007030,
+          "name": "Lorang and Clang",
+          "count": 29
+        },
+        {
+          "id": 10007031,
+          "name": "Clang and Lorang",
+          "count": 17
+        },
+        {
+          "id": 10007040,
+          "name": "Hot Sand",
+          "count": 13
+        }
+      ],
+      "thumbnail": "images/monsters/0000044.png",
+      "gifs": {
+        "move": "images/monsters/0000044.move.webp",
+        "jump": "images/monsters/0000044.jump.webp",
+        "stand": "images/monsters/0000044.stand.webp",
+        "hit1": "images/monsters/0000044.hit1.webp",
+        "die1": "images/monsters/0000044.die1.webp"
+      },
+      "gif": "images/monsters/0000044.move.webp"
     },
     {
       "id": 45,
@@ -894,7 +4460,36 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000045.png"
+      "maps": [
+        {
+          "id": 10005075,
+          "name": "Drake Hunting Ground",
+          "count": 18
+        },
+        {
+          "id": 10005076,
+          "name": "The Tunnel That Lost Light I",
+          "count": 20
+        },
+        {
+          "id": 10005077,
+          "name": "The Tunnel That Lost Light II",
+          "count": 15
+        },
+        {
+          "id": 10005090,
+          "name": "Drake's Meal Table",
+          "count": 23
+        }
+      ],
+      "thumbnail": "images/monsters/0000045.png",
+      "gifs": {
+        "move": "images/monsters/0000045.move.webp",
+        "stand": "images/monsters/0000045.stand.webp",
+        "hit1": "images/monsters/0000045.hit1.webp",
+        "die1": "images/monsters/0000045.die1.webp"
+      },
+      "gif": "images/monsters/0000045.move.webp"
     },
     {
       "id": 46,
@@ -914,7 +4509,26 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000046.png"
+      "maps": [
+        {
+          "id": 10003093,
+          "name": "Dangerous Croko I",
+          "count": 6
+        },
+        {
+          "id": 10003094,
+          "name": "Dangerous Croko II",
+          "count": 24
+        }
+      ],
+      "thumbnail": "images/monsters/0000046.png",
+      "gifs": {
+        "move": "images/monsters/0000046.move.webp",
+        "stand": "images/monsters/0000046.stand.webp",
+        "hit1": "images/monsters/0000046.hit1.webp",
+        "die1": "images/monsters/0000046.die1.webp"
+      },
+      "gif": "images/monsters/0000046.move.webp"
     },
     {
       "id": 47,
@@ -936,7 +4550,25 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000047.png"
+      "maps": [
+        {
+          "id": 10002025,
+          "name": "The Forest of Evil I",
+          "count": 15
+        },
+        {
+          "id": 10002026,
+          "name": "The Forest of Evil II",
+          "count": 23
+        }
+      ],
+      "thumbnail": "images/monsters/0000047.png",
+      "gifs": {
+        "fly": "images/monsters/0000047.fly.webp",
+        "hit1": "images/monsters/0000047.hit1.webp",
+        "die1": "images/monsters/0000047.die1.webp"
+      },
+      "gif": "images/monsters/0000047.fly.webp"
     },
     {
       "id": 48,
@@ -956,7 +4588,52 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000048.png"
+      "maps": [
+        {
+          "id": 10001100,
+          "name": "Henesys Dungeon Entrance",
+          "count": 3
+        },
+        {
+          "id": 10001101,
+          "name": "The Breathing Rock",
+          "count": 4
+        },
+        {
+          "id": 10001102,
+          "name": "The Entrance of Golem's Temple",
+          "count": 9
+        },
+        {
+          "id": 10001103,
+          "name": "Golem's Temple I",
+          "count": 9
+        },
+        {
+          "id": 10001104,
+          "name": "Golem's Temple II",
+          "count": 7
+        },
+        {
+          "id": 10001105,
+          "name": "Golem's Temple III",
+          "count": 10
+        },
+        {
+          "id": 10001106,
+          "name": "Golem's Temple IV",
+          "count": 8
+        }
+      ],
+      "thumbnail": "images/monsters/0000048.png",
+      "gifs": {
+        "move": "images/monsters/0000048.move.webp",
+        "stand": "images/monsters/0000048.stand.webp",
+        "skill1": "images/monsters/0000048.skill1.webp",
+        "hit1": "images/monsters/0000048.hit1.webp",
+        "die1": "images/monsters/0000048.die1.webp"
+      },
+      "gif": "images/monsters/0000048.move.webp"
     },
     {
       "id": 49,
@@ -978,7 +4655,32 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000049.png"
+      "maps": [
+        {
+          "id": 10005052,
+          "name": "Sleepy Dungeon III",
+          "count": 9
+        },
+        {
+          "id": 10005053,
+          "name": "Sleepy Dungeon IV",
+          "count": 7
+        },
+        {
+          "id": 10005054,
+          "name": "Sleepy Dungeon V",
+          "count": 19
+        }
+      ],
+      "thumbnail": "images/monsters/0000049.png",
+      "gifs": {
+        "move": "images/monsters/0000049.move.webp",
+        "stand": "images/monsters/0000049.stand.webp",
+        "skill1": "images/monsters/0000049.skill1.webp",
+        "hit1": "images/monsters/0000049.hit1.webp",
+        "die1": "images/monsters/0000049.die1.webp"
+      },
+      "gif": "images/monsters/0000049.move.webp"
     },
     {
       "id": 50,
@@ -1001,7 +4703,22 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000050.png"
+      "maps": [
+        {
+          "id": 10004102,
+          "name": "Dangerous Valley II",
+          "count": 17
+        }
+      ],
+      "thumbnail": "images/monsters/0000050.png",
+      "gifs": {
+        "move": "images/monsters/0000050.move.webp",
+        "stand": "images/monsters/0000050.stand.webp",
+        "attack1": "images/monsters/0000050.attack1.webp",
+        "hit1": "images/monsters/0000050.hit1.webp",
+        "die1": "images/monsters/0000050.die1.webp"
+      },
+      "gif": "images/monsters/0000050.move.webp"
     },
     {
       "id": 51,
@@ -1021,7 +4738,32 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000051.png"
+      "maps": [
+        {
+          "id": 10005077,
+          "name": "The Tunnel That Lost Light II",
+          "count": 7
+        },
+        {
+          "id": 10005090,
+          "name": "Drake's Meal Table",
+          "count": 10
+        },
+        {
+          "id": 10005091,
+          "name": "Wild Kargo's Area",
+          "count": 13
+        }
+      ],
+      "thumbnail": "images/monsters/0000051.png",
+      "gifs": {
+        "move": "images/monsters/0000051.move.webp",
+        "jump": "images/monsters/0000051.jump.webp",
+        "stand": "images/monsters/0000051.stand.webp",
+        "hit1": "images/monsters/0000051.hit1.webp",
+        "die1": "images/monsters/0000051.die1.webp"
+      },
+      "gif": "images/monsters/0000051.move.webp"
     },
     {
       "id": 52,
@@ -1043,7 +4785,37 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000052.png"
+      "maps": [
+        {
+          "id": 10005101,
+          "name": "Sanctuary Entrance I",
+          "count": 4
+        },
+        {
+          "id": 10005102,
+          "name": "Sanctuary Entrance II",
+          "count": 4
+        },
+        {
+          "id": 10005103,
+          "name": "Sanctuary Entrance III",
+          "count": 2
+        },
+        {
+          "id": 10005104,
+          "name": "Sanctuary Entrance IV",
+          "count": 2
+        }
+      ],
+      "thumbnail": "images/monsters/0000052.png",
+      "gifs": {
+        "move": "images/monsters/0000052.move.webp",
+        "stand": "images/monsters/0000052.stand.webp",
+        "attack1": "images/monsters/0000052.attack1.webp",
+        "hit1": "images/monsters/0000052.hit1.webp",
+        "die1": "images/monsters/0000052.die1.webp"
+      },
+      "gif": "images/monsters/0000052.move.webp"
     },
     {
       "id": 53,
@@ -1067,7 +4839,28 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000053.png"
+      "maps": [
+        {
+          "id": 10005103,
+          "name": "Sanctuary Entrance III",
+          "count": 4
+        },
+        {
+          "id": 10005104,
+          "name": "Sanctuary Entrance IV",
+          "count": 5
+        }
+      ],
+      "thumbnail": "images/monsters/0000053.png",
+      "gifs": {
+        "move": "images/monsters/0000053.move.webp",
+        "stand": "images/monsters/0000053.stand.webp",
+        "attack1": "images/monsters/0000053.attack1.webp",
+        "attack2": "images/monsters/0000053.attack2.webp",
+        "hit1": "images/monsters/0000053.hit1.webp",
+        "die1": "images/monsters/0000053.die1.webp"
+      },
+      "gif": "images/monsters/0000053.move.webp"
     },
     {
       "id": 54,
@@ -1087,7 +4880,31 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000054.png"
+      "maps": [
+        {
+          "id": 10006050,
+          "name": "Forgotten Entrance II",
+          "count": 13
+        },
+        {
+          "id": 10006060,
+          "name": "Forgotten Entrance III",
+          "count": 19
+        },
+        {
+          "id": 10006071,
+          "name": "Forgotten Dungeon Tunnel",
+          "count": 12
+        }
+      ],
+      "thumbnail": "images/monsters/0000054.png",
+      "gifs": {
+        "move": "images/monsters/0000054.move.webp",
+        "stand": "images/monsters/0000054.stand.webp",
+        "hit1": "images/monsters/0000054.hit1.webp",
+        "die1": "images/monsters/0000054.die1.webp"
+      },
+      "gif": "images/monsters/0000054.move.webp"
     },
     {
       "id": 55,
@@ -1109,7 +4926,36 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000055.png"
+      "maps": [
+        {
+          "id": 10006040,
+          "name": "Forgotten Entrance I",
+          "count": 11
+        },
+        {
+          "id": 10006050,
+          "name": "Forgotten Entrance II",
+          "count": 14
+        },
+        {
+          "id": 10006060,
+          "name": "Forgotten Entrance III",
+          "count": 14
+        },
+        {
+          "id": 10006071,
+          "name": "Forgotten Dungeon Tunnel",
+          "count": 9
+        }
+      ],
+      "thumbnail": "images/monsters/0000055.png",
+      "gifs": {
+        "move": "images/monsters/0000055.move.webp",
+        "stand": "images/monsters/0000055.stand.webp",
+        "hit1": "images/monsters/0000055.hit1.webp",
+        "die1": "images/monsters/0000055.die1.webp"
+      },
+      "gif": "images/monsters/0000055.move.webp"
     },
     {
       "id": 56,
@@ -1129,7 +4975,30 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000056.png"
+      "maps": [
+        {
+          "id": 10006020,
+          "name": "Primeval Forest II",
+          "count": 2
+        },
+        {
+          "id": 10006040,
+          "name": "Forgotten Entrance I",
+          "count": 2
+        },
+        {
+          "id": 10006080,
+          "name": "Forbidden Entrance",
+          "count": 3
+        }
+      ],
+      "thumbnail": "images/monsters/0000056.png",
+      "gifs": {
+        "fly": "images/monsters/0000056.fly.webp",
+        "hit1": "images/monsters/0000056.hit1.webp",
+        "die1": "images/monsters/0000056.die1.webp"
+      },
+      "gif": "images/monsters/0000056.fly.webp"
     },
     {
       "id": 57,
@@ -1152,7 +5021,31 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000057.png"
+      "maps": [
+        {
+          "id": 10006010,
+          "name": "Primeval Forest I",
+          "count": 8
+        },
+        {
+          "id": 10006020,
+          "name": "Primeval Forest II",
+          "count": 8
+        },
+        {
+          "id": 10006070,
+          "name": "The End of Fleeting Light",
+          "count": 9
+        }
+      ],
+      "thumbnail": "images/monsters/0000057.png",
+      "gifs": {
+        "move": "images/monsters/0000057.move.webp",
+        "stand": "images/monsters/0000057.stand.webp",
+        "hit1": "images/monsters/0000057.hit1.webp",
+        "die1": "images/monsters/0000057.die1.webp"
+      },
+      "gif": "images/monsters/0000057.move.webp"
     },
     {
       "id": 58,
@@ -1174,7 +5067,45 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000058.png"
+      "maps": [
+        {
+          "id": 10006030,
+          "name": "Primeval Forest III",
+          "count": 5
+        },
+        {
+          "id": 10006040,
+          "name": "Forgotten Entrance I",
+          "count": 8
+        },
+        {
+          "id": 10006071,
+          "name": "Forgotten Dungeon Tunnel",
+          "count": 5
+        },
+        {
+          "id": 10006090,
+          "name": "Perilous Descent I",
+          "count": 8
+        },
+        {
+          "id": 10006100,
+          "name": "Perilous Descent II",
+          "count": 11
+        },
+        {
+          "id": 10006110,
+          "name": "Perilous Descent III",
+          "count": 2
+        }
+      ],
+      "thumbnail": "images/monsters/0000058.png",
+      "gifs": {
+        "stand": "images/monsters/0000058.stand.webp",
+        "hit1": "images/monsters/0000058.hit1.webp",
+        "die1": "images/monsters/0000058.die1.webp"
+      },
+      "gif": "images/monsters/0000058.stand.webp"
     },
     {
       "id": 59,
@@ -1197,7 +5128,51 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000059.png"
+      "maps": [
+        {
+          "id": 10006010,
+          "name": "Primeval Forest I",
+          "count": 8
+        },
+        {
+          "id": 10006020,
+          "name": "Primeval Forest II",
+          "count": 8
+        },
+        {
+          "id": 10006030,
+          "name": "Primeval Forest III",
+          "count": 6
+        },
+        {
+          "id": 10006031,
+          "name": "The Valley of Death",
+          "count": 10
+        },
+        {
+          "id": 10006040,
+          "name": "Forgotten Entrance I",
+          "count": 2
+        },
+        {
+          "id": 10006070,
+          "name": "The End of Fleeting Light",
+          "count": 11
+        },
+        {
+          "id": 10006080,
+          "name": "Forbidden Entrance",
+          "count": 13
+        }
+      ],
+      "thumbnail": "images/monsters/0000059.png",
+      "gifs": {
+        "move": "images/monsters/0000059.move.webp",
+        "stand": "images/monsters/0000059.stand.webp",
+        "hit1": "images/monsters/0000059.hit1.webp",
+        "die1": "images/monsters/0000059.die1.webp"
+      },
+      "gif": "images/monsters/0000059.move.webp"
     },
     {
       "id": 60,
@@ -1220,7 +5195,31 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000060.png"
+      "maps": [
+        {
+          "id": 10006070,
+          "name": "The End of Fleeting Light",
+          "count": 7
+        },
+        {
+          "id": 10006080,
+          "name": "Forbidden Entrance",
+          "count": 12
+        },
+        {
+          "id": 10006120,
+          "name": "Decayed Tunnel I",
+          "count": 11
+        }
+      ],
+      "thumbnail": "images/monsters/0000060.png",
+      "gifs": {
+        "move": "images/monsters/0000060.move.webp",
+        "stand": "images/monsters/0000060.stand.webp",
+        "hit1": "images/monsters/0000060.hit1.webp",
+        "die1": "images/monsters/0000060.die1.webp"
+      },
+      "gif": "images/monsters/0000060.move.webp"
     },
     {
       "id": 61,
@@ -1243,7 +5242,32 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000061.png"
+      "maps": [
+        {
+          "id": 10006090,
+          "name": "Perilous Descent I",
+          "count": 6
+        },
+        {
+          "id": 10006100,
+          "name": "Perilous Descent II",
+          "count": 7
+        },
+        {
+          "id": 10006110,
+          "name": "Perilous Descent III",
+          "count": 2
+        }
+      ],
+      "thumbnail": "images/monsters/0000061.png",
+      "gifs": {
+        "move": "images/monsters/0000061.move.webp",
+        "stand": "images/monsters/0000061.stand.webp",
+        "attack1": "images/monsters/0000061.attack1.webp",
+        "hit1": "images/monsters/0000061.hit1.webp",
+        "die1": "images/monsters/0000061.die1.webp"
+      },
+      "gif": "images/monsters/0000061.move.webp"
     },
     {
       "id": 62,
@@ -1265,7 +5289,21 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000062.png"
+      "maps": [
+        {
+          "id": 10006121,
+          "name": "Someone Else's Grave",
+          "count": 4
+        }
+      ],
+      "thumbnail": "images/monsters/0000062.png",
+      "gifs": {
+        "move": "images/monsters/0000062.move.webp",
+        "stand": "images/monsters/0000062.stand.webp",
+        "hit1": "images/monsters/0000062.hit1.webp",
+        "die1": "images/monsters/0000062.die1.webp"
+      },
+      "gif": "images/monsters/0000062.move.webp"
     },
     {
       "id": 63,
@@ -1289,7 +5327,22 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000063.png"
+      "maps": [
+        {
+          "id": 10006110,
+          "name": "Perilous Descent III",
+          "count": 5
+        }
+      ],
+      "thumbnail": "images/monsters/0000063.png",
+      "gifs": {
+        "move": "images/monsters/0000063.move.webp",
+        "stand": "images/monsters/0000063.stand.webp",
+        "attack1": "images/monsters/0000063.attack1.webp",
+        "hit1": "images/monsters/0000063.hit1.webp",
+        "die1": "images/monsters/0000063.die1.webp"
+      },
+      "gif": "images/monsters/0000063.move.webp"
     },
     {
       "id": 90,
@@ -1309,7 +5362,41 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000090.png"
+      "maps": [
+        {
+          "id": 10002043,
+          "name": "The Forest of Patience <Step 4>",
+          "count": 18
+        },
+        {
+          "id": 10003100,
+          "name": "B1 <Area 1>",
+          "count": 3
+        },
+        {
+          "id": 10005044,
+          "name": "The Deep Forest of Patience <Step 5>",
+          "count": 5
+        },
+        {
+          "id": 90040001,
+          "name": "MapleStory Physical Fitness Challenge <Level 1>",
+          "count": 14
+        },
+        {
+          "id": 90040004,
+          "name": "MapleStory Physical Fitness Challenge <Level 4>",
+          "count": 14
+        }
+      ],
+      "thumbnail": "images/monsters/0000090.png",
+      "gifs": {
+        "move": "images/monsters/0000090.move.webp",
+        "stand": "images/monsters/0000090.stand.webp",
+        "hit1": "images/monsters/0000090.hit1.webp",
+        "die1": "images/monsters/0000090.die1.webp"
+      },
+      "gif": "images/monsters/0000090.move.webp"
     },
     {
       "id": 91,
@@ -1329,7 +5416,21 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000091.png"
+      "maps": [
+        {
+          "id": 10005044,
+          "name": "The Deep Forest of Patience <Step 5>",
+          "count": 11
+        }
+      ],
+      "thumbnail": "images/monsters/0000091.png",
+      "gifs": {
+        "move": "images/monsters/0000091.move.webp",
+        "stand": "images/monsters/0000091.stand.webp",
+        "hit1": "images/monsters/0000091.hit1.webp",
+        "die1": "images/monsters/0000091.die1.webp"
+      },
+      "gif": "images/monsters/0000091.move.webp"
     },
     {
       "id": 92,
@@ -1349,7 +5450,21 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000092.png"
+      "maps": [
+        {
+          "id": 10001082,
+          "name": "Utah's Pig Farm",
+          "count": 28
+        }
+      ],
+      "thumbnail": "images/monsters/0000092.png",
+      "gifs": {
+        "move": "images/monsters/0000092.move.webp",
+        "stand": "images/monsters/0000092.stand.webp",
+        "hit1": "images/monsters/0000092.hit1.webp",
+        "die1": "images/monsters/0000092.die1.webp"
+      },
+      "gif": "images/monsters/0000092.move.webp"
     },
     {
       "id": 93,
@@ -1369,7 +5484,25 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0000093.png"
+      "maps": [
+        {
+          "id": 10003101,
+          "name": "B1 <Area 2>",
+          "count": 12
+        },
+        {
+          "id": 10003106,
+          "name": "B3 <Area 1>",
+          "count": 4
+        }
+      ],
+      "thumbnail": "images/monsters/0000093.png",
+      "gifs": {
+        "fly": "images/monsters/0000093.fly.webp",
+        "hit1": "images/monsters/0000093.hit1.webp",
+        "die1": "images/monsters/0000093.die1.webp"
+      },
+      "gif": "images/monsters/0000093.fly.webp"
     },
     {
       "id": 700000,
@@ -1389,7 +5522,21 @@
       "elements": null,
       "is_boss": true,
       "is_new": false,
-      "thumbnail": "images/monsters/0700000.png"
+      "maps": [
+        {
+          "id": 10001005,
+          "name": "Someone Else's House",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0700000.png",
+      "gifs": {
+        "move": "images/monsters/0700000.move.webp",
+        "attack1": "images/monsters/0700000.attack1.webp",
+        "hit1": "images/monsters/0700000.hit1.webp",
+        "die1": "images/monsters/0700000.die1.webp"
+      },
+      "gif": "images/monsters/0700000.move.webp"
     },
     {
       "id": 700001,
@@ -1412,7 +5559,24 @@
       },
       "is_boss": true,
       "is_new": false,
-      "thumbnail": "images/monsters/0700001.png"
+      "maps": [
+        {
+          "id": 10005105,
+          "name": "The Cursed Sanctuary",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0700001.png",
+      "gifs": {
+        "move": "images/monsters/0700001.move.webp",
+        "stand": "images/monsters/0700001.stand.webp",
+        "attack1": "images/monsters/0700001.attack1.webp",
+        "attack2": "images/monsters/0700001.attack2.webp",
+        "attack3": "images/monsters/0700001.attack3.webp",
+        "hit1": "images/monsters/0700001.hit1.webp",
+        "die1": "images/monsters/0700001.die1.webp"
+      },
+      "gif": "images/monsters/0700001.move.webp"
     },
     {
       "id": 700002,
@@ -1435,7 +5599,23 @@
       },
       "is_boss": true,
       "is_new": false,
-      "thumbnail": "images/monsters/0700002.png"
+      "maps": [
+        {
+          "id": 10005078,
+          "name": "The Grave of Mushmom",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0700002.png",
+      "gifs": {
+        "move": "images/monsters/0700002.move.webp",
+        "jump": "images/monsters/0700002.jump.webp",
+        "stand": "images/monsters/0700002.stand.webp",
+        "attack1": "images/monsters/0700002.attack1.webp",
+        "hit1": "images/monsters/0700002.hit1.webp",
+        "die1": "images/monsters/0700002.die1.webp"
+      },
+      "gif": "images/monsters/0700002.move.webp"
     },
     {
       "id": 700003,
@@ -1459,7 +5639,23 @@
       },
       "is_boss": true,
       "is_new": false,
-      "thumbnail": "images/monsters/0700003.png"
+      "maps": [
+        {
+          "id": 10006121,
+          "name": "Someone Else's Grave",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0700003.png",
+      "gifs": {
+        "move": "images/monsters/0700003.move.webp",
+        "stand": "images/monsters/0700003.stand.webp",
+        "attack1": "images/monsters/0700003.attack1.webp",
+        "attack2": "images/monsters/0700003.attack2.webp",
+        "hit1": "images/monsters/0700003.hit1.webp",
+        "die1": "images/monsters/0700003.die1.webp"
+      },
+      "gif": "images/monsters/0700003.move.webp"
     },
     {
       "id": 700004,
@@ -1479,7 +5675,22 @@
       "elements": null,
       "is_boss": true,
       "is_new": false,
-      "thumbnail": "images/monsters/0700004.png"
+      "maps": [
+        {
+          "id": 10000013,
+          "name": "Thicket Around the Beach III",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0700004.png",
+      "gifs": {
+        "move": "images/monsters/0700004.move.webp",
+        "stand": "images/monsters/0700004.stand.webp",
+        "skill1": "images/monsters/0700004.skill1.webp",
+        "hit1": "images/monsters/0700004.hit1.webp",
+        "die1": "images/monsters/0700004.die1.webp"
+      },
+      "gif": "images/monsters/0700004.move.webp"
     },
     {
       "id": 800000,
@@ -1502,7 +5713,21 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800000.png"
+      "maps": [
+        {
+          "id": 80000000,
+          "name": "1st Accompaniment <1st Stage>",
+          "count": 22
+        }
+      ],
+      "thumbnail": "images/monsters/0800000.png",
+      "gifs": {
+        "move": "images/monsters/0800000.move.webp",
+        "stand": "images/monsters/0800000.stand.webp",
+        "hit1": "images/monsters/0800000.hit1.webp",
+        "die1": "images/monsters/0800000.die1.webp"
+      },
+      "gif": "images/monsters/0800000.move.webp"
     },
     {
       "id": 800001,
@@ -1522,7 +5747,21 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800001.png"
+      "maps": [
+        {
+          "id": 80000400,
+          "name": "1st Accompaniment <Last Stage>",
+          "count": 6
+        }
+      ],
+      "thumbnail": "images/monsters/0800001.png",
+      "gifs": {
+        "move": "images/monsters/0800001.move.webp",
+        "stand": "images/monsters/0800001.stand.webp",
+        "hit1": "images/monsters/0800001.hit1.webp",
+        "die1": "images/monsters/0800001.die1.webp"
+      },
+      "gif": "images/monsters/0800001.move.webp"
     },
     {
       "id": 800002,
@@ -1544,7 +5783,21 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800002.png"
+      "maps": [
+        {
+          "id": 80000400,
+          "name": "1st Accompaniment <Last Stage>",
+          "count": 3
+        }
+      ],
+      "thumbnail": "images/monsters/0800002.png",
+      "gifs": {
+        "move": "images/monsters/0800002.move.webp",
+        "stand": "images/monsters/0800002.stand.webp",
+        "hit1": "images/monsters/0800002.hit1.webp",
+        "die1": "images/monsters/0800002.die1.webp"
+      },
+      "gif": "images/monsters/0800002.move.webp"
     },
     {
       "id": 800003,
@@ -1569,7 +5822,22 @@
       },
       "is_boss": true,
       "is_new": false,
-      "thumbnail": "images/monsters/0800003.png"
+      "maps": [
+        {
+          "id": 80000400,
+          "name": "1st Accompaniment <Last Stage>",
+          "count": 1
+        }
+      ],
+      "thumbnail": "images/monsters/0800003.png",
+      "gifs": {
+        "move": "images/monsters/0800003.move.webp",
+        "stand": "images/monsters/0800003.stand.webp",
+        "skill1": "images/monsters/0800003.skill1.webp",
+        "hit1": "images/monsters/0800003.hit1.webp",
+        "die1": "images/monsters/0800003.die1.webp"
+      },
+      "gif": "images/monsters/0800003.move.webp"
     },
     {
       "id": 800010,
@@ -1589,7 +5857,21 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800010.png"
+      "maps": [
+        {
+          "id": 80001000,
+          "name": "Ant Tunnel For Bowman",
+          "count": 15
+        }
+      ],
+      "thumbnail": "images/monsters/0800010.png",
+      "gifs": {
+        "move": "images/monsters/0800010.move.webp",
+        "stand": "images/monsters/0800010.stand.webp",
+        "hit1": "images/monsters/0800010.hit1.webp",
+        "die1": "images/monsters/0800010.die1.webp"
+      },
+      "gif": "images/monsters/0800010.move.webp"
     },
     {
       "id": 800011,
@@ -1611,7 +5893,21 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800011.png"
+      "maps": [
+        {
+          "id": 80001000,
+          "name": "Ant Tunnel For Bowman",
+          "count": 15
+        }
+      ],
+      "thumbnail": "images/monsters/0800011.png",
+      "gifs": {
+        "move": "images/monsters/0800011.move.webp",
+        "stand": "images/monsters/0800011.stand.webp",
+        "hit1": "images/monsters/0800011.hit1.webp",
+        "die1": "images/monsters/0800011.die1.webp"
+      },
+      "gif": "images/monsters/0800011.move.webp"
     },
     {
       "id": 800012,
@@ -1633,7 +5929,21 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800012.png"
+      "maps": [
+        {
+          "id": 80001100,
+          "name": "Magician's Tree Dungeon",
+          "count": 13
+        }
+      ],
+      "thumbnail": "images/monsters/0800012.png",
+      "gifs": {
+        "move": "images/monsters/0800012.move.webp",
+        "stand": "images/monsters/0800012.stand.webp",
+        "hit1": "images/monsters/0800012.hit1.webp",
+        "die1": "images/monsters/0800012.die1.webp"
+      },
+      "gif": "images/monsters/0800012.move.webp"
     },
     {
       "id": 800013,
@@ -1653,7 +5963,21 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800013.png"
+      "maps": [
+        {
+          "id": 80001100,
+          "name": "Magician's Tree Dungeon",
+          "count": 13
+        }
+      ],
+      "thumbnail": "images/monsters/0800013.png",
+      "gifs": {
+        "move": "images/monsters/0800013.move.webp",
+        "stand": "images/monsters/0800013.stand.webp",
+        "hit1": "images/monsters/0800013.hit1.webp",
+        "die1": "images/monsters/0800013.die1.webp"
+      },
+      "gif": "images/monsters/0800013.move.webp"
     },
     {
       "id": 800014,
@@ -1676,7 +6000,22 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800014.png"
+      "maps": [
+        {
+          "id": 80001200,
+          "name": "Thief's Construction Site",
+          "count": 13
+        }
+      ],
+      "thumbnail": "images/monsters/0800014.png",
+      "gifs": {
+        "move": "images/monsters/0800014.move.webp",
+        "jump": "images/monsters/0800014.jump.webp",
+        "stand": "images/monsters/0800014.stand.webp",
+        "hit1": "images/monsters/0800014.hit1.webp",
+        "die1": "images/monsters/0800014.die1.webp"
+      },
+      "gif": "images/monsters/0800014.move.webp"
     },
     {
       "id": 800015,
@@ -1696,7 +6035,21 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800015.png"
+      "maps": [
+        {
+          "id": 80001200,
+          "name": "Thief's Construction Site",
+          "count": 13
+        }
+      ],
+      "thumbnail": "images/monsters/0800015.png",
+      "gifs": {
+        "move": "images/monsters/0800015.move.webp",
+        "stand": "images/monsters/0800015.stand.webp",
+        "hit1": "images/monsters/0800015.hit1.webp",
+        "die1": "images/monsters/0800015.die1.webp"
+      },
+      "gif": "images/monsters/0800015.move.webp"
     },
     {
       "id": 800016,
@@ -1719,7 +6072,21 @@
       },
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800016.png"
+      "maps": [
+        {
+          "id": 80001300,
+          "name": "Warrior's Rocky Mountain",
+          "count": 15
+        }
+      ],
+      "thumbnail": "images/monsters/0800016.png",
+      "gifs": {
+        "move": "images/monsters/0800016.move.webp",
+        "stand": "images/monsters/0800016.stand.webp",
+        "hit1": "images/monsters/0800016.hit1.webp",
+        "die1": "images/monsters/0800016.die1.webp"
+      },
+      "gif": "images/monsters/0800016.move.webp"
     },
     {
       "id": 800017,
@@ -1739,7 +6106,21 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/0800017.png"
+      "maps": [
+        {
+          "id": 80001300,
+          "name": "Warrior's Rocky Mountain",
+          "count": 15
+        }
+      ],
+      "thumbnail": "images/monsters/0800017.png",
+      "gifs": {
+        "move": "images/monsters/0800017.move.webp",
+        "attack1": "images/monsters/0800017.attack1.webp",
+        "hit1": "images/monsters/0800017.hit1.webp",
+        "die1": "images/monsters/0800017.die1.webp"
+      },
+      "gif": "images/monsters/0800017.move.webp"
     },
     {
       "id": 9990000,
@@ -1759,7 +6140,13 @@
       "elements": null,
       "is_boss": false,
       "is_new": false,
-      "thumbnail": "images/monsters/9990000.png"
+      "maps": [],
+      "thumbnail": "images/monsters/9990000.png",
+      "gifs": {
+        "stand": "images/monsters/9990000.stand.webp",
+        "die1": "images/monsters/9990000.die1.webp"
+      },
+      "gif": "images/monsters/9990000.stand.webp"
     }
   ],
   "total": 83
