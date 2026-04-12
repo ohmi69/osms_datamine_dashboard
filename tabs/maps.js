@@ -44,6 +44,22 @@ export function renderMaps(data) {
     })
   );
 
+  // Reorder regions: Victoria Island > Maple Island > Other > Event
+  const regionOrder = [
+    'Victoria Island',
+    'Maple Island',
+    'Other',
+    'Event',
+  ];
+  maps.regions.sort((a, b) => {
+    const ai = regionOrder.indexOf(a.region);
+    const bi = regionOrder.indexOf(b.region);
+    if (ai === -1 && bi === -1) return a.region.localeCompare(b.region);
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
+
   // Build reverse lookup: mapId -> [{id, name, thumbnail, count}]
   const mapMobs = new Map();
   if (monsters && monsters.monsters) {
