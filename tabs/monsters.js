@@ -7,6 +7,7 @@ const ELEMENT_CLASSES = {
   Immune: 'immune',
   Resist: 'resist',
   Weak: 'weak',
+  Strong: 'strong',
 };
 
 function getMonsterElements(monster) {
