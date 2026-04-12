@@ -1,4 +1,5 @@
-import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail } from '../lib/utils.js';
+import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, normalizeAssetPath, makeEquipStatLine, makeEquipReqLine } from '../lib/utils.js';
+
 
 function toItemThumbPath(itemId) {
   const n = Number(itemId);
@@ -6,15 +7,103 @@ function toItemThumbPath(itemId) {
   return `images/items/${String(n).padStart(8, '0')}.png`;
 }
 
+// --- Tooltip ---
+let _tooltip = null;
+function getTooltip() {
+  if (!_tooltip) {
+    _tooltip = el('div', { className: 'item-tooltip', id: 'craft-item-tooltip' });
+    document.body.appendChild(_tooltip);
+  }
+  return _tooltip;
+}
+
+
+function showItemTooltip(e, itemData) {
+  if (!itemData) return;
+  const tip = getTooltip();
+  tip.innerHTML = '';
+
+  const header = el('div', { className: 'item-tooltip-header' });
+  const thumbSrc = toItemThumbPath(itemData.id);
+  if (thumbSrc) {
+    const img = el('img', { className: 'item-tooltip-thumb', alt: itemData.name, loading: 'lazy' });
+    img.src = normalizeAssetPath(thumbSrc);
+    img.addEventListener('error', () => img.remove(), { once: true });
+    header.appendChild(img);
+  }
+  header.appendChild(el('span', { className: 'item-tooltip-name', textContent: itemData.name }));
+  tip.appendChild(header);
+
+  if (itemData.description) {
+    tip.appendChild(el('p', { className: 'item-tooltip-desc', textContent: itemData.description }));
+  }
+
+  let hasContent = !!itemData.description;
+
+  if (itemData.category === 'Equipment') {
+    const statLine = makeEquipStatLine(itemData);
+    if (statLine) { tip.appendChild(statLine); hasContent = true; }
+    const reqLine = makeEquipReqLine(itemData);
+    if (reqLine) { tip.appendChild(reqLine); hasContent = true; }
+  }
+
+  if (!hasContent) {
+    tip.appendChild(el('span', { className: 'item-tooltip-desc', textContent: 'No details available.' }));
+  }
+
+  positionTooltip(tip, e);
+  tip.classList.add('visible');
+}
+
+function positionTooltip(tip, e) {
+  tip.style.left = '0px';
+  tip.style.top = '0px';
+  tip.style.visibility = 'hidden';
+  tip.classList.add('visible');
+
+  const vpW = window.innerWidth;
+  const vpH = window.innerHeight;
+  const tw = tip.offsetWidth;
+  const th = tip.offsetHeight;
+  const offset = 12;
+
+  let x = e.clientX + offset;
+  let y = e.clientY + offset;
+  if (x + tw > vpW - 8) x = e.clientX - tw - offset;
+  if (y + th > vpH - 8) y = e.clientY - th - offset;
+
+  tip.style.left = `${x + window.scrollX}px`;
+  tip.style.top = `${y + window.scrollY}px`;
+  tip.style.visibility = '';
+}
+
+function hideItemTooltip() {
+  if (_tooltip) _tooltip.classList.remove('visible');
+}
+
+function attachTooltip(element, getItemData) {
+  element.addEventListener('mouseenter', (e) => showItemTooltip(e, getItemData()));
+  element.addEventListener('mousemove', (e) => {
+    if (_tooltip?.classList.contains('visible')) positionTooltip(_tooltip, e);
+  });
+  element.addEventListener('mouseleave', hideItemTooltip);
+}
+
 export function renderCrafting(data) {
-  const { recipes, overview, items } = data;
+  const { recipes, items } = data;
   let searchQuery = '';
   const container = el('div');
 
   const itemNameToId = new Map();
+  const itemByName = new Map();
   [...(items?.items || []), ...(items?.scrolls || [])].forEach((item) => {
-    if (!item?.name || !item?.id || itemNameToId.has(item.name)) return;
-    itemNameToId.set(item.name, item.id);
+    if (!item?.name || !item?.id) return;
+    if (!itemNameToId.has(item.name)) itemNameToId.set(item.name, item.id);
+    if (!itemByName.has(item.name)) itemByName.set(item.name, item);
+  });
+  const itemById = new Map();
+  [...(items?.items || []), ...(items?.scrolls || [])].forEach((item) => {
+    if (item?.id != null) itemById.set(String(item.id), item);
   });
 
 
@@ -162,6 +251,7 @@ export function renderCrafting(data) {
               })
             );
             resultLeft.appendChild(el('span', { style: { fontWeight: '500' }, textContent: recipe.result_item_name }));
+            attachTooltip(resultLeft, () => recipe.output_id != null ? itemById.get(String(recipe.output_id)) : itemByName.get(recipe.result_item_name));
             resultWrap.appendChild(resultLeft);
             if (recipe.output_id != null) {
               resultWrap.appendChild(el('span', { className: 'id', textContent: recipe.output_id }));
@@ -192,6 +282,7 @@ export function renderCrafting(data) {
                   textContent: `${ingredient.count}x ${ingredient.item_name}`,
                 })
               );
+              attachTooltip(ingWrap, () => itemByName.get(ingredient.item_name));
               ingCell.appendChild(ingWrap);
               if (index < recipe.ingredients.length - 1) {
                 ingCell.appendChild(el('span', { className: 'craft-ing-sep', textContent: '·' }));

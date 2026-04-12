@@ -580,6 +580,27 @@ body.hide-ids .id { display: none !important; }
 .item-detail-chip .chip-label { color: var(--dim); }
 .item-detail-chip .chip-value { color: var(--text); font-weight: 600; }
 
+/* ── Equipment stat / req lines (shared: equipment page + crafting tooltip) ── */
+.equip-stat-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.6;
+  align-items: center;
+}
+.equip-req-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-size: 11px;
+  margin-top: 2px;
+  line-height: 1.5;
+  align-items: center;
+}
+.equip-req-job { color: #c084fc; }
+
 .thumb {
   width: 32px;
   height: 32px;

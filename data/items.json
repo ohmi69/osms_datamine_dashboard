@@ -1083,7 +1083,7 @@
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Faster",
-      "thumbnail": null
+      "thumbnail": "images/items/01322999.png"
     },
     {
       "id": 1332000,
@@ -14796,7 +14796,7 @@
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
-      "thumbnail": null
+      "thumbnail": "images/items/01060000.png"
     },
     {
       "id": 1060001,
@@ -16270,7 +16270,7 @@
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
-      "thumbnail": null
+      "thumbnail": "images/items/01061000.png"
     },
     {
       "id": 1061001,
@@ -22893,7 +22893,7 @@
         "tradeBlock": 1,
         "notSale": 1
       },
-      "thumbnail": "images/items/02430002.png"
+      "thumbnail": null
     },
     {
       "id": 2430003,
@@ -24435,7 +24435,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031002.png"
+      "thumbnail": null
     },
     {
       "id": 4031003,
@@ -24567,7 +24567,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031013.png"
+      "thumbnail": null
     },
     {
       "id": 4031014,
@@ -24579,7 +24579,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031014.png"
+      "thumbnail": null
     },
     {
       "id": 4031015,
@@ -24591,7 +24591,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031015.png"
+      "thumbnail": null
     },
     {
       "id": 4031016,
@@ -24603,7 +24603,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031016.png"
+      "thumbnail": null
     },
     {
       "id": 4031017,
@@ -24639,7 +24639,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031019.png"
+      "thumbnail": null
     },
     {
       "id": 4031020,
@@ -24651,7 +24651,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031020.png"
+      "thumbnail": null
     },
     {
       "id": 4031021,
@@ -24663,7 +24663,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031021.png"
+      "thumbnail": null
     },
     {
       "id": 4031022,
@@ -24675,7 +24675,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031022.png"
+      "thumbnail": null
     },
     {
       "id": 4031023,
@@ -24687,7 +24687,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031023.png"
+      "thumbnail": null
     },
     {
       "id": 4031024,
@@ -24699,7 +24699,7 @@
         "price": 0,
         "quest": 1
       },
-      "thumbnail": "images/items/04031024.png"
+      "thumbnail": null
     },
     {
       "id": 4031025,
@@ -24831,7 +24831,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031035.png"
+      "thumbnail": null
     },
     {
       "id": 4031036,
@@ -24999,7 +24999,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031049.png"
+      "thumbnail": null
     },
     {
       "id": 4031050,
@@ -25011,7 +25011,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031050.png"
+      "thumbnail": null
     },
     {
       "id": 4031051,
@@ -25035,7 +25035,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031052.png"
+      "thumbnail": null
     },
     {
       "id": 4031053,
@@ -25047,7 +25047,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031053.png"
+      "thumbnail": null
     },
     {
       "id": 4031054,
@@ -25071,7 +25071,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031055.png"
+      "thumbnail": null
     },
     {
       "id": 4031056,
@@ -25083,7 +25083,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031056.png"
+      "thumbnail": null
     },
     {
       "id": 4031057,
@@ -25095,7 +25095,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031057.png"
+      "thumbnail": null
     },
     {
       "id": 4031058,
@@ -25107,7 +25107,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031058.png"
+      "thumbnail": null
     },
     {
       "id": 4031059,
@@ -25119,7 +25119,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031059.png"
+      "thumbnail": null
     },
     {
       "id": 4031060,
@@ -25131,7 +25131,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031060.png"
+      "thumbnail": null
     },
     {
       "id": 4031061,
@@ -25143,7 +25143,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031061.png"
+      "thumbnail": null
     },
     {
       "id": 4031062,
@@ -25155,7 +25155,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031062.png"
+      "thumbnail": null
     },
     {
       "id": 4031063,
@@ -25167,7 +25167,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031063.png"
+      "thumbnail": null
     },
     {
       "id": 4031064,
@@ -25258,7 +25258,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031070.png"
+      "thumbnail": null
     },
     {
       "id": 4031071,
@@ -25342,7 +25342,7 @@
         "price": 1,
         "quest": 1
       },
-      "thumbnail": "images/items/04031077.png"
+      "thumbnail": null
     },
     {
       "id": 4031078,
@@ -25798,7 +25798,7 @@
       "tier": "Lesser",
       "stat_type": "HP",
       "description": "Improves Max HP on hats. Success rate: 100%, Max HP+10",
-      "thumbnail": "images/items/02040004.png"
+      "thumbnail": null
     },
     {
       "id": 2040005,
@@ -25807,7 +25807,7 @@
       "tier": "Intermediate",
       "stat_type": "HP",
       "description": "Improves Max HP on hats. Success rate: 60%, Max HP+15",
-      "thumbnail": "images/items/02040005.png"
+      "thumbnail": null
     },
     {
       "id": 2040006,
@@ -25816,7 +25816,7 @@
       "tier": "Greater",
       "stat_type": "HP",
       "description": "Improves Max HP on hats. Success rate: 10%, Max HP+20",
-      "thumbnail": "images/items/02040006.png"
+      "thumbnail": null
     },
     {
       "id": 2040007,
@@ -25825,7 +25825,7 @@
       "tier": "Chaos",
       "stat_type": "HP",
       "description": "Improves Max HP on hats. Success rate: 10%, Max HP+30 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040007.png"
+      "thumbnail": null
     },
     {
       "id": 2040008,
@@ -25834,7 +25834,7 @@
       "tier": "Lesser",
       "stat_type": "MP",
       "description": "Improves Max MP on hats. Success rate: 100%, Max MP+10",
-      "thumbnail": "images/items/02040008.png"
+      "thumbnail": null
     },
     {
       "id": 2040009,
@@ -25843,7 +25843,7 @@
       "tier": "Intermediate",
       "stat_type": "MP",
       "description": "Improves Max MP on hats. Success rate: 60%, Max MP+15",
-      "thumbnail": "images/items/02040009.png"
+      "thumbnail": null
     },
     {
       "id": 2040010,
@@ -25852,7 +25852,7 @@
       "tier": "Greater",
       "stat_type": "MP",
       "description": "Improves Max MPon hats. Success rate: 10%, Max MP+20",
-      "thumbnail": "images/items/02040010.png"
+      "thumbnail": null
     },
     {
       "id": 2040011,
@@ -25861,7 +25861,7 @@
       "tier": "Chaos",
       "stat_type": "MP",
       "description": "Improves Max MP on hats. Success rate: 10%, Max MP+30 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040011.png"
+      "thumbnail": null
     },
     {
       "id": 2040300,
@@ -25870,7 +25870,7 @@
       "tier": "Lesser",
       "stat_type": "STR",
       "description": "Improves Strength on earrings. Success rate: 100%, STR+1",
-      "thumbnail": "images/items/02040300.png"
+      "thumbnail": null
     },
     {
       "id": 2040301,
@@ -25879,7 +25879,7 @@
       "tier": "Intermediate",
       "stat_type": "STR",
       "description": "Improves Strength on earrings. Success rate: 60%, STR+2",
-      "thumbnail": "images/items/02040301.png"
+      "thumbnail": null
     },
     {
       "id": 2040302,
@@ -25888,7 +25888,7 @@
       "tier": "Greater",
       "stat_type": "STR",
       "description": "Improves Strength on earrings. Success rate: 10%, STR+3",
-      "thumbnail": "images/items/02040302.png"
+      "thumbnail": null
     },
     {
       "id": 2040303,
@@ -25897,7 +25897,7 @@
       "tier": "Chaos",
       "stat_type": "STR",
       "description": "Improves Strength on earrings. Success rate: 10%, STR+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040303.png"
+      "thumbnail": null
     },
     {
       "id": 2040304,
@@ -25906,7 +25906,7 @@
       "tier": "Lesser",
       "stat_type": "DEX",
       "description": "Improves Dexterity on earrings. Success rate: 100%, DEX+1",
-      "thumbnail": "images/items/02040304.png"
+      "thumbnail": null
     },
     {
       "id": 2040305,
@@ -25915,7 +25915,7 @@
       "tier": "Intermediate",
       "stat_type": "DEX",
       "description": "Improves Dexterity on earrings. Success rate: 60%, DEX+2",
-      "thumbnail": "images/items/02040305.png"
+      "thumbnail": null
     },
     {
       "id": 2040306,
@@ -25924,7 +25924,7 @@
       "tier": "Greater",
       "stat_type": "DEX",
       "description": "Improves Dexterity on earrings. Success rate: 10%, DEX+3",
-      "thumbnail": "images/items/02040306.png"
+      "thumbnail": null
     },
     {
       "id": 2040307,
@@ -25933,7 +25933,7 @@
       "tier": "Chaos",
       "stat_type": "DEX",
       "description": "Improves Dexterity on earrings. Success rate: 10%, DEX+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040307.png"
+      "thumbnail": null
     },
     {
       "id": 2040308,
@@ -25942,7 +25942,7 @@
       "tier": "Lesser",
       "stat_type": "INT",
       "description": "Improves Intelligence on earrings. Success rate: 100%, INT+1",
-      "thumbnail": "images/items/02040308.png"
+      "thumbnail": null
     },
     {
       "id": 2040309,
@@ -25951,7 +25951,7 @@
       "tier": "Intermediate",
       "stat_type": "INT",
       "description": "Improves Intelligence on earrings. Success rate: 60%, INT+2",
-      "thumbnail": "images/items/02040309.png"
+      "thumbnail": null
     },
     {
       "id": 2040310,
@@ -25960,7 +25960,7 @@
       "tier": "Greater",
       "stat_type": "INT",
       "description": "Improves Intelligence on earrings. Success rate: 10%, INT+3",
-      "thumbnail": "images/items/02040310.png"
+      "thumbnail": null
     },
     {
       "id": 2040311,
@@ -25969,7 +25969,7 @@
       "tier": "Chaos",
       "stat_type": "INT",
       "description": "Improves Intelligence on earrings. Success rate: 10%, INT+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040311.png"
+      "thumbnail": null
     },
     {
       "id": 2040312,
@@ -25978,7 +25978,7 @@
       "tier": "Lesser",
       "stat_type": "LUK",
       "description": "Improves Luck on earrings. Success rate: 100%, LUK+1",
-      "thumbnail": "images/items/02040312.png"
+      "thumbnail": null
     },
     {
       "id": 2040313,
@@ -25987,7 +25987,7 @@
       "tier": "Intermediate",
       "stat_type": "LUK",
       "description": "Improves Luck on earrings. Success rate: 60%, LUK+2",
-      "thumbnail": "images/items/02040313.png"
+      "thumbnail": null
     },
     {
       "id": 2040314,
@@ -25996,7 +25996,7 @@
       "tier": "Greater",
       "stat_type": "LUK",
       "description": "Improves Luck on earrings. Success rate: 10%, LUK+3",
-      "thumbnail": "images/items/02040314.png"
+      "thumbnail": null
     },
     {
       "id": 2040315,
@@ -26005,7 +26005,7 @@
       "tier": "Chaos",
       "stat_type": "LUK",
       "description": "Improves Luck on earrings. Success rate: 10%, LUK+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040315.png"
+      "thumbnail": null
     },
     {
       "id": 2040316,
@@ -26014,7 +26014,7 @@
       "tier": "Lesser",
       "stat_type": "Other",
       "description": "Improves Crit. Damage on earrings. Success rate: 100%, Crit. Damage+1",
-      "thumbnail": "images/items/02040316.png"
+      "thumbnail": null
     },
     {
       "id": 2040317,
@@ -26023,7 +26023,7 @@
       "tier": "Intermediate",
       "stat_type": "Other",
       "description": "Improves Crit. Damage on earrings. Success rate: 60%, Crit. Damage+2",
-      "thumbnail": "images/items/02040317.png"
+      "thumbnail": null
     },
     {
       "id": 2040318,
@@ -26032,7 +26032,7 @@
       "tier": "Greater",
       "stat_type": "Other",
       "description": "Improves Crit. Damage on earrings. Success rate: 10%, Crit. Damage+3",
-      "thumbnail": "images/items/02040318.png"
+      "thumbnail": null
     },
     {
       "id": 2040319,
@@ -26041,7 +26041,7 @@
       "tier": "Chaos",
       "stat_type": "Other",
       "description": "Improves Crit. Damage on earrings. Success rate: 10%, Crit. Damage+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040319.png"
+      "thumbnail": null
     },
     {
       "id": 2040320,
@@ -26050,7 +26050,7 @@
       "tier": "Lesser",
       "stat_type": "Avoidability",
       "description": "Improves Avoidability on earrings. Success rate: 100%, Avoidability+1",
-      "thumbnail": "images/items/02040320.png"
+      "thumbnail": null
     },
     {
       "id": 2040321,
@@ -26059,7 +26059,7 @@
       "tier": "Intermediate",
       "stat_type": "Avoidability",
       "description": "Improves Avoidability on earrings. Success rate: 60%, Avoidability+2",
-      "thumbnail": "images/items/02040321.png"
+      "thumbnail": null
     },
     {
       "id": 2040322,
@@ -26068,7 +26068,7 @@
       "tier": "Greater",
       "stat_type": "Avoidability",
       "description": "Improves Avoidability on earrings. Success rate: 10%, Avoidability+3",
-      "thumbnail": "images/items/02040322.png"
+      "thumbnail": null
     },
     {
       "id": 2040323,
@@ -26077,7 +26077,7 @@
       "tier": "Chaos",
       "stat_type": "Avoidability",
       "description": "Improves Avoidability on earrings. Success rate: 10%, Avoidability+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040323.png"
+      "thumbnail": null
     },
     {
       "id": 2040400,
@@ -26086,7 +26086,7 @@
       "tier": "Lesser",
       "stat_type": "Other",
       "description": "Improves Defense on topwear. Success rate: 100%, Weapon Def.+2",
-      "thumbnail": "images/items/02040400.png"
+      "thumbnail": null
     },
     {
       "id": 2040401,
@@ -26095,7 +26095,7 @@
       "tier": "Intermediate",
       "stat_type": "Other",
       "description": "Improves Defense on topwear. Success rate: 60%, Weapon Def.+3, Magic Def.+1",
-      "thumbnail": "images/items/02040401.png"
+      "thumbnail": null
     },
     {
       "id": 2040402,
@@ -26104,7 +26104,7 @@
       "tier": "Greater",
       "stat_type": "Other",
       "description": "Improves Defense on topwear. Success rate: 10%, Weapon Def.+5, Magic Def.+3",
-      "thumbnail": "images/items/02040402.png"
+      "thumbnail": null
     },
     {
       "id": 2040403,
@@ -26113,7 +26113,7 @@
       "tier": "Chaos",
       "stat_type": "Other",
       "description": "Improves Defense on topwear. Success rate: 10%, Weapon Def.+7, Magic Def.+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040403.png"
+      "thumbnail": null
     },
     {
       "id": 2040404,
@@ -26122,7 +26122,7 @@
       "tier": "Lesser",
       "stat_type": "HP",
       "description": "Improves Max HP on topwear. Success rate: 100%, Max HP+10",
-      "thumbnail": "images/items/02040404.png"
+      "thumbnail": null
     },
     {
       "id": 2040405,
@@ -26131,7 +26131,7 @@
       "tier": "Intermediate",
       "stat_type": "HP",
       "description": "Improves Max HP on topwear. Success rate: 60%, Max HP+15",
-      "thumbnail": "images/items/02040405.png"
+      "thumbnail": null
     },
     {
       "id": 2040406,
@@ -26140,7 +26140,7 @@
       "tier": "Greater",
       "stat_type": "HP",
       "description": "Improves Max HP on topwear. Success rate: 10%, Max HP+20",
-      "thumbnail": "images/items/02040406.png"
+      "thumbnail": null
     },
     {
       "id": 2040407,
@@ -26149,7 +26149,7 @@
       "tier": "Chaos",
       "stat_type": "HP",
       "description": "Improves Max HP on topwear. Success rate: 10%, Max HP+30 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040407.png"
+      "thumbnail": null
     },
     {
       "id": 2040408,
@@ -26158,7 +26158,7 @@
       "tier": "Lesser",
       "stat_type": "MP",
       "description": "Improves Max MP on topwear. Success rate: 100%, Max MP+10",
-      "thumbnail": "images/items/02040408.png"
+      "thumbnail": null
     },
     {
       "id": 2040409,
@@ -26167,7 +26167,7 @@
       "tier": "Intermediate",
       "stat_type": "MP",
       "description": "Improves Max MP on topwear. Success rate: 60%, Max MP+15",
-      "thumbnail": "images/items/02040409.png"
+      "thumbnail": null
     },
     {
       "id": 2040410,
@@ -26176,7 +26176,7 @@
       "tier": "Greater",
       "stat_type": "MP",
       "description": "Improves Max MP on topwear. Success rate: 10%, Max MP+20",
-      "thumbnail": "images/items/02040410.png"
+      "thumbnail": null
     },
     {
       "id": 2040411,
@@ -26185,7 +26185,7 @@
       "tier": "Chaos",
       "stat_type": "MP",
       "description": "Improves Max MP on topwear. Success rate: 10%, Max MP+30 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040411.png"
+      "thumbnail": null
     },
     {
       "id": 2040500,
@@ -26194,7 +26194,7 @@
       "tier": "Lesser",
       "stat_type": "Other",
       "description": "Improves Defense on overalls. Success rate: 100%, Weapon Def.+2",
-      "thumbnail": "images/items/02040500.png"
+      "thumbnail": null
     },
     {
       "id": 2040501,
@@ -26203,7 +26203,7 @@
       "tier": "Intermediate",
       "stat_type": "Other",
       "description": "Improves Defense on overalls. Success rate: 60%, Weapon Def.+3, Magic Def.+1",
-      "thumbnail": "images/items/02040501.png"
+      "thumbnail": null
     },
     {
       "id": 2040502,
@@ -26212,7 +26212,7 @@
       "tier": "Greater",
       "stat_type": "Other",
       "description": "Improves Defense on overalls. Success rate: 10%, Weapon Def.+5, Magic Def.+3",
-      "thumbnail": "images/items/02040502.png"
+      "thumbnail": null
     },
     {
       "id": 2040503,
@@ -26221,7 +26221,7 @@
       "tier": "Chaos",
       "stat_type": "Other",
       "description": "Improves Defense on overalls. Success rate: 10%, Weapon Def.+7, Magic Def.+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040503.png"
+      "thumbnail": null
     },
     {
       "id": 2040504,
@@ -26230,7 +26230,7 @@
       "tier": "Lesser",
       "stat_type": "STR",
       "description": "Improves Strength on overalls. Success rate: 100%, STR+1",
-      "thumbnail": "images/items/02040504.png"
+      "thumbnail": null
     },
     {
       "id": 2040505,
@@ -26239,7 +26239,7 @@
       "tier": "Intermediate",
       "stat_type": "STR",
       "description": "Improves Strength on overalls. Success rate: 60%, STR+2",
-      "thumbnail": "images/items/02040505.png"
+      "thumbnail": null
     },
     {
       "id": 2040506,
@@ -26248,7 +26248,7 @@
       "tier": "Greater",
       "stat_type": "STR",
       "description": "Improves Strength on overalls. Success rate: 10%, STR+3",
-      "thumbnail": "images/items/02040506.png"
+      "thumbnail": null
     },
     {
       "id": 2040507,
@@ -26257,7 +26257,7 @@
       "tier": "Chaos",
       "stat_type": "STR",
       "description": "Improves Strength on overalls. Success rate: 10%, STR+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040507.png"
+      "thumbnail": null
     },
     {
       "id": 2040508,
@@ -26266,7 +26266,7 @@
       "tier": "Lesser",
       "stat_type": "DEX",
       "description": "Improves Dexterity on overalls. Success rate: 100%, DEX+1",
-      "thumbnail": "images/items/02040508.png"
+      "thumbnail": null
     },
     {
       "id": 2040509,
@@ -26275,7 +26275,7 @@
       "tier": "Intermediate",
       "stat_type": "DEX",
       "description": "Improves Dexterity on overalls. Success rate: 60%, DEX+2",
-      "thumbnail": "images/items/02040509.png"
+      "thumbnail": null
     },
     {
       "id": 2040510,
@@ -26284,7 +26284,7 @@
       "tier": "Greater",
       "stat_type": "DEX",
       "description": "Improves Dexterity on overalls. Success rate: 10%, DEX+3",
-      "thumbnail": "images/items/02040510.png"
+      "thumbnail": null
     },
     {
       "id": 2040511,
@@ -26293,7 +26293,7 @@
       "tier": "Chaos",
       "stat_type": "DEX",
       "description": "Improves Dexterity on overalls. Success rate: 10%, DEX+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040511.png"
+      "thumbnail": null
     },
     {
       "id": 2040512,
@@ -26302,7 +26302,7 @@
       "tier": "Lesser",
       "stat_type": "INT",
       "description": "Improves Intelligence on overalls. Success rate: 100%, INT+1",
-      "thumbnail": "images/items/02040512.png"
+      "thumbnail": null
     },
     {
       "id": 2040513,
@@ -26311,7 +26311,7 @@
       "tier": "Intermediate",
       "stat_type": "INT",
       "description": "Improves Intelligence on overalls. Success rate: 60%, INT+2",
-      "thumbnail": "images/items/02040513.png"
+      "thumbnail": null
     },
     {
       "id": 2040514,
@@ -26320,7 +26320,7 @@
       "tier": "Greater",
       "stat_type": "INT",
       "description": "Improves Intelligence on overalls. Success rate: 10%, INT+3",
-      "thumbnail": "images/items/02040514.png"
+      "thumbnail": null
     },
     {
       "id": 2040515,
@@ -26329,7 +26329,7 @@
       "tier": "Chaos",
       "stat_type": "INT",
       "description": "Improves Intelligence on overalls. Success rate: 10%, INT+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040515.png"
+      "thumbnail": null
     },
     {
       "id": 2040516,
@@ -26338,7 +26338,7 @@
       "tier": "Lesser",
       "stat_type": "LUK",
       "description": "Improves Luck on overalls. Success rate: 100%, LUK+1",
-      "thumbnail": "images/items/02040516.png"
+      "thumbnail": null
     },
     {
       "id": 2040517,
@@ -26347,7 +26347,7 @@
       "tier": "Intermediate",
       "stat_type": "LUK",
       "description": "Improves Luck on overalls. Success rate: 60%, LUK+2",
-      "thumbnail": "images/items/02040517.png"
+      "thumbnail": null
     },
     {
       "id": 2040518,
@@ -26356,7 +26356,7 @@
       "tier": "Greater",
       "stat_type": "LUK",
       "description": "Improves Luck on overalls. Success rate: 10%, LUK+3",
-      "thumbnail": "images/items/02040518.png"
+      "thumbnail": null
     },
     {
       "id": 2040519,
@@ -26365,7 +26365,7 @@
       "tier": "Chaos",
       "stat_type": "LUK",
       "description": "Improves Luck on overalls. Success rate: 10%, LUK+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040519.png"
+      "thumbnail": null
     },
     {
       "id": 2040600,
@@ -26374,7 +26374,7 @@
       "tier": "Lesser",
       "stat_type": "Other",
       "description": "Improves Defense on bottomwear. Success rate: 100%, Weapon Def.+2",
-      "thumbnail": "images/items/02040600.png"
+      "thumbnail": null
     },
     {
       "id": 2040601,
@@ -26383,7 +26383,7 @@
       "tier": "Intermediate",
       "stat_type": "Other",
       "description": "Improves Defense on bottomwear. Success rate: 60%, Weapon Def.+3, Magic Def.+1",
-      "thumbnail": "images/items/02040601.png"
+      "thumbnail": null
     },
     {
       "id": 2040602,
@@ -26392,7 +26392,7 @@
       "tier": "Greater",
       "stat_type": "Other",
       "description": "Improves Defense on bottomwear. Success rate: 10%, Weapon Def.+5, Magic Def.+3",
-      "thumbnail": "images/items/02040602.png"
+      "thumbnail": null
     },
     {
       "id": 2040603,
@@ -26401,7 +26401,7 @@
       "tier": "Chaos",
       "stat_type": "Other",
       "description": "Improves Defense on bottomwear. Success rate: 10%, Weapon Def.+7, Magic Def.+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040603.png"
+      "thumbnail": null
     },
     {
       "id": 2040604,
@@ -26410,7 +26410,7 @@
       "tier": "Lesser",
       "stat_type": "HP",
       "description": "Improves Max HP on bottomwear. Success rate: 100%, Max HP+10",
-      "thumbnail": "images/items/02040604.png"
+      "thumbnail": null
     },
     {
       "id": 2040605,
@@ -26419,7 +26419,7 @@
       "tier": "Intermediate",
       "stat_type": "HP",
       "description": "Improves Max HP on bottomwear. Success rate: 60%, Max HP+15",
-      "thumbnail": "images/items/02040605.png"
+      "thumbnail": null
     },
     {
       "id": 2040606,
@@ -26428,7 +26428,7 @@
       "tier": "Greater",
       "stat_type": "HP",
       "description": "Improves Max HP on bottomwear. Success rate: 10%, Max HP+20",
-      "thumbnail": "images/items/02040606.png"
+      "thumbnail": null
     },
     {
       "id": 2040607,
@@ -26437,7 +26437,7 @@
       "tier": "Chaos",
       "stat_type": "HP",
       "description": "Improves Max HP on bottomwear. Success rate: 10%, Max HP+30 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040607.png"
+      "thumbnail": null
     },
     {
       "id": 2040608,
@@ -26446,7 +26446,7 @@
       "tier": "Lesser",
       "stat_type": "MP",
       "description": "Improves Max MP on bottomwear. Success rate: 100%, Max MP+10",
-      "thumbnail": "images/items/02040608.png"
+      "thumbnail": null
     },
     {
       "id": 2040609,
@@ -26455,7 +26455,7 @@
       "tier": "Intermediate",
       "stat_type": "MP",
       "description": "Improves Max MP on bottomwear. Success rate: 60%, Max MP+15",
-      "thumbnail": "images/items/02040609.png"
+      "thumbnail": null
     },
     {
       "id": 2040610,
@@ -26464,7 +26464,7 @@
       "tier": "Greater",
       "stat_type": "MP",
       "description": "Improves Max MP on bottomwear. Success rate: 10%, Max MP+20",
-      "thumbnail": "images/items/02040610.png"
+      "thumbnail": null
     },
     {
       "id": 2040611,
@@ -26473,7 +26473,7 @@
       "tier": "Chaos",
       "stat_type": "MP",
       "description": "Improves Max MP on bottomwear. Success rate: 10%, Max MP+30 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040611.png"
+      "thumbnail": null
     },
     {
       "id": 2040700,
@@ -26482,7 +26482,7 @@
       "tier": "Lesser",
       "stat_type": "Other",
       "description": "Improves Jump on shoes. Success rate: 100%, Jump+1",
-      "thumbnail": "images/items/02040700.png"
+      "thumbnail": null
     },
     {
       "id": 2040701,
@@ -26491,7 +26491,7 @@
       "tier": "Intermediate",
       "stat_type": "Other",
       "description": "Improves Jump on shoes. Success rate: 60%, Jump+2",
-      "thumbnail": "images/items/02040701.png"
+      "thumbnail": null
     },
     {
       "id": 2040702,
@@ -26500,7 +26500,7 @@
       "tier": "Greater",
       "stat_type": "Other",
       "description": "Improves Jump on shoes. Success rate: 10%, Jump+3",
-      "thumbnail": "images/items/02040702.png"
+      "thumbnail": null
     },
     {
       "id": 2040703,
@@ -26509,7 +26509,7 @@
       "tier": "Chaos",
       "stat_type": "Other",
       "description": "Improves Jump on shoes. Success rate: 10%, Jump+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040703.png"
+      "thumbnail": null
     },
     {
       "id": 2040704,
@@ -26518,7 +26518,7 @@
       "tier": "Lesser",
       "stat_type": "Speed",
       "description": "Improves Speed on shoes. Success rate: 100%, Speed+1",
-      "thumbnail": "images/items/02040704.png"
+      "thumbnail": null
     },
     {
       "id": 2040705,
@@ -26527,7 +26527,7 @@
       "tier": "Intermediate",
       "stat_type": "Speed",
       "description": "Improves Speed on shoes. Success rate: 60%, Speed+2",
-      "thumbnail": "images/items/02040705.png"
+      "thumbnail": null
     },
     {
       "id": 2040706,
@@ -26536,7 +26536,7 @@
       "tier": "Greater",
       "stat_type": "Speed",
       "description": "Improves Speed on shoes. Success rate: 10%, Speed+3",
-      "thumbnail": "images/items/02040706.png"
+      "thumbnail": null
     },
     {
       "id": 2040707,
@@ -26545,7 +26545,7 @@
       "tier": "Chaos",
       "stat_type": "Speed",
       "description": "Improves Speed on shoes. Success rate: 10%, Speed+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040707.png"
+      "thumbnail": null
     },
     {
       "id": 2040708,
@@ -26554,7 +26554,7 @@
       "tier": "Lesser",
       "stat_type": "Avoidability",
       "description": "Improves Avoidability on shoes. Success rate: 100%, Avoidability+1",
-      "thumbnail": "images/items/02040708.png"
+      "thumbnail": null
     },
     {
       "id": 2040709,
@@ -26563,7 +26563,7 @@
       "tier": "Intermediate",
       "stat_type": "Avoidability",
       "description": "Improves Avoidability on shoes. Success rate: 60%, Avoidability+2",
-      "thumbnail": "images/items/02040709.png"
+      "thumbnail": null
     },
     {
       "id": 2040710,
@@ -26572,7 +26572,7 @@
       "tier": "Greater",
       "stat_type": "Avoidability",
       "description": "Improves Avoidability on shoes. Success rate: 10%, Avoidability+3",
-      "thumbnail": "images/items/02040710.png"
+      "thumbnail": null
     },
     {
       "id": 2040711,
@@ -26581,7 +26581,7 @@
       "tier": "Chaos",
       "stat_type": "Avoidability",
       "description": "Improves Avoidability on shoes. Success rate: 10%, Avoidability+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040711.png"
+      "thumbnail": null
     },
     {
       "id": 2040800,
@@ -26590,7 +26590,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on gloves. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02040800.png"
+      "thumbnail": null
     },
     {
       "id": 2040801,
@@ -26599,7 +26599,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on gloves. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02040801.png"
+      "thumbnail": null
     },
     {
       "id": 2040802,
@@ -26608,7 +26608,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on gloves. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02040802.png"
+      "thumbnail": null
     },
     {
       "id": 2040803,
@@ -26617,7 +26617,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on gloves. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040803.png"
+      "thumbnail": null
     },
     {
       "id": 2040804,
@@ -26626,7 +26626,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on gloves. Success rate: 100%, Magic Attack +1",
-      "thumbnail": "images/items/02040804.png"
+      "thumbnail": null
     },
     {
       "id": 2040805,
@@ -26635,7 +26635,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on gloves. Success rate: 60%, Magic Attack +2",
-      "thumbnail": "images/items/02040805.png"
+      "thumbnail": null
     },
     {
       "id": 2040806,
@@ -26644,7 +26644,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on gloves. Success rate: 10%, Magic Attack +3",
-      "thumbnail": "images/items/02040806.png"
+      "thumbnail": null
     },
     {
       "id": 2040807,
@@ -26653,7 +26653,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on gloves. Success rate: 10%, Magic Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040807.png"
+      "thumbnail": null
     },
     {
       "id": 2040808,
@@ -26662,7 +26662,7 @@
       "tier": "Lesser",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on gloves. Success rate: 100%, Accuracy+1",
-      "thumbnail": "images/items/02040808.png"
+      "thumbnail": null
     },
     {
       "id": 2040809,
@@ -26671,7 +26671,7 @@
       "tier": "Intermediate",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on gloves. Success rate: 60%, Accuracy+2",
-      "thumbnail": "images/items/02040809.png"
+      "thumbnail": null
     },
     {
       "id": 2040810,
@@ -26680,7 +26680,7 @@
       "tier": "Greater",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on gloves. Success rate: 10%, Accuracy+3",
-      "thumbnail": "images/items/02040810.png"
+      "thumbnail": null
     },
     {
       "id": 2040811,
@@ -26689,7 +26689,7 @@
       "tier": "Chaos",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on gloves. Success rate: 10%, Accuracy+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040811.png"
+      "thumbnail": null
     },
     {
       "id": 2040812,
@@ -26698,7 +26698,7 @@
       "tier": "Lesser",
       "stat_type": "Other",
       "description": "Improves Crit. Rate on gloves. Success rate: 100%, Crit. Rate+1",
-      "thumbnail": "images/items/02040812.png"
+      "thumbnail": null
     },
     {
       "id": 2040813,
@@ -26707,7 +26707,7 @@
       "tier": "Intermediate",
       "stat_type": "Other",
       "description": "Improves Crit. Rate on gloves. Success rate: 60%, Crit. Rate +2",
-      "thumbnail": "images/items/02040813.png"
+      "thumbnail": null
     },
     {
       "id": 2040814,
@@ -26716,7 +26716,7 @@
       "tier": "Greater",
       "stat_type": "Other",
       "description": "Improves Crit. Rate on gloves. Success rate: 10%, Crit. Rate+3",
-      "thumbnail": "images/items/02040814.png"
+      "thumbnail": null
     },
     {
       "id": 2040815,
@@ -26725,7 +26725,7 @@
       "tier": "Chaos",
       "stat_type": "Other",
       "description": "Improves Crit. Rate on gloves. Success rate: 10%, Crit. Rate+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040815.png"
+      "thumbnail": null
     },
     {
       "id": 2040900,
@@ -26734,7 +26734,7 @@
       "tier": "Lesser",
       "stat_type": "Other",
       "description": "Improves Defense on shields. Success rate: 100%, Weapon Def.+2",
-      "thumbnail": "images/items/02040900.png"
+      "thumbnail": null
     },
     {
       "id": 2040901,
@@ -26743,7 +26743,7 @@
       "tier": "Intermediate",
       "stat_type": "Other",
       "description": "Improves Defense on shields. Success rate: 60%, Weapon Def.+3, Magic Def.+1",
-      "thumbnail": "images/items/02040901.png"
+      "thumbnail": null
     },
     {
       "id": 2040902,
@@ -26752,7 +26752,7 @@
       "tier": "Greater",
       "stat_type": "Other",
       "description": "Improves Defense on shields. Success rate:10%, Weapon Def.+5, Magic Def.+3",
-      "thumbnail": "images/items/02040902.png"
+      "thumbnail": null
     },
     {
       "id": 2040903,
@@ -26761,7 +26761,7 @@
       "tier": "Chaos",
       "stat_type": "Other",
       "description": "Improves Defense on shields. Success rate: 10%, Weapon Def.+7, Magic Def.+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040903.png"
+      "thumbnail": null
     },
     {
       "id": 2040904,
@@ -26770,7 +26770,7 @@
       "tier": "Lesser",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on shields. Success rate: 100%, Accuracy+1",
-      "thumbnail": "images/items/02040904.png"
+      "thumbnail": null
     },
     {
       "id": 2040905,
@@ -26779,7 +26779,7 @@
       "tier": "Intermediate",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on shields. Success rate: 60%, Accuracy+2",
-      "thumbnail": "images/items/02040905.png"
+      "thumbnail": null
     },
     {
       "id": 2040906,
@@ -26788,7 +26788,7 @@
       "tier": "Greater",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on shields. Success rate: 10%, Accuracy+3",
-      "thumbnail": "images/items/02040906.png"
+      "thumbnail": null
     },
     {
       "id": 2040907,
@@ -26797,7 +26797,7 @@
       "tier": "Chaos",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on shields. Success rate: 10%, Accuracy+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02040907.png"
+      "thumbnail": null
     },
     {
       "id": 2041000,
@@ -26806,7 +26806,7 @@
       "tier": "Lesser",
       "stat_type": "Defense",
       "description": "Improves Weapon Def. on capes. Success rate: 100%, Weapon Def.+2",
-      "thumbnail": "images/items/02041000.png"
+      "thumbnail": null
     },
     {
       "id": 2041001,
@@ -26815,7 +26815,7 @@
       "tier": "Intermediate",
       "stat_type": "Defense",
       "description": "Improves Weapon Def. on capes. Success rate: 60%, Weapon Def.+3, Magic Def.+1",
-      "thumbnail": "images/items/02041001.png"
+      "thumbnail": null
     },
     {
       "id": 2041002,
@@ -26824,7 +26824,7 @@
       "tier": "Greater",
       "stat_type": "Defense",
       "description": "Improves Weapon Def. on capes. Success rate: 10%, Weapon Def.+5, Magic Def.+3",
-      "thumbnail": "images/items/02041002.png"
+      "thumbnail": null
     },
     {
       "id": 2041003,
@@ -26833,7 +26833,7 @@
       "tier": "Chaos",
       "stat_type": "Defense",
       "description": "Improves Weapon Def. on capes. Success rate: 10%, Weapon Def.+7, Magic Def.+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02041003.png"
+      "thumbnail": null
     },
     {
       "id": 2041004,
@@ -26842,7 +26842,7 @@
       "tier": "Lesser",
       "stat_type": "Defense",
       "description": "Improves Magic Def. on capes. Success rate: 100%, Magic Def.+2",
-      "thumbnail": "images/items/02041004.png"
+      "thumbnail": null
     },
     {
       "id": 2041005,
@@ -26851,7 +26851,7 @@
       "tier": "Intermediate",
       "stat_type": "Defense",
       "description": "Improves Magic Def. on capes. Success rate: 60%, Magic Def.+3, Weapon Def.+1",
-      "thumbnail": "images/items/02041005.png"
+      "thumbnail": null
     },
     {
       "id": 2041006,
@@ -26860,7 +26860,7 @@
       "tier": "Greater",
       "stat_type": "Defense",
       "description": "Improves Magic Def. on capes. Success rate: 10%, Magic Def.+5, Weapon Def.+3",
-      "thumbnail": "images/items/02041006.png"
+      "thumbnail": null
     },
     {
       "id": 2041007,
@@ -26869,7 +26869,7 @@
       "tier": "Chaos",
       "stat_type": "Defense",
       "description": "Improves Magic Def. on capes. Success rate: 10%, Magic Def.+7, Weapon Def.+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02041007.png"
+      "thumbnail": null
     },
     {
       "id": 2041008,
@@ -26878,7 +26878,7 @@
       "tier": "Lesser",
       "stat_type": "STR",
       "description": "Improves Strength on capes. Success rate: 100%, STR+1",
-      "thumbnail": "images/items/02041008.png"
+      "thumbnail": null
     },
     {
       "id": 2041009,
@@ -26887,7 +26887,7 @@
       "tier": "Intermediate",
       "stat_type": "STR",
       "description": "Improves Strength on capes. Success rate: 60%, STR+2",
-      "thumbnail": "images/items/02041009.png"
+      "thumbnail": null
     },
     {
       "id": 2041010,
@@ -26896,7 +26896,7 @@
       "tier": "Greater",
       "stat_type": "STR",
       "description": "Improves Strength on capes. Success rate: 10%, STR+3",
-      "thumbnail": "images/items/02041010.png"
+      "thumbnail": null
     },
     {
       "id": 2041011,
@@ -26905,7 +26905,7 @@
       "tier": "Chaos",
       "stat_type": "STR",
       "description": "Improves Strength on capes. Success rate: 10%, STR+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02041011.png"
+      "thumbnail": null
     },
     {
       "id": 2041012,
@@ -26914,7 +26914,7 @@
       "tier": "Lesser",
       "stat_type": "DEX",
       "description": "Improves Dexterity on capes. Success rate :100%, DEX+1",
-      "thumbnail": "images/items/02041012.png"
+      "thumbnail": null
     },
     {
       "id": 2041013,
@@ -26923,7 +26923,7 @@
       "tier": "Intermediate",
       "stat_type": "DEX",
       "description": "Improves Dexterity on capes. Success rate: 60%, DEX+2",
-      "thumbnail": "images/items/02041013.png"
+      "thumbnail": null
     },
     {
       "id": 2041014,
@@ -26932,7 +26932,7 @@
       "tier": "Greater",
       "stat_type": "DEX",
       "description": "Improves Dexterity on capes. Success rate: 10%, DEX+3",
-      "thumbnail": "images/items/02041014.png"
+      "thumbnail": null
     },
     {
       "id": 2041015,
@@ -26941,7 +26941,7 @@
       "tier": "Chaos",
       "stat_type": "DEX",
       "description": "Improves Dexterity on capes. Success rate: 10%, DEX+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02041015.png"
+      "thumbnail": null
     },
     {
       "id": 2041016,
@@ -26950,7 +26950,7 @@
       "tier": "Lesser",
       "stat_type": "INT",
       "description": "Improves Intelligence on capes. Success rate: 100%, INT+1",
-      "thumbnail": "images/items/02041016.png"
+      "thumbnail": null
     },
     {
       "id": 2041017,
@@ -26959,7 +26959,7 @@
       "tier": "Intermediate",
       "stat_type": "INT",
       "description": "Improves Intelligence on capes. Success rate: 60%, INT+2",
-      "thumbnail": "images/items/02041017.png"
+      "thumbnail": null
     },
     {
       "id": 2041018,
@@ -26968,7 +26968,7 @@
       "tier": "Greater",
       "stat_type": "INT",
       "description": "Improves Intelligence on capes. Success rate: 10%, INT+3",
-      "thumbnail": "images/items/02041018.png"
+      "thumbnail": null
     },
     {
       "id": 2041019,
@@ -26977,7 +26977,7 @@
       "tier": "Chaos",
       "stat_type": "INT",
       "description": "Improves Intelligence on capes. Success rate: 10%, INT+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02041019.png"
+      "thumbnail": null
     },
     {
       "id": 2041020,
@@ -26986,7 +26986,7 @@
       "tier": "Lesser",
       "stat_type": "LUK",
       "description": "Improves Luck on capes. Success rate: 100%, LUK+1",
-      "thumbnail": "images/items/02041020.png"
+      "thumbnail": null
     },
     {
       "id": 2041021,
@@ -26995,7 +26995,7 @@
       "tier": "Intermediate",
       "stat_type": "LUK",
       "description": "Improves Luck on capes. Success rate: 60%, LUK+2",
-      "thumbnail": "images/items/02041021.png"
+      "thumbnail": null
     },
     {
       "id": 2041022,
@@ -27004,7 +27004,7 @@
       "tier": "Greater",
       "stat_type": "LUK",
       "description": "Improves Luck on capes. Success rate: 10%, LUK+3",
-      "thumbnail": "images/items/02041022.png"
+      "thumbnail": null
     },
     {
       "id": 2041023,
@@ -27013,7 +27013,7 @@
       "tier": "Chaos",
       "stat_type": "LUK",
       "description": "Improves Luck on capes. Success rate: 10%, LUK+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02041023.png"
+      "thumbnail": null
     },
     {
       "id": 2041024,
@@ -27022,7 +27022,7 @@
       "tier": "Lesser",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on capes. Success rate: 100%, Accuracy +1",
-      "thumbnail": "images/items/02041024.png"
+      "thumbnail": null
     },
     {
       "id": 2041025,
@@ -27031,7 +27031,7 @@
       "tier": "Intermediate",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on capes. Success rate: 60%, Accuracy +2",
-      "thumbnail": "images/items/02041025.png"
+      "thumbnail": null
     },
     {
       "id": 2041026,
@@ -27040,7 +27040,7 @@
       "tier": "Greater",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on capes. Success rate: 10%, Accuracy +3",
-      "thumbnail": "images/items/02041026.png"
+      "thumbnail": null
     },
     {
       "id": 2041027,
@@ -27049,7 +27049,7 @@
       "tier": "Chaos",
       "stat_type": "Accuracy",
       "description": "Improves Accuracy on capes. Success rate: 10%, Accuracy +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02041027.png"
+      "thumbnail": null
     },
     {
       "id": 2043000,
@@ -27058,7 +27058,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed swords. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02043000.png"
+      "thumbnail": null
     },
     {
       "id": 2043001,
@@ -27067,7 +27067,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed swords. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02043001.png"
+      "thumbnail": null
     },
     {
       "id": 2043002,
@@ -27076,7 +27076,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed swords. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02043002.png"
+      "thumbnail": null
     },
     {
       "id": 2043003,
@@ -27085,7 +27085,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed swords. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02043003.png"
+      "thumbnail": null
     },
     {
       "id": 2043100,
@@ -27094,7 +27094,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed axes. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02043100.png"
+      "thumbnail": null
     },
     {
       "id": 2043101,
@@ -27103,7 +27103,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed axes. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02043101.png"
+      "thumbnail": null
     },
     {
       "id": 2043102,
@@ -27112,7 +27112,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed axes. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02043102.png"
+      "thumbnail": null
     },
     {
       "id": 2043103,
@@ -27121,7 +27121,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed axes. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02043103.png"
+      "thumbnail": null
     },
     {
       "id": 2043200,
@@ -27130,7 +27130,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed blunt weapons. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02043200.png"
+      "thumbnail": null
     },
     {
       "id": 2043201,
@@ -27139,7 +27139,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed blunt weapons. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02043201.png"
+      "thumbnail": null
     },
     {
       "id": 2043202,
@@ -27148,7 +27148,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed blunt weapons. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02043202.png"
+      "thumbnail": null
     },
     {
       "id": 2043203,
@@ -27157,7 +27157,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on one-handed blunt weapons. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02043203.png"
+      "thumbnail": null
     },
     {
       "id": 2043300,
@@ -27166,7 +27166,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on daggers. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02043300.png"
+      "thumbnail": null
     },
     {
       "id": 2043301,
@@ -27175,7 +27175,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on daggers. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02043301.png"
+      "thumbnail": null
     },
     {
       "id": 2043302,
@@ -27184,7 +27184,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on daggers. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02043302.png"
+      "thumbnail": null
     },
     {
       "id": 2043303,
@@ -27193,7 +27193,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on daggers. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02043303.png"
+      "thumbnail": null
     },
     {
       "id": 2043700,
@@ -27202,7 +27202,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on wands. Success rate: 100%, Magic Attack +1",
-      "thumbnail": "images/items/02043700.png"
+      "thumbnail": null
     },
     {
       "id": 2043701,
@@ -27211,7 +27211,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on wands. Success rate: 60%, Magic Attack +2",
-      "thumbnail": "images/items/02043701.png"
+      "thumbnail": null
     },
     {
       "id": 2043702,
@@ -27220,7 +27220,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on wands. Success rate: 10%, Magic Attack +3",
-      "thumbnail": "images/items/02043702.png"
+      "thumbnail": null
     },
     {
       "id": 2043703,
@@ -27229,7 +27229,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on wands. Success rate: 10%, Magic Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02043703.png"
+      "thumbnail": null
     },
     {
       "id": 2043800,
@@ -27238,7 +27238,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on staves. Success rate: 100%, Magic Attack +1",
-      "thumbnail": "images/items/02043800.png"
+      "thumbnail": null
     },
     {
       "id": 2043801,
@@ -27247,7 +27247,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on staves. Success rate: 60%, Magic Attack +2",
-      "thumbnail": "images/items/02043801.png"
+      "thumbnail": null
     },
     {
       "id": 2043802,
@@ -27256,7 +27256,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on staves. Success rate: 10%, Magic Attack +3",
-      "thumbnail": "images/items/02043802.png"
+      "thumbnail": null
     },
     {
       "id": 2043803,
@@ -27265,7 +27265,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Magic Attack on staves. Success rate: 10%, Magic Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02043803.png"
+      "thumbnail": null
     },
     {
       "id": 2044000,
@@ -27274,7 +27274,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed swords. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02044000.png"
+      "thumbnail": null
     },
     {
       "id": 2044001,
@@ -27283,7 +27283,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed swords. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02044001.png"
+      "thumbnail": null
     },
     {
       "id": 2044002,
@@ -27292,7 +27292,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed swords. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02044002.png"
+      "thumbnail": null
     },
     {
       "id": 2044003,
@@ -27301,7 +27301,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed swords. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02044003.png"
+      "thumbnail": null
     },
     {
       "id": 2044100,
@@ -27310,7 +27310,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed axes. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02044100.png"
+      "thumbnail": null
     },
     {
       "id": 2044101,
@@ -27319,7 +27319,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed axes. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02044101.png"
+      "thumbnail": null
     },
     {
       "id": 2044102,
@@ -27328,7 +27328,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed axes. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02044102.png"
+      "thumbnail": null
     },
     {
       "id": 2044103,
@@ -27337,7 +27337,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed axes. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02044103.png"
+      "thumbnail": null
     },
     {
       "id": 2044200,
@@ -27346,7 +27346,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed blunt weapons. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02044200.png"
+      "thumbnail": null
     },
     {
       "id": 2044201,
@@ -27355,7 +27355,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed blunt weapons. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02044201.png"
+      "thumbnail": null
     },
     {
       "id": 2044202,
@@ -27364,7 +27364,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed blunt weapons. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02044202.png"
+      "thumbnail": null
     },
     {
       "id": 2044203,
@@ -27373,7 +27373,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on two-handed blunt weapons. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02044203.png"
+      "thumbnail": null
     },
     {
       "id": 2044300,
@@ -27382,7 +27382,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on spears. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02044300.png"
+      "thumbnail": null
     },
     {
       "id": 2044301,
@@ -27391,7 +27391,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on spears. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02044301.png"
+      "thumbnail": null
     },
     {
       "id": 2044302,
@@ -27400,7 +27400,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on spears. Success rate:10%, Weapon Attack +3",
-      "thumbnail": "images/items/02044302.png"
+      "thumbnail": null
     },
     {
       "id": 2044303,
@@ -27409,7 +27409,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on spears. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02044303.png"
+      "thumbnail": null
     },
     {
       "id": 2044400,
@@ -27418,7 +27418,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on polearms. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02044400.png"
+      "thumbnail": null
     },
     {
       "id": 2044401,
@@ -27427,7 +27427,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on polearms. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02044401.png"
+      "thumbnail": null
     },
     {
       "id": 2044402,
@@ -27436,7 +27436,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on polearms. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02044402.png"
+      "thumbnail": null
     },
     {
       "id": 2044403,
@@ -27445,7 +27445,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on polearms. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02044403.png"
+      "thumbnail": null
     },
     {
       "id": 2044500,
@@ -27454,7 +27454,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on bows. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02044500.png"
+      "thumbnail": null
     },
     {
       "id": 2044501,
@@ -27463,7 +27463,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on bows. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02044501.png"
+      "thumbnail": null
     },
     {
       "id": 2044502,
@@ -27472,7 +27472,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on bows. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02044502.png"
+      "thumbnail": null
     },
     {
       "id": 2044503,
@@ -27481,7 +27481,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on bows. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02044503.png"
+      "thumbnail": null
     },
     {
       "id": 2044600,
@@ -27490,7 +27490,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on crossbows. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02044600.png"
+      "thumbnail": null
     },
     {
       "id": 2044601,
@@ -27499,7 +27499,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on crossbows. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02044601.png"
+      "thumbnail": null
     },
     {
       "id": 2044602,
@@ -27508,7 +27508,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on crossbows. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02044602.png"
+      "thumbnail": null
     },
     {
       "id": 2044603,
@@ -27517,7 +27517,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on crossbows. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02044603.png"
+      "thumbnail": null
     },
     {
       "id": 2044700,
@@ -27526,7 +27526,7 @@
       "tier": "Lesser",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on claws. Success rate: 100%, Weapon Attack +1",
-      "thumbnail": "images/items/02044700.png"
+      "thumbnail": null
     },
     {
       "id": 2044701,
@@ -27535,7 +27535,7 @@
       "tier": "Intermediate",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on claws. Success rate: 60%, Weapon Attack +2",
-      "thumbnail": "images/items/02044701.png"
+      "thumbnail": null
     },
     {
       "id": 2044702,
@@ -27544,7 +27544,7 @@
       "tier": "Greater",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on claws. Success rate: 10%, Weapon Attack +3",
-      "thumbnail": "images/items/02044702.png"
+      "thumbnail": null
     },
     {
       "id": 2044703,
@@ -27553,7 +27553,7 @@
       "tier": "Chaos",
       "stat_type": "Attack",
       "description": "Improves Weapon Attack on claws. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02044703.png"
+      "thumbnail": null
     },
     {
       "id": 2048000,
@@ -27562,7 +27562,7 @@
       "tier": "Lesser",
       "stat_type": "Speed",
       "description": "Improves Speed on pet equip. Success rate:100%, Speed+1",
-      "thumbnail": "images/items/02048000.png"
+      "thumbnail": null
     },
     {
       "id": 2048001,
@@ -27571,7 +27571,7 @@
       "tier": "Intermediate",
       "stat_type": "Speed",
       "description": "Improves Speed on pet equip. Success rate:60%, Speed+2",
-      "thumbnail": "images/items/02048001.png"
+      "thumbnail": null
     },
     {
       "id": 2048002,
@@ -27580,7 +27580,7 @@
       "tier": "Greater",
       "stat_type": "Speed",
       "description": "Improves Speed on pet equip. Success rate:10%, Speed+3",
-      "thumbnail": "images/items/02048002.png"
+      "thumbnail": null
     },
     {
       "id": 2048003,
@@ -27589,7 +27589,7 @@
       "tier": "Chaos",
       "stat_type": "Speed",
       "description": "Improves Speed on pet equip. Success rate:10%, Speed+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02048003.png"
+      "thumbnail": null
     },
     {
       "id": 2048004,
@@ -27598,7 +27598,7 @@
       "tier": "Lesser",
       "stat_type": "Other",
       "description": "Improves Jump on pet equip. Success rate:100%, Jump+1",
-      "thumbnail": "images/items/02048004.png"
+      "thumbnail": null
     },
     {
       "id": 2048005,
@@ -27607,7 +27607,7 @@
       "tier": "Intermediate",
       "stat_type": "Other",
       "description": "Improves Jump on pet equip. Success rate:60%, Jump+2",
-      "thumbnail": "images/items/02048005.png"
+      "thumbnail": null
     },
     {
       "id": 2048006,
@@ -27616,7 +27616,7 @@
       "tier": "Greater",
       "stat_type": "Other",
       "description": "Improves Jump on pet equip. Success rate:10%, Jump+3",
-      "thumbnail": "images/items/02048006.png"
+      "thumbnail": null
     },
     {
       "id": 2048007,
@@ -27625,7 +27625,7 @@
       "tier": "Chaos",
       "stat_type": "Other",
       "description": "Improves Jump on pet equip. Success rate:10%, Jump+5 If failed, the item will be destroyed at a 100% rate.",
-      "thumbnail": "images/items/02048007.png"
+      "thumbnail": null
     }
   ],
   "item_total": 1301,

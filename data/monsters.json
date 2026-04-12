@@ -554,6 +554,7 @@
       "thumbnail": "images/monsters/0000003.png",
       "gifs": {
         "move": "images/monsters/0000003.move.webp",
+        "stand": "images/monsters/0000003.stand.webp",
         "hit1": "images/monsters/0000003.hit1.webp",
         "die1": "images/monsters/0000003.die1.webp"
       },
@@ -1007,6 +1008,7 @@
       "thumbnail": "images/monsters/0000005.png",
       "gifs": {
         "move": "images/monsters/0000005.move.webp",
+        "stand": "images/monsters/0000005.stand.webp",
         "hit1": "images/monsters/0000005.hit1.webp",
         "die1": "images/monsters/0000005.die1.webp"
       },
@@ -1028,7 +1030,7 @@
       "speed": -70,
       "undead": 0,
       "elements": {
-        "Fire": "Immune"
+        "Fire": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -1241,6 +1243,7 @@
       "thumbnail": "images/monsters/0000006.png",
       "gifs": {
         "move": "images/monsters/0000006.move.webp",
+        "stand": "images/monsters/0000006.stand.webp",
         "hit1": "images/monsters/0000006.hit1.webp",
         "die1": "images/monsters/0000006.die1.webp"
       },
@@ -1262,7 +1265,7 @@
       "speed": -20,
       "undead": 0,
       "elements": {
-        "Lightning": "Immune"
+        "Lightning": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -1583,6 +1586,7 @@
       "thumbnail": "images/monsters/0000007.png",
       "gifs": {
         "move": "images/monsters/0000007.move.webp",
+        "jump": "images/monsters/0000007.jump.webp",
         "stand": "images/monsters/0000007.stand.webp",
         "hit1": "images/monsters/0000007.hit1.webp",
         "die1": "images/monsters/0000007.die1.webp"
@@ -1924,6 +1928,7 @@
       "thumbnail": "images/monsters/0000009.png",
       "gifs": {
         "move": "images/monsters/0000009.move.webp",
+        "jump": "images/monsters/0000009.jump.webp",
         "stand": "images/monsters/0000009.stand.webp",
         "hit1": "images/monsters/0000009.hit1.webp",
         "die1": "images/monsters/0000009.die1.webp"
@@ -2043,6 +2048,7 @@
       "thumbnail": "images/monsters/0000010.png",
       "gifs": {
         "move": "images/monsters/0000010.move.webp",
+        "jump": "images/monsters/0000010.jump.webp",
         "stand": "images/monsters/0000010.stand.webp",
         "hit1": "images/monsters/0000010.hit1.webp",
         "die1": "images/monsters/0000010.die1.webp"
@@ -2065,7 +2071,7 @@
       "speed": -70,
       "undead": 0,
       "elements": {
-        "Fire": "Immune"
+        "Fire": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -2236,6 +2242,7 @@
       "thumbnail": "images/monsters/0000011.png",
       "gifs": {
         "move": "images/monsters/0000011.move.webp",
+        "stand": "images/monsters/0000011.stand.webp",
         "hit1": "images/monsters/0000011.hit1.webp",
         "die1": "images/monsters/0000011.die1.webp"
       },
@@ -2257,7 +2264,7 @@
       "speed": 0,
       "undead": 0,
       "elements": {
-        "Lightning": "Immune"
+        "Lightning": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -2341,7 +2348,7 @@
       "speed": -20,
       "undead": 0,
       "elements": {
-        "Poison": "Weak"
+        "Poison": "Immune"
       },
       "is_boss": false,
       "is_new": false,
@@ -2595,6 +2602,7 @@
       "thumbnail": "images/monsters/0000014.png",
       "gifs": {
         "move": "images/monsters/0000014.move.webp",
+        "jump": "images/monsters/0000014.jump.webp",
         "stand": "images/monsters/0000014.stand.webp",
         "hit1": "images/monsters/0000014.hit1.webp",
         "die1": "images/monsters/0000014.die1.webp"
@@ -2738,6 +2746,7 @@
       "thumbnail": "images/monsters/0000015.png",
       "gifs": {
         "move": "images/monsters/0000015.move.webp",
+        "stand": "images/monsters/0000015.stand.webp",
         "hit1": "images/monsters/0000015.hit1.webp",
         "die1": "images/monsters/0000015.die1.webp"
       },
@@ -2862,6 +2871,7 @@
       "thumbnail": "images/monsters/0000016.png",
       "gifs": {
         "move": "images/monsters/0000016.move.webp",
+        "jump": "images/monsters/0000016.jump.webp",
         "stand": "images/monsters/0000016.stand.webp",
         "hit1": "images/monsters/0000016.hit1.webp",
         "die1": "images/monsters/0000016.die1.webp"
@@ -3258,7 +3268,7 @@
       "speed": -50,
       "undead": 0,
       "elements": {
-        "Fire": "Immune"
+        "Fire": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -3411,6 +3421,7 @@
       "thumbnail": "images/monsters/0000020.png",
       "gifs": {
         "move": "images/monsters/0000020.move.webp",
+        "stand": "images/monsters/0000020.stand.webp",
         "hit1": "images/monsters/0000020.hit1.webp",
         "die1": "images/monsters/0000020.die1.webp"
       },
@@ -3432,7 +3443,7 @@
       "speed": 0,
       "undead": 1,
       "elements": {
-        "Holy": "Immune"
+        "Holy": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -3537,6 +3548,7 @@
       "thumbnail": "images/monsters/0000021.png",
       "gifs": {
         "move": "images/monsters/0000021.move.webp",
+        "jump": "images/monsters/0000021.jump.webp",
         "stand": "images/monsters/0000021.stand.webp",
         "hit1": "images/monsters/0000021.hit1.webp",
         "die1": "images/monsters/0000021.die1.webp"
@@ -3620,6 +3632,7 @@
       "thumbnail": "images/monsters/0000022.png",
       "gifs": {
         "move": "images/monsters/0000022.move.webp",
+        "jump": "images/monsters/0000022.jump.webp",
         "stand": "images/monsters/0000022.stand.webp",
         "hit1": "images/monsters/0000022.hit1.webp",
         "die1": "images/monsters/0000022.die1.webp"
@@ -3697,6 +3710,7 @@
       "thumbnail": "images/monsters/0000023.png",
       "gifs": {
         "move": "images/monsters/0000023.move.webp",
+        "jump": "images/monsters/0000023.jump.webp",
         "stand": "images/monsters/0000023.stand.webp",
         "hit1": "images/monsters/0000023.hit1.webp",
         "die1": "images/monsters/0000023.die1.webp"
@@ -3768,6 +3782,7 @@
       "thumbnail": "images/monsters/0000024.png",
       "gifs": {
         "move": "images/monsters/0000024.move.webp",
+        "jump": "images/monsters/0000024.jump.webp",
         "stand": "images/monsters/0000024.stand.webp",
         "skill1": "images/monsters/0000024.skill1.webp",
         "hit1": "images/monsters/0000024.hit1.webp",
@@ -3797,6 +3812,7 @@
       "thumbnail": "images/monsters/0000025.png",
       "gifs": {
         "move": "images/monsters/0000025.move.webp",
+        "stand": "images/monsters/0000025.stand.webp",
         "skill1": "images/monsters/0000025.skill1.webp",
         "hit1": "images/monsters/0000025.hit1.webp",
         "die1": "images/monsters/0000025.die1.webp"
@@ -3832,6 +3848,7 @@
       "thumbnail": "images/monsters/0000026.png",
       "gifs": {
         "move": "images/monsters/0000026.move.webp",
+        "stand": "images/monsters/0000026.stand.webp",
         "skill1": "images/monsters/0000026.skill1.webp",
         "hit1": "images/monsters/0000026.hit1.webp",
         "die1": "images/monsters/0000026.die1.webp"
@@ -3879,6 +3896,7 @@
       "thumbnail": "images/monsters/0000027.png",
       "gifs": {
         "move": "images/monsters/0000027.move.webp",
+        "stand": "images/monsters/0000027.stand.webp",
         "skill1": "images/monsters/0000027.skill1.webp",
         "hit1": "images/monsters/0000027.hit1.webp",
         "die1": "images/monsters/0000027.die1.webp"
@@ -3944,6 +3962,7 @@
       "thumbnail": "images/monsters/0000028.png",
       "gifs": {
         "move": "images/monsters/0000028.move.webp",
+        "stand": "images/monsters/0000028.stand.webp",
         "skill1": "images/monsters/0000028.skill1.webp",
         "hit1": "images/monsters/0000028.hit1.webp",
         "die1": "images/monsters/0000028.die1.webp"
@@ -3966,8 +3985,8 @@
       "speed": -40,
       "undead": 0,
       "elements": {
-        "Ice": "Resist",
-        "Fire": "Immune"
+        "Ice": "Strong",
+        "Fire": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -4022,8 +4041,8 @@
       "speed": 0,
       "undead": 0,
       "elements": {
-        "Fire": "Resist",
-        "Ice": "Immune"
+        "Fire": "Strong",
+        "Ice": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -4116,6 +4135,7 @@
       "thumbnail": "images/monsters/0000030.png",
       "gifs": {
         "move": "images/monsters/0000030.move.webp",
+        "jump": "images/monsters/0000030.jump.webp",
         "stand": "images/monsters/0000030.stand.webp",
         "hit1": "images/monsters/0000030.hit1.webp",
         "die1": "images/monsters/0000030.die1.webp"
@@ -4138,7 +4158,7 @@
       "speed": -15,
       "undead": 0,
       "elements": {
-        "Poison": "Resist"
+        "Poison": "Strong"
       },
       "is_boss": false,
       "is_new": false,
@@ -4237,6 +4257,7 @@
       "thumbnail": "images/monsters/0000031.png",
       "gifs": {
         "move": "images/monsters/0000031.move.webp",
+        "jump": "images/monsters/0000031.jump.webp",
         "stand": "images/monsters/0000031.stand.webp",
         "hit1": "images/monsters/0000031.hit1.webp",
         "die1": "images/monsters/0000031.die1.webp"
@@ -4259,8 +4280,8 @@
       "speed": 0,
       "undead": 1,
       "elements": {
-        "Holy": "Immune",
-        "Fire": "Immune"
+        "Holy": "Weak",
+        "Fire": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -4299,6 +4320,7 @@
       "thumbnail": "images/monsters/0000032.png",
       "gifs": {
         "move": "images/monsters/0000032.move.webp",
+        "jump": "images/monsters/0000032.jump.webp",
         "stand": "images/monsters/0000032.stand.webp",
         "hit1": "images/monsters/0000032.hit1.webp",
         "die1": "images/monsters/0000032.die1.webp"
@@ -4634,6 +4656,8 @@
       "thumbnail": "images/monsters/0000035.png",
       "gifs": {
         "move": "images/monsters/0000035.move.webp",
+        "jump": "images/monsters/0000035.jump.webp",
+        "stand": "images/monsters/0000035.stand.webp",
         "attack1": "images/monsters/0000035.attack1.webp",
         "hit1": "images/monsters/0000035.hit1.webp",
         "die1": "images/monsters/0000035.die1.webp"
@@ -4656,7 +4680,7 @@
       "speed": 20,
       "undead": 0,
       "elements": {
-        "Lightning": "Immune"
+        "Lightning": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -4718,8 +4742,8 @@
       "speed": 5,
       "undead": 0,
       "elements": {
-        "Ice": "Resist",
-        "Fire": "Immune"
+        "Ice": "Strong",
+        "Fire": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -4811,7 +4835,7 @@
       "speed": 30,
       "undead": 1,
       "elements": {
-        "Holy": "Immune"
+        "Holy": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -4874,6 +4898,7 @@
       "thumbnail": "images/monsters/0000038.png",
       "gifs": {
         "move": "images/monsters/0000038.move.webp",
+        "jump": "images/monsters/0000038.jump.webp",
         "stand": "images/monsters/0000038.stand.webp",
         "attack1": "images/monsters/0000038.attack1.webp",
         "hit1": "images/monsters/0000038.hit1.webp",
@@ -4963,6 +4988,7 @@
       "thumbnail": "images/monsters/0000041.png",
       "gifs": {
         "move": "images/monsters/0000041.move.webp",
+        "stand": "images/monsters/0000041.stand.webp",
         "attack1": "images/monsters/0000041.attack1.webp",
         "hit1": "images/monsters/0000041.hit1.webp",
         "die1": "images/monsters/0000041.die1.webp"
@@ -4985,7 +5011,7 @@
       "speed": 15,
       "undead": 1,
       "elements": {
-        "Holy": "Immune"
+        "Holy": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -5024,6 +5050,7 @@
       "thumbnail": "images/monsters/0000043.png",
       "gifs": {
         "move": "images/monsters/0000043.move.webp",
+        "jump": "images/monsters/0000043.jump.webp",
         "stand": "images/monsters/0000043.stand.webp",
         "hit1": "images/monsters/0000043.hit1.webp",
         "die1": "images/monsters/0000043.die1.webp"
@@ -5046,7 +5073,7 @@
       "speed": 30,
       "undead": 0,
       "elements": {
-        "Lightning": "Immune"
+        "Lightning": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -5190,7 +5217,7 @@
       "speed": 0,
       "undead": 0,
       "elements": {
-        "Holy": "Immune"
+        "Holy": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -5304,7 +5331,7 @@
       "speed": -50,
       "undead": 0,
       "elements": {
-        "Holy": "Immune"
+        "Holy": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -5354,8 +5381,8 @@
       "speed": 0,
       "undead": 0,
       "elements": {
-        "Fire": "Resist",
-        "Ice": "Immune"
+        "Fire": "Strong",
+        "Ice": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -5441,7 +5468,7 @@
       "speed": 30,
       "undead": 0,
       "elements": {
-        "Poison": "Weak"
+        "Poison": "Immune"
       },
       "is_boss": false,
       "is_new": false,
@@ -5497,9 +5524,9 @@
       "speed": 35,
       "undead": 0,
       "elements": {
-        "Poison": "Weak",
-        "Fire": "Resist",
-        "Lightning": "Resist"
+        "Poison": "Immune",
+        "Fire": "Strong",
+        "Lightning": "Strong"
       },
       "is_boss": false,
       "is_new": false,
@@ -5591,7 +5618,7 @@
       "speed": -15,
       "undead": 0,
       "elements": {
-        "Fire": "Immune"
+        "Fire": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -5624,6 +5651,7 @@
       "thumbnail": "images/monsters/0000055.png",
       "gifs": {
         "move": "images/monsters/0000055.move.webp",
+        "jump": "images/monsters/0000055.jump.webp",
         "stand": "images/monsters/0000055.stand.webp",
         "hit1": "images/monsters/0000055.hit1.webp",
         "die1": "images/monsters/0000055.die1.webp"
@@ -5692,8 +5720,8 @@
       "speed": 0,
       "undead": 0,
       "elements": {
-        "Ice": "Resist",
-        "Lightning": "Immune"
+        "Ice": "Strong",
+        "Lightning": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -5742,7 +5770,7 @@
       "speed": 0,
       "undead": 0,
       "elements": {
-        "Lightning": "Immune"
+        "Lightning": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -5808,8 +5836,8 @@
       "speed": -30,
       "undead": 0,
       "elements": {
-        "Fire": "Immune",
-        "Poison": "Resist"
+        "Fire": "Weak",
+        "Poison": "Strong"
       },
       "is_boss": false,
       "is_new": false,
@@ -5860,6 +5888,7 @@
       "thumbnail": "images/monsters/0000059.png",
       "gifs": {
         "move": "images/monsters/0000059.move.webp",
+        "jump": "images/monsters/0000059.jump.webp",
         "stand": "images/monsters/0000059.stand.webp",
         "hit1": "images/monsters/0000059.hit1.webp",
         "die1": "images/monsters/0000059.die1.webp"
@@ -5882,8 +5911,8 @@
       "speed": -10,
       "undead": 0,
       "elements": {
-        "Ice": "Immune",
-        "Poison": "Resist"
+        "Ice": "Weak",
+        "Poison": "Strong"
       },
       "is_boss": false,
       "is_new": false,
@@ -5932,8 +5961,8 @@
       "speed": -50,
       "undead": 0,
       "elements": {
-        "Fire": "Immune",
-        "Lightning": "Resist"
+        "Fire": "Weak",
+        "Lightning": "Strong"
       },
       "is_boss": false,
       "is_new": false,
@@ -5983,7 +6012,7 @@
       "speed": -10,
       "undead": 1,
       "elements": {
-        "Holy": "Immune"
+        "Holy": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -5998,6 +6027,7 @@
       "thumbnail": "images/monsters/0000062.png",
       "gifs": {
         "move": "images/monsters/0000062.move.webp",
+        "jump": "images/monsters/0000062.jump.webp",
         "stand": "images/monsters/0000062.stand.webp",
         "hit1": "images/monsters/0000062.hit1.webp",
         "die1": "images/monsters/0000062.die1.webp"
@@ -6020,9 +6050,9 @@
       "speed": -70,
       "undead": 1,
       "elements": {
-        "Fire": "Immune",
-        "Holy": "Immune",
-        "Poison": "Resist"
+        "Fire": "Weak",
+        "Holy": "Weak",
+        "Poison": "Strong"
       },
       "is_boss": false,
       "is_new": false,
@@ -6132,6 +6162,7 @@
       "thumbnail": "images/monsters/0000091.png",
       "gifs": {
         "move": "images/monsters/0000091.move.webp",
+        "jump": "images/monsters/0000091.jump.webp",
         "stand": "images/monsters/0000091.stand.webp",
         "hit1": "images/monsters/0000091.hit1.webp",
         "die1": "images/monsters/0000091.die1.webp"
@@ -6167,6 +6198,7 @@
       "thumbnail": "images/monsters/0000092.png",
       "gifs": {
         "move": "images/monsters/0000092.move.webp",
+        "jump": "images/monsters/0000092.jump.webp",
         "stand": "images/monsters/0000092.stand.webp",
         "hit1": "images/monsters/0000092.hit1.webp",
         "die1": "images/monsters/0000092.die1.webp"
@@ -6242,6 +6274,8 @@
       "thumbnail": "images/monsters/0700000.png",
       "gifs": {
         "move": "images/monsters/0700000.move.webp",
+        "jump": "images/monsters/0700000.jump.webp",
+        "stand": "images/monsters/0700000.stand.webp",
         "attack1": "images/monsters/0700000.attack1.webp",
         "hit1": "images/monsters/0700000.hit1.webp",
         "die1": "images/monsters/0700000.die1.webp"
@@ -6264,8 +6298,8 @@
       "speed": -20,
       "undead": 0,
       "elements": {
-        "Poison": "Weak",
-        "Holy": "Immune"
+        "Poison": "Immune",
+        "Holy": "Weak"
       },
       "is_boss": true,
       "is_new": false,
@@ -6305,8 +6339,8 @@
       "speed": 5,
       "undead": 1,
       "elements": {
-        "Poison": "Weak",
-        "Holy": "Immune"
+        "Poison": "Immune",
+        "Holy": "Weak"
       },
       "is_boss": true,
       "is_new": false,
@@ -6345,9 +6379,9 @@
       "speed": -40,
       "undead": 1,
       "elements": {
-        "Poison": "Resist",
-        "Fire": "Immune",
-        "Holy": "Immune"
+        "Poison": "Strong",
+        "Fire": "Weak",
+        "Holy": "Weak"
       },
       "is_boss": true,
       "is_new": false,
@@ -6362,6 +6396,7 @@
       "thumbnail": "images/monsters/0700003.png",
       "gifs": {
         "move": "images/monsters/0700003.move.webp",
+        "jump": "images/monsters/0700003.jump.webp",
         "stand": "images/monsters/0700003.stand.webp",
         "attack1": "images/monsters/0700003.attack1.webp",
         "attack2": "images/monsters/0700003.attack2.webp",
@@ -6422,8 +6457,8 @@
       "speed": -40,
       "undead": 0,
       "elements": {
-        "Ice": "Resist",
-        "Fire": "Immune"
+        "Ice": "Strong",
+        "Fire": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -6495,7 +6530,7 @@
       "speed": -15,
       "undead": 0,
       "elements": {
-        "Poison": "Resist"
+        "Poison": "Strong"
       },
       "is_boss": false,
       "is_new": false,
@@ -6510,6 +6545,7 @@
       "thumbnail": "images/monsters/0800002.png",
       "gifs": {
         "move": "images/monsters/0800002.move.webp",
+        "jump": "images/monsters/0800002.jump.webp",
         "stand": "images/monsters/0800002.stand.webp",
         "hit1": "images/monsters/0800002.hit1.webp",
         "die1": "images/monsters/0800002.die1.webp"
@@ -6532,10 +6568,10 @@
       "speed": -20,
       "undead": 0,
       "elements": {
-        "Ice": "Resist",
-        "Fire": "Resist",
-        "Lightning": "Resist",
-        "Holy": "Resist"
+        "Ice": "Strong",
+        "Fire": "Strong",
+        "Lightning": "Strong",
+        "Holy": "Strong"
       },
       "is_boss": true,
       "is_new": false,
@@ -6549,7 +6585,9 @@
       "thumbnail": "images/monsters/0800003.png",
       "gifs": {
         "move": "images/monsters/0800003.move.webp",
+        "jump": "images/monsters/0800003.jump.webp",
         "stand": "images/monsters/0800003.stand.webp",
+        "attack1": "images/monsters/0800003.attack1.webp",
         "skill1": "images/monsters/0800003.skill1.webp",
         "hit1": "images/monsters/0800003.hit1.webp",
         "die1": "images/monsters/0800003.die1.webp"
@@ -6585,6 +6623,7 @@
       "thumbnail": "images/monsters/0800010.png",
       "gifs": {
         "move": "images/monsters/0800010.move.webp",
+        "jump": "images/monsters/0800010.jump.webp",
         "stand": "images/monsters/0800010.stand.webp",
         "hit1": "images/monsters/0800010.hit1.webp",
         "die1": "images/monsters/0800010.die1.webp"
@@ -6607,7 +6646,7 @@
       "speed": 0,
       "undead": 1,
       "elements": {
-        "Holy": "Immune"
+        "Holy": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -6622,6 +6661,7 @@
       "thumbnail": "images/monsters/0800011.png",
       "gifs": {
         "move": "images/monsters/0800011.move.webp",
+        "jump": "images/monsters/0800011.jump.webp",
         "stand": "images/monsters/0800011.stand.webp",
         "hit1": "images/monsters/0800011.hit1.webp",
         "die1": "images/monsters/0800011.die1.webp"
@@ -6644,7 +6684,7 @@
       "speed": -15,
       "undead": 0,
       "elements": {
-        "Poison": "Resist"
+        "Poison": "Strong"
       },
       "is_boss": false,
       "is_new": false,
@@ -6659,6 +6699,7 @@
       "thumbnail": "images/monsters/0800012.png",
       "gifs": {
         "move": "images/monsters/0800012.move.webp",
+        "jump": "images/monsters/0800012.jump.webp",
         "stand": "images/monsters/0800012.stand.webp",
         "hit1": "images/monsters/0800012.hit1.webp",
         "die1": "images/monsters/0800012.die1.webp"
@@ -6716,8 +6757,8 @@
       "speed": 5,
       "undead": 0,
       "elements": {
-        "Ice": "Resist",
-        "Fire": "Immune"
+        "Ice": "Strong",
+        "Fire": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -6768,6 +6809,7 @@
       "thumbnail": "images/monsters/0800015.png",
       "gifs": {
         "move": "images/monsters/0800015.move.webp",
+        "jump": "images/monsters/0800015.jump.webp",
         "stand": "images/monsters/0800015.stand.webp",
         "hit1": "images/monsters/0800015.hit1.webp",
         "die1": "images/monsters/0800015.die1.webp"
@@ -6790,8 +6832,8 @@
       "speed": 0,
       "undead": 0,
       "elements": {
-        "Fire": "Resist",
-        "Ice": "Immune"
+        "Fire": "Strong",
+        "Ice": "Weak"
       },
       "is_boss": false,
       "is_new": false,
@@ -6806,6 +6848,7 @@
       "thumbnail": "images/monsters/0800016.png",
       "gifs": {
         "move": "images/monsters/0800016.move.webp",
+        "jump": "images/monsters/0800016.jump.webp",
         "stand": "images/monsters/0800016.stand.webp",
         "hit1": "images/monsters/0800016.hit1.webp",
         "die1": "images/monsters/0800016.die1.webp"
@@ -6841,6 +6884,8 @@
       "thumbnail": "images/monsters/0800017.png",
       "gifs": {
         "move": "images/monsters/0800017.move.webp",
+        "jump": "images/monsters/0800017.jump.webp",
+        "stand": "images/monsters/0800017.stand.webp",
         "attack1": "images/monsters/0800017.attack1.webp",
         "hit1": "images/monsters/0800017.hit1.webp",
         "die1": "images/monsters/0800017.die1.webp"
@@ -6869,6 +6914,7 @@
       "thumbnail": "images/monsters/9990000.png",
       "gifs": {
         "stand": "images/monsters/9990000.stand.webp",
+        "hit1": "images/monsters/9990000.hit1.webp",
         "die1": "images/monsters/9990000.die1.webp"
       },
       "gif": "images/monsters/9990000.stand.webp"

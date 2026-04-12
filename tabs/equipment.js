@@ -1,4 +1,4 @@
-import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail } from '../lib/utils.js';
+import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine } from '../lib/utils.js';
 
 function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
@@ -31,80 +31,10 @@ function renderEquipRow(item) {
   }
 
   if (item.stats) {
-    const stats = item.stats;
-    const parts = [];
-    const accent = 'var(--accent)';
-
-    if (stats.incPAD) parts.push({ t: `ATK+${stats.incPAD}`,  c: 'var(--secondary)' });
-    if (stats.incMAD) parts.push({ t: `MATK+${stats.incMAD}`, c: 'var(--secondary)' });
-    if (stats.incPDD) parts.push({ t: `DEF+${stats.incPDD}`,  c: null });
-    if (stats.incMDD) parts.push({ t: `MDEF+${stats.incMDD}`, c: null });
-
-    const baseStats = [];
-    if (stats.incSTR) baseStats.push(`STR+${stats.incSTR}`);
-    if (stats.incDEX) baseStats.push(`DEX+${stats.incDEX}`);
-    if (stats.incINT) baseStats.push(`INT+${stats.incINT}`);
-    if (stats.incLUK) baseStats.push(`LUK+${stats.incLUK}`);
-    if (baseStats.length) parts.push({ t: baseStats.join(', '), c: null });
-
-    if (stats.incMHP)    parts.push({ t: `HP+${stats.incMHP}`,           c: null });
-    if (stats.incMMP)    parts.push({ t: `MP+${stats.incMMP}`,           c: null });
-    if (stats.incACC)    parts.push({ t: `ACC+${stats.incACC}`,          c: null });
-    if (stats.incEVA)    parts.push({ t: `EVA+${stats.incEVA}`,          c: null });
-    if (stats.incSpeed)  parts.push({ t: `Speed+${stats.incSpeed}`,      c: null });
-    if (stats.incJump)   parts.push({ t: `Jump+${stats.incJump}`,        c: null });
-    if (stats.knockback) parts.push({ t: `KB ${stats.knockback}%`,       c: null });
-    if (stats.incCRT)    parts.push({ t: `Crit Rate+${stats.incCRT}`,    c: accent });
-    if (stats.incCRD)    parts.push({ t: `Crit Damage+${stats.incCRD}`,  c: accent });
-    if (stats.recovery)  parts.push({ t: `Recovery ×${stats.recovery}`,  c: accent });
-    if (stats.attackSpeed) {
-      const label = item.attack_speed_label || stats.attackSpeed;
-      parts.push({ t: `Speed:${label}(${stats.attackSpeed})`, c: null });
-    }
-    if (stats.tuc) parts.push({ t: `Slots:${stats.tuc}`, c: null });
-
-    const statLine = el('div', {
-      style: {
-        display: 'flex', flexWrap: 'wrap', gap: '4px 8px',
-        fontSize: '12px', marginTop: '4px', lineHeight: '1.6',
-      },
-    });
-    parts.forEach((part, index) => {
-      if (index > 0) {
-        statLine.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '·' }));
-      }
-      statLine.appendChild(
-        el('span', { style: { color: part.c || 'var(--dim)' }, textContent: part.t })
-      );
-    });
-    row.appendChild(statLine);
-
-    const reqs = [];
-    if (stats.reqLevel) reqs.push(`Lv.${stats.reqLevel}`);
-    if (stats.reqSTR)   reqs.push(`STR ${stats.reqSTR}`);
-    if (stats.reqDEX)   reqs.push(`DEX ${stats.reqDEX}`);
-    if (stats.reqINT)   reqs.push(`INT ${stats.reqINT}`);
-    if (stats.reqLUK)   reqs.push(`LUK ${stats.reqLUK}`);
-    const jobStr = item.req_job_label || 'All';
-
-    if (reqs.length || jobStr !== 'All') {
-      const reqLine = el('div', {
-        style: {
-          display: 'flex', flexWrap: 'wrap', gap: '4px 8px',
-          fontSize: '11px', marginTop: '2px', lineHeight: '1.5',
-        },
-      });
-      reqLine.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: 'Req: ' }));
-      if (jobStr !== 'All') {
-        reqLine.appendChild(
-          el('span', { style: { color: '#c084fc' }, textContent: `[${jobStr}]` })
-        );
-      }
-      reqs.forEach((req) => {
-        reqLine.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: req }));
-      });
-      row.appendChild(reqLine);
-    }
+    const statLine = makeEquipStatLine(item);
+    if (statLine) row.appendChild(statLine);
+    const reqLine = makeEquipReqLine(item);
+    if (reqLine) row.appendChild(reqLine);
   }
 
   return row;

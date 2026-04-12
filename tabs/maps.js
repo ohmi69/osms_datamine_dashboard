@@ -1,4 +1,4 @@
-import { el, makeCollapsible, makeThumbnail, makeSearchBox } from '../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath } from '../lib/utils.js';
 
 // Load NPCs data for lookup
 
@@ -198,7 +198,7 @@ export function renderMaps(data) {
           });
           if (npc?.thumbnail) {
             chip.appendChild(el('img', {
-              src: npc.thumbnail,
+              src: normalizeAssetPath(npc.thumbnail),
               alt: npc.name || `NPC #${npcId}`,
               style: { width: '32px', height: '32px', objectFit: 'contain', borderRadius: '4px',  marginRight: '4px' },
               loading: 'lazy',

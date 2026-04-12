@@ -17,7 +17,7 @@
             "Blue Snail Shell -1, MP -4; Damage 25",
             "Red Snail Shell -1, MP -5; Damage 40"
           ],
-          "thumbnail": "images/skills/0001000.png"
+          "thumbnail": null
         },
         {
           "id": "0001001",
@@ -32,7 +32,7 @@
             "MP -10; Recover HP 48 in 30 sec. Cooldown: 2 min.",
             "MP -15; Recover HP 72 in 30 sec. Cooldown :2 min."
           ],
-          "thumbnail": "images/skills/0001001.png"
+          "thumbnail": null
         },
         {
           "id": "0001002",
@@ -47,7 +47,7 @@
             "MP -7; speed +10 for 20 sec. Cooldown: 3 min.",
             "MP -10; speed +10 for 30 sec. Cooldown: 3 min."
           ],
-          "thumbnail": "images/skills/0001002.png"
+          "thumbnail": null
         }
       ]
     }
@@ -82,7 +82,7 @@
             "HP regenerates every 10 seconds, and HP recovery from items/skills is increased by 18%",
             "HP regenerates every 10 seconds, and HP recovery from items/skills is increased by 20%"
           ],
-          "thumbnail": "images/skills/1000000.png"
+          "thumbnail": null
         },
         {
           "id": "1000001",
@@ -109,7 +109,7 @@
             "Max HP +23%",
             "Max HP +25%"
           ],
-          "thumbnail": "images/skills/1000001.png"
+          "thumbnail": null
         },
         {
           "id": "1000002",
@@ -136,7 +136,7 @@
             "Accuracy +18, Critical Rate +4%",
             "Accuracy +20, Critical Rate +5%"
           ],
-          "thumbnail": "images/skills/1000002.png"
+          "thumbnail": null
         },
         {
           "id": "1001000",
@@ -168,7 +168,7 @@
             "MP -15; Weapon Def. +28% for 570 sec",
             "MP -15; Weapon Def. +30% for 600 sec"
           ],
-          "thumbnail": "images/skills/1001000.png"
+          "thumbnail": null
         },
         {
           "id": "1001001",
@@ -200,7 +200,7 @@
             "MP -11; Damage 250%",
             "MP -12; Damage 260%"
           ],
-          "thumbnail": "images/skills/1001001.png"
+          "thumbnail": null
         },
         {
           "id": "1001002",
@@ -232,15 +232,15 @@
             "HP -7; MP -11; Damage 124%",
             "HP -8; MP -12; Damage 130%"
           ],
-          "thumbnail": "images/skills/1001002.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Warrior",
       "base_class": "warrior",
       "subclasses": [
         "Spearman",
-        "Fighter",
-        "Page"
+        "Page",
+        "Fighter"
       ]
     },
     {
@@ -277,7 +277,7 @@
             "Sword Mastery level 9, Accuracy +19",
             "Sword Mastery level 10, Accuracy +20"
           ],
-          "thumbnail": "images/skills/1100000.png"
+          "thumbnail": null
         },
         {
           "id": "1100001",
@@ -309,7 +309,7 @@
             "Axe Mastery level 9, 23% chance to inflict bleed, dealing 94% total damage over 3 sec",
             "Axe Mastery level 10, 25% chance to inflict bleed, dealing 100% total damage over 3 sec"
           ],
-          "thumbnail": "images/skills/1100001.png"
+          "thumbnail": null
         },
         {
           "id": "1101000",
@@ -351,7 +351,7 @@
             "33% success rate, Final Attack with sword damage 176% to up to 3 enemies",
             "35% success rate, Final Attack with sword damage 180% to up to 3 enemies"
           ],
-          "thumbnail": "images/skills/1101000.png"
+          "thumbnail": null
         },
         {
           "id": "1101001",
@@ -393,7 +393,7 @@
             "33% success rate, Final Attack with axe damage 176% to up to 3 enemies",
             "35% success rate, Final Attack with axe damage 180% to up to 3 enemies"
           ],
-          "thumbnail": "images/skills/1101001.png"
+          "thumbnail": null
         },
         {
           "id": "1101002",
@@ -425,7 +425,7 @@
             "HP -12, MP -12; Increases Sword Attack Speed by 2 stages for 280 sec",
             "HP -10, MP -10; Increases Sword Attack Speed by 2 stages for 300 sec"
           ],
-          "thumbnail": "images/skills/1101002.png"
+          "thumbnail": null
         },
         {
           "id": "1101003",
@@ -457,7 +457,7 @@
             "HP -12, MP -12; Increases Axe Attack Speed by 2 stages for 280 sec",
             "HP -10, MP -10; Increases Axe Attack Speed by 2 stages for 300 sec"
           ],
-          "thumbnail": "images/skills/1101003.png"
+          "thumbnail": null
         },
         {
           "id": "1101004",
@@ -499,7 +499,7 @@
             "MP -23; Attack Power +33, Weapon Def. -33 for 290 sec",
             "MP -25; Attack Power +35, Weapon Def. -35 for 300 sec"
           ],
-          "thumbnail": "images/skills/1101004.png"
+          "thumbnail": null
         },
         {
           "id": "1101005",
@@ -531,7 +531,7 @@
             "MP -28; For 170 sec, return 38% of the physical damage received",
             "MP -30; For 180 sec, return 40% of the physical damage received"
           ],
-          "thumbnail": "images/skills/1101005.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Warrior",
@@ -571,7 +571,7 @@
             "Sword Mastery level 9, Accuracy +19",
             "Sword Mastery level 10, Accuracy +20"
           ],
-          "thumbnail": "images/skills/1200000.png"
+          "thumbnail": null
         },
         {
           "id": "1200001",
@@ -603,7 +603,7 @@
             "Blunt Weapon Mastery level 9, Attack Power +19, 23% chance to stun for 2 sec",
             "Blunt Weapon Mastery level 10, Attack Power +20, 25% chance to stun for 3 sec"
           ],
-          "thumbnail": "images/skills/1200001.png"
+          "thumbnail": null
         },
         {
           "id": "1201000",
@@ -645,7 +645,7 @@
             "33% success rate, Final Attack with sword damage 294%",
             "35% success rate, Final Attack with sword damage 300%"
           ],
-          "thumbnail": "images/skills/1201000.png"
+          "thumbnail": null
         },
         {
           "id": "1201001",
@@ -687,7 +687,7 @@
             "33% success rate, Final Attack with blunt weapon damage 294%",
             "35% success rate, Final Attack with blunt weapon damage 300%"
           ],
-          "thumbnail": "images/skills/1201001.png"
+          "thumbnail": null
         },
         {
           "id": "1201002",
@@ -719,7 +719,7 @@
             "HP -12, MP -12; Increases Sword Attack Speed by 2 stages for 280 sec",
             "HP -10, MP -10; Increases Sword Attack Speed by 2 stages for 300 sec"
           ],
-          "thumbnail": "images/skills/1201002.png"
+          "thumbnail": null
         },
         {
           "id": "1201003",
@@ -751,7 +751,7 @@
             "HP -12, MP -12; Increases Blunt Weapon Attack Speed by 2 stages for 280 sec",
             "HP -10, MP -10; Increases Blunt Weapon Attack Speed by 2 stages for 300 sec"
           ],
-          "thumbnail": "images/skills/1201003.png"
+          "thumbnail": null
         },
         {
           "id": "1201004",
@@ -793,7 +793,7 @@
             "MP -23; Enemy Speed -33, Attack Power and Weapon Def. -19% for 29 sec",
             "MP -25; Enemy Speed -35, Attack Power and Weapon Def. -20% for 30 sec"
           ],
-          "thumbnail": "images/skills/1201004.png"
+          "thumbnail": null
         },
         {
           "id": "1201005",
@@ -825,7 +825,7 @@
             "MP -28; For 170 sec, return 38% of the physical damage received",
             "MP -30; For 180 sec, return 40% of the physical damage received"
           ],
-          "thumbnail": "images/skills/1201005.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Warrior",
@@ -865,7 +865,7 @@
             "Spear Mastery level 9, Avoidability +58",
             "Spear Mastery level 10, Avoidability +60"
           ],
-          "thumbnail": "images/skills/1300000.png"
+          "thumbnail": null
         },
         {
           "id": "1300001",
@@ -897,7 +897,7 @@
             "Polearm Mastery level 9, Speed +19",
             "Polearm Mastery level 10, Speed +20"
           ],
-          "thumbnail": "images/skills/1300001.png"
+          "thumbnail": null
         },
         {
           "id": "1301000",
@@ -939,7 +939,7 @@
             "33% success rate, Final Attack with spear damage 274%, absorb 9% of damage as HP",
             "35% success rate, Final Attack with spear damage 280%, absorb 10% of damage as HP"
           ],
-          "thumbnail": "images/skills/1301000.png"
+          "thumbnail": null
         },
         {
           "id": "1301001",
@@ -981,7 +981,7 @@
             "33% success rate, Final Attack with polearm damage 274%, absorb 9% of damage as HP",
             "35% success rate, Final Attack with polearm damage 280%, absorb 10% of damage as HP"
           ],
-          "thumbnail": "images/skills/1301001.png"
+          "thumbnail": null
         },
         {
           "id": "1301002",
@@ -1013,7 +1013,7 @@
             "HP -12, MP -12; Increases Spear Attack Speed by 2 stages for 280 sec",
             "HP -10, MP -10; Increases Spear Attack Speed by 2 stages for 300 sec"
           ],
-          "thumbnail": "images/skills/1301002.png"
+          "thumbnail": null
         },
         {
           "id": "1301003",
@@ -1045,7 +1045,7 @@
             "HP -12, MP -12; Increases Polearm Attack Speed by 2 stages for 280 sec",
             "HP -10, MP -10; Increases Polearm Attack Speed by 2 stages for 300 sec"
           ],
-          "thumbnail": "images/skills/1301003.png"
+          "thumbnail": null
         },
         {
           "id": "1301004",
@@ -1087,7 +1087,7 @@
             "MP -23; Weapon Def. +48, 33% chance to ignore knockbacks for 290 sec",
             "MP -25; Weapon Def. +50, 35% chance to ignore knockbacks for 300 sec"
           ],
-          "thumbnail": "images/skills/1301004.png"
+          "thumbnail": null
         },
         {
           "id": "1301005",
@@ -1119,7 +1119,7 @@
             "MP -48; Max HP +28% for 280 sec",
             "MP -50; Max HP +30% for 300 sec"
           ],
-          "thumbnail": "images/skills/1301005.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Warrior",
@@ -1156,7 +1156,7 @@
             "MP regenerates 1% of Max MP every 10 sec, and MP recovery from items/skills is increased by 18%",
             "MP regenerates 1% of Max MP every 10 sec, and MP recovery from items/skills is increased by 20%"
           ],
-          "thumbnail": "images/skills/2000000.png"
+          "thumbnail": null
         },
         {
           "id": "2000001",
@@ -1183,7 +1183,7 @@
             "Max MP +23%",
             "Max MP +25%"
           ],
-          "thumbnail": "images/skills/2000001.png"
+          "thumbnail": null
         },
         {
           "id": "2001000",
@@ -1210,7 +1210,7 @@
             "MP -12; Replace 77% of HP damage with MP while active",
             "MP -12; Replace 80% of HP damage with MP while active"
           ],
-          "thumbnail": "images/skills/2001000.png"
+          "thumbnail": null
         },
         {
           "id": "2001001",
@@ -1242,7 +1242,7 @@
             "MP -16; Weapon Def. +112, Magic Def. +112 for 570 sec",
             "MP -16; Weapon Def. +120, Magic Def. +120 for 600 sec"
           ],
-          "thumbnail": "images/skills/2001001.png"
+          "thumbnail": null
         },
         {
           "id": "2001002",
@@ -1274,7 +1274,7 @@
             "MP -13, Basic Attack 62, Mastery level 9",
             "MP -14, Basic Attack 65, Mastery level 10"
           ],
-          "thumbnail": "images/skills/2001002.png"
+          "thumbnail": null
         },
         {
           "id": "2001003",
@@ -1306,15 +1306,15 @@
             "MP -19, Basic Attack 28, Mastery level 9",
             "MP -20, Basic Attack 30, Mastery level 10"
           ],
-          "thumbnail": "images/skills/2001003.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Magician",
       "base_class": "magician",
       "subclasses": [
         "F/P Wizard",
-        "Cleric",
-        "I/L Wizard"
+        "I/L Wizard",
+        "Cleric"
       ]
     },
     {
@@ -1351,7 +1351,7 @@
             "For every attack, 48% success rate, absorb 48% of the enemy's Max MP",
             "For every attack, 50% success rate, absorb 50% of the enemy's Max MP"
           ],
-          "thumbnail": "images/skills/2100000.png"
+          "thumbnail": null
         },
         {
           "id": "2101000",
@@ -1383,7 +1383,7 @@
             "MP -23; Party's Magic Attack +23 for 280 sec",
             "MP -25; Party's Magic Attack +25 for 300 sec"
           ],
-          "thumbnail": "images/skills/2101000.png"
+          "thumbnail": null
         },
         {
           "id": "2101001",
@@ -1415,7 +1415,7 @@
             "MP -19; Teleport, with 146 in distance",
             "MP -15; Teleport, with 150 in distance"
           ],
-          "thumbnail": "images/skills/2101001.png"
+          "thumbnail": null
         },
         {
           "id": "2101002",
@@ -1447,7 +1447,7 @@
             "MP -9; Enemy Speed -28 for 23 sec",
             "MP -8; Enemy Speed -30 for 25 sec"
           ],
-          "thumbnail": "images/skills/2101002.png"
+          "thumbnail": null
         },
         {
           "id": "2101003",
@@ -1489,7 +1489,7 @@
             "MP -26; Basic Attack 126, Mastery level 9; Deals 28 Basic Attack over 3 sec",
             "MP -28; Basic Attack 130, Mastery level 10; Deals 30 Basic Attack over 3 sec"
           ],
-          "thumbnail": "images/skills/2101003.png"
+          "thumbnail": null
         },
         {
           "id": "2101004",
@@ -1531,7 +1531,7 @@
             "MP -38; Basic Attack 38, explosion Basic Attack 33, Mastery level 9; 73% success rate, deals 28 Basic Attack over 8 sec",
             "MP -40; Basic Attack 40, explosion Basic Attack 35, Mastery level 10; 75% success rate, deals 30 Basic Attack over 8 sec"
           ],
-          "thumbnail": "images/skills/2101004.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Magician",
@@ -1571,7 +1571,7 @@
             "For every attack, 48% success rate, absorb 48% of the enemy's Max MP",
             "For every attack, 50% success rate, absorb 50% of the enemy's Max MP"
           ],
-          "thumbnail": "images/skills/2200000.png"
+          "thumbnail": null
         },
         {
           "id": "2201000",
@@ -1603,7 +1603,7 @@
             "MP -23; Party's Magic Attack +23 for 280 sec",
             "MP -25; Party's Magic Attack +25 for 300 sec"
           ],
-          "thumbnail": "images/skills/2201000.png"
+          "thumbnail": null
         },
         {
           "id": "2201001",
@@ -1635,7 +1635,7 @@
             "MP -19; Teleport, with 146 in distance",
             "MP -15; Teleport, with 150 in distance"
           ],
-          "thumbnail": "images/skills/2201001.png"
+          "thumbnail": null
         },
         {
           "id": "2201002",
@@ -1667,7 +1667,7 @@
             "MP -9; Enemy Speed -28 for 23 sec",
             "MP -8; Enemy Speed -30 for 25 sec"
           ],
-          "thumbnail": "images/skills/2201002.png"
+          "thumbnail": null
         },
         {
           "id": "2201003",
@@ -1709,7 +1709,7 @@
             "MP -20; Basic Attack 116, Mastery level 9; Frozen for 2 seconds",
             "MP -22; Basic Attack 120, Mastery level 10; Frozen for 3 seconds"
           ],
-          "thumbnail": "images/skills/2201003.png"
+          "thumbnail": null
         },
         {
           "id": "2201004",
@@ -1751,7 +1751,7 @@
             "MP -38; Basic Attack 43, Mastery level 9; 23% chance to be electrocuted",
             "MP -40; Basic Attack 45, Mastery level 10; 25% chance to be electrocuted"
           ],
-          "thumbnail": "images/skills/2201004.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Magician",
@@ -1791,7 +1791,7 @@
             "For every attack, 48% success rate, absorb 48% of the enemy's Max MP",
             "For every attack, 50% success rate, absorb 50% of the enemy's Max MP"
           ],
-          "thumbnail": "images/skills/2300000.png"
+          "thumbnail": null
         },
         {
           "id": "2301000",
@@ -1823,7 +1823,7 @@
             "MP -19; Teleport, with 146 in distance",
             "MP -15; Teleport, with 150 in distance"
           ],
-          "thumbnail": "images/skills/2301000.png"
+          "thumbnail": null
         },
         {
           "id": "2301001",
@@ -1865,7 +1865,7 @@
             "MP -25; Recovery rate 96%",
             "MP -27; Recovery rate 100%"
           ],
-          "thumbnail": "images/skills/2301001.png"
+          "thumbnail": null
         },
         {
           "id": "2301002",
@@ -1897,7 +1897,7 @@
             "MP 34; Physical damage -28%, Basic Attack 28 non-elemental magic damage for 286 sec",
             "MP 36; Physical damage -30%, Basic Attack 30 non-elemental magic damage for 300 sec"
           ],
-          "thumbnail": "images/skills/2301002.png"
+          "thumbnail": null
         },
         {
           "id": "2301003",
@@ -1929,7 +1929,7 @@
             "MP -28; Accuracy +19 , Avoidability +19, and HP recovery from items/skills is increased by 9% for 286 sec",
             "MP -30; Accuracy +20 , Avoidability +20, and HP recovery from items/skills is increased by 10% for 300 sec"
           ],
-          "thumbnail": "images/skills/2301003.png"
+          "thumbnail": null
         },
         {
           "id": "2301004",
@@ -1971,7 +1971,7 @@
             "MP -26; Basic Attack 38 on 3 enemies, Mastery level 9",
             "MP -28; Basic Attack 40 on 3 enemies, Mastery level 10"
           ],
-          "thumbnail": "images/skills/2301004.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Magician",
@@ -2008,7 +2008,7 @@
             "Critical Rate +18%, Critical Damage +14%",
             "Critical Rate +20%, Critical Damage +15%"
           ],
-          "thumbnail": "images/skills/3000000.png"
+          "thumbnail": null
         },
         {
           "id": "3000001",
@@ -2035,7 +2035,7 @@
             "Critical hits have a 94% chance to reduce Enemy Speed by 33 for 3 sec",
             "Critical hits have a 100% chance to reduce Enemy Speed by 35 for 3 sec"
           ],
-          "thumbnail": "images/skills/3000001.png"
+          "thumbnail": null
         },
         {
           "id": "3000002",
@@ -2062,7 +2062,7 @@
             "Attack range for bows and crossbows: +140",
             "Attack range for bows and crossbows: +150"
           ],
-          "thumbnail": "images/skills/3000002.png"
+          "thumbnail": null
         },
         {
           "id": "3001000",
@@ -2094,7 +2094,7 @@
             "MP -16; Accuracy +19, Avoidability +23 for 290 sec",
             "MP -16; Accuracy +20, Avoidability +25 for 300 sec"
           ],
-          "thumbnail": "images/skills/3001000.png"
+          "thumbnail": null
         },
         {
           "id": "3001001",
@@ -2126,7 +2126,7 @@
             "MP -13; Damage 232%",
             "MP -14; Damage 240%"
           ],
-          "thumbnail": "images/skills/3001001.png"
+          "thumbnail": null
         },
         {
           "id": "3001002",
@@ -2158,14 +2158,14 @@
             "MP -15; Damage 116%",
             "MP -16; Damage 120%"
           ],
-          "thumbnail": "images/skills/3001002.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Archer",
       "base_class": "archer",
       "subclasses": [
-        "Crossbowman",
-        "Hunter"
+        "Hunter",
+        "Crossbowman"
       ]
     },
     {
@@ -2202,7 +2202,7 @@
             "Bow Mastery level 9, Avoidability +19",
             "Bow Mastery level 10, Avoidability +20"
           ],
-          "thumbnail": "images/skills/3100000.png"
+          "thumbnail": null
         },
         {
           "id": "3101000",
@@ -2244,7 +2244,7 @@
             "33% success rate, Final Attack with bow damage 98% to up to 3 enemies",
             "35% success rate, Final Attack with bow damage 100% to up to 3 enemies"
           ],
-          "thumbnail": "images/skills/3101000.png"
+          "thumbnail": null
         },
         {
           "id": "3101001",
@@ -2276,7 +2276,7 @@
             "HP -12, MP -12; Increases Bow Attack Speed by 2 stages for 280 sec",
             "HP -10, MP -10; Increases Bow Attack Speed by 2 stages for 300 sec"
           ],
-          "thumbnail": "images/skills/3101001.png"
+          "thumbnail": null
         },
         {
           "id": "3101002",
@@ -2308,7 +2308,7 @@
             "MP -10; Damage 190%, knockback 3 enemies by 150",
             "MP -8; Damage 200%, knockback 4 enemies by 160"
           ],
-          "thumbnail": "images/skills/3101002.png"
+          "thumbnail": null
         },
         {
           "id": "3101003",
@@ -2340,7 +2340,7 @@
             "MP -7; Attack without using up any arrows for 276 sec",
             "MP -5; Attack without using up any arrows for 300 sec"
           ],
-          "thumbnail": "images/skills/3101003.png"
+          "thumbnail": null
         },
         {
           "id": "3101004",
@@ -2382,7 +2382,7 @@
             "MP -27; Stun chance 58% for 3 sec, damage 136%",
             "MP -28; Stun chance 60% for 3 sec, damage 140%"
           ],
-          "thumbnail": "images/skills/3101004.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Archer",
@@ -2422,7 +2422,7 @@
             "Crossbow Mastery level 9, 19% chance to ignore enemy Weapon Def.",
             "Crossbow Mastery level 10, 20% chance to ignore enemy Weapon Def."
           ],
-          "thumbnail": "images/skills/3200000.png"
+          "thumbnail": null
         },
         {
           "id": "3201000",
@@ -2464,7 +2464,7 @@
             "33% success rate, Final Attack with crossbow damage 264%",
             "35% success rate, Final Attack with crossbow damage 270%"
           ],
-          "thumbnail": "images/skills/3201000.png"
+          "thumbnail": null
         },
         {
           "id": "3201001",
@@ -2496,7 +2496,7 @@
             "HP -12, MP -12; Increases Crossbow Attack Speed by 2 stages for 280 sec",
             "HP -10, MP -10; Increases Crossbow Attack Speed by 2 stages for 300 sec"
           ],
-          "thumbnail": "images/skills/3201001.png"
+          "thumbnail": null
         },
         {
           "id": "3201002",
@@ -2528,7 +2528,7 @@
             "MP -10; Damage 190%, knockback 3 enemies by 150",
             "MP -8; Damage 200%, knockback 4 enemies by 160"
           ],
-          "thumbnail": "images/skills/3201002.png"
+          "thumbnail": null
         },
         {
           "id": "3201003",
@@ -2560,7 +2560,7 @@
             "MP -7; Attack without using up any arrows for 276 sec",
             "MP -5; Attack without using up any arrows for 300 sec"
           ],
-          "thumbnail": "images/skills/3201003.png"
+          "thumbnail": null
         },
         {
           "id": "3201004",
@@ -2602,7 +2602,7 @@
             "MP -27; Damage 186%",
             "MP -28; Damage 190%"
           ],
-          "thumbnail": "images/skills/3201004.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Archer",
@@ -2639,7 +2639,7 @@
             "Accuracy +14, Avoidability +14",
             "Accuracy +15, Avoidability +15"
           ],
-          "thumbnail": "images/skills/4000000.png"
+          "thumbnail": null
         },
         {
           "id": "4000001",
@@ -2666,7 +2666,7 @@
             "Attack range for throwing weapons: +140",
             "Attack range for throwing weapons: +150"
           ],
-          "thumbnail": "images/skills/4000001.png"
+          "thumbnail": null
         },
         {
           "id": "4001000",
@@ -2698,7 +2698,7 @@
             "MP -10; Enemy's Attack Power -23, Weapon Def. -9% for 28 sec",
             "MP -10; Enemy's Attack Power -25, Weapon Def. -10% for 30 sec"
           ],
-          "thumbnail": "images/skills/4001000.png"
+          "thumbnail": null
         },
         {
           "id": "4001001",
@@ -2730,7 +2730,7 @@
             "MP -32; Disappear into the shadows, Speed -2 while active",
             "MP -30; Disappear into the shadows, regular movement speed while active"
           ],
-          "thumbnail": "images/skills/4001001.png"
+          "thumbnail": null
         },
         {
           "id": "4001002",
@@ -2762,7 +2762,7 @@
             "MP -15; Damage 152%",
             "MP -16; Damage 160%"
           ],
-          "thumbnail": "images/skills/4001002.png"
+          "thumbnail": null
         },
         {
           "id": "4001003",
@@ -2794,14 +2794,14 @@
             "MP -15; Damage 114%",
             "MP -16; Damage 120%"
           ],
-          "thumbnail": "images/skills/4001003.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Rogue",
       "base_class": "rogue",
       "subclasses": [
-        "Bandit",
-        "Assassin"
+        "Assassin",
+        "Bandit"
       ]
     },
     {
@@ -2838,7 +2838,7 @@
             "Claw Mastery level 9, Attack Power +19, 23% chance to retrieve used throwing stars",
             "Claw Mastery level 10, Attack Power +20, 25% chance to retrieve used throwing stars"
           ],
-          "thumbnail": "images/skills/4100000.png"
+          "thumbnail": null
         },
         {
           "id": "4100001",
@@ -2880,7 +2880,7 @@
             "Critical Rate +14%, Critical Damage +33%",
             "Critical Rate +15%, Critical Damage +35%"
           ],
-          "thumbnail": "images/skills/4100001.png"
+          "thumbnail": null
         },
         {
           "id": "4100002",
@@ -2912,7 +2912,7 @@
             "Recover 9% HP and 9% MP with a 92% chance when landing a critical hit",
             "Recover 10% HP and 10% MP with a 100% chance when landing a critical hit"
           ],
-          "thumbnail": "images/skills/4100002.png"
+          "thumbnail": null
         },
         {
           "id": "4101000",
@@ -2944,7 +2944,7 @@
             "HP -12, MP -12; Increases Claw Attack Speed by 2 stages for 280 sec",
             "HP -10, MP -10; Increases Claw Attack Speed by 2 stages for 300 sec"
           ],
-          "thumbnail": "images/skills/4101000.png"
+          "thumbnail": null
         },
         {
           "id": "4101001",
@@ -2976,7 +2976,7 @@
             "MP -33; Speed +28, Jump +9 for 280 sec",
             "MP -35; Speed +30, Jump +10 for 300 sec"
           ],
-          "thumbnail": "images/skills/4101001.png"
+          "thumbnail": null
         },
         {
           "id": "4101002",
@@ -3018,7 +3018,7 @@
             "MP -27; Absorb 14% of damage as HP, damage 236%",
             "MP -28; Absorb 15% of damage as HP, damage 240%"
           ],
-          "thumbnail": "images/skills/4101002.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Rogue",
@@ -3058,7 +3058,7 @@
             "Dagger Mastery level 9, Critical Rate +19%, 19% chance to ignore knockbacks",
             "Dagger Mastery level 10, Critical Rate +20%, 20% chance to ignore knockbacks"
           ],
-          "thumbnail": "images/skills/4200000.png"
+          "thumbnail": null
         },
         {
           "id": "4200001",
@@ -3090,7 +3090,7 @@
             "Recover 9% HP and 9% MP with a 92% chance when evading",
             "Recover 10% HP and 10% MP with a 100% chance when evading"
           ],
-          "thumbnail": "images/skills/4200001.png"
+          "thumbnail": null
         },
         {
           "id": "4201000",
@@ -3122,7 +3122,7 @@
             "HP -12, MP -12; Increases Dagger Attack Speed by 2 stages for 280 sec",
             "HP -10, MP -10; Increases Dagger Attack Speed by 2 stages for 300 sec"
           ],
-          "thumbnail": "images/skills/4201000.png"
+          "thumbnail": null
         },
         {
           "id": "4201001",
@@ -3154,7 +3154,7 @@
             "MP -33; Speed +28, Jump +9 for 280 sec",
             "MP -35; Speed +30, Jump +10 for 300 sec"
           ],
-          "thumbnail": "images/skills/4201001.png"
+          "thumbnail": null
         },
         {
           "id": "4201002",
@@ -3196,7 +3196,7 @@
             "MP -23, 86% chance to steal, apply 194% in damage, on success +33 Attack Power for 30 sec",
             "MP -24, 90% chance to steal, apply 200% in damage, on success +35 Attack Power for 30 sec"
           ],
-          "thumbnail": "images/skills/4201002.png"
+          "thumbnail": null
         },
         {
           "id": "4201003",
@@ -3238,7 +3238,7 @@
             "MP -26; Attack 6x with 73% damage",
             "MP -28; Attack 6x with 75% damage"
           ],
-          "thumbnail": "images/skills/4201003.png"
+          "thumbnail": null
         }
       ],
       "main_class": "Rogue",
