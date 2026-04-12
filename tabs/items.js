@@ -1,5 +1,41 @@
 import { el, makeSearchBox, makeCollapsible, makeThumbnail } from '../lib/utils.js';
 
+const STAT_LABELS = {
+  price:      ['Unit Price', (v) => v.toLocaleString() + ' mesos'],
+  slotMax:    ['Stack Size', (v) => v.toLocaleString()],
+  tradeBlock: ['Trade',      ()  => 'Untradeable'],
+  only:       ['Limit',      ()  => 'Only 1'],
+  timeLimited:['Duration',   ()  => 'Time Limited'],
+  notSale:    ['Shop',       ()  => 'Not for Sale'],
+  recovery:   ['Recovery',   (v) => `+${v}`],
+};
+
+function buildDetailPanel(item) {
+  const stats = item.stats || {};
+  const chips = [];
+
+  for (const [key, [label, fmt]] of Object.entries(STAT_LABELS)) {
+    const val = stats[key];
+    if (val == null || val === 0 || val === false) continue;
+    chips.push({ label, value: fmt(val) });
+  }
+
+  if (chips.length === 0) return null;
+
+  const panel = el('div', { className: 'item-detail-panel' });
+  const row = el('div', { className: 'item-detail-chips' });
+
+  for (const { label, value } of chips) {
+    const chip = el('div', { className: 'item-detail-chip' });
+    chip.appendChild(el('span', { className: 'chip-label', textContent: label }));
+    chip.appendChild(el('span', { className: 'chip-value', textContent: value }));
+    row.appendChild(chip);
+  }
+
+  panel.appendChild(row);
+  return panel;
+}
+
 function renderItemRow(item) {
   const row = el('div', { className: 'item-row' });
   const topLine = el('div', { className: 'top-line' });
@@ -14,14 +50,21 @@ function renderItemRow(item) {
   );
   nameWrap.appendChild(el('span', { className: 'name', textContent: item.name }));
   topLine.appendChild(nameWrap);
-  topLine.appendChild(el('span', { className: 'id', textContent: item.id }));
 
+  const rightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '8px', flexShrink: '0' } });
+  rightWrap.appendChild(el('span', { className: 'id', textContent: item.id }));
+
+  topLine.appendChild(rightWrap);
   row.appendChild(topLine);
+
   if (item.description) {
     row.appendChild(
       el('p', { className: 'desc', textContent: item.description.replace(/\n/g, '\n') })
     );
   }
+
+  const panel = buildDetailPanel(item);
+  if (panel) row.appendChild(panel);
   return row;
 }
 

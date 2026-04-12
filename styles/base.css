@@ -546,6 +546,33 @@ body.hide-ids .id { display: none !important; }
   white-space: pre-line;
 }
 
+/* ── Item detail panel ──────────────────────────────────────── */
+.item-detail-panel {
+  padding: 8px 0 4px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+.item-detail-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.item-detail-chip {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.item-detail-chip .chip-label { color: var(--dim); }
+.item-detail-chip .chip-value { color: var(--text); font-weight: 600; }
+
 .thumb {
   width: 32px;
   height: 32px;
@@ -581,6 +608,16 @@ body.hide-ids .id { display: none !important; }
 .map-thumb { width: 44px; height: 28px; border-radius: 5px; }
 .skill-thumb { width: 30px; height: 30px; }
 .monster-thumb { width: 28px; height: 28px; border-radius: 4px; }
+.mob-mini-thumb { width: 28px; height: 28px; border-radius: 4px; flex-shrink: 0; }
+
+/* ── Map detail panel ───────────────────────────────────────── */
+.map-detail-row td { padding: 0; }
+.map-detail-panel {
+  padding: 12px 16px 14px 16px;
+  background: var(--surface2, rgba(255,255,255,0.03));
+  border-top: 1px solid var(--border);
+}
+.data-table tr.expanded td { border-bottom: none; }
 
 /* ── Thumbnail tooltip ──────────────────────────────────────── */
 .thumb-tooltip {
