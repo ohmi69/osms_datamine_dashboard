@@ -23,7 +23,7 @@
           "id": 30,
           "name": "East Entrance to Mushroom Town",
           "count": 3,
-          "mob_time": 1.0
+          "mob_time": "1.00"
         }
       ],
       "thumbnail": "images/monsters/0000001.png",
@@ -57,223 +57,223 @@
           "id": 40,
           "name": "Snail Hunting Ground I",
           "count": 40,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 41,
           "name": "Snail Hunting Ground II",
           "count": 32,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 42,
           "name": "Snail Hunting Ground III",
           "count": 20,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1000,
           "name": "The Field West of Amherst",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1001,
           "name": "In a Small Forest",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1002,
           "name": "Dangerous Forest",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1003,
           "name": "Mushroom Garden",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1004,
           "name": "Snail Garden",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1005,
           "name": "Hunting Ground Middle of the Forest I",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1006,
           "name": "Hunting Ground Middle of the Forest II",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1014,
           "name": "Snail Field of Flowers",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1020,
           "name": "The Field East of Amherst",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1021,
           "name": "Tomato Field",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000011,
           "name": "Thicket Around the Beach I",
           "count": 20,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000012,
           "name": "Thicket Around the Beach II",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000013,
           "name": "Thicket Around the Beach III",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000020,
           "name": "3-Way Road-Split",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000022,
           "name": "Beach Hunting Ground",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001030,
           "name": "Forest West of Henesys",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001080,
           "name": "The Forest East of Henesys",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002020,
           "name": "The Forest of Wisdom",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002030,
           "name": "The Forest South of Ellinia",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002050,
           "name": "The Field Up North of Ellinia",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002070,
           "name": "The Forest North of Ellinia",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003040,
           "name": "L Forest III",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003052,
           "name": "Kerning City Middle Forest III",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004030,
           "name": "West Domain of Perion",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004040,
           "name": "Perion Street Corner",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004053,
           "name": "East Rocky Mountain IV",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004060,
           "name": "Rocky Road I",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004070,
           "name": "Rocky Road II",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004090,
           "name": "East Domain of Perion",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005011,
           "name": "Hunting Ground in the Deep Forest I",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005012,
           "name": "Hunting Ground in the Deep Forest II",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005020,
           "name": "Deep Forest",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005090,
           "name": "Drake's Meal Table",
           "count": 1,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         }
       ],
       "thumbnail": "images/monsters/0000002.png",
@@ -308,247 +308,247 @@
           "id": 41,
           "name": "Snail Hunting Ground II",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 42,
           "name": "Snail Hunting Ground III",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 50,
           "name": "A Split Road",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1000,
           "name": "The Field West of Amherst",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1001,
           "name": "In a Small Forest",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1002,
           "name": "Dangerous Forest",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1004,
           "name": "Snail Garden",
           "count": 19,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1005,
           "name": "Hunting Ground Middle of the Forest I",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1006,
           "name": "Hunting Ground Middle of the Forest II",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1014,
           "name": "Snail Field of Flowers",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1020,
           "name": "The Field East of Amherst",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1021,
           "name": "Tomato Field",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000010,
           "name": "Right Around Lith Harbor",
           "count": 20,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000011,
           "name": "Thicket Around the Beach I",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000013,
           "name": "Thicket Around the Beach III",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000020,
           "name": "3-Way Road-Split",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000021,
           "name": "The Pig Beach",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000022,
           "name": "Beach Hunting Ground",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001010,
           "name": "Henesys Hunting Ground I",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001011,
           "name": "Henesys Hunting Ground II",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001012,
           "name": "Henesys Hunting Ground III",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001020,
           "name": "A Hill West of Henesys ",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001030,
           "name": "Forest West of Henesys",
           "count": 20,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001060,
           "name": "The Hill East of Henesys",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001080,
           "name": "The Forest East of Henesys",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001081,
           "name": "The Blue Mushroom Forest",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001090,
           "name": "The Road to the Dungeon",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003010,
           "name": "Kerning City Construction Site",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003020,
           "name": "L Forest I",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003040,
           "name": "L Forest III",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003050,
           "name": "Kerning City Middle Forest I",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003051,
           "name": "Kerning City Middle Forest II",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003052,
           "name": "Kerning City Middle Forest III",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003070,
           "name": "Sunset Sky",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004010,
           "name": "West Street Corner of Perion",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004030,
           "name": "West Domain of Perion",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004040,
           "name": "Perion Street Corner",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004050,
           "name": "East Rocky Mountain I",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004090,
           "name": "East Domain of Perion",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004100,
           "name": "Deep Valley I",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000003.png",
@@ -582,109 +582,109 @@
           "id": 50,
           "name": "A Split Road",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1000,
           "name": "The Field West of Amherst",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1001,
           "name": "In a Small Forest",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1003,
           "name": "Mushroom Garden",
           "count": 23,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1005,
           "name": "Hunting Ground Middle of the Forest I",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1006,
           "name": "Hunting Ground Middle of the Forest II",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000022,
           "name": "Beach Hunting Ground",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001010,
           "name": "Henesys Hunting Ground I",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001011,
           "name": "Henesys Hunting Ground II",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001021,
           "name": "Mushroom Garden",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001060,
           "name": "The Hill East of Henesys",
           "count": 22,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001080,
           "name": "The Forest East of Henesys",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001090,
           "name": "The Road to the Dungeon",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003020,
           "name": "L Forest I",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003040,
           "name": "L Forest III",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003050,
           "name": "Kerning City Middle Forest I",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003051,
           "name": "Kerning City Middle Forest II",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000004.png",
@@ -719,289 +719,289 @@
           "id": 42,
           "name": "Snail Hunting Ground III",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 50,
           "name": "A Split Road",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1000,
           "name": "The Field West of Amherst",
           "count": 24,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1001,
           "name": "In a Small Forest",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1002,
           "name": "Dangerous Forest",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1004,
           "name": "Snail Garden",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1005,
           "name": "Hunting Ground Middle of the Forest I",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1006,
           "name": "Hunting Ground Middle of the Forest II",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1014,
           "name": "Snail Field of Flowers",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1020,
           "name": "The Field East of Amherst",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1021,
           "name": "Tomato Field",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000010,
           "name": "Right Around Lith Harbor",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000011,
           "name": "Thicket Around the Beach I",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000013,
           "name": "Thicket Around the Beach III",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000020,
           "name": "3-Way Road-Split",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000021,
           "name": "The Pig Beach",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000022,
           "name": "Beach Hunting Ground",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001010,
           "name": "Henesys Hunting Ground I",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001011,
           "name": "Henesys Hunting Ground II",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001012,
           "name": "Henesys Hunting Ground III",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001020,
           "name": "A Hill West of Henesys ",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001021,
           "name": "Mushroom Garden",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001030,
           "name": "Forest West of Henesys",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001060,
           "name": "The Hill East of Henesys",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001080,
           "name": "The Forest East of Henesys",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001081,
           "name": "The Blue Mushroom Forest",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001090,
           "name": "The Road to the Dungeon",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003020,
           "name": "L Forest I",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003040,
           "name": "L Forest III",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003050,
           "name": "Kerning City Middle Forest I",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003051,
           "name": "Kerning City Middle Forest II",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003052,
           "name": "Kerning City Middle Forest III",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003080,
           "name": "Construction Site North of Kerning City",
           "count": 23,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004020,
           "name": "West Rocky Mountain I",
           "count": 22,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004021,
           "name": "West Rocky Mountain II",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004022,
           "name": "West Rocky Mountain III",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004030,
           "name": "West Domain of Perion",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004040,
           "name": "Perion Street Corner",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004050,
           "name": "East Rocky Mountain I",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004051,
           "name": "East Rocky Mountain II",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004052,
           "name": "East Rocky Mountain III",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004054,
           "name": "East Rocky Mountain V",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004060,
           "name": "Rocky Road I",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004070,
           "name": "Rocky Road II",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004080,
           "name": "Rocky Road III",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004090,
           "name": "East Domain of Perion",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004100,
           "name": "Deep Valley I",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000005.png",
@@ -1037,205 +1037,205 @@
           "id": 10000011,
           "name": "Thicket Around the Beach I",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000013,
           "name": "Thicket Around the Beach III",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001010,
           "name": "Henesys Hunting Ground I",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001011,
           "name": "Henesys Hunting Ground II",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001012,
           "name": "Henesys Hunting Ground III",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001020,
           "name": "A Hill West of Henesys ",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001030,
           "name": "Forest West of Henesys",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002010,
           "name": "The Field South of Ellinia",
           "count": 27,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002030,
           "name": "The Forest South of Ellinia",
           "count": 19,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002050,
           "name": "The Field Up North of Ellinia",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002060,
           "name": "The Tree That Grew I",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002061,
           "name": "The Tree That Grew II",
           "count": 28,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002062,
           "name": "The Tree That Grew III",
           "count": 27,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002070,
           "name": "The Forest North of Ellinia",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003010,
           "name": "Kerning City Construction Site",
           "count": 24,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003020,
           "name": "L Forest I",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003040,
           "name": "L Forest III",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003070,
           "name": "Sunset Sky",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004010,
           "name": "West Street Corner of Perion",
           "count": 24,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004020,
           "name": "West Rocky Mountain I",
           "count": 27,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004021,
           "name": "West Rocky Mountain II",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004022,
           "name": "West Rocky Mountain III",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004030,
           "name": "West Domain of Perion",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004040,
           "name": "Perion Street Corner",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004042,
           "name": "Over the Wall",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004050,
           "name": "East Rocky Mountain I",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004051,
           "name": "East Rocky Mountain II",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004052,
           "name": "East Rocky Mountain III",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004060,
           "name": "Rocky Road I",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004070,
           "name": "Rocky Road II",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004080,
           "name": "Rocky Road III",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004090,
           "name": "East Domain of Perion",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005020,
           "name": "Deep Forest",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000006.png",
@@ -1271,313 +1271,313 @@
           "id": 10000010,
           "name": "Right Around Lith Harbor",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000011,
           "name": "Thicket Around the Beach I",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000012,
           "name": "Thicket Around the Beach II",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000020,
           "name": "3-Way Road-Split",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000022,
           "name": "Beach Hunting Ground",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001010,
           "name": "Henesys Hunting Ground I",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001011,
           "name": "Henesys Hunting Ground II",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001012,
           "name": "Henesys Hunting Ground III",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001020,
           "name": "A Hill West of Henesys ",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001030,
           "name": "Forest West of Henesys",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001060,
           "name": "The Hill East of Henesys",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001080,
           "name": "The Forest East of Henesys",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001081,
           "name": "The Blue Mushroom Forest",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001090,
           "name": "The Road to the Dungeon",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001100,
           "name": "Henesys Dungeon Entrance",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002010,
           "name": "The Field South of Ellinia",
           "count": 18,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002020,
           "name": "The Forest of Wisdom",
           "count": 25,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002027,
           "name": "Downstairs at the Forest",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002030,
           "name": "The Forest South of Ellinia",
           "count": 24,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002031,
           "name": "Dungeon, Southern Forest I",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002032,
           "name": "Dungeon, Southern Forest II",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002033,
           "name": "Dungeon, Southern Forest III",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002034,
           "name": "Dungeon, Southern Forest IV",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002050,
           "name": "The Field Up North of Ellinia",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002060,
           "name": "The Tree That Grew I",
           "count": 22,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002061,
           "name": "The Tree That Grew II",
           "count": 30,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002070,
           "name": "The Forest North of Ellinia",
           "count": 26,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002072,
           "name": "Tree Dungeon, Forest Up North I",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002073,
           "name": "Tree Dungeon, Forest Up North II",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002074,
           "name": "Tree Dungeon, Forest Up North III",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002075,
           "name": "Tree Dungeon, Forest Up North IV",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002076,
           "name": "Tree Dungeon, Forest Up North V",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003020,
           "name": "L Forest I",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003040,
           "name": "L Forest III",
           "count": 24,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003050,
           "name": "Kerning City Middle Forest I",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003051,
           "name": "Kerning City Middle Forest II",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003052,
           "name": "Kerning City Middle Forest III",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003090,
           "name": "The Swamp of Despair I",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003091,
           "name": "The Swamp of Despair II",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003092,
           "name": "The Swamp of Despair III",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003093,
           "name": "Dangerous Croko I",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003094,
           "name": "Dangerous Croko II",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005010,
           "name": "Swampy Land in a Deep Forest",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005011,
           "name": "Hunting Ground in the Deep Forest I",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005012,
           "name": "Hunting Ground in the Deep Forest II",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005020,
           "name": "Deep Forest",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005030,
           "name": "Damp Tree-Forest",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005031,
           "name": "Damp Forest",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005050,
           "name": "Sleepy Dungeon I",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005051,
           "name": "Sleepy Dungeon II",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005054,
           "name": "Sleepy Dungeon V",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000007.png",
@@ -1612,97 +1612,97 @@
           "id": 10000012,
           "name": "Thicket Around the Beach II",
           "count": 18,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000020,
           "name": "3-Way Road-Split",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000021,
           "name": "The Pig Beach",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000022,
           "name": "Beach Hunting Ground",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001020,
           "name": "A Hill West of Henesys ",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001030,
           "name": "Forest West of Henesys",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001060,
           "name": "The Hill East of Henesys",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001070,
           "name": "The Rain-Forest East of Henesys",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001080,
           "name": "The Forest East of Henesys",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001090,
           "name": "The Road to the Dungeon",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003020,
           "name": "L Forest I",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003040,
           "name": "L Forest III",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003050,
           "name": "Kerning City Middle Forest I",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003051,
           "name": "Kerning City Middle Forest II",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003052,
           "name": "Kerning City Middle Forest III",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000008.png",
@@ -1738,187 +1738,187 @@
           "id": 1000,
           "name": "The Field West of Amherst",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1001,
           "name": "In a Small Forest",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1002,
           "name": "Dangerous Forest",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1003,
           "name": "Mushroom Garden",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1006,
           "name": "Hunting Ground Middle of the Forest II",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1014,
           "name": "Snail Field of Flowers",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1020,
           "name": "The Field East of Amherst",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 1021,
           "name": "Tomato Field",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000012,
           "name": "Thicket Around the Beach II",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000013,
           "name": "Thicket Around the Beach III",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000020,
           "name": "3-Way Road-Split",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000022,
           "name": "Beach Hunting Ground",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001002,
           "name": "An Empty House",
           "count": 12,
-          "mob_time": 1800.0
+          "mob_time": "1800.00"
         },
         {
           "id": 10001010,
           "name": "Henesys Hunting Ground I",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001011,
           "name": "Henesys Hunting Ground II",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001012,
           "name": "Henesys Hunting Ground III",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001021,
           "name": "Mushroom Garden",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001030,
           "name": "Forest West of Henesys",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001060,
           "name": "The Hill East of Henesys",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001080,
           "name": "The Forest East of Henesys",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001090,
           "name": "The Road to the Dungeon",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003010,
           "name": "Kerning City Construction Site",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003011,
           "name": "Caution Falling Down",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003020,
           "name": "L Forest I",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003050,
           "name": "Kerning City Middle Forest I",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003051,
           "name": "Kerning City Middle Forest II",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003052,
           "name": "Kerning City Middle Forest III",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003070,
           "name": "Sunset Sky",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003080,
           "name": "Construction Site North of Kerning City",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003081,
           "name": "Northern Top of Construction Site",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000009.png",
@@ -1953,91 +1953,91 @@
           "id": 10000020,
           "name": "3-Way Road-Split",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000021,
           "name": "The Pig Beach",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10000022,
           "name": "Beach Hunting Ground",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001020,
           "name": "A Hill West of Henesys ",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001030,
           "name": "Forest West of Henesys",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001060,
           "name": "The Hill East of Henesys",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001070,
           "name": "The Rain-Forest East of Henesys",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001080,
           "name": "The Forest East of Henesys",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001090,
           "name": "The Road to the Dungeon",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003020,
           "name": "L Forest I",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003040,
           "name": "L Forest III",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003050,
           "name": "Kerning City Middle Forest I",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003051,
           "name": "Kerning City Middle Forest II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003052,
           "name": "Kerning City Middle Forest III",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000010.png",
@@ -2074,163 +2074,163 @@
           "id": 10002010,
           "name": "The Field South of Ellinia",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002060,
           "name": "The Tree That Grew I",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002061,
           "name": "The Tree That Grew II",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002062,
           "name": "The Tree That Grew III",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003070,
           "name": "Sunset Sky",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003080,
           "name": "Construction Site North of Kerning City",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004010,
           "name": "West Street Corner of Perion",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004021,
           "name": "West Rocky Mountain II",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004022,
           "name": "West Rocky Mountain III",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004030,
           "name": "West Domain of Perion",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004040,
           "name": "Perion Street Corner",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004042,
           "name": "Over the Wall",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004050,
           "name": "East Rocky Mountain I",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004052,
           "name": "East Rocky Mountain III",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004053,
           "name": "East Rocky Mountain IV",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004054,
           "name": "East Rocky Mountain V",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004055,
           "name": "East Rocky Mountain VI",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004060,
           "name": "Rocky Road I",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004070,
           "name": "Rocky Road II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004090,
           "name": "East Domain of Perion",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004091,
           "name": "The Land of Wild Boar II",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004100,
           "name": "Deep Valley I",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004110,
           "name": "Deep Valley II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004120,
           "name": "Deep Valley III",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004121,
           "name": "Perion Dungeon Entrance",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005010,
           "name": "Swampy Land in a Deep Forest",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005020,
           "name": "Deep Forest",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000011.png",
@@ -2266,55 +2266,55 @@
           "id": 10003010,
           "name": "Kerning City Construction Site",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003011,
           "name": "Caution Falling Down",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003080,
           "name": "Construction Site North of Kerning City",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003081,
           "name": "Northern Top of Construction Site",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005010,
           "name": "Swampy Land in a Deep Forest",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005011,
           "name": "Hunting Ground in the Deep Forest I",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005030,
           "name": "Damp Tree-Forest",
           "count": 19,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005031,
           "name": "Damp Forest",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005050,
           "name": "Sleepy Dungeon I",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000012.png",
@@ -2350,205 +2350,205 @@
           "id": 10001010,
           "name": "Henesys Hunting Ground I",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001011,
           "name": "Henesys Hunting Ground II",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001012,
           "name": "Henesys Hunting Ground III",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001100,
           "name": "Henesys Dungeon Entrance",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002010,
           "name": "The Field South of Ellinia",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002020,
           "name": "The Forest of Wisdom",
           "count": 30,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002027,
           "name": "Downstairs at the Forest",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002030,
           "name": "The Forest South of Ellinia",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002032,
           "name": "Dungeon, Southern Forest II",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002033,
           "name": "Dungeon, Southern Forest III",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002034,
           "name": "Dungeon, Southern Forest IV",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002062,
           "name": "The Tree That Grew III",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002073,
           "name": "Tree Dungeon, Forest Up North II",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002074,
           "name": "Tree Dungeon, Forest Up North III",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002075,
           "name": "Tree Dungeon, Forest Up North IV",
           "count": 31,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002076,
           "name": "Tree Dungeon, Forest Up North V",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003010,
           "name": "Kerning City Construction Site",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003020,
           "name": "L Forest I",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003040,
           "name": "L Forest III",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003051,
           "name": "Kerning City Middle Forest II",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003052,
           "name": "Kerning City Middle Forest III",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003070,
           "name": "Sunset Sky",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004010,
           "name": "West Street Corner of Perion",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004022,
           "name": "West Rocky Mountain III",
           "count": 32,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004030,
           "name": "West Domain of Perion",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004060,
           "name": "Rocky Road I",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004090,
           "name": "East Domain of Perion",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005010,
           "name": "Swampy Land in a Deep Forest",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005011,
           "name": "Hunting Ground in the Deep Forest I",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005020,
           "name": "Deep Forest",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005050,
           "name": "Sleepy Dungeon I",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005051,
           "name": "Sleepy Dungeon II",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 80000500,
           "name": "1st Accompaniment <Bonus>",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000013.png",
@@ -2583,13 +2583,13 @@
           "id": 10003061,
           "name": "Line 1 <Area 1>",
           "count": 64,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003102,
           "name": "B1 <Subway Depot>",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000014.png",
@@ -2624,115 +2624,115 @@
           "id": 10002030,
           "name": "The Forest South of Ellinia",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002070,
           "name": "The Forest North of Ellinia",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003080,
           "name": "Construction Site North of Kerning City",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004020,
           "name": "West Rocky Mountain I",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004021,
           "name": "West Rocky Mountain II",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004022,
           "name": "West Rocky Mountain III",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004023,
           "name": "West Rocky Mountain IV",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004042,
           "name": "Over the Wall",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004051,
           "name": "East Rocky Mountain II",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004052,
           "name": "East Rocky Mountain III",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004053,
           "name": "East Rocky Mountain IV",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004055,
           "name": "East Rocky Mountain VI",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004070,
           "name": "Rocky Road II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004080,
           "name": "Rocky Road III",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004090,
           "name": "East Domain of Perion",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004091,
           "name": "The Land of Wild Boar II",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004100,
           "name": "Deep Valley I",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004110,
           "name": "Deep Valley II",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004120,
           "name": "Deep Valley III",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000015.png",
@@ -2766,97 +2766,97 @@
           "id": 10001080,
           "name": "The Forest East of Henesys",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001081,
           "name": "The Blue Mushroom Forest",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001090,
           "name": "The Road to the Dungeon",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001100,
           "name": "Henesys Dungeon Entrance",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001101,
           "name": "The Breathing Rock",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001102,
           "name": "The Entrance of Golem's Temple",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001103,
           "name": "Golem's Temple I",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001104,
           "name": "Golem's Temple II",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001105,
           "name": "Golem's Temple III",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001106,
           "name": "Golem's Temple IV",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002034,
           "name": "Dungeon, Southern Forest IV",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003011,
           "name": "Caution Falling Down",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003040,
           "name": "L Forest III",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003080,
           "name": "Construction Site North of Kerning City",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003081,
           "name": "Northern Top of Construction Site",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000016.png",
@@ -2891,31 +2891,31 @@
           "id": 10003062,
           "name": "Transfer Area",
           "count": 38,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003063,
           "name": "Line 1 <Area 2>",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003064,
           "name": "Line 1 <Area 3>",
           "count": 18,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005064,
           "name": "Dark Cave",
           "count": 35,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005065,
           "name": "Dangerous Steam",
           "count": 38,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000017.png",
@@ -2949,115 +2949,115 @@
           "id": 10003066,
           "name": "Line 2 <Area 1>",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003067,
           "name": "Line 2 <Area 2>",
           "count": 18,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003090,
           "name": "The Swamp of Despair I",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003091,
           "name": "The Swamp of Despair II",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003092,
           "name": "The Swamp of Despair III",
           "count": 19,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003093,
           "name": "Dangerous Croko I",
           "count": 27,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003094,
           "name": "Dangerous Croko II",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003095,
           "name": "Monkey Swamp I",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003096,
           "name": "Monkey Swamp II",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003097,
           "name": "Monkey Swamp III",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005010,
           "name": "Swampy Land in a Deep Forest",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005011,
           "name": "Hunting Ground in the Deep Forest I",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005030,
           "name": "Damp Tree-Forest",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005031,
           "name": "Damp Forest",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005050,
           "name": "Sleepy Dungeon I",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005051,
           "name": "Sleepy Dungeon II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005052,
           "name": "Sleepy Dungeon III",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005053,
           "name": "Sleepy Dungeon IV",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005054,
           "name": "Sleepy Dungeon V",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000018.png",
@@ -3092,145 +3092,145 @@
           "id": 10002027,
           "name": "Downstairs at the Forest",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002034,
           "name": "Dungeon, Southern Forest IV",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002072,
           "name": "Tree Dungeon, Forest Up North I",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002073,
           "name": "Tree Dungeon, Forest Up North II",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002074,
           "name": "Tree Dungeon, Forest Up North III",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002076,
           "name": "Tree Dungeon, Forest Up North V",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003090,
           "name": "The Swamp of Despair I",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003091,
           "name": "The Swamp of Despair II",
           "count": 20,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005010,
           "name": "Swampy Land in a Deep Forest",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005012,
           "name": "Hunting Ground in the Deep Forest II",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005020,
           "name": "Deep Forest",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005050,
           "name": "Sleepy Dungeon I",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005051,
           "name": "Sleepy Dungeon II",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005060,
           "name": "Ant Tunnel I",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005061,
           "name": "Ant Tunnel II",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005062,
           "name": "Ant Tunnel III",
           "count": 38,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005063,
           "name": "Ant Tunnel IV",
           "count": 41,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005064,
           "name": "Dark Cave",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005065,
           "name": "Dangerous Steam",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005066,
           "name": "Deep Ant Tunnel I",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005067,
           "name": "Deep Ant Tunnel II",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005070,
           "name": "Ant Tunnel Park",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005075,
           "name": "Drake Hunting Ground",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 80000500,
           "name": "1st Accompaniment <Bonus>",
           "count": 24,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000019.png",
@@ -3267,145 +3267,145 @@
           "id": 10004022,
           "name": "West Rocky Mountain III",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004023,
           "name": "West Rocky Mountain IV",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004041,
           "name": "Land of Wild Boar",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004042,
           "name": "Over the Wall",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004053,
           "name": "East Rocky Mountain IV",
           "count": 23,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004054,
           "name": "East Rocky Mountain V",
           "count": 25,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004055,
           "name": "East Rocky Mountain VI",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004056,
           "name": "East Rocky Mountain VII",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004070,
           "name": "Rocky Road II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004080,
           "name": "Rocky Road III",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004090,
           "name": "East Domain of Perion",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004091,
           "name": "The Land of Wild Boar II",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004100,
           "name": "Deep Valley I",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004110,
           "name": "Deep Valley II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004111,
           "name": "The Burnt Land I",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004112,
           "name": "The Burnt Land II",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004113,
           "name": "The Burnt Land III",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004114,
           "name": "The Burnt Land IV",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004115,
           "name": "The Burnt Land V",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004120,
           "name": "Deep Valley III",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004121,
           "name": "Perion Dungeon Entrance",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005020,
           "name": "Deep Forest",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005030,
           "name": "Damp Tree-Forest",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005051,
           "name": "Sleepy Dungeon II",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000020.png",
@@ -3441,97 +3441,97 @@
           "id": 10005060,
           "name": "Ant Tunnel I",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005061,
           "name": "Ant Tunnel II",
           "count": 32,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005062,
           "name": "Ant Tunnel III",
           "count": 61,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005063,
           "name": "Ant Tunnel IV",
           "count": 23,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005064,
           "name": "Dark Cave",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005065,
           "name": "Dangerous Steam",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005066,
           "name": "Deep Ant Tunnel I",
           "count": 29,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005067,
           "name": "Deep Ant Tunnel II",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005070,
           "name": "Ant Tunnel Park",
           "count": 23,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005078,
           "name": "The Grave of Mushmom",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006031,
           "name": "The Valley of Death",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006080,
           "name": "Forbidden Entrance",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006090,
           "name": "Perilous Descent I",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006100,
           "name": "Perilous Descent II",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006110,
           "name": "Perilous Descent III",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006121,
           "name": "Someone Else's Grave",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000021.png",
@@ -3566,55 +3566,55 @@
           "id": 10004023,
           "name": "West Rocky Mountain IV",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004041,
           "name": "Land of Wild Boar",
           "count": 22,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004070,
           "name": "Rocky Road II",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004080,
           "name": "Rocky Road III",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004091,
           "name": "The Land of Wild Boar II",
           "count": 23,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004100,
           "name": "Deep Valley I",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004110,
           "name": "Deep Valley II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004120,
           "name": "Deep Valley III",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004121,
           "name": "Perion Dungeon Entrance",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000022.png",
@@ -3649,49 +3649,49 @@
           "id": 10005066,
           "name": "Deep Ant Tunnel I",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005067,
           "name": "Deep Ant Tunnel II",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005070,
           "name": "Ant Tunnel Park",
           "count": 31,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005071,
           "name": "The Cave of Evil Eye I",
           "count": 19,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005072,
           "name": "The Cave of Evil Eye II",
           "count": 36,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005073,
           "name": "The Cave of Evil Eye III",
           "count": 38,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005074,
           "name": "The Cave of Evil Eye IV",
           "count": 23,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006120,
           "name": "Decayed Tunnel I",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000023.png",
@@ -3726,43 +3726,43 @@
           "id": 10000021,
           "name": "The Pig Beach",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001003,
           "name": "Pig Park",
           "count": 20,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001004,
           "name": "Pig Park II",
           "count": 22,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001005,
           "name": "Someone Else's House",
           "count": 13,
-          "mob_time": 7.14
+          "mob_time": "1.00-7.65 [7.14]"
         },
         {
           "id": 10001090,
           "name": "The Road to the Dungeon",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001100,
           "name": "Henesys Dungeon Entrance",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003020,
           "name": "L Forest I",
           "count": 1,
-          "mob_time": 600.0
+          "mob_time": "600.00"
         }
       ],
       "thumbnail": "images/monsters/0000024.png",
@@ -3826,7 +3826,7 @@
           "id": 10001005,
           "name": "Someone Else's House",
           "count": 2,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         }
       ],
       "thumbnail": "images/monsters/0000026.png",
@@ -3861,19 +3861,19 @@
           "id": 10002080,
           "name": "Tree Dungeon, Forest Up North VI",
           "count": 2,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         },
         {
           "id": 10002081,
           "name": "Tree Dungeon, Forest Up North VII",
           "count": 2,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         },
         {
           "id": 10006121,
           "name": "Someone Else's Grave",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000027.png",
@@ -3908,37 +3908,37 @@
           "id": 10001101,
           "name": "The Breathing Rock",
           "count": 2,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         },
         {
           "id": 10001102,
           "name": "The Entrance of Golem's Temple",
           "count": 3,
-          "mob_time": 720.0
+          "mob_time": "180.00-1800.00 [720.00]"
         },
         {
           "id": 10001103,
           "name": "Golem's Temple I",
           "count": 1,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         },
         {
           "id": 10001104,
           "name": "Golem's Temple II",
           "count": 1,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         },
         {
           "id": 10001105,
           "name": "Golem's Temple III",
           "count": 1,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         },
         {
           "id": 10001106,
           "name": "Golem's Temple IV",
           "count": 1,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         }
       ],
       "thumbnail": "images/monsters/0000028.png",
@@ -3976,25 +3976,25 @@
           "id": 10003090,
           "name": "The Swamp of Despair I",
           "count": 41,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003091,
           "name": "The Swamp of Despair II",
           "count": 36,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003092,
           "name": "The Swamp of Despair III",
           "count": 28,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003093,
           "name": "Dangerous Croko I",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000029.png",
@@ -4032,85 +4032,85 @@
           "id": 10004054,
           "name": "East Rocky Mountain V",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004055,
           "name": "East Rocky Mountain VI",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004056,
           "name": "East Rocky Mountain VII",
           "count": 20,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004100,
           "name": "Deep Valley I",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004101,
           "name": "Dangerous Valley",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004102,
           "name": "Dangerous Valley II",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004110,
           "name": "Deep Valley II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004111,
           "name": "The Burnt Land I",
           "count": 18,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004112,
           "name": "The Burnt Land II",
           "count": 19,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004113,
           "name": "The Burnt Land III",
           "count": 24,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004114,
           "name": "The Burnt Land IV",
           "count": 21,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004115,
           "name": "The Burnt Land V",
           "count": 26,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004120,
           "name": "Deep Valley III",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004121,
           "name": "Perion Dungeon Entrance",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000030.png",
@@ -4147,91 +4147,91 @@
           "id": 10002022,
           "name": "Tree Dungeon, Monkey Forest I",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002024,
           "name": "Tree Dungeon, Monkey Forest II",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002080,
           "name": "Tree Dungeon, Forest Up North VI",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002081,
           "name": "Tree Dungeon, Forest Up North VII",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002082,
           "name": "Tree Dungeon, Forest Up North VIII",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002083,
           "name": "Tree Dungeon, Forest Up North IX",
           "count": 20,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005011,
           "name": "Hunting Ground in the Deep Forest I",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005012,
           "name": "Hunting Ground in the Deep Forest II",
           "count": 20,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005050,
           "name": "Sleepy Dungeon I",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005051,
           "name": "Sleepy Dungeon II",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005052,
           "name": "Sleepy Dungeon III",
           "count": 19,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005053,
           "name": "Sleepy Dungeon IV",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005054,
           "name": "Sleepy Dungeon V",
           "count": 24,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006060,
           "name": "Forgotten Entrance III",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006071,
           "name": "Forgotten Dungeon Tunnel",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000031.png",
@@ -4269,31 +4269,31 @@
           "id": 10003063,
           "name": "Line 1 <Area 2>",
           "count": 69,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003064,
           "name": "Line 1 <Area 3>",
           "count": 31,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003066,
           "name": "Line 2 <Area 1>",
           "count": 83,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003067,
           "name": "Line 2 <Area 2>",
           "count": 32,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003105,
           "name": "B2 <Subway Depot>",
           "count": 12,
-          "mob_time": 7.1
+          "mob_time": "1.00-7.65 [7.10]"
         }
       ],
       "thumbnail": "images/monsters/0000032.png",
@@ -4328,43 +4328,43 @@
           "id": 10003105,
           "name": "B2 <Subway Depot>",
           "count": 1,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10003109,
           "name": "B3 <Subway Depot>",
           "count": 1,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10004041,
           "name": "Land of Wild Boar",
           "count": 3,
-          "mob_time": 600.0
+          "mob_time": "600.00"
         },
         {
           "id": 10005011,
           "name": "Hunting Ground in the Deep Forest I",
           "count": 1,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10005052,
           "name": "Sleepy Dungeon III",
           "count": 1,
-          "mob_time": 10800.0
+          "mob_time": "10800.00"
         },
         {
           "id": 10005053,
           "name": "Sleepy Dungeon IV",
           "count": 3,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10005054,
           "name": "Sleepy Dungeon V",
           "count": 5,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         }
       ],
       "thumbnail": "images/monsters/0000033.png",
@@ -4400,67 +4400,67 @@
           "id": 10003109,
           "name": "B3 <Subway Depot>",
           "count": 1,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10004041,
           "name": "Land of Wild Boar",
           "count": 3,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10005053,
           "name": "Sleepy Dungeon IV",
           "count": 3,
-          "mob_time": 600.0
+          "mob_time": "600.00"
         },
         {
           "id": 10005054,
           "name": "Sleepy Dungeon V",
           "count": 5,
-          "mob_time": 600.0
+          "mob_time": "600.00"
         },
         {
           "id": 10005066,
           "name": "Deep Ant Tunnel I",
           "count": 2,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         },
         {
           "id": 10005071,
           "name": "The Cave of Evil Eye I",
           "count": 2,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10005072,
           "name": "The Cave of Evil Eye II",
           "count": 2,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10005073,
           "name": "The Cave of Evil Eye III",
           "count": 2,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10005074,
           "name": "The Cave of Evil Eye IV",
           "count": 2,
-          "mob_time": 1800.0
+          "mob_time": "1800.00"
         },
         {
           "id": 10005075,
           "name": "Drake Hunting Ground",
           "count": 2,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10005078,
           "name": "The Grave of Mushmom",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000034.png",
@@ -4496,139 +4496,139 @@
           "id": 10001100,
           "name": "Henesys Dungeon Entrance",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001101,
           "name": "The Breathing Rock",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001103,
           "name": "Golem's Temple I",
           "count": 3,
-          "mob_time": 60.0
+          "mob_time": "60.00"
         },
         {
           "id": 10001104,
           "name": "Golem's Temple II",
           "count": 3,
-          "mob_time": 60.0
+          "mob_time": "60.00"
         },
         {
           "id": 10001105,
           "name": "Golem's Temple III",
           "count": 7,
-          "mob_time": 60.0
+          "mob_time": "60.00"
         },
         {
           "id": 10002021,
           "name": "Monkey Forest I",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002023,
           "name": "Monkey Forest II",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002027,
           "name": "Downstairs at the Forest",
           "count": 3,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10003030,
           "name": "L Forest II",
           "count": 1,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003095,
           "name": "Monkey Swamp I",
           "count": 28,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003096,
           "name": "Monkey Swamp II",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004023,
           "name": "West Rocky Mountain IV",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004055,
           "name": "East Rocky Mountain VI",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004114,
           "name": "The Burnt Land IV",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004115,
           "name": "The Burnt Land V",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005012,
           "name": "Hunting Ground in the Deep Forest II",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005050,
           "name": "Sleepy Dungeon I",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005051,
           "name": "Sleepy Dungeon II",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005052,
           "name": "Sleepy Dungeon III",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005054,
           "name": "Sleepy Dungeon V",
           "count": 23,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006050,
           "name": "Forgotten Entrance II",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10007010,
           "name": "A Look-Out Shed Around the Beach",
           "count": 27,
-          "mob_time": 56.12
+          "mob_time": "7.65-60.00 [56.12]"
         },
         {
           "id": 10007020,
           "name": "Lorang Lorang",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000035.png",
@@ -4665,31 +4665,31 @@
           "id": 10007010,
           "name": "A Look-Out Shed Around the Beach",
           "count": 36,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10007020,
           "name": "Lorang Lorang",
           "count": 35,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10007021,
           "name": "Lorang Lorang Lorang",
           "count": 18,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10007030,
           "name": "Lorang and Clang",
           "count": 18,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10007031,
           "name": "Clang and Lorang",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000036.png",
@@ -4728,61 +4728,61 @@
           "id": 10002081,
           "name": "Tree Dungeon, Forest Up North VII",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005076,
           "name": "The Tunnel That Lost Light I",
           "count": 32,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005077,
           "name": "The Tunnel That Lost Light II",
           "count": 25,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005090,
           "name": "Drake's Meal Table",
           "count": 22,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005091,
           "name": "Wild Kargo's Area",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005100,
           "name": "Another Path",
           "count": 23,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005101,
           "name": "Sanctuary Entrance I",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005102,
           "name": "Sanctuary Entrance II",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005103,
           "name": "Sanctuary Entrance III",
           "count": 8,
-          "mob_time": 10.0
+          "mob_time": "10.00"
         },
         {
           "id": 10005104,
           "name": "Sanctuary Entrance IV",
           "count": 5,
-          "mob_time": 14.0
+          "mob_time": "10.00-20.00 [14.00]"
         }
       ],
       "thumbnail": "images/monsters/0000037.png",
@@ -4820,55 +4820,55 @@
           "id": 10002021,
           "name": "Monkey Forest I",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002022,
           "name": "Tree Dungeon, Monkey Forest I",
           "count": 26,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002023,
           "name": "Monkey Forest II",
           "count": 25,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002024,
           "name": "Tree Dungeon, Monkey Forest II",
           "count": 26,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002025,
           "name": "The Forest of Evil I",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10002026,
           "name": "The Forest of Evil II",
           "count": 16,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003096,
           "name": "Monkey Swamp II",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003097,
           "name": "Monkey Swamp III",
           "count": 31,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006031,
           "name": "The Valley of Death",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000038.png",
@@ -4904,19 +4904,19 @@
           "id": 10004056,
           "name": "East Rocky Mountain VII",
           "count": 22,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004101,
           "name": "Dangerous Valley",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10004102,
           "name": "Dangerous Valley II",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000040.png",
@@ -4951,13 +4951,13 @@
           "id": 10007031,
           "name": "Clang and Lorang",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10007040,
           "name": "Hot Sand",
           "count": 25,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000041.png",
@@ -4994,31 +4994,31 @@
           "id": 10003064,
           "name": "Line 1 <Area 3>",
           "count": 48,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003065,
           "name": "Line 1 <Area 4>",
           "count": 59,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003067,
           "name": "Line 2 <Area 2>",
           "count": 57,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003068,
           "name": "Line 2 <Area 3>",
           "count": 68,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003109,
           "name": "B3 <Subway Depot>",
           "count": 10,
-          "mob_time": 6.99
+          "mob_time": "1.00-7.65 [6.99]"
         }
       ],
       "thumbnail": "images/monsters/0000043.png",
@@ -5055,19 +5055,19 @@
           "id": 10007030,
           "name": "Lorang and Clang",
           "count": 29,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10007031,
           "name": "Clang and Lorang",
           "count": 17,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10007040,
           "name": "Hot Sand",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000044.png",
@@ -5103,25 +5103,25 @@
           "id": 10005075,
           "name": "Drake Hunting Ground",
           "count": 18,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005076,
           "name": "The Tunnel That Lost Light I",
           "count": 20,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005077,
           "name": "The Tunnel That Lost Light II",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005090,
           "name": "Drake's Meal Table",
           "count": 23,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000045.png",
@@ -5156,13 +5156,13 @@
           "id": 10003093,
           "name": "Dangerous Croko I",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10003094,
           "name": "Dangerous Croko II",
           "count": 24,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000046.png",
@@ -5199,13 +5199,13 @@
           "id": 10002025,
           "name": "The Forest of Evil I",
           "count": 15,
-          "mob_time": 60.0
+          "mob_time": "60.00"
         },
         {
           "id": 10002026,
           "name": "The Forest of Evil II",
           "count": 23,
-          "mob_time": 41.79
+          "mob_time": "7.65-60.00 [41.79]"
         }
       ],
       "thumbnail": "images/monsters/0000047.png",
@@ -5239,43 +5239,43 @@
           "id": 10001100,
           "name": "Henesys Dungeon Entrance",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001101,
           "name": "The Breathing Rock",
           "count": 4,
-          "mob_time": 27.5
+          "mob_time": "20.00-40.00 [27.50]"
         },
         {
           "id": 10001102,
           "name": "The Entrance of Golem's Temple",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001103,
           "name": "Golem's Temple I",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001104,
           "name": "Golem's Temple II",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001105,
           "name": "Golem's Temple III",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10001106,
           "name": "Golem's Temple IV",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000048.png",
@@ -5313,19 +5313,19 @@
           "id": 10005052,
           "name": "Sleepy Dungeon III",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005053,
           "name": "Sleepy Dungeon IV",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005054,
           "name": "Sleepy Dungeon V",
           "count": 19,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000049.png",
@@ -5364,7 +5364,7 @@
           "id": 10004102,
           "name": "Dangerous Valley II",
           "count": 17,
-          "mob_time": 41.76
+          "mob_time": "20.00-60.00 [41.76]"
         }
       ],
       "thumbnail": "images/monsters/0000050.png",
@@ -5400,19 +5400,19 @@
           "id": 10005077,
           "name": "The Tunnel That Lost Light II",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10005090,
           "name": "Drake's Meal Table",
           "count": 10,
-          "mob_time": 300.0
+          "mob_time": "300.00"
         },
         {
           "id": 10005091,
           "name": "Wild Kargo's Area",
           "count": 13,
-          "mob_time": 120.0
+          "mob_time": "120.00"
         }
       ],
       "thumbnail": "images/monsters/0000051.png",
@@ -5450,25 +5450,25 @@
           "id": 10005101,
           "name": "Sanctuary Entrance I",
           "count": 4,
-          "mob_time": 120.0
+          "mob_time": "120.00"
         },
         {
           "id": 10005102,
           "name": "Sanctuary Entrance II",
           "count": 4,
-          "mob_time": 75.0
+          "mob_time": "60.00-120.00 [75.00]"
         },
         {
           "id": 10005103,
           "name": "Sanctuary Entrance III",
           "count": 2,
-          "mob_time": 60.0
+          "mob_time": "60.00"
         },
         {
           "id": 10005104,
           "name": "Sanctuary Entrance IV",
           "count": 2,
-          "mob_time": 60.0
+          "mob_time": "60.00"
         }
       ],
       "thumbnail": "images/monsters/0000052.png",
@@ -5508,13 +5508,13 @@
           "id": 10005103,
           "name": "Sanctuary Entrance III",
           "count": 4,
-          "mob_time": 37.5
+          "mob_time": "30.00-60.00 [37.50]"
         },
         {
           "id": 10005104,
           "name": "Sanctuary Entrance IV",
           "count": 5,
-          "mob_time": 72.0
+          "mob_time": "30.00-120.00 [72.00]"
         }
       ],
       "thumbnail": "images/monsters/0000053.png",
@@ -5551,19 +5551,19 @@
           "id": 10006050,
           "name": "Forgotten Entrance II",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006060,
           "name": "Forgotten Entrance III",
           "count": 19,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006071,
           "name": "Forgotten Dungeon Tunnel",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000054.png",
@@ -5600,25 +5600,25 @@
           "id": 10006040,
           "name": "Forgotten Entrance I",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006050,
           "name": "Forgotten Entrance II",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006060,
           "name": "Forgotten Entrance III",
           "count": 14,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006071,
           "name": "Forgotten Dungeon Tunnel",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000055.png",
@@ -5653,19 +5653,19 @@
           "id": 10006020,
           "name": "Primeval Forest II",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006040,
           "name": "Forgotten Entrance I",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006080,
           "name": "Forbidden Entrance",
           "count": 3,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000056.png",
@@ -5702,19 +5702,19 @@
           "id": 10006010,
           "name": "Primeval Forest I",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006020,
           "name": "Primeval Forest II",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006070,
           "name": "The End of Fleeting Light",
           "count": 9,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000057.png",
@@ -5751,37 +5751,37 @@
           "id": 10006030,
           "name": "Primeval Forest III",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006040,
           "name": "Forgotten Entrance I",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006071,
           "name": "Forgotten Dungeon Tunnel",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006090,
           "name": "Perilous Descent I",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006100,
           "name": "Perilous Descent II",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006110,
           "name": "Perilous Descent III",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000058.png",
@@ -5818,43 +5818,43 @@
           "id": 10006010,
           "name": "Primeval Forest I",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006020,
           "name": "Primeval Forest II",
           "count": 8,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006030,
           "name": "Primeval Forest III",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006031,
           "name": "The Valley of Death",
           "count": 10,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006040,
           "name": "Forgotten Entrance I",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006070,
           "name": "The End of Fleeting Light",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006080,
           "name": "Forbidden Entrance",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000059.png",
@@ -5892,19 +5892,19 @@
           "id": 10006070,
           "name": "The End of Fleeting Light",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006080,
           "name": "Forbidden Entrance",
           "count": 12,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006120,
           "name": "Decayed Tunnel I",
           "count": 11,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000060.png",
@@ -5942,19 +5942,19 @@
           "id": 10006090,
           "name": "Perilous Descent I",
           "count": 6,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006100,
           "name": "Perilous Descent II",
           "count": 7,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         },
         {
           "id": 10006110,
           "name": "Perilous Descent III",
           "count": 2,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000061.png",
@@ -5992,7 +5992,7 @@
           "id": 10006121,
           "name": "Someone Else's Grave",
           "count": 4,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000062.png",
@@ -6031,7 +6031,7 @@
           "id": 10006110,
           "name": "Perilous Descent III",
           "count": 5,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0000063.png",
@@ -6067,31 +6067,31 @@
           "id": 10002043,
           "name": "The Forest of Patience <Step 4>",
           "count": 18,
-          "mob_time": 1.37
+          "mob_time": "1.00-7.65 [1.37]"
         },
         {
           "id": 10003100,
           "name": "B1 <Area 1>",
           "count": 3,
-          "mob_time": 1.0
+          "mob_time": "1.00"
         },
         {
           "id": 10005044,
           "name": "The Deep Forest of Patience <Step 5>",
           "count": 5,
-          "mob_time": 3.66
+          "mob_time": "1.00-7.65 [3.66]"
         },
         {
           "id": 90040001,
           "name": "MapleStory Physical Fitness Challenge <Level 1>",
           "count": 14,
-          "mob_time": 1.0
+          "mob_time": "1.00"
         },
         {
           "id": 90040004,
           "name": "MapleStory Physical Fitness Challenge <Level 4>",
           "count": 14,
-          "mob_time": 27.93
+          "mob_time": "1.00-30.00 [27.93]"
         }
       ],
       "thumbnail": "images/monsters/0000090.png",
@@ -6126,7 +6126,7 @@
           "id": 10005044,
           "name": "The Deep Forest of Patience <Step 5>",
           "count": 11,
-          "mob_time": 1.0
+          "mob_time": "1.00"
         }
       ],
       "thumbnail": "images/monsters/0000091.png",
@@ -6161,7 +6161,7 @@
           "id": 10001082,
           "name": "Utah's Pig Farm",
           "count": 28,
-          "mob_time": 1.0
+          "mob_time": "1.00"
         }
       ],
       "thumbnail": "images/monsters/0000092.png",
@@ -6196,13 +6196,13 @@
           "id": 10003101,
           "name": "B1 <Area 2>",
           "count": 12,
-          "mob_time": 1.0
+          "mob_time": "1.00"
         },
         {
           "id": 10003106,
           "name": "B3 <Area 1>",
           "count": 4,
-          "mob_time": 1.0
+          "mob_time": "1.00"
         }
       ],
       "thumbnail": "images/monsters/0000093.png",
@@ -6236,7 +6236,7 @@
           "id": 10001005,
           "name": "Someone Else's House",
           "count": 1,
-          "mob_time": 1800.0
+          "mob_time": "1800.00"
         }
       ],
       "thumbnail": "images/monsters/0700000.png",
@@ -6274,7 +6274,7 @@
           "id": 10005105,
           "name": "The Cursed Sanctuary",
           "count": 1,
-          "mob_time": 10800.0
+          "mob_time": "10800.00"
         }
       ],
       "thumbnail": "images/monsters/0700001.png",
@@ -6315,7 +6315,7 @@
           "id": 10005078,
           "name": "The Grave of Mushmom",
           "count": 1,
-          "mob_time": 1800.0
+          "mob_time": "1800.00"
         }
       ],
       "thumbnail": "images/monsters/0700002.png",
@@ -6356,7 +6356,7 @@
           "id": 10006121,
           "name": "Someone Else's Grave",
           "count": 1,
-          "mob_time": 1800.0
+          "mob_time": "1800.00"
         }
       ],
       "thumbnail": "images/monsters/0700003.png",
@@ -6393,7 +6393,7 @@
           "id": 10000013,
           "name": "Thicket Around the Beach III",
           "count": 1,
-          "mob_time": 1800.0
+          "mob_time": "1800.00"
         }
       ],
       "thumbnail": "images/monsters/0700004.png",
@@ -6432,7 +6432,7 @@
           "id": 80000000,
           "name": "1st Accompaniment <1st Stage>",
           "count": 22,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0800000.png",
@@ -6467,7 +6467,7 @@
           "id": 80000400,
           "name": "1st Accompaniment <Last Stage>",
           "count": 6,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         }
       ],
       "thumbnail": "images/monsters/0800001.png",
@@ -6504,7 +6504,7 @@
           "id": 80000400,
           "name": "1st Accompaniment <Last Stage>",
           "count": 3,
-          "mob_time": 180.0
+          "mob_time": "180.00"
         }
       ],
       "thumbnail": "images/monsters/0800002.png",
@@ -6579,7 +6579,7 @@
           "id": 80001000,
           "name": "Ant Tunnel For Bowman",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0800010.png",
@@ -6616,7 +6616,7 @@
           "id": 80001000,
           "name": "Ant Tunnel For Bowman",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0800011.png",
@@ -6653,7 +6653,7 @@
           "id": 80001100,
           "name": "Magician's Tree Dungeon",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0800012.png",
@@ -6688,7 +6688,7 @@
           "id": 80001100,
           "name": "Magician's Tree Dungeon",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0800013.png",
@@ -6726,7 +6726,7 @@
           "id": 80001200,
           "name": "Thief's Construction Site",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0800014.png",
@@ -6762,7 +6762,7 @@
           "id": 80001200,
           "name": "Thief's Construction Site",
           "count": 13,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0800015.png",
@@ -6800,7 +6800,7 @@
           "id": 80001300,
           "name": "Warrior's Rocky Mountain",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0800016.png",
@@ -6835,7 +6835,7 @@
           "id": 80001300,
           "name": "Warrior's Rocky Mountain",
           "count": 15,
-          "mob_time": 7.65
+          "mob_time": "7.65"
         }
       ],
       "thumbnail": "images/monsters/0800017.png",

@@ -1,6 +1,30 @@
 import { el, makeCollapsible, makeThumbnail, makeSearchBox } from '../lib/utils.js';
 
 function formatSpawnTime(seconds) {
+  // If input is a string, handle min-max [avg] or single value
+  if (typeof seconds === 'string') {
+    // Match "min-max [avg]" or "min [avg]"
+    const rangeMatch = seconds.match(/^([\d.]+)-(\d+\.\d+|\d+)(?: \[(\d+\.\d+|\d+)\])?$/);
+    const singleMatch = seconds.match(/^([\d.]+)(?: \[(\d+\.\d+|\d+)\])?$/);
+    if (rangeMatch) {
+      const min = parseFloat(rangeMatch[1]);
+      const max = parseFloat(rangeMatch[2]);
+      const avg = rangeMatch[3];
+      if (min === max) {
+        // Only show one value (with avg if present)
+        return avg ? `${min}s [${avg}s]` : `${min}s`;
+      } else {
+        // Show range and avg
+        return avg ? `${min}s-${max}s [${avg}s]` : `${min}s-${max}s`;
+      }
+    } else if (singleMatch) {
+      const val = parseFloat(singleMatch[1]);
+      const avg = singleMatch[2];
+      return avg ? `${val}s [${avg}s]` : `${val}s`;
+    }
+    // Fallback: return as-is
+    return seconds;
+  }
   if (seconds < 60) {
     const s = Number.isInteger(seconds) ? seconds : seconds.toFixed(2).replace(/\.?0+$/, '');
     return `${s}s`;
