@@ -10,6 +10,11 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090000000.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Event",
           "thumbnail": "images/maps/090000000.png"
         },
         {
@@ -18,6 +23,11 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": null,
+          "is_town": false,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Event",
           "thumbnail": null
         },
         {
@@ -26,6 +36,11 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": null,
+          "is_town": false,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "None",
           "thumbnail": null
         },
         {
@@ -34,7 +49,13 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090040000.png",
-          "thumbnail": "images/maps/090040000.png"
+          "is_town": true,
+          "return_map_id": 90050000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Event",
+          "thumbnail": "images/maps/090040000.png",
+          "return_map_name": "Leaving the Event"
         },
         {
           "id": 90040001,
@@ -42,7 +63,13 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090040001.png",
-          "thumbnail": "images/maps/090040001.png"
+          "is_town": true,
+          "return_map_id": 90050000,
+          "bgm": "BgmEvent/FunnyRabbit",
+          "mob_rate": null,
+          "map_mark": "Event",
+          "thumbnail": "images/maps/090040001.png",
+          "return_map_name": "Leaving the Event"
         },
         {
           "id": 90040002,
@@ -50,7 +77,13 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090040002.png",
-          "thumbnail": "images/maps/090040002.png"
+          "is_town": true,
+          "return_map_id": 90050000,
+          "bgm": "BgmEvent/FunnyRabbit",
+          "mob_rate": null,
+          "map_mark": "Event",
+          "thumbnail": "images/maps/090040002.png",
+          "return_map_name": "Leaving the Event"
         },
         {
           "id": 90040003,
@@ -58,7 +91,13 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090040003.png",
-          "thumbnail": "images/maps/090040003.png"
+          "is_town": true,
+          "return_map_id": 90050000,
+          "bgm": "BgmEvent/FunnyRabbit",
+          "mob_rate": null,
+          "map_mark": "Event",
+          "thumbnail": "images/maps/090040003.png",
+          "return_map_name": "Leaving the Event"
         },
         {
           "id": 90040004,
@@ -66,7 +105,13 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090040004.png",
-          "thumbnail": "images/maps/090040004.png"
+          "is_town": true,
+          "return_map_id": 90050000,
+          "bgm": "BgmEvent/FunnyRabbitFaster",
+          "mob_rate": null,
+          "map_mark": "Event",
+          "thumbnail": "images/maps/090040004.png",
+          "return_map_name": "Leaving the Event"
         },
         {
           "id": 90040010,
@@ -74,7 +119,13 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090040010.png",
-          "thumbnail": "images/maps/090040010.png"
+          "is_town": true,
+          "return_map_id": 90050000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Event",
+          "thumbnail": "images/maps/090040010.png",
+          "return_map_name": "Leaving the Event"
         },
         {
           "id": 90040011,
@@ -82,7 +133,13 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090040011.png",
-          "thumbnail": "images/maps/090040011.png"
+          "is_town": true,
+          "return_map_id": 90050000,
+          "bgm": "BgmEvent/FunnyRabbit",
+          "mob_rate": null,
+          "map_mark": "Event",
+          "thumbnail": "images/maps/090040011.png",
+          "return_map_name": "Leaving the Event"
         },
         {
           "id": 90040012,
@@ -90,7 +147,13 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090040012.png",
-          "thumbnail": "images/maps/090040012.png"
+          "is_town": true,
+          "return_map_id": 90050000,
+          "bgm": "BgmEvent/FunnyRabbit",
+          "mob_rate": null,
+          "map_mark": "Event",
+          "thumbnail": "images/maps/090040012.png",
+          "return_map_name": "Leaving the Event"
         },
         {
           "id": 90040013,
@@ -98,7 +161,13 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090040013.png",
-          "thumbnail": "images/maps/090040013.png"
+          "is_town": true,
+          "return_map_id": 90050000,
+          "bgm": "BgmEvent/FunnyRabbit",
+          "mob_rate": null,
+          "map_mark": "Event",
+          "thumbnail": "images/maps/090040013.png",
+          "return_map_name": "Leaving the Event"
         },
         {
           "id": 90050000,
@@ -106,6 +175,11 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090050000.png",
+          "is_town": false,
+          "return_map_id": null,
+          "bgm": "Bgm00/GoPicnic",
+          "mob_rate": null,
+          "map_mark": "Event",
           "thumbnail": "images/maps/090050000.png"
         },
         {
@@ -114,7 +188,13 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": "images/maps/090050001.png",
-          "thumbnail": "images/maps/090050001.png"
+          "is_town": false,
+          "return_map_id": 90050000,
+          "bgm": "Bgm00/GoPicnic",
+          "mob_rate": null,
+          "map_mark": "Event",
+          "thumbnail": "images/maps/090050001.png",
+          "return_map_name": "Leaving the Event"
         },
         {
           "id": 900000000,
@@ -122,6 +202,11 @@
           "street_name": "Hidden Street",
           "region": "Event",
           "minimap": null,
+          "is_town": false,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Event",
           "thumbnail": null
         }
       ]
@@ -136,6 +221,11 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": "images/maps/000000001.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "MushroomVillage",
           "thumbnail": "images/maps/000000001.png"
         },
         {
@@ -144,6 +234,11 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": "images/maps/000000010.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "MushroomVillage",
           "thumbnail": "images/maps/000000010.png"
         },
         {
@@ -152,6 +247,11 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": "images/maps/000000020.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "MushroomVillage",
           "thumbnail": "images/maps/000000020.png"
         },
         {
@@ -160,6 +260,11 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": "images/maps/000000021.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "MushroomVillage",
           "thumbnail": "images/maps/000000021.png"
         },
         {
@@ -168,6 +273,11 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": "images/maps/000000030.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "MushroomVillage",
           "thumbnail": "images/maps/000000030.png"
         },
         {
@@ -176,7 +286,13 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": "images/maps/000000040.png",
-          "thumbnail": "images/maps/000000040.png"
+          "is_town": false,
+          "return_map_id": 60,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "MushroomVillage",
+          "thumbnail": "images/maps/000000040.png",
+          "return_map_name": "Southperry"
         },
         {
           "id": 41,
@@ -184,7 +300,13 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": "images/maps/000000041.png",
-          "thumbnail": "images/maps/000000041.png"
+          "is_town": false,
+          "return_map_id": 60,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "MushroomVillage",
+          "thumbnail": "images/maps/000000041.png",
+          "return_map_name": "Southperry"
         },
         {
           "id": 42,
@@ -192,7 +314,13 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": "images/maps/000000042.png",
-          "thumbnail": "images/maps/000000042.png"
+          "is_town": false,
+          "return_map_id": 60,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "MushroomVillage",
+          "thumbnail": "images/maps/000000042.png",
+          "return_map_name": "Southperry"
         },
         {
           "id": 50,
@@ -200,7 +328,13 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": "images/maps/000000050.png",
-          "thumbnail": "images/maps/000000050.png"
+          "is_town": false,
+          "return_map_id": 60,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": 1.5,
+          "map_mark": "MushroomVillage",
+          "thumbnail": "images/maps/000000050.png",
+          "return_map_name": "Southperry"
         },
         {
           "id": 60,
@@ -208,6 +342,11 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": "images/maps/000000060.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/GoPicnic",
+          "mob_rate": null,
+          "map_mark": "SouthPerry",
           "thumbnail": "images/maps/000000060.png"
         },
         {
@@ -216,7 +355,13 @@
           "street_name": "Maple Road",
           "region": "Maple Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 60,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "SouthPerry",
+          "thumbnail": null,
+          "return_map_name": "Southperry"
         },
         {
           "id": 1000,
@@ -224,7 +369,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001000.png",
-          "thumbnail": "images/maps/000001000.png"
+          "is_town": false,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": 1.3,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001000.png",
+          "return_map_name": "Amherst"
         },
         {
           "id": 1001,
@@ -232,7 +383,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001001.png",
-          "thumbnail": "images/maps/000001001.png"
+          "is_town": false,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": 1.3,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001001.png",
+          "return_map_name": "Amherst"
         },
         {
           "id": 1002,
@@ -240,7 +397,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001002.png",
-          "thumbnail": "images/maps/000001002.png"
+          "is_town": false,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001002.png",
+          "return_map_name": "Amherst"
         },
         {
           "id": 1003,
@@ -248,7 +411,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001003.png",
-          "thumbnail": "images/maps/000001003.png"
+          "is_town": false,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001003.png",
+          "return_map_name": "Amherst"
         },
         {
           "id": 1004,
@@ -256,7 +425,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001004.png",
-          "thumbnail": "images/maps/000001004.png"
+          "is_town": false,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001004.png",
+          "return_map_name": "Amherst"
         },
         {
           "id": 1005,
@@ -264,7 +439,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001005.png",
-          "thumbnail": "images/maps/000001005.png"
+          "is_town": false,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001005.png",
+          "return_map_name": "Amherst"
         },
         {
           "id": 1006,
@@ -272,7 +453,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001006.png",
-          "thumbnail": "images/maps/000001006.png"
+          "is_town": false,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001006.png",
+          "return_map_name": "Amherst"
         },
         {
           "id": 1010,
@@ -280,6 +467,11 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001010.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Amherst",
           "thumbnail": "images/maps/000001010.png"
         },
         {
@@ -288,7 +480,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Amherst",
+          "thumbnail": null,
+          "return_map_name": "Amherst"
         },
         {
           "id": 1012,
@@ -296,7 +494,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001012.png",
-          "thumbnail": "images/maps/000001012.png"
+          "is_town": true,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001012.png",
+          "return_map_name": "Amherst"
         },
         {
           "id": 1013,
@@ -304,7 +508,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Amherst",
+          "thumbnail": null,
+          "return_map_name": "Amherst"
         },
         {
           "id": 1014,
@@ -312,7 +522,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001014.png",
-          "thumbnail": "images/maps/000001014.png"
+          "is_town": false,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": 1.2,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001014.png",
+          "return_map_name": "Amherst"
         },
         {
           "id": 1020,
@@ -320,7 +536,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001020.png",
-          "thumbnail": "images/maps/000001020.png"
+          "is_town": false,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001020.png",
+          "return_map_name": "Amherst"
         },
         {
           "id": 1021,
@@ -328,7 +550,13 @@
           "street_name": "Rainbow Street",
           "region": "Maple Island",
           "minimap": "images/maps/000001021.png",
-          "thumbnail": "images/maps/000001021.png"
+          "is_town": false,
+          "return_map_id": 1010,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Amherst",
+          "thumbnail": "images/maps/000001021.png",
+          "return_map_name": "Amherst"
         }
       ]
     },
@@ -342,6 +570,11 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080000000.png",
+          "is_town": false,
+          "return_map_id": null,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": 0.9,
+          "map_mark": "KerningCity",
           "thumbnail": "images/maps/080000000.png"
         },
         {
@@ -350,7 +583,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080000100.png",
-          "thumbnail": "images/maps/080000100.png"
+          "is_town": false,
+          "return_map_id": 80000000,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": 0.8,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/080000100.png",
+          "return_map_name": "1st Accompaniment <1st Stage>"
         },
         {
           "id": 80000200,
@@ -358,7 +597,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080000200.png",
-          "thumbnail": "images/maps/080000200.png"
+          "is_town": false,
+          "return_map_id": 80000000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/080000200.png",
+          "return_map_name": "1st Accompaniment <1st Stage>"
         },
         {
           "id": 80000300,
@@ -366,7 +611,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080000300.png",
-          "thumbnail": "images/maps/080000300.png"
+          "is_town": false,
+          "return_map_id": 80000000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/080000300.png",
+          "return_map_name": "1st Accompaniment <1st Stage>"
         },
         {
           "id": 80000400,
@@ -374,7 +625,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080000400.png",
-          "thumbnail": "images/maps/080000400.png"
+          "is_town": false,
+          "return_map_id": 80000000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/080000400.png",
+          "return_map_name": "1st Accompaniment <1st Stage>"
         },
         {
           "id": 80000500,
@@ -382,7 +639,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080000500.png",
-          "thumbnail": "images/maps/080000500.png"
+          "is_town": false,
+          "return_map_id": 80000000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 1.6,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/080000500.png",
+          "return_map_name": "1st Accompaniment <1st Stage>"
         },
         {
           "id": 80000600,
@@ -390,6 +653,11 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": null,
+          "is_town": false,
+          "return_map_id": null,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": 0.8,
+          "map_mark": "KerningCity",
           "thumbnail": null
         },
         {
@@ -398,7 +666,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080001000.png",
-          "thumbnail": "images/maps/080001000.png"
+          "is_town": false,
+          "return_map_id": 10001090,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 0.8,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/080001000.png",
+          "return_map_name": "The Road to the Dungeon"
         },
         {
           "id": 80001100,
@@ -406,7 +680,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080001100.png",
-          "thumbnail": "images/maps/080001100.png"
+          "is_town": false,
+          "return_map_id": 10002070,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.7,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/080001100.png",
+          "return_map_name": "The Forest North of Ellinia"
         },
         {
           "id": 80001200,
@@ -414,7 +694,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080001200.png",
-          "thumbnail": "images/maps/080001200.png"
+          "is_town": false,
+          "return_map_id": 10003080,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": 0.8,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/080001200.png",
+          "return_map_name": "Construction Site North of Kerning City"
         },
         {
           "id": 80001300,
@@ -422,7 +708,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080001300.png",
-          "thumbnail": "images/maps/080001300.png"
+          "is_town": false,
+          "return_map_id": 10004023,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 0.8,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/080001300.png",
+          "return_map_name": "West Rocky Mountain IV"
         },
         {
           "id": 80002000,
@@ -430,6 +722,11 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002000.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
           "thumbnail": "images/maps/080002000.png"
         },
         {
@@ -438,7 +735,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002001.png",
-          "thumbnail": "images/maps/080002001.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/080002001.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 80002002,
@@ -446,7 +749,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002002.png",
-          "thumbnail": "images/maps/080002002.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/080002002.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 80002003,
@@ -454,7 +763,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002003.png",
-          "thumbnail": "images/maps/080002003.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/080002003.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 80002004,
@@ -462,7 +777,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002004.png",
-          "thumbnail": "images/maps/080002004.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/080002004.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 80002005,
@@ -470,7 +791,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002005.png",
-          "thumbnail": "images/maps/080002005.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/080002005.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 80002006,
@@ -478,7 +805,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002006.png",
-          "thumbnail": "images/maps/080002006.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/080002006.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 80002007,
@@ -486,7 +819,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002007.png",
-          "thumbnail": "images/maps/080002007.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/080002007.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 80002008,
@@ -494,7 +833,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002008.png",
-          "thumbnail": "images/maps/080002008.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/080002008.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 80002009,
@@ -502,7 +847,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002009.png",
-          "thumbnail": "images/maps/080002009.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/080002009.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 80002010,
@@ -510,7 +861,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002010.png",
-          "thumbnail": "images/maps/080002010.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/080002010.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 80002011,
@@ -518,7 +875,13 @@
           "street_name": "Hidden Street",
           "region": "Other",
           "minimap": "images/maps/080002011.png",
-          "thumbnail": "images/maps/080002011.png"
+          "is_town": true,
+          "return_map_id": 80002000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/080002011.png",
+          "return_map_name": "Free Market Entrance"
         },
         {
           "id": 89000000,
@@ -526,6 +889,11 @@
           "street_name": "Truth Booth",
           "region": "Other",
           "minimap": null,
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/Silence",
+          "mob_rate": null,
+          "map_mark": "None",
           "thumbnail": null
         }
       ]
@@ -540,6 +908,11 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010000000.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": null,
+          "map_mark": "Rith",
           "thumbnail": "images/maps/010000000.png"
         },
         {
@@ -548,7 +921,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10000000,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": null,
+          "map_mark": "Rith",
+          "thumbnail": null,
+          "return_map_name": "Lith Harbor"
         },
         {
           "id": 10000002,
@@ -556,7 +935,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10000000,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": null,
+          "map_mark": "Rith",
+          "thumbnail": null,
+          "return_map_name": "Lith Harbor"
         },
         {
           "id": 10000003,
@@ -564,7 +949,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10000000,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": null,
+          "map_mark": "Rith",
+          "thumbnail": null,
+          "return_map_name": "Lith Harbor"
         },
         {
           "id": 10000010,
@@ -572,7 +963,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010000010.png",
-          "thumbnail": "images/maps/010000010.png"
+          "is_town": false,
+          "return_map_id": 10000000,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": null,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010000010.png",
+          "return_map_name": "Lith Harbor"
         },
         {
           "id": 10000011,
@@ -580,7 +977,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010000011.png",
-          "thumbnail": "images/maps/010000011.png"
+          "is_town": false,
+          "return_map_id": 10000000,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": null,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010000011.png",
+          "return_map_name": "Lith Harbor"
         },
         {
           "id": 10000012,
@@ -588,7 +991,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010000012.png",
-          "thumbnail": "images/maps/010000012.png"
+          "is_town": false,
+          "return_map_id": 10000000,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": null,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010000012.png",
+          "return_map_name": "Lith Harbor"
         },
         {
           "id": 10000013,
@@ -596,7 +1005,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010000013.png",
-          "thumbnail": "images/maps/010000013.png"
+          "is_town": false,
+          "return_map_id": 10000000,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": 1.2,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010000013.png",
+          "return_map_name": "Lith Harbor"
         },
         {
           "id": 10000020,
@@ -604,7 +1019,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010000020.png",
-          "thumbnail": "images/maps/010000020.png"
+          "is_town": false,
+          "return_map_id": 10000000,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": 1.3,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010000020.png",
+          "return_map_name": "Lith Harbor"
         },
         {
           "id": 10000021,
@@ -612,7 +1033,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010000021.png",
-          "thumbnail": "images/maps/010000021.png"
+          "is_town": false,
+          "return_map_id": 10000000,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": 1.5,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010000021.png",
+          "return_map_name": "Lith Harbor"
         },
         {
           "id": 10000022,
@@ -620,7 +1047,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010000022.png",
-          "thumbnail": "images/maps/010000022.png"
+          "is_town": false,
+          "return_map_id": 10000000,
+          "bgm": "Bgm02/AboveTheTreetops",
+          "mob_rate": null,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010000022.png",
+          "return_map_name": "Lith Harbor"
         },
         {
           "id": 10001000,
@@ -628,6 +1061,11 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001000.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
           "thumbnail": "images/maps/010001000.png"
         },
         {
@@ -636,6 +1074,11 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001001.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
           "thumbnail": "images/maps/010001001.png"
         },
         {
@@ -644,7 +1087,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001002.png",
-          "thumbnail": "images/maps/010001002.png"
+          "is_town": false,
+          "return_map_id": 10001001,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001002.png",
+          "return_map_name": "Henesys Townstreet"
         },
         {
           "id": 10001003,
@@ -652,7 +1101,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001003.png",
-          "thumbnail": "images/maps/010001003.png"
+          "is_town": false,
+          "return_map_id": 10001001,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": 0.7,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001003.png",
+          "return_map_name": "Henesys Townstreet"
         },
         {
           "id": 10001004,
@@ -660,7 +1115,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001004.png",
-          "thumbnail": "images/maps/010001004.png"
+          "is_town": false,
+          "return_map_id": 10001001,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": 0.7,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001004.png",
+          "return_map_name": "Henesys Townstreet"
         },
         {
           "id": 10001005,
@@ -668,7 +1129,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001005.png",
-          "thumbnail": "images/maps/010001005.png"
+          "is_town": false,
+          "return_map_id": 10001001,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": 1.3,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001005.png",
+          "return_map_name": "Henesys Townstreet"
         },
         {
           "id": 10001006,
@@ -676,7 +1143,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001006.png",
-          "thumbnail": "images/maps/010001006.png"
+          "is_town": false,
+          "return_map_id": 10001001,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001006.png",
+          "return_map_name": "Henesys Townstreet"
         },
         {
           "id": 10001010,
@@ -684,7 +1157,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001010.png",
-          "thumbnail": "images/maps/010001010.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm01/CavaBien",
+          "mob_rate": 1.5,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001010.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001011,
@@ -692,7 +1171,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001011.png",
-          "thumbnail": "images/maps/010001011.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm01/CavaBien",
+          "mob_rate": 1.5,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001011.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001012,
@@ -700,7 +1185,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001012.png",
-          "thumbnail": "images/maps/010001012.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm01/CavaBien",
+          "mob_rate": 1.5,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001012.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001020,
@@ -708,7 +1199,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001020.png",
-          "thumbnail": "images/maps/010001020.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm01/CavaBien",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001020.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001021,
@@ -716,7 +1213,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001021.png",
-          "thumbnail": "images/maps/010001021.png"
+          "is_town": true,
+          "return_map_id": 10001000,
+          "bgm": "Bgm01/CavaBien",
+          "mob_rate": 1.3,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001021.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001030,
@@ -724,7 +1227,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001030.png",
-          "thumbnail": "images/maps/010001030.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm01/CavaBien",
+          "mob_rate": 1.5,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001030.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001040,
@@ -732,7 +1241,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001040.png",
-          "thumbnail": "images/maps/010001040.png"
+          "is_town": true,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/GoPicnic",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001040.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001041,
@@ -740,7 +1255,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": null,
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001042,
@@ -748,7 +1269,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": null,
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001043,
@@ -756,7 +1283,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": null,
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001044,
@@ -764,7 +1297,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": null,
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001045,
@@ -772,7 +1311,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": null,
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001050,
@@ -780,7 +1325,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001050.png",
-          "thumbnail": "images/maps/010001050.png"
+          "is_town": true,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001050.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001051,
@@ -788,7 +1339,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": null,
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001052,
@@ -796,7 +1353,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001052.png",
-          "thumbnail": "images/maps/010001052.png"
+          "is_town": true,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001052.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001060,
@@ -804,7 +1367,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001060.png",
-          "thumbnail": "images/maps/010001060.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": 1.5,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001060.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001070,
@@ -812,7 +1381,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001070.png",
-          "thumbnail": "images/maps/010001070.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001070.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001080,
@@ -820,7 +1395,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001080.png",
-          "thumbnail": "images/maps/010001080.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001080.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001081,
@@ -828,7 +1409,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001081.png",
-          "thumbnail": "images/maps/010001081.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001081.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001082,
@@ -836,7 +1423,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001082.png",
-          "thumbnail": "images/maps/010001082.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/FloralLife",
+          "mob_rate": 1.6,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001082.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001090,
@@ -844,7 +1437,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001090.png",
-          "thumbnail": "images/maps/010001090.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001090.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001100,
@@ -852,7 +1451,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001100.png",
-          "thumbnail": "images/maps/010001100.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": null,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001100.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001101,
@@ -860,7 +1465,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010001101.png",
-          "thumbnail": "images/maps/010001101.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": 0.6,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001101.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001102,
@@ -868,7 +1479,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001102.png",
-          "thumbnail": "images/maps/010001102.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": 0.7,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001102.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001103,
@@ -876,7 +1493,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001103.png",
-          "thumbnail": "images/maps/010001103.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": 0.5,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001103.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001104,
@@ -884,7 +1507,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001104.png",
-          "thumbnail": "images/maps/010001104.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": 0.6,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001104.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001105,
@@ -892,7 +1521,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001105.png",
-          "thumbnail": "images/maps/010001105.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": 0.6,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001105.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10001106,
@@ -900,7 +1535,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010001106.png",
-          "thumbnail": "images/maps/010001106.png"
+          "is_town": false,
+          "return_map_id": 10001000,
+          "bgm": "Bgm00/RestNPeace",
+          "mob_rate": 0.6,
+          "map_mark": "Henesys",
+          "thumbnail": "images/maps/010001106.png",
+          "return_map_name": "Henesys"
         },
         {
           "id": 10002000,
@@ -908,6 +1549,11 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002000.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm02/WhenTheMorningComes",
+          "mob_rate": 0.0,
+          "map_mark": "Ellinia",
           "thumbnail": "images/maps/010002000.png"
         },
         {
@@ -916,7 +1562,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/WhenTheMorningComes",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": null,
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002002,
@@ -924,7 +1576,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/WhenTheMorningComes",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": null,
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002003,
@@ -932,7 +1590,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/WhenTheMorningComes",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": null,
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002004,
@@ -940,7 +1604,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002004.png",
-          "thumbnail": "images/maps/010002004.png"
+          "is_town": true,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/WhenTheMorningComes",
+          "mob_rate": 1.2,
+          "map_mark": "None",
+          "thumbnail": "images/maps/010002004.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002010,
@@ -948,7 +1618,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002010.png",
-          "thumbnail": "images/maps/010002010.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 1.2,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002010.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002020,
@@ -956,7 +1632,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002020.png",
-          "thumbnail": "images/maps/010002020.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002020.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002021,
@@ -964,7 +1646,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002021.png",
-          "thumbnail": "images/maps/010002021.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 0.8,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002021.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002022,
@@ -972,7 +1660,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002022.png",
-          "thumbnail": "images/maps/010002022.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.9,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002022.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002023,
@@ -980,7 +1674,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002023.png",
-          "thumbnail": "images/maps/010002023.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 0.8,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002023.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002024,
@@ -988,7 +1688,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002024.png",
-          "thumbnail": "images/maps/010002024.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.9,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002024.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002025,
@@ -996,7 +1702,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002025.png",
-          "thumbnail": "images/maps/010002025.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 0.7,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002025.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002026,
@@ -1004,7 +1716,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002026.png",
-          "thumbnail": "images/maps/010002026.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002026.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002027,
@@ -1012,7 +1730,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002027.png",
-          "thumbnail": "images/maps/010002027.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002027.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002030,
@@ -1020,7 +1744,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002030.png",
-          "thumbnail": "images/maps/010002030.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 1.5,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002030.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002031,
@@ -1028,7 +1758,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002031.png",
-          "thumbnail": "images/maps/010002031.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.9,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002031.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002032,
@@ -1036,7 +1772,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002032.png",
-          "thumbnail": "images/maps/010002032.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.9,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002032.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002033,
@@ -1044,7 +1786,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002033.png",
-          "thumbnail": "images/maps/010002033.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.9,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002033.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002034,
@@ -1052,7 +1800,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002034.png",
-          "thumbnail": "images/maps/010002034.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.9,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002034.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002040,
@@ -1060,7 +1814,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002040.png",
-          "thumbnail": "images/maps/010002040.png"
+          "is_town": true,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 1.2,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002040.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002041,
@@ -1068,7 +1828,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002041.png",
-          "thumbnail": "images/maps/010002041.png"
+          "is_town": true,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 1.2,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002041.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002042,
@@ -1076,7 +1842,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002042.png",
-          "thumbnail": "images/maps/010002042.png"
+          "is_town": true,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 1.2,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002042.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002043,
@@ -1084,7 +1856,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002043.png",
-          "thumbnail": "images/maps/010002043.png"
+          "is_town": true,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 1.6,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002043.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002044,
@@ -1092,7 +1870,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010002044.png",
-          "thumbnail": "images/maps/010002044.png"
+          "is_town": true,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 1.2,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002044.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002050,
@@ -1100,7 +1884,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002050.png",
-          "thumbnail": "images/maps/010002050.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 1.2,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002050.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002060,
@@ -1108,7 +1898,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002060.png",
-          "thumbnail": "images/maps/010002060.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002060.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002061,
@@ -1116,7 +1912,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002061.png",
-          "thumbnail": "images/maps/010002061.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002061.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002062,
@@ -1124,7 +1926,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002062.png",
-          "thumbnail": "images/maps/010002062.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 1.2,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002062.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002070,
@@ -1132,7 +1940,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002070.png",
-          "thumbnail": "images/maps/010002070.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm01/MoonlightShadow",
+          "mob_rate": 1.3,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002070.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002071,
@@ -1140,7 +1954,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002071.png",
-          "thumbnail": "images/maps/010002071.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 10.0,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002071.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002072,
@@ -1148,7 +1968,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002072.png",
-          "thumbnail": "images/maps/010002072.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002072.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002073,
@@ -1156,7 +1982,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002073.png",
-          "thumbnail": "images/maps/010002073.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002073.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002074,
@@ -1164,7 +1996,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002074.png",
-          "thumbnail": "images/maps/010002074.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.9,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002074.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002075,
@@ -1172,7 +2010,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002075.png",
-          "thumbnail": "images/maps/010002075.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.9,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002075.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002076,
@@ -1180,7 +2024,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002076.png",
-          "thumbnail": "images/maps/010002076.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": null,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002076.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002080,
@@ -1188,7 +2038,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002080.png",
-          "thumbnail": "images/maps/010002080.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.7,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002080.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002081,
@@ -1196,7 +2052,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002081.png",
-          "thumbnail": "images/maps/010002081.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.4,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002081.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002082,
@@ -1204,7 +2066,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002082.png",
-          "thumbnail": "images/maps/010002082.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.6,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002082.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10002083,
@@ -1212,7 +2080,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010002083.png",
-          "thumbnail": "images/maps/010002083.png"
+          "is_town": false,
+          "return_map_id": 10002000,
+          "bgm": "Bgm02/MissingYou",
+          "mob_rate": 0.6,
+          "map_mark": "Ellinia",
+          "thumbnail": "images/maps/010002083.png",
+          "return_map_name": "Ellinia"
         },
         {
           "id": 10003000,
@@ -1220,6 +2094,11 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010003000.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
           "thumbnail": "images/maps/010003000.png"
         },
         {
@@ -1228,7 +2107,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": null,
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003002,
@@ -1236,7 +2121,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": null,
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003003,
@@ -1244,7 +2135,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": null,
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003004,
@@ -1252,7 +2149,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": null,
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003005,
@@ -1260,7 +2163,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": null,
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003006,
@@ -1268,7 +2177,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": null,
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003010,
@@ -1276,7 +2191,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010003010.png",
-          "thumbnail": "images/maps/010003010.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003010.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003011,
@@ -1284,7 +2205,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010003011.png",
-          "thumbnail": "images/maps/010003011.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": 2.0,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003011.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003020,
@@ -1292,7 +2219,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010003020.png",
-          "thumbnail": "images/maps/010003020.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/BlueSky",
+          "mob_rate": 1.3,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003020.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003030,
@@ -1300,7 +2233,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010003030.png",
-          "thumbnail": "images/maps/010003030.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/BlueSky",
+          "mob_rate": 1.3,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003030.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003040,
@@ -1308,7 +2247,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010003040.png",
-          "thumbnail": "images/maps/010003040.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/BlueSky",
+          "mob_rate": 1.3,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003040.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003050,
@@ -1316,7 +2261,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010003050.png",
-          "thumbnail": "images/maps/010003050.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/BlueSky",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003050.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003051,
@@ -1324,7 +2275,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010003051.png",
-          "thumbnail": "images/maps/010003051.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/BlueSky",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003051.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003052,
@@ -1332,7 +2289,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010003052.png",
-          "thumbnail": "images/maps/010003052.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/BlueSky",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003052.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003060,
@@ -1340,7 +2303,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": null,
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003061,
@@ -1348,7 +2317,13 @@
           "street_name": "Kerning City Subway",
           "region": "Victoria Island",
           "minimap": "images/maps/010003061.png",
-          "thumbnail": "images/maps/010003061.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 1.1,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003061.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003062,
@@ -1356,7 +2331,13 @@
           "street_name": "Kerning City Subway",
           "region": "Victoria Island",
           "minimap": "images/maps/010003062.png",
-          "thumbnail": "images/maps/010003062.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003062.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003063,
@@ -1364,7 +2345,13 @@
           "street_name": "Kerning City Subway",
           "region": "Victoria Island",
           "minimap": "images/maps/010003063.png",
-          "thumbnail": "images/maps/010003063.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003063.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003064,
@@ -1372,7 +2359,13 @@
           "street_name": "Kerning City Subway",
           "region": "Victoria Island",
           "minimap": "images/maps/010003064.png",
-          "thumbnail": "images/maps/010003064.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003064.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003065,
@@ -1380,7 +2373,13 @@
           "street_name": "Kerning City Subway",
           "region": "Victoria Island",
           "minimap": "images/maps/010003065.png",
-          "thumbnail": "images/maps/010003065.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003065.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003066,
@@ -1388,7 +2387,13 @@
           "street_name": "Kerning City Subway",
           "region": "Victoria Island",
           "minimap": "images/maps/010003066.png",
-          "thumbnail": "images/maps/010003066.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003066.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003067,
@@ -1396,7 +2401,13 @@
           "street_name": "Kerning City Subway",
           "region": "Victoria Island",
           "minimap": "images/maps/010003067.png",
-          "thumbnail": "images/maps/010003067.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003067.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003068,
@@ -1404,7 +2415,13 @@
           "street_name": "Kerning City Subway",
           "region": "Victoria Island",
           "minimap": "images/maps/010003068.png",
-          "thumbnail": "images/maps/010003068.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003068.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003070,
@@ -1412,7 +2429,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010003070.png",
-          "thumbnail": "images/maps/010003070.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": 0.5,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003070.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003080,
@@ -1420,7 +2443,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010003080.png",
-          "thumbnail": "images/maps/010003080.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003080.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003081,
@@ -1428,7 +2457,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010003081.png",
-          "thumbnail": "images/maps/010003081.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm01/BadGuys",
+          "mob_rate": 2.0,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003081.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003090,
@@ -1436,7 +2471,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010003090.png",
-          "thumbnail": "images/maps/010003090.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": 1.1,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003090.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003091,
@@ -1444,7 +2485,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010003091.png",
-          "thumbnail": "images/maps/010003091.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": 1.1,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003091.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003092,
@@ -1452,7 +2499,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010003092.png",
-          "thumbnail": "images/maps/010003092.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": 1.1,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003092.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003093,
@@ -1460,7 +2513,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010003093.png",
-          "thumbnail": "images/maps/010003093.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003093.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003094,
@@ -1468,7 +2527,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010003094.png",
-          "thumbnail": "images/maps/010003094.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": 1.1,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003094.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003095,
@@ -1476,7 +2541,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010003095.png",
-          "thumbnail": "images/maps/010003095.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003095.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003096,
@@ -1484,7 +2555,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010003096.png",
-          "thumbnail": "images/maps/010003096.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003096.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003097,
@@ -1492,7 +2569,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010003097.png",
-          "thumbnail": "images/maps/010003097.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm02/JungleBook",
+          "mob_rate": null,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003097.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003100,
@@ -1500,7 +2583,13 @@
           "street_name": "Line 3 Construction Site",
           "region": "Victoria Island",
           "minimap": "images/maps/010003100.png",
-          "thumbnail": "images/maps/010003100.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003100.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003101,
@@ -1508,7 +2597,13 @@
           "street_name": "Line 3 Construction Site",
           "region": "Victoria Island",
           "minimap": "images/maps/010003101.png",
-          "thumbnail": "images/maps/010003101.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003101.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003102,
@@ -1516,7 +2611,13 @@
           "street_name": "Line 3 Construction Site",
           "region": "Victoria Island",
           "minimap": "images/maps/010003102.png",
-          "thumbnail": "images/maps/010003102.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 0.5,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003102.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003103,
@@ -1524,7 +2625,13 @@
           "street_name": "Line 3 Construction Site",
           "region": "Victoria Island",
           "minimap": "images/maps/010003103.png",
-          "thumbnail": "images/maps/010003103.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003103.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003104,
@@ -1532,7 +2639,13 @@
           "street_name": "Line 3 Construction Site",
           "region": "Victoria Island",
           "minimap": "images/maps/010003104.png",
-          "thumbnail": "images/maps/010003104.png"
+          "is_town": true,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003104.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003105,
@@ -1540,7 +2653,13 @@
           "street_name": "Line 3 Construction Site",
           "region": "Victoria Island",
           "minimap": "images/maps/010003105.png",
-          "thumbnail": "images/maps/010003105.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 0.5,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003105.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003106,
@@ -1548,7 +2667,13 @@
           "street_name": "Line 3 Construction Site",
           "region": "Victoria Island",
           "minimap": "images/maps/010003106.png",
-          "thumbnail": "images/maps/010003106.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003106.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003107,
@@ -1556,7 +2681,13 @@
           "street_name": "Line 3 Construction Site",
           "region": "Victoria Island",
           "minimap": "images/maps/010003107.png",
-          "thumbnail": "images/maps/010003107.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003107.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003108,
@@ -1564,7 +2695,13 @@
           "street_name": "Line 3 Construction Site",
           "region": "Victoria Island",
           "minimap": "images/maps/010003108.png",
-          "thumbnail": "images/maps/010003108.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 1.2,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003108.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10003109,
@@ -1572,7 +2709,13 @@
           "street_name": "Line 3 Construction Site",
           "region": "Victoria Island",
           "minimap": "images/maps/010003109.png",
-          "thumbnail": "images/maps/010003109.png"
+          "is_town": false,
+          "return_map_id": 10003000,
+          "bgm": "Bgm03/Subway",
+          "mob_rate": 0.5,
+          "map_mark": "KerningCity",
+          "thumbnail": "images/maps/010003109.png",
+          "return_map_name": "Kerning City"
         },
         {
           "id": 10004000,
@@ -1580,6 +2723,11 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004000.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
           "thumbnail": "images/maps/010004000.png"
         },
         {
@@ -1588,7 +2736,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": null,
+          "return_map_name": "Perion"
         },
         {
           "id": 10004002,
@@ -1596,7 +2750,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": null,
+          "return_map_name": "Perion"
         },
         {
           "id": 10004003,
@@ -1604,7 +2764,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": null,
+          "return_map_name": "Perion"
         },
         {
           "id": 10004010,
@@ -1612,7 +2778,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004010.png",
-          "thumbnail": "images/maps/010004010.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 1.1,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004010.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004020,
@@ -1620,7 +2792,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004020.png",
-          "thumbnail": "images/maps/010004020.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.6,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004020.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004021,
@@ -1628,7 +2806,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004021.png",
-          "thumbnail": "images/maps/010004021.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.6,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004021.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004022,
@@ -1636,7 +2820,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004022.png",
-          "thumbnail": "images/maps/010004022.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.8,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004022.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004023,
@@ -1644,7 +2834,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004023.png",
-          "thumbnail": "images/maps/010004023.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.6,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004023.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004030,
@@ -1652,7 +2848,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004030.png",
-          "thumbnail": "images/maps/010004030.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004030.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004040,
@@ -1660,7 +2862,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004040.png",
-          "thumbnail": "images/maps/010004040.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 1.2,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004040.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004041,
@@ -1668,7 +2876,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004041.png",
-          "thumbnail": "images/maps/010004041.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004041.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004042,
@@ -1676,7 +2890,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004042.png",
-          "thumbnail": "images/maps/010004042.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004042.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004050,
@@ -1684,7 +2904,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004050.png",
-          "thumbnail": "images/maps/010004050.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 0.8,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004050.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004051,
@@ -1692,7 +2918,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004051.png",
-          "thumbnail": "images/maps/010004051.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 0.8,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004051.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004052,
@@ -1700,7 +2932,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004052.png",
-          "thumbnail": "images/maps/010004052.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 0.8,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004052.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004053,
@@ -1708,7 +2946,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004053.png",
-          "thumbnail": "images/maps/010004053.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 0.8,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004053.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004054,
@@ -1716,7 +2960,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004054.png",
-          "thumbnail": "images/maps/010004054.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 0.8,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004054.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004055,
@@ -1724,7 +2974,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004055.png",
-          "thumbnail": "images/maps/010004055.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 0.8,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004055.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004056,
@@ -1732,7 +2988,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004056.png",
-          "thumbnail": "images/maps/010004056.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 0.6,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004056.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004060,
@@ -1740,7 +3002,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004060.png",
-          "thumbnail": "images/maps/010004060.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004060.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004070,
@@ -1748,7 +3016,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004070.png",
-          "thumbnail": "images/maps/010004070.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004070.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004080,
@@ -1756,7 +3030,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004080.png",
-          "thumbnail": "images/maps/010004080.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004080.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004090,
@@ -1764,7 +3044,13 @@
           "street_name": "Victoria Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010004090.png",
-          "thumbnail": "images/maps/010004090.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 1.2,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004090.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004091,
@@ -1772,7 +3058,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004091.png",
-          "thumbnail": "images/maps/010004091.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm00/Nightmare",
+          "mob_rate": 1.1,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004091.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004100,
@@ -1780,7 +3072,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004100.png",
-          "thumbnail": "images/maps/010004100.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004100.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004101,
@@ -1788,7 +3086,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004101.png",
-          "thumbnail": "images/maps/010004101.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004101.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004102,
@@ -1796,7 +3100,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004102.png",
-          "thumbnail": "images/maps/010004102.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.6,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004102.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004110,
@@ -1804,7 +3114,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004110.png",
-          "thumbnail": "images/maps/010004110.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004110.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004111,
@@ -1812,7 +3128,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004111.png",
-          "thumbnail": "images/maps/010004111.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.6,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004111.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004112,
@@ -1820,7 +3142,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004112.png",
-          "thumbnail": "images/maps/010004112.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.7,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004112.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004113,
@@ -1828,7 +3156,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004113.png",
-          "thumbnail": "images/maps/010004113.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.7,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004113.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004114,
@@ -1836,7 +3170,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004114.png",
-          "thumbnail": "images/maps/010004114.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.7,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004114.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004115,
@@ -1844,7 +3184,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004115.png",
-          "thumbnail": "images/maps/010004115.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.7,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004115.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004120,
@@ -1852,7 +3198,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004120.png",
-          "thumbnail": "images/maps/010004120.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004120.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10004121,
@@ -1860,7 +3212,13 @@
           "street_name": "Warning Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010004121.png",
-          "thumbnail": "images/maps/010004121.png"
+          "is_town": false,
+          "return_map_id": 10004000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": null,
+          "map_mark": "Perion",
+          "thumbnail": "images/maps/010004121.png",
+          "return_map_name": "Perion"
         },
         {
           "id": 10005000,
@@ -1868,6 +3226,11 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005000.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
           "thumbnail": "images/maps/010005000.png"
         },
         {
@@ -1876,7 +3239,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": null,
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005002,
@@ -1884,7 +3253,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": null,
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005003,
@@ -1892,7 +3267,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": null,
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005010,
@@ -1900,7 +3281,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005010.png",
-          "thumbnail": "images/maps/010005010.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 1.5,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005010.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005011,
@@ -1908,7 +3295,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005011.png",
-          "thumbnail": "images/maps/010005011.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 0.9,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005011.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005012,
@@ -1916,7 +3309,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005012.png",
-          "thumbnail": "images/maps/010005012.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005012.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005020,
@@ -1924,7 +3323,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005020.png",
-          "thumbnail": "images/maps/010005020.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 0.9,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005020.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005030,
@@ -1932,7 +3337,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005030.png",
-          "thumbnail": "images/maps/010005030.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005030.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005031,
@@ -1940,7 +3351,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005031.png",
-          "thumbnail": "images/maps/010005031.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005031.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005040,
@@ -1948,7 +3365,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010005040.png",
-          "thumbnail": "images/maps/010005040.png"
+          "is_town": true,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005040.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005041,
@@ -1956,7 +3379,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010005041.png",
-          "thumbnail": "images/maps/010005041.png"
+          "is_town": true,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005041.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005042,
@@ -1964,7 +3393,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010005042.png",
-          "thumbnail": "images/maps/010005042.png"
+          "is_town": true,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005042.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005043,
@@ -1972,7 +3407,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010005043.png",
-          "thumbnail": "images/maps/010005043.png"
+          "is_town": true,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005043.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005044,
@@ -1980,7 +3421,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010005044.png",
-          "thumbnail": "images/maps/010005044.png"
+          "is_town": true,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005044.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005045,
@@ -1988,7 +3435,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010005045.png",
-          "thumbnail": "images/maps/010005045.png"
+          "is_town": true,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005045.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005046,
@@ -1996,7 +3449,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010005046.png",
-          "thumbnail": "images/maps/010005046.png"
+          "is_town": true,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005046.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005050,
@@ -2004,7 +3463,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005050.png",
-          "thumbnail": "images/maps/010005050.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 0.9,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005050.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005051,
@@ -2012,7 +3477,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005051.png",
-          "thumbnail": "images/maps/010005051.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 0.7,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005051.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005052,
@@ -2020,7 +3491,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005052.png",
-          "thumbnail": "images/maps/010005052.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 0.6,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005052.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005053,
@@ -2028,7 +3505,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005053.png",
-          "thumbnail": "images/maps/010005053.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 0.6,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005053.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005054,
@@ -2036,7 +3519,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005054.png",
-          "thumbnail": "images/maps/010005054.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm00/SleepyWood",
+          "mob_rate": 0.7,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005054.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005060,
@@ -2044,7 +3533,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005060.png",
-          "thumbnail": "images/maps/010005060.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 0.6,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005060.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005061,
@@ -2052,7 +3547,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005061.png",
-          "thumbnail": "images/maps/010005061.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005061.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005062,
@@ -2060,7 +3561,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005062.png",
-          "thumbnail": "images/maps/010005062.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 0.6,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005062.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005063,
@@ -2068,7 +3575,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005063.png",
-          "thumbnail": "images/maps/010005063.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 0.6,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005063.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005064,
@@ -2076,7 +3589,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005064.png",
-          "thumbnail": "images/maps/010005064.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 1.2,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005064.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005065,
@@ -2084,7 +3603,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005065.png",
-          "thumbnail": "images/maps/010005065.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 1.1,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005065.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005066,
@@ -2092,7 +3617,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005066.png",
-          "thumbnail": "images/maps/010005066.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 0.6,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005066.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005067,
@@ -2100,7 +3631,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005067.png",
-          "thumbnail": "images/maps/010005067.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 0.6,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005067.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005070,
@@ -2108,7 +3645,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005070.png",
-          "thumbnail": "images/maps/010005070.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005070.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005071,
@@ -2116,7 +3659,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005071.png",
-          "thumbnail": "images/maps/010005071.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005071.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005072,
@@ -2124,7 +3673,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005072.png",
-          "thumbnail": "images/maps/010005072.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005072.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005073,
@@ -2132,7 +3687,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005073.png",
-          "thumbnail": "images/maps/010005073.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005073.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005074,
@@ -2140,7 +3701,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005074.png",
-          "thumbnail": "images/maps/010005074.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005074.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005075,
@@ -2148,7 +3715,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005075.png",
-          "thumbnail": "images/maps/010005075.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005075.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005076,
@@ -2156,7 +3729,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005076.png",
-          "thumbnail": "images/maps/010005076.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005076.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005077,
@@ -2164,7 +3743,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005077.png",
-          "thumbnail": "images/maps/010005077.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": 0.6,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005077.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005078,
@@ -2172,7 +3757,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005078.png",
-          "thumbnail": "images/maps/010005078.png"
+          "is_town": false,
+          "return_map_id": 105040300,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005078.png",
+          "return_map_name": "105040300"
         },
         {
           "id": 10005080,
@@ -2180,7 +3771,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005080.png",
-          "thumbnail": "images/maps/010005080.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005080.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005090,
@@ -2188,7 +3785,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005090.png",
-          "thumbnail": "images/maps/010005090.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": 0.7,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005090.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005091,
@@ -2196,7 +3799,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005091.png",
-          "thumbnail": "images/maps/010005091.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm01/AncientMove",
+          "mob_rate": null,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005091.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005100,
@@ -2204,7 +3813,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005100.png",
-          "thumbnail": "images/maps/010005100.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005100.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005101,
@@ -2212,7 +3827,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005101.png",
-          "thumbnail": "images/maps/010005101.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005101.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005102,
@@ -2220,7 +3841,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005102.png",
-          "thumbnail": "images/maps/010005102.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005102.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005103,
@@ -2228,7 +3855,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005103.png",
-          "thumbnail": "images/maps/010005103.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005103.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005104,
@@ -2236,7 +3869,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005104.png",
-          "thumbnail": "images/maps/010005104.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005104.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10005105,
@@ -2244,7 +3883,13 @@
           "street_name": "Dungeon",
           "region": "Victoria Island",
           "minimap": "images/maps/010005105.png",
-          "thumbnail": "images/maps/010005105.png"
+          "is_town": false,
+          "return_map_id": 10005000,
+          "bgm": "Bgm02/EvilEyes",
+          "mob_rate": 0.8,
+          "map_mark": "Dungeon",
+          "thumbnail": "images/maps/010005105.png",
+          "return_map_name": "Sleepywood"
         },
         {
           "id": 10006000,
@@ -2252,6 +3897,11 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006000.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": null,
+          "map_mark": "ForgottenHollow",
           "thumbnail": "images/maps/010006000.png"
         },
         {
@@ -2260,7 +3910,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": null,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": null,
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006002,
@@ -2268,7 +3924,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": null,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": null,
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006010,
@@ -2276,7 +3938,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006010.png",
-          "thumbnail": "images/maps/010006010.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": 0.6,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006010.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006020,
@@ -2284,7 +3952,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006020.png",
-          "thumbnail": "images/maps/010006020.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": null,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006020.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006030,
@@ -2292,7 +3966,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006030.png",
-          "thumbnail": "images/maps/010006030.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": 0.7,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006030.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006031,
@@ -2300,7 +3980,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010006031.png",
-          "thumbnail": "images/maps/010006031.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": 0.8,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006031.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006040,
@@ -2308,7 +3994,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006040.png",
-          "thumbnail": "images/maps/010006040.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": 0.5,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006040.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006050,
@@ -2316,7 +4008,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006050.png",
-          "thumbnail": "images/maps/010006050.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": 0.7,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006050.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006060,
@@ -2324,7 +4022,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006060.png",
-          "thumbnail": "images/maps/010006060.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": 0.7,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006060.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006070,
@@ -2332,7 +4036,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006070.png",
-          "thumbnail": "images/maps/010006070.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": 0.6,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006070.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006071,
@@ -2340,7 +4050,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006071.png",
-          "thumbnail": "images/maps/010006071.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": 0.7,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006071.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006080,
@@ -2348,7 +4064,13 @@
           "street_name": "Shallow Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006080.png",
-          "thumbnail": "images/maps/010006080.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/BygoneGarden",
+          "mob_rate": 0.7,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006080.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006090,
@@ -2356,7 +4078,13 @@
           "street_name": "Deep Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006090.png",
-          "thumbnail": "images/maps/010006090.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/CavernOfShadows",
+          "mob_rate": 0.5,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006090.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006100,
@@ -2364,7 +4092,13 @@
           "street_name": "Deep Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006100.png",
-          "thumbnail": "images/maps/010006100.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/CavernOfShadows",
+          "mob_rate": 0.7,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006100.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006110,
@@ -2372,7 +4106,13 @@
           "street_name": "Deep Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006110.png",
-          "thumbnail": "images/maps/010006110.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/CavernOfShadows",
+          "mob_rate": 0.7,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006110.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006120,
@@ -2380,7 +4120,13 @@
           "street_name": "Deep Passage",
           "region": "Victoria Island",
           "minimap": "images/maps/010006120.png",
-          "thumbnail": "images/maps/010006120.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/CavernOfShadows",
+          "mob_rate": null,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006120.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006121,
@@ -2388,7 +4134,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010006121.png",
-          "thumbnail": "images/maps/010006121.png"
+          "is_town": false,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/CavernOfShadows",
+          "mob_rate": null,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": "images/maps/010006121.png",
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10006152,
@@ -2396,7 +4148,13 @@
           "street_name": "Deep Passage",
           "region": "Victoria Island",
           "minimap": null,
-          "thumbnail": null
+          "is_town": true,
+          "return_map_id": 10006000,
+          "bgm": "Bgm03/CavernOfShadows",
+          "mob_rate": null,
+          "map_mark": "ForgottenHollow",
+          "thumbnail": null,
+          "return_map_name": "Forgotten Hollow"
         },
         {
           "id": 10007000,
@@ -2404,6 +4162,11 @@
           "street_name": "Florina Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010007000.png",
+          "is_town": true,
+          "return_map_id": null,
+          "bgm": "Bgm03/Beachway",
+          "mob_rate": null,
+          "map_mark": "Rith",
           "thumbnail": "images/maps/010007000.png"
         },
         {
@@ -2412,7 +4175,13 @@
           "street_name": "Florina Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010007010.png",
-          "thumbnail": "images/maps/010007010.png"
+          "is_town": false,
+          "return_map_id": 10007000,
+          "bgm": "Bgm03/Beachway",
+          "mob_rate": 1.1,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010007010.png",
+          "return_map_name": "Florina Beach"
         },
         {
           "id": 10007020,
@@ -2420,7 +4189,13 @@
           "street_name": "Florina Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010007020.png",
-          "thumbnail": "images/maps/010007020.png"
+          "is_town": false,
+          "return_map_id": 10007000,
+          "bgm": "Bgm03/Beachway",
+          "mob_rate": 1.1,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010007020.png",
+          "return_map_name": "Florina Beach"
         },
         {
           "id": 10007021,
@@ -2428,7 +4203,13 @@
           "street_name": "Hidden Street",
           "region": "Victoria Island",
           "minimap": "images/maps/010007021.png",
-          "thumbnail": "images/maps/010007021.png"
+          "is_town": false,
+          "return_map_id": 10007000,
+          "bgm": "Bgm03/Beachway",
+          "mob_rate": 1.2,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010007021.png",
+          "return_map_name": "Florina Beach"
         },
         {
           "id": 10007030,
@@ -2436,7 +4217,13 @@
           "street_name": "Florina Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010007030.png",
-          "thumbnail": "images/maps/010007030.png"
+          "is_town": false,
+          "return_map_id": 10007000,
+          "bgm": "Bgm03/Beachway",
+          "mob_rate": null,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010007030.png",
+          "return_map_name": "Florina Beach"
         },
         {
           "id": 10007031,
@@ -2444,7 +4231,13 @@
           "street_name": "Florina Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010007031.png",
-          "thumbnail": "images/maps/010007031.png"
+          "is_town": false,
+          "return_map_id": 10007000,
+          "bgm": "Bgm03/Beachway",
+          "mob_rate": null,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010007031.png",
+          "return_map_name": "Florina Beach"
         },
         {
           "id": 10007040,
@@ -2452,7 +4245,13 @@
           "street_name": "Florina Road",
           "region": "Victoria Island",
           "minimap": "images/maps/010007040.png",
-          "thumbnail": "images/maps/010007040.png"
+          "is_town": false,
+          "return_map_id": 10007000,
+          "bgm": "Bgm03/Beachway",
+          "mob_rate": 1.2,
+          "map_mark": "Rith",
+          "thumbnail": "images/maps/010007040.png",
+          "return_map_name": "Florina Beach"
         }
       ]
     }
