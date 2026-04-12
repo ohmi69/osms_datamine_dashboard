@@ -1,0 +1,189 @@
+{
+  "copied": {
+    "monsters": 89,
+    "items": 1659,
+    "skills": 93,
+    "maps": 268
+  },
+  "missing": {
+    "monsters": [],
+    "items": [
+      {
+        "id": "01322999",
+        "reason": "asset_dir_missing"
+      },
+      {
+        "id": "01392000",
+        "reason": "asset_dir_missing"
+      },
+      {
+        "id": "01060000",
+        "reason": "asset_dir_missing"
+      },
+      {
+        "id": "01061000",
+        "reason": "asset_dir_missing"
+      },
+      {
+        "id": "01802000",
+        "reason": "asset_dir_missing"
+      },
+      {
+        "id": "01802001",
+        "reason": "asset_dir_missing"
+      },
+      {
+        "id": "01802004",
+        "reason": "asset_dir_missing"
+      }
+    ],
+    "skills": [],
+    "maps": [
+      {
+        "id": "000000061",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "000001011",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "000001013",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010000001",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010000002",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010000003",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010001041",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010001042",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010001043",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010001044",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010001045",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010001051",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010002001",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010002002",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010002003",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010003001",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010003002",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010003003",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010003004",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010003005",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010003006",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010003060",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010004001",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010004002",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010004003",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010005001",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010005002",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010005003",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010006001",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010006002",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "010006152",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "080000600",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "089000000",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "090000001",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "090000002",
+        "reason": "minimap_not_found"
+      },
+      {
+        "id": "900000000",
+        "reason": "minimap_not_found"
+      }
+    ]
+  },
+  "missing_total": 43
+}

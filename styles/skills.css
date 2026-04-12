@@ -1,0 +1,39 @@
+.skill-card {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  transition: background .2s;
+}
+.skill-card:hover { background: var(--surface-2); }
+.skill-card .skill-name { font-size: 15px; font-weight: 500; color: var(--text); }
+.skill-card .max-level {
+  font-size: 11px;
+  font-family: monospace;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  color: var(--secondary);
+  margin-left: 8px;
+}
+.skill-card .skill-desc {
+  font-size: 13px;
+  color: var(--dim);
+  margin-top: 6px;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+.skill-card .required {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+.skill-card .required .label { color: var(--dim); }
+.skill-card .required .value { color: var(--accent); font-weight: 500; }
+.skill-card .stat-levels { margin-top: 8px; font-family: monospace; font-size: 13px; }
+.skill-card .stat-levels .lv1  { color: var(--dim); }
+.skill-card .stat-levels .lv1  .label { color: var(--secondary); }
+.skill-card .stat-levels .lvmax { color: var(--text); }
+.skill-card .stat-levels .lvmax .label { color: var(--accent); }
