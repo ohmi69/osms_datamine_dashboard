@@ -20,6 +20,23 @@ export function renderOverview(data, { switchTab }) {
     })
   );
 
+  titleDiv.appendChild(
+    el('div', {
+      style: {
+        display: 'inline-block',
+        marginTop: '12px',
+        padding: '4px 12px',
+        borderRadius: '4px',
+        background: 'var(--secondary)',
+        color: 'var(--bg)',
+        fontSize: '13px',
+        fontWeight: '700',
+        letterSpacing: '0.5px',
+      },
+      textContent: 'Current Version: Closed Beta Test (CBT)',
+    })
+  );
+
   const subtitle = el('p', {
     style: {
       color: 'var(--dim)',
@@ -98,8 +115,7 @@ export function renderOverview(data, { switchTab }) {
     ['CBT Window',         `${stats.cbt_start} — ${stats.cbt_end}`],
     ['Craft Disciplines',  stats.disciplines],
     ['Bosses',             stats.bosses],
-    ['New Zone',           stats.new_zone],
-    ['Level Range',        stats.level_range],
+    ['Mob Level Range',        stats.level_range],
     ['Scroll System',      stats.scroll_system],
     ['Repeatable Quests',  stats.repeatable_quests],
   ].forEach(([title, text]) => {

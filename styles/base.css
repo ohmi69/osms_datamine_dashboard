@@ -313,6 +313,37 @@ body {
 .skill-thumb { width: 30px; height: 30px; }
 .monster-thumb { width: 28px; height: 28px; border-radius: 4px; }
 
+/* ── Thumbnail tooltip ──────────────────────────────────────── */
+.thumb-tooltip {
+  position: fixed;
+  z-index: 9000;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  pointer-events: none;
+  max-width: 280px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  display: none;
+}
+.thumb-tooltip.visible { display: block; }
+.thumb-tooltip .tt-name {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.thumb-tooltip .tt-desc {
+  display: block;
+  font-size: 12px;
+  color: var(--dim);
+  margin-top: 4px;
+  line-height: 1.4;
+  white-space: pre-line;
+  max-height: 80px;
+  overflow: hidden;
+}
+
 /* ── Footer ─────────────────────────────────────────────────── */
 .footer {
   text-align: center;
