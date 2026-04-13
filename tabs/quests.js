@@ -5,6 +5,38 @@ const CHAIN_COLORS = [
   '#ec4899', '#14b8a6', '#eab308', '#ef4444',
 ];
 
+const QUEST_COMPLETION_STORAGE_KEY = 'questsCompletionById';
+
+function loadCompletionState() {
+  try {
+    const raw = localStorage.getItem(QUEST_COMPLETION_STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveCompletionState(state) {
+  try {
+    localStorage.setItem(QUEST_COMPLETION_STORAGE_KEY, JSON.stringify(state));
+  } catch {
+    // Ignore storage failures (private mode/quota/etc.) so the UI still works.
+  }
+}
+
+function getQuestCompletionKey(quest) {
+  if (!quest || quest.id == null) return '';
+  return String(quest.id);
+}
+
+function isQuestCompleted(quest, completionState) {
+  const key = getQuestCompletionKey(quest);
+  if (!key) return false;
+  return completionState[key] === true;
+}
+
 const rewardChipStyle = {
   display: 'inline-flex',
   alignItems: 'center',
@@ -238,13 +270,25 @@ function renderRewardContent(quest) {
   return content;
 }
 
-function renderQuestCard(quest) {
+function renderQuestCard(quest, completionState, onToggleCompletion) {
   const card = el('div', { className: 'quest-card' });
   const nameRow = el('div', { className: 'quest-name' });
+
+  const completionControl = el('label', { className: 'quest-complete-control' });
+  const completionCheckbox = el('input', {
+    type: 'checkbox',
+    className: 'quest-complete-checkbox',
+    'aria-label': `Mark ${quest.name} complete`,
+  });
+  completionCheckbox.checked = isQuestCompleted(quest, completionState);
+  completionCheckbox.addEventListener('change', () => {
+    onToggleCompletion(quest, completionCheckbox.checked);
+  });
+  completionControl.setAttribute('title', 'Mark quest as complete');
+  completionControl.appendChild(completionCheckbox);
+  nameRow.appendChild(completionControl);
+
   nameRow.appendChild(document.createTextNode(quest.name));
-  if (quest.id != null) {
-    nameRow.appendChild(el('span', { className: 'id', style: { marginLeft: 'auto' }, textContent: quest.id }));
-  }
   if (quest.level_min > 0) {
     nameRow.appendChild(
       el('span', { className: 'level-badge', textContent: `Lv.${quest.level_min}+` })
@@ -260,6 +304,9 @@ function renderQuestCard(quest) {
     nameRow.appendChild(
       el('span', { className: 'badge badge-repeatable', textContent: 'REPEATABLE' })
     );
+  }
+  if (quest.id != null) {
+    nameRow.appendChild(el('span', { className: 'id', style: { marginLeft: 'auto' }, textContent: quest.id }));
   }
   card.appendChild(nameRow);
 
@@ -315,6 +362,11 @@ function renderQuestCard(quest) {
     );
   }
 
+  card.classList.toggle('quest-complete', completionCheckbox.checked);
+  completionCheckbox.addEventListener('change', () => {
+    card.classList.toggle('quest-complete', completionCheckbox.checked);
+  });
+
   return card;
 }
 
@@ -323,6 +375,7 @@ export function renderQuests(data) {
   let searchQuery = '';
   let regionFilter = 'All';
   let sortByLevel = true;
+  const completionState = loadCompletionState();
   const container = el('div');
 
   const chainMetaByParent = new Map(
@@ -384,6 +437,21 @@ export function renderQuests(data) {
   const dataDiv = el('div');
   container.appendChild(dataDiv);
 
+  function getCompletedCount(questList) {
+    return questList.reduce(
+      (count, quest) => count + (isQuestCompleted(quest, completionState) ? 1 : 0),
+      0
+    );
+  }
+
+  function toggleQuestCompletion(quest, completed) {
+    const key = getQuestCompletionKey(quest);
+    if (!key) return;
+    completionState[key] = completed;
+    saveCompletionState(completionState);
+    renderData();
+  }
+
   function renderData() {
     dataDiv.innerHTML = '';
     const allQuests = quests.quests.filter(
@@ -425,12 +493,20 @@ export function renderQuests(data) {
       allItems.sort((a, b) => a.level - b.level);
     }
 
+    const totalQuestCount = Array.isArray(quests.quests) ? quests.quests.length : 0;
+    const totalCompleted = getCompletedCount(Array.isArray(quests.quests) ? quests.quests : []);
+    const visibleCompleted = getCompletedCount(allQuests);
+    const progressText = `${visibleCompleted}/${allQuests.length} completed`;
+    const overallText = allQuests.length === totalQuestCount
+      ? ''
+      : ` (${totalCompleted}/${totalQuestCount} total)`;
     dataDiv.appendChild(
-      el('div', { className: 'count-text', textContent: `${allQuests.length} quests` })
+      el('div', { className: 'count-text quest-progress-text', textContent: `${allQuests.length} quests · ${progressText}${overallText}` })
     );
+
     allItems.forEach((item) => {
       if (item.type === 'quest') {
-        dataDiv.appendChild(renderQuestCard(item.quest));
+        dataDiv.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion));
       } else {
         const chain = item.chain;
         const color = CHAIN_COLORS[item.idx % CHAIN_COLORS.length];
@@ -444,7 +520,9 @@ export function renderQuests(data) {
           textContent: `${chain.parent} · ${chain.quests.length} quests`,
         });
         chainDiv.appendChild(header);
-        chain.quests.forEach((quest) => chainDiv.appendChild(renderQuestCard(quest)));
+        chain.quests.forEach((quest) =>
+          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion))
+        );
         dataDiv.appendChild(chainDiv);
       }
     });

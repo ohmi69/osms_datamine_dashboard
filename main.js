@@ -119,7 +119,7 @@ async function init() {
   const idToggle = el('button', {
     className: `id-toggle${showIds ? ' active' : ''}`,
     title: 'Show/hide IDs',
-    textContent: 'IDs',
+    textContent: 'Show IDs',
   });
   idToggle.addEventListener('click', () => {
     showIds = !showIds;
