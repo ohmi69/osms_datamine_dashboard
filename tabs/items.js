@@ -1,8 +1,8 @@
 import { el, makeSearchBox, makeCollapsible, makeThumbnail } from '../lib/utils.js';
 
 const STAT_LABELS = {
-  price:      ['Price',      (v) => v.toLocaleString() + ' mesos'],
-  unitPrice:  ['Unit Price', (v) => v.toLocaleString() + ' mesos'],
+  price:      ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
+  unitPrice:  ['Recharge Price', (v) => v.toLocaleString() + ' mesos per unit'],
   slotMax:    ['Stack Size', (v) => v.toLocaleString()],
   tradeBlock: ['Trade',      ()  => 'Untradeable'],
   only:       ['Limit',      ()  => 'Only 1'],
