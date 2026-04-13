@@ -50,7 +50,14 @@ function formatSpawnTime(seconds) {
   return s > 0 ? `${m}m ${s}s` : `${m}m`;
 }
 
-export function renderMaps(data) {
+function parseMapIdFilter(query) {
+  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
+  if (!match) return null;
+  return Number(match[1]);
+}
+
+export function renderMaps(data, options = {}) {
+  const { onMobClick } = options;
   const { maps, monsters } = data;
   const container = el('div');
   container.appendChild(
@@ -99,12 +106,28 @@ export function renderMaps(data) {
   }
 
   let searchQuery = '';
-  container.appendChild(
-    makeSearchBox('Search maps...', (value) => {
-      searchQuery = value;
+  let autoExpandAfterId = null;
+  const searchBox = makeSearchBox('Search maps...', (value) => {
+    searchQuery = value;
+    renderData();
+  });
+  container.appendChild(searchBox);
+
+  if (options.setNavigate) {
+    options.setNavigate((target) => {
+      const nextFilter = typeof target === 'object' && target && target.id != null
+        ? `id:${target.id}`
+        : String(target || '');
+      autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand) ? target.id : null;
+      searchQuery = nextFilter;
+      searchBox._input.value = nextFilter;
+      selectedRegion = null;
+      allTab.classList.add('active');
+      regionTabs.forEach((btn) => btn.classList.remove('active'));
       renderData();
-    })
-  );
+      window.scrollTo(0, 0);
+    });
+  }
 
   // Pills
   const pillRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '16px 0 8px 0', alignItems: 'center' } });
@@ -200,6 +223,15 @@ export function renderMaps(data) {
             style: { color: timerColor, marginLeft: '4px', fontSize: '11px' },
             textContent: `⏱ ${mob.mobTime != null ? formatSpawnTime(mob.mobTime) : '—'}`,
           }));
+          if (onMobClick) {
+            chip.style.cursor = 'pointer';
+            chip.title = `View ${mob.name || `#${mob.id}`} in Monsters tab`;
+            chip.classList.add('mob-chip-clickable');
+            chip.addEventListener('click', (e) => {
+              e.stopPropagation();
+              onMobClick(mob.id);
+            }, true);
+          }
           grid.appendChild(chip);
         }
         panel.appendChild(grid);
@@ -429,38 +461,54 @@ export function renderMaps(data) {
     async function renderData() {
       dataDiv.innerHTML = '';
       const sq = searchQuery.toLowerCase();
+      const exactId = parseMapIdFilter(searchQuery);
       const npcLookup = await getNpcLookup();
       let regions = selectedRegion
         ? maps.regions.filter((r) => r.region === selectedRegion)
         : maps.regions;
       regions.forEach((region) => {
-        const filtered = sq
-          ? region.maps.filter((m) => {
-              // Match map name or street name
-              if ((m.name || '').toLowerCase().includes(sq) || (m.street_name || '').toLowerCase().includes(sq)) {
-                return true;
-              }
-              // Match mob names that spawn on this map
-              const mobs = mapMobs.get(m.id);
-              if (mobs && mobs.some(mob => (mob.name || '').toLowerCase().includes(sq))) {
-                return true;
-              }
-              // Match NPC names on this map
-              if (Array.isArray(m.npcs) && m.npcs.length > 0) {
-                for (const npcId of m.npcs) {
-                  const npc = npcLookup.get(Number(npcId));
-                  if ((npc?.name || '').toLowerCase().includes(sq)) {
-                    return true;
+        const filtered = exactId != null
+          ? region.maps.filter((m) => Number(m.id) === exactId)
+          : sq
+            ? region.maps.filter((m) => {
+                // Match map name or street name
+                if ((m.name || '').toLowerCase().includes(sq) || (m.street_name || '').toLowerCase().includes(sq)) {
+                  return true;
+                }
+                // Match mob names that spawn on this map
+                const mobs = mapMobs.get(m.id);
+                if (mobs && mobs.some(mob => (mob.name || '').toLowerCase().includes(sq))) {
+                  return true;
+                }
+                // Match NPC names on this map
+                if (Array.isArray(m.npcs) && m.npcs.length > 0) {
+                  for (const npcId of m.npcs) {
+                    const npc = npcLookup.get(Number(npcId));
+                    if ((npc?.name || '').toLowerCase().includes(sq)) {
+                      return true;
+                    }
                   }
                 }
-              }
-              return false;
-            })
-          : region.maps;
+                return false;
+              })
+            : region.maps;
         if (!filtered.length) return;
-        dataDiv.appendChild(
-          makeCollapsible(region.region, filtered.length, true, null, () => renderRegionTable(filtered))
-        );
+        const collapsible = makeCollapsible(region.region, filtered.length, true, null, () => renderRegionTable(filtered));
+        dataDiv.appendChild(collapsible);
+        
+        if (autoExpandAfterId != null) {
+          setTimeout(() => {
+            const rows = collapsible.querySelectorAll('tr');
+            for (const row of rows) {
+              const idCell = row.querySelector('.id-col .id');
+              if (idCell && Number(idCell.textContent) === autoExpandAfterId) {
+                row.click();
+                autoExpandAfterId = null;
+                break;
+              }
+            }
+          }, 0);
+        }
       });
     }
 

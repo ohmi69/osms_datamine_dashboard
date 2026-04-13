@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  margin: 32px 0 24px;
+  margin: 10px 0 24px;
 }
 
 .nav-card {

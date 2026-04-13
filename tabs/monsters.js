@@ -21,7 +21,7 @@ function getMonsterElements(monster) {
   }));
 }
 
-function buildDetailRow(monster, colSpan) {
+function buildDetailRow(monster, colSpan, onMapClick) {
   const detailTr = el('tr', { className: 'monster-detail-row' });
   const detailTd = el('td', { colSpan: String(colSpan) });
 
@@ -157,6 +157,14 @@ function buildDetailRow(monster, colSpan) {
       if (m.count > 1) {
         chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${m.count}` }));
       }
+      if (onMapClick) {
+        chip.style.cursor = 'pointer';
+        chip.title = `View ${m.name || `#${m.id}`} in Maps tab`;
+        chip.addEventListener('click', (e) => {
+          e.stopPropagation();
+          onMapClick(m.id);
+        });
+      }
       mapList.appendChild(chip);
     });
     mapsCol.appendChild(mapList);
@@ -169,8 +177,15 @@ function buildDetailRow(monster, colSpan) {
   return detailTr;
 }
 
-export function renderMonsters(data) {
+function parseMonsterIdFilter(query) {
+  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
+  if (!match) return null;
+  return Number(match[1]);
+}
+
+export function renderMonsters(data, options = {}) {
   const { monsters } = data;
+  const { onMapClick } = options;
 
   const allCols = [
     { id: 'level',    label: 'Lv',      on: true  },
@@ -203,6 +218,7 @@ export function renderMonsters(data) {
   let typeFilter = '';
   let sortCol = 'level';
   let sortDir = 1;
+  let autoExpandAfterId = null;
 
   const container = el('div');
   const dataContainer = el('div');
@@ -211,13 +227,25 @@ export function renderMonsters(data) {
     style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' },
   });
   const searchDiv = el('div', { style: { flex: '1', minWidth: '200px' } });
-  searchDiv.appendChild(
-    makeSearchBox('Search monsters...', (value) => {
-      filter = value;
-      renderData();
-    })
-  );
+  const searchBox = makeSearchBox('Search monsters...', (value) => {
+    filter = value;
+    renderData();
+  });
+  searchDiv.appendChild(searchBox);
   topRow.appendChild(searchDiv);
+
+  if (options.setNavigate) {
+    options.setNavigate((target) => {
+      const nextFilter = typeof target === 'object' && target && target.id != null
+        ? `id:${target.id}`
+        : String(target || '');
+      autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand) ? target.id : null;
+      filter = nextFilter;
+      searchBox._input.value = nextFilter;
+      renderData();
+      window.scrollTo(0, 0);
+    });
+  }
 
   const pills = el('div', { className: 'pill-group' });
   function rebuildPills() {
@@ -271,8 +299,12 @@ export function renderMonsters(data) {
     const visibleCols = allCols.filter((col) => colState[col.id]);
     // +3 for Name col, Tags col, and ID col
     const totalCols = visibleCols.length + 3;
+    const exactId = parseMonsterIdFilter(filter);
 
     const filtered = monsters.monsters.filter((monster) => {
+      if (exactId != null) {
+        return Number(monster.id) === exactId;
+      }
       if (!matchSearch(monster.name, filter)) return false;
       if (typeFilter === 'boss' && !monster.is_boss) return false;
       return true;
@@ -444,7 +476,7 @@ export function renderMonsters(data) {
           detailRow = null;
           row.classList.remove('expanded');
         } else {
-          detailRow = buildDetailRow(monster, totalCols);
+          detailRow = buildDetailRow(monster, totalCols, onMapClick);
           row.after(detailRow);
           row.classList.add('expanded');
         }
@@ -456,6 +488,20 @@ export function renderMonsters(data) {
     table.appendChild(tbody);
     wrapper.appendChild(table);
     dataContainer.appendChild(wrapper);
+    
+    if (autoExpandAfterId != null) {
+      setTimeout(() => {
+        const rows = dataContainer.querySelectorAll('tr.monster-row');
+        for (const row of rows) {
+          const idCell = row.querySelector('.id-col .id');
+          if (idCell && Number(idCell.textContent) === autoExpandAfterId) {
+            row.click();
+            autoExpandAfterId = null;
+            break;
+          }
+        }
+      }, 0);
+    }
   }
 
   renderData();

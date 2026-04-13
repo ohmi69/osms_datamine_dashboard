@@ -25,11 +25,26 @@ let appData = null;
 let activeTab = 'overview';
 const panelCache = {};
 
+let navigateMonsters = null;
+let navigateMaps = null;
+
 // Renderers are thunks so switchTab is captured by closure (defined below)
 const renderers = {
   overview:  () => renderOverview(appData, { switchTab }),
-  monsters:  () => renderMonsters(appData),
-  maps:      () => renderMaps(appData),
+  monsters:  () => renderMonsters(appData, {
+    setNavigate: (fn) => { navigateMonsters = fn; },
+    onMapClick: (mapId) => {
+      switchTab('maps');
+      if (navigateMaps) navigateMaps({ id: mapId, autoExpand: true });
+    },
+  }),
+  maps:      () => renderMaps(appData, {
+    setNavigate: (fn) => { navigateMaps = fn; },
+    onMobClick: (mobId) => {
+      switchTab('monsters');
+      if (navigateMonsters) navigateMonsters({ id: mobId, autoExpand: true });
+    },
+  }),
   skills:    () => renderSkills(appData),
   crafting:  () => renderCrafting(appData),
   items:     () => renderItems(appData),

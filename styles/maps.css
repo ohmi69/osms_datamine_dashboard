@@ -24,3 +24,8 @@
 .full-map-image:hover {
   border-color: var(--accent, #7aa2f7);
 }
+
+.mob-chip-clickable:hover {
+  border-color: var(--accent, #7aa2f7);
+  background: var(--accent-bg, rgba(122,162,247,0.12)) !important;
+}
