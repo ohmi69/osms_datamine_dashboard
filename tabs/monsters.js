@@ -156,9 +156,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
     [...spawnMaps].sort((a, b) => a.id - b.id).forEach((m) => {
       const chip = el('span', { className: 'monster-map-chip' });
       chip.appendChild(el('span', { textContent: m.name || String(m.id) }));
-      if (m.count > 1) {
-        chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${m.count}` }));
-      }
+      chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${m.count}` }));
       if (onMapClick) {
         chip.style.cursor = 'pointer';
         chip.title = `View ${m.name || `#${m.id}`} in Maps tab`;

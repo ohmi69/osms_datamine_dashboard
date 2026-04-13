@@ -91,6 +91,7 @@ function switchTab(tabId, pushState = true, query = null) {
     navigators[tabId](query);
   }
 }
+window.switchTab = switchTab;
 
 window.addEventListener('hashchange', () => {
   const { tab, query } = parseDeepLink(location.hash.slice(1));
