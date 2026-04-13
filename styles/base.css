@@ -310,7 +310,6 @@ body {
 .tab-btn svg { width: 15px; height: 15px; }
 
 .id-toggle {
-  margin-left: auto;
   padding: 6px 10px;
   background: transparent;
   border: 1px solid var(--border);
@@ -322,19 +321,23 @@ body {
   letter-spacing: .5px;
   cursor: pointer;
   white-space: nowrap;
-  align-self: center;
   flex-shrink: 0;
   transition: all .15s;
 }
 .id-toggle:hover { color: var(--text); border-color: var(--dim); }
 .id-toggle.active { background: var(--accent-bg); color: var(--accent); border-color: var(--accent); }
 
-.theme-toggle {
-  font-size: 15px;
-  padding: 5px 9px;
-  line-height: 1;
-}
 .theme-toggle.active { background: var(--accent-bg); border-color: var(--accent); }
+
+.toggle-dock {
+  position: fixed;
+  right: 16px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+}
 
 /* ── Search box ─────────────────────────────────────────────── */
 .search-box { position: relative; margin-bottom: 16px; }
@@ -538,6 +541,7 @@ body {
 /* ── ID display ─────────────────────────────────────────────── */
 .id { font-size: 11px; color: var(--dim); font-family: monospace; }
 body.hide-ids .id { display: none !important; }
+body.hide-ids .id-col { display: none !important; }
 
 /* ── Item rows (shared: items + equipment + maps) ───────────── */
 .item-row { padding: 10px 16px; transition: background .2s; }

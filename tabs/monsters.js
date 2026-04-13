@@ -269,8 +269,8 @@ export function renderMonsters(data) {
   function renderData() {
     dataContainer.innerHTML = '';
     const visibleCols = allCols.filter((col) => colState[col.id]);
-    // +2 for Name col and Tags col
-    const totalCols = visibleCols.length + 2;
+    // +3 for Name col, Tags col, and ID col
+    const totalCols = visibleCols.length + 3;
 
     const filtered = monsters.monsters.filter((monster) => {
       if (!matchSearch(monster.name, filter)) return false;
@@ -329,6 +329,7 @@ export function renderMonsters(data) {
     });
 
     headRow.appendChild(el('th', { textContent: 'Tags' }));
+    headRow.appendChild(el('th', { className: 'num id-col', textContent: 'ID' }));
     thead.appendChild(headRow);
     table.appendChild(thead);
 
@@ -421,17 +422,18 @@ export function renderMonsters(data) {
       });
 
       const tagCell = el('td');
-      const tagRow = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' } });
       const tagWrap = el('span', { style: { display: 'flex', gap: '6px', flexWrap: 'wrap' } });
       if (monster.is_boss) {
         tagWrap.appendChild(el('span', { className: 'badge badge-boss', textContent: 'BOSS' }));
       }
-      tagRow.appendChild(tagWrap);
-      if (monster.id != null) {
-        tagRow.appendChild(el('span', { className: 'id', textContent: monster.id }));
-      }
-      tagCell.appendChild(tagRow);
+      tagCell.appendChild(tagWrap);
       row.appendChild(tagCell);
+
+      const idTd = el('td', { className: 'num id-col' });
+      if (monster.id != null) {
+        idTd.appendChild(el('span', { className: 'id', textContent: monster.id }));
+      }
+      row.appendChild(idTd);
 
       // Click to toggle detail row
       let detailRow = null;

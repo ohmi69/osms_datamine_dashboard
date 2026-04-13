@@ -104,7 +104,7 @@ export function renderSkills(data) {
           );
         }
         nameRow.appendChild(nameWrap);
-        nameRow.appendChild(el('span', { className: 'id', textContent: skill.id != null ? `#${skill.id}` : '' }));
+        nameRow.appendChild(el('span', { className: 'id', textContent: skill.id != null ? `${skill.id}` : '' }));
         card.appendChild(nameRow);
 
         if (skill.description) {

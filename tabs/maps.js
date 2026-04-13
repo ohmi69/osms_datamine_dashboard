@@ -269,7 +269,7 @@ export function renderMaps(data) {
       { id: 'mobs',       label: 'Mobs',      cls: 'num', sortVal: m => mobStats.get(m.id)?.total ?? -1 },
       { id: 'exp_per_mob',label: 'Exp / Mob', cls: 'num', sortVal: m => mobStats.get(m.id)?.expPerMob ?? -1 },
       { id: 'total_exp',  label: 'Total Exp', cls: 'num', sortVal: m => mobStats.get(m.id)?.totalExp ?? -1 },
-      { id: 'id',         label: 'ID',        cls: 'num', sortVal: m => m.id },
+      { id: 'id',         label: 'ID',        cls: 'num id-col', sortVal: m => m.id },
     ];
 
     const thead = el('thead');
@@ -377,7 +377,7 @@ export function renderMaps(data) {
         tr.appendChild(totalExpTd);
 
         // ID
-        const idTd = el('td', { className: 'num' });
+        const idTd = el('td', { className: 'num id-col' });
         idTd.appendChild(el('span', { className: 'id', textContent: mapEntry.id }));
         tr.appendChild(idTd);
 

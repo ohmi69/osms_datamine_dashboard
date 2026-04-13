@@ -46,6 +46,29 @@ export function renderOverview(data, { switchTab }) {
   heroBanner.appendChild(heroText);
   frag.appendChild(heroBanner);
 
+  // Disclaimer
+  const disclaimer = el('div', {
+    style: {
+      background: 'rgba(254,178,114,.08)',
+      border: '1px solid rgba(254,178,114,.35)',
+      borderLeft: '6px solid var(--accent)',
+      borderRadius: '0 10px 10px 0',
+      padding: '12px 18px',
+      marginBottom: '24px',
+      fontSize: '13px',
+      color: 'var(--dim)',
+      lineHeight: '1.6',
+    },
+  });
+  disclaimer.appendChild(el('span', {
+    style: { color: 'var(--accent)', fontWeight: '700', marginRight: '6px' },
+    textContent: 'Disclaimer:',
+  }));
+  disclaimer.append(
+    'This data comes from the game files but does not guarantee that everything will appear on release — or ever. Content may be cut, delayed, or changed before launch.'
+  );
+  frag.appendChild(disclaimer);
+
   const navSection = el('div');
   navSection.appendChild(el('div', { className: 'section-heading', textContent: 'Explore' }));
 

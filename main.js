@@ -127,28 +127,31 @@ async function init() {
     idToggle.classList.toggle('active', showIds);
     saveState('showIds', showIds);
   });
-  nav.appendChild(idToggle);
 
   const themeToggle = el('button', {
     className: `id-toggle theme-toggle${theme === 'mapletip' ? '' : ' active'}`,
     title: 'Toggle dark/light theme',
-    innerHTML: theme === 'mapletip' ? '🌙' : '☀️',
+    innerHTML: theme === 'mapletip' ? '🌙 Dark Mode' : '☀️ Light Mode',
   });
   themeToggle.addEventListener('click', () => {
     if (theme === 'dark') {
       theme = 'mapletip';
       document.documentElement.setAttribute('data-theme', 'mapletip');
-      themeToggle.innerHTML = '🌙';
+      themeToggle.innerHTML = '🌙 Dark Mode';
       themeToggle.classList.remove('active');
     } else {
       theme = 'dark';
       document.documentElement.removeAttribute('data-theme');
-      themeToggle.innerHTML = '☀️';
+      themeToggle.innerHTML = '☀️ Light Mode';
       themeToggle.classList.add('active');
     }
     saveState('theme', theme);
   });
-  nav.appendChild(themeToggle);
+
+  const toggleDock = el('div', { className: 'toggle-dock' });
+  toggleDock.appendChild(idToggle);
+  toggleDock.appendChild(themeToggle);
+  document.body.appendChild(toggleDock);
 
   let hashTab = location.hash.slice(1);
   if (hashTab === 'cash_shop') hashTab = 'cashshop';
