@@ -129,32 +129,109 @@ function buildWeaponMultTable() {
 }
 
 const DAMAGE_VARS = [
-  { name: 'PrimaryStat',  desc: 'Main stat for your class (STR, DEX, INT, or LUK)' },
-  { name: 'SecondaryStat', desc: 'Secondary stat for your class' },
-  { name: 'AttackPower',  desc: 'Total weapon attack from gear and buffs.' },
-  { name: 'WeaponAttack', desc: 'Base attack value of the equipped weapon. Include weapon attack from throwing stars/arrows as well.' },
-  { name: 'MinMult',      desc: 'Weapon multiplier (Swing or Stab) — see Weapon Min/Max Multipliers table below' },
-  { name: 'MaxMult',      desc: 'Weapon multiplier (Swing or Stab) — see Weapon Min/Max Multipliers table below' },
-  { name: 'Masterylvl',   desc: 'Mastery skill level (0 if not applicable)' },
+  { name: 'SkillMult',      desc: 'Skill damage % expressed as a decimal (e.g. 150% → 1.5)' },
+  { name: 'PrimaryStat',    desc: 'Main stat for your class (STR, DEX, INT, or LUK)' },
+  { name: 'SecondaryStat',  desc: 'Secondary stat for your class. For Thieves: STR + DEX' },
+  { name: 'AttackPower',    desc: 'Total weapon attack from gear and buffs' },
+  { name: 'WeaponAttack',   desc: 'Base attack of the equipped weapon, including Stars/Arrows' },
+  { name: 'MinMult',        desc: 'Weapon min multiplier (Swing or Stab) — see table below' },
+  { name: 'MaxMult',        desc: 'Weapon max multiplier (Swing or Stab) — see table below' },
+  { name: 'MasteryMult',    desc: '(0.1 + MasteryLvl / 10) × 0.8 — 0 if not applicable. L7 is ~50–60% (WIP)' },
+  { name: 'ElementalMult',  desc: 'Elemental modifier: 0.0 (immune), 0.75 (resistant), 1.0 (neutral), 1.25 (weak). Base elemental damage bonus is 25%' },
+  { name: 'LevelDiff',      desc: 'Enemy level minus player level (only applied when enemy is above player level)' },
+  { name: 'CritDamage',     desc: 'Crit damage stat (base: 20)' },
+  { name: 'ConsecutiveHits', desc: 'Iron Arrow (Crossbow) only: 0 for first mob, 1 for second, etc.' },
+];
+
+const DAMAGE_PIPELINE = [
+  {
+    label: 'Base Range',
+    wip: false,
+    lines: [
+      'MIN = SkillMult × ((80 + PrimaryStat × MinMult × MasteryMult + SecondaryStat + AttackPower) / 100) × WeaponAttack × 100',
+      'MAX = SkillMult × ((100 + PrimaryStat × MaxMult + SecondaryStat + AttackPower) / 100) × WeaponAttack × 100',
+      '',
+      'Roll a value between MIN and MAX',
+    ],
+  },
+  {
+    label: 'Weapon Defense Reduction',
+    wip: true,
+    lines: [
+      'Damage / (((iVar9 × (iVar10 / 100.0 + 1.0)) + local_1f0) + 100)',
+    ],
+  },
+  {
+    label: 'Elemental Modifier',
+    wip: false,
+    lines: [
+      'Damage × ElementalMult',
+      '  0.0  — immune',
+      '  0.75 — resistant',
+      '  1.0  — neutral',
+      '  1.25 — weak',
+    ],
+  },
+  {
+    label: 'Level Difference Penalty',
+    wip: false,
+    lines: [
+      'Only applied when enemy level > player level:',
+      '  < 10 levels above:  Damage / (LevelDiff² × 0.005 + 1)',
+      '  ≥ 10 levels above:  Damage / (LevelDiff × 0.05 + 1)',
+    ],
+  },
+  {
+    label: 'Critical Hit',
+    wip: false,
+    lines: [
+      'Base crit rate: 5%',
+      'If crit: Damage × ((CritDamage + 100) / 100)',
+      '  e.g. CritDamage = 20 → Damage × 1.20',
+    ],
+  },
+  {
+    label: 'Iron Arrow Falloff (Crossbow only)',
+    wip: false,
+    lines: [
+      'Damage × (1.0 − ConsecutiveHits × 0.2)',
+      '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.6 …',
+    ],
+  },
+  {
+    label: 'Clamp',
+    wip: false,
+    lines: [
+      'Damage = max(1, min(700,000,000,000, Damage))',
+    ],
+  },
 ];
 
 function buildDamageFormula() {
   const container = el('div', { className: 'formulas-formula-wrap' });
 
-  // Formula block
-  const block = el('div', { className: 'formulas-code-block' });
+  // Pipeline steps
+  DAMAGE_PIPELINE.forEach(({ label, wip, lines }, i) => {
+    const step = el('div', { className: 'formulas-pipeline-step' });
 
-  for (const [label, formula] of [
-    ['MIN Damage', 'MIN = (0.8 + (PrimaryStat × MinMult × ((0.1 + Masterylvl / 10) × 0.8) + SecondaryStat + AttackPower) / 100.0) × WeaponAttack'],
-    ['MAX Damage', 'MAX = (1.0 + (PrimaryStat × MaxMult + SecondaryStat + AttackPower) / 100.0) × WeaponAttack'],
-  ]) {
-    const cell = el('div', { className: 'formulas-code-cell' });
-    cell.appendChild(el('div', { className: 'formulas-code-label', textContent: label }));
-    cell.appendChild(el('pre', { className: 'formulas-code', textContent: formula }));
-    block.appendChild(cell);
-  }
+    const stepHeader = el('div', { className: 'formulas-pipeline-header' });
+    const badge = el('span', { className: 'formulas-pipeline-badge', textContent: i + 1 });
+    const title = el('span', { className: 'formulas-pipeline-title', textContent: label });
+    stepHeader.appendChild(badge);
+    stepHeader.appendChild(title);
+    if (wip) {
+      stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
+    }
+    step.appendChild(stepHeader);
 
-  container.appendChild(block);
+    const codeLines = lines.filter(l => l !== '');
+    if (codeLines.length) {
+      const pre = el('pre', { className: 'formulas-code', textContent: lines.join('\n') });
+      step.appendChild(pre);
+    }
+
+    container.appendChild(step);
+  });
 
   // Variable legend
   container.appendChild(el('div', { className: 'formulas-var-heading', textContent: 'Variables' }));
@@ -208,7 +285,40 @@ export function renderFormulas() {
     buildWeaponMultTable,
   );
 
+  const changesSection = makeCollapsibleSection(
+    'Recent Changes & Base Stats',
+    '',
+    () => {
+      const container = el('div', { className: 'formulas-table-wrap' });
+      const table = el('table', { className: 'data-table' });
+
+      const thead = el('thead');
+      const headerRow = el('tr');
+      for (const [text, cls] of [['Stat', ''], ['Value', 'num']]) {
+        headerRow.appendChild(el('th', { className: cls, textContent: text }));
+      }
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+
+      const tbody = el('tbody');
+      for (const [stat, value] of [
+        ['Elemental Damage', '50% → 25%'],
+        ['Base Crit Rate', '5%'],
+        ['Base Crit Damage', '20%'],
+      ]) {
+        const row = el('tr');
+        row.appendChild(el('td', { textContent: stat }));
+        row.appendChild(el('td', { className: 'num', textContent: value }));
+        tbody.appendChild(row);
+      }
+      table.appendChild(tbody);
+      container.appendChild(table);
+      return container;
+    },
+  );
+
   const rightCol = el('div', { className: 'formulas-col' });
+  rightCol.appendChild(changesSection);
   rightCol.appendChild(physDmgSection);
   rightCol.appendChild(magicDmgSection);
   rightCol.appendChild(weaponMultSection);
