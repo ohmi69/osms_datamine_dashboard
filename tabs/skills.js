@@ -51,7 +51,7 @@ export function renderSkills(data, options = {}) {
     });
   }
   rebuildPills();
-  const searchBox = makeSearchBox('Search skills...', (value) => {
+  const searchBox = makeSearchBox('Search by name or description...', (value) => {
     searchQuery = value;
     renderData();
   });
@@ -205,6 +205,15 @@ export function renderSkills(data, options = {}) {
         makeCollapsible(`${cls.class_name} — ${cls.job}`, cls.skills.length, true, null, content)
       );
     });
+
+    if (filtered.length === 0) {
+      dataDiv.appendChild(
+        el('p', {
+          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
+          textContent: 'No skills match your filters.',
+        })
+      );
+    }
   }
 
   renderData();

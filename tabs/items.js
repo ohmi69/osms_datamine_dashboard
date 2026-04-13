@@ -81,7 +81,7 @@ export function renderItems(data, options = {}) {
   const container = el('div');
   const scrollIdSet = new Set(items.scrolls.map((scroll) => String(scroll.id)));
 
-  const searchBox = makeSearchBox('Search items...', (value) => {
+  const searchBox = makeSearchBox('Search by name or description...', (value) => {
     searchQuery = value;
     renderData();
   });
@@ -204,6 +204,15 @@ export function renderItems(data, options = {}) {
           makeCollapsible('Setup', setupItems.length, true, null, setupContent)
         );
       }
+    }
+
+    if (dataDiv.children.length === 0) {
+      dataDiv.appendChild(
+        el('p', {
+          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
+          textContent: 'No items match your filters.',
+        })
+      );
     }
   }
 

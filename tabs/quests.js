@@ -393,7 +393,7 @@ export function renderQuests(data, options = {}) {
       : []
   );
 
-  const qSearchBox = makeSearchBox('Search quests...', (value) => {
+  const qSearchBox = makeSearchBox('Search by name, NPC, or reward...', (value) => {
     searchQuery = value;
     renderData();
   });
@@ -476,7 +476,7 @@ export function renderQuests(data, options = {}) {
       if (exactId != null) return Number(quest.id) === exactId;
       return (
         (regionFilter === 'All' || quest.region === regionFilter) &&
-        (matchSearch(quest.name, searchQuery) || matchSearch(quest.description, searchQuery))
+        (matchSearch(quest.name, searchQuery) || matchSearch(quest.description, searchQuery) || matchSearch(quest.npc_name, searchQuery) || matchSearch(quest.rewards_items, searchQuery))
       );
     });
 
@@ -546,6 +546,15 @@ export function renderQuests(data, options = {}) {
         dataDiv.appendChild(chainDiv);
       }
     });
+
+    if (allQuests.length === 0) {
+      dataDiv.appendChild(
+        el('p', {
+          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
+          textContent: 'No quests match your filters.',
+        })
+      );
+    }
   }
 
   renderData();

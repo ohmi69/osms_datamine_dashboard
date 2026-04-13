@@ -227,7 +227,7 @@ export function renderMonsters(data, options = {}) {
     style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' },
   });
   const searchDiv = el('div', { style: { flex: '1', minWidth: '200px' } });
-  const searchBox = makeSearchBox('Search monsters...', (value) => {
+  const searchBox = makeSearchBox('Search by name or map...', (value) => {
     filter = value;
     renderData();
   });
@@ -307,7 +307,7 @@ export function renderMonsters(data, options = {}) {
       if (exactId != null) {
         return Number(monster.id) === exactId;
       }
-      if (!matchSearch(monster.name, filter)) return false;
+      if (!matchSearch(monster.name, filter) && !monster.maps?.some((m) => matchSearch(m.name, filter))) return false;
       if (typeFilter === 'boss' && !monster.is_boss) return false;
       return true;
     });
@@ -315,6 +315,16 @@ export function renderMonsters(data, options = {}) {
     dataContainer.appendChild(
       el('div', { className: 'count-text', textContent: `${filtered.length} monsters` })
     );
+
+    if (filtered.length === 0) {
+      dataContainer.appendChild(
+        el('p', {
+          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
+          textContent: 'No monsters match your filters.',
+        })
+      );
+      return;
+    }
 
     const wrapper = el('div', { style: { overflowX: 'auto' } });
     const table = el('table', { className: 'data-table' });

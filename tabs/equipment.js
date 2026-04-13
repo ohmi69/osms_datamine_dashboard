@@ -6,6 +6,7 @@ function parseIdFilter(query) {
   return Number(match[1]);
 }
 
+
 function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
   const requiredJob = item.stats.reqJob || 0;
@@ -53,6 +54,7 @@ export function renderEquipment(data, options = {}) {
   const { items } = data;
   let searchQuery = '';
   let classFilter = 0;
+  const equipTextCache = new Map();
   const container = el('div');
   const equipmentMeta = items.equipment_meta || {};
 
@@ -86,7 +88,7 @@ export function renderEquipment(data, options = {}) {
     filterBar.appendChild(button);
   });
 
-  const eqSearchBox = makeSearchBox('Search equipment...', (value) => {
+  const eqSearchBox = makeSearchBox('Search by name or description...', (value) => {
     searchQuery = value;
     renderData();
   });
@@ -113,11 +115,10 @@ export function renderEquipment(data, options = {}) {
     if (exactId != null) {
       equips = equips.filter((equip) => Number(equip.id) === exactId);
     } else if (sq) {
-      equips = equips.filter(
-        (equip) =>
-          equip.name.toLowerCase().includes(sq) ||
-          (equip.description || '').toLowerCase().includes(sq)
-      );
+      equips = equips.filter((equip) => {
+        if (!equipTextCache.has(equip.id)) equipTextCache.set(equip.id, renderEquipRow(equip).textContent.toLowerCase());
+        return equipTextCache.get(equip.id).includes(sq);
+      });
     }
     if (classFilter !== 0) {
       equips = equips.filter((equip) => matchesClass(equip, classFilter));

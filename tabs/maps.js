@@ -108,7 +108,7 @@ export function renderMaps(data, options = {}) {
   let searchQuery = '';
   let autoExpandAfterId = null;
   let renderGen = 0;
-  const searchBox = makeSearchBox('Search maps...', (value) => {
+  const searchBox = makeSearchBox('Search by name, mob, or NPC...', (value) => {
     searchQuery = value;
     renderData();
   });
@@ -525,7 +525,16 @@ export function renderMaps(data, options = {}) {
         const collapsible = makeCollapsible(region.region, filtered.length, true, null, () => renderRegionTable(filtered));
         dataDiv.appendChild(collapsible);
       });
-      
+
+      if (!dataDiv.children.length) {
+        dataDiv.appendChild(
+          el('p', {
+            style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
+            textContent: 'No maps match your filters.',
+          })
+        );
+      }
+
       if (autoExpandAfterId != null) {
         setTimeout(() => {
           const rows = dataDiv.querySelectorAll('tr');

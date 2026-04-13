@@ -113,7 +113,7 @@ export function renderCrafting(data, options = {}) {
   });
 
 
-  const craftSearchBox = makeSearchBox('Search recipes...', (value) => {
+  const craftSearchBox = makeSearchBox('Search by result or ingredient...', (value) => {
     searchQuery = value;
     renderData();
   });
@@ -219,6 +219,16 @@ export function renderCrafting(data, options = {}) {
     dataDiv.appendChild(
       el('div', { className: 'count-text', textContent: `${totalRecipes} recipes` })
     );
+
+    if (totalRecipes === 0) {
+      dataDiv.appendChild(
+        el('p', {
+          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
+          textContent: 'No recipes match your filters.',
+        })
+      );
+      return;
+    }
 
     filtered.forEach((discipline) => {
       const disciplineRecipes = discipline.output_types.reduce(

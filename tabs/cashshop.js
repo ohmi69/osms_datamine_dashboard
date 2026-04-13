@@ -10,7 +10,7 @@ export function renderCashShop(data, options = {}) {
   const { cashShop } = data;
   let searchQuery = '';
   const container = el('div');
-  const csSearchBox = makeSearchBox('Search cash shop...', (value) => {
+  const csSearchBox = makeSearchBox('Search by name or description...', (value) => {
     searchQuery = value;
     renderData();
   });
@@ -296,6 +296,15 @@ export function renderCashShop(data, options = {}) {
         makeCollapsible(category.category, category.items.length, true, null, content)
       );
     });
+
+    if (total === 0) {
+      dataDiv.appendChild(
+        el('p', {
+          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
+          textContent: 'No cash shop items match your filters.',
+        })
+      );
+    }
 
     // Always append unnamed section at the bottom when "All" is selected and search matches
     const filteredUnnamed = !selectedCategory && unnamedItems.length > 0
