@@ -95,7 +95,8 @@ export function renderEquipment(data) {
     if (sq) {
       equips = equips.filter(
         (equip) =>
-          renderEquipRow(equip).textContent.toLowerCase().includes(sq)
+          equip.name.toLowerCase().includes(sq) ||
+          (equip.description || '').toLowerCase().includes(sq)
       );
     }
     if (classFilter !== 0) {
