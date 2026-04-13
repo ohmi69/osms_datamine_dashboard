@@ -166,13 +166,32 @@ export function renderMaps(data, options = {}) {
           src: mapImgPath,
           alt: `${mapEntry.name || 'Map'} full image`,
           loading: 'lazy',
-          style: { maxWidth: '100%', maxHeight: '600px', background: '#222' },
+          style: { maxWidth: '100%', maxHeight: '600px', background: '#fff' },
         });
         img.title = 'Click to open full size in new tab';
         img.addEventListener('click', (e) => {
           window.open(mapImgPath, '_blank');
         });
         imgContainer.appendChild(img);
+
+        // Background toggle
+        const bgToggle = el('div', { className: 'map-bg-toggle' });
+        const btnBlack = el('button', { className: 'map-bg-btn', textContent: 'Black' });
+        const btnWhite = el('button', { className: 'map-bg-btn active', textContent: 'White' });
+        btnBlack.addEventListener('click', () => {
+          img.style.background = '#000';
+          btnBlack.classList.add('active');
+          btnWhite.classList.remove('active');
+        });
+        btnWhite.addEventListener('click', () => {
+          img.style.background = '#fff';
+          btnWhite.classList.add('active');
+          btnBlack.classList.remove('active');
+        });
+        bgToggle.appendChild(btnBlack);
+        bgToggle.appendChild(btnWhite);
+        imgContainer.appendChild(bgToggle);
+
         panel.appendChild(imgContainer);
       }
 

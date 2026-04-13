@@ -4,7 +4,7 @@
 .full-map-image-container {
   display: inline-block;
   margin: 28px auto 18px auto;
-  background: var(--surface2, #181a20);
+  background: var(--surface-2);
   border-radius: 12px;
   width: auto;
   max-width: 100%;
@@ -23,6 +23,39 @@
 }
 .full-map-image:hover {
   border-color: var(--accent, #7aa2f7);
+}
+
+.map-bg-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0 4px 0;
+}
+
+.map-bg-btn {
+  padding: 3px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--dim);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.map-bg-btn.active {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.map-bg-btn:hover:not(.active) {
+  border-color: var(--dim);
+  color: var(--text);
 }
 
 .mob-chip-clickable:hover {
