@@ -1,6 +1,0 @@
-__pycache__/
-extractor/extracted/
-extractor/wz_files/
-data/
-.claude/
-deploy.ps1

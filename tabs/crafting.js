@@ -26,7 +26,7 @@ function showItemTooltip(e, itemData) {
   const header = el('div', { className: 'item-tooltip-header' });
   const thumbSrc = toItemThumbPath(itemData.id);
   if (thumbSrc) {
-    const img = el('img', { className: 'item-tooltip-thumb', alt: itemData.name, loading: 'lazy' });
+    const img = el('img', { className: 'item-tooltip-thumb', loading: 'lazy' });
     img.src = normalizeAssetPath(thumbSrc);
     img.addEventListener('error', () => img.remove(), { once: true });
     header.appendChild(img);

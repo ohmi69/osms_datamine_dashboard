@@ -42,7 +42,7 @@ function buildDetailRow(monster, colSpan) {
   const animWrap = el('div', { className: 'monster-anim-wrap' });
   let gifImg;
   if (defaultSrc) {
-    gifImg = el('img', { src: defaultSrc, alt: `${monster.name} animation`, className: 'monster-detail-gif' });
+    gifImg = el('img', { src: defaultSrc, className: 'monster-detail-gif' });
     animWrap.appendChild(gifImg);
   } else {
     gifImg = null;

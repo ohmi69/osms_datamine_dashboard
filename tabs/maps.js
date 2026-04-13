@@ -199,7 +199,6 @@ export function renderMaps(data) {
           if (npc?.thumbnail) {
             chip.appendChild(el('img', {
               src: normalizeAssetPath(npc.thumbnail),
-              alt: npc.name || `NPC #${npcId}`,
               style: { width: '32px', height: '32px', objectFit: 'contain', borderRadius: '4px',  marginRight: '4px' },
               loading: 'lazy',
             }));
