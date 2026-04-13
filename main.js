@@ -65,6 +65,8 @@ const renderers = {
 function switchTab(tabId, pushState = true, query = null) {
   activeTab = tabId;
   if (pushState) {
+    history.pushState(null, '', `#${tabId}`);
+  } else {
     history.replaceState(null, '', `#${tabId}`);
   }
   $$('.tab-btn').forEach((button) => {
@@ -207,7 +209,7 @@ async function init() {
 
   const { tab: rawHashTab, query: hashQuery } = parseDeepLink(location.hash.slice(1));
   const hashTab = rawHashTab === 'cash_shop' ? 'cashshop' : rawHashTab;
-  switchTab(hashTab && renderers[hashTab] ? hashTab : 'overview', true, hashQuery);
+  switchTab(hashTab && renderers[hashTab] ? hashTab : 'overview', false, hashQuery);
 
   showMapleTip();
 }
