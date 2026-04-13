@@ -1,7 +1,8 @@
 import { el, makeSearchBox, makeCollapsible, makeThumbnail } from '../lib/utils.js';
 
 const STAT_LABELS = {
-  price:      ['Unit Price', (v) => v.toLocaleString() + ' mesos'],
+  price:      ['Price',      (v) => v.toLocaleString() + ' mesos'],
+  unitPrice:  ['Unit Price', (v) => v.toLocaleString() + ' mesos'],
   slotMax:    ['Stack Size', (v) => v.toLocaleString()],
   tradeBlock: ['Trade',      ()  => 'Untradeable'],
   only:       ['Limit',      ()  => 'Only 1'],
@@ -13,7 +14,7 @@ const STAT_LABELS = {
 function buildDetailPanel(item) {
   const stats = item.stats || {};
   const chips = [];
-
+  console.log(item);
   for (const [key, [label, fmt]] of Object.entries(STAT_LABELS)) {
     const val = stats[key];
     if (val == null || val === 0 || val === false) continue;

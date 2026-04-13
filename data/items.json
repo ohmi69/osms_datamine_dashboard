@@ -22597,6 +22597,7 @@
       "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +15",
       "stats": {
         "price": 250,
+        "unitPrice": 0.3,
         "slotMax": 500
       },
       "thumbnail": "images/items/02070000.png"
@@ -22609,6 +22610,7 @@
       "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +17",
       "stats": {
         "price": 500,
+        "unitPrice": 0.4,
         "slotMax": 500
       },
       "thumbnail": "images/items/02070001.png"
@@ -22621,6 +22623,7 @@
       "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +19",
       "stats": {
         "price": 1000,
+        "unitPrice": 0.5,
         "slotMax": 700
       },
       "thumbnail": "images/items/02070002.png"
@@ -22633,6 +22636,7 @@
       "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +21",
       "stats": {
         "price": 1500,
+        "unitPrice": 0.6,
         "slotMax": 700
       },
       "thumbnail": "images/items/02070003.png"
@@ -22645,6 +22649,7 @@
       "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +23",
       "stats": {
         "price": 2500,
+        "unitPrice": 0.7,
         "slotMax": 1000
       },
       "thumbnail": "images/items/02070004.png"
@@ -22657,6 +22662,7 @@
       "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +25",
       "stats": {
         "price": 10000,
+        "unitPrice": 0.8,
         "slotMax": 1000
       },
       "thumbnail": "images/items/02070005.png"
@@ -22669,6 +22675,7 @@
       "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +27",
       "stats": {
         "price": 20000,
+        "unitPrice": 0.9,
         "slotMax": 800
       },
       "thumbnail": "images/items/02070006.png"
@@ -22681,6 +22688,7 @@
       "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +29",
       "stats": {
         "price": 25000,
+        "unitPrice": 1.0,
         "slotMax": 800
       },
       "thumbnail": "images/items/02070007.png"
@@ -22693,6 +22701,7 @@
       "description": "A well-packed snowball. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +17",
       "stats": {
         "price": 500,
+        "unitPrice": 1.0,
         "slotMax": 800
       },
       "thumbnail": "images/items/02070008.png"
@@ -22705,6 +22714,7 @@
       "description": "When thrown, it spins fast and flies at great speed. Once they are all used up, they need to be recharged.\nLevel Limit : 10, Weapon Attack +19",
       "stats": {
         "price": 500,
+        "unitPrice": 1.0,
         "slotMax": 800
       },
       "thumbnail": "images/items/02070009.png"
@@ -22717,6 +22727,7 @@
       "description": "Sharp icicles. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +21",
       "stats": {
         "price": 500,
+        "unitPrice": 1.0,
         "slotMax": 800
       },
       "thumbnail": "images/items/02070010.png"
