@@ -108,10 +108,29 @@ export function renderItems(data, options = {}) {
   });
   container.appendChild(pillRow);
 
+  // Scroll slot subfilters
+  const allScrollSlots = [...new Set(items.scrolls.map((s) => s.equip_slot).filter(Boolean))].sort();
+  const scrollSubRow = el('div', { style: { display: 'none', flexWrap: 'wrap', gap: '6px', margin: '0 0 8px 0', alignItems: 'center' } });
+  const scrollSubLabel = el('span', { textContent: 'Slot:', style: { fontSize: '0.78rem', color: 'var(--text-muted, #888)', marginRight: '2px' } });
+  scrollSubRow.appendChild(scrollSubLabel);
+  const scrollAllSlotBtn = el('button', { className: 'pill pill--sub active', textContent: 'All' });
+  scrollSubRow.appendChild(scrollAllSlotBtn);
+  const scrollSlotBtns = allScrollSlots.map((slot) => {
+    const btn = el('button', { className: 'pill pill--sub', textContent: slot });
+    scrollSubRow.appendChild(btn);
+    return btn;
+  });
+  container.appendChild(scrollSubRow);
+
   const dataDiv = el('div');
   container.appendChild(dataDiv);
 
   let selectedCategory = null; // null = all
+  let selectedScrollSlot = null; // null = all slots
+
+  function updateScrollSubRowVisibility() {
+    scrollSubRow.style.display = selectedCategory === 'Scrolls' ? 'flex' : 'none';
+  }
 
   function renderData() {
     dataDiv.innerHTML = '';
@@ -128,11 +147,12 @@ export function renderItems(data, options = {}) {
     );
     const allScrolls = items.scrolls.filter(
       (scroll) =>
-        exactId != null
+        (selectedScrollSlot == null || scroll.equip_slot === selectedScrollSlot) &&
+        (exactId != null
           ? Number(scroll.id) === exactId
           : !sq ||
             scroll.name.toLowerCase().includes(sq) ||
-            (scroll.description || '').toLowerCase().includes(sq)
+            (scroll.description || '').toLowerCase().includes(sq))
     );
     const consumables = allItems.filter(
       (item) => item.category === 'Consumable' && !scrollIdSet.has(String(item.id))
@@ -187,11 +207,28 @@ export function renderItems(data, options = {}) {
     }
   }
 
+  // Scroll slot subfilter listeners
+  scrollAllSlotBtn.addEventListener('click', () => {
+    selectedScrollSlot = null;
+    scrollAllSlotBtn.classList.add('active');
+    scrollSlotBtns.forEach((b) => b.classList.remove('active'));
+    renderData();
+  });
+  scrollSlotBtns.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      selectedScrollSlot = allScrollSlots[idx];
+      scrollAllSlotBtn.classList.remove('active');
+      scrollSlotBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
+      renderData();
+    });
+  });
+
   // Tab event listeners
   allTab.addEventListener('click', () => {
     selectedCategory = null;
     allTab.classList.add('active');
     categoryTabs.forEach((btn) => btn.classList.remove('active'));
+    updateScrollSubRowVisibility();
     renderData();
   });
   categoryTabs.forEach((btn, idx) => {
@@ -201,10 +238,12 @@ export function renderItems(data, options = {}) {
       categoryTabs.forEach((b, i) => b.classList.toggle('active', i === idx));
       btn.classList.add('active');
       categoryTabs.forEach((b, i) => { if (i !== idx) b.classList.remove('active'); });
+      updateScrollSubRowVisibility();
       renderData();
     });
   });
 
+  updateScrollSubRowVisibility();
   renderData();
   return container;
 }

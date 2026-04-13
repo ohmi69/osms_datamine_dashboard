@@ -461,6 +461,30 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,.25);
 }
 
+/* Subfilter pills — smaller, secondary style */
+.pill--sub {
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: .3px;
+  border-color: var(--border);
+  background: var(--surface-2);
+  color: var(--dim);
+}
+.pill--sub:hover { color: var(--text); border-color: var(--dim); }
+.pill--sub.active {
+  background: var(--secondary);
+  color: var(--bg);
+  border-color: var(--secondary);
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+[data-theme="mapletip"] .pill--sub.active {
+  background: var(--secondary);
+  color: #fff;
+  border-color: var(--secondary);
+}
+
 /* ── Badges ─────────────────────────────────────────────────── */
 .badge {
   display: inline-flex;
