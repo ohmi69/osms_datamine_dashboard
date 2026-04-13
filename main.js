@@ -9,6 +9,7 @@ import { renderCrafting }  from './tabs/crafting.js';
 import { renderItems }     from './tabs/items.js';
 import { renderEquipment } from './tabs/equipment.js';
 import { renderCashShop }  from './tabs/cashshop.js';
+import { renderBeautyStyles } from './tabs/beauty.js';
 import { renderQuests }    from './tabs/quests.js';
 import { renderFormulas }  from './tabs/formulas.js';
 
@@ -58,6 +59,7 @@ const renderers = {
   cashshop:  () => renderCashShop(appData, { setNavigate: (fn) => { navigators.cashshop = fn; } }),
   quests:    () => renderQuests(appData, { setNavigate: (fn) => { navigators.quests = fn; } }),
   formulas:  () => renderFormulas(),
+  beauty:    () => renderBeautyStyles(appData),
 };
 
 function switchTab(tabId, pushState = true, query = null) {
@@ -108,10 +110,15 @@ async function showMapleTip() {
     // Trigger fade-in
     requestAnimationFrame(() => toast.classList.add('mapletip-toast--visible'));
 
-    setTimeout(() => {
+    // Auto-fade after 4s
+    const hide = () => {
       toast.classList.remove('mapletip-toast--visible');
+      toast.removeEventListener('click', onClick);
       toast.addEventListener('transitionend', () => toast.remove(), { once: true });
-    }, 4000);
+    };
+    const onClick = () => hide();
+    toast.addEventListener('click', onClick);
+    setTimeout(hide, 4000);
   } catch {}
 }
 

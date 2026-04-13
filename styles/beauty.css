@@ -1,0 +1,156 @@
+.beauty-container {
+  padding: 16px 0;
+}
+
+/* ── Type sections ──────────────────────────────────────────── */
+
+.beauty-body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.beauty-type-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.beauty-type-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+.beauty-warning {
+  margin: 8px 0 4px;
+  padding: 8px 12px;
+  background: rgba(255, 180, 0, 0.12);
+  border-left: 3px solid #ffb400;
+  border-radius: 4px;
+  color: #c8942a;
+  font-size: 13px;
+}
+
+.beauty-gender-block {
+  margin-top: 12px;
+}
+
+.beauty-gender-block + .beauty-gender-block {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border);
+}
+
+.beauty-gender-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 8px;
+}
+
+/* ── Coupon sections ────────────────────────────────────────── */
+
+.beauty-coupons {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.beauty-coupon-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+/* ── Coupon header ──────────────────────────────────────────── */
+
+.beauty-coupon-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.beauty-coupon-thumb {
+  width: 40px;
+  height: 40px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.beauty-coupon-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.beauty-coupon-name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.beauty-coupon-desc {
+  font-size: 12px;
+  color: var(--dim);
+}
+
+/* ── Style grid ──────────────────────────────────────────────── */
+
+.beauty-style-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 8px;
+}
+
+.beauty-style-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  cursor: default;
+  text-align: center;
+  transition: background 0.15s;
+}
+
+.beauty-style-card:hover {
+  background: var(--accent-bg);
+  outline: 1px solid var(--accent);
+}
+
+.beauty-style-thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.beauty-style-placeholder {
+  width: 56px;
+  height: 56px;
+  background: var(--surface-2);
+  border-radius: 4px;
+}
+
+.beauty-style-name {
+  font-size: 11px;
+  color: var(--dim);
+  line-height: 1.3;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.beauty-style-id {
+  font-size: 10px;
+  color: var(--dim);
+  opacity: 0.6;
+}
