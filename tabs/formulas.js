@@ -19,18 +19,14 @@ const EXP_TABLE = [
 function makeCollapsibleSection(title, countLabel, bodyFn) {
   const wrap = el('div', { className: 'collapsible open' });
 
-  const header = el('button', { className: 'collapsible-header' });
+  const header = el('div', { className: 'collapsible-header' });
   const left = el('div', { className: 'left' });
   left.appendChild(el('span', { className: 'title', textContent: title }));
   const right = el('div', { className: 'right' });
   if (countLabel) right.appendChild(el('span', { className: 'count', textContent: countLabel }));
-  const chevron = el('span', { className: 'chevron' });
-  chevron.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="m9 18 6-6-6-6"/></svg>';
-  right.appendChild(chevron);
+
   header.appendChild(left);
   header.appendChild(right);
-
-  header.addEventListener('click', () => wrap.classList.toggle('open'));
 
   const body = el('div', { className: 'collapsible-body' });
   body.appendChild(bodyFn());
@@ -132,24 +128,18 @@ export function renderFormulas() {
   expSection.querySelector('.left').appendChild(credit);
 
   const dmgSection = makeCollapsibleSection(
-    'Physical Damage',
+    'Damage Range Formula',
     '',
     buildDamageFormula,
   );
 
   const dmgCredit = el('span', { className: 'formulas-credit' });
-  dmgCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
+  dmgCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist</strong> on Discord';
   dmgSection.querySelector('.left').appendChild(dmgCredit);
 
-  const magicSection = makeCollapsibleSection(
-    'Magic Damage',
-    '',
-    () => el('div', { className: 'formulas-tbd', textContent: 'TBD' }),
-  );
 
   const rightCol = el('div', { className: 'formulas-col' });
-  // rightCol.appendChild(dmgSection);
-  // rightCol.appendChild(magicSection);
+  rightCol.appendChild(dmgSection);
 
   const row = el('div', { className: 'formulas-row' });
   row.appendChild(expSection);

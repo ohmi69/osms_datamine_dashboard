@@ -14,7 +14,6 @@ const STAT_LABELS = {
 function buildDetailPanel(item) {
   const stats = item.stats || {};
   const chips = [];
-  console.log(item);
   for (const [key, [label, fmt]] of Object.entries(STAT_LABELS)) {
     const val = stats[key];
     if (val == null || val === 0 || val === false) continue;
