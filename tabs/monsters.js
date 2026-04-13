@@ -501,7 +501,7 @@ export function renderMonsters(data, options = {}) {
           break;
         }
       }
-    }, 100);
+    }, 300);
   }
 
   renderData();

@@ -107,6 +107,7 @@ export function renderMaps(data, options = {}) {
 
   let searchQuery = '';
   let autoExpandAfterId = null;
+  let renderGen = 0;
   const searchBox = makeSearchBox('Search maps...', (value) => {
     searchQuery = value;
     renderData();
@@ -459,10 +460,12 @@ export function renderMaps(data, options = {}) {
   }
 
     async function renderData() {
+      const gen = ++renderGen;
       dataDiv.innerHTML = '';
       const sq = searchQuery.toLowerCase();
       const exactId = parseMapIdFilter(searchQuery);
       const npcLookup = await getNpcLookup();
+      if (gen !== renderGen) return;
       let regions = selectedRegion
         ? maps.regions.filter((r) => r.region === selectedRegion)
         : maps.regions;
@@ -508,7 +511,7 @@ export function renderMaps(data, options = {}) {
               break;
             }
           }
-        }, 100);
+        }, 300);
       }
     }
 
