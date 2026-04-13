@@ -37,10 +37,6 @@ export function renderBeautyStyles(data) {
 
     const typeSection = el('div', { className: 'beauty-type-section' });
     typeSection.appendChild(el('h2', { className: 'beauty-type-heading', textContent: TYPE_LABELS[t] || t }));
-    if (t === 'hair') {
-      const warning = el('div', { className: 'beauty-warning', textContent: '⚠ Hair style previews may be incomplete — some styles (especially female) are not fully rendered. Look up the style online for an accurate representation in the meantime while I work on this.' });
-      typeSection.appendChild(warning);
-    }
 
     const couponsDiv = el('div', { className: 'beauty-coupons' });
     for (const coupon of Object.values(byType[t])) {
