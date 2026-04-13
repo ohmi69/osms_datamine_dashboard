@@ -39,12 +39,15 @@ function makeCollapsibleSection(title, countLabel, bodyFn) {
 function buildExpTable() {
   const container = el('div', { className: 'formulas-table-wrap' });
 
-  const table = el('table', { className: 'data-table' });
+  const table = el('table', { className: 'data-table', style: 'border-collapse:collapse;' });
 
   const thead = el('thead');
   const headerRow = el('tr');
   for (const [text, cls] of [['Level', ''], ['Exp to Level Up', 'num'], ['Accumulated Exp', 'num']]) {
-    headerRow.appendChild(el('th', { className: cls, textContent: text }));
+    const th = el('th', { className: cls, textContent: text });
+    th.style.padding = '2px 6px';
+    th.style.fontSize = '0.95em';
+    headerRow.appendChild(th);
   }
   thead.appendChild(headerRow);
   table.appendChild(thead);
@@ -53,13 +56,22 @@ function buildExpTable() {
   let accumulated = 0;
   EXP_TABLE.forEach(([from, , exp]) => {
     const row = el('tr');
+    row.style.lineHeight = '1.1';
+    row.style.fontSize = '0.95em';
+    row.style.height = '22px';
 
     const lvlCell = el('td');
     lvlCell.appendChild(el('span', { className: 'lvl-chip', textContent: `Lv ${from}` }));
+    lvlCell.style.padding = '2px 6px';
     row.appendChild(lvlCell);
 
-    row.appendChild(el('td', { className: 'num formulas-exp-val', textContent: exp.toLocaleString() }));
-    row.appendChild(el('td', { className: 'num formulas-accum-val', textContent: accumulated.toLocaleString() }));
+    const expCell = el('td', { className: 'num formulas-exp-val', textContent: exp.toLocaleString() });
+    expCell.style.padding = '2px 6px';
+    row.appendChild(expCell);
+
+    const accCell = el('td', { className: 'num formulas-accum-val', textContent: accumulated.toLocaleString() });
+    accCell.style.padding = '2px 6px';
+    row.appendChild(accCell);
 
     tbody.appendChild(row);
     accumulated += exp;
@@ -79,7 +91,7 @@ const WEAPON_MULTS = [
   ['Spear',          1.5, 3.5],
   ['Polearm',        3.5, 1.5],
   ['Bow',            2.5, 2.5],
-  ['Xbow',           2.5, 2.5],
+  ['Crossbow',           2.5, 2.5],
   ['Claw',           2.5, 2.5],
   ['Dagger*',         1,  2  ],
 ];
@@ -107,7 +119,10 @@ function buildWeaponMultTable() {
   table.appendChild(tbody);
   container.appendChild(table);
 
-  const note = el('div', { className: 'formulas-note', textContent: '* Dagger uses Stab mult for both MinMult and MaxMult when stabbing.' });
+
+  const note = el('div', { className: 'formulas-note', textContent: '* Dagger uses Stab multiplier for both MinMult and MaxMult when stabbing. Savage Blow and Double Stab always Stab. Steal uses both.' });
+  note.style.marginTop = '0.5em';
+  note.style.padding = '0.5em 1em';
   container.appendChild(note);
 
   return container;
