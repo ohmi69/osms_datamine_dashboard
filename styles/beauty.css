@@ -105,21 +105,22 @@
 
 .beauty-style-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
 }
 
 .beauty-style-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 6px 4px;
+  gap: 6px;
+  padding: 10px 8px;
   border-radius: 6px;
   background: var(--surface-2);
   cursor: default;
   text-align: center;
   transition: background 0.15s;
+  overflow: hidden;
 }
 
 .beauty-style-card:hover {
@@ -128,15 +129,15 @@
 }
 
 .beauty-style-thumb {
-  width: 56px;
-  height: 56px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
   image-rendering: pixelated;
 }
 
 .beauty-style-placeholder {
-  width: 56px;
-  height: 56px;
+  width: 90px;
+  height: 90px;
   background: var(--surface-2);
   border-radius: 4px;
 }
