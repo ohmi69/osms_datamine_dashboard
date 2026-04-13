@@ -1,3 +1,35 @@
+/* ── MapleTip Toast ─────────────────────────────────────────── */
+.mapletip-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  backdrop-filter: blur(6px);
+  border: 2px solid var(--accent);
+  color: var(--text);
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  font-size: 14px;
+  max-width: 520px;
+  width: max-content;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  text-align: center;
+}
+.mapletip-toast--visible {
+  opacity: 0.88;
+  transform: translateX(-50%) translateY(0);
+}
+.mapletip-label {
+  font-weight: 700;
+  color: var(--accent);
+  margin-right: 4px;
+}
+
 /* ── Image Modal ───────────────────────────────────────────── */
 .image-modal {
   display: none;

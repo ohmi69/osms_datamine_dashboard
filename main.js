@@ -85,6 +85,27 @@ window.addEventListener('hashchange', () => {
   if (tab && renderers[tab]) switchTab(tab, false);
 });
 
+async function showMapleTip() {
+  try {
+    const tips = await fetch('./data/tips.json').then(r => r.json());
+    if (!Array.isArray(tips) || !tips.length) return;
+    const tip = tips[Math.floor(Math.random() * tips.length)];
+
+    const toast = document.createElement('div');
+    toast.className = 'mapletip-toast';
+    toast.innerHTML = `<span class="mapletip-label">[MapleTip]</span> ${tip}`;
+    document.body.appendChild(toast);
+
+    // Trigger fade-in
+    requestAnimationFrame(() => toast.classList.add('mapletip-toast--visible'));
+
+    setTimeout(() => {
+      toast.classList.remove('mapletip-toast--visible');
+      toast.addEventListener('transitionend', () => toast.remove(), { once: true });
+    }, 4000);
+  } catch {}
+}
+
 async function init() {
   const panels = $('#tabPanels');
   panels.innerHTML = '';
@@ -171,6 +192,8 @@ async function init() {
   let hashTab = location.hash.slice(1);
   if (hashTab === 'cash_shop') hashTab = 'cashshop';
   switchTab(hashTab && renderers[hashTab] ? hashTab : 'overview');
+
+  showMapleTip();
 }
 
 init();
