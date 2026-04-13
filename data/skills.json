@@ -2800,8 +2800,8 @@
       "main_class": "Rogue",
       "base_class": "rogue",
       "subclasses": [
-        "Assassin",
-        "Bandit"
+        "Bandit",
+        "Assassin"
       ]
     },
     {
