@@ -689,7 +689,13 @@ body.hide-ids .id { display: none !important; }
   font-size: 12px;
   letter-spacing: .3px;
 }
-.footer .credit { margin-top: 6px; color: var(--accent); font-weight: 700; letter-spacing: .5px; }
+.footer .credit,
+.site-header .credit {
+  margin-top: 6px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: .5px;
+}
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 640px) {

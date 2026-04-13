@@ -375,7 +375,7 @@
       "req_job_label": "All",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
-      "thumbnail": null
+      "thumbnail": "images/items/01302016.png"
     },
     {
       "id": 1312000,
@@ -1481,7 +1481,7 @@
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
-      "thumbnail": null
+      "thumbnail": "images/items/01332017.png"
     },
     {
       "id": 1372000,
@@ -1688,7 +1688,7 @@
       "req_job_label": "All",
       "weapon_type": "Wand",
       "attack_speed_label": "Normal",
-      "thumbnail": null
+      "thumbnail": "images/items/01372008.png"
     },
     {
       "id": 1382000,
@@ -2921,7 +2921,7 @@
       "req_job_label": "Bowman",
       "weapon_type": "Bow",
       "attack_speed_label": "Normal",
-      "thumbnail": null
+      "thumbnail": "images/items/01452008.png"
     },
     {
       "id": 1462000,
@@ -3647,7 +3647,7 @@
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
-      "thumbnail": null
+      "thumbnail": "images/items/01472022.png"
     },
     {
       "id": 1002000,
@@ -21858,7 +21858,7 @@
       "name": "Orange Potion",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A concentrated potion made out of red herbs. Recovers 250 HP.",
+      "description": "A concentrated potion made out of red herbs.\nRecovers 250 HP.",
       "stats": {
         "price": 75
       },
@@ -21869,7 +21869,7 @@
       "name": "White Potion",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A highly concentrated potion made out of red herbs. Recovers 500 HP.",
+      "description": "A highly concentrated potion made out of red herbs.\nRecovers 500 HP.",
       "stats": {
         "price": 175
       },
@@ -21891,7 +21891,7 @@
       "name": "Elixir",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A legendary potion. Restores 35% of HP and MP, but due to its powerful effect, there is a cooldown before it can be used again.",
+      "description": "A legendary potion.\nRestores 35% of HP and MP, but due to its powerful effect, there is a cooldown before it can be used again.",
       "stats": {
         "price": 1000
       },
@@ -21902,7 +21902,7 @@
       "name": "Power Elixir",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A legendary potion. Restores 100% of HP and MP, but due to its powerful effect, there is a cooldown before it can be used again.",
+      "description": "A legendary potion.\nRestores 100% of HP and MP, but due to its powerful effect, there is a cooldown before it can be used again.",
       "stats": {
         "price": 2500
       },
@@ -21913,7 +21913,7 @@
       "name": "Mana Elixir",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A legendary potion. Restores 50% of MP, but due to its powerful effect, there is a cooldown before it can be used again.",
+      "description": "A legendary potion.\nRestores 50% of MP, but due to its powerful effect, there is a cooldown before it can be used again.",
       "stats": {
         "price": 1000
       },
@@ -21924,7 +21924,7 @@
       "name": "Warrior Potion",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Increases Attack Power. Attack Power +10 for 10 min.",
+      "description": "Increases Attack Power.\nAttack Power +10 for 10 min.",
       "stats": {
         "price": 250
       },
@@ -21935,7 +21935,7 @@
       "name": "Magic Potion",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Increases Magic Attack. Magic Attack +10 for 10 min.",
+      "description": "Increases Magic Attack.\nMagic Attack +10 for 10 min.",
       "stats": {
         "price": 250
       },
@@ -21946,7 +21946,7 @@
       "name": "Sniper Potion",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Increases Accuracy. Accuracy +5 for 10 min.",
+      "description": "Increases Accuracy.\nAccuracy +5 for 10 min.",
       "stats": {
         "price": 250
       },
@@ -21957,7 +21957,7 @@
       "name": "Dexterity Potion",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Increases Avoidability. Avoidability +5 for 10 min.",
+      "description": "Increases Avoidability.\nAvoidability +5 for 10 min.",
       "stats": {
         "price": 250
       },
@@ -21968,7 +21968,7 @@
       "name": "Speed Potion",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Increases Speed. Speed +8 for 10 min.",
+      "description": "Increases Speed.\nSpeed +8 for 10 min.",
       "stats": {
         "price": 250
       },
@@ -22045,7 +22045,7 @@
       "name": "Roger's Apple",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A ripe, red apple. Recovers HP 30. To eat Roger's Apple, simply double-click on it in your use inventory.",
+      "description": "A ripe, red apple.\nRecovers HP 30.\n\nTo eat Roger's Apple, simply double-click on it in your use inventory.",
       "stats": {
         "price": 0,
         "tradeBlock": 1
@@ -22057,7 +22057,7 @@
       "name": "Apple",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A red, ripe, and tasty apple. Recovers around 40 HP.",
+      "description": "A red, ripe, and tasty apple.\nRecovers around 40 HP.",
       "stats": {
         "price": 10
       },
@@ -22068,7 +22068,7 @@
       "name": "Egg",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A nutritious egg. Recovers around 60 HP.",
+      "description": "A nutritious egg.\nRecovers around 60 HP.",
       "stats": {
         "price": 15
       },
@@ -22079,7 +22079,7 @@
       "name": "Meat",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A tasty-looking meat. Recovers around 160 HP.",
+      "description": "A tasty-looking meat.\nRecovers around 160 HP.",
       "stats": {
         "price": 40
       },
@@ -22090,7 +22090,7 @@
       "name": "Orange",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A sweet, tasty orange. Recovers around 50 MP.",
+      "description": "A sweet, tasty orange.\nRecovers around 50 MP.",
       "stats": {
         "price": 25
       },
@@ -22101,7 +22101,7 @@
       "name": "Lemon",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Very sour. Recovers around 150 MP.",
+      "description": "Very sour.\nRecovers around 150 MP.",
       "stats": {
         "price": 75
       },
@@ -22112,7 +22112,7 @@
       "name": "Watermelon",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A very ripe watermelon. Recovers about 800 HP and 800 MP.",
+      "description": "A very ripe watermelon.\nRecovers about 800 HP and 800 MP.",
       "stats": {
         "price": 1120
       },
@@ -22123,7 +22123,7 @@
       "name": "Green Apple",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Sour and crunchy green apple. Recovers MP +30.",
+      "description": "Sour and crunchy green apple.\nRecovers MP +30.",
       "stats": {
         "price": 15
       },
@@ -22134,7 +22134,7 @@
       "name": "Drake's Blood",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Drake's blood. Attack Power +12 for 5 min.",
+      "description": "Drake's blood. \nAttack Power +12 for 5 min.",
       "stats": {
         "price": 750
       },
@@ -22145,7 +22145,7 @@
       "name": "Fairy's Honey",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "It's honey, the fairies' favorite. Avoidability +10 for 5 min.",
+      "description": "It's honey, the fairies' favorite.\nAvoidability +10 for 5 min.",
       "stats": {
         "price": 500
       },
@@ -22156,7 +22156,7 @@
       "name": "Sap of Ancient Tree",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Sap of a thousands-of-years-old tree. Magic Attack +12 for 5 min.",
+      "description": "Sap of a thousands-of-years-old tree. \nMagic Attack +12 for 5 min.",
       "stats": {
         "price": 700
       },
@@ -22167,7 +22167,7 @@
       "name": "Drake's Meat",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Drake's meat. Weapon Def. +10 for 5 min.",
+      "description": "Drake's meat.\nWeapon Def. +10 for 5 min.",
       "stats": {
         "price": 500
       },
@@ -22178,7 +22178,7 @@
       "name": "Salad",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Made out of fresh vegetable. Recovers 200 MP.",
+      "description": "Made out of fresh vegetable.\nRecovers 200 MP.",
       "stats": {
         "price": 120
       },
@@ -22189,7 +22189,7 @@
       "name": "Fried Chicken",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Well-fried chicken. Recovers around 120 HP.",
+      "description": "Well-fried chicken.\nRecovers around 120 HP.",
       "stats": {
         "price": 30
       },
@@ -22200,7 +22200,7 @@
       "name": "Cake",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A cake full of sweetness. Recovers 100 for both HP and MP.",
+      "description": "A cake full of sweetness. Recovers 100 for both HP and MP. ",
       "stats": {
         "price": 75
       },
@@ -22299,7 +22299,7 @@
       "name": "W Ramen",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A cup ramen with awesome soup. Recovers 40% of HP and MP.",
+      "description": "A cup ramen with awesome soup.\nRecovers 40% of HP and MP.",
       "stats": {
         "price": 1000
       },
@@ -22310,7 +22310,7 @@
       "name": "Ice Cream Pop",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A tasty ice cream pop. Recovers around 1500 HP.",
+      "description": "A tasty ice cream pop.\nRecovers around 1500 HP.",
       "stats": {
         "price": 750
       },
@@ -22321,7 +22321,7 @@
       "name": "Red Bean Sundae",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Definitely lets you forget about the hot hot summer. Recovers around 1500 MP.",
+      "description": "Definitely lets you forget about the hot hot summer. \nRecovers around 1500 MP.",
       "stats": {
         "price": 1500
       },
@@ -22332,7 +22332,7 @@
       "name": "Pure Water",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Very clean water. Recovers up to 800 MP.",
+      "description": "Very clean water.\nRecovers up to 800 MP.",
       "stats": {
         "price": 720
       },
@@ -22354,7 +22354,7 @@
       "name": "Cider",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A cold softdrink. Attack Power +15 for 5 min. Accuracy -5 for 5 min., though.",
+      "description": "A cold softdrink.\nAttack Power +15 for 5 min.\nAccuracy -5 for 5 min., though.",
       "stats": {
         "price": 1,
         "slotMax": 1
@@ -22366,7 +22366,7 @@
       "name": "Unagi",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Well-seasoned eel. Recovers 1000 HP.",
+      "description": "Well-seasoned eel.\nRecovers 1000 HP.",
       "stats": {
         "price": 500
       },
@@ -22510,7 +22510,7 @@
       "name": "Bronze Arrow for Bow",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A barrel full of bronze arrows. Only usable with bows. Weapon Attack +1.",
+      "description": "A barrel full of bronze arrows. Only usable with bows.\nWeapon Attack +1.",
       "stats": {
         "price": 1,
         "slotMax": 800
@@ -22522,7 +22522,7 @@
       "name": "Iron Arrow for Bow",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A barrel full of iron arrows. Only usable with bows. Weapon Attack +2.",
+      "description": "A barrel full of iron arrows. Only usable with bows.\nWeapon Attack +2.",
       "stats": {
         "price": 2,
         "slotMax": 800
@@ -22531,10 +22531,10 @@
     },
     {
       "id": 2060003,
-      "name": "Adamantium Arrow for Bow",
+      "name": "Adamantium�Arrow for Bow",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A barrel full of adamantium arrows. Only usable with bows. Weapon Attack +3.",
+      "description": "A barrel full of adamantium arrows. Only usable with bows.\nWeapon Attack +3.",
       "stats": {
         "price": 3,
         "slotMax": 800
@@ -22558,7 +22558,7 @@
       "name": "Bronze Arrow for Crossbow",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A barrel full of bronze arrows. Only usable with crossbows. Weapon Attack +1.",
+      "description": "A barrel full of bronze arrows. Only usable with crossbows.\nWeapon Attack +1.",
       "stats": {
         "price": 1,
         "slotMax": 800
@@ -22570,7 +22570,7 @@
       "name": "Iron Arrow for Crossbow",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A barrel full of iron arrows. Only usable with crossbows. Weapon Attack +2.",
+      "description": "A barrel full of iron arrows. Only usable with crossbows.\nWeapon Attack +2.",
       "stats": {
         "price": 2,
         "slotMax": 800
@@ -22579,10 +22579,10 @@
     },
     {
       "id": 2061003,
-      "name": "Mithril Arrow for Crossbow",
+      "name": "Mithril�Arrow for Crossbow",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A case full of mithril arrows. Only usable with crossbows. Weapon Attack +3.",
+      "description": "A case full of mithril arrows. Only usable with crossbows.\nWeapon Attack +3.",
       "stats": {
         "price": 3,
         "slotMax": 800
@@ -22594,7 +22594,7 @@
       "name": "Subi Throwing-Stars",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged. Level Limit : 10, Weapon Attack +15",
+      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +15",
       "stats": {
         "price": 250,
         "slotMax": 500
@@ -22606,7 +22606,7 @@
       "name": "Wolbi Throwing-Stars",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged. Level Limit : 10, Weapon Attack +17",
+      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +17",
       "stats": {
         "price": 500,
         "slotMax": 500
@@ -22618,7 +22618,7 @@
       "name": "Mokbi Throwing-Stars",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged. Level Limit : 10, Weapon Attack +19",
+      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +19",
       "stats": {
         "price": 1000,
         "slotMax": 700
@@ -22630,7 +22630,7 @@
       "name": "Kumbi Throwing-Stars",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged. Level Limit : 10, Weapon Attack +21",
+      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +21",
       "stats": {
         "price": 1500,
         "slotMax": 700
@@ -22642,7 +22642,7 @@
       "name": "Tobi Throwing-Stars",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged. Level Limit : 10, Weapon Attack +23",
+      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +23",
       "stats": {
         "price": 2500,
         "slotMax": 1000
@@ -22654,7 +22654,7 @@
       "name": "Steely Throwing-Knives",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged. Level Limit : 10, Weapon Attack +25",
+      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +25",
       "stats": {
         "price": 10000,
         "slotMax": 1000
@@ -22666,7 +22666,7 @@
       "name": "Ilbi Throwing-Stars",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged. Level Limit : 10, Weapon Attack +27",
+      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +27",
       "stats": {
         "price": 20000,
         "slotMax": 800
@@ -22678,7 +22678,7 @@
       "name": "Hwabi Throwing-Stars",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged. Level Limit : 10, Weapon Attack +29",
+      "description": "A throwing-star made out of steel. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +29",
       "stats": {
         "price": 25000,
         "slotMax": 800
@@ -22690,7 +22690,7 @@
       "name": "Snowball",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "A well-packed snowball. Once they run out, they need to be recharged. Level Limit : 10, Weapon Attack +17",
+      "description": "A well-packed snowball. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +17",
       "stats": {
         "price": 500,
         "slotMax": 800
@@ -22702,7 +22702,7 @@
       "name": "Wooden Top",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "When thrown, it spins fast and flies at great speed. Once they are all used up, they need to be recharged. Level Limit : 10, Weapon Attack +19",
+      "description": "When thrown, it spins fast and flies at great speed. Once they are all used up, they need to be recharged.\nLevel Limit : 10, Weapon Attack +19",
       "stats": {
         "price": 500,
         "slotMax": 800
@@ -22714,7 +22714,7 @@
       "name": "Icicle",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Sharp icicles. Once they run out, they need to be recharged. Level Limit : 10, Weapon Attack +21",
+      "description": "Sharp icicles. Once they run out, they need to be recharged.\nLevel Limit : 10, Weapon Attack +21",
       "stats": {
         "price": 500,
         "slotMax": 800
@@ -22847,7 +22847,7 @@
       "name": "The Songs of Solomon",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "An ancient collection of poems and life lessons from various elders, sages and warriors in the Maple World. Reading this allows one to gain their collective experience (EXP) in a single second. This edition provides 500 EXP.",
+      "description": "An ancient collection of poems and life lessons from various elders, sages and warriors in the Maple World. Reading this allows one to gain their collective experience (EXP) in a single second.  This edition provides 500 EXP. ",
       "stats": {
         "price": 1
       },
@@ -22900,7 +22900,7 @@
       "name": "Gift for the New Journey",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Double-click to obtain the below items. - Leaf Points 10,000 Exchange Coupon x5 - Regular Store Permit x1 - Megaphone x10 - Super Megaphone x5 - Red Potion x30 - Blue Potion x30",
+      "description": "Double-click to obtain the below items.\n\n- Leaf Points 10,000 Exchange Coupon x5\n- Regular Store Permit x1\n- Megaphone x10\n- Super Megaphone x5\n- Red Potion x30\n- Blue Potion x30",
       "stats": {
         "price": 1,
         "tradeBlock": 1,
@@ -22914,7 +22914,7 @@
       "name": "Leaf Points (1000) Exchange Coupon",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Double-click to get 1,000 Leaf Points.",
+      "description": " Double-click to get 1,000 Leaf Points.",
       "stats": {
         "price": 1,
         "slotMax": 1,
@@ -22929,7 +22929,7 @@
       "name": "2x EXP Coupon (30 min)",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Double-click to receive a 2x EXP buff for 30 minutes. Effect does not stack with similar event buffs.",
+      "description": "Double-click to receive a 2x EXP buff for 30 minutes.\n\nEffect does not stack with similar event buffs.",
       "stats": {
         "price": 1,
         "slotMax": 100,
@@ -22943,7 +22943,7 @@
       "name": "3x EXP Coupon (15 min)",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Double-click to receive a 3x EXP buff for 15 minutes. Effect does not stack with similar event buffs.",
+      "description": "Double-click to receive a 3x EXP buff for 15 minutes.\n\nEffect does not stack with similar event buffs.",
       "stats": {
         "price": 1,
         "slotMax": 100,
@@ -23234,7 +23234,7 @@
       "name": "Iron Hog's Metal Hoof",
       "category": "Etc",
       "sub_category": "Etc",
-      "description": "A metal hoof that covered the legs of an Iron Hog.",
+      "description": "A metal hoof that covered the legs of an Iron Hog. ",
       "stats": {
         "price": 28,
         "slotMax": 200
@@ -23947,7 +23947,7 @@
     },
     {
       "id": 4003008,
-      "name": "Processed Cloth",
+      "name": "Processed Cloth�",
       "category": "Etc",
       "sub_category": "Etc",
       "description": "Softly processed cloth. Used as a material for crafting various items.",
@@ -24562,7 +24562,7 @@
       "name": "Dances with Balrog's Letter",
       "category": "Etc",
       "sub_category": "Etc",
-      "description": "A letter from Dances with Balrog of Perion. Needs to be shown to the Warrior Job Instructor somewhere around the highland.",
+      "description": "A letter from Dances with Balrog of Perion. Needs to be shown to the Warrior Job Instructor somewhere around the highland. ",
       "stats": {
         "price": 0,
         "quest": 1
@@ -24598,7 +24598,7 @@
       "name": "Dark Lord's Letter",
       "category": "Etc",
       "sub_category": "Etc",
-      "description": "A letter from Dark Lord of Kerning City. Needs to be shown to the Thief Job Instructor somewhere around the city.",
+      "description": "A letter from Dark Lord of Kerning City. Needs to be shown to the Thief Job Instructor somewhere around the city. ",
       "stats": {
         "price": 0,
         "quest": 1
@@ -25500,7 +25500,7 @@
       "name": "Pet Ability Transfer Scroll",
       "category": "Etc",
       "sub_category": "Etc",
-      "description": "A scroll required for transferring a pet’s level. Bring this scroll to Mar the Fairy in Mar’s Forest in Ellinia, and you can transfer a pet’s level and closeness to another pet. Double-click on the item for more information.",
+      "description": "A scroll required for transferring a pet’s level. Bring this scroll to Mar the Fairy in Mar’s Forest in Ellinia, and you can transfer a pet’s level and closeness to another pet.\nDouble-click on the item for more information.",
       "stats": {
         "price": 5000,
         "slotMax": 1,
@@ -25616,7 +25616,7 @@
       "name": "Blue Seal Cushion",
       "category": "Setup",
       "sub_category": "Install",
-      "description": "An adorable blue cushion that resembles a seal. Recover an additional 30 MP every 10 seconds.",
+      "description": "An adorable blue cushion that resembles a seal.  Recover an additional 30 MP every 10 seconds.",
       "stats": {
         "price": 1,
         "slotMax": 1
@@ -25761,7 +25761,7 @@
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on hats. Success rate: 100%, Accuracy+1",
+      "description": "Improves Accuracy on hats.\nSuccess rate: 100%, Accuracy+1",
       "thumbnail": "images/items/02040000.png"
     },
     {
@@ -25770,7 +25770,7 @@
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on hats. Success rate: 60%, Accuracy+2",
+      "description": "Improves Accuracy on hats.\nSuccess rate: 60%, Accuracy+2",
       "thumbnail": "images/items/02040001.png"
     },
     {
@@ -25779,7 +25779,7 @@
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on hats. Success rate: 10%, Accuracy+3",
+      "description": "Improves Accuracy on hats.\nSuccess rate: 10%, Accuracy+3",
       "thumbnail": "images/items/02040002.png"
     },
     {
@@ -25788,16 +25788,16 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on hats. Success rate: 10%, Accuracy+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Accuracy on hats.\nSuccess rate: 10%, Accuracy+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040003.png"
     },
     {
       "id": 2040004,
-      "name": "Hat HP Scroll: Lesser",
+      "name": "Hat HP Scroll:�Lesser",
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "HP",
-      "description": "Improves Max HP on hats. Success rate: 100%, Max HP+10",
+      "description": "Improves Max HP on hats.\nSuccess rate: 100%, Max HP+10",
       "thumbnail": "images/items/02040004.png"
     },
     {
@@ -25806,7 +25806,7 @@
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "HP",
-      "description": "Improves Max HP on hats. Success rate: 60%, Max HP+15",
+      "description": "Improves Max HP on hats.\nSuccess rate: 60%, Max HP+15",
       "thumbnail": "images/items/02040005.png"
     },
     {
@@ -25815,7 +25815,7 @@
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "HP",
-      "description": "Improves Max HP on hats. Success rate: 10%, Max HP+20",
+      "description": "Improves Max HP on hats.\nSuccess rate: 10%, Max HP+20",
       "thumbnail": "images/items/02040006.png"
     },
     {
@@ -25824,7 +25824,7 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "HP",
-      "description": "Improves Max HP on hats. Success rate: 10%, Max HP+30 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Max HP on hats.\nSuccess rate: 10%, Max HP+30\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040007.png"
     },
     {
@@ -25833,7 +25833,7 @@
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "MP",
-      "description": "Improves Max MP on hats. Success rate: 100%, Max MP+10",
+      "description": "Improves Max MP on hats.\nSuccess rate: 100%, Max MP+10",
       "thumbnail": "images/items/02040008.png"
     },
     {
@@ -25842,7 +25842,7 @@
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "MP",
-      "description": "Improves Max MP on hats. Success rate: 60%, Max MP+15",
+      "description": "Improves Max MP on hats.\nSuccess rate: 60%, Max MP+15",
       "thumbnail": "images/items/02040009.png"
     },
     {
@@ -25851,7 +25851,7 @@
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "MP",
-      "description": "Improves Max MPon hats. Success rate: 10%, Max MP+20",
+      "description": "Improves Max MPon hats.\nSuccess rate: 10%, Max MP+20",
       "thumbnail": "images/items/02040010.png"
     },
     {
@@ -25860,7 +25860,7 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "MP",
-      "description": "Improves Max MP on hats. Success rate: 10%, Max MP+30 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Max MP on hats.\nSuccess rate: 10%, Max MP+30\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040011.png"
     },
     {
@@ -25869,7 +25869,7 @@
       "equip_slot": "Earring",
       "tier": "Lesser",
       "stat_type": "STR",
-      "description": "Improves Strength on earrings. Success rate: 100%, STR+1",
+      "description": "Improves Strength on earrings.\nSuccess rate: 100%, STR+1",
       "thumbnail": "images/items/02040300.png"
     },
     {
@@ -25878,7 +25878,7 @@
       "equip_slot": "Earring",
       "tier": "Intermediate",
       "stat_type": "STR",
-      "description": "Improves Strength on earrings. Success rate: 60%, STR+2",
+      "description": "Improves Strength on earrings.\nSuccess rate: 60%, STR+2",
       "thumbnail": "images/items/02040301.png"
     },
     {
@@ -25887,7 +25887,7 @@
       "equip_slot": "Earring",
       "tier": "Greater",
       "stat_type": "STR",
-      "description": "Improves Strength on earrings. Success rate: 10%, STR+3",
+      "description": "Improves Strength on earrings.\nSuccess rate: 10%, STR+3",
       "thumbnail": "images/items/02040302.png"
     },
     {
@@ -25896,7 +25896,7 @@
       "equip_slot": "Earring",
       "tier": "Chaos",
       "stat_type": "STR",
-      "description": "Improves Strength on earrings. Success rate: 10%, STR+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Strength on earrings.\nSuccess rate: 10%, STR+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040303.png"
     },
     {
@@ -25905,7 +25905,7 @@
       "equip_slot": "Earring",
       "tier": "Lesser",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on earrings. Success rate: 100%, DEX+1",
+      "description": "Improves Dexterity on earrings.\nSuccess rate: 100%, DEX+1",
       "thumbnail": "images/items/02040304.png"
     },
     {
@@ -25914,7 +25914,7 @@
       "equip_slot": "Earring",
       "tier": "Intermediate",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on earrings. Success rate: 60%, DEX+2",
+      "description": "Improves Dexterity on earrings.\nSuccess rate: 60%, DEX+2",
       "thumbnail": "images/items/02040305.png"
     },
     {
@@ -25923,7 +25923,7 @@
       "equip_slot": "Earring",
       "tier": "Greater",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on earrings. Success rate: 10%, DEX+3",
+      "description": "Improves Dexterity on earrings.\nSuccess rate: 10%, DEX+3",
       "thumbnail": "images/items/02040306.png"
     },
     {
@@ -25932,7 +25932,7 @@
       "equip_slot": "Earring",
       "tier": "Chaos",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on earrings. Success rate: 10%, DEX+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Dexterity on earrings.\nSuccess rate: 10%, DEX+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040307.png"
     },
     {
@@ -25941,7 +25941,7 @@
       "equip_slot": "Earring",
       "tier": "Lesser",
       "stat_type": "INT",
-      "description": "Improves Intelligence on earrings. Success rate: 100%, INT+1",
+      "description": "Improves Intelligence on earrings.\nSuccess rate: 100%, INT+1",
       "thumbnail": "images/items/02040308.png"
     },
     {
@@ -25950,7 +25950,7 @@
       "equip_slot": "Earring",
       "tier": "Intermediate",
       "stat_type": "INT",
-      "description": "Improves Intelligence on earrings. Success rate: 60%, INT+2",
+      "description": "Improves Intelligence on earrings.\nSuccess rate: 60%, INT+2",
       "thumbnail": "images/items/02040309.png"
     },
     {
@@ -25959,7 +25959,7 @@
       "equip_slot": "Earring",
       "tier": "Greater",
       "stat_type": "INT",
-      "description": "Improves Intelligence on earrings. Success rate: 10%, INT+3",
+      "description": "Improves Intelligence on earrings.\nSuccess rate: 10%, INT+3",
       "thumbnail": "images/items/02040310.png"
     },
     {
@@ -25968,7 +25968,7 @@
       "equip_slot": "Earring",
       "tier": "Chaos",
       "stat_type": "INT",
-      "description": "Improves Intelligence on earrings. Success rate: 10%, INT+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Intelligence on earrings.\nSuccess rate: 10%, INT+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040311.png"
     },
     {
@@ -25977,7 +25977,7 @@
       "equip_slot": "Earring",
       "tier": "Lesser",
       "stat_type": "LUK",
-      "description": "Improves Luck on earrings. Success rate: 100%, LUK+1",
+      "description": "Improves Luck on earrings.\nSuccess rate: 100%, LUK+1",
       "thumbnail": "images/items/02040312.png"
     },
     {
@@ -25986,7 +25986,7 @@
       "equip_slot": "Earring",
       "tier": "Intermediate",
       "stat_type": "LUK",
-      "description": "Improves Luck on earrings. Success rate: 60%, LUK+2",
+      "description": "Improves Luck on earrings.\nSuccess rate: 60%, LUK+2",
       "thumbnail": "images/items/02040313.png"
     },
     {
@@ -25995,7 +25995,7 @@
       "equip_slot": "Earring",
       "tier": "Greater",
       "stat_type": "LUK",
-      "description": "Improves Luck on earrings. Success rate: 10%, LUK+3",
+      "description": "Improves Luck on earrings.\nSuccess rate: 10%, LUK+3",
       "thumbnail": "images/items/02040314.png"
     },
     {
@@ -26004,7 +26004,7 @@
       "equip_slot": "Earring",
       "tier": "Chaos",
       "stat_type": "LUK",
-      "description": "Improves Luck on earrings. Success rate: 10%, LUK+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Luck on earrings.\nSuccess rate: 10%, LUK+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040315.png"
     },
     {
@@ -26013,25 +26013,25 @@
       "equip_slot": "Earring",
       "tier": "Lesser",
       "stat_type": "Other",
-      "description": "Improves Crit. Damage on earrings. Success rate: 100%, Crit. Damage+1",
+      "description": "Improves Crit. Damage on earrings.\nSuccess rate: 100%, Crit. Damage+1",
       "thumbnail": "images/items/02040316.png"
     },
     {
       "id": 2040317,
-      "name": "Earring Crit. Damage Scroll: Intermediate",
+      "name": "Earring Crit. Damage Scroll:�Intermediate",
       "equip_slot": "Earring",
       "tier": "Intermediate",
       "stat_type": "Other",
-      "description": "Improves Crit. Damage on earrings. Success rate: 60%, Crit. Damage+2",
+      "description": "Improves Crit. Damage on earrings.\nSuccess rate: 60%, Crit. Damage+2",
       "thumbnail": "images/items/02040317.png"
     },
     {
       "id": 2040318,
-      "name": "Earring Crit. Damage Scroll: Greater",
+      "name": "Earring Crit. Damage Scroll:�Greater",
       "equip_slot": "Earring",
       "tier": "Greater",
       "stat_type": "Other",
-      "description": "Improves Crit. Damage on earrings. Success rate: 10%, Crit. Damage+3",
+      "description": "Improves Crit. Damage on earrings.\nSuccess rate: 10%, Crit. Damage+3",
       "thumbnail": "images/items/02040318.png"
     },
     {
@@ -26040,34 +26040,34 @@
       "equip_slot": "Earring",
       "tier": "Chaos",
       "stat_type": "Other",
-      "description": "Improves Crit. Damage on earrings. Success rate: 10%, Crit. Damage+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Crit. Damage on earrings.\nSuccess rate: 10%, Crit. Damage+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040319.png"
     },
     {
       "id": 2040320,
-      "name": "Earring Avoidability Scroll: Lesser",
+      "name": "Earring Avoidability Scroll:�Lesser",
       "equip_slot": "Earring",
       "tier": "Lesser",
       "stat_type": "Avoidability",
-      "description": "Improves Avoidability on earrings. Success rate: 100%, Avoidability+1",
+      "description": "Improves Avoidability�on earrings.\nSuccess rate: 100%, Avoidability+1",
       "thumbnail": "images/items/02040320.png"
     },
     {
       "id": 2040321,
-      "name": "Earring Avoidability Scroll: Intermediate",
+      "name": "Earring Avoidability Scroll:�Intermediate",
       "equip_slot": "Earring",
       "tier": "Intermediate",
       "stat_type": "Avoidability",
-      "description": "Improves Avoidability on earrings. Success rate: 60%, Avoidability+2",
+      "description": "Improves Avoidability on earrings.\nSuccess rate: 60%, Avoidability+2",
       "thumbnail": "images/items/02040321.png"
     },
     {
       "id": 2040322,
-      "name": "Earring Avoidability Scroll: Greater",
+      "name": "Earring Avoidability Scroll:�Greater",
       "equip_slot": "Earring",
       "tier": "Greater",
       "stat_type": "Avoidability",
-      "description": "Improves Avoidability on earrings. Success rate: 10%, Avoidability+3",
+      "description": "Improves Avoidability on earrings.\nSuccess rate: 10%, Avoidability+3",
       "thumbnail": "images/items/02040322.png"
     },
     {
@@ -26076,7 +26076,7 @@
       "equip_slot": "Earring",
       "tier": "Chaos",
       "stat_type": "Avoidability",
-      "description": "Improves Avoidability on earrings. Success rate: 10%, Avoidability+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Avoidability on earrings.\nSuccess rate: 10%, Avoidability+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040323.png"
     },
     {
@@ -26085,7 +26085,7 @@
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "Other",
-      "description": "Improves Defense on topwear. Success rate: 100%, Weapon Def.+2",
+      "description": "Improves Defense on topwear.\nSuccess rate: 100%, Weapon Def.+2",
       "thumbnail": "images/items/02040400.png"
     },
     {
@@ -26094,7 +26094,7 @@
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "Other",
-      "description": "Improves Defense on topwear. Success rate: 60%, Weapon Def.+3, Magic Def.+1",
+      "description": "Improves Defense on topwear.\nSuccess rate: 60%, Weapon Def.+3, Magic Def.+1",
       "thumbnail": "images/items/02040401.png"
     },
     {
@@ -26103,7 +26103,7 @@
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "Other",
-      "description": "Improves Defense on topwear. Success rate: 10%, Weapon Def.+5, Magic Def.+3",
+      "description": "Improves Defense on topwear.\nSuccess rate: 10%, Weapon Def.+5, Magic Def.+3",
       "thumbnail": "images/items/02040402.png"
     },
     {
@@ -26112,7 +26112,7 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "Other",
-      "description": "Improves Defense on topwear. Success rate: 10%, Weapon Def.+7, Magic Def.+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Defense on topwear.\nSuccess rate: 10%, Weapon Def.+7, Magic Def.+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040403.png"
     },
     {
@@ -26121,7 +26121,7 @@
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "HP",
-      "description": "Improves Max HP on topwear. Success rate: 100%, Max HP+10",
+      "description": "Improves Max HP on topwear.\nSuccess rate: 100%, Max HP+10",
       "thumbnail": "images/items/02040404.png"
     },
     {
@@ -26130,7 +26130,7 @@
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "HP",
-      "description": "Improves Max HP on topwear. Success rate: 60%, Max HP+15",
+      "description": "Improves Max HP on topwear.\nSuccess rate: 60%, Max HP+15",
       "thumbnail": "images/items/02040405.png"
     },
     {
@@ -26139,7 +26139,7 @@
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "HP",
-      "description": "Improves Max HP on topwear. Success rate: 10%, Max HP+20",
+      "description": "Improves Max HP on topwear.\nSuccess rate: 10%, Max HP+20",
       "thumbnail": "images/items/02040406.png"
     },
     {
@@ -26148,7 +26148,7 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "HP",
-      "description": "Improves Max HP on topwear. Success rate: 10%, Max HP+30 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Max HP on topwear.\nSuccess rate: 10%, Max HP+30\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040407.png"
     },
     {
@@ -26157,7 +26157,7 @@
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "MP",
-      "description": "Improves Max MP on topwear. Success rate: 100%, Max MP+10",
+      "description": "Improves Max MP on topwear.\nSuccess rate: 100%, Max�MP+10",
       "thumbnail": "images/items/02040408.png"
     },
     {
@@ -26166,7 +26166,7 @@
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "MP",
-      "description": "Improves Max MP on topwear. Success rate: 60%, Max MP+15",
+      "description": "Improves Max MP on topwear.\nSuccess rate: 60%, Max�MP+15",
       "thumbnail": "images/items/02040409.png"
     },
     {
@@ -26175,7 +26175,7 @@
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "MP",
-      "description": "Improves Max MP on topwear. Success rate: 10%, Max MP+20",
+      "description": "Improves Max MP on topwear.\nSuccess rate: 10%, Max�MP+20",
       "thumbnail": "images/items/02040410.png"
     },
     {
@@ -26184,7 +26184,7 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "MP",
-      "description": "Improves Max MP on topwear. Success rate: 10%, Max MP+30 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Max MP on topwear.\nSuccess rate: 10%, Max�MP+30\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040411.png"
     },
     {
@@ -26193,7 +26193,7 @@
       "equip_slot": "Overall",
       "tier": "Lesser",
       "stat_type": "Other",
-      "description": "Improves Defense on overalls. Success rate: 100%, Weapon Def.+2",
+      "description": "Improves Defense on overalls.\nSuccess rate: 100%, Weapon Def.+2",
       "thumbnail": "images/items/02040500.png"
     },
     {
@@ -26202,7 +26202,7 @@
       "equip_slot": "Overall",
       "tier": "Intermediate",
       "stat_type": "Other",
-      "description": "Improves Defense on overalls. Success rate: 60%, Weapon Def.+3, Magic Def.+1",
+      "description": "Improves Defense on overalls.\nSuccess rate: 60%, Weapon Def.+3, Magic Def.+1",
       "thumbnail": "images/items/02040501.png"
     },
     {
@@ -26211,7 +26211,7 @@
       "equip_slot": "Overall",
       "tier": "Greater",
       "stat_type": "Other",
-      "description": "Improves Defense on overalls. Success rate: 10%, Weapon Def.+5, Magic Def.+3",
+      "description": "Improves Defense on overalls.\nSuccess rate: 10%, Weapon Def.+5, Magic Def.+3",
       "thumbnail": "images/items/02040502.png"
     },
     {
@@ -26220,7 +26220,7 @@
       "equip_slot": "Overall",
       "tier": "Chaos",
       "stat_type": "Other",
-      "description": "Improves Defense on overalls. Success rate: 10%, Weapon Def.+7, Magic Def.+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Defense on overalls.\nSuccess rate: 10%, Weapon Def.+7, Magic Def.+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040503.png"
     },
     {
@@ -26229,25 +26229,25 @@
       "equip_slot": "Overall",
       "tier": "Lesser",
       "stat_type": "STR",
-      "description": "Improves Strength on overalls. Success rate: 100%, STR+1",
+      "description": "Improves�Strength on overalls.\nSuccess rate: 100%,�STR+1",
       "thumbnail": "images/items/02040504.png"
     },
     {
       "id": 2040505,
-      "name": "Overall Armor STR Scroll: Intermediate",
+      "name": "Overall Armor STR Scroll:�Intermediate",
       "equip_slot": "Overall",
       "tier": "Intermediate",
       "stat_type": "STR",
-      "description": "Improves Strength on overalls. Success rate: 60%, STR+2",
+      "description": "Improves Strength on overalls.\nSuccess rate: 60%,�STR+2",
       "thumbnail": "images/items/02040505.png"
     },
     {
       "id": 2040506,
-      "name": "Overall Armor STR Scroll: Greater",
+      "name": "Overall Armor STR Scroll:�Greater",
       "equip_slot": "Overall",
       "tier": "Greater",
       "stat_type": "STR",
-      "description": "Improves Strength on overalls. Success rate: 10%, STR+3",
+      "description": "Improves Strength on overalls.\nSuccess rate: 10%,�STR+3",
       "thumbnail": "images/items/02040506.png"
     },
     {
@@ -26256,7 +26256,7 @@
       "equip_slot": "Overall",
       "tier": "Chaos",
       "stat_type": "STR",
-      "description": "Improves Strength on overalls. Success rate: 10%, STR+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves�Strength on overalls.\nSuccess rate: 10%,�STR+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040507.png"
     },
     {
@@ -26265,25 +26265,25 @@
       "equip_slot": "Overall",
       "tier": "Lesser",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on overalls. Success rate: 100%, DEX+1",
+      "description": "Improves Dexterity on overalls.\nSuccess rate: 100%, DEX+1",
       "thumbnail": "images/items/02040508.png"
     },
     {
       "id": 2040509,
-      "name": "Overall Armor DEX Scroll: Intermediate",
+      "name": "Overall Armor DEX Scroll:�Intermediate",
       "equip_slot": "Overall",
       "tier": "Intermediate",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on overalls. Success rate: 60%, DEX+2",
+      "description": "Improves Dexterity on overalls.\nSuccess rate: 60%, DEX+2",
       "thumbnail": "images/items/02040509.png"
     },
     {
       "id": 2040510,
-      "name": "Overall Armor DEX Scroll: Greater",
+      "name": "Overall Armor DEX Scroll:�Greater",
       "equip_slot": "Overall",
       "tier": "Greater",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on overalls. Success rate: 10%, DEX+3",
+      "description": "Improves Dexterity on overalls.\nSuccess rate: 10%, DEX+3",
       "thumbnail": "images/items/02040510.png"
     },
     {
@@ -26292,7 +26292,7 @@
       "equip_slot": "Overall",
       "tier": "Chaos",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on overalls. Success rate: 10%, DEX+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Dexterity on overalls.\nSuccess rate: 10%, DEX+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040511.png"
     },
     {
@@ -26301,25 +26301,25 @@
       "equip_slot": "Overall",
       "tier": "Lesser",
       "stat_type": "INT",
-      "description": "Improves Intelligence on overalls. Success rate: 100%, INT+1",
+      "description": "Improves Intelligence on overalls.\nSuccess rate: 100%, INT+1",
       "thumbnail": "images/items/02040512.png"
     },
     {
       "id": 2040513,
-      "name": "Overall Armor INT Scroll: Intermediate",
+      "name": "Overall Armor INT Scroll:�Intermediate",
       "equip_slot": "Overall",
       "tier": "Intermediate",
       "stat_type": "INT",
-      "description": "Improves Intelligence on overalls. Success rate: 60%, INT+2",
+      "description": "Improves Intelligence on overalls.\nSuccess rate: 60%, INT+2",
       "thumbnail": "images/items/02040513.png"
     },
     {
       "id": 2040514,
-      "name": "Overall Armor INT Scroll: Greater",
+      "name": "Overall Armor INT Scroll:�Greater",
       "equip_slot": "Overall",
       "tier": "Greater",
       "stat_type": "INT",
-      "description": "Improves Intelligence on overalls. Success rate: 10%, INT+3",
+      "description": "Improves Intelligence on overalls.\nSuccess rate: 10%, INT+3",
       "thumbnail": "images/items/02040514.png"
     },
     {
@@ -26328,34 +26328,34 @@
       "equip_slot": "Overall",
       "tier": "Chaos",
       "stat_type": "INT",
-      "description": "Improves Intelligence on overalls. Success rate: 10%, INT+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Intelligence on overalls.\nSuccess rate: 10%, INT+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040515.png"
     },
     {
       "id": 2040516,
-      "name": "Overall Armor LUK Scroll: Lesser",
+      "name": "Overall Armor LUK Scroll:�Lesser",
       "equip_slot": "Overall",
       "tier": "Lesser",
       "stat_type": "LUK",
-      "description": "Improves Luck on overalls. Success rate: 100%, LUK+1",
+      "description": "Improves Luck on overalls.\nSuccess rate: 100%, LUK+1",
       "thumbnail": "images/items/02040516.png"
     },
     {
       "id": 2040517,
-      "name": "Overall Armor LUK Scroll: Intermediate",
+      "name": "Overall Armor LUK Scroll:�Intermediate",
       "equip_slot": "Overall",
       "tier": "Intermediate",
       "stat_type": "LUK",
-      "description": "Improves Luck on overalls. Success rate: 60%, LUK+2",
+      "description": "Improves Luck on overalls.\nSuccess rate: 60%, LUK+2",
       "thumbnail": "images/items/02040517.png"
     },
     {
       "id": 2040518,
-      "name": "Overall Armor LUK Scroll: Greater",
+      "name": "Overall Armor LUK Scroll:�Greater",
       "equip_slot": "Overall",
       "tier": "Greater",
       "stat_type": "LUK",
-      "description": "Improves Luck on overalls. Success rate: 10%, LUK+3",
+      "description": "Improves Luck on overalls.\nSuccess rate: 10%, LUK+3",
       "thumbnail": "images/items/02040518.png"
     },
     {
@@ -26364,7 +26364,7 @@
       "equip_slot": "Overall",
       "tier": "Chaos",
       "stat_type": "LUK",
-      "description": "Improves Luck on overalls. Success rate: 10%, LUK+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Luck on overalls.\nSuccess rate: 10%, LUK+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040519.png"
     },
     {
@@ -26373,7 +26373,7 @@
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "Other",
-      "description": "Improves Defense on bottomwear. Success rate: 100%, Weapon Def.+2",
+      "description": "Improves Defense on bottomwear.\nSuccess rate: 100%, Weapon Def.+2",
       "thumbnail": "images/items/02040600.png"
     },
     {
@@ -26382,7 +26382,7 @@
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "Other",
-      "description": "Improves Defense on bottomwear. Success rate: 60%, Weapon Def.+3, Magic Def.+1",
+      "description": "Improves Defense on bottomwear.\nSuccess rate: 60%, Weapon Def.+3, Magic Def.+1",
       "thumbnail": "images/items/02040601.png"
     },
     {
@@ -26391,7 +26391,7 @@
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "Other",
-      "description": "Improves Defense on bottomwear. Success rate: 10%, Weapon Def.+5, Magic Def.+3",
+      "description": "Improves Defense on bottomwear.\nSuccess rate: 10%, Weapon Def.+5, Magic Def.+3",
       "thumbnail": "images/items/02040602.png"
     },
     {
@@ -26400,7 +26400,7 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "Other",
-      "description": "Improves Defense on bottomwear. Success rate: 10%, Weapon Def.+7, Magic Def.+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Defense on bottomwear.\nSuccess rate: 10%, Weapon Def.+7, Magic Def.+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040603.png"
     },
     {
@@ -26409,7 +26409,7 @@
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "HP",
-      "description": "Improves Max HP on bottomwear. Success rate: 100%, Max HP+10",
+      "description": "Improves Max HP on bottomwear.\nSuccess rate: 100%, Max HP+10",
       "thumbnail": "images/items/02040604.png"
     },
     {
@@ -26418,7 +26418,7 @@
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "HP",
-      "description": "Improves Max HP on bottomwear. Success rate: 60%, Max HP+15",
+      "description": "Improves Max HP on bottomwear.\nSuccess rate: 60%, Max HP+15",
       "thumbnail": "images/items/02040605.png"
     },
     {
@@ -26427,7 +26427,7 @@
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "HP",
-      "description": "Improves Max HP on bottomwear. Success rate: 10%, Max HP+20",
+      "description": "Improves Max HP on bottomwear.\nSuccess rate: 10%, Max HP+20",
       "thumbnail": "images/items/02040606.png"
     },
     {
@@ -26436,7 +26436,7 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "HP",
-      "description": "Improves Max HP on bottomwear. Success rate: 10%, Max HP+30 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Max HP on bottomwear.\nSuccess rate: 10%, Max HP+30\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040607.png"
     },
     {
@@ -26445,25 +26445,25 @@
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "MP",
-      "description": "Improves Max MP on bottomwear. Success rate: 100%, Max MP+10",
+      "description": "Improves Max MP on bottomwear.\nSuccess rate: 100%, Max MP+10",
       "thumbnail": "images/items/02040608.png"
     },
     {
       "id": 2040609,
-      "name": "Bottomwear MP Scroll: Intermediate",
+      "name": "Bottomwear MP Scroll:�Intermediate",
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "MP",
-      "description": "Improves Max MP on bottomwear. Success rate: 60%, Max MP+15",
+      "description": "Improves Max MP on bottomwear.\nSuccess rate: 60%, Max MP+15",
       "thumbnail": "images/items/02040609.png"
     },
     {
       "id": 2040610,
-      "name": "Bottomwear MP Scroll: Greater",
+      "name": "Bottomwear MP Scroll:�Greater",
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "MP",
-      "description": "Improves Max MP on bottomwear. Success rate: 10%, Max MP+20",
+      "description": "Improves Max MP on bottomwear.\nSuccess rate: 10%, Max MP+20",
       "thumbnail": "images/items/02040610.png"
     },
     {
@@ -26472,7 +26472,7 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "MP",
-      "description": "Improves Max MP on bottomwear. Success rate: 10%, Max MP+30 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Max MP on bottomwear.\nSuccess rate: 10%, Max MP+30\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040611.png"
     },
     {
@@ -26481,7 +26481,7 @@
       "equip_slot": "Shoes",
       "tier": "Lesser",
       "stat_type": "Other",
-      "description": "Improves Jump on shoes. Success rate: 100%, Jump+1",
+      "description": "Improves Jump on shoes.\nSuccess rate: 100%, Jump+1",
       "thumbnail": "images/items/02040700.png"
     },
     {
@@ -26490,7 +26490,7 @@
       "equip_slot": "Shoes",
       "tier": "Intermediate",
       "stat_type": "Other",
-      "description": "Improves Jump on shoes. Success rate: 60%, Jump+2",
+      "description": "Improves Jump on shoes.\nSuccess rate: 60%, Jump+2",
       "thumbnail": "images/items/02040701.png"
     },
     {
@@ -26499,7 +26499,7 @@
       "equip_slot": "Shoes",
       "tier": "Greater",
       "stat_type": "Other",
-      "description": "Improves Jump on shoes. Success rate: 10%, Jump+3",
+      "description": "Improves Jump on shoes.\nSuccess rate: 10%, Jump+3",
       "thumbnail": "images/items/02040702.png"
     },
     {
@@ -26508,7 +26508,7 @@
       "equip_slot": "Shoes",
       "tier": "Chaos",
       "stat_type": "Other",
-      "description": "Improves Jump on shoes. Success rate: 10%, Jump+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Jump on shoes.\nSuccess rate: 10%, Jump+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040703.png"
     },
     {
@@ -26517,7 +26517,7 @@
       "equip_slot": "Shoes",
       "tier": "Lesser",
       "stat_type": "Speed",
-      "description": "Improves Speed on shoes. Success rate: 100%, Speed+1",
+      "description": "Improves Speed on shoes.\nSuccess rate: 100%, Speed+1",
       "thumbnail": "images/items/02040704.png"
     },
     {
@@ -26526,7 +26526,7 @@
       "equip_slot": "Shoes",
       "tier": "Intermediate",
       "stat_type": "Speed",
-      "description": "Improves Speed on shoes. Success rate: 60%, Speed+2",
+      "description": "Improves Speed on shoes.\nSuccess rate: 60%, Speed+2",
       "thumbnail": "images/items/02040705.png"
     },
     {
@@ -26535,7 +26535,7 @@
       "equip_slot": "Shoes",
       "tier": "Greater",
       "stat_type": "Speed",
-      "description": "Improves Speed on shoes. Success rate: 10%, Speed+3",
+      "description": "Improves Speed on shoes.\nSuccess rate: 10%, Speed+3",
       "thumbnail": "images/items/02040706.png"
     },
     {
@@ -26544,34 +26544,34 @@
       "equip_slot": "Shoes",
       "tier": "Chaos",
       "stat_type": "Speed",
-      "description": "Improves Speed on shoes. Success rate: 10%, Speed+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Speed on shoes.\nSuccess rate: 10%, Speed+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040707.png"
     },
     {
       "id": 2040708,
-      "name": "Shoes Avoidability Scroll: Lesser",
+      "name": "Shoes Avoidability Scroll:�Lesser",
       "equip_slot": "Shoes",
       "tier": "Lesser",
       "stat_type": "Avoidability",
-      "description": "Improves Avoidability on shoes. Success rate: 100%, Avoidability+1",
+      "description": "Improves Avoidability on shoes.\nSuccess rate: 100%, Avoidability+1",
       "thumbnail": "images/items/02040708.png"
     },
     {
       "id": 2040709,
-      "name": "Shoes Avoidability Scroll: Intermediate",
+      "name": "Shoes Avoidability Scroll:�Intermediate",
       "equip_slot": "Shoes",
       "tier": "Intermediate",
       "stat_type": "Avoidability",
-      "description": "Improves Avoidability on shoes. Success rate: 60%, Avoidability+2",
+      "description": "Improves Avoidability on shoes.\nSuccess rate: 60%,�Avoidability+2",
       "thumbnail": "images/items/02040709.png"
     },
     {
       "id": 2040710,
-      "name": "Shoes Avoidability Scroll: Greater",
+      "name": "Shoes Avoidability Scroll:�Greater",
       "equip_slot": "Shoes",
       "tier": "Greater",
       "stat_type": "Avoidability",
-      "description": "Improves Avoidability on shoes. Success rate: 10%, Avoidability+3",
+      "description": "Improves Avoidability on shoes.\nSuccess rate: 10%,�Avoidability+3",
       "thumbnail": "images/items/02040710.png"
     },
     {
@@ -26580,16 +26580,16 @@
       "equip_slot": "Shoes",
       "tier": "Chaos",
       "stat_type": "Avoidability",
-      "description": "Improves Avoidability on shoes. Success rate: 10%, Avoidability+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Avoidability on shoes.\nSuccess rate: 10%,�Avoidability+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040711.png"
     },
     {
       "id": 2040800,
-      "name": "Gloves Attack Scroll: Lesser",
+      "name": "Gloves Attack Scroll:�Lesser",
       "equip_slot": "Glove",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on gloves. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on gloves.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02040800.png"
     },
     {
@@ -26598,7 +26598,7 @@
       "equip_slot": "Glove",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on gloves. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on gloves.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02040801.png"
     },
     {
@@ -26607,25 +26607,25 @@
       "equip_slot": "Glove",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on gloves. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on gloves.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02040802.png"
     },
     {
       "id": 2040803,
-      "name": "Gloves Attack Scroll: Chaos",
+      "name": "Gloves Attack Scroll:�Chaos",
       "equip_slot": "Glove",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on gloves. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on gloves.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040803.png"
     },
     {
       "id": 2040804,
-      "name": "Gloves Magic Attack Scroll: Lesser",
+      "name": "Gloves Magic Attack Scroll:�Lesser",
       "equip_slot": "Glove",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on gloves. Success rate: 100%, Magic Attack +1",
+      "description": "Improves Magic Attack on gloves.\nSuccess rate: 100%, Magic Attack +1",
       "thumbnail": "images/items/02040804.png"
     },
     {
@@ -26634,7 +26634,7 @@
       "equip_slot": "Glove",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on gloves. Success rate: 60%, Magic Attack +2",
+      "description": "Improves Magic Attack on gloves.\nSuccess rate: 60%, Magic Attack +2",
       "thumbnail": "images/items/02040805.png"
     },
     {
@@ -26643,16 +26643,16 @@
       "equip_slot": "Glove",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on gloves. Success rate: 10%, Magic Attack +3",
+      "description": "Improves Magic Attack on gloves.\nSuccess rate: 10%, Magic Attack +3",
       "thumbnail": "images/items/02040806.png"
     },
     {
       "id": 2040807,
-      "name": "Gloves Magic Attack Scroll: Chaos",
+      "name": "Gloves Magic Attack Scroll:�Chaos",
       "equip_slot": "Glove",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on gloves. Success rate: 10%, Magic Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Magic Attack on gloves.\nSuccess rate: 10%, Magic Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040807.png"
     },
     {
@@ -26661,7 +26661,7 @@
       "equip_slot": "Glove",
       "tier": "Lesser",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on gloves. Success rate: 100%, Accuracy+1",
+      "description": "Improves Accuracy on gloves.\nSuccess rate: 100%, Accuracy+1",
       "thumbnail": "images/items/02040808.png"
     },
     {
@@ -26670,7 +26670,7 @@
       "equip_slot": "Glove",
       "tier": "Intermediate",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on gloves. Success rate: 60%, Accuracy+2",
+      "description": "Improves Accuracy on gloves.\nSuccess rate: 60%, Accuracy+2",
       "thumbnail": "images/items/02040809.png"
     },
     {
@@ -26679,7 +26679,7 @@
       "equip_slot": "Glove",
       "tier": "Greater",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on gloves. Success rate: 10%, Accuracy+3",
+      "description": "Improves Accuracy on gloves.\nSuccess rate: 10%, Accuracy+3",
       "thumbnail": "images/items/02040810.png"
     },
     {
@@ -26688,7 +26688,7 @@
       "equip_slot": "Glove",
       "tier": "Chaos",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on gloves. Success rate: 10%, Accuracy+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Accuracy on gloves.\nSuccess rate: 10%, Accuracy+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040811.png"
     },
     {
@@ -26697,7 +26697,7 @@
       "equip_slot": "Glove",
       "tier": "Lesser",
       "stat_type": "Other",
-      "description": "Improves Crit. Rate on gloves. Success rate: 100%, Crit. Rate+1",
+      "description": "Improves Crit. Rate�on gloves.\nSuccess rate: 100%, Crit. Rate+1",
       "thumbnail": "images/items/02040812.png"
     },
     {
@@ -26706,25 +26706,25 @@
       "equip_slot": "Glove",
       "tier": "Intermediate",
       "stat_type": "Other",
-      "description": "Improves Crit. Rate on gloves. Success rate: 60%, Crit. Rate +2",
+      "description": "Improves Crit. Rate�on gloves.\nSuccess rate: 60%, Crit. Rate�+2",
       "thumbnail": "images/items/02040813.png"
     },
     {
       "id": 2040814,
-      "name": "Gloves Crit. Rate Scroll: Greater",
+      "name": "Gloves Crit. Rate�Scroll: Greater",
       "equip_slot": "Glove",
       "tier": "Greater",
       "stat_type": "Other",
-      "description": "Improves Crit. Rate on gloves. Success rate: 10%, Crit. Rate+3",
+      "description": "Improves Crit. Rate�on gloves.\nSuccess rate: 10%, Crit. Rate+3",
       "thumbnail": "images/items/02040814.png"
     },
     {
       "id": 2040815,
-      "name": "Gloves Crit. Rate Scroll: Chaos",
+      "name": "Gloves Crit. Rate�Scroll: Chaos",
       "equip_slot": "Glove",
       "tier": "Chaos",
       "stat_type": "Other",
-      "description": "Improves Crit. Rate on gloves. Success rate: 10%, Crit. Rate+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Crit. Rate�on gloves.\nSuccess rate: 10%, Crit. Rate+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040815.png"
     },
     {
@@ -26733,7 +26733,7 @@
       "equip_slot": "Shield",
       "tier": "Lesser",
       "stat_type": "Other",
-      "description": "Improves Defense on shields. Success rate: 100%, Weapon Def.+2",
+      "description": "Improves Defense on shields.\nSuccess rate: 100%, Weapon Def.+2",
       "thumbnail": "images/items/02040900.png"
     },
     {
@@ -26742,7 +26742,7 @@
       "equip_slot": "Shield",
       "tier": "Intermediate",
       "stat_type": "Other",
-      "description": "Improves Defense on shields. Success rate: 60%, Weapon Def.+3, Magic Def.+1",
+      "description": "Improves Defense on shields.\nSuccess rate: 60%, Weapon Def.+3, Magic Def.+1",
       "thumbnail": "images/items/02040901.png"
     },
     {
@@ -26751,7 +26751,7 @@
       "equip_slot": "Shield",
       "tier": "Greater",
       "stat_type": "Other",
-      "description": "Improves Defense on shields. Success rate:10%, Weapon Def.+5, Magic Def.+3",
+      "description": "Improves Defense on shields.\nSuccess rate:10%, Weapon Def.+5, Magic Def.+3",
       "thumbnail": "images/items/02040902.png"
     },
     {
@@ -26760,7 +26760,7 @@
       "equip_slot": "Shield",
       "tier": "Chaos",
       "stat_type": "Other",
-      "description": "Improves Defense on shields. Success rate: 10%, Weapon Def.+7, Magic Def.+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Defense on shields.\nSuccess rate: 10%, Weapon Def.+7, Magic Def.+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040903.png"
     },
     {
@@ -26769,7 +26769,7 @@
       "equip_slot": "Shield",
       "tier": "Lesser",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on shields. Success rate: 100%, Accuracy+1",
+      "description": "Improves Accuracy on shields.\nSuccess rate: 100%, Accuracy+1",
       "thumbnail": "images/items/02040904.png"
     },
     {
@@ -26778,7 +26778,7 @@
       "equip_slot": "Shield",
       "tier": "Intermediate",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on shields. Success rate: 60%, Accuracy+2",
+      "description": "Improves Accuracy on shields.\nSuccess rate: 60%, Accuracy+2",
       "thumbnail": "images/items/02040905.png"
     },
     {
@@ -26787,7 +26787,7 @@
       "equip_slot": "Shield",
       "tier": "Greater",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on shields. Success rate: 10%, Accuracy+3",
+      "description": "Improves Accuracy on shields.\nSuccess rate: 10%, Accuracy+3",
       "thumbnail": "images/items/02040906.png"
     },
     {
@@ -26796,7 +26796,7 @@
       "equip_slot": "Shield",
       "tier": "Chaos",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on shields. Success rate: 10%, Accuracy+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Accuracy�on shields.\nSuccess rate: 10%, Accuracy+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02040907.png"
     },
     {
@@ -26805,7 +26805,7 @@
       "equip_slot": "Cape",
       "tier": "Lesser",
       "stat_type": "Defense",
-      "description": "Improves Weapon Def. on capes. Success rate: 100%, Weapon Def.+2",
+      "description": "Improves Weapon Def. on capes.\nSuccess rate: 100%, Weapon Def.+2",
       "thumbnail": "images/items/02041000.png"
     },
     {
@@ -26814,7 +26814,7 @@
       "equip_slot": "Cape",
       "tier": "Intermediate",
       "stat_type": "Defense",
-      "description": "Improves Weapon Def. on capes. Success rate: 60%, Weapon Def.+3, Magic Def.+1",
+      "description": "Improves Weapon Def. on capes.\nSuccess rate: 60%, Weapon Def.+3, Magic Def.+1",
       "thumbnail": "images/items/02041001.png"
     },
     {
@@ -26823,7 +26823,7 @@
       "equip_slot": "Cape",
       "tier": "Greater",
       "stat_type": "Defense",
-      "description": "Improves Weapon Def. on capes. Success rate: 10%, Weapon Def.+5, Magic Def.+3",
+      "description": "Improves Weapon Def. on capes.\nSuccess rate: 10%, Weapon Def.+5, Magic Def.+3",
       "thumbnail": "images/items/02041002.png"
     },
     {
@@ -26832,16 +26832,16 @@
       "equip_slot": "Cape",
       "tier": "Chaos",
       "stat_type": "Defense",
-      "description": "Improves Weapon Def. on capes. Success rate: 10%, Weapon Def.+7, Magic Def.+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Def. on capes.\nSuccess rate: 10%, Weapon Def.+7, Magic Def.+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02041003.png"
     },
     {
       "id": 2041004,
-      "name": "Cape Magic Def. Scroll: Lesser",
+      "name": "Cape Magic Def. Scroll:�Lesser",
       "equip_slot": "Cape",
       "tier": "Lesser",
       "stat_type": "Defense",
-      "description": "Improves Magic Def. on capes. Success rate: 100%, Magic Def.+2",
+      "description": "Improves Magic Def. on capes.\nSuccess rate: 100%, Magic Def.+2",
       "thumbnail": "images/items/02041004.png"
     },
     {
@@ -26850,7 +26850,7 @@
       "equip_slot": "Cape",
       "tier": "Intermediate",
       "stat_type": "Defense",
-      "description": "Improves Magic Def. on capes. Success rate: 60%, Magic Def.+3, Weapon Def.+1",
+      "description": "Improves Magic Def. on capes.\nSuccess rate: 60%, Magic Def.+3, Weapon Def.+1",
       "thumbnail": "images/items/02041005.png"
     },
     {
@@ -26859,7 +26859,7 @@
       "equip_slot": "Cape",
       "tier": "Greater",
       "stat_type": "Defense",
-      "description": "Improves Magic Def. on capes. Success rate: 10%, Magic Def.+5, Weapon Def.+3",
+      "description": "Improves Magic Def. on capes.\nSuccess rate: 10%, Magic Def.+5, Weapon Def.+3",
       "thumbnail": "images/items/02041006.png"
     },
     {
@@ -26868,7 +26868,7 @@
       "equip_slot": "Cape",
       "tier": "Chaos",
       "stat_type": "Defense",
-      "description": "Improves Magic Def. on capes. Success rate: 10%, Magic Def.+7, Weapon Def.+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Magic Def. on capes.\nSuccess rate: 10%, Magic Def.+7, Weapon Def.+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02041007.png"
     },
     {
@@ -26877,7 +26877,7 @@
       "equip_slot": "Cape",
       "tier": "Lesser",
       "stat_type": "STR",
-      "description": "Improves Strength on capes. Success rate: 100%, STR+1",
+      "description": "Improves Strength on capes.\nSuccess rate: 100%, STR+1",
       "thumbnail": "images/items/02041008.png"
     },
     {
@@ -26886,7 +26886,7 @@
       "equip_slot": "Cape",
       "tier": "Intermediate",
       "stat_type": "STR",
-      "description": "Improves Strength on capes. Success rate: 60%, STR+2",
+      "description": "Improves Strength on capes.\nSuccess rate: 60%, STR+2",
       "thumbnail": "images/items/02041009.png"
     },
     {
@@ -26895,7 +26895,7 @@
       "equip_slot": "Cape",
       "tier": "Greater",
       "stat_type": "STR",
-      "description": "Improves Strength on capes. Success rate: 10%, STR+3",
+      "description": "Improves Strength on capes.\nSuccess rate: 10%, STR+3",
       "thumbnail": "images/items/02041010.png"
     },
     {
@@ -26904,7 +26904,7 @@
       "equip_slot": "Cape",
       "tier": "Chaos",
       "stat_type": "STR",
-      "description": "Improves Strength on capes. Success rate: 10%, STR+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Strength on capes.\nSuccess rate: 10%, STR+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02041011.png"
     },
     {
@@ -26913,7 +26913,7 @@
       "equip_slot": "Cape",
       "tier": "Lesser",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on capes. Success rate :100%, DEX+1",
+      "description": "Improves Dexterity on capes.\nSuccess rate :100%, DEX+1",
       "thumbnail": "images/items/02041012.png"
     },
     {
@@ -26922,7 +26922,7 @@
       "equip_slot": "Cape",
       "tier": "Intermediate",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on capes. Success rate: 60%, DEX+2",
+      "description": "Improves Dexterity on capes.\nSuccess rate: 60%, DEX+2",
       "thumbnail": "images/items/02041013.png"
     },
     {
@@ -26931,7 +26931,7 @@
       "equip_slot": "Cape",
       "tier": "Greater",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on capes. Success rate: 10%, DEX+3",
+      "description": "Improves Dexterity on capes.\nSuccess rate: 10%, DEX+3",
       "thumbnail": "images/items/02041014.png"
     },
     {
@@ -26940,7 +26940,7 @@
       "equip_slot": "Cape",
       "tier": "Chaos",
       "stat_type": "DEX",
-      "description": "Improves Dexterity on capes. Success rate: 10%, DEX+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Dexterity on capes.\nSuccess rate: 10%, DEX+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02041015.png"
     },
     {
@@ -26949,7 +26949,7 @@
       "equip_slot": "Cape",
       "tier": "Lesser",
       "stat_type": "INT",
-      "description": "Improves Intelligence on capes. Success rate: 100%, INT+1",
+      "description": "Improves Intelligence on capes.\nSuccess rate: 100%, INT+1",
       "thumbnail": "images/items/02041016.png"
     },
     {
@@ -26958,7 +26958,7 @@
       "equip_slot": "Cape",
       "tier": "Intermediate",
       "stat_type": "INT",
-      "description": "Improves Intelligence on capes. Success rate: 60%, INT+2",
+      "description": "Improves Intelligence on capes.\nSuccess rate: 60%, INT+2",
       "thumbnail": "images/items/02041017.png"
     },
     {
@@ -26967,7 +26967,7 @@
       "equip_slot": "Cape",
       "tier": "Greater",
       "stat_type": "INT",
-      "description": "Improves Intelligence on capes. Success rate: 10%, INT+3",
+      "description": "Improves Intelligence on capes.\nSuccess rate: 10%, INT+3",
       "thumbnail": "images/items/02041018.png"
     },
     {
@@ -26976,7 +26976,7 @@
       "equip_slot": "Cape",
       "tier": "Chaos",
       "stat_type": "INT",
-      "description": "Improves Intelligence on capes. Success rate: 10%, INT+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Intelligence on capes.\nSuccess rate: 10%, INT+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02041019.png"
     },
     {
@@ -26985,7 +26985,7 @@
       "equip_slot": "Cape",
       "tier": "Lesser",
       "stat_type": "LUK",
-      "description": "Improves Luck on capes. Success rate: 100%, LUK+1",
+      "description": "Improves Luck on capes.\nSuccess rate: 100%, LUK+1",
       "thumbnail": "images/items/02041020.png"
     },
     {
@@ -26994,7 +26994,7 @@
       "equip_slot": "Cape",
       "tier": "Intermediate",
       "stat_type": "LUK",
-      "description": "Improves Luck on capes. Success rate: 60%, LUK+2",
+      "description": "Improves Luck on capes.\nSuccess rate: 60%, LUK+2",
       "thumbnail": "images/items/02041021.png"
     },
     {
@@ -27003,7 +27003,7 @@
       "equip_slot": "Cape",
       "tier": "Greater",
       "stat_type": "LUK",
-      "description": "Improves Luck on capes. Success rate: 10%, LUK+3",
+      "description": "Improves Luck on capes.\nSuccess rate: 10%, LUK+3",
       "thumbnail": "images/items/02041022.png"
     },
     {
@@ -27012,16 +27012,16 @@
       "equip_slot": "Cape",
       "tier": "Chaos",
       "stat_type": "LUK",
-      "description": "Improves Luck on capes. Success rate: 10%, LUK+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Luck on capes.\nSuccess rate: 10%, LUK+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02041023.png"
     },
     {
       "id": 2041024,
-      "name": "Cape Accuracy Scroll: Lesser",
+      "name": "Cape Accuracy Scroll:�Lesser�",
       "equip_slot": "Cape",
-      "tier": "Lesser",
+      "tier": "",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on capes. Success rate: 100%, Accuracy +1",
+      "description": "Improves Accuracy on capes.\nSuccess rate: 100%, Accuracy +1",
       "thumbnail": "images/items/02041024.png"
     },
     {
@@ -27030,16 +27030,16 @@
       "equip_slot": "Cape",
       "tier": "Intermediate",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on capes. Success rate: 60%, Accuracy +2",
+      "description": "Improves Accuracy on capes.\nSuccess rate: 60%, Accuracy +2",
       "thumbnail": "images/items/02041025.png"
     },
     {
       "id": 2041026,
-      "name": "Cape Accuracy Scroll: Greater",
+      "name": "Cape Accuracy Scroll: Greater�",
       "equip_slot": "Cape",
-      "tier": "Greater",
+      "tier": "",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on capes. Success rate: 10%, Accuracy +3",
+      "description": "Improves Accuracy on capes.\nSuccess rate: 10%, Accuracy +3",
       "thumbnail": "images/items/02041026.png"
     },
     {
@@ -27048,7 +27048,7 @@
       "equip_slot": "Cape",
       "tier": "Chaos",
       "stat_type": "Accuracy",
-      "description": "Improves Accuracy on capes. Success rate: 10%, Accuracy +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Accuracy on capes.\nSuccess rate: 10%, Accuracy +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02041027.png"
     },
     {
@@ -27057,7 +27057,7 @@
       "equip_slot": "1H Sword",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed swords. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on one-handed swords.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02043000.png"
     },
     {
@@ -27066,7 +27066,7 @@
       "equip_slot": "1H Sword",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed swords. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on one-handed swords.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02043001.png"
     },
     {
@@ -27075,7 +27075,7 @@
       "equip_slot": "1H Sword",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed swords. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on one-handed swords.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02043002.png"
     },
     {
@@ -27084,7 +27084,7 @@
       "equip_slot": "1H Sword",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed swords. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on one-handed swords.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02043003.png"
     },
     {
@@ -27093,7 +27093,7 @@
       "equip_slot": "1H Axe",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed axes. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on one-handed axes.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02043100.png"
     },
     {
@@ -27102,7 +27102,7 @@
       "equip_slot": "1H Axe",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed axes. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on one-handed axes.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02043101.png"
     },
     {
@@ -27111,7 +27111,7 @@
       "equip_slot": "1H Axe",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed axes. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on one-handed axes.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02043102.png"
     },
     {
@@ -27120,7 +27120,7 @@
       "equip_slot": "1H Axe",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed axes. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on one-handed axes.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02043103.png"
     },
     {
@@ -27129,7 +27129,7 @@
       "equip_slot": "1H Blunt",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed blunt weapons. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on one-handed blunt weapons.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02043200.png"
     },
     {
@@ -27138,7 +27138,7 @@
       "equip_slot": "1H Blunt",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed blunt weapons. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on one-handed blunt weapons.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02043201.png"
     },
     {
@@ -27147,7 +27147,7 @@
       "equip_slot": "1H Blunt",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed blunt weapons. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on one-handed blunt weapons.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02043202.png"
     },
     {
@@ -27156,7 +27156,7 @@
       "equip_slot": "1H Blunt",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on one-handed blunt weapons. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on one-handed blunt weapons.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02043203.png"
     },
     {
@@ -27165,7 +27165,7 @@
       "equip_slot": "Dagger",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on daggers. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on daggers.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02043300.png"
     },
     {
@@ -27174,7 +27174,7 @@
       "equip_slot": "Dagger",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on daggers. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on daggers.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02043301.png"
     },
     {
@@ -27183,7 +27183,7 @@
       "equip_slot": "Dagger",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on daggers. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on daggers.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02043302.png"
     },
     {
@@ -27192,7 +27192,7 @@
       "equip_slot": "Dagger",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on daggers. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on daggers.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02043303.png"
     },
     {
@@ -27201,7 +27201,7 @@
       "equip_slot": "Wand",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on wands. Success rate: 100%, Magic Attack +1",
+      "description": "Improves Magic Attack on wands.\nSuccess rate: 100%, Magic Attack +1",
       "thumbnail": "images/items/02043700.png"
     },
     {
@@ -27210,7 +27210,7 @@
       "equip_slot": "Wand",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on wands. Success rate: 60%, Magic Attack +2",
+      "description": "Improves Magic Attack on wands.\nSuccess rate: 60%, Magic Attack +2",
       "thumbnail": "images/items/02043701.png"
     },
     {
@@ -27219,7 +27219,7 @@
       "equip_slot": "Wand",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on wands. Success rate: 10%, Magic Attack +3",
+      "description": "Improves Magic Attack on wands.\nSuccess rate: 10%, Magic Attack +3",
       "thumbnail": "images/items/02043702.png"
     },
     {
@@ -27228,7 +27228,7 @@
       "equip_slot": "Wand",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on wands. Success rate: 10%, Magic Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Magic Attack on wands.\nSuccess rate: 10%, Magic Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02043703.png"
     },
     {
@@ -27237,7 +27237,7 @@
       "equip_slot": "Staff",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on staves. Success rate: 100%, Magic Attack +1",
+      "description": "Improves Magic Attack on staves.\nSuccess rate: 100%, Magic Attack +1",
       "thumbnail": "images/items/02043800.png"
     },
     {
@@ -27246,7 +27246,7 @@
       "equip_slot": "Staff",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on staves. Success rate: 60%, Magic Attack +2",
+      "description": "Improves Magic Attack on staves.\nSuccess rate: 60%, Magic Attack +2",
       "thumbnail": "images/items/02043801.png"
     },
     {
@@ -27255,7 +27255,7 @@
       "equip_slot": "Staff",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on staves. Success rate: 10%, Magic Attack +3",
+      "description": "Improves Magic Attack on staves.\nSuccess rate: 10%, Magic Attack +3",
       "thumbnail": "images/items/02043802.png"
     },
     {
@@ -27264,7 +27264,7 @@
       "equip_slot": "Staff",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Magic Attack on staves. Success rate: 10%, Magic Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Magic Attack on staves.\nSuccess rate: 10%, Magic Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02043803.png"
     },
     {
@@ -27273,7 +27273,7 @@
       "equip_slot": "2H Sword",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed swords. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on two-handed swords.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02044000.png"
     },
     {
@@ -27282,7 +27282,7 @@
       "equip_slot": "2H Sword",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed swords. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on two-handed swords.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02044001.png"
     },
     {
@@ -27291,7 +27291,7 @@
       "equip_slot": "2H Sword",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed swords. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on two-handed swords.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02044002.png"
     },
     {
@@ -27300,7 +27300,7 @@
       "equip_slot": "2H Sword",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed swords. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on two-handed swords.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02044003.png"
     },
     {
@@ -27309,7 +27309,7 @@
       "equip_slot": "2H Axe",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed axes. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on two-handed axes.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02044100.png"
     },
     {
@@ -27318,7 +27318,7 @@
       "equip_slot": "2H Axe",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed axes. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on two-handed axes.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02044101.png"
     },
     {
@@ -27327,7 +27327,7 @@
       "equip_slot": "2H Axe",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed axes. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on two-handed axes.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02044102.png"
     },
     {
@@ -27336,7 +27336,7 @@
       "equip_slot": "2H Axe",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed axes. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on two-handed axes.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02044103.png"
     },
     {
@@ -27345,7 +27345,7 @@
       "equip_slot": "2H Blunt",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed blunt weapons. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on two-handed blunt weapons.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02044200.png"
     },
     {
@@ -27354,7 +27354,7 @@
       "equip_slot": "2H Blunt",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed blunt weapons. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on two-handed blunt weapons.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02044201.png"
     },
     {
@@ -27363,7 +27363,7 @@
       "equip_slot": "2H Blunt",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed blunt weapons. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on two-handed blunt weapons.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02044202.png"
     },
     {
@@ -27372,7 +27372,7 @@
       "equip_slot": "2H Blunt",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on two-handed blunt weapons. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on two-handed blunt weapons.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02044203.png"
     },
     {
@@ -27381,7 +27381,7 @@
       "equip_slot": "Spear",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on spears. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on spears.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02044300.png"
     },
     {
@@ -27390,7 +27390,7 @@
       "equip_slot": "Spear",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on spears. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on spears.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02044301.png"
     },
     {
@@ -27399,7 +27399,7 @@
       "equip_slot": "Spear",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on spears. Success rate:10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on spears.\nSuccess rate:10%, Weapon Attack +3",
       "thumbnail": "images/items/02044302.png"
     },
     {
@@ -27408,7 +27408,7 @@
       "equip_slot": "Spear",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on spears. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on spears.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02044303.png"
     },
     {
@@ -27417,7 +27417,7 @@
       "equip_slot": "Polearm",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on polearms. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on polearms.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02044400.png"
     },
     {
@@ -27426,7 +27426,7 @@
       "equip_slot": "Polearm",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on polearms. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on polearms.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02044401.png"
     },
     {
@@ -27435,7 +27435,7 @@
       "equip_slot": "Polearm",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on polearms. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on polearms.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02044402.png"
     },
     {
@@ -27444,7 +27444,7 @@
       "equip_slot": "Polearm",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on polearms. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on polearms.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02044403.png"
     },
     {
@@ -27453,7 +27453,7 @@
       "equip_slot": "Bow",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on bows. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on bows.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02044500.png"
     },
     {
@@ -27462,7 +27462,7 @@
       "equip_slot": "Bow",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on bows. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on bows.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02044501.png"
     },
     {
@@ -27471,7 +27471,7 @@
       "equip_slot": "Bow",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on bows. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on bows.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02044502.png"
     },
     {
@@ -27480,7 +27480,7 @@
       "equip_slot": "Bow",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on bows. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on bows.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02044503.png"
     },
     {
@@ -27489,7 +27489,7 @@
       "equip_slot": "Crossbow",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on crossbows. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on crossbows.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02044600.png"
     },
     {
@@ -27498,7 +27498,7 @@
       "equip_slot": "Crossbow",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on crossbows. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on crossbows.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02044601.png"
     },
     {
@@ -27507,7 +27507,7 @@
       "equip_slot": "Crossbow",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on crossbows. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on crossbows.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02044602.png"
     },
     {
@@ -27516,7 +27516,7 @@
       "equip_slot": "Crossbow",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on crossbows. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on crossbows.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02044603.png"
     },
     {
@@ -27525,7 +27525,7 @@
       "equip_slot": "Claw",
       "tier": "Lesser",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on claws. Success rate: 100%, Weapon Attack +1",
+      "description": "Improves Weapon Attack on claws.\nSuccess rate: 100%, Weapon Attack +1",
       "thumbnail": "images/items/02044700.png"
     },
     {
@@ -27534,7 +27534,7 @@
       "equip_slot": "Claw",
       "tier": "Intermediate",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on claws. Success rate: 60%, Weapon Attack +2",
+      "description": "Improves Weapon Attack on claws.\nSuccess rate: 60%, Weapon Attack +2",
       "thumbnail": "images/items/02044701.png"
     },
     {
@@ -27543,7 +27543,7 @@
       "equip_slot": "Claw",
       "tier": "Greater",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on claws. Success rate: 10%, Weapon Attack +3",
+      "description": "Improves Weapon Attack on claws.\nSuccess rate: 10%, Weapon Attack +3",
       "thumbnail": "images/items/02044702.png"
     },
     {
@@ -27552,7 +27552,7 @@
       "equip_slot": "Claw",
       "tier": "Chaos",
       "stat_type": "Attack",
-      "description": "Improves Weapon Attack on claws. Success rate: 10%, Weapon Attack +5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Weapon Attack on claws.\nSuccess rate: 10%, Weapon Attack +5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02044703.png"
     },
     {
@@ -27561,7 +27561,7 @@
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "Speed",
-      "description": "Improves Speed on pet equip. Success rate:100%, Speed+1",
+      "description": "Improves Speed on pet equip.\nSuccess rate:100%, Speed+1",
       "thumbnail": "images/items/02048000.png"
     },
     {
@@ -27570,7 +27570,7 @@
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "Speed",
-      "description": "Improves Speed on pet equip. Success rate:60%, Speed+2",
+      "description": "Improves Speed on pet equip.\nSuccess rate:60%, Speed+2",
       "thumbnail": "images/items/02048001.png"
     },
     {
@@ -27579,7 +27579,7 @@
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "Speed",
-      "description": "Improves Speed on pet equip. Success rate:10%, Speed+3",
+      "description": "Improves Speed on pet equip.\nSuccess rate:10%, Speed+3",
       "thumbnail": "images/items/02048002.png"
     },
     {
@@ -27588,7 +27588,7 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "Speed",
-      "description": "Improves Speed on pet equip. Success rate:10%, Speed+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Speed on pet equip.\nSuccess rate:10%, Speed+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02048003.png"
     },
     {
@@ -27597,7 +27597,7 @@
       "equip_slot": "Other",
       "tier": "Lesser",
       "stat_type": "Other",
-      "description": "Improves Jump on pet equip. Success rate:100%, Jump+1",
+      "description": "Improves Jump on pet equip.\nSuccess rate:100%, Jump+1",
       "thumbnail": "images/items/02048004.png"
     },
     {
@@ -27606,7 +27606,7 @@
       "equip_slot": "Other",
       "tier": "Intermediate",
       "stat_type": "Other",
-      "description": "Improves Jump on pet equip. Success rate:60%, Jump+2",
+      "description": "Improves Jump on pet equip.\nSuccess rate:60%, Jump+2",
       "thumbnail": "images/items/02048005.png"
     },
     {
@@ -27615,7 +27615,7 @@
       "equip_slot": "Other",
       "tier": "Greater",
       "stat_type": "Other",
-      "description": "Improves Jump on pet equip. Success rate:10%, Jump+3",
+      "description": "Improves Jump on pet equip.\nSuccess rate:10%, Jump+3",
       "thumbnail": "images/items/02048006.png"
     },
     {
@@ -27624,7 +27624,7 @@
       "equip_slot": "Other",
       "tier": "Chaos",
       "stat_type": "Other",
-      "description": "Improves Jump on pet equip. Success rate:10%, Jump+5 If failed, the item will be destroyed at a 100% rate.",
+      "description": "Improves Jump on pet equip.\nSuccess rate:10%, Jump+5\nIf failed, the item will be destroyed at a 100% rate.",
       "thumbnail": "images/items/02048007.png"
     }
   ],

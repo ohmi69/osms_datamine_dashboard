@@ -85,20 +85,26 @@ export function renderSkills(data) {
       cls.skills.forEach((skill) => {
         const card = el('div', { className: 'skill-card' });
         const nameRow = el('div', {
-          style: { display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px' },
+          className: 'top-line',
+          style: { display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-between', gap: '8px' },
         });
-        nameRow.appendChild(
+        const nameWrap = el('span', {
+          style: { display: 'flex', alignItems: 'center', gap: '8px', minWidth: '0' },
+        });
+        nameWrap.appendChild(
           makeThumbnail(getSkillThumbnail(skill), `${skill.name} thumbnail`, {
             className: 'skill-thumb',
             fallbackText: 'SKL',
           })
         );
-        nameRow.appendChild(el('span', { className: 'skill-name', textContent: skill.name }));
+        nameWrap.appendChild(el('span', { className: 'skill-name', textContent: skill.name }));
         if (skill.max_level > 0) {
-          nameRow.appendChild(
+          nameWrap.appendChild(
             el('span', { className: 'max-level', textContent: `Max Lv.${skill.max_level}` })
           );
         }
+        nameRow.appendChild(nameWrap);
+        nameRow.appendChild(el('span', { className: 'id', textContent: skill.id != null ? `#${skill.id}` : '' }));
         card.appendChild(nameRow);
 
         if (skill.description) {
