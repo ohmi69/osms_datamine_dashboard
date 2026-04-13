@@ -35,7 +35,7 @@
       "The item you pick up is automatically stored in an appropriate item category. What do you think Isn't it cool",
       "Double-click on an item in the item inventory and you'll be able to use it"
     ],
-    "thumbnail": "images/npcs/0000101.png"
+    "thumbnail": null
   },
   {
     "id": 102,
@@ -219,7 +219,7 @@
       "To jump, press the left Alt key.",
       "Press the arrow keys to move around here and there."
     ],
-    "thumbnail": "images/npcs/0000019.png"
+    "thumbnail": null
   },
   {
     "id": 2,
@@ -524,7 +524,7 @@
     "id": 302,
     "name": "VIP Cab",
     "functions": [],
-    "thumbnail": "images/npcs/0000302.png"
+    "thumbnail": null
   },
   {
     "id": 303,
@@ -562,7 +562,7 @@
       "I heard there's an incredible herb that can be found in here...but I can't just let you easily like that...",
       "Not everyone can enter this place~"
     ],
-    "thumbnail": "images/npcs/0000306.png"
+    "thumbnail": null
   },
   {
     "id": 307,
@@ -631,7 +631,7 @@
     "functions": [
       "If you want to leave this place, come talk to me."
     ],
-    "thumbnail": "images/npcs/0000314.png"
+    "thumbnail": null
   },
   {
     "id": 315,
@@ -871,13 +871,13 @@
     "id": 421,
     "name": "Treasure Chest",
     "functions": [],
-    "thumbnail": "images/npcs/0000421.png"
+    "thumbnail": null
   },
   {
     "id": 422,
     "name": "Treasure Chest",
     "functions": [],
-    "thumbnail": "images/npcs/0000422.png"
+    "thumbnail": null
   },
   {
     "id": 424,
@@ -1228,7 +1228,7 @@
       "Press Z and you'll be able to pick up the item the monster drops.",
       "If it's a powerful monster, how about teaming up with someone else"
     ],
-    "thumbnail": "images/npcs/0000008.png"
+    "thumbnail": null
   },
   {
     "id": 800,
@@ -1372,7 +1372,7 @@
       "This is Florina Beach!",
       "If you want to head back to where you were before, feel free to talk to me."
     ],
-    "thumbnail": "images/npcs/0000801.png"
+    "thumbnail": null
   },
   {
     "id": 802,
@@ -1428,7 +1428,7 @@
       "Hello, there! How's the traveling",
       "Would you like to change your job"
     ],
-    "thumbnail": "images/npcs/0900001.png"
+    "thumbnail": null
   },
   {
     "id": 900002,
