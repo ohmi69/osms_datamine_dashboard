@@ -80,7 +80,7 @@ export function renderOverview(data, { switchTab }) {
   [
     ['Content Era',        stats.version],
     ['Classes',            stats.classes],
-    ['CBT Window',         `${stats.cbt_start} — ${stats.cbt_end}`],
+    ['Max Level',          '51 · Same EXP curve as old school MS'],
     ['Craft Disciplines',  stats.disciplines],
     ['Bosses',             stats.bosses],
     ['Mob Level Range',        stats.level_range],

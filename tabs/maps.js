@@ -1,3 +1,4 @@
+
 import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath } from '../lib/utils.js';
 
 // Load NPCs data for lookup
@@ -125,7 +126,29 @@ export function renderMaps(data) {
       const tr = el('tr', { className: 'map-detail-row' });
       const td = el('td', { colSpan: String(colSpan) });
 
+
       const panel = el('div', { className: 'map-detail-panel' });
+
+      // --- Full map image preview ---
+      // Try to find a matching image in data/maps/{mapId}.img.png
+      if (mapEntry.id) {
+        const mapImgPath = `data/maps/${String(mapEntry.id).padStart(9, '0')}.img.png`;
+        // Only show if the file likely exists (optimistic, since we can't check existence client-side)
+        const imgContainer = el('div', { className: 'full-map-image-container' });
+        const img = el('img', {
+          className: 'full-map-image',
+          src: mapImgPath,
+          alt: `${mapEntry.name || 'Map'} full image`,
+          loading: 'lazy',
+          style: { maxWidth: '100%', maxHeight: '600px', background: '#222' },
+        });
+        img.title = 'Click to open full size in new tab';
+        img.addEventListener('click', (e) => {
+          window.open(mapImgPath, '_blank');
+        });
+        imgContainer.appendChild(img);
+        panel.appendChild(imgContainer);
+      }
 
       // Metadata chips
       const hasMeta = mapEntry.bgm || mapEntry.mob_rate != null || mapEntry.return_map_name;

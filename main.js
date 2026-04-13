@@ -10,6 +10,7 @@ import { renderItems }     from './tabs/items.js';
 import { renderEquipment } from './tabs/equipment.js';
 import { renderCashShop }  from './tabs/cashshop.js';
 import { renderQuests }    from './tabs/quests.js';
+import { renderFormulas }  from './tabs/formulas.js';
 
 // Apply theme immediately to avoid flash
 (function () {
@@ -35,6 +36,7 @@ const renderers = {
   equipment: () => renderEquipment(appData),
   cashshop:  () => renderCashShop(appData),
   quests:    () => renderQuests(appData),
+  formulas:  () => renderFormulas(),
 };
 
 function switchTab(tabId, pushState = true) {

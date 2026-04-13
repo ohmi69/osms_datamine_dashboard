@@ -1,0 +1,26 @@
+.map-detail-panel {
+  text-align: center;
+}
+.full-map-image-container {
+  display: inline-block;
+  margin: 28px auto 18px auto;
+  background: var(--surface2, #181a20);
+  border-radius: 12px;
+  width: auto;
+  max-width: 100%;
+}
+.full-map-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  max-height: 540px;
+  border: 2px solid var(--border, #23242a);
+  border-radius: 10px;
+  cursor: pointer;
+  background: #222;
+  transition: border-color 0.2s;
+}
+.full-map-image:hover {
+  border-color: var(--accent, #7aa2f7);
+}

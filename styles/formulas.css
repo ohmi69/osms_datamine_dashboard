@@ -1,0 +1,194 @@
+.formulas-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.formulas-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.formulas-row > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.formulas-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 800px) {
+  .formulas-row { flex-direction: column; }
+}
+
+/* ── Table wrapper — scrollable on small screens ─────────────── */
+.formulas-table-wrap {
+  overflow-x: auto;
+}
+
+.formulas-table-wrap .data-table {
+  min-width: 320px;
+}
+
+/* ── Level chips ─────────────────────────────────────────────── */
+.lvl-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: monospace;
+  letter-spacing: .3px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--dim);
+}
+
+/* ── EXP values ──────────────────────────────────────────────── */
+.formulas-exp-val {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.formulas-accum-val {
+  color: var(--dim);
+  font-size: 13px;
+}
+
+/* ── Formula block ───────────────────────────────────────────── */
+.formulas-formula-wrap {
+  padding: 16px;
+}
+
+.formulas-code-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.formulas-code-cell {
+  background: var(--bg);
+  border-left: 4px solid var(--accent);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.formulas-code-cell + .formulas-code-cell {
+  border-top: 1px solid var(--border);
+}
+
+.formulas-code-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.formulas-code {
+  font-family: 'Consolas', 'Fira Mono', monospace;
+  font-size: 13px;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Variable legend ─────────────────────────────────────────── */
+.formulas-var-heading {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--dim);
+  margin-bottom: 8px;
+}
+
+.formulas-var-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formulas-var-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.formulas-var-row:last-child {
+  border-bottom: none;
+}
+
+.formulas-var-name {
+  font-family: 'Consolas', 'Fira Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--secondary);
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+.formulas-var-desc {
+  color: var(--dim);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* ── MapleTip overrides ──────────────────────────────────────── */
+[data-theme="mapletip"] .formulas-code-cell {
+  background: #EDE4D0;
+}
+
+/* ── TBD placeholder ─────────────────────────────────────────── */
+.formulas-tbd {
+  padding: 32px 16px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* ── Credit line ─────────────────────────────────────────────── */
+.formulas-credit {
+  font-size: 11px;
+  color: var(--dim);
+  font-weight: 400;
+}
+
+.formulas-credit strong {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+/* ── MapleTip theme overrides ────────────────────────────────── */
+[data-theme="mapletip"] .lvl-chip {
+  background: #EDE4D0;
+  border-color: #D4C4A8;
+  color: #8B7355;
+}
+
+[data-theme="mapletip"] .formulas-exp-val {
+  color: var(--accent);
+}
+
