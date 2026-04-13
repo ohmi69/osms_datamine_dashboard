@@ -1,4 +1,10 @@
-import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine } from '../lib/utils.js';
+import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton } from '../lib/utils.js';
+
+function parseIdFilter(query) {
+  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
+  if (!match) return null;
+  return Number(match[1]);
+}
 
 function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
@@ -21,7 +27,10 @@ function renderEquipRow(item) {
   );
   nameWrap.appendChild(el('span', { className: 'name', textContent: item.name }));
   topLine.appendChild(nameWrap);
-  topLine.appendChild(el('span', { className: 'id', textContent: item.id }));
+  const eqRightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', flexShrink: '0' } });
+  eqRightWrap.appendChild(makeDeepLinkButton('equipment', item.id));
+  eqRightWrap.appendChild(el('span', { className: 'id', textContent: item.id }));
+  topLine.appendChild(eqRightWrap);
   row.appendChild(topLine);
 
   if (item.description) {
@@ -40,7 +49,7 @@ function renderEquipRow(item) {
   return row;
 }
 
-export function renderEquipment(data) {
+export function renderEquipment(data, options = {}) {
   const { items } = data;
   let searchQuery = '';
   let classFilter = 0;
@@ -77,13 +86,21 @@ export function renderEquipment(data) {
     filterBar.appendChild(button);
   });
 
-  container.appendChild(
-    makeSearchBox('Search equipment...', (value) => {
-      searchQuery = value;
-      renderData();
-    })
-  );
+  const eqSearchBox = makeSearchBox('Search equipment...', (value) => {
+    searchQuery = value;
+    renderData();
+  });
+  container.appendChild(eqSearchBox);
   container.appendChild(filterBar);
+
+  if (options.setNavigate) {
+    options.setNavigate((query) => {
+      searchQuery = query;
+      eqSearchBox._input.value = query;
+      renderData();
+      window.scrollTo(0, 0);
+    });
+  }
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);
@@ -92,7 +109,10 @@ export function renderEquipment(data) {
     dataDiv.innerHTML = '';
     let equips = items.items.filter((item) => item.category === 'Equipment');
     const sq = searchQuery.toLowerCase();
-    if (sq) {
+    const exactId = parseIdFilter(searchQuery);
+    if (exactId != null) {
+      equips = equips.filter((equip) => Number(equip.id) === exactId);
+    } else if (sq) {
       equips = equips.filter(
         (equip) =>
           equip.name.toLowerCase().includes(sq) ||

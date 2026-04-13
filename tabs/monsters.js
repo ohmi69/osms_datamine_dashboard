@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
 import { loadState, saveState } from '../lib/data.js';
 
 const _savedState = loadState();
@@ -34,7 +34,9 @@ function buildDetailRow(monster, colSpan, onMapClick) {
 
   const gifs = monster.gifs || {};
   const availableStates = STATE_ORDER.filter(s => gifs[s]);
-  const defaultSrc = normalizeAssetPath(monster.gif || monster.thumbnail);
+  const defaultSrc = normalizeAssetPath(
+    gifs['move'] || (availableStates.length > 0 ? gifs[availableStates[0]] : null) || monster.gif || monster.thumbnail
+  );
 
   const headerLeft = el('div', { className: 'monster-detail-header-left' });
 
@@ -52,7 +54,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
   // Animation picker tabs (only if multiple states exist)
   if (availableStates.length > 1) {
     const tabs = el('div', { className: 'monster-anim-tabs' });
-    let activeState = availableStates[0];
+    let activeState = availableStates.includes('move') ? 'move' : availableStates[0];
     availableStates.forEach(state => {
       const tab = el('button', {
         className: `monster-anim-tab${state === activeState ? ' active' : ''}`,
@@ -239,7 +241,9 @@ export function renderMonsters(data, options = {}) {
       const nextFilter = typeof target === 'object' && target && target.id != null
         ? `id:${target.id}`
         : String(target || '');
-      autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand) ? target.id : null;
+      autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand)
+        ? target.id
+        : parseMonsterIdFilter(nextFilter);
       filter = nextFilter;
       searchBox._input.value = nextFilter;
       renderData();
@@ -385,15 +389,18 @@ export function renderMonsters(data, options = {}) {
     const tbody = el('tbody');
     filtered.forEach((monster) => {
       const row = el('tr', { className: 'monster-row', style: { cursor: 'pointer' } });
-      const nameCell = el('td', { style: { fontWeight: '500', whiteSpace: 'nowrap' } });
-      const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', gap: '8px' } });
-      nameWrap.appendChild(
+      const nameCell = el('td', { style: { fontWeight: '500' } });
+      const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } });
+      const nameLeft = el('span', { style: { display: 'flex', alignItems: 'center', gap: '8px' } });
+      nameLeft.appendChild(
         makeThumbnail(monster.gif || monster.thumbnail, `${monster.name} thumbnail`, {
           className: 'monster-thumb',
           fallbackText: 'MOB',
         })
       );
-      nameWrap.appendChild(el('span', { textContent: monster.name }));
+      nameLeft.appendChild(el('span', { textContent: monster.name }));
+      nameWrap.appendChild(nameLeft);
+      if (monster.id != null) nameWrap.appendChild(makeDeepLinkButton('monsters', monster.id));
       nameCell.appendChild(nameWrap);
       row.appendChild(nameCell);
 

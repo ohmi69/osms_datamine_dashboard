@@ -1,5 +1,5 @@
 
-import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath } from '../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
 
 // Load NPCs data for lookup
 
@@ -119,7 +119,9 @@ export function renderMaps(data, options = {}) {
       const nextFilter = typeof target === 'object' && target && target.id != null
         ? `id:${target.id}`
         : String(target || '');
-      autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand) ? target.id : null;
+      autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand)
+        ? target.id
+        : parseMapIdFilter(nextFilter);
       searchQuery = nextFilter;
       searchBox._input.value = nextFilter;
       selectedRegion = null;
@@ -365,9 +367,11 @@ export function renderMaps(data, options = {}) {
 
         // Name
         const nameTd = el('td');
-        nameTd.appendChild(el('span', { style: { fontSize: '14px' }, textContent: mapEntry.name || '(unnamed)' }));
+        const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } });
+        const nameLeft = el('span', { style: { display: 'flex', alignItems: 'center', minWidth: '0' } });
+        nameLeft.appendChild(el('span', { style: { fontSize: '14px' }, textContent: mapEntry.name || '(unnamed)' }));
         if (mapEntry.is_town) {
-          nameTd.appendChild(el('span', {
+          nameLeft.appendChild(el('span', {
             style: {
               fontSize: '11px', fontWeight: '600', letterSpacing: '0.04em',
               color: 'var(--accent, #7aa2f7)', background: 'rgba(122,162,247,0.12)',
@@ -378,13 +382,16 @@ export function renderMaps(data, options = {}) {
           }));
         }
         if (mapEntry.street_name) {
-          nameTd.appendChild(
+          nameLeft.appendChild(
             el('span', {
               style: { fontSize: '12px', color: 'var(--dim)', marginLeft: '8px' },
               textContent: `— ${mapEntry.street_name}`,
             })
           );
         }
+        nameWrap.appendChild(nameLeft);
+        nameWrap.appendChild(makeDeepLinkButton('maps', mapEntry.id));
+        nameTd.appendChild(nameWrap);
         tr.appendChild(nameTd);
 
         // Mobs

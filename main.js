@@ -27,34 +27,40 @@ const panelCache = {};
 
 let navigateMonsters = null;
 let navigateMaps = null;
+const navigators = {};
+
+function parseDeepLink(hash) {
+  const [tabPart, qPart] = hash.split('?q=');
+  return { tab: tabPart, query: qPart ? decodeURIComponent(qPart) : null };
+}
 
 // Renderers are thunks so switchTab is captured by closure (defined below)
 const renderers = {
   overview:  () => renderOverview(appData, { switchTab }),
   monsters:  () => renderMonsters(appData, {
-    setNavigate: (fn) => { navigateMonsters = fn; },
+    setNavigate: (fn) => { navigateMonsters = fn; navigators.monsters = fn; },
     onMapClick: (mapId) => {
       switchTab('maps');
       if (navigateMaps) navigateMaps({ id: mapId, autoExpand: true });
     },
   }),
   maps:      () => renderMaps(appData, {
-    setNavigate: (fn) => { navigateMaps = fn; },
+    setNavigate: (fn) => { navigateMaps = fn; navigators.maps = fn; },
     onMobClick: (mobId) => {
       switchTab('monsters');
       if (navigateMonsters) navigateMonsters({ id: mobId, autoExpand: true });
     },
   }),
-  skills:    () => renderSkills(appData),
-  crafting:  () => renderCrafting(appData),
-  items:     () => renderItems(appData),
-  equipment: () => renderEquipment(appData),
-  cashshop:  () => renderCashShop(appData),
-  quests:    () => renderQuests(appData),
+  skills:    () => renderSkills(appData, { setNavigate: (fn) => { navigators.skills = fn; } }),
+  crafting:  () => renderCrafting(appData, { setNavigate: (fn) => { navigators.crafting = fn; } }),
+  items:     () => renderItems(appData, { setNavigate: (fn) => { navigators.items = fn; } }),
+  equipment: () => renderEquipment(appData, { setNavigate: (fn) => { navigators.equipment = fn; } }),
+  cashshop:  () => renderCashShop(appData, { setNavigate: (fn) => { navigators.cashshop = fn; } }),
+  quests:    () => renderQuests(appData, { setNavigate: (fn) => { navigators.quests = fn; } }),
   formulas:  () => renderFormulas(),
 };
 
-function switchTab(tabId, pushState = true) {
+function switchTab(tabId, pushState = true, query = null) {
   activeTab = tabId;
   if (pushState) {
     history.replaceState(null, '', `#${tabId}`);
@@ -77,12 +83,15 @@ function switchTab(tabId, pushState = true) {
 
   panelCache[tabId].style.display = 'block';
   window.scrollTo(0, 0);
+  if (query && navigators[tabId]) {
+    navigators[tabId](query);
+  }
 }
 
 window.addEventListener('hashchange', () => {
-  let tab = location.hash.slice(1);
-  if (tab === 'cash_shop') tab = 'cashshop';
-  if (tab && renderers[tab]) switchTab(tab, false);
+  const { tab, query } = parseDeepLink(location.hash.slice(1));
+  let tabId = tab === 'cash_shop' ? 'cashshop' : tab;
+  if (tabId && renderers[tabId]) switchTab(tabId, false, query);
 });
 
 async function showMapleTip() {
@@ -189,9 +198,9 @@ async function init() {
   toggleDock.appendChild(themeToggle);
   document.body.appendChild(toggleDock);
 
-  let hashTab = location.hash.slice(1);
-  if (hashTab === 'cash_shop') hashTab = 'cashshop';
-  switchTab(hashTab && renderers[hashTab] ? hashTab : 'overview');
+  const { tab: rawHashTab, query: hashQuery } = parseDeepLink(location.hash.slice(1));
+  const hashTab = rawHashTab === 'cash_shop' ? 'cashshop' : rawHashTab;
+  switchTab(hashTab && renderers[hashTab] ? hashTab : 'overview', true, hashQuery);
 
   showMapleTip();
 }

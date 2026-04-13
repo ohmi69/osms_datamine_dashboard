@@ -1,4 +1,10 @@
-import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, normalizeAssetPath, makeEquipStatLine, makeEquipReqLine } from '../lib/utils.js';
+import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, normalizeAssetPath, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton } from '../lib/utils.js';
+
+function parseIdFilter(query) {
+  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
+  if (!match) return null;
+  return Number(match[1]);
+}
 
 
 function toItemThumbPath(itemId) {
@@ -89,7 +95,7 @@ function attachTooltip(element, getItemData) {
   element.addEventListener('mouseleave', hideItemTooltip);
 }
 
-export function renderCrafting(data) {
+export function renderCrafting(data, options = {}) {
   const { recipes, items } = data;
   let searchQuery = '';
   const container = el('div');
@@ -107,12 +113,20 @@ export function renderCrafting(data) {
   });
 
 
-  container.appendChild(
-    makeSearchBox('Search recipes...', (value) => {
-      searchQuery = value;
+  const craftSearchBox = makeSearchBox('Search recipes...', (value) => {
+    searchQuery = value;
+    renderData();
+  });
+  container.appendChild(craftSearchBox);
+
+  if (options.setNavigate) {
+    options.setNavigate((query) => {
+      searchQuery = query;
+      craftSearchBox._input.value = query;
       renderData();
-    })
-  );
+      window.scrollTo(0, 0);
+    });
+  }
 
   // Pills (quest-style toggles)
   const pillRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '16px 0 8px 0', alignItems: 'center' } });
@@ -132,6 +146,7 @@ export function renderCrafting(data) {
 
   function renderData() {
     dataDiv.innerHTML = '';
+    const exactId = parseIdFilter(searchQuery);
     const sq = searchQuery.toLowerCase();
     let filtered;
     if (!selectedDiscipline) {
@@ -146,11 +161,13 @@ export function renderCrafting(data) {
                   ...level,
                   recipes: level.recipes.filter(
                     (recipe) =>
-                      !sq ||
-                      recipe.result_item_name.toLowerCase().includes(sq) ||
-                      recipe.ingredients.some((ingredient) =>
-                        ingredient.item_name.toLowerCase().includes(sq)
-                      )
+                      exactId != null
+                        ? recipe.output_id != null && Number(recipe.output_id) === exactId
+                        : !sq ||
+                          recipe.result_item_name.toLowerCase().includes(sq) ||
+                          recipe.ingredients.some((ingredient) =>
+                            ingredient.item_name.toLowerCase().includes(sq)
+                          )
                   ),
                 }))
                 .filter((level) => level.recipes.length > 0),
@@ -171,11 +188,13 @@ export function renderCrafting(data) {
                   ...level,
                   recipes: level.recipes.filter(
                     (recipe) =>
-                      !sq ||
-                      recipe.result_item_name.toLowerCase().includes(sq) ||
-                      recipe.ingredients.some((ingredient) =>
-                        ingredient.item_name.toLowerCase().includes(sq)
-                      )
+                      exactId != null
+                        ? recipe.output_id != null && Number(recipe.output_id) === exactId
+                        : !sq ||
+                          recipe.result_item_name.toLowerCase().includes(sq) ||
+                          recipe.ingredients.some((ingredient) =>
+                            ingredient.item_name.toLowerCase().includes(sq)
+                          )
                   ),
                 }))
                 .filter((level) => level.recipes.length > 0),
@@ -254,7 +273,10 @@ export function renderCrafting(data) {
             attachTooltip(resultLeft, () => recipe.output_id != null ? itemById.get(String(recipe.output_id)) : itemByName.get(recipe.result_item_name));
             resultWrap.appendChild(resultLeft);
             if (recipe.output_id != null) {
-              resultWrap.appendChild(el('span', { className: 'id', textContent: recipe.output_id }));
+              const craftIdWrap = el('span', { style: { display: 'inline-flex', alignItems: 'center', gap: '4px' } });
+              craftIdWrap.appendChild(makeDeepLinkButton('crafting', recipe.output_id));
+              craftIdWrap.appendChild(el('span', { className: 'id', textContent: recipe.output_id }));
+              resultWrap.appendChild(craftIdWrap);
             }
             resultCell.appendChild(resultWrap);
             row.appendChild(resultCell);

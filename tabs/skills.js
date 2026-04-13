@@ -1,4 +1,10 @@
-import { el, matchSearch, makeSearchBox, makeCollapsible, makeThumbnail } from '../lib/utils.js';
+import { el, matchSearch, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
+
+function parseIdFilter(query) {
+  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
+  if (!match) return null;
+  return Number(match[1]);
+}
 
 function getSkillThumbnail(skill) {
   if (skill.thumbnail) return skill.thumbnail;
@@ -7,7 +13,7 @@ function getSkillThumbnail(skill) {
   return `images/skills/${id}.png`;
 }
 
-export function renderSkills(data) {
+export function renderSkills(data, options = {}) {
   // Flatten new skills.json schema: top-level keys are classes, each value is an array of job/class objects
   const skillsData = data.skills;
   // Flatten all class/job objects into a single array
@@ -45,12 +51,21 @@ export function renderSkills(data) {
     });
   }
   rebuildPills();
-  container.appendChild(
-    makeSearchBox('Search skills...', (value) => {
-      searchQuery = value;
+  const searchBox = makeSearchBox('Search skills...', (value) => {
+    searchQuery = value;
+    renderData();
+  });
+  container.appendChild(searchBox);
+
+  if (options.setNavigate) {
+    options.setNavigate((query) => {
+      searchQuery = query;
+      searchBox._input.value = query;
       renderData();
-    })
-  );
+      window.scrollTo(0, 0);
+    });
+  }
+
   container.appendChild(pillGroup);
   container.appendChild(
     el('div', { className: 'count-text', textContent: `${totalSkills} skills` })
@@ -61,6 +76,7 @@ export function renderSkills(data) {
 
   function renderData() {
     dataDiv.innerHTML = '';
+    const exactId = parseIdFilter(searchQuery);
     // Filter by main_class property
     let filteredClasses = classes;
     if (classFilter) {
@@ -74,8 +90,9 @@ export function renderSkills(data) {
         ...cls,
         skills: (cls.skills || []).filter(
           (skill) =>
-            matchSearch(skill.name, searchQuery) ||
-            matchSearch(skill.description, searchQuery)
+            exactId != null
+              ? Number(skill.id) === exactId
+              : matchSearch(skill.name, searchQuery) || matchSearch(skill.description, searchQuery)
         ),
       }))
       .filter((cls) => cls.skills.length > 0);
@@ -104,7 +121,10 @@ export function renderSkills(data) {
           );
         }
         nameRow.appendChild(nameWrap);
-        nameRow.appendChild(el('span', { className: 'id', textContent: skill.id != null ? `${skill.id}` : '' }));
+        const skRightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', flexShrink: '0' } });
+        if (skill.id != null) skRightWrap.appendChild(makeDeepLinkButton('skills', skill.id));
+        skRightWrap.appendChild(el('span', { className: 'id', textContent: skill.id != null ? `${skill.id}` : '' }));
+        nameRow.appendChild(skRightWrap);
         card.appendChild(nameRow);
 
         if (skill.description) {

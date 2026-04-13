@@ -69,13 +69,57 @@ function buildExpTable() {
   return container;
 }
 
+const WEAPON_MULTS = [
+  ['1H Sword',       1.5, 1.5],
+  ['2H Sword',       2.5, 2.5],
+  ['1H Blunt Weapon', 2,  1  ],
+  ['2H Blunt Weapon', 3,  2  ],
+  ['1H Axe',          2,  1  ],
+  ['2H Axe',          3,  2  ],
+  ['Spear',          1.5, 3.5],
+  ['Polearm',        3.5, 1.5],
+  ['Bow',            2.5, 2.5],
+  ['Xbow',           2.5, 2.5],
+  ['Claw',           2.5, 2.5],
+  ['Dagger*',         1,  2  ],
+];
+
+function buildWeaponMultTable() {
+  const container = el('div', { className: 'formulas-table-wrap' });
+  const table = el('table', { className: 'data-table' });
+
+  const thead = el('thead');
+  const headerRow = el('tr');
+  for (const [text, cls] of [['Weapon Type', ''], ['Swing', 'num'], ['Stab', 'num']]) {
+    headerRow.appendChild(el('th', { className: cls, textContent: text }));
+  }
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  const tbody = el('tbody');
+  WEAPON_MULTS.forEach(([type, swing, stab]) => {
+    const row = el('tr');
+    row.appendChild(el('td', { textContent: type }));
+    row.appendChild(el('td', { className: 'num', textContent: swing }));
+    row.appendChild(el('td', { className: 'num', textContent: stab }));
+    tbody.appendChild(row);
+  });
+  table.appendChild(tbody);
+  container.appendChild(table);
+
+  const note = el('div', { className: 'formulas-note', textContent: '* Dagger uses Stab mult for both MinMult and MaxMult when stabbing.' });
+  container.appendChild(note);
+
+  return container;
+}
+
 const DAMAGE_VARS = [
   { name: 'PrimaryStat',  desc: 'Main stat for your class (STR, DEX, INT, or LUK)' },
   { name: 'SecondaryStat', desc: 'Secondary stat for your class' },
-  { name: 'AttackPower',  desc: 'Total weapon attack from gear and buffs' },
-  { name: 'WeaponAttack', desc: 'Base attack value of the equipped weapon' },
-  { name: 'MinMult',      desc: 'Per-skill minimum damage multiplier' },
-  { name: 'MaxMult',      desc: 'Per-skill maximum damage multiplier' },
+  { name: 'AttackPower',  desc: 'Total weapon attack from gear and buffs.' },
+  { name: 'WeaponAttack', desc: 'Base attack value of the equipped weapon. Include weapon attack from throwing stars/arrows as well.' },
+  { name: 'MinMult',      desc: 'Weapon multiplier (Swing or Stab) — see Weapon Min/Max Multipliers table below' },
+  { name: 'MaxMult',      desc: 'Weapon multiplier (Swing or Stab) — see Weapon Min/Max Multipliers table below' },
   { name: 'Masterylvl',   desc: 'Mastery skill level (0 if not applicable)' },
 ];
 
@@ -143,9 +187,16 @@ export function renderFormulas() {
     () => el('div', { className: 'formulas-tbd', textContent: 'TBD' }),
   );
 
+  const weaponMultSection = makeCollapsibleSection(
+    'Weapon Min/Max Multipliers',
+    '',
+    buildWeaponMultTable,
+  );
+
   const rightCol = el('div', { className: 'formulas-col' });
   rightCol.appendChild(physDmgSection);
   rightCol.appendChild(magicDmgSection);
+  rightCol.appendChild(weaponMultSection);
 
   const row = el('div', { className: 'formulas-row' });
   row.appendChild(expSection);

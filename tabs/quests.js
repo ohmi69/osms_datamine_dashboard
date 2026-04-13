@@ -1,4 +1,10 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
+
+function parseIdFilter(query) {
+  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
+  if (!match) return null;
+  return Number(match[1]);
+}
 
 const CHAIN_COLORS = [
   '#f59e0b', '#3b82f6', '#22c55e', '#a855f7',
@@ -306,7 +312,10 @@ function renderQuestCard(quest, completionState, onToggleCompletion) {
     );
   }
   if (quest.id != null) {
-    nameRow.appendChild(el('span', { className: 'id', style: { marginLeft: 'auto' }, textContent: quest.id }));
+    const qIdWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', marginLeft: 'auto' } });
+    qIdWrap.appendChild(makeDeepLinkButton('quests', quest.id));
+    qIdWrap.appendChild(el('span', { className: 'id', textContent: quest.id }));
+    nameRow.appendChild(qIdWrap);
   }
   card.appendChild(nameRow);
 
@@ -370,7 +379,7 @@ function renderQuestCard(quest, completionState, onToggleCompletion) {
   return card;
 }
 
-export function renderQuests(data) {
+export function renderQuests(data, options = {}) {
   const { quests } = data;
   let searchQuery = '';
   let regionFilter = 'All';
@@ -384,12 +393,20 @@ export function renderQuests(data) {
       : []
   );
 
-  container.appendChild(
-    makeSearchBox('Search quests...', (value) => {
-      searchQuery = value;
+  const qSearchBox = makeSearchBox('Search quests...', (value) => {
+    searchQuery = value;
+    renderData();
+  });
+  container.appendChild(qSearchBox);
+
+  if (options.setNavigate) {
+    options.setNavigate((query) => {
+      searchQuery = query;
+      qSearchBox._input.value = query;
       renderData();
-    })
-  );
+      window.scrollTo(0, 0);
+    });
+  }
 
   const regions = ['All', ...(quests.regions || [])];
   const filterRow = el('div', {
@@ -454,11 +471,14 @@ export function renderQuests(data) {
 
   function renderData() {
     dataDiv.innerHTML = '';
-    const allQuests = quests.quests.filter(
-      (quest) =>
+    const exactId = parseIdFilter(searchQuery);
+    const allQuests = quests.quests.filter((quest) => {
+      if (exactId != null) return Number(quest.id) === exactId;
+      return (
         (regionFilter === 'All' || quest.region === regionFilter) &&
         (matchSearch(quest.name, searchQuery) || matchSearch(quest.description, searchQuery))
-    );
+      );
+    });
 
     const groups = {};
     allQuests.forEach((quest) => {

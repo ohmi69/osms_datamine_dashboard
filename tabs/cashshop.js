@@ -1,15 +1,29 @@
-import { el, matchSearch, makeSearchBox, makeCollapsible, makeThumbnail } from '../lib/utils.js';
+import { el, matchSearch, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
 
-export function renderCashShop(data) {
+function parseIdFilter(query) {
+  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
+  if (!match) return null;
+  return Number(match[1]);
+}
+
+export function renderCashShop(data, options = {}) {
   const { cashShop } = data;
   let searchQuery = '';
   const container = el('div');
-  container.appendChild(
-    makeSearchBox('Search cash shop...', (value) => {
-      searchQuery = value;
+  const csSearchBox = makeSearchBox('Search cash shop...', (value) => {
+    searchQuery = value;
+    renderData();
+  });
+  container.appendChild(csSearchBox);
+
+  if (options.setNavigate) {
+    options.setNavigate((query) => {
+      searchQuery = query;
+      csSearchBox._input.value = query;
       renderData();
-    })
-  );
+      window.scrollTo(0, 0);
+    });
+  }
 
   // Separate out items that have an image but no name into their own virtual category
   const unnamedItems = [];
@@ -189,7 +203,10 @@ export function renderCashShop(data) {
       );
     }
     topLine.appendChild(nameWrap);
-    topLine.appendChild(el('span', { className: 'id', textContent: item.id }));
+    const csRightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', flexShrink: '0' } });
+    csRightWrap.appendChild(makeDeepLinkButton('cashshop', item.id));
+    csRightWrap.appendChild(el('span', { className: 'id', textContent: item.id }));
+    topLine.appendChild(csRightWrap);
     row.appendChild(topLine);
     if (item.description) {
       row.appendChild(
@@ -199,7 +216,7 @@ export function renderCashShop(data) {
     return row;
   }
 
-  function renderUnnamedSection() {
+  function renderUnnamedSection(items) {
     const content = el('div');
 
     const disclaimer = el('p', {
@@ -219,12 +236,12 @@ export function renderCashShop(data) {
     });
     content.appendChild(disclaimer);
 
-    unnamedItems.forEach((item) => {
+    items.forEach((item) => {
       content.appendChild(renderItemRow(item, `Item #${item.id}`));
     });
 
     dataDiv.appendChild(
-      makeCollapsible('Unnamed Unavailable Items', unnamedItems.length, false, null, content)
+      makeCollapsible('Unnamed Unavailable Items', items.length, true, null, content)
     );
   }
 
@@ -233,10 +250,11 @@ export function renderCashShop(data) {
 
     if (selectedCategory === '__unnamed__') {
       dataDiv.appendChild(el('div', { className: 'count-text', textContent: `${unnamedItems.length} items` }));
-      renderUnnamedSection();
+      renderUnnamedSection(unnamedItems);
       return;
     }
 
+    const exactId = parseIdFilter(searchQuery);
     let filtered;
     if (!selectedCategory) {
       filtered = namedCategories
@@ -244,6 +262,7 @@ export function renderCashShop(data) {
           ...category,
           items: category.items.filter((item) => {
             if (hideUnavailable && item.on_sale === false) return false;
+            if (exactId != null) return Number(item.id) === exactId;
             return matchSearch(item.name, searchQuery) || matchSearch(item.description, searchQuery);
           }),
         }))
@@ -255,6 +274,7 @@ export function renderCashShop(data) {
           ...category,
           items: category.items.filter((item) => {
             if (hideUnavailable && item.on_sale === false) return false;
+            if (exactId != null) return Number(item.id) === exactId;
             if (!matchSearch(item.name, searchQuery) && !matchSearch(item.description, searchQuery)) return false;
             if (selectedSubCategory && item.sub_category !== selectedSubCategory) return false;
             return true;
@@ -277,9 +297,15 @@ export function renderCashShop(data) {
       );
     });
 
-    // Always append unnamed section at the bottom when "All" is selected
-    if (!selectedCategory && unnamedItems.length > 0) {
-      renderUnnamedSection();
+    // Always append unnamed section at the bottom when "All" is selected and search matches
+    const filteredUnnamed = !selectedCategory && unnamedItems.length > 0
+      ? unnamedItems.filter((item) => {
+          if (exactId != null) return Number(item.id) === exactId;
+          return !searchQuery;
+        })
+      : [];
+    if (filteredUnnamed.length > 0) {
+      renderUnnamedSection(filteredUnnamed);
     }
   }
 

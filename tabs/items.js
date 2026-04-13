@@ -1,4 +1,10 @@
-import { el, makeSearchBox, makeCollapsible, makeThumbnail } from '../lib/utils.js';
+import { el, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
+
+function parseIdFilter(query) {
+  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
+  if (!match) return null;
+  return Number(match[1]);
+}
 
 const STAT_LABELS = {
   price:      ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
@@ -51,7 +57,8 @@ function renderItemRow(item) {
   nameWrap.appendChild(el('span', { className: 'name', textContent: item.name }));
   topLine.appendChild(nameWrap);
 
-  const rightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '8px', flexShrink: '0' } });
+  const rightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', flexShrink: '0' } });
+  rightWrap.appendChild(makeDeepLinkButton('items', item.id));
   rightWrap.appendChild(el('span', { className: 'id', textContent: item.id }));
 
   topLine.appendChild(rightWrap);
@@ -68,18 +75,26 @@ function renderItemRow(item) {
   return row;
 }
 
-export function renderItems(data) {
+export function renderItems(data, options = {}) {
   const { items } = data;
   let searchQuery = '';
   const container = el('div');
   const scrollIdSet = new Set(items.scrolls.map((scroll) => String(scroll.id)));
 
-  container.appendChild(
-    makeSearchBox('Search items...', (value) => {
-      searchQuery = value;
+  const searchBox = makeSearchBox('Search items...', (value) => {
+    searchQuery = value;
+    renderData();
+  });
+  container.appendChild(searchBox);
+
+  if (options.setNavigate) {
+    options.setNavigate((query) => {
+      searchQuery = query;
+      searchBox._input.value = query;
       renderData();
-    })
-  );
+      window.scrollTo(0, 0);
+    });
+  }
 
   // Pills (quest-style toggles)
   const pillRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '16px 0 8px 0', alignItems: 'center' } });
@@ -101,18 +116,23 @@ export function renderItems(data) {
   function renderData() {
     dataDiv.innerHTML = '';
     const sq = searchQuery.toLowerCase();
+    const exactId = parseIdFilter(searchQuery);
     const allItems = items.items.filter(
       (item) =>
         item.category !== 'Equipment' &&
-        (!sq ||
-          item.name.toLowerCase().includes(sq) ||
-          (item.description || '').toLowerCase().includes(sq))
+        (exactId != null
+          ? Number(item.id) === exactId
+          : !sq ||
+            item.name.toLowerCase().includes(sq) ||
+            (item.description || '').toLowerCase().includes(sq))
     );
     const allScrolls = items.scrolls.filter(
       (scroll) =>
-        !sq ||
-        scroll.name.toLowerCase().includes(sq) ||
-        (scroll.description || '').toLowerCase().includes(sq)
+        exactId != null
+          ? Number(scroll.id) === exactId
+          : !sq ||
+            scroll.name.toLowerCase().includes(sq) ||
+            (scroll.description || '').toLowerCase().includes(sq)
     );
     const consumables = allItems.filter(
       (item) => item.category === 'Consumable' && !scrollIdSet.has(String(item.id))

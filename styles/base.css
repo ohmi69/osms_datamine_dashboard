@@ -375,7 +375,7 @@ body {
 .search-box { position: relative; margin-bottom: 16px; }
 .search-box input {
   width: 100%;
-  padding: 11px 14px 11px 40px;
+  padding: 11px 34px 11px 40px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -401,6 +401,27 @@ body {
   align-items: center;
   pointer-events: none;
 }
+.search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  padding: 3px;
+  border: none;
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+  border-radius: 4px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, background 0.15s;
+}
+.search-clear svg { width: 13px; height: 13px; }
+.search-clear:hover { color: var(--text); background: var(--surface-2); }
+.search-box input:not(:placeholder-shown) ~ .search-clear { display: flex; }
 
 /* ── Info card ──────────────────────────────────────────────── */
 .info-card {
@@ -574,6 +595,33 @@ body {
 .id { font-size: 11px; color: var(--dim); font-family: monospace; }
 body.hide-ids .id { display: none !important; }
 body.hide-ids .id-col { display: none !important; }
+
+/* ── Deep-link copy button ──────────────────────────────────── */
+.deep-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 3px;
+  border: none;
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.deep-link-btn svg { width: 13px; height: 13px; }
+.deep-link-btn:hover { color: var(--accent); background: var(--accent-bg); opacity: 1 !important; }
+.deep-link-btn--copied { color: #22c55e !important; opacity: 1 !important; }
+.item-row:hover .deep-link-btn,
+.quest-card:hover .deep-link-btn,
+.monster-detail-header:hover .deep-link-btn,
+.data-table tr:hover .deep-link-btn,
+.craft-table tr:hover .deep-link-btn,
+.skill-card:hover .deep-link-btn { opacity: 0.55; }
 
 /* ── Item rows (shared: items + equipment + maps) ───────────── */
 .item-row { padding: 10px 16px; transition: background .2s; }
