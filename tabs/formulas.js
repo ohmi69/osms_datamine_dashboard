@@ -127,19 +127,25 @@ export function renderFormulas() {
   credit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> on Discord';
   expSection.querySelector('.left').appendChild(credit);
 
-  const dmgSection = makeCollapsibleSection(
-    'Damage Range Formula',
+  const physDmgSection = makeCollapsibleSection(
+    'Physical Range Formula',
     '',
     buildDamageFormula,
   );
 
   const dmgCredit = el('span', { className: 'formulas-credit' });
   dmgCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist</strong> on Discord';
-  dmgSection.querySelector('.left').appendChild(dmgCredit);
+  physDmgSection.querySelector('.left').appendChild(dmgCredit);
 
+  const magicDmgSection = makeCollapsibleSection(
+    'Magic Range Formula',
+    '',
+    () => el('div', { className: 'formulas-tbd', textContent: 'TBD' }),
+  );
 
   const rightCol = el('div', { className: 'formulas-col' });
-  rightCol.appendChild(dmgSection);
+  rightCol.appendChild(physDmgSection);
+  rightCol.appendChild(magicDmgSection);
 
   const row = el('div', { className: 'formulas-row' });
   row.appendChild(expSection);
