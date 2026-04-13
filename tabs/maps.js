@@ -495,21 +495,21 @@ export function renderMaps(data, options = {}) {
         if (!filtered.length) return;
         const collapsible = makeCollapsible(region.region, filtered.length, true, null, () => renderRegionTable(filtered));
         dataDiv.appendChild(collapsible);
-        
-        if (autoExpandAfterId != null) {
-          setTimeout(() => {
-            const rows = collapsible.querySelectorAll('tr');
-            for (const row of rows) {
-              const idCell = row.querySelector('.id-col .id');
-              if (idCell && Number(idCell.textContent) === autoExpandAfterId) {
-                row.click();
-                autoExpandAfterId = null;
-                break;
-              }
-            }
-          }, 0);
-        }
       });
+      
+      if (autoExpandAfterId != null) {
+        setTimeout(() => {
+          const rows = dataDiv.querySelectorAll('tr');
+          for (const row of rows) {
+            const idCell = row.querySelector('.id-col .id');
+            if (idCell && Number(idCell.textContent) === autoExpandAfterId) {
+              row.click();
+              autoExpandAfterId = null;
+              break;
+            }
+          }
+        }, 100);
+      }
     }
 
   // Tab event listeners

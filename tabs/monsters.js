@@ -488,20 +488,20 @@ export function renderMonsters(data, options = {}) {
     table.appendChild(tbody);
     wrapper.appendChild(table);
     dataContainer.appendChild(wrapper);
-    
-    if (autoExpandAfterId != null) {
-      setTimeout(() => {
-        const rows = dataContainer.querySelectorAll('tr.monster-row');
-        for (const row of rows) {
-          const idCell = row.querySelector('.id-col .id');
-          if (idCell && Number(idCell.textContent) === autoExpandAfterId) {
-            row.click();
-            autoExpandAfterId = null;
-            break;
-          }
+  }
+
+  if (autoExpandAfterId != null) {
+    setTimeout(() => {
+      const rows = dataContainer.querySelectorAll('tr.monster-row');
+      for (const row of rows) {
+        const idCell = row.querySelector('.id-col .id');
+        if (idCell && Number(idCell.textContent) === autoExpandAfterId) {
+          row.click();
+          autoExpandAfterId = null;
+          break;
         }
-      }, 0);
-    }
+      }
+    }, 100);
   }
 
   renderData();
