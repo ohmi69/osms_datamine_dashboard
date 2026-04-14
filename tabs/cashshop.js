@@ -202,6 +202,26 @@ export function renderCashShop(data, options = {}) {
         })
       );
     }
+    const petBadgeStyle = {
+      fontSize: '11px',
+      padding: '1px 6px',
+      borderRadius: '3px',
+      background: '#6366f122',
+      color: '#818cf8',
+      border: '1px solid #6366f144',
+      whiteSpace: 'nowrap',
+    };
+    if (item.limited_life != null) {
+      const lifeHours = Math.round(item.limited_life / 3600);
+      nameWrap.appendChild(
+        el('span', { title: 'Only counts down while the pet is actively being used', style: petBadgeStyle, textContent: `${lifeHours}h Active Life` })
+      );
+    }
+    if (item.life != null) {
+      nameWrap.appendChild(
+        el('span', { title: 'Time until the pet needs to be revived', style: petBadgeStyle, textContent: `${item.life}d Lifespan` })
+      );
+    }
     topLine.appendChild(nameWrap);
     const csRightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', flexShrink: '0' } });
     csRightWrap.appendChild(makeDeepLinkButton('cashshop', item.id));

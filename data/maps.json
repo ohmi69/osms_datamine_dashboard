@@ -1069,8 +1069,7 @@
             107,
             111,
             112,
-            900010,
-            900000
+            900010
           ],
           "thumbnail": "images/maps/010000000.png"
         },
@@ -4340,13 +4339,13 @@
           "region": "Victoria Island",
           "minimap": "images/maps/010005078.png",
           "is_town": false,
-          "return_map_id": 105040300,
+          "return_map_id": 10005070,
           "bgm": "Bgm01/AncientMove",
           "mob_rate": null,
           "map_mark": "Dungeon",
           "npcs": [],
           "thumbnail": "images/maps/010005078.png",
-          "return_map_name": "105040300"
+          "return_map_name": "Ant Tunnel Park"
         },
         {
           "id": 10005080,

@@ -17721,7 +17721,8 @@
           "period": 0,
           "on_sale": true,
           "description": "They are quiet and gentle in nature, so they don't go craving for food too often. They don't seem to be too obedient of their owners.",
-          "thumbnail": "images/items/05000000.png"
+          "thumbnail": "images/items/05000000.png",
+          "life": 7
         },
         {
           "id": 5000001,
@@ -17733,7 +17734,8 @@
           "period": 0,
           "on_sale": false,
           "description": "They are outgoing and active in nature, so they can't sit still for a period of time, which makes them hungry often. They are very obedient of their owners.",
-          "thumbnail": "images/items/05000001.png"
+          "thumbnail": "images/items/05000001.png",
+          "life": 90
         },
         {
           "id": 5000002,
@@ -17745,7 +17747,8 @@
           "period": 0,
           "on_sale": true,
           "description": "They are well-behaved and quiet, so they don't need to be fed more than the usual amount. They are smart and obedient, but also stubborn.",
-          "thumbnail": "images/items/05000002.png"
+          "thumbnail": "images/items/05000002.png",
+          "life": 7
         },
         {
           "id": 5000003,
@@ -17757,7 +17760,8 @@
           "period": 0,
           "on_sale": false,
           "description": "They are very very active, so they get hungry pretty often. Very intelligent, they are quite obedient of their owners.",
-          "thumbnail": "images/items/05000003.png"
+          "thumbnail": "images/items/05000003.png",
+          "life": 90
         },
         {
           "id": 5000004,
@@ -17769,7 +17773,8 @@
           "period": 0,
           "on_sale": false,
           "description": "They are quiet and gentle in nature, so they don't go craving for food too often. They don't seem to be too obedient of their owners.",
-          "thumbnail": "images/items/05000004.png"
+          "thumbnail": "images/items/05000004.png",
+          "life": 90
         },
         {
           "id": 5000005,
@@ -17781,7 +17786,8 @@
           "period": 0,
           "on_sale": false,
           "description": "They are well-behaved and quiet, so they don't need to be fed more than the usual amount. They are smart and obedient, but also stubborn.",
-          "thumbnail": "images/items/05000005.png"
+          "thumbnail": "images/items/05000005.png",
+          "life": 90
         },
         {
           "id": 5000006,
@@ -17793,7 +17799,8 @@
           "period": 0,
           "on_sale": true,
           "description": "Active, yet calm at times. Can be moderately fed. Very smart in general.",
-          "thumbnail": "images/items/05000006.png"
+          "thumbnail": "images/items/05000006.png",
+          "life": 7
         },
         {
           "id": 5000007,
@@ -17805,7 +17812,8 @@
           "period": 0,
           "on_sale": false,
           "description": "Very active and hungry at all times. Need to be fed often. Very friendly in nature, so it's easy to increase the level of closeness with them.",
-          "thumbnail": "images/items/05000007.png"
+          "thumbnail": "images/items/05000007.png",
+          "life": 90
         },
         {
           "id": 5000008,
@@ -17817,7 +17825,8 @@
           "period": 0,
           "on_sale": false,
           "description": "Calm, relaxed, and gentle. A very rare creature.",
-          "thumbnail": "images/items/05000008.png"
+          "thumbnail": "images/items/05000008.png",
+          "life": 90
         },
         {
           "id": 5000009,
@@ -17829,7 +17838,8 @@
           "period": 0,
           "on_sale": false,
           "description": "A very adorable male baby dinosaur that is both active and unpredictable.",
-          "thumbnail": "images/items/05000009.png"
+          "thumbnail": "images/items/05000009.png",
+          "life": 90
         },
         {
           "id": 5000010,
@@ -17841,7 +17851,8 @@
           "period": 0,
           "on_sale": false,
           "description": "A very adorable female baby dinosaur that is both active and unpredictable.",
-          "thumbnail": "images/items/05000010.png"
+          "thumbnail": "images/items/05000010.png",
+          "life": 90
         },
         {
           "id": 5000054,
@@ -17853,7 +17864,9 @@
           "period": 0,
           "on_sale": false,
           "description": "A snail that is really hard to figure out. The pet's skills will disappear once the magic duration ends.",
-          "thumbnail": "images/items/05000054.png"
+          "thumbnail": "images/items/05000054.png",
+          "life": 30,
+          "limited_life": 18000
         }
       ]
     },

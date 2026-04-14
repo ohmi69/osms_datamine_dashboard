@@ -20,30 +20,74 @@ export function renderOverview(data, { switchTab }) {
       boxShadow: '0 2px 8px rgba(0,0,0,.2)',
     },
   });
+  const heroBadgeMeta = el('div', {
+    style: { display: 'flex', flexDirection: 'column', gap: '5px', flexShrink: '0' },
+  });
   const heroBadge = el('div', {
     style: {
-      padding: '4px 10px',
-      borderRadius: '4px',
-      background: 'var(--secondary)',
-      color: 'var(--bg)',
-      fontSize: '11px',
-      fontWeight: '800',
-      letterSpacing: '1px',
+      padding: '2px 8px',
+      borderRadius: '99px',
+      background: 'rgba(251,146,60,.18)',
+      border: '1px solid rgba(251,146,60,.45)',
+      color: '#fb923c',
+      fontSize: '10px',
+      fontWeight: '700',
+      letterSpacing: '.6px',
       whiteSpace: 'nowrap',
-      flexShrink: '0',
+      alignSelf: 'flex-start',
     },
-    textContent: 'Patch: Closed Beta Test (CBT)',
+    textContent: 'Closed Beta Test (CBT)',
   });
-  const heroText = el('p', {
-    style: { color: 'var(--dim)', fontSize: '13px', lineHeight: '1.6' },
+  const heroPatchHash = el('div', {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '5px',
+    },
+    title: '4237b9737fbafba56ef8c0499cd35748a36d161a',
   });
-  heroText.appendChild(el('span', {
-    style: { color: 'var(--accent)', fontWeight: '700' },
-    textContent: stats.version,
+  heroPatchHash.appendChild(el('span', {
+    style: { fontSize: '9px', color: 'var(--dim)', opacity: '.5', letterSpacing: '.4px', fontWeight: '600', textTransform: 'uppercase' },
+    textContent: 'hash',
   }));
-  heroText.append('.');
-  heroBanner.appendChild(heroBadge);
-  heroBanner.appendChild(heroText);
+  heroPatchHash.appendChild(el('code', {
+    style: {
+      fontSize: '10px',
+      color: 'var(--dim)',
+      opacity: '.65',
+      background: 'rgba(255,255,255,.04)',
+      border: '1px solid var(--border)',
+      borderRadius: '3px',
+      padding: '0 4px',
+    },
+    textContent: '4237b97',
+  }));
+  heroBadgeMeta.appendChild(heroBadge);
+  heroBadgeMeta.appendChild(heroPatchHash);
+  heroBanner.appendChild(heroBadgeMeta);
+
+  const heroDivider = el('div', {
+    style: { width: '1px', alignSelf: 'stretch', background: 'var(--border)', flexShrink: '0', margin: '0 4px' },
+  });
+  heroBanner.appendChild(heroDivider);
+
+  const heroInfo = el('div', { style: { display: 'flex', flexDirection: 'column', gap: '4px' } });
+  heroInfo.appendChild(el('p', {
+    style: { fontSize: '12px', color: 'var(--dim)', lineHeight: '1.5', margin: '0' },
+    textContent: 'Latest datamine for this patch. All data is extracted directly from the game client.',
+  }));
+  const heroTimeLine = el('div', { style: { display: 'flex', alignItems: 'center', gap: '5px' } });
+  heroTimeLine.appendChild(el('span', {
+    style: { fontSize: '9px', color: 'var(--dim)', opacity: '.5', letterSpacing: '.4px', fontWeight: '600', textTransform: 'uppercase' },
+    textContent: 'Last Datamine Time:',
+  }));
+  heroTimeLine.appendChild(el('span', {
+    style: { fontSize: '10px', color: 'var(--dim)', opacity: '.75', fontFamily: 'monospace' },
+    textContent: 'April 14, 2026 01:28 PT',
+  }));
+  heroInfo.appendChild(heroTimeLine);
+  heroBanner.appendChild(heroInfo);
+
   frag.appendChild(heroBanner);
 
   // Disclaimer
