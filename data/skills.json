@@ -238,9 +238,9 @@
       "main_class": "Warrior",
       "base_class": "warrior",
       "subclasses": [
-        "Spearman",
         "Page",
-        "Fighter"
+        "Fighter",
+        "Spearman"
       ]
     },
     {
@@ -1313,8 +1313,8 @@
       "base_class": "magician",
       "subclasses": [
         "F/P Wizard",
-        "Cleric",
-        "I/L Wizard"
+        "I/L Wizard",
+        "Cleric"
       ]
     },
     {

@@ -1,5 +1,7 @@
 
+
 import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
+import { loadState, saveState } from '../lib/data.js';
 
 // Load NPCs data for lookup
 
@@ -50,6 +52,20 @@ function formatSpawnTime(seconds) {
   return s > 0 ? `${m}m ${s}s` : `${m}m`;
 }
 
+function getAvgSpawnTime(mobTime) {
+  const DEFAULT = 7.56;
+  if (mobTime == null) return DEFAULT;
+  if (typeof mobTime === 'number') return mobTime > 0 ? mobTime : DEFAULT;
+  const rangeMatch = mobTime.match(/^([\d.]+)-([\d.]+)(?: \[(\d[\d.]*)\])?$/);
+  if (rangeMatch) {
+    if (rangeMatch[3]) return parseFloat(rangeMatch[3]);
+    return (parseFloat(rangeMatch[1]) + parseFloat(rangeMatch[2])) / 2;
+  }
+  const singleMatch = mobTime.match(/^([\d.]+)(?: \[(\d[\d.]*)\])?$/);
+  if (singleMatch) return parseFloat(singleMatch[2] || singleMatch[1]) || DEFAULT;
+  return DEFAULT;
+}
+
 function parseMapIdFilter(query) {
   const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
   if (!match) return null;
@@ -57,16 +73,110 @@ function parseMapIdFilter(query) {
 }
 
 export function renderMaps(data, options = {}) {
+  // Container setup (create local container for tab panel)
+  const container = el('div', { className: 'maps-panel' });
+  // Column config (customizable)
+  const allCols = [
+      { id: 'mobs',              label: 'Mobs',       on: true },
+      { id: 'common_mob',        label: 'Most Common Mob', on: true },
+      { id: 'weighted_level',    label: 'Weighted Mob Lv.', on: true },
+      { id: 'exp_per_mob',       label: 'Exp / Mob',  on: true },
+      { id: 'total_exp',         label: 'Total Exp',  on: false },
+      { id: 'weighted_exp_hour', label: 'Weighted Exp / hr',   on: false },
+    ];
+  // Load/save state for columns and hideNoMobs
+  const _savedState = loadState();
+  const mapState = _savedState.maps || {};
+  const colState = {};
+  allCols.forEach((col) => {
+    colState[col.id] = mapState.cols && mapState.cols[col.id] !== undefined ? mapState.cols[col.id] : col.on;
+  });
+  let hideNoMobs = mapState.hideNoMobs || false;
+
+  // Column toggles UI and hide-maps-without-mobs toggle styled like cash shop
+  const toggles = el('div', { className: 'col-toggles' });
+  function rebuildToggles() {
+    toggles.innerHTML = '';
+    toggles.appendChild(el('span', { className: 'label', textContent: 'Columns:' }));
+    allCols.forEach((col) => {
+      const button = el('button', {
+        className: `col-toggle${colState[col.id] ? ' active' : ''}`,
+        textContent: col.label,
+      });
+      button.addEventListener('click', () => {
+        colState[col.id] = !colState[col.id];
+        saveState('maps', { cols: { ...colState }, hideNoMobs });
+        rebuildToggles();
+        renderData();
+      });
+      toggles.appendChild(button);
+    });
+    // Add hide maps without mobs toggle styled like cash shop
+    const toggleRow = el('div', { style: { display: 'inline-flex', alignItems: 'center', gap: '8px', marginLeft: '18px' } });
+    const checkBox = el('span', {
+      style: {
+        display: 'inline-block',
+        width: '13px',
+        height: '13px',
+        borderRadius: '3px',
+        border: '1.5px solid currentColor',
+        flexShrink: '0',
+        position: 'relative',
+        top: '1px',
+      },
+    });
+    const toggleBtn = el('button', {
+      style: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '6px',
+        padding: '3px 9px',
+        borderRadius: '4px',
+        fontSize: '12px',
+        fontWeight: '500',
+        cursor: 'pointer',
+        border: '1px solid var(--border)',
+        background: 'transparent',
+        color: 'var(--dim)',
+        transition: 'all .2s',
+      },
+    });
+    toggleBtn.appendChild(checkBox);
+    toggleBtn.appendChild(document.createTextNode('Hide maps without mobs'));
+    function updateToggleStyle() {
+      if (hideNoMobs) {
+        toggleBtn.style.color = '#ef4444';
+        toggleBtn.style.borderColor = '#ef444466';
+        toggleBtn.style.background = '#ef444411';
+        checkBox.textContent = '✓';
+      } else {
+        toggleBtn.style.color = 'var(--dim)';
+        toggleBtn.style.borderColor = 'var(--border)';
+        toggleBtn.style.background = 'transparent';
+        checkBox.textContent = '';
+      }
+    }
+    toggleBtn.addEventListener('click', () => {
+      hideNoMobs = !hideNoMobs;
+      saveState('maps', { cols: { ...colState }, hideNoMobs });
+      updateToggleStyle();
+      renderData();
+    });
+    updateToggleStyle();
+    toggleRow.appendChild(toggleBtn);
+    toggles.appendChild(toggleRow);
+  }
+  rebuildToggles();
+  container.appendChild(toggles);
   const { onMobClick } = options;
   const { maps, monsters } = data;
-  const container = el('div');
+
   container.appendChild(
     el('div', {
       className: 'count-text',
       textContent: `${maps.total} maps across ${maps.regions.length} regions`,
     })
   );
-
   // Reorder regions: Victoria Island > Maple Island > Other > Event
   const regionOrder = [
     'Victoria Island',
@@ -83,7 +193,7 @@ export function renderMaps(data, options = {}) {
     return ai - bi;
   });
 
-  // Build reverse lookup: mapId -> [{id, name, thumbnail, count}]
+  // Build reverse lookup: mapId -> [{id, name, thumbnail, count, level, ...}]
   const mapMobs = new Map();
   if (monsters && monsters.monsters) {
     for (const mob of monsters.monsters) {
@@ -97,6 +207,7 @@ export function renderMaps(data, options = {}) {
           count: m.count,
           exp: mob.exp || 0,
           mobTime: m.mob_time ?? null,
+          level: mob.level ?? 0,
         });
       }
     }
@@ -294,11 +405,11 @@ export function renderMaps(data, options = {}) {
     }
 
   // Sort state shared across all region tables
-  let sortCol = null;
+  let sortCol = 'common_mob';
   let sortDir = 1;
 
   function renderRegionTable(mapsList) {
-    const COL_SPAN = 6;
+    const COL_SPAN = 7;
     const wrapper = el('div', { style: { overflowX: 'auto' } });
     const table = el('table', { className: 'data-table' });
 
@@ -307,23 +418,47 @@ export function renderMaps(data, options = {}) {
     for (const mapEntry of mapsList) {
       const mobs = mapMobs.get(mapEntry.id);
       if (mobs && mobs.length > 0) {
+        const mobRate = mapEntry.mob_rate ?? 1;
         const totalCount = mobs.reduce((s, m) => s + m.count, 0);
         const totalExp = mobs.reduce((s, m) => s + m.exp * m.count, 0);
+        const weightedExpPerHour = Math.round(
+          mobs.reduce((s, m) => s + m.exp * m.count * mobRate * (3600 / getAvgSpawnTime(m.mobTime)), 0)
+        );
+        // Weighted average mob level
+        const weightedLevel = totalCount > 0 ? (mobs.reduce((s, m) => s + (m.level ?? 0) * m.count, 0) / totalCount) : null;
+        // Most common mob (by count)
+        const mostCommonMob = mobs.reduce((a, b) => (a.count > b.count ? a : b), mobs[0]);
         mobStats.set(mapEntry.id, {
           unique: mobs.length,
           total: totalCount,
           expPerMob: totalCount > 0 ? Math.round(totalExp / totalCount) : 0,
           totalExp,
+          weightedExpPerHour,
+          weightedLevel,
+          mostCommonMobLevel: mostCommonMob.level ?? null,
+          mostCommonMobName: mostCommonMob.name ?? '',
+          mostCommonMobCount: mostCommonMob.count ?? 0,
         });
       }
     }
 
     const COLS = [
-      { id: 'name',       label: 'Map',       cls: '',    sortVal: m => (m.name || '').toLowerCase() },
-      { id: 'mobs',       label: 'Mobs',      cls: 'num', sortVal: m => mobStats.get(m.id)?.total ?? -1 },
-      { id: 'exp_per_mob',label: 'Exp / Mob', cls: 'num', sortVal: m => mobStats.get(m.id)?.expPerMob ?? -1 },
-      { id: 'total_exp',  label: 'Total Exp', cls: 'num', sortVal: m => mobStats.get(m.id)?.totalExp ?? -1 },
-      { id: 'id',         label: 'ID',        cls: 'num id-col', sortVal: m => m.id },
+      { id: 'name', label: 'Map', cls: '', sortVal: m => (m.name || '').toLowerCase() },
+      ...allCols.filter(col => colState[col.id]).map(col => {
+        // Provide sortVal and tooltip for each column
+        if (col.id === 'mobs') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.total ?? -1 };
+        if (col.id === 'weighted_level') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.weightedLevel ?? -1, tooltip: 'Weighted average mob level' };
+        if (col.id === 'common_mob') return {
+          ...col,
+          cls: 'num',
+          sortVal: m => mobStats.get(m.id)?.mostCommonMobLevel ?? -1,
+          tooltip: 'Most common mob (Name Lv. X), sorted by level',
+        };
+        if (col.id === 'exp_per_mob') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.expPerMob ?? -1 };
+        if (col.id === 'total_exp') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.totalExp ?? -1, tooltip: 'Sum of the EXP of all mobs on this map at max capacity' };
+        if (col.id === 'weighted_exp_hour') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.weightedExpPerHour ?? -1, tooltip: 'Mob spawn-time adjusted and map mob-rate adjusted EXP per hour' };
+        return col;
+      })
     ];
 
     const thead = el('thead');
@@ -334,9 +469,27 @@ export function renderMaps(data, options = {}) {
       const active = sortCol === col.id;
       const th = el('th', {
         className: col.cls,
-        style: { cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' },
-        textContent: active ? `${col.label} ${sortDir === 1 ? '▲' : '▼'}` : col.label,
+        style: {
+          cursor: 'pointer',
+          userSelect: 'none',
+          whiteSpace: 'nowrap',
+          fontSize: '13px',
+          fontWeight: '500',
+          color: 'var(--fg)',
+          background: 'var(--surface2, #f8f8f8)',
+        },
       });
+      const labelSpan = el('span', { textContent: active ? `${col.label} ${sortDir === 1 ? '▲' : '▼'}` : col.label });
+      th.appendChild(labelSpan);
+      if (col.tooltip) {
+        const badge = el('span', {
+          className: 'col-tooltip-badge',
+          textContent: '?',
+          title: col.tooltip,
+        });
+        badge.addEventListener('click', (e) => e.stopPropagation());
+        th.appendChild(badge);
+      }
       th.addEventListener('click', () => {
         if (sortCol === col.id) {
           sortDir *= -1;
@@ -348,6 +501,9 @@ export function renderMaps(data, options = {}) {
       });
       headRow.appendChild(th);
     });
+    // Always add ID column at the end
+    const thStyleStatic = { fontSize: '13px', fontWeight: '500', color: 'var(--fg)', background: 'var(--surface2, #f8f8f8)', whiteSpace: 'nowrap' };
+    headRow.appendChild(el('th', { className: 'num id-col', textContent: 'ID', style: thStyleStatic }));
 
     thead.appendChild(headRow);
     table.appendChild(thead);
@@ -375,7 +531,7 @@ export function renderMaps(data, options = {}) {
         const tr = el('tr', { style: { cursor: hasDetail ? 'pointer' : 'default' } });
 
         // Thumbnail
-        const thumbTd = el('td', { className: 'thumb-col' });
+        const thumbTd = el('td', { className: 'thumb-col', style: { fontSize: '13px', fontWeight: '400', color: 'var(--fg)' } });
         thumbTd.appendChild(
           makeThumbnail(mapEntry.thumbnail || mapEntry.minimap, `${mapEntry.name} thumbnail`, {
             className: 'map-thumb',
@@ -385,7 +541,7 @@ export function renderMaps(data, options = {}) {
         tr.appendChild(thumbTd);
 
         // Name
-        const nameTd = el('td');
+        const nameTd = el('td', { style: { fontSize: '13px', fontWeight: '400', color: 'var(--fg)' } });
         const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } });
         const nameLeft = el('span', { style: { display: 'flex', alignItems: 'center', minWidth: '0' } });
         nameLeft.appendChild(el('span', { style: { fontSize: '14px' }, textContent: mapEntry.name || '(unnamed)' }));
@@ -413,30 +569,60 @@ export function renderMaps(data, options = {}) {
         nameTd.appendChild(nameWrap);
         tr.appendChild(nameTd);
 
-        // Mobs
-        const mobTd = el('td', { className: 'num' });
-        if (stats) {
-          mobTd.appendChild(el('div', { textContent: `${stats.unique} unique` }));
-          mobTd.appendChild(el('div', { style: { color: 'var(--dim)', fontSize: '12px' }, textContent: `${stats.total} total` }));
-        } else {
-          mobTd.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '—' }));
+        // Render columns dynamically
+        for (const col of COLS.slice(1)) { // skip name col
+          let td;
+          const baseStyle = { fontSize: '13px', fontWeight: '400', color: 'var(--fg)' };
+          if (col.cls && col.cls.includes('num')) baseStyle.textAlign = 'right';
+          switch (col.id) {
+            case 'mobs':
+              td = el('td', { className: 'num', style: baseStyle });
+              if (stats) {
+                td.appendChild(el('div', { textContent: `${stats.unique} unique` }));
+                td.appendChild(el('div', { style: { color: 'var(--dim)', fontSize: '12px' }, textContent: `${stats.total} total` }));
+              } else {
+                td.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '—' }));
+              }
+              break;
+            case 'weighted_level':
+              td = el('td', { className: 'num', style: baseStyle });
+              td.textContent = stats && stats.weightedLevel != null ? Math.round(stats.weightedLevel) : '—';
+              break;
+            case 'common_mob':
+              td = el('td', { style: baseStyle });
+              if (stats && stats.mostCommonMobLevel != null && stats.mostCommonMobName) {
+                td.appendChild(document.createTextNode(stats.mostCommonMobName + ' '));
+                const badge = el('span', { className: 'level-badge', textContent: `Lv. ${stats.mostCommonMobLevel}` });
+                td.appendChild(badge);
+              } else if (stats && stats.mostCommonMobName) {
+                td.textContent = stats.mostCommonMobName;
+              } else {
+                td.textContent = '—';
+              }
+              break;
+            case 'exp_per_mob':
+              td = el('td', { className: 'num', style: baseStyle });
+              td.textContent = stats ? stats.expPerMob.toLocaleString() : '';
+              if (!stats) td.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '—' }));
+              break;
+            case 'total_exp':
+              td = el('td', { className: 'num', style: baseStyle });
+              td.textContent = stats ? stats.totalExp.toLocaleString() : '';
+              if (!stats) td.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '—' }));
+              break;
+            case 'weighted_exp_hour':
+              td = el('td', { className: 'num', style: baseStyle });
+              td.textContent = stats ? stats.weightedExpPerHour.toLocaleString() : '—';
+              break;
+            default:
+              td = el('td', { style: baseStyle });
+              td.textContent = '—';
+          }
+          tr.appendChild(td);
         }
-        tr.appendChild(mobTd);
 
-        // Exp / Mob
-        const expPerMobTd = el('td', { className: 'num' });
-        expPerMobTd.textContent = stats ? stats.expPerMob.toLocaleString() : '';
-        if (!stats) expPerMobTd.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '—' }));
-        tr.appendChild(expPerMobTd);
-
-        // Total Exp
-        const totalExpTd = el('td', { className: 'num' });
-        totalExpTd.textContent = stats ? stats.totalExp.toLocaleString() : '';
-        if (!stats) totalExpTd.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '—' }));
-        tr.appendChild(totalExpTd);
-
-        // ID
-        const idTd = el('td', { className: 'num id-col' });
+        // Always show ID at the end, like monsters tab
+        const idTd = el('td', { className: 'num id-col', style: { fontSize: '13px', fontWeight: '400', color: 'var(--fg)' } });
         idTd.appendChild(el('span', { className: 'id', textContent: mapEntry.id }));
         tr.appendChild(idTd);
 
@@ -474,7 +660,8 @@ export function renderMaps(data, options = {}) {
       headRow.querySelectorAll('th:not(.thumb-col)').forEach((th, i) => {
         const col = COLS[i];
         const active = sortCol === col.id;
-        th.textContent = active ? `${col.label} ${sortDir === 1 ? '▲' : '▼'}` : col.label;
+        const labelSpan = th.querySelector('span:first-child') || th;
+        labelSpan.textContent = active ? `${col.label} ${sortDir === 1 ? '▲' : '▼'}` : col.label;
       });
       const newTbody = buildRows(mapsList);
       table.replaceChild(newTbody, tbody);
@@ -496,7 +683,7 @@ export function renderMaps(data, options = {}) {
         ? maps.regions.filter((r) => r.region === selectedRegion)
         : maps.regions;
       regions.forEach((region) => {
-        const filtered = exactId != null
+        let filtered = exactId != null
           ? region.maps.filter((m) => Number(m.id) === exactId)
           : sq
             ? region.maps.filter((m) => {
@@ -521,6 +708,12 @@ export function renderMaps(data, options = {}) {
                 return false;
               })
             : region.maps;
+        if (hideNoMobs) {
+          filtered = filtered.filter((m) => {
+            const mobs = mapMobs.get(m.id);
+            return mobs && mobs.length > 0;
+          });
+        }
         if (!filtered.length) return;
         const collapsible = makeCollapsible(region.region, filtered.length, true, null, () => renderRegionTable(filtered));
         dataDiv.appendChild(collapsible);

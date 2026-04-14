@@ -15,6 +15,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 800;
+  font-family: inherit;
   border-bottom: 2px solid var(--border);
 }
 .data-table td { padding: 9px 8px; border-bottom: 1px solid var(--border); }

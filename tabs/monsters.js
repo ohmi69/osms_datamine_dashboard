@@ -216,6 +216,7 @@ export function renderMonsters(data, options = {}) {
 
   let filter = '';
   let typeFilter = '';
+  let elemWeakFilter = '';
   let sortCol = 'level';
   let sortDir = 1;
   let autoExpandAfterId = null;
@@ -224,7 +225,7 @@ export function renderMonsters(data, options = {}) {
   const dataContainer = el('div');
 
   const topRow = el('div', {
-    style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' },
+    style: { display: 'flex', flexWrap: 'wrap', gap: '12px',  },
   });
   const searchDiv = el('div', { style: { flex: '1', minWidth: '200px' } });
   const searchBox = makeSearchBox('Search by name or map...', (value) => {
@@ -252,9 +253,11 @@ export function renderMonsters(data, options = {}) {
   const pills = el('div', { className: 'pill-group' });
   function rebuildPills() {
     pills.innerHTML = '';
+    pills.appendChild(el('span', { className: 'pill-group-label', textContent: 'Mob Type:' }));
     [
-      ['All',    ''],
-      ['Bosses', 'boss'],
+      ['All',      ''],
+      ['Non-Boss', 'nonboss'],
+      ['Bosses',   'boss'],
     ].forEach(([label, value]) => {
       const pill = el('button', {
         className: `pill${typeFilter === value ? ' active' : ''}`,
@@ -270,8 +273,33 @@ export function renderMonsters(data, options = {}) {
     });
   }
   rebuildPills();
-  topRow.appendChild(pills);
+
+  const elemPills = el('div', { className: 'pill-group' });
+  function rebuildElemPills() {
+    elemPills.innerHTML = '';
+    const weakLabel = el('span', { className: 'pill-group-label', textContent: 'Weak to:' });
+    elemPills.appendChild(weakLabel);
+    [['Any', ''], ['Fire', 'Fire'], ['Ice', 'Ice'], ['Lightning', 'Lightning'], ['Holy', 'Holy']].forEach(([label, value]) => {
+      const pill = el('button', {
+        className: `pill${elemWeakFilter === value ? ' active' : ''}`,
+        textContent: label,
+      });
+      pill.addEventListener('click', () => {
+        elemWeakFilter = value;
+        rebuildElemPills();
+        renderData();
+      });
+      elemPills.appendChild(pill);
+    });
+  }
+  rebuildElemPills();
+
   container.appendChild(topRow);
+
+  const filterRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' } });
+  filterRow.appendChild(pills);
+  filterRow.appendChild(elemPills);
+  container.appendChild(filterRow);
 
   const toggles = el('div', { className: 'col-toggles' });
   function rebuildToggles() {
@@ -309,6 +337,8 @@ export function renderMonsters(data, options = {}) {
       }
       if (!matchSearch(monster.name, filter) && !monster.maps?.some((m) => matchSearch(m.name, filter))) return false;
       if (typeFilter === 'boss' && !monster.is_boss) return false;
+      if (typeFilter === 'nonboss' && monster.is_boss) return false;
+      if (elemWeakFilter && monster.elements?.[elemWeakFilter] !== 'Weak') return false;
       return true;
     });
 
@@ -331,7 +361,10 @@ export function renderMonsters(data, options = {}) {
     const thead = el('thead');
     const headRow = el('tr');
 
-    const nameHeader = el('th', { textContent: 'Name', style: { cursor: 'pointer' } });
+    const thStyle = { cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', fontSize: '13px', fontWeight: '500', color: 'var(--fg)', background: 'var(--surface2, #f8f8f8)' };
+    const nameHeader = el('th', { style: thStyle });
+    const nameLabel = el('span', { textContent: sortCol === 'name' ? `Name ${sortDir === 1 ? '▲' : '▼'}` : 'Name' });
+    nameHeader.appendChild(nameLabel);
     nameHeader.addEventListener('click', () => {
       if (sortCol === 'name') {
         sortDir *= -1;
@@ -342,18 +375,16 @@ export function renderMonsters(data, options = {}) {
       saveState('monsters', { cols: { ...colState } });
       renderData();
     });
-    if (sortCol === 'name') {
-      nameHeader.textContent = `Name ${sortDir === 1 ? '▲' : '▼'}`;
-    }
     headRow.appendChild(nameHeader);
 
     visibleCols.forEach((col) => {
       const sortable = col.id !== 'elements';
       const th = el('th', {
         className: sortable ? 'num' : '',
-        textContent: col.label,
-        style: { cursor: sortable ? 'pointer' : 'default' },
+        style: { ...thStyle, cursor: sortable ? 'pointer' : 'default' },
       });
+      const labelSpan = el('span', { textContent: sortCol === col.id ? `${col.label} ${sortDir === 1 ? '▲' : '▼'}` : col.label });
+      th.appendChild(labelSpan);
       if (sortable) {
         th.addEventListener('click', () => {
           if (sortCol === col.id) {
@@ -365,15 +396,13 @@ export function renderMonsters(data, options = {}) {
           saveState('monsters', { cols: { ...colState } });
           renderData();
         });
-        if (sortCol === col.id) {
-          th.textContent = `${col.label} ${sortDir === 1 ? '▲' : '▼'}`;
-        }
       }
       headRow.appendChild(th);
     });
 
-    headRow.appendChild(el('th', { textContent: 'Tags' }));
-    headRow.appendChild(el('th', { className: 'num id-col', textContent: 'ID' }));
+    const thStyleStatic = { fontSize: '13px', fontWeight: '500', color: 'var(--fg)', background: 'var(--surface2, #f8f8f8)', whiteSpace: 'nowrap' };
+    headRow.appendChild(el('th', { textContent: 'Tags', style: thStyleStatic }));
+    headRow.appendChild(el('th', { className: 'num id-col', textContent: 'ID', style: thStyleStatic }));
     thead.appendChild(headRow);
     table.appendChild(thead);
 
@@ -397,7 +426,8 @@ export function renderMonsters(data, options = {}) {
     const tbody = el('tbody');
     filtered.forEach((monster) => {
       const row = el('tr', { className: 'monster-row', style: { cursor: 'pointer' } });
-      const nameCell = el('td', { style: { fontWeight: '500' } });
+      const tdBase = { fontSize: '13px', fontWeight: '400', color: 'var(--fg)' };
+      const nameCell = el('td', { style: { ...tdBase, fontWeight: '500' } });
       const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } });
       const nameLeft = el('span', { style: { display: 'flex', alignItems: 'center', gap: '8px' } });
       nameLeft.appendChild(
@@ -414,7 +444,7 @@ export function renderMonsters(data, options = {}) {
 
       visibleCols.forEach((col) => {
         if (col.id === 'elements') {
-          const td = el('td');
+          const td = el('td', { style: tdBase });
           const elems = getMonsterElements(monster);
           if (elems.length) {
             elems.forEach((elem) => {
@@ -436,11 +466,12 @@ export function renderMonsters(data, options = {}) {
           row.appendChild(
             el('td', {
               className: 'num',
+              style: tdBase,
               textContent: ratio > 0 ? ratio.toFixed(3) : '—',
             })
           );
         } else if (col.id === 'undead') {
-          const td = el('td', { className: 'num' });
+          const td = el('td', { className: 'num', style: tdBase });
           if (monster.undead) {
             td.appendChild(
               el('span', {
@@ -462,13 +493,14 @@ export function renderMonsters(data, options = {}) {
           row.appendChild(
             el('td', {
               className: 'num',
+              style: tdBase,
               textContent: value != null && value !== 0 ? fmt(value) : '—',
             })
           );
         }
       });
 
-      const tagCell = el('td');
+      const tagCell = el('td', { style: tdBase });
       const tagWrap = el('span', { style: { display: 'flex', gap: '6px', flexWrap: 'wrap' } });
       if (monster.is_boss) {
         tagWrap.appendChild(el('span', { className: 'badge badge-boss', textContent: 'BOSS' }));
@@ -476,7 +508,7 @@ export function renderMonsters(data, options = {}) {
       tagCell.appendChild(tagWrap);
       row.appendChild(tagCell);
 
-      const idTd = el('td', { className: 'num id-col' });
+      const idTd = el('td', { className: 'num id-col', style: tdBase });
       if (monster.id != null) {
         idTd.appendChild(el('span', { className: 'id', textContent: monster.id }));
       }

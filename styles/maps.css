@@ -58,6 +58,59 @@
   color: var(--text);
 }
 
+.level-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 0 0;
+}
+.level-filter-label {
+  font-size: 13px;
+  color: var(--dim);
+  white-space: nowrap;
+}
+.level-filter-input {
+  width: 72px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface2, rgba(255,255,255,0.04));
+  color: var(--text);
+  font-size: 13px;
+}
+.level-filter-input:focus {
+  outline: none;
+  border-color: var(--accent, #7aa2f7);
+}
+.level-filter-sep {
+  color: var(--dim);
+  font-size: 13px;
+}
+
+.col-tooltip-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-left: 5px;
+  border-radius: 50%;
+  border: 1px solid var(--dim);
+  color: var(--dim);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: help;
+  vertical-align: middle;
+  opacity: 0.6;
+  transition: opacity 0.15s, border-color 0.15s, color 0.15s;
+}
+.col-tooltip-badge:hover {
+  opacity: 1;
+  border-color: var(--accent, #7aa2f7);
+  color: var(--accent, #7aa2f7);
+}
+
 .mob-chip-clickable:hover {
   border-color: var(--accent, #7aa2f7);
   background: var(--accent-bg, rgba(122,162,247,0.12)) !important;

@@ -22292,7 +22292,8 @@
       "sub_category": "Consume",
       "description": "A legendary potion.\nRestores 35% of HP and MP, but due to its powerful effect, there is a cooldown before it can be used again.",
       "stats": {
-        "price": 1000
+        "price": 1000,
+        "useCooldown": 30
       },
       "thumbnail": "images/items/02000004.png"
     },
@@ -22303,7 +22304,8 @@
       "sub_category": "Consume",
       "description": "A legendary potion.\nRestores 100% of HP and MP, but due to its powerful effect, there is a cooldown before it can be used again.",
       "stats": {
-        "price": 2500
+        "price": 2500,
+        "useCooldown": 30
       },
       "thumbnail": "images/items/02000005.png"
     },
@@ -22314,7 +22316,8 @@
       "sub_category": "Consume",
       "description": "A legendary potion.\nRestores 50% of MP, but due to its powerful effect, there is a cooldown before it can be used again.",
       "stats": {
-        "price": 1000
+        "price": 1000,
+        "useCooldown": 30
       },
       "thumbnail": "images/items/02000006.png"
     },

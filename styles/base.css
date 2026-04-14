@@ -441,7 +441,8 @@ body {
 .info-card .text { font-size: 14px; color: var(--text); font-weight: 600; }
 
 /* ── Pills ──────────────────────────────────────────────────── */
-.pill-group { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.pill-group { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+.pill-group-label { font-size: 11px; font-weight: 600; color: var(--dim); text-transform: uppercase; letter-spacing: .5px; margin-right: 2px; }
 .pill {
   padding: 5px 14px;
   border-radius: 6px;

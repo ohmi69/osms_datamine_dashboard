@@ -7,14 +7,15 @@ function parseIdFilter(query) {
 }
 
 const STAT_LABELS = {
-  price:      ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
-  unitPrice:  ['Recharge Price', (v) => v.toLocaleString() + ' mesos per unit'],
-  slotMax:    ['Stack Size', (v) => v.toLocaleString()],
-  tradeBlock: ['Trade',      ()  => 'Untradeable'],
-  only:       ['Limit',      ()  => 'Only 1'],
-  timeLimited:['Duration',   ()  => 'Time Limited'],
-  notSale:    ['Shop',       ()  => 'Not for Sale'],
-  recovery:   ['Recovery',   (v) => `+${v}`],
+  price:       ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
+  unitPrice:   ['Recharge Price',  (v) => v.toLocaleString() + ' mesos per unit'],
+  slotMax:     ['Stack Size',      (v) => v.toLocaleString()],
+  tradeBlock:  ['Trade',           ()  => 'Untradeable'],
+  only:        ['Limit',           ()  => 'Only 1'],
+  timeLimited: ['Duration',        ()  => 'Time Limited'],
+  notSale:     ['Shop',            ()  => 'Not for Sale'],
+  recovery:    ['Recovery',        (v) => `+${v}`],
+  useCooldown: ['Cooldown',        (v) => `${v}s`],
 };
 
 function buildDetailPanel(item) {
