@@ -207,6 +207,10 @@
 /* Thumbnail boxes — softer on light bg */
 [data-theme="mapletip"] .thumb { background: #F2EADB; }
 
+/* Full map image background matches theme */
+.full-map-image { background: #000; }
+[data-theme="mapletip"] .full-map-image { background: #fff; }
+
 /* Footer warmth */
 [data-theme="mapletip"] .footer { border-top-color: #D4C4A8; }
 

@@ -280,7 +280,7 @@ export function renderMaps(data, options = {}) {
           src: mapImgPath,
           alt: `${mapEntry.name || 'Map'} full image`,
           loading: 'lazy',
-          style: { maxWidth: '100%', maxHeight: '600px', background: '#fff' },
+          style: { maxWidth: '100%', maxHeight: '600px' },
         });
         img.title = 'Click to view fullscreen';
         img.addEventListener('click', (e) => {
@@ -289,24 +289,6 @@ export function renderMaps(data, options = {}) {
           }
         });
         imgContainer.appendChild(img);
-
-        // Background toggle
-        const bgToggle = el('div', { className: 'map-bg-toggle' });
-        const btnBlack = el('button', { className: 'map-bg-btn', textContent: 'Black' });
-        const btnWhite = el('button', { className: 'map-bg-btn active', textContent: 'White' });
-        btnBlack.addEventListener('click', () => {
-          img.style.background = '#000';
-          btnBlack.classList.add('active');
-          btnWhite.classList.remove('active');
-        });
-        btnWhite.addEventListener('click', () => {
-          img.style.background = '#fff';
-          btnWhite.classList.add('active');
-          btnBlack.classList.remove('active');
-        });
-        bgToggle.appendChild(btnBlack);
-        bgToggle.appendChild(btnWhite);
-        imgContainer.appendChild(bgToggle);
 
         panel.appendChild(imgContainer);
       }
@@ -505,10 +487,6 @@ export function renderMaps(data, options = {}) {
           cursor: 'pointer',
           userSelect: 'none',
           whiteSpace: 'nowrap',
-          fontSize: '13px',
-          fontWeight: '500',
-          color: 'var(--fg)',
-          background: 'var(--surface2, #f8f8f8)',
         },
       });
       const labelSpan = el('span', { textContent: active ? `${col.label} ${sortDir === 1 ? '▲' : '▼'}` : col.label });
@@ -534,8 +512,7 @@ export function renderMaps(data, options = {}) {
       headRow.appendChild(th);
     });
     // Always add ID column at the end
-    const thStyleStatic = { fontSize: '13px', fontWeight: '500', color: 'var(--fg)', background: 'var(--surface2, #f8f8f8)', whiteSpace: 'nowrap' };
-    headRow.appendChild(el('th', { className: 'num id-col', textContent: 'ID', style: thStyleStatic }));
+    headRow.appendChild(el('th', { className: 'num id-col', textContent: 'ID' }));
 
     thead.appendChild(headRow);
     table.appendChild(thead);

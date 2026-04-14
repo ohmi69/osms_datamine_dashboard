@@ -361,7 +361,7 @@ export function renderMonsters(data, options = {}) {
     const thead = el('thead');
     const headRow = el('tr');
 
-    const thStyle = { cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap', fontSize: '13px', fontWeight: '500', color: 'var(--fg)', background: 'var(--surface2, #f8f8f8)' };
+    const thStyle = { cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' };
     const nameHeader = el('th', { style: thStyle });
     const nameLabel = el('span', { textContent: sortCol === 'name' ? `Name ${sortDir === 1 ? '▲' : '▼'}` : 'Name' });
     nameHeader.appendChild(nameLabel);
@@ -400,9 +400,8 @@ export function renderMonsters(data, options = {}) {
       headRow.appendChild(th);
     });
 
-    const thStyleStatic = { fontSize: '13px', fontWeight: '500', color: 'var(--fg)', background: 'var(--surface2, #f8f8f8)', whiteSpace: 'nowrap' };
-    headRow.appendChild(el('th', { textContent: 'Tags', style: thStyleStatic }));
-    headRow.appendChild(el('th', { className: 'num id-col', textContent: 'ID', style: thStyleStatic }));
+    headRow.appendChild(el('th', { textContent: 'Tags' }));
+    headRow.appendChild(el('th', { className: 'num id-col', textContent: 'ID' }));
     thead.appendChild(headRow);
     table.appendChild(thead);
 
