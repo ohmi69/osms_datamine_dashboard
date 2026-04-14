@@ -1,7 +1,7 @@
 {
   "copied": {
     "monsters": 89,
-    "items": 3039,
+    "items": 3041,
     "skills": 93,
     "maps": 268,
     "npcs": 158
@@ -12,14 +12,6 @@
       {
         "id": "01392000",
         "reason": "no_icon_found"
-      },
-      {
-        "id": "05530052",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "05530053",
-        "reason": "asset_dir_missing"
       }
     ],
     "skills": [],
@@ -170,5 +162,5 @@
       }
     ]
   },
-  "missing_total": 39
+  "missing_total": 37
 }
