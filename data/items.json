@@ -1010,6 +1010,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPAD": 41,
+        "incMHP": 30,
         "tuc": 7,
         "attackSpeed": 5
       },
@@ -1032,6 +1033,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPAD": 56,
+        "incMHP": 20,
+        "incMMP": 20,
         "tuc": 7,
         "attackSpeed": 5
       },
@@ -3726,6 +3729,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 6,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -3813,6 +3817,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 6,
+        "incMMP": 5,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -3834,6 +3839,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 8,
+        "incMHP": 4,
+        "incMMP": 4,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -3855,6 +3862,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 8,
+        "incMMP": 8,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -3876,6 +3884,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 8,
+        "incMHP": 8,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -3919,6 +3928,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 9,
+        "incMHP": 10,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -3940,6 +3950,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 9,
+        "incMMP": 10,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -4030,6 +4041,7 @@
         "incDEX": 1,
         "incPDD": 16,
         "incMDD": 3,
+        "incMHP": 5,
         "incACC": 2,
         "tuc": 7
       },
@@ -4054,6 +4066,7 @@
         "incDEX": 1,
         "incPDD": 17,
         "incMDD": 5,
+        "incMHP": 10,
         "incACC": 2,
         "tuc": 7
       },
@@ -4100,6 +4113,7 @@
         "reqLUK": 0,
         "incPDD": 5,
         "incMDD": 10,
+        "incMMP": 10,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -4122,6 +4136,7 @@
         "reqLUK": 0,
         "incPDD": 5,
         "incMDD": 10,
+        "incMHP": 10,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -4209,6 +4224,7 @@
         "reqINT": 0,
         "reqLUK": 10,
         "incPDD": 9,
+        "incMMP": 10,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -4297,6 +4313,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 16,
+        "incMHP": 2,
         "incACC": 2,
         "tuc": 7
       },
@@ -4321,6 +4338,7 @@
         "incDEX": 1,
         "incPDD": 17,
         "incMDD": 3,
+        "incMHP": 2,
         "incACC": 2,
         "tuc": 7
       },
@@ -4345,6 +4363,7 @@
         "incDEX": 1,
         "incPDD": 18,
         "incMDD": 5,
+        "incMHP": 2,
         "incACC": 2,
         "tuc": 7
       },
@@ -4368,6 +4387,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 12,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -4390,6 +4410,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 13,
+        "incMHP": 10,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -4412,6 +4433,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 13,
+        "incMHP": 15,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -4434,6 +4456,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 19,
+        "incMHP": 5,
         "incACC": 3,
         "tuc": 7
       },
@@ -4458,6 +4481,7 @@
         "incDEX": 1,
         "incPDD": 20,
         "incMDD": 5,
+        "incMHP": 10,
         "incACC": 3,
         "tuc": 7
       },
@@ -4482,6 +4506,7 @@
         "incDEX": 1,
         "incPDD": 21,
         "incMDD": 7,
+        "incMHP": 15,
         "incACC": 3,
         "tuc": 7
       },
@@ -4505,6 +4530,7 @@
         "reqLUK": 0,
         "incPDD": 7,
         "incMDD": 12,
+        "incMMP": 15,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -4527,6 +4553,7 @@
         "reqLUK": 0,
         "incPDD": 7,
         "incMDD": 12,
+        "incMHP": 15,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -4550,6 +4577,7 @@
         "incLUK": 1,
         "incPDD": 7,
         "incMDD": 12,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -4572,6 +4600,8 @@
         "reqLUK": 0,
         "incPDD": 7,
         "incMDD": 12,
+        "incMHP": 5,
+        "incMMP": 10,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -4595,6 +4625,7 @@
         "incINT": 1,
         "incPDD": 7,
         "incMDD": 12,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -4617,6 +4648,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 12,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -4639,6 +4671,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 12,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -4660,6 +4693,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 12,
+        "incMMP": 15,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -4681,6 +4715,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 12,
+        "incMHP": 15,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -4702,6 +4737,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 12,
+        "incMHP": 10,
+        "incMMP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -4723,6 +4760,7 @@
         "reqINT": 0,
         "reqLUK": 20,
         "incPDD": 12,
+        "incMHP": 15,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -4745,6 +4783,7 @@
         "reqLUK": 20,
         "incDEX": 1,
         "incPDD": 12,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -4766,6 +4805,7 @@
         "reqINT": 0,
         "reqLUK": 20,
         "incPDD": 12,
+        "incMMP": 15,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -4788,6 +4828,7 @@
         "reqLUK": 20,
         "incSTR": 1,
         "incPDD": 12,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -4810,6 +4851,7 @@
         "reqLUK": 20,
         "incLUK": 1,
         "incPDD": 12,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -4832,6 +4874,7 @@
         "reqLUK": 0,
         "reqPOP": 10,
         "incPDD": 13,
+        "incMHP": 17,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -4877,6 +4920,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 24,
+        "incMHP": 5,
         "incACC": 4,
         "tuc": 7
       },
@@ -4900,6 +4944,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 25,
+        "incMHP": 10,
         "incACC": 4,
         "tuc": 7
       },
@@ -4946,6 +4991,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 24,
+        "incMHP": 5,
         "incACC": 4,
         "tuc": 7
       },
@@ -4969,6 +5015,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 25,
+        "incMHP": 10,
         "incACC": 4,
         "tuc": 7
       },
@@ -4993,6 +5040,7 @@
         "incINT": 1,
         "incPDD": 9,
         "incMDD": 14,
+        "incMMP": 10,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -5015,6 +5063,7 @@
         "reqLUK": 10,
         "incPDD": 9,
         "incMDD": 14,
+        "incMHP": 20,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -5103,6 +5152,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 15,
+        "incMHP": 20,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -5124,6 +5174,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 15,
+        "incMMP": 20,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -5145,6 +5196,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 15,
+        "incMHP": 10,
+        "incMMP": 10,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -5166,6 +5219,7 @@
         "reqINT": 0,
         "reqLUK": 30,
         "incPDD": 15,
+        "incMHP": 20,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -5209,6 +5263,7 @@
         "reqINT": 0,
         "reqLUK": 30,
         "incPDD": 15,
+        "incMMP": 20,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -5274,6 +5329,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 16,
+        "incMHP": 22,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5295,6 +5351,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 16,
+        "incMHP": 11,
+        "incMMP": 11,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5317,6 +5375,7 @@
         "reqLUK": 0,
         "incLUK": 2,
         "incPDD": 16,
+        "incMHP": 2,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5338,6 +5397,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 16,
+        "incMHP": 2,
         "incACC": 1,
         "tuc": 7
       },
@@ -5360,6 +5420,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 16,
+        "incMMP": 22,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5382,6 +5443,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 25,
+        "incMHP": 2,
         "incACC": 4,
         "tuc": 7
       },
@@ -5405,6 +5467,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 26,
+        "incMHP": 4,
         "incACC": 4,
         "tuc": 7
       },
@@ -5428,6 +5491,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 27,
+        "incMHP": 6,
         "incACC": 4,
         "tuc": 7
       },
@@ -5450,6 +5514,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 18,
+        "incMHP": 10,
         "incACC": 1,
         "tuc": 7
       },
@@ -5473,6 +5538,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5495,6 +5561,7 @@
         "reqLUK": 0,
         "incINT": 2,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5517,6 +5584,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5539,6 +5607,7 @@
         "reqLUK": 0,
         "incINT": 2,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5561,6 +5630,7 @@
         "reqLUK": 10,
         "incLUK": 2,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5584,6 +5654,7 @@
         "incDEX": 2,
         "incPDD": 27,
         "incMDD": 15,
+        "incMHP": 5,
         "incACC": 5,
         "tuc": 7
       },
@@ -5608,6 +5679,7 @@
         "incDEX": 2,
         "incPDD": 28,
         "incMDD": 20,
+        "incMHP": 10,
         "incACC": 5,
         "tuc": 7
       },
@@ -5632,6 +5704,7 @@
         "incDEX": 2,
         "incPDD": 29,
         "incMDD": 25,
+        "incMHP": 15,
         "incACC": 5,
         "tuc": 7
       },
@@ -5655,6 +5728,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -5677,6 +5751,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -5698,6 +5773,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 18,
+        "incMHP": 25,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -5719,6 +5795,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 18,
+        "incMMP": 25,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -5740,6 +5817,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 18,
+        "incMHP": 15,
+        "incMMP": 10,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -5761,6 +5840,7 @@
         "reqINT": 0,
         "reqLUK": 40,
         "incPDD": 18,
+        "incMHP": 25,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -5783,6 +5863,7 @@
         "reqLUK": 40,
         "incLUK": 2,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -5804,6 +5885,7 @@
         "reqINT": 0,
         "reqLUK": 40,
         "incPDD": 18,
+        "incMMP": 25,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -5825,6 +5907,7 @@
         "reqINT": 0,
         "reqLUK": 40,
         "incPDD": 18,
+        "incMHP": 5,
         "incACC": 1,
         "tuc": 7
       },
@@ -5848,6 +5931,7 @@
         "reqLUK": 40,
         "incDEX": 2,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -5869,6 +5953,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": "20",
+        "incMMP": 25,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5892,6 +5977,7 @@
         "incINT": 2,
         "incPDD": 13,
         "incMDD": 18,
+        "incMMP": 10,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5915,6 +6001,7 @@
         "incINT": 3,
         "incPDD": 14,
         "incMDD": 19,
+        "incMMP": 10,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5938,6 +6025,7 @@
         "incINT": 4,
         "incPDD": 15,
         "incMDD": 20,
+        "incMMP": 10,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -5983,6 +6071,7 @@
         "reqLUK": 20,
         "incPDD": 13,
         "incMDD": 18,
+        "incMMP": 30,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6028,6 +6117,7 @@
         "reqLUK": 20,
         "incPDD": 13,
         "incMDD": 18,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6050,6 +6140,8 @@
         "reqLUK": 20,
         "incPDD": 13,
         "incMDD": 18,
+        "incMHP": 15,
+        "incMMP": 15,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6072,7 +6164,8 @@
         "reqLUK": 20,
         "incLUK": 3,
         "incPDD": 13,
-        "tuc": 7
+        "tuc": 7,
+        "incMDD": 18
       },
       "req_job_label": "Mage",
       "weapon_type": null,
@@ -6137,6 +6230,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 21,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -6158,6 +6252,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 21,
+        "incMMP": 30,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -6179,6 +6274,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 21,
+        "incMHP": 15,
+        "incMMP": 15,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -6200,6 +6297,7 @@
         "reqINT": 0,
         "reqLUK": 50,
         "incPDD": 21,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -6243,6 +6341,7 @@
         "reqINT": 0,
         "reqLUK": 50,
         "incPDD": 21,
+        "incMMP": 30,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -6309,6 +6408,7 @@
         "reqLUK": 0,
         "incDEX": 3,
         "incPDD": 35,
+        "incMHP": 5,
         "incACC": 7,
         "tuc": 7
       },
@@ -6331,6 +6431,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 35,
+        "incMHP": 35,
         "incACC": 7,
         "tuc": 7
       },
@@ -6353,6 +6454,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 35,
+        "incMMP": 35,
         "incACC": 7,
         "tuc": 7
       },
@@ -6376,6 +6478,7 @@
         "reqLUK": 0,
         "incDEX": 3,
         "incPDD": 24,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -6398,6 +6501,7 @@
         "reqLUK": 0,
         "incSTR": 3,
         "incPDD": 24,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -6419,6 +6523,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 24,
+        "incMHP": 35,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -6440,6 +6545,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 24,
+        "incMMP": 35,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -6461,6 +6567,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 24,
+        "incMHP": 20,
+        "incMMP": 15,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -6484,6 +6592,7 @@
         "incINT": 3,
         "incPDD": 15,
         "incMDD": 20,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6507,6 +6616,7 @@
         "incLUK": 3,
         "incPDD": 15,
         "incMDD": 20,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6529,6 +6639,7 @@
         "reqLUK": 25,
         "incPDD": 15,
         "incMDD": 20,
+        "incMHP": 35,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6551,6 +6662,7 @@
         "reqLUK": 25,
         "incPDD": 15,
         "incMDD": 20,
+        "incMMP": 35,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6573,6 +6685,8 @@
         "reqLUK": 25,
         "incPDD": 15,
         "incMDD": 20,
+        "incMHP": 15,
+        "incMMP": 20,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6595,6 +6709,7 @@
         "reqLUK": 60,
         "incDEX": 3,
         "incPDD": 24,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -6616,6 +6731,7 @@
         "reqINT": 0,
         "reqLUK": 60,
         "incPDD": 24,
+        "incMHP": 35,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -6638,6 +6754,7 @@
         "reqLUK": 60,
         "incSTR": 3,
         "incPDD": 24,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -6659,6 +6776,7 @@
         "reqINT": 0,
         "reqLUK": 60,
         "incPDD": 24,
+        "incMMP": 35,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -6681,6 +6799,7 @@
         "reqLUK": 60,
         "incLUK": 3,
         "incPDD": 24,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -6703,6 +6822,7 @@
         "reqLUK": 0,
         "incPDD": 21,
         "incMDD": 13,
+        "incMHP": 35,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -6748,6 +6868,7 @@
         "reqLUK": 0,
         "incDEX": 4,
         "incPDD": 40,
+        "incMHP": 5,
         "incACC": 8,
         "tuc": 7
       },
@@ -6771,6 +6892,7 @@
         "reqLUK": 0,
         "incDEX": 4,
         "incPDD": 41,
+        "incMHP": 10,
         "incACC": 8,
         "tuc": 7
       },
@@ -6817,6 +6939,7 @@
         "reqLUK": 30,
         "incPDD": 17,
         "incMDD": 22,
+        "incMHP": 40,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6839,6 +6962,8 @@
         "reqLUK": 30,
         "incPDD": 17,
         "incMDD": 22,
+        "incMHP": 20,
+        "incMMP": 20,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6861,6 +6986,7 @@
         "reqLUK": 30,
         "incPDD": 17,
         "incMDD": 22,
+        "incMMP": 40,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -6949,6 +7075,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 27,
+        "incMHP": 40,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -6970,6 +7097,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 27,
+        "incMMP": 40,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -6991,6 +7119,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 27,
+        "incMHP": 20,
+        "incMMP": 20,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -7012,6 +7142,7 @@
         "reqINT": 0,
         "reqLUK": 60,
         "incPDD": 27,
+        "incMHP": 40,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -7033,6 +7164,7 @@
         "reqINT": 0,
         "reqLUK": 60,
         "incPDD": 27,
+        "incMMP": 40,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -7121,6 +7253,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 41,
+        "incMHP": 22,
         "incACC": 8,
         "tuc": 7
       },
@@ -7167,6 +7300,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 41,
+        "incMMP": 22,
         "incACC": 8,
         "tuc": 7
       },
@@ -7190,6 +7324,7 @@
         "reqLUK": 0,
         "incSTR": 4,
         "incPDD": 43,
+        "incMHP": 10,
         "incACC": 9,
         "tuc": 7
       },
@@ -7213,6 +7348,7 @@
         "reqLUK": 0,
         "incSTR": 4,
         "incPDD": 43,
+        "incMHP": 15,
         "incACC": 9,
         "tuc": 7
       },
@@ -7236,6 +7372,7 @@
         "reqLUK": 0,
         "incSTR": 4,
         "incPDD": 43,
+        "incMHP": 20,
         "incACC": 9,
         "tuc": 7
       },
@@ -7259,6 +7396,7 @@
         "reqLUK": 0,
         "incDEX": 4,
         "incPDD": 45,
+        "incMHP": 7,
         "incACC": 9,
         "tuc": 7
       },
@@ -7283,6 +7421,7 @@
         "incSTR": 2,
         "incDEX": 2,
         "incPDD": 45,
+        "incMHP": 7,
         "incACC": 9,
         "tuc": 7
       },
@@ -7378,6 +7517,7 @@
         "reqLUK": 40,
         "incPDD": 21,
         "incMDD": 26,
+        "incMHP": 50,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -7446,6 +7586,8 @@
         "reqLUK": 40,
         "incPDD": 21,
         "incMDD": 26,
+        "incMHP": 25,
+        "incMMP": 25,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -7489,6 +7631,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 33,
+        "incMHP": 50,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -7510,6 +7653,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 33,
+        "incMMP": 50,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -7532,6 +7676,7 @@
         "reqLUK": 0,
         "incSTR": 3,
         "incPDD": 33,
+        "incMHP": 20,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -7553,6 +7698,7 @@
         "reqINT": 0,
         "reqLUK": 90,
         "incPDD": 33,
+        "incMHP": 50,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -7574,6 +7720,7 @@
         "reqINT": 0,
         "reqLUK": 90,
         "incPDD": 33,
+        "incMMP": 50,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -8303,6 +8450,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 16,
+        "incMHP": 12,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -8324,6 +8472,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 16,
+        "incMMP": 12,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -8346,6 +8495,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 32,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -8368,6 +8518,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 32,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -8390,6 +8541,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -8412,6 +8564,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -8434,6 +8587,7 @@
         "reqLUK": 20,
         "incDEX": 1,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -8456,6 +8610,7 @@
         "reqLUK": 20,
         "incLUK": 1,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -8545,6 +8700,7 @@
         "reqLUK": 10,
         "incPDD": 15,
         "incMDD": 24,
+        "incMHP": 20,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -8678,6 +8834,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 42,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -8700,6 +8857,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 42,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -8723,6 +8881,7 @@
         "incSTR": 1,
         "incDEX": 1,
         "incPDD": 42,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -8745,6 +8904,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 26,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -8766,6 +8926,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 26,
+        "incMMP": 25,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -8787,6 +8948,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 26,
+        "incMHP": 25,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -8809,6 +8971,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 26,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -8831,6 +8994,7 @@
         "reqLUK": 40,
         "incSTR": 2,
         "incPDD": 26,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -8853,6 +9017,7 @@
         "reqLUK": 40,
         "incDEX": 2,
         "incPDD": 26,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -8876,6 +9041,7 @@
         "incDEX": 1,
         "incLUK": 1,
         "incPDD": 26,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -8963,6 +9129,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 30,
+        "incMMP": 30,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -8984,6 +9151,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 30,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -9071,6 +9239,7 @@
         "reqINT": 0,
         "reqLUK": 50,
         "incPDD": 30,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -9116,6 +9285,7 @@
         "incSTR": 2,
         "incDEX": 1,
         "incPDD": 52,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -9138,6 +9308,7 @@
         "reqLUK": 0,
         "incDEX": 3,
         "incPDD": 34,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -9159,6 +9330,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 34,
+        "incMHP": 35,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -9181,6 +9353,7 @@
         "reqLUK": 0,
         "incSTR": 3,
         "incPDD": 34,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -9202,6 +9375,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 34,
+        "incMMP": 35,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -9225,6 +9399,7 @@
         "incSTR": 1,
         "incDEX": 2,
         "incPDD": 34,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -9247,6 +9422,7 @@
         "reqLUK": 60,
         "incSTR": 3,
         "incPDD": 34,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -9269,6 +9445,7 @@
         "reqLUK": 60,
         "incDEX": 3,
         "incPDD": 34,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -9291,6 +9468,7 @@
         "reqLUK": 60,
         "incLUK": 3,
         "incPDD": 34,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -9356,6 +9534,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 57,
+        "incMHP": 40,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -9511,6 +9690,7 @@
         "reqLUK": 0,
         "incDEX": 4,
         "incPDD": 62,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -9533,6 +9713,7 @@
         "reqLUK": 0,
         "incSTR": 4,
         "incPDD": 62,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -9644,6 +9825,7 @@
         "reqLUK": 90,
         "incLUK": 3,
         "incPDD": 46,
+        "incMMP": 20,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -10014,6 +10196,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 16,
+        "incMHP": 12,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -10035,6 +10218,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 16,
+        "incMMP": 12,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -10057,6 +10241,7 @@
         "reqLUK": 0,
         "incPDD": 12,
         "incMDD": 21,
+        "incMMP": 15,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -10080,6 +10265,7 @@
         "incLUK": 1,
         "incPDD": 12,
         "incMDD": 21,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -10102,6 +10288,7 @@
         "reqLUK": 0,
         "incPDD": 12,
         "incMDD": 21,
+        "incMHP": 15,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -10125,6 +10312,7 @@
         "incINT": 1,
         "incPDD": 12,
         "incMDD": 21,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -10147,6 +10335,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -10169,6 +10358,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -10190,6 +10380,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 18,
+        "incMHP": 10,
+        "incMMP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -10212,6 +10404,7 @@
         "reqLUK": 20,
         "incSTR": 1,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -10234,6 +10427,7 @@
         "reqLUK": 20,
         "incLUK": 1,
         "incPDD": 18,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -10299,6 +10493,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 37,
+        "incMHP": 20,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -10434,6 +10629,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 22,
+        "incMHP": 20,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -10521,6 +10717,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 42,
+        "incMMP": 25,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -10543,6 +10740,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 42,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -10565,6 +10763,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 42,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -10587,6 +10786,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 26,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -10608,6 +10808,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 26,
+        "incMMP": 25,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -10629,6 +10830,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 26,
+        "incMHP": 25,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -10651,6 +10853,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 26,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -10672,6 +10875,7 @@
         "reqINT": 0,
         "reqLUK": 40,
         "incPDD": 26,
+        "incMHP": 25,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -10694,6 +10898,7 @@
         "reqLUK": 40,
         "incDEX": 2,
         "incPDD": 26,
+        "incMMP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -10716,6 +10921,7 @@
         "reqLUK": 40,
         "incSTR": 2,
         "incPDD": 26,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -10738,6 +10944,7 @@
         "reqLUK": 40,
         "incLUK": 2,
         "incPDD": 26,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -10806,6 +11013,7 @@
         "reqLUK": 20,
         "incPDD": 21,
         "incMDD": 30,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -10915,6 +11123,7 @@
         "reqINT": 0,
         "reqLUK": 50,
         "incPDD": 30,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -10960,6 +11169,7 @@
         "incINT": 3,
         "incPDD": 24,
         "incMDD": 33,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -10983,6 +11193,7 @@
         "incINT": 3,
         "incPDD": 24,
         "incMDD": 33,
+        "incMMP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -11007,6 +11218,7 @@
         "incLUK": 2,
         "incPDD": 24,
         "incMDD": 33,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -11029,6 +11241,7 @@
         "reqLUK": 0,
         "incDEX": 3,
         "incPDD": 34,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -11050,6 +11263,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 34,
+        "incMHP": 35,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -11072,6 +11286,7 @@
         "reqLUK": 0,
         "incSTR": 3,
         "incPDD": 34,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -11093,6 +11308,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 34,
+        "incMMP": 35,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -11116,6 +11332,7 @@
         "incSTR": 2,
         "incDEX": 1,
         "incPDD": 34,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -11427,6 +11644,7 @@
         "reqLUK": 90,
         "incLUK": 3,
         "incPDD": 46,
+        "incMMP": 20,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -11556,6 +11774,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 9,
+        "incMHP": 5,
         "incACC": 1,
         "tuc": 5,
         "incCRT": 1
@@ -11931,6 +12150,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 15,
+        "incMHP": 5,
         "incACC": 2,
         "tuc": 5,
         "incCRT": 1
@@ -11956,6 +12176,7 @@
         "incINT": 2,
         "incPDD": 5,
         "incMDD": 7,
+        "incMMP": 5,
         "tuc": 5,
         "incCRT": 1
       },
@@ -11980,6 +12201,7 @@
         "incLUK": 2,
         "incPDD": 5,
         "incMDD": 7,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 1
       },
@@ -12005,6 +12227,7 @@
         "incLUK": 1,
         "incPDD": 5,
         "incMDD": 7,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 1
       },
@@ -12028,6 +12251,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 10,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 1
       },
@@ -12051,6 +12275,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 10,
+        "incMMP": 5,
         "tuc": 5,
         "incCRT": 1
       },
@@ -12075,6 +12300,7 @@
         "incSTR": 1,
         "incDEX": 1,
         "incPDD": 10,
+        "incMMP": 5,
         "tuc": 5,
         "incCRT": 1
       },
@@ -12098,6 +12324,7 @@
         "reqLUK": 40,
         "incSTR": 2,
         "incPDD": 10,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 1
       },
@@ -12121,6 +12348,7 @@
         "reqLUK": 40,
         "incDEX": 2,
         "incPDD": 10,
+        "incMMP": 5,
         "tuc": 5,
         "incCRT": 1
       },
@@ -12144,6 +12372,7 @@
         "reqLUK": 40,
         "incLUK": 2,
         "incPDD": 10,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 1
       },
@@ -12450,6 +12679,7 @@
         "reqLUK": 0,
         "incSTR": 3,
         "incPDD": 21,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -12473,6 +12703,7 @@
         "reqLUK": 0,
         "incDEX": 3,
         "incPDD": 21,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -12495,6 +12726,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 21,
+        "incMHP": 5,
         "incACC": 3,
         "tuc": 5,
         "incCRT": 1
@@ -12520,6 +12752,7 @@
         "incLUK": 3,
         "incPDD": 7,
         "incMDD": 9,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -12544,6 +12777,7 @@
         "incINT": 3,
         "incPDD": 7,
         "incMDD": 9,
+        "incMMP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -12569,6 +12803,7 @@
         "incLUK": 1,
         "incPDD": 7,
         "incMDD": 9,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -12592,6 +12827,7 @@
         "reqLUK": 0,
         "incSTR": 3,
         "incPDD": 14,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -12615,6 +12851,7 @@
         "reqLUK": 0,
         "incDEX": 3,
         "incPDD": 14,
+        "incMMP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -12639,6 +12876,7 @@
         "incSTR": 1,
         "incDEX": 2,
         "incPDD": 14,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -12662,6 +12900,7 @@
         "reqLUK": 60,
         "incLUK": 3,
         "incPDD": 14,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -12685,6 +12924,7 @@
         "reqLUK": 60,
         "incDEX": 3,
         "incPDD": 14,
+        "incMHP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -12708,6 +12948,7 @@
         "reqLUK": 60,
         "incSTR": 3,
         "incPDD": 14,
+        "incMMP": 5,
         "tuc": 5,
         "incCRT": 2
       },
@@ -13297,6 +13538,7 @@
         "reqLUK": 0,
         "incPDD": 22,
         "incMDD": 38,
+        "incMHP": 30,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -13433,6 +13675,7 @@
         "incINT": 3,
         "incPDD": 33,
         "incMDD": 49,
+        "incMHP": 20,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -13528,6 +13771,8 @@
         "incINT": 1,
         "incLUK": 1,
         "incPDD": 57,
+        "incMHP": 10,
+        "incMMP": 10,
         "tuc": 10,
         "recovery": 1.5
       },
@@ -13645,6 +13890,7 @@
         "incINT": 3,
         "incPDD": 38,
         "incMDD": 55,
+        "incMMP": 30,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -13668,6 +13914,7 @@
         "incDEX": 6,
         "incPDD": 89,
         "incMDD": 10,
+        "incMMP": 5,
         "tuc": 10
       },
       "req_job_label": "Warrior",
@@ -13691,6 +13938,7 @@
         "incSTR": 6,
         "incPDD": 89,
         "incMDD": 10,
+        "incMMP": 5,
         "tuc": 10
       },
       "req_job_label": "Warrior",
@@ -13715,6 +13963,7 @@
         "incDEX": 3,
         "incPDD": 89,
         "incMDD": 10,
+        "incMMP": 5,
         "tuc": 10
       },
       "req_job_label": "Warrior",
@@ -13738,6 +13987,7 @@
         "incINT": 3,
         "incPDD": 44,
         "incMDD": 60,
+        "incMHP": 35,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -13761,6 +14011,7 @@
         "incINT": 6,
         "incPDD": 44,
         "incMDD": 60,
+        "incMMP": 5,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -13785,6 +14036,7 @@
         "incLUK": 3,
         "incPDD": 44,
         "incMDD": 60,
+        "incMMP": 5,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -13808,6 +14060,7 @@
         "incLUK": 6,
         "incPDD": 44,
         "incMDD": 60,
+        "incMHP": 5,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -13854,6 +14107,7 @@
         "incINT": 4,
         "incPDD": 49,
         "incMDD": 66,
+        "incMHP": 40,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -13900,6 +14154,7 @@
         "incINT": 4,
         "incPDD": 49,
         "incMDD": 66,
+        "incMMP": 40,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -13947,6 +14202,7 @@
         "incINT": 5,
         "incPDD": 60,
         "incMDD": 77,
+        "incMHP": 50,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -14016,6 +14272,7 @@
         "incINT": 5,
         "incPDD": 60,
         "incMDD": 77,
+        "incMMP": 50,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -14175,6 +14432,7 @@
         "reqLUK": 15,
         "incPDD": 33,
         "incMDD": 49,
+        "incMHP": 50,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -14200,6 +14458,8 @@
         "incINT": 1,
         "incLUK": 1,
         "incPDD": 57,
+        "incMHP": 10,
+        "incMMP": 10,
         "tuc": 10,
         "recovery": 1.5
       },
@@ -14289,6 +14549,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 89,
+        "incMHP": 30,
+        "incMMP": 30,
         "tuc": 10
       },
       "req_job_label": "Warrior",
@@ -14312,6 +14574,7 @@
         "incSTR": 6,
         "incPDD": 89,
         "incMDD": 10,
+        "incMHP": 5,
         "tuc": 10
       },
       "req_job_label": "Warrior",
@@ -14335,6 +14598,7 @@
         "incSTR": 6,
         "incPDD": 89,
         "incMDD": 10,
+        "incMMP": 5,
         "tuc": 10
       },
       "req_job_label": "Warrior",
@@ -14358,6 +14622,7 @@
         "incDEX": 6,
         "incPDD": 89,
         "incMDD": 10,
+        "incMHP": 5,
         "tuc": 10
       },
       "req_job_label": "Warrior",
@@ -14382,6 +14647,7 @@
         "incDEX": 3,
         "incPDD": 89,
         "incMDD": 10,
+        "incMHP": 5,
         "tuc": 10
       },
       "req_job_label": "Warrior",
@@ -14404,6 +14670,7 @@
         "reqLUK": 60,
         "incSTR": 6,
         "incPDD": 64,
+        "incMHP": 5,
         "tuc": 10
       },
       "req_job_label": "Thief",
@@ -14426,6 +14693,7 @@
         "reqLUK": 60,
         "incDEX": 6,
         "incPDD": 64,
+        "incMMP": 5,
         "tuc": 10
       },
       "req_job_label": "Thief",
@@ -14449,6 +14717,7 @@
         "incDEX": 3,
         "incLUK": 3,
         "incPDD": 64,
+        "incMHP": 5,
         "tuc": 10
       },
       "req_job_label": "Thief",
@@ -14471,6 +14740,7 @@
         "reqLUK": 60,
         "incLUK": 6,
         "incPDD": 64,
+        "incMHP": 5,
         "tuc": 10
       },
       "req_job_label": "Thief",
@@ -14517,6 +14787,7 @@
         "incINT": 4,
         "incPDD": 49,
         "incMDD": 66,
+        "incMHP": 40,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -14563,6 +14834,7 @@
         "incINT": 4,
         "incPDD": 49,
         "incMDD": 66,
+        "incMMP": 40,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -14610,6 +14882,7 @@
         "incINT": 5,
         "incPDD": 60,
         "incMDD": 77,
+        "incMHP": 50,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -14703,6 +14976,7 @@
         "incINT": 5,
         "incPDD": 60,
         "incMDD": 77,
+        "incMMP": 50,
         "tuc": 10
       },
       "req_job_label": "Mage",
@@ -14854,6 +15128,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 7,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -15031,6 +15306,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 11,
+        "incMHP": 12,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -15053,6 +15329,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 22,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -15075,6 +15352,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 22,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -15097,6 +15375,7 @@
         "reqLUK": 20,
         "incDEX": 1,
         "incPDD": 13,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -15119,6 +15398,7 @@
         "reqLUK": 20,
         "incLUK": 1,
         "incPDD": 13,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -15297,6 +15577,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 30,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -15319,6 +15600,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 30,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -15342,6 +15624,7 @@
         "incSTR": 1,
         "incDEX": 1,
         "incPDD": 30,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -15364,6 +15647,7 @@
         "reqLUK": 40,
         "incSTR": 2,
         "incPDD": 19,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -15386,6 +15670,7 @@
         "reqLUK": 40,
         "incDEX": 2,
         "incPDD": 19,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -15408,6 +15693,7 @@
         "reqLUK": 40,
         "incLUK": 2,
         "incPDD": 19,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -15429,6 +15715,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 20,
+        "incMHP": 26,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -15562,6 +15849,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 22,
+        "incMMP": 30,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -15583,6 +15871,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 22,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -15670,6 +15959,7 @@
         "reqINT": 0,
         "reqLUK": 50,
         "incPDD": 22,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -15715,6 +16005,7 @@
         "incSTR": 2,
         "incDEX": 1,
         "incPDD": 38,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -15737,6 +16028,7 @@
         "reqLUK": 0,
         "incDEX": 3,
         "incPDD": 25,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -15758,6 +16050,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 25,
+        "incMHP": 35,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -15780,6 +16073,7 @@
         "reqLUK": 0,
         "incSTR": 3,
         "incPDD": 25,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -15801,6 +16095,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 25,
+        "incMMP": 35,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -15824,6 +16119,7 @@
         "incSTR": 1,
         "incDEX": 2,
         "incPDD": 25,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -15846,6 +16142,7 @@
         "reqLUK": 60,
         "incSTR": 3,
         "incPDD": 25,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -15868,6 +16165,7 @@
         "reqLUK": 60,
         "incDEX": 3,
         "incPDD": 25,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -15890,6 +16188,7 @@
         "reqLUK": 60,
         "incLUK": 3,
         "incPDD": 25,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -16001,6 +16300,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 28,
+        "incMMP": 20,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -16200,6 +16500,7 @@
         "reqLUK": 90,
         "incLUK": 3,
         "incPDD": 34,
+        "incMMP": 20,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -16529,6 +16830,7 @@
         "reqLUK": 0,
         "incPDD": 8,
         "incMDD": 14,
+        "incMMP": 15,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -16552,6 +16854,7 @@
         "incLUK": 1,
         "incPDD": 8,
         "incMDD": 14,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -16574,6 +16877,7 @@
         "reqLUK": 0,
         "incPDD": 8,
         "incMDD": 14,
+        "incMHP": 15,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -16597,6 +16901,7 @@
         "incINT": 1,
         "incPDD": 8,
         "incMDD": 14,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -16619,6 +16924,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 13,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -16641,6 +16947,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 13,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -16662,6 +16969,8 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 13,
+        "incMHP": 10,
+        "incMMP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -16684,6 +16993,7 @@
         "reqLUK": 20,
         "incSTR": 1,
         "incPDD": 13,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -16706,6 +17016,7 @@
         "reqLUK": 20,
         "incLUK": 1,
         "incPDD": 13,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -16771,6 +17082,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 26,
+        "incMHP": 20,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -16883,6 +17195,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 16,
+        "incMHP": 20,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -16970,6 +17283,7 @@
         "reqINT": 0,
         "reqLUK": 34,
         "incPDD": 17,
+        "incMHP": 22,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -16991,6 +17305,7 @@
         "reqINT": 0,
         "reqLUK": 34,
         "incPDD": 17,
+        "incMMP": 22,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -17013,6 +17328,7 @@
         "reqLUK": 34,
         "incLUK": 1,
         "incPDD": 17,
+        "incMHP": 12,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -17034,6 +17350,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 30,
+        "incMMP": 25,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -17056,6 +17373,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 30,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -17078,6 +17396,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 30,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Warrior",
@@ -17099,6 +17418,7 @@
         "reqINT": 0,
         "reqLUK": 40,
         "incPDD": 19,
+        "incMHP": 25,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -17121,6 +17441,7 @@
         "reqLUK": 40,
         "incDEX": 2,
         "incPDD": 19,
+        "incMMP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -17143,6 +17464,7 @@
         "reqLUK": 40,
         "incSTR": 2,
         "incPDD": 19,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -17165,6 +17487,7 @@
         "reqLUK": 40,
         "incLUK": 2,
         "incPDD": 19,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -17232,6 +17555,7 @@
         "reqLUK": 20,
         "incPDD": 14,
         "incMDD": 20,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -17297,6 +17621,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 22,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -17362,6 +17687,7 @@
         "reqINT": 0,
         "reqLUK": 50,
         "incPDD": 22,
+        "incMHP": 30,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -17407,6 +17733,7 @@
         "incINT": 3,
         "incPDD": 16,
         "incMDD": 22,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -17430,6 +17757,7 @@
         "incINT": 3,
         "incPDD": 16,
         "incMDD": 22,
+        "incMMP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -17454,6 +17782,7 @@
         "incLUK": 2,
         "incPDD": 16,
         "incMDD": 22,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -17476,6 +17805,7 @@
         "reqLUK": 0,
         "incDEX": 3,
         "incPDD": 25,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -17497,6 +17827,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 25,
+        "incMHP": 35,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -17519,6 +17850,7 @@
         "reqLUK": 0,
         "incSTR": 3,
         "incPDD": 25,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -17540,6 +17872,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 25,
+        "incMMP": 35,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -17563,6 +17896,7 @@
         "incSTR": 2,
         "incDEX": 1,
         "incPDD": 25,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -17874,6 +18208,7 @@
         "reqLUK": 90,
         "incLUK": 3,
         "incPDD": 34,
+        "incMMP": 20,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -17962,6 +18297,7 @@
         "reqLUK": 0,
         "reqPOP": 20,
         "incPDD": 14,
+        "incMMP": 17,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -17984,6 +18320,7 @@
         "reqLUK": 0,
         "reqPOP": 20,
         "incPDD": 14,
+        "incMHP": 17,
         "tuc": 7
       },
       "req_job_label": "All",
@@ -18029,6 +18366,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 19,
+        "incMHP": 5,
         "tuc": 7
       },
       "req_job_label": "Bowman",
@@ -18155,6 +18493,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 89,
+        "incMHP": 10,
         "incACC": 4,
         "tuc": 7
       },
@@ -18178,6 +18517,7 @@
         "reqLUK": 12,
         "incPDD": 30,
         "incMDD": 42,
+        "incMHP": 10,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -18199,6 +18539,7 @@
         "reqINT": 0,
         "reqLUK": 12,
         "incPDD": 57,
+        "incMHP": 10,
         "tuc": 7
       },
       "req_job_label": "Thief",
@@ -18264,6 +18605,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 99,
+        "incMHP": 15,
         "incACC": 4,
         "tuc": 7
       },
@@ -18286,6 +18628,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 109,
+        "incMHP": 20,
         "incACC": 5,
         "tuc": 7
       },
@@ -18309,6 +18652,7 @@
         "reqLUK": 25,
         "incPDD": 38,
         "incMDD": 55,
+        "incMHP": 25,
         "tuc": 7
       },
       "req_job_label": "Mage",
@@ -18330,6 +18674,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 119,
+        "incMHP": 25,
         "incACC": 5,
         "tuc": 7
       },
@@ -18352,6 +18697,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 129,
+        "incMHP": 5,
         "incACC": 6,
         "tuc": 7
       },
@@ -18374,6 +18720,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 131,
+        "incMHP": 10,
         "incACC": 7,
         "tuc": 7
       },
@@ -18396,6 +18743,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 133,
+        "incMHP": 15,
         "incACC": 8,
         "tuc": 7
       },
@@ -18418,6 +18766,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 149,
+        "incMHP": 40,
         "incACC": 7,
         "tuc": 7
       },
@@ -18754,6 +19103,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 12,
+        "incMHP": 5,
         "incEVA": 1,
         "incJump": 1,
         "tuc": 5
@@ -18777,6 +19127,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 12,
+        "incMHP": 5,
         "incEVA": 1,
         "incSpeed": 1,
         "tuc": 5
@@ -18801,6 +19152,7 @@
         "reqLUK": 0,
         "incPDD": 4,
         "incMDD": 7,
+        "incMMP": 5,
         "incEVA": 1,
         "incJump": 1,
         "tuc": 5
@@ -18825,6 +19177,7 @@
         "reqLUK": 0,
         "incPDD": 4,
         "incMDD": 7,
+        "incMMP": 5,
         "incEVA": 1,
         "incSpeed": 1,
         "tuc": 5
@@ -18848,6 +19201,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 8,
+        "incMHP": 5,
         "incEVA": 1,
         "incJump": 1,
         "tuc": 5
@@ -18872,6 +19226,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 8,
+        "incMHP": 5,
         "incEVA": 1,
         "tuc": 5
       },
@@ -18894,6 +19249,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incPDD": 8,
+        "incMMP": 5,
         "incEVA": 1,
         "incSpeed": 1,
         "tuc": 5
@@ -18918,6 +19274,7 @@
         "reqLUK": 20,
         "incSTR": 1,
         "incPDD": 8,
+        "incMHP": 5,
         "incEVA": 1,
         "tuc": 5
       },
@@ -18940,6 +19297,7 @@
         "reqINT": 0,
         "reqLUK": 20,
         "incPDD": 8,
+        "incMHP": 5,
         "incEVA": 1,
         "incJump": 1,
         "tuc": 5
@@ -18964,6 +19322,7 @@
         "reqLUK": 20,
         "incDEX": 1,
         "incPDD": 8,
+        "incMMP": 5,
         "incEVA": 1,
         "tuc": 5
       },
@@ -18986,6 +19345,7 @@
         "reqINT": 0,
         "reqLUK": 20,
         "incPDD": 8,
+        "incMHP": 5,
         "incEVA": 1,
         "incSpeed": 1,
         "tuc": 5
@@ -19010,6 +19370,7 @@
         "reqLUK": 0,
         "reqPOP": 10,
         "incPDD": 9,
+        "incMHP": 6,
         "incEVA": 1,
         "tuc": 5
       },
@@ -19033,6 +19394,7 @@
         "reqLUK": 0,
         "reqPOP": 10,
         "incPDD": 9,
+        "incMHP": 6,
         "incJump": 1,
         "tuc": 5
       },
@@ -19056,6 +19418,7 @@
         "reqLUK": 0,
         "reqPOP": 10,
         "incPDD": 9,
+        "incMHP": 6,
         "incSpeed": 1,
         "tuc": 5
       },
@@ -19459,6 +19822,7 @@
         "reqLUK": 0,
         "incDEX": 2,
         "incPDD": 18,
+        "incMMP": 5,
         "incEVA": 2,
         "tuc": 5
       },
@@ -19482,6 +19846,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 18,
+        "incMMP": 5,
         "incEVA": 2,
         "incSpeed": 1,
         "tuc": 5
@@ -19506,6 +19871,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 18,
+        "incMHP": 5,
         "incEVA": 2,
         "incJump": 1,
         "tuc": 5
@@ -19531,6 +19897,7 @@
         "incSTR": 1,
         "incDEX": 1,
         "incPDD": 18,
+        "incMHP": 5,
         "incEVA": 2,
         "tuc": 5
       },
@@ -19555,6 +19922,7 @@
         "incLUK": 2,
         "incPDD": 6,
         "incMDD": 9,
+        "incMMP": 5,
         "incEVA": 2,
         "tuc": 5
       },
@@ -19579,6 +19947,7 @@
         "incLUK": 1,
         "incPDD": 6,
         "incMDD": 9,
+        "incMHP": 5,
         "incEVA": 2,
         "incSpeed": 1,
         "tuc": 5
@@ -19604,6 +19973,7 @@
         "incLUK": 1,
         "incPDD": 6,
         "incMDD": 9,
+        "incMMP": 5,
         "incEVA": 2,
         "incJump": 1,
         "tuc": 5
@@ -19628,6 +19998,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 12,
+        "incMHP": 5,
         "incEVA": 2,
         "incSpeed": 1,
         "tuc": 5
@@ -19652,6 +20023,7 @@
         "reqLUK": 0,
         "incSTR": 2,
         "incPDD": 12,
+        "incMMP": 5,
         "incEVA": 2,
         "tuc": 5
       },
@@ -19675,6 +20047,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 12,
+        "incMHP": 5,
         "incEVA": 2,
         "incJump": 1,
         "tuc": 5
@@ -19699,6 +20072,7 @@
         "reqLUK": 40,
         "incDEX": 1,
         "incPDD": 12,
+        "incMMP": 5,
         "incEVA": 2,
         "incSpeed": 1,
         "tuc": 5
@@ -19723,6 +20097,7 @@
         "reqLUK": 40,
         "incDEX": 1,
         "incPDD": 12,
+        "incMHP": 5,
         "incEVA": 2,
         "incJump": 1,
         "tuc": 5
@@ -19747,6 +20122,7 @@
         "reqLUK": 40,
         "incDEX": 2,
         "incPDD": 12,
+        "incMHP": 5,
         "incEVA": 2,
         "tuc": 5
       },
@@ -19770,6 +20146,7 @@
         "reqLUK": 40,
         "incSTR": 2,
         "incPDD": 12,
+        "incMHP": 5,
         "incEVA": 2,
         "tuc": 5
       },
@@ -19793,6 +20170,7 @@
         "reqLUK": 0,
         "reqPOP": 20,
         "incPDD": 13,
+        "incMHP": 6,
         "incJump": 2,
         "tuc": 5
       },
@@ -19816,6 +20194,7 @@
         "reqLUK": 0,
         "reqPOP": 20,
         "incPDD": 13,
+        "incMHP": 6,
         "incSpeed": 2,
         "tuc": 5
       },
@@ -19839,6 +20218,7 @@
         "reqLUK": 0,
         "reqPOP": 20,
         "incPDD": 13,
+        "incMHP": 6,
         "incEVA": 2,
         "tuc": 5
       },
@@ -19862,6 +20242,7 @@
         "reqLUK": 0,
         "reqPOP": 20,
         "incPDD": 13,
+        "incMMP": 6,
         "incSpeed": 1,
         "incJump": 1,
         "tuc": 5
@@ -20432,6 +20813,7 @@
         "reqLUK": 0,
         "incDEX": 3,
         "incPDD": 24,
+        "incMHP": 5,
         "incEVA": 3,
         "tuc": 5
       },
@@ -20455,6 +20837,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 24,
+        "incMMP": 5,
         "incEVA": 3,
         "incJump": 2,
         "tuc": 5
@@ -20479,6 +20862,7 @@
         "reqLUK": 0,
         "incDEX": 1,
         "incPDD": 24,
+        "incMHP": 5,
         "incEVA": 3,
         "incSpeed": 2,
         "tuc": 5
@@ -20504,6 +20888,7 @@
         "incLUK": 1,
         "incPDD": 8,
         "incMDD": 11,
+        "incMHP": 5,
         "incEVA": 3,
         "incJump": 2,
         "tuc": 5
@@ -20529,6 +20914,7 @@
         "incLUK": 1,
         "incPDD": 8,
         "incMDD": 11,
+        "incMHP": 5,
         "incEVA": 3,
         "incSpeed": 2,
         "tuc": 5
@@ -20554,6 +20940,7 @@
         "incLUK": 3,
         "incPDD": 8,
         "incMDD": 11,
+        "incMMP": 5,
         "incEVA": 3,
         "tuc": 5
       },
@@ -20577,6 +20964,7 @@
         "reqLUK": 0,
         "incSTR": 3,
         "incPDD": 16,
+        "incMHP": 5,
         "incEVA": 3,
         "tuc": 5
       },
@@ -20600,6 +20988,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 16,
+        "incMHP": 5,
         "incEVA": 3,
         "incJump": 2,
         "tuc": 5
@@ -20624,6 +21013,7 @@
         "reqLUK": 0,
         "incSTR": 1,
         "incPDD": 16,
+        "incMMP": 5,
         "incEVA": 3,
         "incSpeed": 2,
         "tuc": 5
@@ -20648,6 +21038,7 @@
         "reqLUK": 60,
         "incDEX": 1,
         "incPDD": 16,
+        "incMHP": 5,
         "incEVA": 3,
         "incJump": 2,
         "tuc": 5
@@ -20672,6 +21063,7 @@
         "reqLUK": 60,
         "incDEX": 1,
         "incPDD": 16,
+        "incMMP": 5,
         "incEVA": 3,
         "incSpeed": 2,
         "tuc": 5
@@ -20696,6 +21088,7 @@
         "reqLUK": 60,
         "incDEX": 3,
         "incPDD": 16,
+        "incMHP": 5,
         "incEVA": 3,
         "tuc": 5
       },
@@ -21591,6 +21984,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incMDD": 24,
+        "incMMP": 5,
         "incEVA": 1,
         "tuc": 5
       },
@@ -21613,6 +22007,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incMDD": 24,
+        "incMMP": 5,
         "tuc": 5,
         "incCRD": 1
       },
@@ -21702,6 +22097,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incMDD": 30,
+        "incMMP": 5,
         "incEVA": 2,
         "tuc": 5
       },
@@ -21724,6 +22120,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incMDD": 30,
+        "incMMP": 5,
         "tuc": 5,
         "incCRD": 2
       },
@@ -21768,6 +22165,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incMDD": 35,
+        "incMMP": 5,
         "tuc": 5,
         "incCRD": 3
       },
@@ -21834,6 +22232,7 @@
         "reqINT": 0,
         "reqLUK": 0,
         "incMDD": 24,
+        "incMMP": 5,
         "incEVA": 2,
         "tuc": 5
       },

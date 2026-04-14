@@ -1313,8 +1313,8 @@
       "base_class": "magician",
       "subclasses": [
         "I/L Wizard",
-        "F/P Wizard",
-        "Cleric"
+        "Cleric",
+        "F/P Wizard"
       ]
     },
     {

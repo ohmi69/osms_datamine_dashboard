@@ -37,7 +37,13 @@ function showItemTooltip(e, itemData) {
     img.addEventListener('error', () => img.remove(), { once: true });
     header.appendChild(img);
   }
-  header.appendChild(el('span', { className: 'item-tooltip-name', textContent: itemData.name }));
+  const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' } });
+  nameWrap.appendChild(el('span', { className: 'item-tooltip-name', textContent: itemData.name }));
+  const equipType = itemData.weapon_type || (itemData.category === 'Equipment' ? itemData.sub_category : null);
+  if (equipType) {
+    nameWrap.appendChild(el('span', { className: 'equip-type-badge', textContent: equipType }));
+  }
+  header.appendChild(nameWrap);
   tip.appendChild(header);
 
   if (itemData.description) {

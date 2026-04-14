@@ -710,6 +710,16 @@ body.hide-ids .id-col { display: none !important; }
   align-items: center;
 }
 .equip-req-job { color: #c084fc; }
+.equip-type-badge {
+  font-size: 11px;
+  color: var(--dim);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
 
 .thumb {
   width: 32px;
