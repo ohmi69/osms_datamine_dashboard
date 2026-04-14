@@ -158,7 +158,9 @@ const DAMAGE_PIPELINE = [
     label: 'Weapon Defense Reduction',
     wip: true,
     lines: [
-      'Damage / (((iVar9 × (iVar10 / 100.0 + 1.0)) + local_1f0) + 100)',
+      `// Where iVar9 and iVar10 can be ignored (set to 0) for normal mobs
+DefenseMulti = (iVar9 × (iVar10 / 100.0 + 1.0)) + WeaponDefense
+Damage × 100 / (DefenseMulti + 100)`,
     ],
   },
   {
