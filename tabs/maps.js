@@ -219,6 +219,7 @@ export function renderMaps(data, options = {}) {
   let searchQuery = '';
   let autoExpandAfterId = null;
   let renderGen = 0;
+  let selfNavigate = null;
   const searchBox = makeSearchBox('Search by name, mob, or NPC...', (value) => {
     searchQuery = value;
     renderData();
@@ -226,7 +227,7 @@ export function renderMaps(data, options = {}) {
   container.appendChild(searchBox);
 
   if (options.setNavigate) {
-    options.setNavigate((target) => {
+    const navigateFn = (target) => {
       const nextFilter = typeof target === 'object' && target && target.id != null
         ? `id:${target.id}`
         : String(target || '');
@@ -240,7 +241,9 @@ export function renderMaps(data, options = {}) {
       regionTabs.forEach((btn) => btn.classList.remove('active'));
       renderData();
       window.scrollTo(0, 0);
-    });
+    };
+    selfNavigate = navigateFn;
+    options.setNavigate(navigateFn);
   }
 
   // Pills
@@ -279,9 +282,11 @@ export function renderMaps(data, options = {}) {
           loading: 'lazy',
           style: { maxWidth: '100%', maxHeight: '600px', background: '#fff' },
         });
-        img.title = 'Click to open full size in new tab';
+        img.title = 'Click to view fullscreen';
         img.addEventListener('click', (e) => {
-          window.open(mapImgPath, '_blank');
+          if (window.openImageModal) {
+            window.openImageModal(mapImgPath, img.alt);
+          }
         });
         imgContainer.appendChild(img);
 
@@ -327,6 +332,33 @@ export function renderMaps(data, options = {}) {
         if (mapEntry.mob_rate != null) meta.appendChild(tag('Mob Rate', `×${mapEntry.mob_rate}`));
         if (mapEntry.return_map_name) meta.appendChild(tag('Return', mapEntry.return_map_name));
         panel.appendChild(meta);
+      }
+
+      // Exits (connected maps)
+      if (Array.isArray(mapEntry.exit_names) && mapEntry.exit_names.length > 0) {
+        const exitsGrid = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '10px' } });
+        for (const exit of mapEntry.exit_names) {
+          const chip = el('div', {
+            style: {
+              display: 'flex', alignItems: 'center', gap: '5px',
+              padding: '3px 9px', borderRadius: '6px',
+              background: 'var(--surface3, rgba(255,255,255,0.05))',
+              border: '1px solid var(--border)', fontSize: '13px',
+              cursor: 'pointer',
+            },
+            title: `Go to map: ${exit.name}`,
+          });
+          chip.appendChild(el('span', { style: { color: 'var(--dim)', fontSize: '11px' }, textContent: '→' }));
+          chip.appendChild(el('span', { textContent: exit.name || `Map #${exit.id}` }));
+          chip.appendChild(el('span', { style: { color: 'var(--dim)', fontSize: '11px', marginLeft: '2px' }, textContent: `#${exit.id}` }));
+          chip.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (selfNavigate) selfNavigate({ id: exit.id, autoExpand: true });
+          });
+          exitsGrid.appendChild(chip);
+        }
+        panel.appendChild(el('div', { style: { fontWeight: 'bold', margin: '0 0 4px 0', fontSize: '13px' }, textContent: 'Leads to:' }));
+        panel.appendChild(exitsGrid);
       }
 
       // Mob spawns

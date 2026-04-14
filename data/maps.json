@@ -26,6 +26,7 @@
             900002,
             900008
           ],
+          "exits": [],
           "thumbnail": "images/maps/090000000.png"
         },
         {
@@ -40,6 +41,7 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [],
           "thumbnail": null
         },
         {
@@ -54,6 +56,7 @@
           "mob_rate": null,
           "map_mark": "None",
           "npcs": [],
+          "exits": [],
           "thumbnail": null
         },
         {
@@ -68,8 +71,17 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [
+            90040001
+          ],
           "thumbnail": "images/maps/090040000.png",
-          "return_map_name": "Leaving the Event"
+          "return_map_name": "Leaving the Event",
+          "exit_names": [
+            {
+              "id": 90040001,
+              "name": "MapleStory Physical Fitness Challenge <Level 1>"
+            }
+          ]
         },
         {
           "id": 90040001,
@@ -83,8 +95,17 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [
+            90040002
+          ],
           "thumbnail": "images/maps/090040001.png",
-          "return_map_name": "Leaving the Event"
+          "return_map_name": "Leaving the Event",
+          "exit_names": [
+            {
+              "id": 90040002,
+              "name": "MapleStory Physical Fitness Challenge <Level 2>"
+            }
+          ]
         },
         {
           "id": 90040002,
@@ -98,8 +119,17 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [
+            90040003
+          ],
           "thumbnail": "images/maps/090040002.png",
-          "return_map_name": "Leaving the Event"
+          "return_map_name": "Leaving the Event",
+          "exit_names": [
+            {
+              "id": 90040003,
+              "name": "MapleStory Physical Fitness Challenge <Level 3>"
+            }
+          ]
         },
         {
           "id": 90040003,
@@ -113,8 +143,17 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [
+            90040004
+          ],
           "thumbnail": "images/maps/090040003.png",
-          "return_map_name": "Leaving the Event"
+          "return_map_name": "Leaving the Event",
+          "exit_names": [
+            {
+              "id": 90040004,
+              "name": "MapleStory Physical Fitness Challenge <Level 4>"
+            }
+          ]
         },
         {
           "id": 90040004,
@@ -128,8 +167,17 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [
+            90050001
+          ],
           "thumbnail": "images/maps/090040004.png",
-          "return_map_name": "Leaving the Event"
+          "return_map_name": "Leaving the Event",
+          "exit_names": [
+            {
+              "id": 90050001,
+              "name": "Receiving the Reward For the Event"
+            }
+          ]
         },
         {
           "id": 90040010,
@@ -143,8 +191,17 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [
+            90040011
+          ],
           "thumbnail": "images/maps/090040010.png",
-          "return_map_name": "Leaving the Event"
+          "return_map_name": "Leaving the Event",
+          "exit_names": [
+            {
+              "id": 90040011,
+              "name": "MapleStory Physical Fitness Challenge <Easy Level 1>"
+            }
+          ]
         },
         {
           "id": 90040011,
@@ -158,8 +215,17 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [
+            90040012
+          ],
           "thumbnail": "images/maps/090040011.png",
-          "return_map_name": "Leaving the Event"
+          "return_map_name": "Leaving the Event",
+          "exit_names": [
+            {
+              "id": 90040012,
+              "name": "MapleStory Physical Fitness Challenge <Easy Level 2>"
+            }
+          ]
         },
         {
           "id": 90040012,
@@ -173,8 +239,17 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [
+            90040013
+          ],
           "thumbnail": "images/maps/090040012.png",
-          "return_map_name": "Leaving the Event"
+          "return_map_name": "Leaving the Event",
+          "exit_names": [
+            {
+              "id": 90040013,
+              "name": "MapleStory Physical Fitness Challenge <Easy Level 3>"
+            }
+          ]
         },
         {
           "id": 90040013,
@@ -188,8 +263,17 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [
+            90050001
+          ],
           "thumbnail": "images/maps/090040013.png",
-          "return_map_name": "Leaving the Event"
+          "return_map_name": "Leaving the Event",
+          "exit_names": [
+            {
+              "id": 90050001,
+              "name": "Receiving the Reward For the Event"
+            }
+          ]
         },
         {
           "id": 90050000,
@@ -206,6 +290,7 @@
             900013,
             900011
           ],
+          "exits": [],
           "thumbnail": "images/maps/090050000.png"
         },
         {
@@ -222,6 +307,7 @@
           "npcs": [
             900012
           ],
+          "exits": [],
           "thumbnail": "images/maps/090050001.png",
           "return_map_name": "Leaving the Event"
         },
@@ -237,6 +323,7 @@
           "mob_rate": null,
           "map_mark": "Event",
           "npcs": [],
+          "exits": [],
           "thumbnail": null
         }
       ]
@@ -260,7 +347,16 @@
             1,
             2
           ],
-          "thumbnail": "images/maps/000000001.png"
+          "exits": [
+            10
+          ],
+          "thumbnail": "images/maps/000000001.png",
+          "exit_names": [
+            {
+              "id": 10,
+              "name": "Mushroom Town"
+            }
+          ]
         },
         {
           "id": 10,
@@ -276,7 +372,21 @@
           "npcs": [
             3
           ],
-          "thumbnail": "images/maps/000000010.png"
+          "exits": [
+            1,
+            20
+          ],
+          "thumbnail": "images/maps/000000010.png",
+          "exit_names": [
+            {
+              "id": 1,
+              "name": "Mushroom Town - West Entrance"
+            },
+            {
+              "id": 20,
+              "name": "Mushroom Town"
+            }
+          ]
         },
         {
           "id": 20,
@@ -292,7 +402,26 @@
           "npcs": [
             4
           ],
-          "thumbnail": "images/maps/000000020.png"
+          "exits": [
+            10,
+            21,
+            30
+          ],
+          "thumbnail": "images/maps/000000020.png",
+          "exit_names": [
+            {
+              "id": 10,
+              "name": "Mushroom Town"
+            },
+            {
+              "id": 21,
+              "name": "Mushroom Town Townstreet"
+            },
+            {
+              "id": 30,
+              "name": "East Entrance to Mushroom Town"
+            }
+          ]
         },
         {
           "id": 21,
@@ -308,7 +437,16 @@
           "npcs": [
             5
           ],
-          "thumbnail": "images/maps/000000021.png"
+          "exits": [
+            20
+          ],
+          "thumbnail": "images/maps/000000021.png",
+          "exit_names": [
+            {
+              "id": 20,
+              "name": "Mushroom Town"
+            }
+          ]
         },
         {
           "id": 30,
@@ -325,7 +463,21 @@
             6,
             7
           ],
-          "thumbnail": "images/maps/000000030.png"
+          "exits": [
+            20,
+            40
+          ],
+          "thumbnail": "images/maps/000000030.png",
+          "exit_names": [
+            {
+              "id": 20,
+              "name": "Mushroom Town"
+            },
+            {
+              "id": 40,
+              "name": "Snail Hunting Ground I"
+            }
+          ]
         },
         {
           "id": 40,
@@ -342,8 +494,17 @@
             8,
             9
           ],
+          "exits": [
+            41
+          ],
           "thumbnail": "images/maps/000000040.png",
-          "return_map_name": "Southperry"
+          "return_map_name": "Southperry",
+          "exit_names": [
+            {
+              "id": 41,
+              "name": "Snail Hunting Ground II"
+            }
+          ]
         },
         {
           "id": 41,
@@ -357,8 +518,22 @@
           "mob_rate": null,
           "map_mark": "MushroomVillage",
           "npcs": [],
+          "exits": [
+            40,
+            42
+          ],
           "thumbnail": "images/maps/000000041.png",
-          "return_map_name": "Southperry"
+          "return_map_name": "Southperry",
+          "exit_names": [
+            {
+              "id": 40,
+              "name": "Snail Hunting Ground I"
+            },
+            {
+              "id": 42,
+              "name": "Snail Hunting Ground III"
+            }
+          ]
         },
         {
           "id": 42,
@@ -372,8 +547,22 @@
           "mob_rate": null,
           "map_mark": "MushroomVillage",
           "npcs": [],
+          "exits": [
+            50,
+            41
+          ],
           "thumbnail": "images/maps/000000042.png",
-          "return_map_name": "Southperry"
+          "return_map_name": "Southperry",
+          "exit_names": [
+            {
+              "id": 50,
+              "name": "A Split Road"
+            },
+            {
+              "id": 41,
+              "name": "Snail Hunting Ground II"
+            }
+          ]
         },
         {
           "id": 50,
@@ -390,8 +579,27 @@
             10,
             11
           ],
+          "exits": [
+            42,
+            1000,
+            60
+          ],
           "thumbnail": "images/maps/000000050.png",
-          "return_map_name": "Southperry"
+          "return_map_name": "Southperry",
+          "exit_names": [
+            {
+              "id": 42,
+              "name": "Snail Hunting Ground III"
+            },
+            {
+              "id": 1000,
+              "name": "The Field West of Amherst"
+            },
+            {
+              "id": 60,
+              "name": "Southperry"
+            }
+          ]
         },
         {
           "id": 60,
@@ -410,7 +618,21 @@
             15,
             12
           ],
-          "thumbnail": "images/maps/000000060.png"
+          "exits": [
+            50,
+            61
+          ],
+          "thumbnail": "images/maps/000000060.png",
+          "exit_names": [
+            {
+              "id": 50,
+              "name": "A Split Road"
+            },
+            {
+              "id": 61,
+              "name": "Southperry Armor Store"
+            }
+          ]
         },
         {
           "id": 61,
@@ -426,8 +648,17 @@
           "npcs": [
             16
           ],
+          "exits": [
+            60
+          ],
           "thumbnail": null,
-          "return_map_name": "Southperry"
+          "return_map_name": "Southperry",
+          "exit_names": [
+            {
+              "id": 60,
+              "name": "Southperry"
+            }
+          ]
         },
         {
           "id": 1000,
@@ -441,8 +672,52 @@
           "mob_rate": 1.3,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            50,
+            1010,
+            1001,
+            1002,
+            1003,
+            1004,
+            1005,
+            1006
+          ],
           "thumbnail": "images/maps/000001000.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 50,
+              "name": "A Split Road"
+            },
+            {
+              "id": 1010,
+              "name": "Amherst"
+            },
+            {
+              "id": 1001,
+              "name": "In a Small Forest"
+            },
+            {
+              "id": 1002,
+              "name": "Dangerous Forest"
+            },
+            {
+              "id": 1003,
+              "name": "Mushroom Garden"
+            },
+            {
+              "id": 1004,
+              "name": "Snail Garden"
+            },
+            {
+              "id": 1005,
+              "name": "Hunting Ground Middle of the Forest I"
+            },
+            {
+              "id": 1006,
+              "name": "Hunting Ground Middle of the Forest II"
+            }
+          ]
         },
         {
           "id": 1001,
@@ -456,8 +731,17 @@
           "mob_rate": 1.3,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            1000
+          ],
           "thumbnail": "images/maps/000001001.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1000,
+              "name": "The Field West of Amherst"
+            }
+          ]
         },
         {
           "id": 1002,
@@ -471,8 +755,17 @@
           "mob_rate": null,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            1000
+          ],
           "thumbnail": "images/maps/000001002.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1000,
+              "name": "The Field West of Amherst"
+            }
+          ]
         },
         {
           "id": 1003,
@@ -486,8 +779,17 @@
           "mob_rate": null,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            1000
+          ],
           "thumbnail": "images/maps/000001003.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1000,
+              "name": "The Field West of Amherst"
+            }
+          ]
         },
         {
           "id": 1004,
@@ -501,8 +803,17 @@
           "mob_rate": null,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            1000
+          ],
           "thumbnail": "images/maps/000001004.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1000,
+              "name": "The Field West of Amherst"
+            }
+          ]
         },
         {
           "id": 1005,
@@ -516,8 +827,17 @@
           "mob_rate": null,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            1000
+          ],
           "thumbnail": "images/maps/000001005.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1000,
+              "name": "The Field West of Amherst"
+            }
+          ]
         },
         {
           "id": 1006,
@@ -531,8 +851,17 @@
           "mob_rate": null,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            1000
+          ],
           "thumbnail": "images/maps/000001006.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1000,
+              "name": "The Field West of Amherst"
+            }
+          ]
         },
         {
           "id": 1010,
@@ -550,7 +879,36 @@
             18,
             19
           ],
-          "thumbnail": "images/maps/000001010.png"
+          "exits": [
+            1000,
+            1011,
+            1012,
+            1013,
+            1020
+          ],
+          "thumbnail": "images/maps/000001010.png",
+          "exit_names": [
+            {
+              "id": 1000,
+              "name": "The Field West of Amherst"
+            },
+            {
+              "id": 1011,
+              "name": "Amherst Weapon Store"
+            },
+            {
+              "id": 1012,
+              "name": "Amherst Townstreet"
+            },
+            {
+              "id": 1013,
+              "name": "Amherst Department Store"
+            },
+            {
+              "id": 1020,
+              "name": "The Field East of Amherst"
+            }
+          ]
         },
         {
           "id": 1011,
@@ -566,8 +924,17 @@
           "npcs": [
             20
           ],
+          "exits": [
+            1010
+          ],
           "thumbnail": null,
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1010,
+              "name": "Amherst"
+            }
+          ]
         },
         {
           "id": 1012,
@@ -581,8 +948,22 @@
           "mob_rate": null,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            1010,
+            1014
+          ],
           "thumbnail": "images/maps/000001012.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1010,
+              "name": "Amherst"
+            },
+            {
+              "id": 1014,
+              "name": "Snail Field of Flowers"
+            }
+          ]
         },
         {
           "id": 1013,
@@ -598,8 +979,17 @@
           "npcs": [
             21
           ],
+          "exits": [
+            1010
+          ],
           "thumbnail": null,
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1010,
+              "name": "Amherst"
+            }
+          ]
         },
         {
           "id": 1014,
@@ -613,8 +1003,17 @@
           "mob_rate": 1.2,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            1012
+          ],
           "thumbnail": "images/maps/000001014.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1012,
+              "name": "Amherst Townstreet"
+            }
+          ]
         },
         {
           "id": 1020,
@@ -628,8 +1027,22 @@
           "mob_rate": null,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            1021,
+            1010
+          ],
           "thumbnail": "images/maps/000001020.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1021,
+              "name": "Tomato Field"
+            },
+            {
+              "id": 1010,
+              "name": "Amherst"
+            }
+          ]
         },
         {
           "id": 1021,
@@ -643,8 +1056,17 @@
           "mob_rate": null,
           "map_mark": "Amherst",
           "npcs": [],
+          "exits": [
+            1020
+          ],
           "thumbnail": "images/maps/000001021.png",
-          "return_map_name": "Amherst"
+          "return_map_name": "Amherst",
+          "exit_names": [
+            {
+              "id": 1020,
+              "name": "The Field East of Amherst"
+            }
+          ]
         }
       ]
     },
@@ -667,6 +1089,7 @@
             800001,
             800002
           ],
+          "exits": [],
           "thumbnail": "images/maps/080000000.png"
         },
         {
@@ -684,6 +1107,7 @@
             800002,
             800001
           ],
+          "exits": [],
           "thumbnail": "images/maps/080000100.png",
           "return_map_name": "1st Accompaniment <1st Stage>"
         },
@@ -702,6 +1126,7 @@
             800002,
             800001
           ],
+          "exits": [],
           "thumbnail": "images/maps/080000200.png",
           "return_map_name": "1st Accompaniment <1st Stage>"
         },
@@ -720,6 +1145,7 @@
             800002,
             800001
           ],
+          "exits": [],
           "thumbnail": "images/maps/080000300.png",
           "return_map_name": "1st Accompaniment <1st Stage>"
         },
@@ -738,6 +1164,7 @@
             800001,
             800002
           ],
+          "exits": [],
           "thumbnail": "images/maps/080000400.png",
           "return_map_name": "1st Accompaniment <1st Stage>"
         },
@@ -755,6 +1182,7 @@
           "npcs": [
             800002
           ],
+          "exits": [],
           "thumbnail": "images/maps/080000500.png",
           "return_map_name": "1st Accompaniment <1st Stage>"
         },
@@ -772,6 +1200,7 @@
           "npcs": [
             800002
           ],
+          "exits": [],
           "thumbnail": null
         },
         {
@@ -788,6 +1217,7 @@
           "npcs": [
             800003
           ],
+          "exits": [],
           "thumbnail": "images/maps/080001000.png",
           "return_map_name": "The Road to the Dungeon"
         },
@@ -805,6 +1235,7 @@
           "npcs": [
             800004
           ],
+          "exits": [],
           "thumbnail": "images/maps/080001100.png",
           "return_map_name": "The Forest North of Ellinia"
         },
@@ -822,6 +1253,7 @@
           "npcs": [
             800005
           ],
+          "exits": [],
           "thumbnail": "images/maps/080001200.png",
           "return_map_name": "Construction Site North of Kerning City"
         },
@@ -839,6 +1271,7 @@
           "npcs": [
             800006
           ],
+          "exits": [],
           "thumbnail": "images/maps/080001300.png",
           "return_map_name": "West Rocky Mountain IV"
         },
@@ -858,7 +1291,66 @@
             800009,
             800007
           ],
-          "thumbnail": "images/maps/080002000.png"
+          "exits": [
+            80002001,
+            80002002,
+            80002003,
+            80002004,
+            80002005,
+            80002006,
+            80002007,
+            80002008,
+            80002009,
+            80002010,
+            80002011
+          ],
+          "thumbnail": "images/maps/080002000.png",
+          "exit_names": [
+            {
+              "id": 80002001,
+              "name": "Free Market<1>"
+            },
+            {
+              "id": 80002002,
+              "name": "Free Market<2>"
+            },
+            {
+              "id": 80002003,
+              "name": "Free Market<3>"
+            },
+            {
+              "id": 80002004,
+              "name": "Free Market<4>"
+            },
+            {
+              "id": 80002005,
+              "name": "Free Market<5>"
+            },
+            {
+              "id": 80002006,
+              "name": "Free Market<6>"
+            },
+            {
+              "id": 80002007,
+              "name": "Free Market<7>"
+            },
+            {
+              "id": 80002008,
+              "name": "Free Market<8>"
+            },
+            {
+              "id": 80002009,
+              "name": "Free Market<9>"
+            },
+            {
+              "id": 80002010,
+              "name": "Free Market<10>"
+            },
+            {
+              "id": 80002011,
+              "name": "Free Market<11>"
+            }
+          ]
         },
         {
           "id": 80002001,
@@ -872,8 +1364,17 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002001.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 80002002,
@@ -887,8 +1388,17 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002002.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 80002003,
@@ -902,8 +1412,17 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002003.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 80002004,
@@ -917,8 +1436,17 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002004.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 80002005,
@@ -932,8 +1460,17 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002005.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 80002006,
@@ -947,8 +1484,17 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002006.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 80002007,
@@ -962,8 +1508,17 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002007.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 80002008,
@@ -977,8 +1532,17 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002008.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 80002009,
@@ -992,8 +1556,17 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002009.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 80002010,
@@ -1007,8 +1580,17 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002010.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 80002011,
@@ -1022,8 +1604,17 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            80002000
+          ],
           "thumbnail": "images/maps/080002011.png",
-          "return_map_name": "Free Market Entrance"
+          "return_map_name": "Free Market Entrance",
+          "exit_names": [
+            {
+              "id": 80002000,
+              "name": "Free Market Entrance"
+            }
+          ]
         },
         {
           "id": 89000000,
@@ -1039,6 +1630,7 @@
           "npcs": [
             800016
           ],
+          "exits": [],
           "thumbnail": null
         }
       ]
@@ -1071,7 +1663,31 @@
             112,
             900010
           ],
-          "thumbnail": "images/maps/010000000.png"
+          "exits": [
+            10000010,
+            10000001,
+            10000002,
+            10000003
+          ],
+          "thumbnail": "images/maps/010000000.png",
+          "exit_names": [
+            {
+              "id": 10000010,
+              "name": "Right Around Lith Harbor"
+            },
+            {
+              "id": 10000001,
+              "name": "Lith Harbor Armor Shop"
+            },
+            {
+              "id": 10000002,
+              "name": "Lith Harbor Department Store"
+            },
+            {
+              "id": 10000003,
+              "name": "Lith Harbor Weapon Shop"
+            }
+          ]
         },
         {
           "id": 10000001,
@@ -1087,8 +1703,17 @@
           "npcs": [
             108
           ],
+          "exits": [
+            10000000
+          ],
           "thumbnail": null,
-          "return_map_name": "Lith Harbor"
+          "return_map_name": "Lith Harbor",
+          "exit_names": [
+            {
+              "id": 10000000,
+              "name": "Lith Harbor"
+            }
+          ]
         },
         {
           "id": 10000002,
@@ -1104,8 +1729,17 @@
           "npcs": [
             109
           ],
+          "exits": [
+            10000000
+          ],
           "thumbnail": null,
-          "return_map_name": "Lith Harbor"
+          "return_map_name": "Lith Harbor",
+          "exit_names": [
+            {
+              "id": 10000000,
+              "name": "Lith Harbor"
+            }
+          ]
         },
         {
           "id": 10000003,
@@ -1121,8 +1755,17 @@
           "npcs": [
             110
           ],
+          "exits": [
+            10000000
+          ],
           "thumbnail": null,
-          "return_map_name": "Lith Harbor"
+          "return_map_name": "Lith Harbor",
+          "exit_names": [
+            {
+              "id": 10000000,
+              "name": "Lith Harbor"
+            }
+          ]
         },
         {
           "id": 10000010,
@@ -1136,8 +1779,22 @@
           "mob_rate": null,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10000000,
+            10000011
+          ],
           "thumbnail": "images/maps/010000010.png",
-          "return_map_name": "Lith Harbor"
+          "return_map_name": "Lith Harbor",
+          "exit_names": [
+            {
+              "id": 10000000,
+              "name": "Lith Harbor"
+            },
+            {
+              "id": 10000011,
+              "name": "Thicket Around the Beach I"
+            }
+          ]
         },
         {
           "id": 10000011,
@@ -1151,8 +1808,22 @@
           "mob_rate": null,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10000010,
+            10000012
+          ],
           "thumbnail": "images/maps/010000011.png",
-          "return_map_name": "Lith Harbor"
+          "return_map_name": "Lith Harbor",
+          "exit_names": [
+            {
+              "id": 10000010,
+              "name": "Right Around Lith Harbor"
+            },
+            {
+              "id": 10000012,
+              "name": "Thicket Around the Beach II"
+            }
+          ]
         },
         {
           "id": 10000012,
@@ -1166,8 +1837,22 @@
           "mob_rate": null,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10000011,
+            10000013
+          ],
           "thumbnail": "images/maps/010000012.png",
-          "return_map_name": "Lith Harbor"
+          "return_map_name": "Lith Harbor",
+          "exit_names": [
+            {
+              "id": 10000011,
+              "name": "Thicket Around the Beach I"
+            },
+            {
+              "id": 10000013,
+              "name": "Thicket Around the Beach III"
+            }
+          ]
         },
         {
           "id": 10000013,
@@ -1181,8 +1866,22 @@
           "mob_rate": 1.2,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10000012,
+            10000020
+          ],
           "thumbnail": "images/maps/010000013.png",
-          "return_map_name": "Lith Harbor"
+          "return_map_name": "Lith Harbor",
+          "exit_names": [
+            {
+              "id": 10000012,
+              "name": "Thicket Around the Beach II"
+            },
+            {
+              "id": 10000020,
+              "name": "3-Way Road-Split"
+            }
+          ]
         },
         {
           "id": 10000020,
@@ -1196,8 +1895,37 @@
           "mob_rate": 1.3,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10000021,
+            10000022,
+            10000013,
+            10001030,
+            10003050
+          ],
           "thumbnail": "images/maps/010000020.png",
-          "return_map_name": "Lith Harbor"
+          "return_map_name": "Lith Harbor",
+          "exit_names": [
+            {
+              "id": 10000021,
+              "name": "The Pig Beach"
+            },
+            {
+              "id": 10000022,
+              "name": "Beach Hunting Ground"
+            },
+            {
+              "id": 10000013,
+              "name": "Thicket Around the Beach III"
+            },
+            {
+              "id": 10001030,
+              "name": "Forest West of Henesys"
+            },
+            {
+              "id": 10003050,
+              "name": "Kerning City Middle Forest I"
+            }
+          ]
         },
         {
           "id": 10000021,
@@ -1211,8 +1939,17 @@
           "mob_rate": 1.5,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10000020
+          ],
           "thumbnail": "images/maps/010000021.png",
-          "return_map_name": "Lith Harbor"
+          "return_map_name": "Lith Harbor",
+          "exit_names": [
+            {
+              "id": 10000020,
+              "name": "3-Way Road-Split"
+            }
+          ]
         },
         {
           "id": 10000022,
@@ -1226,8 +1963,17 @@
           "mob_rate": null,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10000020
+          ],
           "thumbnail": "images/maps/010000022.png",
-          "return_map_name": "Lith Harbor"
+          "return_map_name": "Lith Harbor",
+          "exit_names": [
+            {
+              "id": 10000020,
+              "name": "3-Way Road-Split"
+            }
+          ]
         },
         {
           "id": 10001000,
@@ -1250,7 +1996,46 @@
             206,
             9010000
           ],
-          "thumbnail": "images/maps/010001000.png"
+          "exits": [
+            10001002,
+            10001010,
+            10001060,
+            10001090,
+            10001040,
+            10001050,
+            10001001
+          ],
+          "thumbnail": "images/maps/010001000.png",
+          "exit_names": [
+            {
+              "id": 10001002,
+              "name": "An Empty House"
+            },
+            {
+              "id": 10001010,
+              "name": "Henesys Hunting Ground I"
+            },
+            {
+              "id": 10001060,
+              "name": "The Hill East of Henesys"
+            },
+            {
+              "id": 10001090,
+              "name": "The Road to the Dungeon"
+            },
+            {
+              "id": 10001040,
+              "name": "Henesys Market"
+            },
+            {
+              "id": 10001050,
+              "name": "Henesys Park"
+            },
+            {
+              "id": 10001001,
+              "name": "Henesys Townstreet"
+            }
+          ]
         },
         {
           "id": 10001001,
@@ -1266,7 +2051,16 @@
           "npcs": [
             207
           ],
-          "thumbnail": "images/maps/010001001.png"
+          "exits": [
+            10001000
+          ],
+          "thumbnail": "images/maps/010001001.png",
+          "exit_names": [
+            {
+              "id": 10001000,
+              "name": "Henesys"
+            }
+          ]
         },
         {
           "id": 10001002,
@@ -1280,8 +2074,22 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001003,
+            10001000
+          ],
           "thumbnail": "images/maps/010001002.png",
-          "return_map_name": "Henesys Townstreet"
+          "return_map_name": "Henesys Townstreet",
+          "exit_names": [
+            {
+              "id": 10001003,
+              "name": "Pig Park"
+            },
+            {
+              "id": 10001000,
+              "name": "Henesys"
+            }
+          ]
         },
         {
           "id": 10001003,
@@ -1295,8 +2103,27 @@
           "mob_rate": 0.7,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001004,
+            10001002,
+            10001006
+          ],
           "thumbnail": "images/maps/010001003.png",
-          "return_map_name": "Henesys Townstreet"
+          "return_map_name": "Henesys Townstreet",
+          "exit_names": [
+            {
+              "id": 10001004,
+              "name": "Pig Park II"
+            },
+            {
+              "id": 10001002,
+              "name": "An Empty House"
+            },
+            {
+              "id": 10001006,
+              "name": "The Resting Spot, Pig Park"
+            }
+          ]
         },
         {
           "id": 10001004,
@@ -1310,8 +2137,22 @@
           "mob_rate": 0.7,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001005,
+            10001003
+          ],
           "thumbnail": "images/maps/010001004.png",
-          "return_map_name": "Henesys Townstreet"
+          "return_map_name": "Henesys Townstreet",
+          "exit_names": [
+            {
+              "id": 10001005,
+              "name": "Someone Else's House"
+            },
+            {
+              "id": 10001003,
+              "name": "Pig Park"
+            }
+          ]
         },
         {
           "id": 10001005,
@@ -1325,8 +2166,17 @@
           "mob_rate": 1.3,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001004
+          ],
           "thumbnail": "images/maps/010001005.png",
-          "return_map_name": "Henesys Townstreet"
+          "return_map_name": "Henesys Townstreet",
+          "exit_names": [
+            {
+              "id": 10001004,
+              "name": "Pig Park II"
+            }
+          ]
         },
         {
           "id": 10001006,
@@ -1340,8 +2190,17 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001003
+          ],
           "thumbnail": "images/maps/010001006.png",
-          "return_map_name": "Henesys Townstreet"
+          "return_map_name": "Henesys Townstreet",
+          "exit_names": [
+            {
+              "id": 10001003,
+              "name": "Pig Park"
+            }
+          ]
         },
         {
           "id": 10001010,
@@ -1355,8 +2214,27 @@
           "mob_rate": 1.5,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001020,
+            10001000,
+            10001011
+          ],
           "thumbnail": "images/maps/010001010.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001020,
+              "name": "A Hill West of Henesys "
+            },
+            {
+              "id": 10001000,
+              "name": "Henesys"
+            },
+            {
+              "id": 10001011,
+              "name": "Henesys Hunting Ground II"
+            }
+          ]
         },
         {
           "id": 10001011,
@@ -1370,8 +2248,22 @@
           "mob_rate": 1.5,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001010,
+            10001012
+          ],
           "thumbnail": "images/maps/010001011.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001010,
+              "name": "Henesys Hunting Ground I"
+            },
+            {
+              "id": 10001012,
+              "name": "Henesys Hunting Ground III"
+            }
+          ]
         },
         {
           "id": 10001012,
@@ -1385,8 +2277,17 @@
           "mob_rate": 1.5,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001011
+          ],
           "thumbnail": "images/maps/010001012.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001011,
+              "name": "Henesys Hunting Ground II"
+            }
+          ]
         },
         {
           "id": 10001020,
@@ -1400,8 +2301,27 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001021,
+            10001010,
+            10001030
+          ],
           "thumbnail": "images/maps/010001020.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001021,
+              "name": "Mushroom Garden"
+            },
+            {
+              "id": 10001010,
+              "name": "Henesys Hunting Ground I"
+            },
+            {
+              "id": 10001030,
+              "name": "Forest West of Henesys"
+            }
+          ]
         },
         {
           "id": 10001021,
@@ -1415,8 +2335,17 @@
           "mob_rate": 1.3,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001020
+          ],
           "thumbnail": "images/maps/010001021.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001020,
+              "name": "A Hill West of Henesys "
+            }
+          ]
         },
         {
           "id": 10001030,
@@ -1430,8 +2359,22 @@
           "mob_rate": 1.5,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10000020,
+            10001020
+          ],
           "thumbnail": "images/maps/010001030.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10000020,
+              "name": "3-Way Road-Split"
+            },
+            {
+              "id": 10001020,
+              "name": "A Hill West of Henesys "
+            }
+          ]
         },
         {
           "id": 10001040,
@@ -1450,8 +2393,47 @@
             800013,
             800014
           ],
+          "exits": [
+            10001000,
+            10001050,
+            10001041,
+            10001042,
+            10001043,
+            10001044,
+            10001045
+          ],
           "thumbnail": "images/maps/010001040.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001000,
+              "name": "Henesys"
+            },
+            {
+              "id": 10001050,
+              "name": "Henesys Park"
+            },
+            {
+              "id": 10001041,
+              "name": "Henesys Weapon Store"
+            },
+            {
+              "id": 10001042,
+              "name": "Henesys Department Store"
+            },
+            {
+              "id": 10001043,
+              "name": "Henesys Plastic Surgery"
+            },
+            {
+              "id": 10001044,
+              "name": "Henesys Hair Salon"
+            },
+            {
+              "id": 10001045,
+              "name": "Henesys Skin-Care"
+            }
+          ]
         },
         {
           "id": 10001041,
@@ -1468,8 +2450,17 @@
             210,
             211
           ],
+          "exits": [
+            10001040
+          ],
           "thumbnail": null,
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001040,
+              "name": "Henesys Market"
+            }
+          ]
         },
         {
           "id": 10001042,
@@ -1485,8 +2476,17 @@
           "npcs": [
             212
           ],
+          "exits": [
+            10001040
+          ],
           "thumbnail": null,
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001040,
+              "name": "Henesys Market"
+            }
+          ]
         },
         {
           "id": 10001043,
@@ -1503,8 +2503,17 @@
             213,
             214
           ],
+          "exits": [
+            10001040
+          ],
           "thumbnail": null,
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001040,
+              "name": "Henesys Market"
+            }
+          ]
         },
         {
           "id": 10001044,
@@ -1521,8 +2530,17 @@
             215,
             216
           ],
+          "exits": [
+            10001040
+          ],
           "thumbnail": null,
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001040,
+              "name": "Henesys Market"
+            }
+          ]
         },
         {
           "id": 10001045,
@@ -1538,8 +2556,17 @@
           "npcs": [
             217
           ],
+          "exits": [
+            10001040
+          ],
           "thumbnail": null,
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001040,
+              "name": "Henesys Market"
+            }
+          ]
         },
         {
           "id": 10001050,
@@ -1558,8 +2585,32 @@
             220,
             228
           ],
+          "exits": [
+            10001052,
+            10001000,
+            10001040,
+            10001051
+          ],
           "thumbnail": "images/maps/010001050.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001052,
+              "name": "Pet-Walking Road"
+            },
+            {
+              "id": 10001000,
+              "name": "Henesys"
+            },
+            {
+              "id": 10001040,
+              "name": "Henesys Market"
+            },
+            {
+              "id": 10001051,
+              "name": "Bowman Instructional School"
+            }
+          ]
         },
         {
           "id": 10001051,
@@ -1575,8 +2626,17 @@
           "npcs": [
             221
           ],
+          "exits": [
+            10001050
+          ],
           "thumbnail": null,
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001050,
+              "name": "Henesys Park"
+            }
+          ]
         },
         {
           "id": 10001052,
@@ -1594,8 +2654,17 @@
             209,
             223
           ],
+          "exits": [
+            10001050
+          ],
           "thumbnail": "images/maps/010001052.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001050,
+              "name": "Henesys Park"
+            }
+          ]
         },
         {
           "id": 10001060,
@@ -1611,8 +2680,22 @@
           "npcs": [
             224
           ],
+          "exits": [
+            10001000,
+            10001070
+          ],
           "thumbnail": "images/maps/010001060.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001000,
+              "name": "Henesys"
+            },
+            {
+              "id": 10001070,
+              "name": "The Rain-Forest East of Henesys"
+            }
+          ]
         },
         {
           "id": 10001070,
@@ -1626,8 +2709,22 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001060,
+            10001080
+          ],
           "thumbnail": "images/maps/010001070.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001060,
+              "name": "The Hill East of Henesys"
+            },
+            {
+              "id": 10001080,
+              "name": "The Forest East of Henesys"
+            }
+          ]
         },
         {
           "id": 10001080,
@@ -1641,8 +2738,32 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001082,
+            10001070,
+            10002030,
+            10001081
+          ],
           "thumbnail": "images/maps/010001080.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001082,
+              "name": "Utah's Pig Farm"
+            },
+            {
+              "id": 10001070,
+              "name": "The Rain-Forest East of Henesys"
+            },
+            {
+              "id": 10002030,
+              "name": "The Forest South of Ellinia"
+            },
+            {
+              "id": 10001081,
+              "name": "The Blue Mushroom Forest"
+            }
+          ]
         },
         {
           "id": 10001081,
@@ -1656,8 +2777,17 @@
           "mob_rate": null,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001080
+          ],
           "thumbnail": "images/maps/010001081.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001080,
+              "name": "The Forest East of Henesys"
+            }
+          ]
         },
         {
           "id": 10001082,
@@ -1673,8 +2803,17 @@
           "npcs": [
             225
           ],
+          "exits": [
+            10001080
+          ],
           "thumbnail": "images/maps/010001082.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001080,
+              "name": "The Forest East of Henesys"
+            }
+          ]
         },
         {
           "id": 10001090,
@@ -1690,8 +2829,22 @@
           "npcs": [
             227
           ],
+          "exits": [
+            10001000,
+            10001100
+          ],
           "thumbnail": "images/maps/010001090.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001000,
+              "name": "Henesys"
+            },
+            {
+              "id": 10001100,
+              "name": "Henesys Dungeon Entrance"
+            }
+          ]
         },
         {
           "id": 10001100,
@@ -1707,8 +2860,27 @@
           "npcs": [
             226
           ],
+          "exits": [
+            10001101,
+            10001090,
+            10005010
+          ],
           "thumbnail": "images/maps/010001100.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001101,
+              "name": "The Breathing Rock"
+            },
+            {
+              "id": 10001090,
+              "name": "The Road to the Dungeon"
+            },
+            {
+              "id": 10005010,
+              "name": "Swampy Land in a Deep Forest"
+            }
+          ]
         },
         {
           "id": 10001101,
@@ -1722,8 +2894,22 @@
           "mob_rate": 0.6,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001102,
+            10001100
+          ],
           "thumbnail": "images/maps/010001101.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001102,
+              "name": "The Entrance of Golem's Temple"
+            },
+            {
+              "id": 10001100,
+              "name": "Henesys Dungeon Entrance"
+            }
+          ]
         },
         {
           "id": 10001102,
@@ -1737,8 +2923,37 @@
           "mob_rate": 0.7,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001103,
+            10001104,
+            10001105,
+            10001106,
+            10001101
+          ],
           "thumbnail": "images/maps/010001102.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001103,
+              "name": "Golem's Temple I"
+            },
+            {
+              "id": 10001104,
+              "name": "Golem's Temple II"
+            },
+            {
+              "id": 10001105,
+              "name": "Golem's Temple III"
+            },
+            {
+              "id": 10001106,
+              "name": "Golem's Temple IV"
+            },
+            {
+              "id": 10001101,
+              "name": "The Breathing Rock"
+            }
+          ]
         },
         {
           "id": 10001103,
@@ -1752,8 +2967,17 @@
           "mob_rate": 0.5,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001102
+          ],
           "thumbnail": "images/maps/010001103.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001102,
+              "name": "The Entrance of Golem's Temple"
+            }
+          ]
         },
         {
           "id": 10001104,
@@ -1767,8 +2991,17 @@
           "mob_rate": 0.6,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001102
+          ],
           "thumbnail": "images/maps/010001104.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001102,
+              "name": "The Entrance of Golem's Temple"
+            }
+          ]
         },
         {
           "id": 10001105,
@@ -1782,8 +3015,17 @@
           "mob_rate": 0.6,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001102
+          ],
           "thumbnail": "images/maps/010001105.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001102,
+              "name": "The Entrance of Golem's Temple"
+            }
+          ]
         },
         {
           "id": 10001106,
@@ -1797,8 +3039,17 @@
           "mob_rate": 0.6,
           "map_mark": "Henesys",
           "npcs": [],
+          "exits": [
+            10001102
+          ],
           "thumbnail": "images/maps/010001106.png",
-          "return_map_name": "Henesys"
+          "return_map_name": "Henesys",
+          "exit_names": [
+            {
+              "id": 10001102,
+              "name": "The Entrance of Golem's Temple"
+            }
+          ]
         },
         {
           "id": 10002000,
@@ -1825,7 +3076,41 @@
             800013,
             800012
           ],
-          "thumbnail": "images/maps/010002000.png"
+          "exits": [
+            10002004,
+            10002010,
+            10002050,
+            10002001,
+            10002002,
+            10002003
+          ],
+          "thumbnail": "images/maps/010002000.png",
+          "exit_names": [
+            {
+              "id": 10002004,
+              "name": "Marr's Forest"
+            },
+            {
+              "id": 10002010,
+              "name": "The Field South of Ellinia"
+            },
+            {
+              "id": 10002050,
+              "name": "The Field Up North of Ellinia"
+            },
+            {
+              "id": 10002001,
+              "name": "Ellinia Weapon Store"
+            },
+            {
+              "id": 10002002,
+              "name": "Ellinia Department Store"
+            },
+            {
+              "id": 10002003,
+              "name": "Magic Library"
+            }
+          ]
         },
         {
           "id": 10002001,
@@ -1842,8 +3127,17 @@
             310,
             311
           ],
+          "exits": [
+            10002000
+          ],
           "thumbnail": null,
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002000,
+              "name": "Ellinia"
+            }
+          ]
         },
         {
           "id": 10002002,
@@ -1859,8 +3153,17 @@
           "npcs": [
             312
           ],
+          "exits": [
+            10002000
+          ],
           "thumbnail": null,
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002000,
+              "name": "Ellinia"
+            }
+          ]
         },
         {
           "id": 10002003,
@@ -1876,8 +3179,17 @@
           "npcs": [
             313
           ],
+          "exits": [
+            10002000
+          ],
           "thumbnail": null,
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002000,
+              "name": "Ellinia"
+            }
+          ]
         },
         {
           "id": 10002004,
@@ -1893,8 +3205,17 @@
           "npcs": [
             317
           ],
+          "exits": [
+            10002000
+          ],
           "thumbnail": "images/maps/010002004.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002000,
+              "name": "Ellinia"
+            }
+          ]
         },
         {
           "id": 10002010,
@@ -1910,8 +3231,22 @@
           "npcs": [
             300
           ],
+          "exits": [
+            10002020,
+            10002000
+          ],
           "thumbnail": "images/maps/010002010.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002020,
+              "name": "The Forest of Wisdom"
+            },
+            {
+              "id": 10002000,
+              "name": "Ellinia"
+            }
+          ]
         },
         {
           "id": 10002020,
@@ -1925,8 +3260,32 @@
           "mob_rate": null,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002027,
+            10002021,
+            10002030,
+            10002010
+          ],
           "thumbnail": "images/maps/010002020.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002027,
+              "name": "Downstairs at the Forest"
+            },
+            {
+              "id": 10002021,
+              "name": "Monkey Forest I"
+            },
+            {
+              "id": 10002030,
+              "name": "The Forest South of Ellinia"
+            },
+            {
+              "id": 10002010,
+              "name": "The Field South of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002021,
@@ -1940,8 +3299,27 @@
           "mob_rate": 0.8,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002022,
+            10002020,
+            10002023
+          ],
           "thumbnail": "images/maps/010002021.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002022,
+              "name": "Tree Dungeon, Monkey Forest I"
+            },
+            {
+              "id": 10002020,
+              "name": "The Forest of Wisdom"
+            },
+            {
+              "id": 10002023,
+              "name": "Monkey Forest II"
+            }
+          ]
         },
         {
           "id": 10002022,
@@ -1955,8 +3333,17 @@
           "mob_rate": 0.9,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002021
+          ],
           "thumbnail": "images/maps/010002022.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002021,
+              "name": "Monkey Forest I"
+            }
+          ]
         },
         {
           "id": 10002023,
@@ -1970,8 +3357,27 @@
           "mob_rate": 0.8,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002024,
+            10002021,
+            10002025
+          ],
           "thumbnail": "images/maps/010002023.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002024,
+              "name": "Tree Dungeon, Monkey Forest II"
+            },
+            {
+              "id": 10002021,
+              "name": "Monkey Forest I"
+            },
+            {
+              "id": 10002025,
+              "name": "The Forest of Evil I"
+            }
+          ]
         },
         {
           "id": 10002024,
@@ -1985,8 +3391,17 @@
           "mob_rate": 0.9,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002023
+          ],
           "thumbnail": "images/maps/010002024.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002023,
+              "name": "Monkey Forest II"
+            }
+          ]
         },
         {
           "id": 10002025,
@@ -2000,8 +3415,22 @@
           "mob_rate": 0.7,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002026,
+            10002023
+          ],
           "thumbnail": "images/maps/010002025.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002026,
+              "name": "The Forest of Evil II"
+            },
+            {
+              "id": 10002023,
+              "name": "Monkey Forest II"
+            }
+          ]
         },
         {
           "id": 10002026,
@@ -2015,8 +3444,17 @@
           "mob_rate": null,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002025
+          ],
           "thumbnail": "images/maps/010002026.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002025,
+              "name": "The Forest of Evil I"
+            }
+          ]
         },
         {
           "id": 10002027,
@@ -2030,8 +3468,17 @@
           "mob_rate": null,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002020
+          ],
           "thumbnail": "images/maps/010002027.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002020,
+              "name": "The Forest of Wisdom"
+            }
+          ]
         },
         {
           "id": 10002030,
@@ -2045,8 +3492,42 @@
           "mob_rate": 1.5,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002031,
+            10002032,
+            10002033,
+            10002034,
+            10002020,
+            10001080
+          ],
           "thumbnail": "images/maps/010002030.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002031,
+              "name": "Dungeon, Southern Forest I"
+            },
+            {
+              "id": 10002032,
+              "name": "Dungeon, Southern Forest II"
+            },
+            {
+              "id": 10002033,
+              "name": "Dungeon, Southern Forest III"
+            },
+            {
+              "id": 10002034,
+              "name": "Dungeon, Southern Forest IV"
+            },
+            {
+              "id": 10002020,
+              "name": "The Forest of Wisdom"
+            },
+            {
+              "id": 10001080,
+              "name": "The Forest East of Henesys"
+            }
+          ]
         },
         {
           "id": 10002031,
@@ -2060,8 +3541,17 @@
           "mob_rate": 0.9,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002030
+          ],
           "thumbnail": "images/maps/010002031.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002030,
+              "name": "The Forest South of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002032,
@@ -2075,8 +3565,17 @@
           "mob_rate": 0.9,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002030
+          ],
           "thumbnail": "images/maps/010002032.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002030,
+              "name": "The Forest South of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002033,
@@ -2090,8 +3589,17 @@
           "mob_rate": 0.9,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002030
+          ],
           "thumbnail": "images/maps/010002033.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002030,
+              "name": "The Forest South of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002034,
@@ -2105,8 +3613,17 @@
           "mob_rate": 0.9,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002030
+          ],
           "thumbnail": "images/maps/010002034.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002030,
+              "name": "The Forest South of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002040,
@@ -2122,8 +3639,17 @@
           "npcs": [
             314
           ],
+          "exits": [
+            10002041
+          ],
           "thumbnail": "images/maps/010002040.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002041,
+              "name": "The Forest of Patience <Step 2>"
+            }
+          ]
         },
         {
           "id": 10002041,
@@ -2140,6 +3666,7 @@
             315,
             314
           ],
+          "exits": [],
           "thumbnail": "images/maps/010002041.png",
           "return_map_name": "Ellinia"
         },
@@ -2157,8 +3684,17 @@
           "npcs": [
             314
           ],
+          "exits": [
+            10002043
+          ],
           "thumbnail": "images/maps/010002042.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002043,
+              "name": "The Forest of Patience <Step 4>"
+            }
+          ]
         },
         {
           "id": 10002043,
@@ -2174,8 +3710,17 @@
           "npcs": [
             314
           ],
+          "exits": [
+            10002044
+          ],
           "thumbnail": "images/maps/010002043.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002044,
+              "name": "The Forest of Patience <Step 5>"
+            }
+          ]
         },
         {
           "id": 10002044,
@@ -2192,6 +3737,7 @@
             314,
             316
           ],
+          "exits": [],
           "thumbnail": "images/maps/010002044.png",
           "return_map_name": "Ellinia"
         },
@@ -2209,8 +3755,22 @@
           "npcs": [
             321
           ],
+          "exits": [
+            10002060,
+            10002000
+          ],
           "thumbnail": "images/maps/010002050.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002060,
+              "name": "The Tree That Grew I"
+            },
+            {
+              "id": 10002000,
+              "name": "Ellinia"
+            }
+          ]
         },
         {
           "id": 10002060,
@@ -2224,8 +3784,27 @@
           "mob_rate": null,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002070,
+            10002050,
+            10002061
+          ],
           "thumbnail": "images/maps/010002060.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            },
+            {
+              "id": 10002050,
+              "name": "The Field Up North of Ellinia"
+            },
+            {
+              "id": 10002061,
+              "name": "The Tree That Grew II"
+            }
+          ]
         },
         {
           "id": 10002061,
@@ -2239,8 +3818,22 @@
           "mob_rate": null,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002062,
+            10002060
+          ],
           "thumbnail": "images/maps/010002061.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002062,
+              "name": "The Tree That Grew III"
+            },
+            {
+              "id": 10002060,
+              "name": "The Tree That Grew I"
+            }
+          ]
         },
         {
           "id": 10002062,
@@ -2256,8 +3849,17 @@
           "npcs": [
             318
           ],
+          "exits": [
+            10002061
+          ],
           "thumbnail": "images/maps/010002062.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002061,
+              "name": "The Tree That Grew II"
+            }
+          ]
         },
         {
           "id": 10002070,
@@ -2273,8 +3875,72 @@
           "npcs": [
             319
           ],
+          "exits": [
+            10002071,
+            10002072,
+            10002073,
+            10002080,
+            10002081,
+            10002074,
+            10002075,
+            10002076,
+            10002082,
+            10002083,
+            10002060,
+            10004090
+          ],
           "thumbnail": "images/maps/010002070.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002071,
+              "name": "The Tree Tunnel At the Forest Up North"
+            },
+            {
+              "id": 10002072,
+              "name": "Tree Dungeon, Forest Up North I"
+            },
+            {
+              "id": 10002073,
+              "name": "Tree Dungeon, Forest Up North II"
+            },
+            {
+              "id": 10002080,
+              "name": "Tree Dungeon, Forest Up North VI"
+            },
+            {
+              "id": 10002081,
+              "name": "Tree Dungeon, Forest Up North VII"
+            },
+            {
+              "id": 10002074,
+              "name": "Tree Dungeon, Forest Up North III"
+            },
+            {
+              "id": 10002075,
+              "name": "Tree Dungeon, Forest Up North IV"
+            },
+            {
+              "id": 10002076,
+              "name": "Tree Dungeon, Forest Up North V"
+            },
+            {
+              "id": 10002082,
+              "name": "Tree Dungeon, Forest Up North VIII"
+            },
+            {
+              "id": 10002083,
+              "name": "Tree Dungeon, Forest Up North IX"
+            },
+            {
+              "id": 10002060,
+              "name": "The Tree That Grew I"
+            },
+            {
+              "id": 10004090,
+              "name": "East Domain of Perion"
+            }
+          ]
         },
         {
           "id": 10002071,
@@ -2290,8 +3956,17 @@
           "npcs": [
             320
           ],
+          "exits": [
+            10002070
+          ],
           "thumbnail": "images/maps/010002071.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002072,
@@ -2305,8 +3980,17 @@
           "mob_rate": null,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002070
+          ],
           "thumbnail": "images/maps/010002072.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002073,
@@ -2320,8 +4004,17 @@
           "mob_rate": null,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002070
+          ],
           "thumbnail": "images/maps/010002073.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002074,
@@ -2335,8 +4028,17 @@
           "mob_rate": 0.9,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002070
+          ],
           "thumbnail": "images/maps/010002074.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002075,
@@ -2350,8 +4052,17 @@
           "mob_rate": 0.9,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002070
+          ],
           "thumbnail": "images/maps/010002075.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002076,
@@ -2365,8 +4076,17 @@
           "mob_rate": null,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002070
+          ],
           "thumbnail": "images/maps/010002076.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002080,
@@ -2380,8 +4100,17 @@
           "mob_rate": 0.7,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002070
+          ],
           "thumbnail": "images/maps/010002080.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002081,
@@ -2395,8 +4124,17 @@
           "mob_rate": 0.4,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002070
+          ],
           "thumbnail": "images/maps/010002081.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002082,
@@ -2410,8 +4148,17 @@
           "mob_rate": 0.6,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002070
+          ],
           "thumbnail": "images/maps/010002082.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            }
+          ]
         },
         {
           "id": 10002083,
@@ -2425,8 +4172,17 @@
           "mob_rate": 0.6,
           "map_mark": "Ellinia",
           "npcs": [],
+          "exits": [
+            10002070
+          ],
           "thumbnail": "images/maps/010002083.png",
-          "return_map_name": "Ellinia"
+          "return_map_name": "Ellinia",
+          "exit_names": [
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            }
+          ]
         },
         {
           "id": 10003000,
@@ -2453,7 +4209,61 @@
             800011,
             800014
           ],
-          "thumbnail": "images/maps/010003000.png"
+          "exits": [
+            10003001,
+            10003004,
+            10003002,
+            10003003,
+            10003005,
+            10003006,
+            10003090,
+            10003060,
+            10003070,
+            10003010
+          ],
+          "thumbnail": "images/maps/010003000.png",
+          "exit_names": [
+            {
+              "id": 10003001,
+              "name": "Kerning City Self-Defence Item Store"
+            },
+            {
+              "id": 10003004,
+              "name": "Niora Hospital"
+            },
+            {
+              "id": 10003002,
+              "name": "Kerning City Pharmacy"
+            },
+            {
+              "id": 10003003,
+              "name": "Thieves' Hideout"
+            },
+            {
+              "id": 10003005,
+              "name": "Kerning City Hair Salon"
+            },
+            {
+              "id": 10003006,
+              "name": "Kerning City Repair Shop"
+            },
+            {
+              "id": 10003090,
+              "name": "The Swamp of Despair I"
+            },
+            {
+              "id": 10003060,
+              "name": "Subway Ticketing Booth"
+            },
+            {
+              "id": 10003070,
+              "name": "Sunset Sky"
+            },
+            {
+              "id": 10003010,
+              "name": "Kerning City Construction Site"
+            }
+          ]
         },
         {
           "id": 10003001,
@@ -2470,8 +4280,17 @@
             408,
             409
           ],
+          "exits": [
+            10003000
+          ],
           "thumbnail": null,
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003000,
+              "name": "Kerning City"
+            }
+          ]
         },
         {
           "id": 10003002,
@@ -2487,8 +4306,17 @@
           "npcs": [
             410
           ],
+          "exits": [
+            10003000
+          ],
           "thumbnail": null,
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003000,
+              "name": "Kerning City"
+            }
+          ]
         },
         {
           "id": 10003003,
@@ -2504,8 +4332,17 @@
           "npcs": [
             411
           ],
+          "exits": [
+            10003000
+          ],
           "thumbnail": null,
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003000,
+              "name": "Kerning City"
+            }
+          ]
         },
         {
           "id": 10003004,
@@ -2521,8 +4358,17 @@
           "npcs": [
             412
           ],
+          "exits": [
+            10003000
+          ],
           "thumbnail": null,
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003000,
+              "name": "Kerning City"
+            }
+          ]
         },
         {
           "id": 10003005,
@@ -2539,8 +4385,17 @@
             413,
             414
           ],
+          "exits": [
+            10003000
+          ],
           "thumbnail": null,
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003000,
+              "name": "Kerning City"
+            }
+          ]
         },
         {
           "id": 10003006,
@@ -2556,8 +4411,17 @@
           "npcs": [
             415
           ],
+          "exits": [
+            10003000
+          ],
           "thumbnail": null,
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003000,
+              "name": "Kerning City"
+            }
+          ]
         },
         {
           "id": 10003010,
@@ -2573,8 +4437,27 @@
           "npcs": [
             900014
           ],
+          "exits": [
+            10003011,
+            10003020,
+            10003000
+          ],
           "thumbnail": "images/maps/010003010.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003011,
+              "name": "Caution Falling Down"
+            },
+            {
+              "id": 10003020,
+              "name": "L Forest I"
+            },
+            {
+              "id": 10003000,
+              "name": "Kerning City"
+            }
+          ]
         },
         {
           "id": 10003011,
@@ -2588,8 +4471,17 @@
           "mob_rate": 2.0,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003010
+          ],
           "thumbnail": "images/maps/010003011.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003010,
+              "name": "Kerning City Construction Site"
+            }
+          ]
         },
         {
           "id": 10003020,
@@ -2603,8 +4495,22 @@
           "mob_rate": 1.3,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003030,
+            10003010
+          ],
           "thumbnail": "images/maps/010003020.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003030,
+              "name": "L Forest II"
+            },
+            {
+              "id": 10003010,
+              "name": "Kerning City Construction Site"
+            }
+          ]
         },
         {
           "id": 10003030,
@@ -2618,8 +4524,22 @@
           "mob_rate": 1.3,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003040,
+            10003020
+          ],
           "thumbnail": "images/maps/010003030.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003040,
+              "name": "L Forest III"
+            },
+            {
+              "id": 10003020,
+              "name": "L Forest I"
+            }
+          ]
         },
         {
           "id": 10003040,
@@ -2633,8 +4553,22 @@
           "mob_rate": 1.3,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003050,
+            10003030
+          ],
           "thumbnail": "images/maps/010003040.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003050,
+              "name": "Kerning City Middle Forest I"
+            },
+            {
+              "id": 10003030,
+              "name": "L Forest II"
+            }
+          ]
         },
         {
           "id": 10003050,
@@ -2648,8 +4582,27 @@
           "mob_rate": 1.2,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10000020,
+            10003040,
+            10003051
+          ],
           "thumbnail": "images/maps/010003050.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10000020,
+              "name": "3-Way Road-Split"
+            },
+            {
+              "id": 10003040,
+              "name": "L Forest III"
+            },
+            {
+              "id": 10003051,
+              "name": "Kerning City Middle Forest II"
+            }
+          ]
         },
         {
           "id": 10003051,
@@ -2663,8 +4616,22 @@
           "mob_rate": 1.2,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003052,
+            10003050
+          ],
           "thumbnail": "images/maps/010003051.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003052,
+              "name": "Kerning City Middle Forest III"
+            },
+            {
+              "id": 10003050,
+              "name": "Kerning City Middle Forest I"
+            }
+          ]
         },
         {
           "id": 10003052,
@@ -2678,8 +4645,17 @@
           "mob_rate": 1.2,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003051
+          ],
           "thumbnail": "images/maps/010003052.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003051,
+              "name": "Kerning City Middle Forest II"
+            }
+          ]
         },
         {
           "id": 10003060,
@@ -2696,8 +4672,22 @@
             417,
             418
           ],
+          "exits": [
+            10003000,
+            10003061
+          ],
           "thumbnail": null,
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003000,
+              "name": "Kerning City"
+            },
+            {
+              "id": 10003061,
+              "name": "Line 1 <Area 1>"
+            }
+          ]
         },
         {
           "id": 10003061,
@@ -2711,8 +4701,22 @@
           "mob_rate": 1.1,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003062,
+            10003060
+          ],
           "thumbnail": "images/maps/010003061.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003062,
+              "name": "Transfer Area"
+            },
+            {
+              "id": 10003060,
+              "name": "Subway Ticketing Booth"
+            }
+          ]
         },
         {
           "id": 10003062,
@@ -2726,8 +4730,27 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003063,
+            10003066,
+            10003061
+          ],
           "thumbnail": "images/maps/010003062.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003063,
+              "name": "Line 1 <Area 2>"
+            },
+            {
+              "id": 10003066,
+              "name": "Line 2 <Area 1>"
+            },
+            {
+              "id": 10003061,
+              "name": "Line 1 <Area 1>"
+            }
+          ]
         },
         {
           "id": 10003063,
@@ -2741,8 +4764,22 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003064,
+            10003062
+          ],
           "thumbnail": "images/maps/010003063.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003064,
+              "name": "Line 1 <Area 3>"
+            },
+            {
+              "id": 10003062,
+              "name": "Transfer Area"
+            }
+          ]
         },
         {
           "id": 10003064,
@@ -2756,8 +4793,22 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003065,
+            10003063
+          ],
           "thumbnail": "images/maps/010003064.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003065,
+              "name": "Line 1 <Area 4>"
+            },
+            {
+              "id": 10003063,
+              "name": "Line 1 <Area 2>"
+            }
+          ]
         },
         {
           "id": 10003065,
@@ -2771,8 +4822,17 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003064
+          ],
           "thumbnail": "images/maps/010003065.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003064,
+              "name": "Line 1 <Area 3>"
+            }
+          ]
         },
         {
           "id": 10003066,
@@ -2786,8 +4846,22 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003067,
+            10003062
+          ],
           "thumbnail": "images/maps/010003066.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003067,
+              "name": "Line 2 <Area 2>"
+            },
+            {
+              "id": 10003062,
+              "name": "Transfer Area"
+            }
+          ]
         },
         {
           "id": 10003067,
@@ -2801,8 +4875,22 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003066,
+            10003068
+          ],
           "thumbnail": "images/maps/010003067.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003066,
+              "name": "Line 2 <Area 1>"
+            },
+            {
+              "id": 10003068,
+              "name": "Line 2 <Area 3>"
+            }
+          ]
         },
         {
           "id": 10003068,
@@ -2816,8 +4904,17 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003067
+          ],
           "thumbnail": "images/maps/010003068.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003067,
+              "name": "Line 2 <Area 2>"
+            }
+          ]
         },
         {
           "id": 10003070,
@@ -2831,8 +4928,22 @@
           "mob_rate": 0.5,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003080,
+            10003000
+          ],
           "thumbnail": "images/maps/010003070.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003080,
+              "name": "Construction Site North of Kerning City"
+            },
+            {
+              "id": 10003000,
+              "name": "Kerning City"
+            }
+          ]
         },
         {
           "id": 10003080,
@@ -2848,8 +4959,27 @@
           "npcs": [
             424
           ],
+          "exits": [
+            10003070,
+            10004030,
+            10003081
+          ],
           "thumbnail": "images/maps/010003080.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003070,
+              "name": "Sunset Sky"
+            },
+            {
+              "id": 10004030,
+              "name": "West Domain of Perion"
+            },
+            {
+              "id": 10003081,
+              "name": "Northern Top of Construction Site"
+            }
+          ]
         },
         {
           "id": 10003081,
@@ -2863,8 +4993,17 @@
           "mob_rate": 2.0,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003080
+          ],
           "thumbnail": "images/maps/010003081.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003080,
+              "name": "Construction Site North of Kerning City"
+            }
+          ]
         },
         {
           "id": 10003090,
@@ -2878,8 +5017,22 @@
           "mob_rate": 1.1,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003000,
+            10003091
+          ],
           "thumbnail": "images/maps/010003090.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003000,
+              "name": "Kerning City"
+            },
+            {
+              "id": 10003091,
+              "name": "The Swamp of Despair II"
+            }
+          ]
         },
         {
           "id": 10003091,
@@ -2895,8 +5048,22 @@
           "npcs": [
             416
           ],
+          "exits": [
+            10003090,
+            10003092
+          ],
           "thumbnail": "images/maps/010003091.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003090,
+              "name": "The Swamp of Despair I"
+            },
+            {
+              "id": 10003092,
+              "name": "The Swamp of Despair III"
+            }
+          ]
         },
         {
           "id": 10003092,
@@ -2910,8 +5077,22 @@
           "mob_rate": 1.1,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003091,
+            10003093
+          ],
           "thumbnail": "images/maps/010003092.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003091,
+              "name": "The Swamp of Despair II"
+            },
+            {
+              "id": 10003093,
+              "name": "Dangerous Croko I"
+            }
+          ]
         },
         {
           "id": 10003093,
@@ -2925,8 +5106,22 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003092,
+            10003094
+          ],
           "thumbnail": "images/maps/010003093.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003092,
+              "name": "The Swamp of Despair III"
+            },
+            {
+              "id": 10003094,
+              "name": "Dangerous Croko II"
+            }
+          ]
         },
         {
           "id": 10003094,
@@ -2940,8 +5135,27 @@
           "mob_rate": 1.1,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003093,
+            10005030,
+            10003095
+          ],
           "thumbnail": "images/maps/010003094.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003093,
+              "name": "Dangerous Croko I"
+            },
+            {
+              "id": 10005030,
+              "name": "Damp Tree-Forest"
+            },
+            {
+              "id": 10003095,
+              "name": "Monkey Swamp I"
+            }
+          ]
         },
         {
           "id": 10003095,
@@ -2955,8 +5169,22 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003094,
+            10003096
+          ],
           "thumbnail": "images/maps/010003095.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003094,
+              "name": "Dangerous Croko II"
+            },
+            {
+              "id": 10003096,
+              "name": "Monkey Swamp II"
+            }
+          ]
         },
         {
           "id": 10003096,
@@ -2970,8 +5198,22 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003095,
+            10003097
+          ],
           "thumbnail": "images/maps/010003096.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003095,
+              "name": "Monkey Swamp I"
+            },
+            {
+              "id": 10003097,
+              "name": "Monkey Swamp III"
+            }
+          ]
         },
         {
           "id": 10003097,
@@ -2985,8 +5227,17 @@
           "mob_rate": null,
           "map_mark": "KerningCity",
           "npcs": [],
+          "exits": [
+            10003096
+          ],
           "thumbnail": "images/maps/010003097.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003096,
+              "name": "Monkey Swamp II"
+            }
+          ]
         },
         {
           "id": 10003100,
@@ -3006,8 +5257,17 @@
             419,
             419
           ],
+          "exits": [
+            10003101
+          ],
           "thumbnail": "images/maps/010003100.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003101,
+              "name": "B1 <Area 2>"
+            }
+          ]
         },
         {
           "id": 10003101,
@@ -3024,8 +5284,17 @@
             419,
             419
           ],
+          "exits": [
+            10003102
+          ],
           "thumbnail": "images/maps/010003101.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003102,
+              "name": "B1 <Subway Depot>"
+            }
+          ]
         },
         {
           "id": 10003102,
@@ -3041,6 +5310,7 @@
           "npcs": [
             420
           ],
+          "exits": [],
           "thumbnail": "images/maps/010003102.png",
           "return_map_name": "Kerning City"
         },
@@ -3058,8 +5328,17 @@
           "npcs": [
             419
           ],
+          "exits": [
+            10003104
+          ],
           "thumbnail": "images/maps/010003103.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003104,
+              "name": "B2 <Area 2>"
+            }
+          ]
         },
         {
           "id": 10003104,
@@ -3076,8 +5355,17 @@
             419,
             419
           ],
+          "exits": [
+            10003105
+          ],
           "thumbnail": "images/maps/010003104.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003105,
+              "name": "B2 <Subway Depot>"
+            }
+          ]
         },
         {
           "id": 10003105,
@@ -3093,6 +5381,7 @@
           "npcs": [
             421
           ],
+          "exits": [],
           "thumbnail": "images/maps/010003105.png",
           "return_map_name": "Kerning City"
         },
@@ -3110,8 +5399,17 @@
           "npcs": [
             419
           ],
+          "exits": [
+            10003107
+          ],
           "thumbnail": "images/maps/010003106.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003107,
+              "name": "B3 <Area 2>"
+            }
+          ]
         },
         {
           "id": 10003107,
@@ -3127,8 +5425,17 @@
           "npcs": [
             419
           ],
+          "exits": [
+            10003108
+          ],
           "thumbnail": "images/maps/010003107.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003108,
+              "name": "B3 <Area 3>"
+            }
+          ]
         },
         {
           "id": 10003108,
@@ -3144,8 +5451,17 @@
           "npcs": [
             419
           ],
+          "exits": [
+            10003109
+          ],
           "thumbnail": "images/maps/010003108.png",
-          "return_map_name": "Kerning City"
+          "return_map_name": "Kerning City",
+          "exit_names": [
+            {
+              "id": 10003109,
+              "name": "B3 <Subway Depot>"
+            }
+          ]
         },
         {
           "id": 10003109,
@@ -3161,6 +5477,7 @@
           "npcs": [
             422
           ],
+          "exits": [],
           "thumbnail": "images/maps/010003109.png",
           "return_map_name": "Kerning City"
         },
@@ -3186,7 +5503,41 @@
             800011,
             800010
           ],
-          "thumbnail": "images/maps/010004000.png"
+          "exits": [
+            10004040,
+            10004010,
+            10004100,
+            10004002,
+            10004001,
+            10004003
+          ],
+          "thumbnail": "images/maps/010004000.png",
+          "exit_names": [
+            {
+              "id": 10004040,
+              "name": "Perion Street Corner"
+            },
+            {
+              "id": 10004010,
+              "name": "West Street Corner of Perion"
+            },
+            {
+              "id": 10004100,
+              "name": "Deep Valley I"
+            },
+            {
+              "id": 10004002,
+              "name": "Perion Department Store"
+            },
+            {
+              "id": 10004001,
+              "name": "Perion Weapon Store"
+            },
+            {
+              "id": 10004003,
+              "name": "Warriors' Sanctuary"
+            }
+          ]
         },
         {
           "id": 10004001,
@@ -3203,8 +5554,17 @@
             507,
             508
           ],
+          "exits": [
+            10004000
+          ],
           "thumbnail": null,
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004000,
+              "name": "Perion"
+            }
+          ]
         },
         {
           "id": 10004002,
@@ -3221,8 +5581,17 @@
             509,
             510
           ],
+          "exits": [
+            10004000
+          ],
           "thumbnail": null,
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004000,
+              "name": "Perion"
+            }
+          ]
         },
         {
           "id": 10004003,
@@ -3238,8 +5607,17 @@
           "npcs": [
             511
           ],
+          "exits": [
+            10004000
+          ],
           "thumbnail": null,
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004000,
+              "name": "Perion"
+            }
+          ]
         },
         {
           "id": 10004010,
@@ -3253,8 +5631,22 @@
           "mob_rate": 1.1,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004000,
+            10004020
+          ],
           "thumbnail": "images/maps/010004010.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004000,
+              "name": "Perion"
+            },
+            {
+              "id": 10004020,
+              "name": "West Rocky Mountain I"
+            }
+          ]
         },
         {
           "id": 10004020,
@@ -3268,8 +5660,27 @@
           "mob_rate": 0.6,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004030,
+            10004010,
+            10004021
+          ],
           "thumbnail": "images/maps/010004020.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004030,
+              "name": "West Domain of Perion"
+            },
+            {
+              "id": 10004010,
+              "name": "West Street Corner of Perion"
+            },
+            {
+              "id": 10004021,
+              "name": "West Rocky Mountain II"
+            }
+          ]
         },
         {
           "id": 10004021,
@@ -3283,8 +5694,22 @@
           "mob_rate": 0.6,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004022,
+            10004020
+          ],
           "thumbnail": "images/maps/010004021.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004022,
+              "name": "West Rocky Mountain III"
+            },
+            {
+              "id": 10004020,
+              "name": "West Rocky Mountain I"
+            }
+          ]
         },
         {
           "id": 10004022,
@@ -3298,8 +5723,22 @@
           "mob_rate": 0.8,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004023,
+            10004021
+          ],
           "thumbnail": "images/maps/010004022.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004023,
+              "name": "West Rocky Mountain IV"
+            },
+            {
+              "id": 10004021,
+              "name": "West Rocky Mountain II"
+            }
+          ]
         },
         {
           "id": 10004023,
@@ -3315,8 +5754,17 @@
           "npcs": [
             514
           ],
+          "exits": [
+            10004022
+          ],
           "thumbnail": "images/maps/010004023.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004022,
+              "name": "West Rocky Mountain III"
+            }
+          ]
         },
         {
           "id": 10004030,
@@ -3330,8 +5778,22 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10003080,
+            10004020
+          ],
           "thumbnail": "images/maps/010004030.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10003080,
+              "name": "Construction Site North of Kerning City"
+            },
+            {
+              "id": 10004020,
+              "name": "West Rocky Mountain I"
+            }
+          ]
         },
         {
           "id": 10004040,
@@ -3345,8 +5807,27 @@
           "mob_rate": 1.2,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004041,
+            10004050,
+            10004000
+          ],
           "thumbnail": "images/maps/010004040.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004041,
+              "name": "Land of Wild Boar"
+            },
+            {
+              "id": 10004050,
+              "name": "East Rocky Mountain I"
+            },
+            {
+              "id": 10004000,
+              "name": "Perion"
+            }
+          ]
         },
         {
           "id": 10004041,
@@ -3360,8 +5841,22 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004042,
+            10004040
+          ],
           "thumbnail": "images/maps/010004041.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004042,
+              "name": "Over the Wall"
+            },
+            {
+              "id": 10004040,
+              "name": "Perion Street Corner"
+            }
+          ]
         },
         {
           "id": 10004042,
@@ -3375,8 +5870,17 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004041
+          ],
           "thumbnail": "images/maps/010004042.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004041,
+              "name": "Land of Wild Boar"
+            }
+          ]
         },
         {
           "id": 10004050,
@@ -3390,8 +5894,27 @@
           "mob_rate": 0.8,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004060,
+            10004040,
+            10004051
+          ],
           "thumbnail": "images/maps/010004050.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004060,
+              "name": "Rocky Road I"
+            },
+            {
+              "id": 10004040,
+              "name": "Perion Street Corner"
+            },
+            {
+              "id": 10004051,
+              "name": "East Rocky Mountain II"
+            }
+          ]
         },
         {
           "id": 10004051,
@@ -3407,8 +5930,22 @@
           "npcs": [
             512
           ],
+          "exits": [
+            10004050,
+            10004052
+          ],
           "thumbnail": "images/maps/010004051.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004050,
+              "name": "East Rocky Mountain I"
+            },
+            {
+              "id": 10004052,
+              "name": "East Rocky Mountain III"
+            }
+          ]
         },
         {
           "id": 10004052,
@@ -3422,8 +5959,22 @@
           "mob_rate": 0.8,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004051,
+            10004053
+          ],
           "thumbnail": "images/maps/010004052.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004051,
+              "name": "East Rocky Mountain II"
+            },
+            {
+              "id": 10004053,
+              "name": "East Rocky Mountain IV"
+            }
+          ]
         },
         {
           "id": 10004053,
@@ -3437,8 +5988,22 @@
           "mob_rate": 0.8,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004054,
+            10004052
+          ],
           "thumbnail": "images/maps/010004053.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004054,
+              "name": "East Rocky Mountain V"
+            },
+            {
+              "id": 10004052,
+              "name": "East Rocky Mountain III"
+            }
+          ]
         },
         {
           "id": 10004054,
@@ -3452,8 +6017,22 @@
           "mob_rate": 0.8,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004055,
+            10004053
+          ],
           "thumbnail": "images/maps/010004054.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004055,
+              "name": "East Rocky Mountain VI"
+            },
+            {
+              "id": 10004053,
+              "name": "East Rocky Mountain IV"
+            }
+          ]
         },
         {
           "id": 10004055,
@@ -3467,8 +6046,22 @@
           "mob_rate": 0.8,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004056,
+            10004054
+          ],
           "thumbnail": "images/maps/010004055.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004056,
+              "name": "East Rocky Mountain VII"
+            },
+            {
+              "id": 10004054,
+              "name": "East Rocky Mountain V"
+            }
+          ]
         },
         {
           "id": 10004056,
@@ -3482,8 +6075,17 @@
           "mob_rate": 0.6,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004055
+          ],
           "thumbnail": "images/maps/010004056.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004055,
+              "name": "East Rocky Mountain VI"
+            }
+          ]
         },
         {
           "id": 10004060,
@@ -3497,8 +6099,22 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004070,
+            10004050
+          ],
           "thumbnail": "images/maps/010004060.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004070,
+              "name": "Rocky Road II"
+            },
+            {
+              "id": 10004050,
+              "name": "East Rocky Mountain I"
+            }
+          ]
         },
         {
           "id": 10004070,
@@ -3512,8 +6128,22 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004080,
+            10004060
+          ],
           "thumbnail": "images/maps/010004070.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004080,
+              "name": "Rocky Road III"
+            },
+            {
+              "id": 10004060,
+              "name": "Rocky Road I"
+            }
+          ]
         },
         {
           "id": 10004080,
@@ -3527,8 +6157,22 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004090,
+            10004070
+          ],
           "thumbnail": "images/maps/010004080.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004090,
+              "name": "East Domain of Perion"
+            },
+            {
+              "id": 10004070,
+              "name": "Rocky Road II"
+            }
+          ]
         },
         {
           "id": 10004090,
@@ -3542,8 +6186,27 @@
           "mob_rate": 1.2,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004091,
+            10002070,
+            10004080
+          ],
           "thumbnail": "images/maps/010004090.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004091,
+              "name": "The Land of Wild Boar II"
+            },
+            {
+              "id": 10002070,
+              "name": "The Forest North of Ellinia"
+            },
+            {
+              "id": 10004080,
+              "name": "Rocky Road III"
+            }
+          ]
         },
         {
           "id": 10004091,
@@ -3557,8 +6220,17 @@
           "mob_rate": 1.1,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004090
+          ],
           "thumbnail": "images/maps/010004091.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004090,
+              "name": "East Domain of Perion"
+            }
+          ]
         },
         {
           "id": 10004100,
@@ -3572,8 +6244,27 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004101,
+            10004000,
+            10004110
+          ],
           "thumbnail": "images/maps/010004100.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004101,
+              "name": "Dangerous Valley"
+            },
+            {
+              "id": 10004000,
+              "name": "Perion"
+            },
+            {
+              "id": 10004110,
+              "name": "Deep Valley II"
+            }
+          ]
         },
         {
           "id": 10004101,
@@ -3587,8 +6278,22 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004100,
+            10004102
+          ],
           "thumbnail": "images/maps/010004101.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004100,
+              "name": "Deep Valley I"
+            },
+            {
+              "id": 10004102,
+              "name": "Dangerous Valley II"
+            }
+          ]
         },
         {
           "id": 10004102,
@@ -3602,8 +6307,17 @@
           "mob_rate": 0.6,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004101
+          ],
           "thumbnail": "images/maps/010004102.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004101,
+              "name": "Dangerous Valley"
+            }
+          ]
         },
         {
           "id": 10004110,
@@ -3617,8 +6331,27 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004111,
+            10004100,
+            10004120
+          ],
           "thumbnail": "images/maps/010004110.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004111,
+              "name": "The Burnt Land I"
+            },
+            {
+              "id": 10004100,
+              "name": "Deep Valley I"
+            },
+            {
+              "id": 10004120,
+              "name": "Deep Valley III"
+            }
+          ]
         },
         {
           "id": 10004111,
@@ -3632,8 +6365,22 @@
           "mob_rate": 0.6,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004112,
+            10004110
+          ],
           "thumbnail": "images/maps/010004111.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004112,
+              "name": "The Burnt Land II"
+            },
+            {
+              "id": 10004110,
+              "name": "Deep Valley II"
+            }
+          ]
         },
         {
           "id": 10004112,
@@ -3647,8 +6394,22 @@
           "mob_rate": 0.7,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004111,
+            10004113
+          ],
           "thumbnail": "images/maps/010004112.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004111,
+              "name": "The Burnt Land I"
+            },
+            {
+              "id": 10004113,
+              "name": "The Burnt Land III"
+            }
+          ]
         },
         {
           "id": 10004113,
@@ -3662,8 +6423,22 @@
           "mob_rate": 0.7,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004112,
+            10004114
+          ],
           "thumbnail": "images/maps/010004113.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004112,
+              "name": "The Burnt Land II"
+            },
+            {
+              "id": 10004114,
+              "name": "The Burnt Land IV"
+            }
+          ]
         },
         {
           "id": 10004114,
@@ -3677,8 +6452,22 @@
           "mob_rate": 0.7,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004113,
+            10004115
+          ],
           "thumbnail": "images/maps/010004114.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004113,
+              "name": "The Burnt Land III"
+            },
+            {
+              "id": 10004115,
+              "name": "The Burnt Land V"
+            }
+          ]
         },
         {
           "id": 10004115,
@@ -3692,8 +6481,17 @@
           "mob_rate": 0.7,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004114
+          ],
           "thumbnail": "images/maps/010004115.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004114,
+              "name": "The Burnt Land IV"
+            }
+          ]
         },
         {
           "id": 10004120,
@@ -3707,8 +6505,22 @@
           "mob_rate": null,
           "map_mark": "Perion",
           "npcs": [],
+          "exits": [
+            10004110,
+            10004121
+          ],
           "thumbnail": "images/maps/010004120.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004110,
+              "name": "Deep Valley II"
+            },
+            {
+              "id": 10004121,
+              "name": "Perion Dungeon Entrance"
+            }
+          ]
         },
         {
           "id": 10004121,
@@ -3724,8 +6536,22 @@
           "npcs": [
             513
           ],
+          "exits": [
+            10004120,
+            10005020
+          ],
           "thumbnail": "images/maps/010004121.png",
-          "return_map_name": "Perion"
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 10004120,
+              "name": "Deep Valley III"
+            },
+            {
+              "id": 10005020,
+              "name": "Deep Forest"
+            }
+          ]
         },
         {
           "id": 10005000,
@@ -3747,7 +6573,31 @@
             600,
             800015
           ],
-          "thumbnail": "images/maps/010005000.png"
+          "exits": [
+            10005050,
+            10005010,
+            10005060,
+            10005001
+          ],
+          "thumbnail": "images/maps/010005000.png",
+          "exit_names": [
+            {
+              "id": 10005050,
+              "name": "Sleepy Dungeon I"
+            },
+            {
+              "id": 10005010,
+              "name": "Swampy Land in a Deep Forest"
+            },
+            {
+              "id": 10005060,
+              "name": "Ant Tunnel I"
+            },
+            {
+              "id": 10005001,
+              "name": "Sleepywood Hotel"
+            }
+          ]
         },
         {
           "id": 10005001,
@@ -3763,8 +6613,17 @@
           "npcs": [
             606
           ],
+          "exits": [
+            10005000
+          ],
           "thumbnail": null,
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005000,
+              "name": "Sleepywood"
+            }
+          ]
         },
         {
           "id": 10005002,
@@ -3780,8 +6639,17 @@
           "npcs": [
             607
           ],
+          "exits": [
+            10005001
+          ],
           "thumbnail": null,
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005001,
+              "name": "Sleepywood Hotel"
+            }
+          ]
         },
         {
           "id": 10005003,
@@ -3797,8 +6665,17 @@
           "npcs": [
             608
           ],
+          "exits": [
+            10005001
+          ],
           "thumbnail": null,
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005001,
+              "name": "Sleepywood Hotel"
+            }
+          ]
         },
         {
           "id": 10005010,
@@ -3812,8 +6689,32 @@
           "mob_rate": 1.5,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005020,
+            10005000,
+            10005011,
+            10001100
+          ],
           "thumbnail": "images/maps/010005010.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005020,
+              "name": "Deep Forest"
+            },
+            {
+              "id": 10005000,
+              "name": "Sleepywood"
+            },
+            {
+              "id": 10005011,
+              "name": "Hunting Ground in the Deep Forest I"
+            },
+            {
+              "id": 10001100,
+              "name": "Henesys Dungeon Entrance"
+            }
+          ]
         },
         {
           "id": 10005011,
@@ -3827,8 +6728,22 @@
           "mob_rate": 0.9,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005010,
+            10005012
+          ],
           "thumbnail": "images/maps/010005011.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005010,
+              "name": "Swampy Land in a Deep Forest"
+            },
+            {
+              "id": 10005012,
+              "name": "Hunting Ground in the Deep Forest II"
+            }
+          ]
         },
         {
           "id": 10005012,
@@ -3842,8 +6757,17 @@
           "mob_rate": 0.8,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005011
+          ],
           "thumbnail": "images/maps/010005012.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005011,
+              "name": "Hunting Ground in the Deep Forest I"
+            }
+          ]
         },
         {
           "id": 10005020,
@@ -3857,8 +6781,27 @@
           "mob_rate": 0.9,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005010,
+            10004121,
+            10005030
+          ],
           "thumbnail": "images/maps/010005020.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005010,
+              "name": "Swampy Land in a Deep Forest"
+            },
+            {
+              "id": 10004121,
+              "name": "Perion Dungeon Entrance"
+            },
+            {
+              "id": 10005030,
+              "name": "Damp Tree-Forest"
+            }
+          ]
         },
         {
           "id": 10005030,
@@ -3872,8 +6815,27 @@
           "mob_rate": null,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005031,
+            10003094,
+            10005020
+          ],
           "thumbnail": "images/maps/010005030.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005031,
+              "name": "Damp Forest"
+            },
+            {
+              "id": 10003094,
+              "name": "Dangerous Croko II"
+            },
+            {
+              "id": 10005020,
+              "name": "Deep Forest"
+            }
+          ]
         },
         {
           "id": 10005031,
@@ -3887,8 +6849,17 @@
           "mob_rate": 0.8,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005030
+          ],
           "thumbnail": "images/maps/010005031.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005030,
+              "name": "Damp Tree-Forest"
+            }
+          ]
         },
         {
           "id": 10005040,
@@ -3904,8 +6875,17 @@
           "npcs": [
             610
           ],
+          "exits": [
+            10005041
+          ],
           "thumbnail": "images/maps/010005040.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005041,
+              "name": "The Deep Forest of Patience <Step 2>"
+            }
+          ]
         },
         {
           "id": 10005041,
@@ -3922,6 +6902,7 @@
             610,
             611
           ],
+          "exits": [],
           "thumbnail": "images/maps/010005041.png",
           "return_map_name": "Sleepywood"
         },
@@ -3939,8 +6920,17 @@
           "npcs": [
             610
           ],
+          "exits": [
+            10005043
+          ],
           "thumbnail": "images/maps/010005042.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005043,
+              "name": "The Deep Forest of Patience <Step 4>"
+            }
+          ]
         },
         {
           "id": 10005043,
@@ -3957,6 +6947,7 @@
             610,
             612
           ],
+          "exits": [],
           "thumbnail": "images/maps/010005043.png",
           "return_map_name": "Sleepywood"
         },
@@ -3975,8 +6966,17 @@
             610,
             610
           ],
+          "exits": [
+            10005045
+          ],
           "thumbnail": "images/maps/010005044.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005045,
+              "name": "The Deep Forest of Patience <Step 6>"
+            }
+          ]
         },
         {
           "id": 10005045,
@@ -3992,8 +6992,17 @@
           "npcs": [
             610
           ],
+          "exits": [
+            10005046
+          ],
           "thumbnail": "images/maps/010005045.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005046,
+              "name": "The Deep Forest of Patience <Step 7>"
+            }
+          ]
         },
         {
           "id": 10005046,
@@ -4010,6 +7019,7 @@
             610,
             613
           ],
+          "exits": [],
           "thumbnail": "images/maps/010005046.png",
           "return_map_name": "Sleepywood"
         },
@@ -4027,8 +7037,22 @@
           "npcs": [
             616
           ],
+          "exits": [
+            10005000,
+            10005051
+          ],
           "thumbnail": "images/maps/010005050.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005000,
+              "name": "Sleepywood"
+            },
+            {
+              "id": 10005051,
+              "name": "Sleepy Dungeon II"
+            }
+          ]
         },
         {
           "id": 10005051,
@@ -4042,8 +7066,22 @@
           "mob_rate": 0.7,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005052,
+            10005050
+          ],
           "thumbnail": "images/maps/010005051.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005052,
+              "name": "Sleepy Dungeon III"
+            },
+            {
+              "id": 10005050,
+              "name": "Sleepy Dungeon I"
+            }
+          ]
         },
         {
           "id": 10005052,
@@ -4057,8 +7095,22 @@
           "mob_rate": 0.6,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005053,
+            10005051
+          ],
           "thumbnail": "images/maps/010005052.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005053,
+              "name": "Sleepy Dungeon IV"
+            },
+            {
+              "id": 10005051,
+              "name": "Sleepy Dungeon II"
+            }
+          ]
         },
         {
           "id": 10005053,
@@ -4072,8 +7124,22 @@
           "mob_rate": 0.6,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005054,
+            10005052
+          ],
           "thumbnail": "images/maps/010005053.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005054,
+              "name": "Sleepy Dungeon V"
+            },
+            {
+              "id": 10005052,
+              "name": "Sleepy Dungeon III"
+            }
+          ]
         },
         {
           "id": 10005054,
@@ -4087,8 +7153,17 @@
           "mob_rate": 0.7,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005053
+          ],
           "thumbnail": "images/maps/010005054.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005053,
+              "name": "Sleepy Dungeon IV"
+            }
+          ]
         },
         {
           "id": 10005060,
@@ -4102,8 +7177,22 @@
           "mob_rate": 0.6,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005061,
+            10005000
+          ],
           "thumbnail": "images/maps/010005060.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005061,
+              "name": "Ant Tunnel II"
+            },
+            {
+              "id": 10005000,
+              "name": "Sleepywood"
+            }
+          ]
         },
         {
           "id": 10005061,
@@ -4117,8 +7206,22 @@
           "mob_rate": 0.8,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005060,
+            10005062
+          ],
           "thumbnail": "images/maps/010005061.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005060,
+              "name": "Ant Tunnel I"
+            },
+            {
+              "id": 10005062,
+              "name": "Ant Tunnel III"
+            }
+          ]
         },
         {
           "id": 10005062,
@@ -4132,8 +7235,22 @@
           "mob_rate": 0.6,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005061,
+            10005063
+          ],
           "thumbnail": "images/maps/010005062.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005061,
+              "name": "Ant Tunnel II"
+            },
+            {
+              "id": 10005063,
+              "name": "Ant Tunnel IV"
+            }
+          ]
         },
         {
           "id": 10005063,
@@ -4147,8 +7264,22 @@
           "mob_rate": 0.6,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005064,
+            10005062
+          ],
           "thumbnail": "images/maps/010005063.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005064,
+              "name": "Dark Cave"
+            },
+            {
+              "id": 10005062,
+              "name": "Ant Tunnel III"
+            }
+          ]
         },
         {
           "id": 10005064,
@@ -4162,8 +7293,22 @@
           "mob_rate": 1.2,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005063,
+            10005065
+          ],
           "thumbnail": "images/maps/010005064.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005063,
+              "name": "Ant Tunnel IV"
+            },
+            {
+              "id": 10005065,
+              "name": "Dangerous Steam"
+            }
+          ]
         },
         {
           "id": 10005065,
@@ -4177,8 +7322,22 @@
           "mob_rate": 1.1,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005064,
+            10005066
+          ],
           "thumbnail": "images/maps/010005065.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005064,
+              "name": "Dark Cave"
+            },
+            {
+              "id": 10005066,
+              "name": "Deep Ant Tunnel I"
+            }
+          ]
         },
         {
           "id": 10005066,
@@ -4192,8 +7351,22 @@
           "mob_rate": 0.6,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005067,
+            10005065
+          ],
           "thumbnail": "images/maps/010005066.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005067,
+              "name": "Deep Ant Tunnel II"
+            },
+            {
+              "id": 10005065,
+              "name": "Dangerous Steam"
+            }
+          ]
         },
         {
           "id": 10005067,
@@ -4207,8 +7380,22 @@
           "mob_rate": 0.6,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005070,
+            10005066
+          ],
           "thumbnail": "images/maps/010005067.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005070,
+              "name": "Ant Tunnel Park"
+            },
+            {
+              "id": 10005066,
+              "name": "Deep Ant Tunnel I"
+            }
+          ]
         },
         {
           "id": 10005070,
@@ -4224,8 +7411,27 @@
           "npcs": [
             614
           ],
+          "exits": [
+            10005078,
+            10005067,
+            10005071
+          ],
           "thumbnail": "images/maps/010005070.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005078,
+              "name": "The Grave of Mushmom"
+            },
+            {
+              "id": 10005067,
+              "name": "Deep Ant Tunnel II"
+            },
+            {
+              "id": 10005071,
+              "name": "The Cave of Evil Eye I"
+            }
+          ]
         },
         {
           "id": 10005071,
@@ -4239,8 +7445,22 @@
           "mob_rate": null,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005070,
+            10005072
+          ],
           "thumbnail": "images/maps/010005071.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005070,
+              "name": "Ant Tunnel Park"
+            },
+            {
+              "id": 10005072,
+              "name": "The Cave of Evil Eye II"
+            }
+          ]
         },
         {
           "id": 10005072,
@@ -4254,8 +7474,22 @@
           "mob_rate": null,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005071,
+            10005073
+          ],
           "thumbnail": "images/maps/010005072.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005071,
+              "name": "The Cave of Evil Eye I"
+            },
+            {
+              "id": 10005073,
+              "name": "The Cave of Evil Eye III"
+            }
+          ]
         },
         {
           "id": 10005073,
@@ -4269,8 +7503,22 @@
           "mob_rate": null,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005072,
+            10005074
+          ],
           "thumbnail": "images/maps/010005073.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005072,
+              "name": "The Cave of Evil Eye II"
+            },
+            {
+              "id": 10005074,
+              "name": "The Cave of Evil Eye IV"
+            }
+          ]
         },
         {
           "id": 10005074,
@@ -4284,8 +7532,22 @@
           "mob_rate": null,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005073,
+            10005075
+          ],
           "thumbnail": "images/maps/010005074.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005073,
+              "name": "The Cave of Evil Eye III"
+            },
+            {
+              "id": 10005075,
+              "name": "Drake Hunting Ground"
+            }
+          ]
         },
         {
           "id": 10005075,
@@ -4299,8 +7561,22 @@
           "mob_rate": null,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005074,
+            10005076
+          ],
           "thumbnail": "images/maps/010005075.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005074,
+              "name": "The Cave of Evil Eye IV"
+            },
+            {
+              "id": 10005076,
+              "name": "The Tunnel That Lost Light I"
+            }
+          ]
         },
         {
           "id": 10005076,
@@ -4314,8 +7590,22 @@
           "mob_rate": 0.8,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005075,
+            10005077
+          ],
           "thumbnail": "images/maps/010005076.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005075,
+              "name": "Drake Hunting Ground"
+            },
+            {
+              "id": 10005077,
+              "name": "The Tunnel That Lost Light II"
+            }
+          ]
         },
         {
           "id": 10005077,
@@ -4329,8 +7619,22 @@
           "mob_rate": 0.6,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005080,
+            10005076
+          ],
           "thumbnail": "images/maps/010005077.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005080,
+              "name": "Another Entrance"
+            },
+            {
+              "id": 10005076,
+              "name": "The Tunnel That Lost Light I"
+            }
+          ]
         },
         {
           "id": 10005078,
@@ -4344,8 +7648,17 @@
           "mob_rate": null,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005070
+          ],
           "thumbnail": "images/maps/010005078.png",
-          "return_map_name": "Ant Tunnel Park"
+          "return_map_name": "Ant Tunnel Park",
+          "exit_names": [
+            {
+              "id": 10005070,
+              "name": "Ant Tunnel Park"
+            }
+          ]
         },
         {
           "id": 10005080,
@@ -4359,8 +7672,27 @@
           "mob_rate": null,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005090,
+            10005100,
+            10005077
+          ],
           "thumbnail": "images/maps/010005080.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005090,
+              "name": "Drake's Meal Table"
+            },
+            {
+              "id": 10005100,
+              "name": "Another Path"
+            },
+            {
+              "id": 10005077,
+              "name": "The Tunnel That Lost Light II"
+            }
+          ]
         },
         {
           "id": 10005090,
@@ -4374,8 +7706,22 @@
           "mob_rate": 0.7,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005080,
+            10005091
+          ],
           "thumbnail": "images/maps/010005090.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005080,
+              "name": "Another Entrance"
+            },
+            {
+              "id": 10005091,
+              "name": "Wild Kargo's Area"
+            }
+          ]
         },
         {
           "id": 10005091,
@@ -4389,8 +7735,17 @@
           "mob_rate": null,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005090
+          ],
           "thumbnail": "images/maps/010005091.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005090,
+              "name": "Drake's Meal Table"
+            }
+          ]
         },
         {
           "id": 10005100,
@@ -4404,8 +7759,22 @@
           "mob_rate": 0.8,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005080,
+            10005101
+          ],
           "thumbnail": "images/maps/010005100.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005080,
+              "name": "Another Entrance"
+            },
+            {
+              "id": 10005101,
+              "name": "Sanctuary Entrance I"
+            }
+          ]
         },
         {
           "id": 10005101,
@@ -4419,8 +7788,22 @@
           "mob_rate": 0.8,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005100,
+            10005102
+          ],
           "thumbnail": "images/maps/010005101.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005100,
+              "name": "Another Path"
+            },
+            {
+              "id": 10005102,
+              "name": "Sanctuary Entrance II"
+            }
+          ]
         },
         {
           "id": 10005102,
@@ -4434,8 +7817,22 @@
           "mob_rate": 0.8,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005101,
+            10005103
+          ],
           "thumbnail": "images/maps/010005102.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005101,
+              "name": "Sanctuary Entrance I"
+            },
+            {
+              "id": 10005103,
+              "name": "Sanctuary Entrance III"
+            }
+          ]
         },
         {
           "id": 10005103,
@@ -4449,8 +7846,22 @@
           "mob_rate": 0.8,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005102,
+            10005104
+          ],
           "thumbnail": "images/maps/010005103.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005102,
+              "name": "Sanctuary Entrance II"
+            },
+            {
+              "id": 10005104,
+              "name": "Sanctuary Entrance IV"
+            }
+          ]
         },
         {
           "id": 10005104,
@@ -4464,8 +7875,22 @@
           "mob_rate": 0.8,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005103,
+            10005105
+          ],
           "thumbnail": "images/maps/010005104.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005103,
+              "name": "Sanctuary Entrance III"
+            },
+            {
+              "id": 10005105,
+              "name": "The Cursed Sanctuary"
+            }
+          ]
         },
         {
           "id": 10005105,
@@ -4479,8 +7904,17 @@
           "mob_rate": 0.8,
           "map_mark": "Dungeon",
           "npcs": [],
+          "exits": [
+            10005104
+          ],
           "thumbnail": "images/maps/010005105.png",
-          "return_map_name": "Sleepywood"
+          "return_map_name": "Sleepywood",
+          "exit_names": [
+            {
+              "id": 10005104,
+              "name": "Sanctuary Entrance IV"
+            }
+          ]
         },
         {
           "id": 10006000,
@@ -4499,7 +7933,31 @@
             707,
             800015
           ],
-          "thumbnail": "images/maps/010006000.png"
+          "exits": [
+            10006070,
+            10006010,
+            10006002,
+            10006001
+          ],
+          "thumbnail": "images/maps/010006000.png",
+          "exit_names": [
+            {
+              "id": 10006070,
+              "name": "The End of Fleeting Light"
+            },
+            {
+              "id": 10006010,
+              "name": "Primeval Forest I"
+            },
+            {
+              "id": 10006002,
+              "name": "Cave Fairy Department Store"
+            },
+            {
+              "id": 10006001,
+              "name": "Cave Fairy Sanctuary"
+            }
+          ]
         },
         {
           "id": 10006001,
@@ -4516,8 +7974,17 @@
             701,
             702
           ],
+          "exits": [
+            10006000
+          ],
           "thumbnail": null,
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006000,
+              "name": "Forgotten Hollow"
+            }
+          ]
         },
         {
           "id": 10006002,
@@ -4534,8 +8001,17 @@
             700,
             704
           ],
+          "exits": [
+            10006000
+          ],
           "thumbnail": null,
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006000,
+              "name": "Forgotten Hollow"
+            }
+          ]
         },
         {
           "id": 10006010,
@@ -4549,8 +8025,22 @@
           "mob_rate": 0.6,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006000,
+            10006020
+          ],
           "thumbnail": "images/maps/010006010.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006000,
+              "name": "Forgotten Hollow"
+            },
+            {
+              "id": 10006020,
+              "name": "Primeval Forest II"
+            }
+          ]
         },
         {
           "id": 10006020,
@@ -4564,8 +8054,22 @@
           "mob_rate": null,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006030,
+            10006010
+          ],
           "thumbnail": "images/maps/010006020.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006030,
+              "name": "Primeval Forest III"
+            },
+            {
+              "id": 10006010,
+              "name": "Primeval Forest I"
+            }
+          ]
         },
         {
           "id": 10006030,
@@ -4579,8 +8083,27 @@
           "mob_rate": 0.7,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006031,
+            10006040,
+            10006020
+          ],
           "thumbnail": "images/maps/010006030.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006031,
+              "name": "The Valley of Death"
+            },
+            {
+              "id": 10006040,
+              "name": "Forgotten Entrance I"
+            },
+            {
+              "id": 10006020,
+              "name": "Primeval Forest II"
+            }
+          ]
         },
         {
           "id": 10006031,
@@ -4594,8 +8117,17 @@
           "mob_rate": 0.8,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006030
+          ],
           "thumbnail": "images/maps/010006031.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006030,
+              "name": "Primeval Forest III"
+            }
+          ]
         },
         {
           "id": 10006040,
@@ -4609,8 +8141,22 @@
           "mob_rate": 0.5,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006030,
+            10006050
+          ],
           "thumbnail": "images/maps/010006040.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006030,
+              "name": "Primeval Forest III"
+            },
+            {
+              "id": 10006050,
+              "name": "Forgotten Entrance II"
+            }
+          ]
         },
         {
           "id": 10006050,
@@ -4624,8 +8170,22 @@
           "mob_rate": 0.7,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006040,
+            10006060
+          ],
           "thumbnail": "images/maps/010006050.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006040,
+              "name": "Forgotten Entrance I"
+            },
+            {
+              "id": 10006060,
+              "name": "Forgotten Entrance III"
+            }
+          ]
         },
         {
           "id": 10006060,
@@ -4639,8 +8199,22 @@
           "mob_rate": 0.7,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006050,
+            10002071
+          ],
           "thumbnail": "images/maps/010006060.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006050,
+              "name": "Forgotten Entrance II"
+            },
+            {
+              "id": 10002071,
+              "name": "The Tree Tunnel At the Forest Up North"
+            }
+          ]
         },
         {
           "id": 10006070,
@@ -4654,8 +8228,27 @@
           "mob_rate": 0.6,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006071,
+            10006080,
+            10006000
+          ],
           "thumbnail": "images/maps/010006070.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006071,
+              "name": "Forgotten Dungeon Tunnel"
+            },
+            {
+              "id": 10006080,
+              "name": "Forbidden Entrance"
+            },
+            {
+              "id": 10006000,
+              "name": "Forgotten Hollow"
+            }
+          ]
         },
         {
           "id": 10006071,
@@ -4669,8 +8262,22 @@
           "mob_rate": 0.7,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006070,
+            10005054
+          ],
           "thumbnail": "images/maps/010006071.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006070,
+              "name": "The End of Fleeting Light"
+            },
+            {
+              "id": 10005054,
+              "name": "Sleepy Dungeon V"
+            }
+          ]
         },
         {
           "id": 10006080,
@@ -4684,8 +8291,22 @@
           "mob_rate": 0.7,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006090,
+            10006070
+          ],
           "thumbnail": "images/maps/010006080.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006090,
+              "name": "Perilous Descent I"
+            },
+            {
+              "id": 10006070,
+              "name": "The End of Fleeting Light"
+            }
+          ]
         },
         {
           "id": 10006090,
@@ -4701,8 +8322,22 @@
           "npcs": [
             703
           ],
+          "exits": [
+            10006080,
+            10006100
+          ],
           "thumbnail": "images/maps/010006090.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006080,
+              "name": "Forbidden Entrance"
+            },
+            {
+              "id": 10006100,
+              "name": "Perilous Descent II"
+            }
+          ]
         },
         {
           "id": 10006100,
@@ -4716,8 +8351,22 @@
           "mob_rate": 0.7,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006110,
+            10006090
+          ],
           "thumbnail": "images/maps/010006100.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006110,
+              "name": "Perilous Descent III"
+            },
+            {
+              "id": 10006090,
+              "name": "Perilous Descent I"
+            }
+          ]
         },
         {
           "id": 10006110,
@@ -4731,8 +8380,22 @@
           "mob_rate": 0.7,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006100,
+            10006120
+          ],
           "thumbnail": "images/maps/010006110.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006100,
+              "name": "Perilous Descent II"
+            },
+            {
+              "id": 10006120,
+              "name": "Decayed Tunnel I"
+            }
+          ]
         },
         {
           "id": 10006120,
@@ -4746,8 +8409,22 @@
           "mob_rate": null,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006121,
+            10006110
+          ],
           "thumbnail": "images/maps/010006120.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006121,
+              "name": "Someone Else's Grave"
+            },
+            {
+              "id": 10006110,
+              "name": "Perilous Descent III"
+            }
+          ]
         },
         {
           "id": 10006121,
@@ -4761,8 +8438,22 @@
           "mob_rate": null,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006120,
+            10006152
+          ],
           "thumbnail": "images/maps/010006121.png",
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006120,
+              "name": "Decayed Tunnel I"
+            },
+            {
+              "id": 10006152,
+              "name": "Bygone Days"
+            }
+          ]
         },
         {
           "id": 10006152,
@@ -4776,8 +8467,17 @@
           "mob_rate": null,
           "map_mark": "ForgottenHollow",
           "npcs": [],
+          "exits": [
+            10006121
+          ],
           "thumbnail": null,
-          "return_map_name": "Forgotten Hollow"
+          "return_map_name": "Forgotten Hollow",
+          "exit_names": [
+            {
+              "id": 10006121,
+              "name": "Someone Else's Grave"
+            }
+          ]
         },
         {
           "id": 10007000,
@@ -4797,7 +8497,16 @@
             803,
             804
           ],
-          "thumbnail": "images/maps/010007000.png"
+          "exits": [
+            10007010
+          ],
+          "thumbnail": "images/maps/010007000.png",
+          "exit_names": [
+            {
+              "id": 10007010,
+              "name": "A Look-Out Shed Around the Beach"
+            }
+          ]
         },
         {
           "id": 10007010,
@@ -4811,8 +8520,22 @@
           "mob_rate": 1.1,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10007000,
+            10007020
+          ],
           "thumbnail": "images/maps/010007010.png",
-          "return_map_name": "Florina Beach"
+          "return_map_name": "Florina Beach",
+          "exit_names": [
+            {
+              "id": 10007000,
+              "name": "Florina Beach"
+            },
+            {
+              "id": 10007020,
+              "name": "Lorang Lorang"
+            }
+          ]
         },
         {
           "id": 10007020,
@@ -4826,8 +8549,27 @@
           "mob_rate": 1.1,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10007021,
+            10007010,
+            10007030
+          ],
           "thumbnail": "images/maps/010007020.png",
-          "return_map_name": "Florina Beach"
+          "return_map_name": "Florina Beach",
+          "exit_names": [
+            {
+              "id": 10007021,
+              "name": "Lorang Lorang Lorang"
+            },
+            {
+              "id": 10007010,
+              "name": "A Look-Out Shed Around the Beach"
+            },
+            {
+              "id": 10007030,
+              "name": "Lorang and Clang"
+            }
+          ]
         },
         {
           "id": 10007021,
@@ -4841,8 +8583,17 @@
           "mob_rate": 1.2,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10007020
+          ],
           "thumbnail": "images/maps/010007021.png",
-          "return_map_name": "Florina Beach"
+          "return_map_name": "Florina Beach",
+          "exit_names": [
+            {
+              "id": 10007020,
+              "name": "Lorang Lorang"
+            }
+          ]
         },
         {
           "id": 10007030,
@@ -4856,8 +8607,27 @@
           "mob_rate": null,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10007031,
+            10007020,
+            10007040
+          ],
           "thumbnail": "images/maps/010007030.png",
-          "return_map_name": "Florina Beach"
+          "return_map_name": "Florina Beach",
+          "exit_names": [
+            {
+              "id": 10007031,
+              "name": "Clang and Lorang"
+            },
+            {
+              "id": 10007020,
+              "name": "Lorang Lorang"
+            },
+            {
+              "id": 10007040,
+              "name": "Hot Sand"
+            }
+          ]
         },
         {
           "id": 10007031,
@@ -4871,8 +8641,17 @@
           "mob_rate": null,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10007030
+          ],
           "thumbnail": "images/maps/010007031.png",
-          "return_map_name": "Florina Beach"
+          "return_map_name": "Florina Beach",
+          "exit_names": [
+            {
+              "id": 10007030,
+              "name": "Lorang and Clang"
+            }
+          ]
         },
         {
           "id": 10007040,
@@ -4886,8 +8665,17 @@
           "mob_rate": 1.2,
           "map_mark": "Rith",
           "npcs": [],
+          "exits": [
+            10007030
+          ],
           "thumbnail": "images/maps/010007040.png",
-          "return_map_name": "Florina Beach"
+          "return_map_name": "Florina Beach",
+          "exit_names": [
+            {
+              "id": 10007030,
+              "name": "Lorang and Clang"
+            }
+          ]
         }
       ]
     }
