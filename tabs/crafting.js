@@ -13,6 +13,12 @@ function toItemThumbPath(itemId) {
   return `images/items/${String(n).padStart(8, '0')}.png`;
 }
 
+function toMobThumbPath(mobId) {
+  const n = Number(mobId);
+  if (!Number.isFinite(n) || n < 0) return '';
+  return `images/monsters/${String(n).padStart(7, '0')}.png`;
+}
+
 // --- Tooltip ---
 let _tooltip = null;
 function getTooltip() {
@@ -24,7 +30,7 @@ function getTooltip() {
 }
 
 
-function showItemTooltip(e, itemData) {
+export function showItemTooltip(e, itemData) {
   if (!itemData) return;
   const tip = getTooltip();
   tip.innerHTML = '';
@@ -89,12 +95,49 @@ function positionTooltip(tip, e) {
   tip.style.visibility = '';
 }
 
-function hideItemTooltip() {
+export function hideItemTooltip() {
   if (_tooltip) _tooltip.classList.remove('visible');
 }
 
-function attachTooltip(element, getItemData) {
-  element.addEventListener('mouseenter', (e) => showItemTooltip(e, getItemData()));
+export function showMobTooltip(e, mobData) {
+  if (!mobData) return;
+  const tip = getTooltip();
+  tip.innerHTML = '';
+
+  const header = el('div', { className: 'item-tooltip-header' });
+  const thumbSrc = toMobThumbPath(mobData.id);
+  if (thumbSrc) {
+    const img = el('img', { className: 'item-tooltip-thumb', loading: 'lazy' });
+    img.src = normalizeAssetPath(thumbSrc);
+    img.addEventListener('error', () => img.remove(), { once: true });
+    header.appendChild(img);
+  }
+  const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' } });
+  nameWrap.appendChild(el('span', { className: 'item-tooltip-name', textContent: mobData.name }));
+  if (mobData.level) {
+    nameWrap.appendChild(el('span', { className: 'equip-type-badge', textContent: `Lv.${mobData.level}` }));
+  }
+  header.appendChild(nameWrap);
+  tip.appendChild(header);
+
+  const stats = [];
+  if (mobData.hp != null) stats.push(`HP: ${mobData.hp.toLocaleString()}`);
+  if (mobData.exp != null) stats.push(`EXP: ${mobData.exp.toLocaleString()}`);
+  if (stats.length) {
+    tip.appendChild(el('p', { className: 'item-tooltip-desc', textContent: stats.join('  ·  ') }));
+  } else {
+    tip.appendChild(el('span', { className: 'item-tooltip-desc', textContent: 'No details available.' }));
+  }
+
+  positionTooltip(tip, e);
+  tip.classList.add('visible');
+}
+
+export function attachTooltip(element, getData, type = 'item') {
+  element.addEventListener('mouseenter', (e) => {
+    if (type === 'mob') showMobTooltip(e, getData());
+    else showItemTooltip(e, getData());
+  });
   element.addEventListener('mousemove', (e) => {
     if (_tooltip?.classList.contains('visible')) positionTooltip(_tooltip, e);
   });

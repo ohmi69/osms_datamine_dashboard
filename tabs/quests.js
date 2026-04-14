@@ -1,4 +1,5 @@
 import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
+import { attachTooltip } from '../lib/utils.js';
 
 function parseIdFilter(query) {
   const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
@@ -84,13 +85,65 @@ function formatRequirementLabel(requirement) {
   return `${requirement.name} x ${requirement.count}`;
 }
 
-function renderRequirementChips(requirements) {
+function renderRequirementChips(requirements, itemById, monsterById) {
   const wrap = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px' } });
   requirements.forEach((requirement) => {
-    wrap.appendChild(
-      el(
+    // Only make items clickable
+    let chip;
+    if (requirement.type === 'item' || requirement.type === 'mob') {
+      // Items: link to items/equipment, Mobs: link to monsters tab
+      let tabId = 'items';
+      let isMob = requirement.type === 'mob';
+      if (isMob) tabId = 'monsters';
+      else if (requirement.category === 'Equipment') {
+        tabId = 'equipment';
+      } else if (!requirement.category && typeof requirement.id !== 'undefined') {
+        const idNum = Number(requirement.id);
+        if (idNum >= 1000000 && idNum < 2000000) {
+          tabId = 'equipment';
+        }
+      }
+      chip = el(
         'span',
-        { style: rewardChipStyle, className: 'quest-requirement-chip' },
+        {
+          style: { ...rewardChipStyle, cursor: 'pointer' },
+          className: 'quest-requirement-chip',
+          tabIndex: 0,
+          role: 'button'
+        },
+        makeThumbnail(
+          getRequirementThumbPath(requirement),
+          `${requirement.name || requirement.label || 'Requirement'} thumbnail`,
+          {
+            className: isMob ? 'monster-thumb' : 'item-thumb',
+            fallbackText: isMob ? 'MOB' : 'ITEM',
+          }
+        ),
+        el('span', { textContent: formatRequirementLabel(requirement) })
+      );
+      chip.addEventListener('click', () => {
+        window.location.hash = `#${tabId}?q=${encodeURIComponent('id:' + requirement.id)}`;
+      });
+      chip.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          window.location.hash = `#${tabId}?q=${encodeURIComponent('id:' + requirement.id)}`;
+          e.preventDefault();
+        }
+      });
+      if (isMob) {
+        attachTooltip(chip, () => monsterById.get(String(requirement.id)), 'mob');
+      } else {
+        attachTooltip(chip, () => itemById.get(String(requirement.id)));
+      }
+    } else {
+      chip = el(
+        'span',
+        {
+          style: { ...rewardChipStyle, cursor: 'pointer' },
+          className: 'quest-requirement-chip',
+          tabIndex: 0,
+          role: 'button'
+        },
         makeThumbnail(
           getRequirementThumbPath(requirement),
           `${requirement.name || requirement.label || 'Requirement'} thumbnail`,
@@ -100,8 +153,17 @@ function renderRequirementChips(requirements) {
           }
         ),
         el('span', { textContent: formatRequirementLabel(requirement) })
-      )
-    );
+      );
+      // Tooltip on hover (for non-clickable chips)
+      if (chip) {
+        if (requirement.type === 'mob') {
+          attachTooltip(chip, () => monsterById.get(String(requirement.id)), 'mob');
+        } else if (requirement.type === 'item') {
+          attachTooltip(chip, () => itemById.get(String(requirement.id)));
+        }
+      }
+    }
+    wrap.appendChild(chip);
   });
   return wrap;
 }
@@ -125,25 +187,50 @@ function formatRewardItemLabel(item) {
   return base;
 }
 
-function renderRewardItemChips(itemList) {
+function renderRewardItemChips(itemList, itemById) {
   const wrap = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px' } });
   itemList.forEach((item) => {
-    wrap.appendChild(
-      el(
-        'span',
-        { style: rewardChipStyle, className: 'quest-reward-chip' },
-        makeThumbnail(getItemThumbPath(item.id), `${item.name || item.label || 'Reward'} thumbnail`, {
-          className: 'item-thumb',
-          fallbackText: 'ITEM',
-        }),
-        el('span', { textContent: formatRewardItemLabel(item) })
-      )
+    // Determine tab: equipment if category is Equipment, else items. If category is missing, infer from item ID.
+    let tabId = 'items';
+    if (item.category === 'Equipment') {
+      tabId = 'equipment';
+    } else if (!item.category && typeof item.id !== 'undefined') {
+      // Equipment item IDs in MapleStory typically start with 1 (e.g., 1002001)
+      const idNum = Number(item.id);
+      if (idNum >= 1000000 && idNum < 2000000) {
+        tabId = 'equipment';
+      }
+    }
+    const chip = el(
+      'span',
+      {
+        style: { ...rewardChipStyle, cursor: 'pointer' },
+        className: 'quest-reward-chip',
+        tabIndex: 0,
+        role: 'button'
+      },
+      makeThumbnail(getItemThumbPath(item.id), `${item.name || item.label || 'Reward'} thumbnail`, {
+        className: 'item-thumb',
+        fallbackText: 'ITEM',
+      }),
+      el('span', { textContent: formatRewardItemLabel(item) }),
     );
+    chip.addEventListener('click', () => {
+      window.location.hash = `#${tabId}?q=${encodeURIComponent('id:' + item.id)}`;
+    });
+    chip.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        window.location.hash = `#${tabId}?q=${encodeURIComponent('id:' + item.id)}`;
+        e.preventDefault();
+      }
+    });
+    attachTooltip(chip, () => itemById.get(String(item.id)));
+    wrap.appendChild(chip);
   });
   return wrap;
 }
 
-function renderRewardContent(quest) {
+function renderRewardContent(quest, itemById) {
   const rewardChoices = Array.isArray(quest.reward_choices) ? quest.reward_choices : [];
   const rewardWeighted = Array.isArray(quest.reward_weighted) ? quest.reward_weighted : [];
   const weightedItems = (Array.isArray(quest.rewards) ? quest.rewards : []).filter(
@@ -204,7 +291,7 @@ function renderRewardContent(quest) {
         })
       );
     }
-    content.appendChild(renderRewardItemChips(guaranteedItems));
+    content.appendChild(renderRewardItemChips(guaranteedItems, itemById));
   }
 
   weightedBlocks.forEach((weighted) => {
@@ -236,7 +323,7 @@ function renderRewardContent(quest) {
         ...item,
         total_weight: group.total_weight,
       }));
-      groupBlock.appendChild(renderRewardItemChips(itemsWithChance));
+      groupBlock.appendChild(renderRewardItemChips(itemsWithChance, itemById));
       weightedBlock.appendChild(groupBlock);
     });
 
@@ -266,7 +353,7 @@ function renderRewardContent(quest) {
           })
         );
       }
-      groupBlock.appendChild(renderRewardItemChips(group.items));
+      groupBlock.appendChild(renderRewardItemChips(group.items, itemById));
       choiceBlock.appendChild(groupBlock);
     });
 
@@ -276,7 +363,7 @@ function renderRewardContent(quest) {
   return content;
 }
 
-function renderQuestCard(quest, completionState, onToggleCompletion) {
+function renderQuestCard(quest, completionState, onToggleCompletion, itemById, monsterById) {
   const card = el('div', { className: 'quest-card' });
   const nameRow = el('div', { className: 'quest-name' });
 
@@ -328,7 +415,7 @@ function renderQuestCard(quest, completionState, onToggleCompletion) {
   if (Array.isArray(quest.requirements_list) && quest.requirements_list.length) {
     const reqBox = el('div', { className: 'quest-meta-box', style: { marginTop: '8px' } });
     reqBox.appendChild(el('span', { className: 'label', textContent: 'Requirements: ' }));
-    reqBox.appendChild(renderRequirementChips(quest.requirements_list));
+    reqBox.appendChild(renderRequirementChips(quest.requirements_list, itemById, monsterById));
     card.appendChild(reqBox);
   } else if (quest.requirements) {
     const reqBox = el('div', { className: 'quest-meta-box', style: { marginTop: '8px' } });
@@ -338,7 +425,7 @@ function renderQuestCard(quest, completionState, onToggleCompletion) {
   }
 
   const meta = el('div', { className: 'quest-meta' });
-  const rewardContent = renderRewardContent(quest);
+  const rewardContent = renderRewardContent(quest, itemById);
   const hasRewards = quest.rewards_exp > 0 || quest.rewards_money > 0 || rewardContent;
   if (hasRewards) {
     const box = el('div', { className: 'quest-meta-box' });
@@ -381,6 +468,12 @@ function renderQuestCard(quest, completionState, onToggleCompletion) {
 
 export function renderQuests(data, options = {}) {
   const { quests } = data;
+  const itemById = new Map(
+    [...(data.items?.items || []), ...(data.items?.scrolls || [])].map(item => [String(item.id), item])
+  );
+  const monsterById = new Map(
+    (data.monsters?.monsters || []).map(mob => [String(mob.id), mob])
+  );
   let searchQuery = '';
   let regionFilter = 'All';
   let sortByLevel = true;
@@ -526,7 +619,7 @@ export function renderQuests(data, options = {}) {
 
     allItems.forEach((item) => {
       if (item.type === 'quest') {
-        dataDiv.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion));
+        dataDiv.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion, itemById, monsterById));
       } else {
         const chain = item.chain;
         const color = CHAIN_COLORS[item.idx % CHAIN_COLORS.length];
@@ -541,7 +634,7 @@ export function renderQuests(data, options = {}) {
         });
         chainDiv.appendChild(header);
         chain.quests.forEach((quest) =>
-          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion))
+          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion, itemById, monsterById))
         );
         dataDiv.appendChild(chainDiv);
       }

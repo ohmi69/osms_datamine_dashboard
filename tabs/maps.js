@@ -668,6 +668,7 @@ export function renderMaps(data, options = {}) {
       // Rebuild headers with updated sort indicators
       headRow.querySelectorAll('th:not(.thumb-col)').forEach((th, i) => {
         const col = COLS[i];
+        if (!col) return; // Guard: skip if column is undefined
         const active = sortCol === col.id;
         const labelSpan = th.querySelector('span:first-child') || th;
         labelSpan.textContent = active ? `${col.label} ${sortDir === 1 ? '▲' : '▼'}` : col.label;
