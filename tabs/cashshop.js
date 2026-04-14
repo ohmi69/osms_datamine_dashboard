@@ -136,7 +136,7 @@ export function renderCashShop(data, options = {}) {
     if (subCats.length === 0) return;
 
     subPillRow.style.display = 'flex';
-    const allSub = el('button', { className: 'pill active', textContent: 'All' });
+    const allSub = el('button', { className: 'pill pill--sub active', textContent: 'All' });
     allSub.addEventListener('click', () => {
       selectedSubCategory = null;
       allSub.classList.add('active');
@@ -146,7 +146,7 @@ export function renderCashShop(data, options = {}) {
     subPillRow.appendChild(allSub);
 
     subCats.forEach((sub) => {
-      const btn = el('button', { className: 'pill', textContent: sub });
+      const btn = el('button', { className: 'pill pill--sub', textContent: sub });
       btn.addEventListener('click', () => {
         selectedSubCategory = sub;
         subPillRow.querySelectorAll('button').forEach((b) => b.classList.remove('active'));
