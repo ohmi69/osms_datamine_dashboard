@@ -26,6 +26,9 @@ function renderEquipRow(item) {
     })
   );
   nameWrap.appendChild(el('span', { className: 'name', textContent: item.name }));
+  if (item.weapon_type) {
+    nameWrap.appendChild(el('span', { className: 'equip-type-badge', textContent: item.weapon_type }));
+  }
   topLine.appendChild(nameWrap);
   const eqRightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', flexShrink: '0' } });
   eqRightWrap.appendChild(makeDeepLinkButton('equipment', item.id));
