@@ -95,15 +95,19 @@ function getRequirementThumbPath(requirement) {
 
 function formatRequirementLabel(requirement) {
   if (!requirement) return '';
-          // Rebuild region pill group to update active state
-          const newRegionPillGroup = makePillGroup(
-            regions.map(r => ({ label: r, value: r })),
-            regionFilter,
-            handleRegionPillChange,
-            { groupLabel: 'Region:' }
-          );
-          filterRow.replaceChild(newRegionPillGroup, regionPillGroup);
-          regionPillGroup = newRegionPillGroup;
+  const count = Number(requirement.count) || 1;
+  const name = requirement.name || requirement.label || '';
+
+  if (requirement.type === 'mob') {
+    return `Defeat ${count}x ${name}`;
+  }
+
+  if (requirement.type === 'item') {
+    return `${count}x ${name}`;
+  }
+
+  if (requirement.label) return requirement.label;
+  return name;
 }
 
 function renderRequirementChips(requirements, itemById, monsterById) {

@@ -26,6 +26,10 @@ export function renderBeautyStyles(data) {
 
   const container = el('div', { className: 'beauty-container' });
   const bodyDiv = el('div', { className: 'beauty-body' });
+  container.appendChild(el('div', {
+    className: 'beauty-warning',
+    textContent: 'These coupons show the full pool of possible styles tied to each coupon. Nexon may rotate which styles are actually available at any given time.',
+  }));
   container.appendChild(bodyDiv);
 
   const TYPE_LABELS = { hair: 'Hair Styles', face: 'Face Styles' };

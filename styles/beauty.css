@@ -1,5 +1,8 @@
 .beauty-container {
-  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
 }
 
 /* ── Type sections ──────────────────────────────────────────── */
@@ -26,8 +29,8 @@
 }
 
 .beauty-warning {
-  margin: 8px 0 4px;
-  padding: 8px 12px;
+  margin: 0;
+  padding: 6px 10px;
   background: rgba(255, 180, 0, 0.12);
   border-left: 3px solid #ffb400;
   border-radius: 4px;

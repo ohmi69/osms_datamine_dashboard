@@ -1,4 +1,4 @@
-import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makePillGroup } from '../lib/utils.js';
+import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makePillGroup, makeDetailPanel } from '../lib/utils.js';
 
 function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
@@ -39,14 +39,7 @@ function renderEquipRow(item) {
 
   // Show sell price in a detail panel (exactly like items tab)
   if (typeof item.price === 'number' && item.price > 0) {
-    const panel = el('div', { className: 'item-detail-panel', style: { borderTop: 'none', paddingTop: 0, marginTop: 0 } });
-    const chipRow = el('div', { className: 'item-detail-chips' });
-    const chip = el('div', { className: 'item-detail-chip' });
-    chip.appendChild(el('span', { className: 'chip-label', textContent: 'Sell Price' }));
-    chip.appendChild(el('span', { className: 'chip-value', textContent: fmt(item.price) + ' mesos' }));
-    chipRow.appendChild(chip);
-    panel.appendChild(chipRow);
-    row.appendChild(panel);
+    row.appendChild(makeDetailPanel([{ label: 'Sell Price', value: fmt(item.price) + ' mesos' }], { noBorder: true }));
   }
 
   if (item.stats) {

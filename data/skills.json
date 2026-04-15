@@ -238,9 +238,9 @@
       "main_class": "Warrior",
       "base_class": "warrior",
       "subclasses": [
-        "Spearman",
+        "Fighter",
         "Page",
-        "Fighter"
+        "Spearman"
       ]
     },
     {

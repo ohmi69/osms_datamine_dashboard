@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, makePillGroup } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import { loadState, saveState } from '../lib/data.js';
 
@@ -195,11 +195,11 @@ export function renderMonsters(data, options = {}) {
     { id: 'exp',      label: 'EXP',     on: true  },
     { id: 'exp_hp',   label: 'EXP/HP',  on: false },
     { id: 'PADamage', label: 'PATK',    on: false },
-    { id: 'PDDamage', label: 'PDEF',    on: false },
+    { id: 'PDDamage', label: 'PDEF',    on: true },
     { id: 'MADamage', label: 'MATK',    on: false },
-    { id: 'MDDamage', label: 'MDEF',    on: false },
+    { id: 'MDDamage', label: 'MDEF',    on: true },
     { id: 'acc',      label: 'ACC',     on: false },
-    { id: 'eva',      label: 'AVOID',   on: false },
+    { id: 'eva',      label: 'AVOID',   on: true  },
     { id: 'speed',    label: 'SPD',     on: false },
     { id: 'elements', label: 'Element', on: true  },
     { id: 'undead',   label: 'Undead',  on: false },
@@ -251,37 +251,55 @@ export function renderMonsters(data, options = {}) {
     });
   }
 
-  // Mob type pills using reusable utility
-  const TYPE_PILLS = [
-    { label: 'All', value: '' },
-    { label: 'Non-Boss', value: 'nonboss' },
-    { label: 'Bosses', value: 'boss' },
-  ];
-  function handleTypePillChange(value) {
-    typeFilter = value;
-    saveState('monsters', { cols: { ...colState } });
-    renderData();
+  const pills = el('div', { className: 'pill-group' });
+  function rebuildPills() {
+    pills.innerHTML = '';
+    pills.appendChild(el('span', { className: 'pill-group-label', textContent: 'Mob Type:' }));
+    [
+      ['All',      ''],
+      ['Non-Boss', 'nonboss'],
+      ['Bosses',   'boss'],
+    ].forEach(([label, value]) => {
+      const pill = el('button', {
+        className: `pill${typeFilter === value ? ' active' : ''}`,
+        textContent: label,
+      });
+      pill.addEventListener('click', () => {
+        typeFilter = value;
+        saveState('monsters', { cols: { ...colState } });
+        rebuildPills();
+        renderData();
+      });
+      pills.appendChild(pill);
+    });
   }
-  let typePillGroup = makePillGroup(TYPE_PILLS, typeFilter, handleTypePillChange, { groupLabel: 'Mob Type:' });
+  rebuildPills();
 
-  // Element pills using reusable utility
-  const ELEM_PILLS = [
-    { label: 'Any', value: '' },
-    { label: 'Fire', value: 'Fire' },
-    { label: 'Ice', value: 'Ice' },
-    { label: 'Lightning', value: 'Lightning' },
-    { label: 'Holy', value: 'Holy' },
-  ];
-  function handleElemPillChange(value) {
-    elemWeakFilter = value;
-    renderData();
+  const elemPills = el('div', { className: 'pill-group' });
+  function rebuildElemPills() {
+    elemPills.innerHTML = '';
+    const weakLabel = el('span', { className: 'pill-group-label', textContent: 'Weak to:' });
+    elemPills.appendChild(weakLabel);
+    [['Any', ''], ['Fire', 'Fire'], ['Ice', 'Ice'], ['Lightning', 'Lightning'], ['Holy', 'Holy']].forEach(([label, value]) => {
+      const pill = el('button', {
+        className: `pill${elemWeakFilter === value ? ' active' : ''}`,
+        textContent: label,
+      });
+      pill.addEventListener('click', () => {
+        elemWeakFilter = value;
+        rebuildElemPills();
+        renderData();
+      });
+      elemPills.appendChild(pill);
+    });
   }
-  let elemPillGroup = makePillGroup(ELEM_PILLS, elemWeakFilter, handleElemPillChange, { groupLabel: 'Weak to:' });
+  rebuildElemPills();
 
   container.appendChild(topRow);
+
   const filterRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' } });
-  filterRow.appendChild(typePillGroup);
-  filterRow.appendChild(elemPillGroup);
+  filterRow.appendChild(pills);
+  filterRow.appendChild(elemPills);
   container.appendChild(filterRow);
 
   const toggles = el('div', { className: 'col-toggles' });
@@ -308,13 +326,6 @@ export function renderMonsters(data, options = {}) {
   container.appendChild(dataContainer);
 
   function renderData() {
-    // Rebuild pill groups to update active state
-    const newTypePillGroup = makePillGroup(TYPE_PILLS, typeFilter, handleTypePillChange, { groupLabel: 'Mob Type:' });
-    filterRow.replaceChild(newTypePillGroup, typePillGroup);
-    typePillGroup = newTypePillGroup;
-    const newElemPillGroup = makePillGroup(ELEM_PILLS, elemWeakFilter, handleElemPillChange, { groupLabel: 'Weak to:' });
-    filterRow.replaceChild(newElemPillGroup, elemPillGroup);
-    elemPillGroup = newElemPillGroup;
     dataContainer.innerHTML = '';
     const visibleCols = allCols.filter((col) => colState[col.id]);
     // +3 for Name col, Tags col, and ID col
@@ -419,13 +430,12 @@ export function renderMonsters(data, options = {}) {
       const nameCell = el('td', { style: { ...tdBase, fontWeight: '500' } });
       const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } });
       const nameLeft = el('span', { style: { display: 'flex', alignItems: 'center', gap: '8px' } });
-      const thumb = makeThumbnail(monster.gif || monster.thumbnail, `${monster.name} thumbnail`, {
-        className: 'monster-thumb',
-        fallbackText: 'MOB',
-      });
-      // Uniform mob tooltip
-      attachTooltip(thumb, () => monster, 'mob');
-      nameLeft.appendChild(thumb);
+      nameLeft.appendChild(
+        makeThumbnail(monster.gif || monster.thumbnail, `${monster.name} thumbnail`, {
+          className: 'monster-thumb',
+          fallbackText: 'MOB',
+        })
+      );
       nameLeft.appendChild(el('span', { textContent: monster.name }));
       nameWrap.appendChild(nameLeft);
       if (monster.id != null) nameWrap.appendChild(makeDeepLinkButton('monsters', monster.id));
