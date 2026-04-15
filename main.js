@@ -81,7 +81,15 @@ const renderers = {
     },
   }),
   skills:    () => renderSkills(appData, { setNavigate: (fn) => { navigators.skills = fn; } }),
-  crafting:  () => renderCrafting(appData, { setNavigate: (fn) => { navigators.crafting = fn; } }),
+  crafting:  () => renderCrafting(appData, {
+    setNavigate: (fn) => { navigators.crafting = fn; },
+    onItemClick: (item, id) => {
+      const isEquip = item?.category === 'Equipment';
+      const tab = isEquip ? 'equipment' : 'items';
+      switchTab(tab);
+      if (navigators[tab]) navigators[tab](id != null ? `id:${id}` : (item?.name || ''));
+    },
+  }),
   items:     () => renderItems(appData, { setNavigate: (fn) => { navigators.items = fn; } }),
   equipment: () => renderEquipment(appData, { setNavigate: (fn) => { navigators.equipment = fn; } }),
   cashshop:  () => renderCashShop(appData, { setNavigate: (fn) => { navigators.cashshop = fn; } }),

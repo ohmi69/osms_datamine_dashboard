@@ -678,7 +678,14 @@ body.hide-ids .id-col { display: none !important; }
 .skill-card:hover .deep-link-btn { opacity: 0.55; }
 
 /* ── Item rows (shared: items + equipment + maps) ───────────── */
-.item-row { padding: 10px 16px; transition: background .2s; }
+.item-row {
+  padding: 10px 16px;
+  transition: background .2s;
+  border-bottom: 1px solid var(--border);
+}
+.item-row:last-child {
+  border-bottom: none;
+}
 .item-row:hover { background: var(--surface-2); }
 .item-row .top-line { display: flex; align-items: center; justify-content: space-between; }
 .item-row .name { font-size: 15px; color: var(--text); }
@@ -692,10 +699,16 @@ body.hide-ids .id-col { display: none !important; }
 }
 
 /* ── Item detail panel ──────────────────────────────────────── */
+
 .item-detail-panel {
   padding: 8px 0 4px 0;
-  border-top: 1px solid var(--border);
   margin-top: 8px;
+}
+
+.item-detail-panel--no-border {
+  border-top: none !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .item-detail-chips {

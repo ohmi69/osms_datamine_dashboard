@@ -29,6 +29,18 @@ function buildDetailPanel(item) {
 
   if (chips.length === 0) return null;
 
+  // If the only chip is Sell Price, add a special class to remove the border
+  if (chips.length === 1 && chips[0].label === 'Sell Price') {
+    const panel = el('div', { className: 'item-detail-panel item-detail-panel--no-border' });
+    const row = el('div', { className: 'item-detail-chips' });
+    const chip = el('div', { className: 'item-detail-chip' });
+    chip.appendChild(el('span', { className: 'chip-label', textContent: chips[0].label }));
+    chip.appendChild(el('span', { className: 'chip-value', textContent: chips[0].value }));
+    row.appendChild(chip);
+    panel.appendChild(row);
+    return panel;
+  }
+
   const panel = el('div', { className: 'item-detail-panel' });
   const row = el('div', { className: 'item-detail-chips' });
 

@@ -14,7 +14,7 @@ function matchesClass(item, classFilter) {
 }
 
 function renderEquipRow(item) {
-  const row = el('div', { className: 'item-row' });
+  const row = el('div', { className: 'item-row', style: { marginBottom: '0', borderBottom: '1px solid var(--border)' } });
   const topLine = el('div', { className: 'top-line' });
   const nameWrap = el('span', {
     style: { display: 'flex', alignItems: 'center', gap: '8px', minWidth: '0' },
@@ -36,10 +36,23 @@ function renderEquipRow(item) {
   topLine.appendChild(eqRightWrap);
   row.appendChild(topLine);
 
+
   if (item.description) {
     row.appendChild(
       el('p', { className: 'desc', textContent: item.description.replace(/\n/g, '\n') })
     );
+  }
+
+  // Show sell price in a detail panel (exactly like items tab)
+  if (typeof item.price === 'number' && item.price > 0) {
+    const panel = el('div', { className: 'item-detail-panel', style: { borderTop: 'none', paddingTop: 0, marginTop: 0 } });
+    const chipRow = el('div', { className: 'item-detail-chips' });
+    const chip = el('div', { className: 'item-detail-chip' });
+    chip.appendChild(el('span', { className: 'chip-label', textContent: 'Sell Price' }));
+    chip.appendChild(el('span', { className: 'chip-value', textContent: fmt(item.price) + ' mesos' }));
+    chipRow.appendChild(chip);
+    panel.appendChild(chipRow);
+    row.appendChild(panel);
   }
 
   if (item.stats) {

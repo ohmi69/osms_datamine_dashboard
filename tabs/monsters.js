@@ -1,4 +1,5 @@
 import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
+import { attachTooltip } from '../lib/tooltip.js';
 import { loadState, saveState } from '../lib/data.js';
 
 const _savedState = loadState();
@@ -121,7 +122,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
         { label: 'M.ATK', value: monster.MADamage },
         { label: 'M.DEF', value: monster.MDDamage },
         { label: 'ACC',   value: monster.acc },
-        { label: 'EVA',   value: monster.eva },
+        { label: 'AVOID', value: monster.eva },
         { label: 'Speed', value: monster.speed },
       ],
     },
@@ -198,7 +199,7 @@ export function renderMonsters(data, options = {}) {
     { id: 'MADamage', label: 'MATK',    on: false },
     { id: 'MDDamage', label: 'MDEF',    on: false },
     { id: 'acc',      label: 'ACC',     on: false },
-    { id: 'eva',      label: 'EVA',     on: false },
+    { id: 'eva',      label: 'AVOID',   on: false },
     { id: 'speed',    label: 'SPD',     on: false },
     { id: 'elements', label: 'Element', on: true  },
     { id: 'undead',   label: 'Undead',  on: false },
@@ -429,12 +430,13 @@ export function renderMonsters(data, options = {}) {
       const nameCell = el('td', { style: { ...tdBase, fontWeight: '500' } });
       const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } });
       const nameLeft = el('span', { style: { display: 'flex', alignItems: 'center', gap: '8px' } });
-      nameLeft.appendChild(
-        makeThumbnail(monster.gif || monster.thumbnail, `${monster.name} thumbnail`, {
-          className: 'monster-thumb',
-          fallbackText: 'MOB',
-        })
-      );
+      const thumb = makeThumbnail(monster.gif || monster.thumbnail, `${monster.name} thumbnail`, {
+        className: 'monster-thumb',
+        fallbackText: 'MOB',
+      });
+      // Uniform mob tooltip
+      attachTooltip(thumb, () => monster, 'mob');
+      nameLeft.appendChild(thumb);
       nameLeft.appendChild(el('span', { textContent: monster.name }));
       nameWrap.appendChild(nameLeft);
       if (monster.id != null) nameWrap.appendChild(makeDeepLinkButton('monsters', monster.id));

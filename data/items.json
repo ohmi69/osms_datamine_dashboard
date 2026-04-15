@@ -17,6 +17,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -39,6 +40,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 1500,
       "req_job_label": "All",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -61,6 +63,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 2500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -83,6 +86,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 2500,
       "req_job_label": "All",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -105,6 +109,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 3500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -127,6 +132,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 3500,
       "req_job_label": "Warrior/Thief",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -149,6 +155,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 4500,
       "req_job_label": "Warrior/Thief",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -172,6 +179,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 4900,
       "req_job_label": "All",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -194,6 +202,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 5500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -216,6 +225,7 @@
         "tuc": 0,
         "attackSpeed": 4
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -238,6 +248,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 7500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -261,6 +272,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 7500,
       "req_job_label": "All",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -283,6 +295,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 9500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -306,6 +319,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 9500,
       "req_job_label": "All",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -328,6 +342,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 11500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -350,6 +365,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 13500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -372,6 +388,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": "1H Sword",
       "attack_speed_label": "Fast",
@@ -394,6 +411,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": "1H Axe",
       "attack_speed_label": "Fast",
@@ -416,6 +434,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 1500,
       "req_job_label": "All",
       "weapon_type": "1H Axe",
       "attack_speed_label": "Fast",
@@ -438,6 +457,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 2500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Axe",
       "attack_speed_label": "Fast",
@@ -460,6 +480,7 @@
         "tuc": 7,
         "attackSpeed": 3
       },
+      "price": 2500,
       "req_job_label": "All",
       "weapon_type": "1H Axe",
       "attack_speed_label": "Faster",
@@ -482,6 +503,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 4500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Axe",
       "attack_speed_label": "Fast",
@@ -504,6 +526,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 5500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Axe",
       "attack_speed_label": "Fast",
@@ -526,6 +549,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 7500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Axe",
       "attack_speed_label": "Fast",
@@ -548,6 +572,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 9500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Axe",
       "attack_speed_label": "Fast",
@@ -570,6 +595,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 13500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Axe",
       "attack_speed_label": "Fast",
@@ -592,6 +618,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -614,6 +641,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 1500,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -636,6 +664,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 1900,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -658,6 +687,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 2500,
       "req_job_label": "Warrior/Mage",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -680,6 +710,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 2500,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -702,6 +733,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 2900,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -724,6 +756,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 3100,
       "req_job_label": "Warrior/Thief",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -746,6 +779,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 3500,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -768,6 +802,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 3500,
       "req_job_label": "Warrior/Mage",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -790,6 +825,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 3900,
       "req_job_label": "Warrior/Thief",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -812,6 +848,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 4500,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -834,6 +871,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 4500,
       "req_job_label": "Warrior/Mage",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -857,6 +895,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 5500,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -879,6 +918,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 5500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -902,6 +942,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 5500,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -924,6 +965,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 7500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -946,6 +988,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 9500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -968,6 +1011,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 13500,
       "req_job_label": "Warrior",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -991,6 +1035,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -1014,6 +1059,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -1038,6 +1084,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -1061,6 +1108,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Fast",
@@ -1083,6 +1131,7 @@
         "tuc": 7,
         "attackSpeed": 2
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": "1H Blunt Weapon",
       "attack_speed_label": "Faster",
@@ -1105,6 +1154,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 250,
       "req_job_label": "All",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1127,6 +1177,7 @@
         "tuc": 7,
         "attackSpeed": 3
       },
+      "price": 750,
       "req_job_label": "All",
       "weapon_type": "Dagger",
       "attack_speed_label": "Faster",
@@ -1149,6 +1200,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1171,6 +1223,7 @@
         "tuc": 7,
         "attackSpeed": 3
       },
+      "price": 2500,
       "req_job_label": "Warrior/Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Faster",
@@ -1193,6 +1246,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 2900,
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1215,6 +1269,7 @@
         "tuc": 7,
         "attackSpeed": 3
       },
+      "price": 3500,
       "req_job_label": "Warrior/Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Faster",
@@ -1237,6 +1292,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 3900,
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1259,6 +1315,7 @@
         "tuc": 7,
         "attackSpeed": 3
       },
+      "price": 4500,
       "req_job_label": "Warrior/Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Faster",
@@ -1281,6 +1338,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 4900,
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1303,6 +1361,7 @@
         "tuc": 7,
         "attackSpeed": 3
       },
+      "price": 5500,
       "req_job_label": "Warrior/Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Faster",
@@ -1325,6 +1384,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 5500,
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1347,6 +1407,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 7500,
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1369,6 +1430,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 9500,
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1393,6 +1455,7 @@
         "tuc": 7,
         "attackSpeed": 3
       },
+      "price": 9500,
       "req_job_label": "All",
       "weapon_type": "Dagger",
       "attack_speed_label": "Faster",
@@ -1415,6 +1478,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 11500,
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1437,6 +1501,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 13500,
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1459,6 +1524,7 @@
         "tuc": 7,
         "attackSpeed": 3
       },
+      "price": 13500,
       "req_job_label": "Warrior/Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Faster",
@@ -1481,6 +1547,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 0,
       "req_job_label": "Thief",
       "weapon_type": "Dagger",
       "attack_speed_label": "Fast",
@@ -1504,6 +1571,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 1500,
       "req_job_label": "All",
       "weapon_type": "Wand",
       "attack_speed_label": "Normal",
@@ -1527,6 +1595,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 2500,
       "req_job_label": "All",
       "weapon_type": "Wand",
       "attack_speed_label": "Normal",
@@ -1550,6 +1619,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 3500,
       "req_job_label": "All",
       "weapon_type": "Wand",
       "attack_speed_label": "Normal",
@@ -1573,6 +1643,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 4500,
       "req_job_label": "Mage",
       "weapon_type": "Wand",
       "attack_speed_label": "Normal",
@@ -1596,6 +1667,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 5500,
       "req_job_label": "Mage",
       "weapon_type": "Wand",
       "attack_speed_label": "Normal",
@@ -1619,6 +1691,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 7500,
       "req_job_label": "Mage",
       "weapon_type": "Wand",
       "attack_speed_label": "Normal",
@@ -1642,6 +1715,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 9500,
       "req_job_label": "Mage",
       "weapon_type": "Wand",
       "attack_speed_label": "Normal",
@@ -1665,6 +1739,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 13500,
       "req_job_label": "Mage",
       "weapon_type": "Wand",
       "attack_speed_label": "Normal",
@@ -1688,6 +1763,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": "Wand",
       "attack_speed_label": "Normal",
@@ -1712,6 +1788,7 @@
         "attackSpeed": 7,
         "incCRD": 1
       },
+      "price": 1500,
       "req_job_label": "Mage",
       "weapon_type": "Staff",
       "attack_speed_label": "Slow",
@@ -1736,6 +1813,7 @@
         "attackSpeed": 7,
         "incCRD": 1
       },
+      "price": 2500,
       "req_job_label": "Mage",
       "weapon_type": "Staff",
       "attack_speed_label": "Slow",
@@ -1760,6 +1838,7 @@
         "attackSpeed": 7,
         "incCRD": 1
       },
+      "price": 2500,
       "req_job_label": "Mage",
       "weapon_type": "Staff",
       "attack_speed_label": "Slow",
@@ -1784,6 +1863,7 @@
         "attackSpeed": 7,
         "incCRD": 2
       },
+      "price": 3500,
       "req_job_label": "Mage",
       "weapon_type": "Staff",
       "attack_speed_label": "Slow",
@@ -1808,6 +1888,7 @@
         "attackSpeed": 7,
         "incCRD": 2
       },
+      "price": 4500,
       "req_job_label": "Mage",
       "weapon_type": "Staff",
       "attack_speed_label": "Slow",
@@ -1832,6 +1913,7 @@
         "attackSpeed": 7,
         "incCRD": 4
       },
+      "price": 11500,
       "req_job_label": "Mage",
       "weapon_type": "Staff",
       "attack_speed_label": "Slow",
@@ -1854,6 +1936,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 2500,
       "req_job_label": "Warrior/Bowman/Thief",
       "weapon_type": "2H Sword",
       "attack_speed_label": "Normal",
@@ -1876,6 +1959,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 3500,
       "req_job_label": "All",
       "weapon_type": "2H Sword",
       "attack_speed_label": "Fast",
@@ -1898,6 +1982,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 4500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Sword",
       "attack_speed_label": "Normal",
@@ -1920,6 +2005,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 5500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Sword",
       "attack_speed_label": "Normal",
@@ -1942,6 +2028,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 6500,
       "req_job_label": "All",
       "weapon_type": "2H Sword",
       "attack_speed_label": "Fast",
@@ -1964,6 +2051,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 6500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Sword",
       "attack_speed_label": "Normal",
@@ -1986,6 +2074,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": "2H Sword",
       "attack_speed_label": "Fast",
@@ -2008,6 +2097,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 11500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Sword",
       "attack_speed_label": "Normal",
@@ -2030,6 +2120,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 16500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Sword",
       "attack_speed_label": "Normal",
@@ -2052,6 +2143,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 2500,
       "req_job_label": "Warrior/Bowman/Thief",
       "weapon_type": "2H Axe",
       "attack_speed_label": "Normal",
@@ -2074,6 +2166,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 4500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Axe",
       "attack_speed_label": "Normal",
@@ -2096,6 +2189,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 4500,
       "req_job_label": "Warrior/Thief",
       "weapon_type": "2H Axe",
       "attack_speed_label": "Slow",
@@ -2118,6 +2212,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 5500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Axe",
       "attack_speed_label": "Normal",
@@ -2140,6 +2235,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 6500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Axe",
       "attack_speed_label": "Normal",
@@ -2162,6 +2258,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": "2H Axe",
       "attack_speed_label": "Normal",
@@ -2184,6 +2281,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 11500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Axe",
       "attack_speed_label": "Normal",
@@ -2206,6 +2304,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 16500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Axe",
       "attack_speed_label": "Slow",
@@ -2228,6 +2327,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 2500,
       "req_job_label": "Warrior/Bowman/Thief",
       "weapon_type": "2H Blunt Weapon",
       "attack_speed_label": "Slow",
@@ -2250,6 +2350,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 3500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Blunt Weapon",
       "attack_speed_label": "Slow",
@@ -2272,6 +2373,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 4500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Blunt Weapon",
       "attack_speed_label": "Slow",
@@ -2294,6 +2396,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 5500,
       "req_job_label": "Warrior/Bowman/Thief",
       "weapon_type": "2H Blunt Weapon",
       "attack_speed_label": "Slow",
@@ -2316,6 +2419,7 @@
         "tuc": 7,
         "attackSpeed": 6
       },
+      "price": 6500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Blunt Weapon",
       "attack_speed_label": "Normal",
@@ -2338,6 +2442,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": "2H Blunt Weapon",
       "attack_speed_label": "Slow",
@@ -2360,6 +2465,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 11500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Blunt Weapon",
       "attack_speed_label": "Slow",
@@ -2382,6 +2488,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 16500,
       "req_job_label": "Warrior",
       "weapon_type": "2H Blunt Weapon",
       "attack_speed_label": "Slow",
@@ -2404,6 +2511,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 2500,
       "req_job_label": "Warrior/Bowman/Thief",
       "weapon_type": "Spear",
       "attack_speed_label": "Slow",
@@ -2426,6 +2534,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 3500,
       "req_job_label": "Warrior/Bowman/Thief",
       "weapon_type": "Spear",
       "attack_speed_label": "Slow",
@@ -2449,6 +2558,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 4500,
       "req_job_label": "All",
       "weapon_type": "Spear",
       "attack_speed_label": "Slow",
@@ -2471,6 +2581,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 6500,
       "req_job_label": "Warrior",
       "weapon_type": "Spear",
       "attack_speed_label": "Slow",
@@ -2493,6 +2604,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": "Spear",
       "attack_speed_label": "Slow",
@@ -2515,6 +2627,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 11500,
       "req_job_label": "Warrior",
       "weapon_type": "Spear",
       "attack_speed_label": "Slow",
@@ -2537,6 +2650,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 16500,
       "req_job_label": "Warrior",
       "weapon_type": "Spear",
       "attack_speed_label": "Slow",
@@ -2559,6 +2673,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 2500,
       "req_job_label": "Warrior/Bowman/Thief",
       "weapon_type": "Polearm",
       "attack_speed_label": "Slow",
@@ -2581,6 +2696,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 3500,
       "req_job_label": "Warrior",
       "weapon_type": "Polearm",
       "attack_speed_label": "Slow",
@@ -2603,6 +2719,7 @@
         "tuc": 7,
         "attackSpeed": 7
       },
+      "price": 4500,
       "req_job_label": "Warrior",
       "weapon_type": "Polearm",
       "attack_speed_label": "Slow",
@@ -2625,6 +2742,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 5500,
       "req_job_label": "Warrior/Bowman/Thief",
       "weapon_type": "Polearm",
       "attack_speed_label": "Slow",
@@ -2647,6 +2765,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 6500,
       "req_job_label": "Warrior",
       "weapon_type": "Polearm",
       "attack_speed_label": "Slow",
@@ -2669,6 +2788,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": "Polearm",
       "attack_speed_label": "Slow",
@@ -2691,6 +2811,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 11500,
       "req_job_label": "Warrior",
       "weapon_type": "Polearm",
       "attack_speed_label": "Slow",
@@ -2713,6 +2834,7 @@
         "tuc": 7,
         "attackSpeed": 8
       },
+      "price": 16500,
       "req_job_label": "Warrior",
       "weapon_type": "Polearm",
       "attack_speed_label": "Slow",
@@ -2736,6 +2858,7 @@
         "attackSpeed": 6,
         "knockback": 20
       },
+      "price": 2500,
       "req_job_label": "Bowman",
       "weapon_type": "Bow",
       "attack_speed_label": "Normal",
@@ -2759,6 +2882,7 @@
         "attackSpeed": 6,
         "knockback": 20
       },
+      "price": 3500,
       "req_job_label": "Bowman",
       "weapon_type": "Bow",
       "attack_speed_label": "Normal",
@@ -2782,6 +2906,7 @@
         "attackSpeed": 6,
         "knockback": 20
       },
+      "price": 4500,
       "req_job_label": "Bowman",
       "weapon_type": "Bow",
       "attack_speed_label": "Normal",
@@ -2805,6 +2930,7 @@
         "attackSpeed": 5,
         "knockback": 20
       },
+      "price": 5500,
       "req_job_label": "Bowman",
       "weapon_type": "Bow",
       "attack_speed_label": "Fast",
@@ -2829,6 +2955,7 @@
         "attackSpeed": 6,
         "knockback": 20
       },
+      "price": 6500,
       "req_job_label": "Bowman",
       "weapon_type": "Bow",
       "attack_speed_label": "Normal",
@@ -2852,6 +2979,7 @@
         "attackSpeed": 5,
         "knockback": 20
       },
+      "price": 9000,
       "req_job_label": "Bowman",
       "weapon_type": "Bow",
       "attack_speed_label": "Fast",
@@ -2875,6 +3003,7 @@
         "attackSpeed": 6,
         "knockback": 20
       },
+      "price": 11500,
       "req_job_label": "Bowman",
       "weapon_type": "Bow",
       "attack_speed_label": "Normal",
@@ -2898,6 +3027,7 @@
         "attackSpeed": 6,
         "knockback": 20
       },
+      "price": 16500,
       "req_job_label": "Bowman",
       "weapon_type": "Bow",
       "attack_speed_label": "Normal",
@@ -2921,6 +3051,7 @@
         "attackSpeed": 6,
         "knockback": 20
       },
+      "price": 0,
       "req_job_label": "Bowman",
       "weapon_type": "Bow",
       "attack_speed_label": "Normal",
@@ -2944,6 +3075,7 @@
         "attackSpeed": 7,
         "knockback": 30
       },
+      "price": 2500,
       "req_job_label": "Bowman",
       "weapon_type": "Crossbow",
       "attack_speed_label": "Slow",
@@ -2967,6 +3099,7 @@
         "attackSpeed": 7,
         "knockback": 30
       },
+      "price": 3500,
       "req_job_label": "Bowman",
       "weapon_type": "Crossbow",
       "attack_speed_label": "Slow",
@@ -2990,6 +3123,7 @@
         "attackSpeed": 6,
         "knockback": 30
       },
+      "price": 4500,
       "req_job_label": "Bowman",
       "weapon_type": "Crossbow",
       "attack_speed_label": "Normal",
@@ -3013,6 +3147,7 @@
         "attackSpeed": 7,
         "knockback": 30
       },
+      "price": 5500,
       "req_job_label": "Bowman",
       "weapon_type": "Crossbow",
       "attack_speed_label": "Slow",
@@ -3037,6 +3172,7 @@
         "attackSpeed": 7,
         "knockback": 30
       },
+      "price": 6500,
       "req_job_label": "Bowman",
       "weapon_type": "Crossbow",
       "attack_speed_label": "Slow",
@@ -3060,6 +3196,7 @@
         "attackSpeed": 6,
         "knockback": 30
       },
+      "price": 11500,
       "req_job_label": "Bowman",
       "weapon_type": "Crossbow",
       "attack_speed_label": "Normal",
@@ -3083,6 +3220,7 @@
         "attackSpeed": 7,
         "knockback": 30
       },
+      "price": 14000,
       "req_job_label": "Bowman",
       "weapon_type": "Crossbow",
       "attack_speed_label": "Slow",
@@ -3106,6 +3244,7 @@
         "attackSpeed": 7,
         "knockback": 30
       },
+      "price": 16500,
       "req_job_label": "Bowman",
       "weapon_type": "Crossbow",
       "attack_speed_label": "Slow",
@@ -3128,6 +3267,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 2500,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3151,6 +3291,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 3500,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3175,6 +3316,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 3700,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3199,6 +3341,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 3900,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3221,6 +3364,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 4500,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3245,6 +3389,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 4700,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3269,6 +3414,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 4900,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3291,6 +3437,7 @@
         "tuc": 7,
         "attackSpeed": 3
       },
+      "price": 5500,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Faster",
@@ -3313,6 +3460,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 6500,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3337,6 +3485,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 6700,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3361,6 +3510,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 6900,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3385,6 +3535,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 9000,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3409,6 +3560,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 9500,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3433,6 +3585,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 10000,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3457,6 +3610,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 11500,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3481,6 +3635,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 12000,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3505,6 +3660,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 12000,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3529,6 +3685,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 12500,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3553,6 +3710,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 16500,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3577,6 +3735,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 17000,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3601,6 +3760,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 17000,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3625,6 +3785,7 @@
         "tuc": 7,
         "attackSpeed": 4
       },
+      "price": 17500,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3647,6 +3808,7 @@
         "tuc": 7,
         "attackSpeed": 5
       },
+      "price": 0,
       "req_job_label": "Thief",
       "weapon_type": "Claw",
       "attack_speed_label": "Fast",
@@ -3668,6 +3830,7 @@
         "incPDD": 6,
         "tuc": 7
       },
+      "price": 300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3689,6 +3852,7 @@
         "incPDD": 6,
         "tuc": 7
       },
+      "price": 300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3710,6 +3874,7 @@
         "incPDD": 6,
         "tuc": 7
       },
+      "price": 300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3732,6 +3897,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3754,6 +3920,7 @@
         "incACC": 1,
         "tuc": 7
       },
+      "price": 300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3776,6 +3943,7 @@
         "incACC": 1,
         "tuc": 7
       },
+      "price": 300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3798,6 +3966,7 @@
         "incACC": 1,
         "tuc": 7
       },
+      "price": 300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3820,6 +3989,7 @@
         "incMMP": 5,
         "tuc": 7
       },
+      "price": 300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3843,6 +4013,7 @@
         "incMMP": 4,
         "tuc": 7
       },
+      "price": 450,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3865,6 +4036,7 @@
         "incMMP": 8,
         "tuc": 7
       },
+      "price": 450,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3887,6 +4059,7 @@
         "incMHP": 8,
         "tuc": 7
       },
+      "price": 450,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3909,6 +4082,7 @@
         "incPDD": 9,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3931,6 +4105,7 @@
         "incMHP": 10,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3953,6 +4128,7 @@
         "incMMP": 10,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3975,6 +4151,7 @@
         "incPDD": 9,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -3997,6 +4174,7 @@
         "incPDD": 9,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4020,6 +4198,7 @@
         "incACC": 2,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4045,6 +4224,7 @@
         "incACC": 2,
         "tuc": 7
       },
+      "price": 650,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4070,6 +4250,7 @@
         "incACC": 2,
         "tuc": 7
       },
+      "price": 700,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4093,6 +4274,7 @@
         "incMDD": 10,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4116,6 +4298,7 @@
         "incMMP": 10,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4139,6 +4322,7 @@
         "incMHP": 10,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4161,6 +4345,7 @@
         "incPDD": 9,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4183,6 +4368,7 @@
         "incPDD": 9,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4205,6 +4391,7 @@
         "incPDD": 9,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4227,6 +4414,7 @@
         "incMMP": 10,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4249,6 +4437,7 @@
         "incACC": 1,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4271,6 +4460,7 @@
         "incPDD": 9,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4293,6 +4483,7 @@
         "incPDD": 9,
         "tuc": 7
       },
+      "price": 600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4317,6 +4508,7 @@
         "incACC": 2,
         "tuc": 7
       },
+      "price": 700,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4342,6 +4534,7 @@
         "incACC": 2,
         "tuc": 7
       },
+      "price": 750,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4367,6 +4560,7 @@
         "incACC": 2,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4390,6 +4584,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4413,6 +4608,7 @@
         "incMHP": 10,
         "tuc": 7
       },
+      "price": 950,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4436,6 +4632,7 @@
         "incMHP": 15,
         "tuc": 7
       },
+      "price": 950,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4460,6 +4657,7 @@
         "incACC": 3,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4485,6 +4683,7 @@
         "incACC": 3,
         "tuc": 7
       },
+      "price": 950,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4510,6 +4709,7 @@
         "incACC": 3,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4533,6 +4733,7 @@
         "incMMP": 15,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4556,6 +4757,7 @@
         "incMHP": 15,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4580,6 +4782,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4604,6 +4807,7 @@
         "incMMP": 10,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4628,6 +4832,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4651,6 +4856,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4674,6 +4880,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4696,6 +4903,7 @@
         "incMMP": 15,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4718,6 +4926,7 @@
         "incMHP": 15,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4741,6 +4950,7 @@
         "incMMP": 5,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4763,6 +4973,7 @@
         "incMHP": 15,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4786,6 +4997,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4808,6 +5020,7 @@
         "incMMP": 15,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4831,6 +5044,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4854,6 +5068,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 900,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4877,6 +5092,7 @@
         "incMHP": 17,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4900,6 +5116,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4924,6 +5141,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 1250,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4948,6 +5166,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 1300,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4971,6 +5190,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -4995,6 +5215,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 1250,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5019,6 +5240,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 1300,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5043,6 +5265,7 @@
         "incMMP": 10,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5066,6 +5289,7 @@
         "incMHP": 20,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5089,6 +5313,7 @@
         "incMDD": 14,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5111,6 +5336,7 @@
         "incPDD": 15,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5133,6 +5359,7 @@
         "incPDD": 15,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5155,6 +5382,7 @@
         "incMHP": 20,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5177,6 +5405,7 @@
         "incMMP": 20,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5200,6 +5429,7 @@
         "incMMP": 10,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5222,6 +5452,7 @@
         "incMHP": 20,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5244,6 +5475,7 @@
         "incPDD": 15,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5266,6 +5498,7 @@
         "incMMP": 20,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5288,6 +5521,7 @@
         "incPDD": 15,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5310,6 +5544,7 @@
         "incPDD": 15,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5332,6 +5567,7 @@
         "incMHP": 22,
         "tuc": 7
       },
+      "price": 1300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5355,6 +5591,7 @@
         "incMMP": 11,
         "tuc": 7
       },
+      "price": 1300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5378,6 +5615,7 @@
         "incMHP": 2,
         "tuc": 7
       },
+      "price": 1300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5401,6 +5639,7 @@
         "incACC": 1,
         "tuc": 7
       },
+      "price": 1300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5423,6 +5662,7 @@
         "incMMP": 22,
         "tuc": 7
       },
+      "price": 1300,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5447,6 +5687,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 1300,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5471,6 +5712,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 1350,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5495,6 +5737,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 1400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5518,6 +5761,7 @@
         "incACC": 1,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5541,6 +5785,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5564,6 +5809,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5587,6 +5833,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5610,6 +5857,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5633,6 +5881,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5658,6 +5907,7 @@
         "incACC": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5683,6 +5933,7 @@
         "incACC": 5,
         "tuc": 7
       },
+      "price": 1550,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5708,6 +5959,7 @@
         "incACC": 5,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5731,6 +5983,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5754,6 +6007,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5776,6 +6030,7 @@
         "incMHP": 25,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5798,6 +6053,7 @@
         "incMMP": 25,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5821,6 +6077,7 @@
         "incMMP": 10,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5843,6 +6100,7 @@
         "incMHP": 25,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5866,6 +6124,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5888,6 +6147,7 @@
         "incMMP": 25,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5911,6 +6171,7 @@
         "incACC": 1,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5934,6 +6195,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5956,6 +6218,7 @@
         "incMMP": 25,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -5980,6 +6243,7 @@
         "incMMP": 10,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6004,6 +6268,7 @@
         "incMMP": 10,
         "tuc": 7
       },
+      "price": 1850,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6028,6 +6293,7 @@
         "incMMP": 10,
         "tuc": 7
       },
+      "price": 1900,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6051,6 +6317,7 @@
         "incACC": 6,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6074,6 +6341,7 @@
         "incMMP": 30,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6097,6 +6365,7 @@
         "incMDD": 18,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6120,6 +6389,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": "1800",
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6144,6 +6414,7 @@
         "incMMP": 15,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6167,6 +6438,7 @@
         "tuc": 7,
         "incMDD": 18
       },
+      "price": 1800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6189,6 +6461,7 @@
         "incPDD": 21,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6211,6 +6484,7 @@
         "incPDD": 21,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6233,6 +6507,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6255,6 +6530,7 @@
         "incMMP": 30,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6278,6 +6554,7 @@
         "incMMP": 15,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6300,6 +6577,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6322,6 +6600,7 @@
         "incPDD": 21,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6344,6 +6623,7 @@
         "incMMP": 30,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6366,6 +6646,7 @@
         "incPDD": 21,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6388,6 +6669,7 @@
         "incPDD": 21,
         "tuc": 7
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6412,6 +6694,7 @@
         "incACC": 7,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6435,6 +6718,7 @@
         "incACC": 7,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6458,6 +6742,7 @@
         "incACC": 7,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6481,6 +6766,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6504,6 +6790,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6526,6 +6813,7 @@
         "incMHP": 35,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6548,6 +6836,7 @@
         "incMMP": 35,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6571,6 +6860,7 @@
         "incMMP": 15,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6595,6 +6885,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6619,6 +6910,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6642,6 +6934,7 @@
         "incMHP": 35,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6665,6 +6958,7 @@
         "incMMP": 35,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6689,6 +6983,7 @@
         "incMMP": 20,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6712,6 +7007,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6734,6 +7030,7 @@
         "incMHP": 35,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6757,6 +7054,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6779,6 +7077,7 @@
         "incMMP": 35,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6802,6 +7101,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6825,6 +7125,7 @@
         "incMHP": 35,
         "tuc": 7
       },
+      "price": 3500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6848,6 +7149,7 @@
         "incACC": 8,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6872,6 +7174,7 @@
         "incACC": 8,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6896,6 +7199,7 @@
         "incACC": 8,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6919,6 +7223,7 @@
         "incMDD": 22,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6942,6 +7247,7 @@
         "incMHP": 40,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6966,6 +7272,7 @@
         "incMMP": 20,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -6989,6 +7296,7 @@
         "incMMP": 40,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7012,6 +7320,7 @@
         "incMDD": 22,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7034,6 +7343,7 @@
         "incPDD": 27,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7056,6 +7366,7 @@
         "incPDD": 27,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7078,6 +7389,7 @@
         "incMHP": 40,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7100,6 +7412,7 @@
         "incMMP": 40,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7123,6 +7436,7 @@
         "incMMP": 20,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7145,6 +7459,7 @@
         "incMHP": 40,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7167,6 +7482,7 @@
         "incMMP": 40,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7189,6 +7505,7 @@
         "incPDD": 27,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7211,6 +7528,7 @@
         "incPDD": 27,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7233,6 +7551,7 @@
         "incPDD": 27,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7257,6 +7576,7 @@
         "incACC": 8,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7280,6 +7600,7 @@
         "incACC": 8,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7304,6 +7625,7 @@
         "incACC": 8,
         "tuc": 7
       },
+      "price": 4200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7328,6 +7650,7 @@
         "incACC": 9,
         "tuc": 7
       },
+      "price": 4680,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7352,6 +7675,7 @@
         "incACC": 9,
         "tuc": 7
       },
+      "price": 4680,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7376,6 +7700,7 @@
         "incACC": 9,
         "tuc": 7
       },
+      "price": 4680,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7400,6 +7725,7 @@
         "incACC": 9,
         "tuc": 7
       },
+      "price": 5880,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7425,6 +7751,7 @@
         "incACC": 9,
         "tuc": 7
       },
+      "price": 5880,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7449,6 +7776,7 @@
         "incACC": 10,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7473,6 +7801,7 @@
         "incACC": 10,
         "tuc": 7
       },
+      "price": 6840,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7497,6 +7826,7 @@
         "incACC": 10,
         "tuc": 7
       },
+      "price": 7080,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7520,6 +7850,7 @@
         "incMHP": 50,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7543,6 +7874,7 @@
         "incMDD": 26,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7566,6 +7898,7 @@
         "incMDD": 26,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7590,6 +7923,7 @@
         "incMMP": 25,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7612,6 +7946,7 @@
         "incPDD": 33,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7634,6 +7969,7 @@
         "incMHP": 50,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7656,6 +7992,7 @@
         "incMMP": 50,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7679,6 +8016,7 @@
         "incMHP": 20,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7701,6 +8039,7 @@
         "incMHP": 50,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7723,6 +8062,7 @@
         "incMMP": 50,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7745,6 +8085,7 @@
         "incPDD": 33,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7767,6 +8108,7 @@
         "incPDD": 33,
         "tuc": 7
       },
+      "price": 6600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7795,6 +8137,7 @@
         "incEVA": 3,
         "tuc": 7
       },
+      "price": 10000,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7825,6 +8168,7 @@
         "incJump": 20,
         "tuc": 7
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7855,6 +8199,7 @@
         "incJump": 50,
         "tuc": 7
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7885,6 +8230,7 @@
         "incJump": 50,
         "tuc": 7
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7911,6 +8257,7 @@
         "incJump": 50,
         "tuc": 7
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7941,6 +8288,7 @@
         "incJump": 20,
         "tuc": 7
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7963,6 +8311,7 @@
         "incACC": 1,
         "tuc": 5
       },
+      "price": 3750,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -7986,6 +8335,7 @@
         "incACC": 3,
         "tuc": 5
       },
+      "price": 11280,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8009,6 +8359,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 11280,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8032,6 +8383,7 @@
         "incACC": 3,
         "tuc": 5
       },
+      "price": 11280,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8055,6 +8407,7 @@
         "incACC": 4,
         "tuc": 5
       },
+      "price": 13200,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8078,6 +8431,7 @@
         "incACC": 4,
         "tuc": 5
       },
+      "price": 13200,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8101,6 +8455,7 @@
         "incACC": 4,
         "tuc": 5
       },
+      "price": 13200,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8124,6 +8479,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 13200,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8147,6 +8503,7 @@
         "incACC": 4,
         "tuc": 5
       },
+      "price": 13200,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8168,6 +8525,7 @@
         "incPDD": 1,
         "tuc": 0
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8189,6 +8547,7 @@
         "incPDD": 6,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8210,6 +8569,7 @@
         "incPDD": 6,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8231,6 +8591,7 @@
         "incPDD": 6,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8253,6 +8614,7 @@
         "incPDD": 27,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8275,6 +8637,7 @@
         "incPDD": 27,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8298,6 +8661,7 @@
         "incMDD": 18,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8321,6 +8685,7 @@
         "incMDD": 18,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8343,6 +8708,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8365,6 +8731,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8387,6 +8754,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8409,6 +8777,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8431,6 +8800,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8453,6 +8823,7 @@
         "incMHP": 12,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8475,6 +8846,7 @@
         "incMMP": 12,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8498,6 +8870,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8521,6 +8894,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8544,6 +8918,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8567,6 +8942,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8590,6 +8966,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8613,6 +8990,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8635,6 +9013,7 @@
         "incPDD": 37,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8657,6 +9036,7 @@
         "incPDD": 37,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8680,6 +9060,7 @@
         "incMDD": 24,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8703,6 +9084,7 @@
         "incMHP": 20,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8726,6 +9108,7 @@
         "incMDD": 24,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8748,6 +9131,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8770,6 +9154,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8792,6 +9177,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8814,6 +9200,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8837,6 +9224,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8860,6 +9248,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8884,6 +9273,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8907,6 +9297,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8929,6 +9320,7 @@
         "incMMP": 25,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8951,6 +9343,7 @@
         "incMHP": 25,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8974,6 +9367,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -8997,6 +9391,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9020,6 +9415,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9044,6 +9440,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9066,6 +9463,7 @@
         "incPDD": 47,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9088,6 +9486,7 @@
         "incPDD": 47,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9110,6 +9509,7 @@
         "incPDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9132,6 +9532,7 @@
         "incMMP": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9154,6 +9555,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9176,6 +9578,7 @@
         "incPDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9198,6 +9601,7 @@
         "incPDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9220,6 +9624,7 @@
         "incPDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9242,6 +9647,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9264,6 +9670,7 @@
         "incPDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9288,6 +9695,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9311,6 +9719,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9333,6 +9742,7 @@
         "incMHP": 35,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9356,6 +9766,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9378,6 +9789,7 @@
         "incMMP": 35,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9402,6 +9814,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9425,6 +9838,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9448,6 +9862,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9471,6 +9886,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9493,6 +9909,7 @@
         "incPDD": 57,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9515,6 +9932,7 @@
         "incPDD": 57,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9537,6 +9955,7 @@
         "incMHP": 40,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9559,6 +9978,7 @@
         "incPDD": 38,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9581,6 +10001,7 @@
         "incPDD": 38,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9604,6 +10025,7 @@
         "incPDD": 38,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9626,6 +10048,7 @@
         "incPDD": 38,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9648,6 +10071,7 @@
         "incPDD": 38,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9670,6 +10094,7 @@
         "incPDD": 38,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9693,6 +10118,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9716,6 +10142,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9738,6 +10165,7 @@
         "incPDD": 67,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9760,6 +10188,7 @@
         "incPDD": 67,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9783,6 +10212,7 @@
         "incPDD": 67,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9805,6 +10235,7 @@
         "incPDD": 46,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9828,6 +10259,7 @@
         "incMMP": 20,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9850,6 +10282,7 @@
         "incPDD": 46,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9872,6 +10305,7 @@
         "incPDD": 46,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9893,6 +10327,7 @@
         "incPDD": 1,
         "tuc": 0
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9914,6 +10349,7 @@
         "incPDD": 6,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9935,6 +10371,7 @@
         "incPDD": 6,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9956,6 +10393,7 @@
         "incPDD": 6,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9977,6 +10415,7 @@
         "incPDD": 6,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -9999,6 +10438,7 @@
         "incPDD": 27,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10021,6 +10461,7 @@
         "incPDD": 27,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10044,6 +10485,7 @@
         "incMDD": 18,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10067,6 +10509,7 @@
         "incMDD": 18,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10089,6 +10532,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10111,6 +10555,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10133,6 +10578,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10155,6 +10601,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10177,6 +10624,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10199,6 +10647,7 @@
         "incMHP": 12,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10221,6 +10670,7 @@
         "incMMP": 12,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10244,6 +10694,7 @@
         "incMMP": 15,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10268,6 +10719,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10291,6 +10743,7 @@
         "incMHP": 15,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10315,6 +10768,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10338,6 +10792,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10361,6 +10816,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10384,6 +10840,7 @@
         "incMMP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10407,6 +10864,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10430,6 +10888,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10452,6 +10911,7 @@
         "incPDD": 37,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10474,6 +10934,7 @@
         "incPDD": 37,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10496,6 +10957,7 @@
         "incMHP": 20,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10519,6 +10981,7 @@
         "incMDD": 24,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10542,6 +11005,7 @@
         "incMDD": 24,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10566,6 +11030,7 @@
         "incMDD": 24,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10588,6 +11053,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10610,6 +11076,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10632,6 +11099,7 @@
         "incMHP": 20,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10654,6 +11122,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10676,6 +11145,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10698,6 +11168,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10720,6 +11191,7 @@
         "incMMP": 25,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10743,6 +11215,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10766,6 +11239,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10789,6 +11263,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10811,6 +11286,7 @@
         "incMMP": 25,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10833,6 +11309,7 @@
         "incMHP": 25,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10856,6 +11333,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10878,6 +11356,7 @@
         "incMHP": 25,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10901,6 +11380,7 @@
         "incMMP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10924,6 +11404,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10947,6 +11428,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10970,6 +11452,7 @@
         "incMDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -10993,6 +11476,7 @@
         "incMDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11016,6 +11500,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11038,6 +11523,7 @@
         "incPDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11060,6 +11546,7 @@
         "incPDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11082,6 +11569,7 @@
         "incPDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11104,6 +11592,7 @@
         "incPDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11126,6 +11615,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11148,6 +11638,7 @@
         "incPDD": 30,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11172,6 +11663,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11196,6 +11688,7 @@
         "incMMP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11221,6 +11714,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11244,6 +11738,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11266,6 +11761,7 @@
         "incMHP": 35,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11289,6 +11785,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11311,6 +11808,7 @@
         "incMMP": 35,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11335,6 +11833,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11357,6 +11856,7 @@
         "incPDD": 57,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11379,6 +11879,7 @@
         "incPDD": 57,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11402,6 +11903,7 @@
         "incPDD": 57,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11425,6 +11927,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11447,6 +11950,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11469,6 +11973,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11491,6 +11996,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11513,6 +12019,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11535,6 +12042,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 7000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11557,6 +12065,7 @@
         "incPDD": 67,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11579,6 +12088,7 @@
         "incPDD": 67,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11602,6 +12112,7 @@
         "incPDD": 67,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11624,6 +12135,7 @@
         "incPDD": 46,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11647,6 +12159,7 @@
         "incMMP": 20,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11669,6 +12182,7 @@
         "incPDD": 46,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11691,6 +12205,7 @@
         "incPDD": 46,
         "tuc": 7
       },
+      "price": 11000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11710,6 +12225,7 @@
         "reqINT": 0,
         "reqLUK": 0
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11732,6 +12248,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 1200,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11755,6 +12272,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 1200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11779,6 +12297,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 1800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11803,6 +12322,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 1800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11826,6 +12346,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11849,6 +12370,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11872,6 +12394,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11895,6 +12418,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11918,6 +12442,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 2400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11942,6 +12467,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 2400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11966,6 +12492,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 2400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -11991,6 +12518,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 2400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12015,6 +12543,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 2400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12038,6 +12567,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 2400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12061,6 +12591,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 2400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12085,6 +12616,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12108,6 +12640,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12131,6 +12664,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12155,6 +12689,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12180,6 +12715,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12205,6 +12741,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12231,6 +12768,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12255,6 +12793,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12279,6 +12818,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12304,6 +12844,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12328,6 +12869,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12352,6 +12894,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12376,6 +12919,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12400,6 +12944,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12424,6 +12969,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12447,6 +12993,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 3600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12471,6 +13018,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12495,6 +13043,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12520,6 +13069,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12543,6 +13093,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12566,6 +13117,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12590,6 +13142,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12613,6 +13166,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12636,6 +13190,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12659,6 +13214,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 3600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12683,6 +13239,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12707,6 +13264,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12731,6 +13289,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 6000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12756,6 +13315,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12781,6 +13341,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12807,6 +13368,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12831,6 +13393,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12855,6 +13418,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12880,6 +13444,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12904,6 +13469,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12928,6 +13494,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12952,6 +13519,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 6000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -12976,6 +13544,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13000,6 +13569,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13023,6 +13593,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 8400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13047,6 +13618,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13071,6 +13643,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13096,6 +13669,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13119,6 +13693,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13142,6 +13717,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13166,6 +13742,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13189,6 +13766,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13212,6 +13790,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13235,6 +13814,7 @@
         "tuc": 5,
         "incCRT": 2
       },
+      "price": 8400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13259,6 +13839,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13283,6 +13864,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13306,6 +13888,7 @@
         "tuc": 5,
         "incCRT": 1
       },
+      "price": 13200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13330,6 +13913,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13354,6 +13938,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13379,6 +13964,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13402,6 +13988,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13425,6 +14012,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13449,6 +14037,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13472,6 +14061,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13495,6 +14085,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13518,6 +14109,7 @@
         "tuc": 5,
         "incCRT": 3
       },
+      "price": 13200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13541,6 +14133,7 @@
         "incMHP": 30,
         "tuc": 10
       },
+      "price": 2700,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13564,6 +14157,7 @@
         "incMDD": 38,
         "tuc": 10
       },
+      "price": 2700,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13587,6 +14181,7 @@
         "incMDD": 38,
         "tuc": 10
       },
+      "price": 2700,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13609,6 +14204,7 @@
         "incPDD": 69,
         "tuc": 10
       },
+      "price": 3600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13631,6 +14227,7 @@
         "incPDD": 69,
         "tuc": 10
       },
+      "price": 3600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13654,6 +14251,7 @@
         "incPDD": 69,
         "tuc": 10
       },
+      "price": 3600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13678,6 +14276,7 @@
         "incMHP": 20,
         "tuc": 10
       },
+      "price": 4500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13701,6 +14300,7 @@
         "incMDD": 49,
         "tuc": 10
       },
+      "price": 4500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13724,6 +14324,7 @@
         "incMDD": 49,
         "tuc": 10
       },
+      "price": 4500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13748,6 +14349,7 @@
         "incMDD": 49,
         "tuc": 10
       },
+      "price": 4500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13776,6 +14378,7 @@
         "tuc": 10,
         "recovery": 1.5
       },
+      "price": 5400,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13799,6 +14402,7 @@
         "incPDD": 89,
         "tuc": 10
       },
+      "price": 5400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13822,6 +14426,7 @@
         "incMDD": 55,
         "tuc": 10
       },
+      "price": 5400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13846,6 +14451,7 @@
         "incMDD": 55,
         "tuc": 10
       },
+      "price": 5400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13869,6 +14475,7 @@
         "incMDD": 55,
         "tuc": 10
       },
+      "price": 5400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13893,6 +14500,7 @@
         "incMMP": 30,
         "tuc": 10
       },
+      "price": 5400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13917,6 +14525,7 @@
         "incMMP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13941,6 +14550,7 @@
         "incMMP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13966,6 +14576,7 @@
         "incMMP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -13990,6 +14601,7 @@
         "incMHP": 35,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14014,6 +14626,7 @@
         "incMMP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14039,6 +14652,7 @@
         "incMMP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14063,6 +14677,7 @@
         "incMHP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14086,6 +14701,7 @@
         "incMDD": 66,
         "tuc": 10
       },
+      "price": 12600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14110,6 +14726,7 @@
         "incMHP": 40,
         "tuc": 10
       },
+      "price": 12600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14133,6 +14750,7 @@
         "incMDD": 66,
         "tuc": 10
       },
+      "price": 12600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14157,6 +14775,7 @@
         "incMMP": 40,
         "tuc": 10
       },
+      "price": 12600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14181,6 +14800,7 @@
         "incMDD": 66,
         "tuc": 10
       },
+      "price": 12600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14205,6 +14825,7 @@
         "incMHP": 50,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14228,6 +14849,7 @@
         "incMDD": 77,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14251,6 +14873,7 @@
         "incMDD": 77,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14275,6 +14898,7 @@
         "incMMP": 50,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14299,6 +14923,7 @@
         "incMDD": 77,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14321,6 +14946,7 @@
         "incPDD": 88,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14343,6 +14969,7 @@
         "incPDD": 88,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14366,6 +14993,7 @@
         "incPDD": 59,
         "tuc": 10
       },
+      "price": 2700,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14389,6 +15017,7 @@
         "incMDD": 49,
         "tuc": 10
       },
+      "price": 4500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14412,6 +15041,7 @@
         "incMDD": 49,
         "tuc": 10
       },
+      "price": 4500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14435,6 +15065,7 @@
         "incMHP": 50,
         "tuc": 10
       },
+      "price": 4500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14463,6 +15094,7 @@
         "tuc": 10,
         "recovery": 1.5
       },
+      "price": 5400,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14486,6 +15118,7 @@
         "incPDD": 89,
         "tuc": 10
       },
+      "price": 5400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14508,6 +15141,7 @@
         "incPDD": 89,
         "tuc": 10
       },
+      "price": 5400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14530,6 +15164,7 @@
         "incPDD": 89,
         "tuc": 10
       },
+      "price": 5400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14553,6 +15188,7 @@
         "incMMP": 30,
         "tuc": 10
       },
+      "price": 5400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14577,6 +15213,7 @@
         "incMHP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14601,6 +15238,7 @@
         "incMMP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14625,6 +15263,7 @@
         "incMHP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14650,6 +15289,7 @@
         "incMHP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14673,6 +15313,7 @@
         "incMHP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14696,6 +15337,7 @@
         "incMMP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14720,6 +15362,7 @@
         "incMHP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14743,6 +15386,7 @@
         "incMHP": 5,
         "tuc": 10
       },
+      "price": 9000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14766,6 +15410,7 @@
         "incMDD": 66,
         "tuc": 10
       },
+      "price": 12600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14790,6 +15435,7 @@
         "incMHP": 40,
         "tuc": 10
       },
+      "price": 12600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14813,6 +15459,7 @@
         "incMDD": 66,
         "tuc": 10
       },
+      "price": 12600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14837,6 +15484,7 @@
         "incMMP": 40,
         "tuc": 10
       },
+      "price": 12600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14861,6 +15509,7 @@
         "incMDD": 66,
         "tuc": 10
       },
+      "price": 12600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14885,6 +15534,7 @@
         "incMHP": 50,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14908,6 +15558,7 @@
         "incMDD": 77,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14931,6 +15582,7 @@
         "incMDD": 77,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14955,6 +15607,7 @@
         "incMDD": 77,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -14979,6 +15632,7 @@
         "incMMP": 50,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15001,6 +15655,7 @@
         "incPDD": 88,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15024,6 +15679,7 @@
         "incPDD": 88,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15046,6 +15702,7 @@
         "incPDD": 88,
         "tuc": 10
       },
+      "price": 19800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15067,6 +15724,7 @@
         "incPDD": 1,
         "tuc": 7
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15088,6 +15746,7 @@
         "incPDD": 4,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15109,6 +15768,7 @@
         "incPDD": 4,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15131,6 +15791,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 400,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15153,6 +15814,7 @@
         "incPDD": 18,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15175,6 +15837,7 @@
         "incPDD": 18,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15198,6 +15861,7 @@
         "incMDD": 12,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15221,6 +15885,7 @@
         "incMDD": 12,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15243,6 +15908,7 @@
         "incPDD": 10,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15265,6 +15931,7 @@
         "incPDD": 10,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15287,6 +15954,7 @@
         "incPDD": 10,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15309,6 +15977,7 @@
         "incMHP": 12,
         "tuc": 7
       },
+      "price": 960,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15332,6 +16001,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15355,6 +16025,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15378,6 +16049,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15401,6 +16073,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15423,6 +16096,7 @@
         "incPDD": 26,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15445,6 +16119,7 @@
         "incPDD": 26,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15468,6 +16143,7 @@
         "incMDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15491,6 +16167,7 @@
         "incMDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15513,6 +16190,7 @@
         "incPDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15535,6 +16213,7 @@
         "incPDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15557,6 +16236,7 @@
         "incPDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15580,6 +16260,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15603,6 +16284,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15627,6 +16309,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15650,6 +16333,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15673,6 +16357,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15696,6 +16381,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15718,6 +16404,7 @@
         "incMHP": 26,
         "tuc": 7
       },
+      "price": 2080,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15740,6 +16427,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15762,6 +16450,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15785,6 +16474,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15808,6 +16498,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15830,6 +16521,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15852,6 +16544,7 @@
         "incMMP": 30,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15874,6 +16567,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15896,6 +16590,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15918,6 +16613,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15940,6 +16636,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15962,6 +16659,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -15984,6 +16682,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16008,6 +16707,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16031,6 +16731,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16053,6 +16754,7 @@
         "incMHP": 35,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16076,6 +16778,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16098,6 +16801,7 @@
         "incMMP": 35,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16122,6 +16826,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16145,6 +16850,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16168,6 +16874,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16191,6 +16898,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16213,6 +16921,7 @@
         "incPDD": 42,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16236,6 +16945,7 @@
         "incPDD": 42,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16258,6 +16968,7 @@
         "incPDD": 42,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16280,6 +16991,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16303,6 +17015,7 @@
         "incMMP": 20,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16325,6 +17038,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16347,6 +17061,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16369,6 +17084,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16391,6 +17107,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16413,6 +17130,7 @@
         "incPDD": 50,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16435,6 +17153,7 @@
         "incPDD": 50,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16458,6 +17177,7 @@
         "incPDD": 50,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16480,6 +17200,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16503,6 +17224,7 @@
         "incMMP": 20,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16525,6 +17247,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16547,6 +17270,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16568,6 +17292,7 @@
         "incPDD": 1,
         "tuc": 7
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16589,6 +17314,7 @@
         "incPDD": 4,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16610,6 +17336,7 @@
         "incPDD": 4,
         "tuc": 7
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16632,6 +17359,7 @@
         "incPDD": 18,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16654,6 +17382,7 @@
         "incPDD": 18,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16677,6 +17406,7 @@
         "incMDD": 12,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16700,6 +17430,7 @@
         "incMDD": 12,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16722,6 +17453,7 @@
         "incPDD": 10,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16744,6 +17476,7 @@
         "incPDD": 10,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16766,6 +17499,7 @@
         "incPDD": 10,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16788,6 +17522,7 @@
         "incPDD": 10,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16810,6 +17545,7 @@
         "incPDD": 10,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16833,6 +17569,7 @@
         "incMMP": 15,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16857,6 +17594,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16880,6 +17618,7 @@
         "incMHP": 15,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16904,6 +17643,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16927,6 +17667,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16950,6 +17691,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16973,6 +17715,7 @@
         "incMMP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -16996,6 +17739,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17019,6 +17763,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17041,6 +17786,7 @@
         "incPDD": 26,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17063,6 +17809,7 @@
         "incPDD": 26,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17085,6 +17832,7 @@
         "incMHP": 20,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17108,6 +17856,7 @@
         "incMDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17132,6 +17881,7 @@
         "incMDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17154,6 +17904,7 @@
         "incPDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17176,6 +17927,7 @@
         "incPDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17198,6 +17950,7 @@
         "incMHP": 20,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17220,6 +17973,7 @@
         "incPDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17242,6 +17996,7 @@
         "incPDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17264,6 +18019,7 @@
         "incPDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17286,6 +18042,7 @@
         "incMHP": 22,
         "tuc": 7
       },
+      "price": 1760,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17308,6 +18065,7 @@
         "incMMP": 22,
         "tuc": 7
       },
+      "price": 1760,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17331,6 +18089,7 @@
         "incMHP": 12,
         "tuc": 7
       },
+      "price": 1760,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17353,6 +18112,7 @@
         "incMMP": 25,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17376,6 +18136,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17399,6 +18160,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17421,6 +18183,7 @@
         "incMHP": 25,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17444,6 +18207,7 @@
         "incMMP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17467,6 +18231,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17490,6 +18255,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17513,6 +18279,7 @@
         "incMDD": 20,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17535,6 +18302,7 @@
         "incPDD": 14,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17558,6 +18326,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17580,6 +18349,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17602,6 +18372,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17624,6 +18395,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17646,6 +18418,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17668,6 +18441,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17690,6 +18464,7 @@
         "incMHP": 30,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17712,6 +18487,7 @@
         "incPDD": 22,
         "tuc": 7
       },
+      "price": 2400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17736,6 +18512,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17760,6 +18537,7 @@
         "incMMP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17785,6 +18563,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17808,6 +18587,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17830,6 +18610,7 @@
         "incMHP": 35,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17853,6 +18634,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17875,6 +18657,7 @@
         "incMMP": 35,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17899,6 +18682,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17921,6 +18705,7 @@
         "incPDD": 42,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17943,6 +18728,7 @@
         "incPDD": 42,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17966,6 +18752,7 @@
         "incPDD": 42,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -17988,6 +18775,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18010,6 +18798,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18033,6 +18822,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18055,6 +18845,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18077,6 +18868,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18099,6 +18891,7 @@
         "incPDD": 28,
         "tuc": 7
       },
+      "price": 5600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18121,6 +18914,7 @@
         "incPDD": 50,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18143,6 +18937,7 @@
         "incPDD": 50,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18166,6 +18961,7 @@
         "incPDD": 50,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18188,6 +18984,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18211,6 +19008,7 @@
         "incMMP": 20,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18233,6 +19031,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18255,6 +19054,7 @@
         "incPDD": 34,
         "tuc": 7
       },
+      "price": 8800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18277,6 +19077,7 @@
         "incPDD": 10,
         "tuc": 7
       },
+      "price": 800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18300,6 +19101,7 @@
         "incMMP": 17,
         "tuc": 7
       },
+      "price": 1360,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18323,6 +19125,7 @@
         "incMHP": 17,
         "tuc": 7
       },
+      "price": 1360,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18346,6 +19149,7 @@
         "incPDD": 16,
         "tuc": 7
       },
+      "price": 1600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18369,6 +19173,7 @@
         "incMHP": 5,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18388,6 +19193,7 @@
         "reqINT": 0,
         "reqLUK": 0
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18409,6 +19215,7 @@
         "incPDD": 40,
         "tuc": 7
       },
+      "price": 1000,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18431,6 +19238,7 @@
         "incACC": 3,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18452,6 +19260,7 @@
         "incPDD": 45,
         "tuc": 7
       },
+      "price": 2000,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18474,6 +19283,7 @@
         "incACC": 3,
         "tuc": 7
       },
+      "price": 3000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18497,6 +19307,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 4000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18520,6 +19331,7 @@
         "incMHP": 10,
         "tuc": 7
       },
+      "price": 4400,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18542,6 +19354,7 @@
         "incMHP": 10,
         "tuc": 7
       },
+      "price": 4400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18564,6 +19377,7 @@
         "incACC": 1,
         "tuc": 7
       },
+      "price": 4400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18586,6 +19400,7 @@
         "incPDD": 57,
         "tuc": 7
       },
+      "price": 4400,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18609,6 +19424,7 @@
         "incACC": 4,
         "tuc": 7
       },
+      "price": 5000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18632,6 +19448,7 @@
         "incACC": 5,
         "tuc": 7
       },
+      "price": 6000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18655,6 +19472,7 @@
         "incMHP": 25,
         "tuc": 7
       },
+      "price": 10000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18678,6 +19496,7 @@
         "incACC": 5,
         "tuc": 7
       },
+      "price": 10000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18701,6 +19520,7 @@
         "incACC": 6,
         "tuc": 7
       },
+      "price": 14000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18724,6 +19544,7 @@
         "incACC": 7,
         "tuc": 7
       },
+      "price": 14000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18747,6 +19568,7 @@
         "incACC": 8,
         "tuc": 7
       },
+      "price": 14000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18770,6 +19592,7 @@
         "incACC": 7,
         "tuc": 7
       },
+      "price": 22000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18791,6 +19614,7 @@
         "incPDD": 2,
         "tuc": 5
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18812,6 +19636,7 @@
         "incPDD": 2,
         "tuc": 5
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18833,6 +19658,7 @@
         "incPDD": 2,
         "tuc": 5
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18854,6 +19680,7 @@
         "incPDD": 2,
         "tuc": 5
       },
+      "price": 0,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18878,6 +19705,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18902,6 +19730,7 @@
         "incEVA": 1,
         "tuc": 5
       },
+      "price": 600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18926,6 +19755,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18949,6 +19779,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18972,6 +19803,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -18995,6 +19827,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19018,6 +19851,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19040,6 +19874,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 660,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19062,6 +19897,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 660,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19084,6 +19920,7 @@
         "incEVA": 1,
         "tuc": 5
       },
+      "price": 660,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19108,6 +19945,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19132,6 +19970,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19157,6 +19996,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19182,6 +20022,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19206,6 +20047,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19230,6 +20072,7 @@
         "incEVA": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19254,6 +20097,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19278,6 +20122,7 @@
         "incEVA": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19302,6 +20147,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19326,6 +20172,7 @@
         "incEVA": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19350,6 +20197,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 900,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19374,6 +20222,7 @@
         "incEVA": 1,
         "tuc": 5
       },
+      "price": 960,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19398,6 +20247,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 960,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19422,6 +20272,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 960,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19446,6 +20297,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19469,6 +20321,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19493,6 +20346,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19517,6 +20371,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19542,6 +20397,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19567,6 +20423,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19591,6 +20448,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19615,6 +20473,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19638,6 +20497,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19662,6 +20522,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19685,6 +20546,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19709,6 +20571,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19733,6 +20596,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 1200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19756,6 +20620,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1260,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19779,6 +20644,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 1260,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19802,6 +20668,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 1260,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19826,6 +20693,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19851,6 +20719,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19876,6 +20745,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19901,6 +20771,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19926,6 +20797,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19952,6 +20824,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -19978,6 +20851,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20003,6 +20877,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20027,6 +20902,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20052,6 +20928,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20077,6 +20954,7 @@
         "incSpeed": 1,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20102,6 +20980,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20126,6 +21005,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20150,6 +21030,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1500,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20174,6 +21055,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 1560,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20198,6 +21080,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 1560,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20222,6 +21105,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 1560,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20247,6 +21131,7 @@
         "incJump": 1,
         "tuc": 5
       },
+      "price": 1560,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20270,6 +21155,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20294,6 +21180,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20318,6 +21205,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20342,6 +21230,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20367,6 +21256,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20391,6 +21281,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20416,6 +21307,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20441,6 +21333,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20464,6 +21357,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20488,6 +21382,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20512,6 +21407,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20536,6 +21432,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20560,6 +21457,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20583,6 +21481,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20607,6 +21506,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20631,6 +21531,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20654,6 +21555,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20677,6 +21579,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20701,6 +21604,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20724,6 +21628,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20747,6 +21652,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 1800,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20770,6 +21676,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 1950,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20793,6 +21700,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 1950,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20817,6 +21725,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20842,6 +21751,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20867,6 +21777,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20893,6 +21804,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20919,6 +21831,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20944,6 +21857,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20968,6 +21882,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -20993,6 +21908,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21018,6 +21934,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21043,6 +21960,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21068,6 +21986,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21092,6 +22011,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21115,6 +22035,7 @@
         "incEVA": 4,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21139,6 +22060,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21163,6 +22085,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21188,6 +22111,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21213,6 +22137,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21237,6 +22162,7 @@
         "incEVA": 4,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21262,6 +22188,7 @@
         "incEVA": 4,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21285,6 +22212,7 @@
         "incEVA": 4,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21309,6 +22237,7 @@
         "incEVA": 4,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21333,6 +22262,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21357,6 +22287,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21381,6 +22312,7 @@
         "incJump": 2,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21405,6 +22337,7 @@
         "incSpeed": 2,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21428,6 +22361,7 @@
         "incEVA": 4,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21451,6 +22385,7 @@
         "incEVA": 4,
         "tuc": 5
       },
+      "price": 4200,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21474,6 +22409,7 @@
         "incEVA": 5,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21498,6 +22434,7 @@
         "incSpeed": 3,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21522,6 +22459,7 @@
         "incJump": 3,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21546,6 +22484,7 @@
         "incEVA": 5,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Warrior",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21571,6 +22510,7 @@
         "incJump": 3,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21596,6 +22536,7 @@
         "incSpeed": 3,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21621,6 +22562,7 @@
         "incEVA": 5,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21645,6 +22587,7 @@
         "incEVA": 5,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Mage",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21668,6 +22611,7 @@
         "incEVA": 5,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21692,6 +22636,7 @@
         "incEVA": 5,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21716,6 +22661,7 @@
         "incJump": 3,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21740,6 +22686,7 @@
         "incSpeed": 3,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Bowman",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21764,6 +22711,7 @@
         "incJump": 3,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21788,6 +22736,7 @@
         "incSpeed": 3,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21811,6 +22760,7 @@
         "incEVA": 5,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21834,6 +22784,7 @@
         "incEVA": 5,
         "tuc": 5
       },
+      "price": 6600,
       "req_job_label": "Thief",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21860,6 +22811,7 @@
         "incMDD": 7,
         "tuc": 5
       },
+      "price": 1590,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21879,6 +22831,7 @@
         "reqINT": 0,
         "reqLUK": 0
       },
+      "price": 1,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21900,6 +22853,7 @@
         "incMDD": 19,
         "tuc": 5
       },
+      "price": 2250,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21921,6 +22875,7 @@
         "incMDD": 19,
         "tuc": 5
       },
+      "price": 2250,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21943,6 +22898,7 @@
         "incEVA": 1,
         "tuc": 5
       },
+      "price": 3000,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21965,6 +22921,7 @@
         "tuc": 5,
         "incCRD": 1
       },
+      "price": 3000,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -21988,6 +22945,7 @@
         "incEVA": 1,
         "tuc": 5
       },
+      "price": 3750,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22011,6 +22969,7 @@
         "tuc": 5,
         "incCRD": 1
       },
+      "price": 3750,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22033,6 +22992,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 4500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22055,6 +23015,7 @@
         "tuc": 5,
         "incCRD": 2
       },
+      "price": 4500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22078,6 +23039,7 @@
         "tuc": 5,
         "incCRD": 1
       },
+      "price": 4500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22101,6 +23063,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 7500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22124,6 +23087,7 @@
         "tuc": 5,
         "incCRD": 2
       },
+      "price": 7500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22146,6 +23110,7 @@
         "incEVA": 3,
         "tuc": 5
       },
+      "price": 10500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22169,6 +23134,7 @@
         "tuc": 5,
         "incCRD": 3
       },
+      "price": 13500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22191,6 +23157,7 @@
         "incEVA": 4,
         "tuc": 5
       },
+      "price": 16500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22213,6 +23180,7 @@
         "tuc": 5,
         "incCRD": 4
       },
+      "price": 16500,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,
@@ -22236,6 +23204,7 @@
         "incEVA": 2,
         "tuc": 5
       },
+      "price": 3750,
       "req_job_label": "All",
       "weapon_type": null,
       "attack_speed_label": null,

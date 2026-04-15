@@ -1,4 +1,5 @@
-import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, normalizeAssetPath, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton } from '../lib/utils.js';
+import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
+import { attachTooltip } from '../lib/tooltip.js';
 
 function parseIdFilter(query) {
   const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
@@ -6,146 +7,15 @@ function parseIdFilter(query) {
   return Number(match[1]);
 }
 
-
 function toItemThumbPath(itemId) {
   const n = Number(itemId);
   if (!Number.isFinite(n) || n <= 0) return '';
   return `images/items/${String(n).padStart(8, '0')}.png`;
 }
 
-function toMobThumbPath(mobId) {
-  const n = Number(mobId);
-  if (!Number.isFinite(n) || n < 0) return '';
-  return `images/monsters/${String(n).padStart(7, '0')}.png`;
-}
-
-// --- Tooltip ---
-let _tooltip = null;
-function getTooltip() {
-  if (!_tooltip) {
-    _tooltip = el('div', { className: 'item-tooltip', id: 'craft-item-tooltip' });
-    document.body.appendChild(_tooltip);
-  }
-  return _tooltip;
-}
-
-
-export function showItemTooltip(e, itemData) {
-  if (!itemData) return;
-  const tip = getTooltip();
-  tip.innerHTML = '';
-
-  const header = el('div', { className: 'item-tooltip-header' });
-  const thumbSrc = toItemThumbPath(itemData.id);
-  if (thumbSrc) {
-    const img = el('img', { className: 'item-tooltip-thumb', loading: 'lazy' });
-    img.src = normalizeAssetPath(thumbSrc);
-    img.addEventListener('error', () => img.remove(), { once: true });
-    header.appendChild(img);
-  }
-  const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' } });
-  nameWrap.appendChild(el('span', { className: 'item-tooltip-name', textContent: itemData.name }));
-  const equipType = itemData.weapon_type || (itemData.category === 'Equipment' ? itemData.sub_category : null);
-  if (equipType) {
-    nameWrap.appendChild(el('span', { className: 'equip-type-badge', textContent: equipType }));
-  }
-  header.appendChild(nameWrap);
-  tip.appendChild(header);
-
-  if (itemData.description) {
-    tip.appendChild(el('p', { className: 'item-tooltip-desc', textContent: itemData.description }));
-  }
-
-  let hasContent = !!itemData.description;
-
-  if (itemData.category === 'Equipment') {
-    const statLine = makeEquipStatLine(itemData);
-    if (statLine) { tip.appendChild(statLine); hasContent = true; }
-    const reqLine = makeEquipReqLine(itemData);
-    if (reqLine) { tip.appendChild(reqLine); hasContent = true; }
-  }
-
-  if (!hasContent) {
-    tip.appendChild(el('span', { className: 'item-tooltip-desc', textContent: 'No details available.' }));
-  }
-
-  positionTooltip(tip, e);
-  tip.classList.add('visible');
-}
-
-function positionTooltip(tip, e) {
-  tip.style.left = '0px';
-  tip.style.top = '0px';
-  tip.style.visibility = 'hidden';
-  tip.classList.add('visible');
-
-  const vpW = window.innerWidth;
-  const vpH = window.innerHeight;
-  const tw = tip.offsetWidth;
-  const th = tip.offsetHeight;
-  const offset = 12;
-
-  let x = e.clientX + offset;
-  let y = e.clientY + offset;
-  if (x + tw > vpW - 8) x = e.clientX - tw - offset;
-  if (y + th > vpH - 8) y = e.clientY - th - offset;
-
-  tip.style.left = `${x + window.scrollX}px`;
-  tip.style.top = `${y + window.scrollY}px`;
-  tip.style.visibility = '';
-}
-
-export function hideItemTooltip() {
-  if (_tooltip) _tooltip.classList.remove('visible');
-}
-
-export function showMobTooltip(e, mobData) {
-  if (!mobData) return;
-  const tip = getTooltip();
-  tip.innerHTML = '';
-
-  const header = el('div', { className: 'item-tooltip-header' });
-  const thumbSrc = toMobThumbPath(mobData.id);
-  if (thumbSrc) {
-    const img = el('img', { className: 'item-tooltip-thumb', loading: 'lazy' });
-    img.src = normalizeAssetPath(thumbSrc);
-    img.addEventListener('error', () => img.remove(), { once: true });
-    header.appendChild(img);
-  }
-  const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' } });
-  nameWrap.appendChild(el('span', { className: 'item-tooltip-name', textContent: mobData.name }));
-  if (mobData.level) {
-    nameWrap.appendChild(el('span', { className: 'equip-type-badge', textContent: `Lv.${mobData.level}` }));
-  }
-  header.appendChild(nameWrap);
-  tip.appendChild(header);
-
-  const stats = [];
-  if (mobData.hp != null) stats.push(`HP: ${mobData.hp.toLocaleString()}`);
-  if (mobData.exp != null) stats.push(`EXP: ${mobData.exp.toLocaleString()}`);
-  if (stats.length) {
-    tip.appendChild(el('p', { className: 'item-tooltip-desc', textContent: stats.join('  ·  ') }));
-  } else {
-    tip.appendChild(el('span', { className: 'item-tooltip-desc', textContent: 'No details available.' }));
-  }
-
-  positionTooltip(tip, e);
-  tip.classList.add('visible');
-}
-
-export function attachTooltip(element, getData, type = 'item') {
-  element.addEventListener('mouseenter', (e) => {
-    if (type === 'mob') showMobTooltip(e, getData());
-    else showItemTooltip(e, getData());
-  });
-  element.addEventListener('mousemove', (e) => {
-    if (_tooltip?.classList.contains('visible')) positionTooltip(_tooltip, e);
-  });
-  element.addEventListener('mouseleave', hideItemTooltip);
-}
-
 export function renderCrafting(data, options = {}) {
   const { recipes, items } = data;
+  const { onItemClick } = options;
   let searchQuery = '';
   const container = el('div');
 
@@ -330,6 +200,13 @@ export function renderCrafting(data, options = {}) {
             );
             resultLeft.appendChild(el('span', { style: { fontWeight: '500' }, textContent: recipe.result_item_name }));
             attachTooltip(resultLeft, () => recipe.output_id != null ? itemById.get(String(recipe.output_id)) : itemByName.get(recipe.result_item_name));
+            if (onItemClick) {
+              resultLeft.style.cursor = 'pointer';
+              resultLeft.addEventListener('click', () => {
+                const item = recipe.output_id != null ? itemById.get(String(recipe.output_id)) : itemByName.get(recipe.result_item_name);
+                onItemClick(item, recipe.output_id);
+              });
+            }
             resultWrap.appendChild(resultLeft);
             if (recipe.output_id != null) {
               const craftIdWrap = el('span', { style: { display: 'inline-flex', alignItems: 'center', gap: '4px' } });
@@ -364,6 +241,13 @@ export function renderCrafting(data, options = {}) {
                 })
               );
               attachTooltip(ingWrap, () => itemByName.get(ingredient.item_name));
+              if (onItemClick) {
+                ingWrap.style.cursor = 'pointer';
+                ingWrap.addEventListener('click', () => {
+                  const item = itemByName.get(ingredient.item_name);
+                  onItemClick(item, ingredientId);
+                });
+              }
               ingCell.appendChild(ingWrap);
               if (index < recipe.ingredients.length - 1) {
                 ingCell.appendChild(el('span', { className: 'craft-ing-sep', textContent: '·' }));

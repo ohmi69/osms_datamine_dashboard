@@ -1,6 +1,7 @@
 
 
 import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
+import { attachTooltip } from '../lib/tooltip.js';
 import { loadState, saveState } from '../lib/data.js';
 
 // Load NPCs data for lookup
@@ -111,18 +112,19 @@ export function renderMaps(data, options = {}) {
       });
       toggles.appendChild(button);
     });
-    // Add hide maps without mobs toggle styled like cash shop
-    const toggleRow = el('div', { style: { display: 'inline-flex', alignItems: 'center', gap: '8px', marginLeft: '18px' } });
+    // Add hide maps without mobs toggle (same style as cash shop)
     const checkBox = el('span', {
       style: {
-        display: 'inline-block',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         width: '13px',
         height: '13px',
         borderRadius: '3px',
         border: '1.5px solid currentColor',
         flexShrink: '0',
-        position: 'relative',
-        top: '1px',
+        fontSize: '10px',
+        lineHeight: '1',
       },
     });
     const toggleBtn = el('button', {
@@ -139,6 +141,7 @@ export function renderMaps(data, options = {}) {
         background: 'transparent',
         color: 'var(--dim)',
         transition: 'all .2s',
+        marginLeft: '10px',
       },
     });
     toggleBtn.appendChild(checkBox);
@@ -163,8 +166,7 @@ export function renderMaps(data, options = {}) {
       renderData();
     });
     updateToggleStyle();
-    toggleRow.appendChild(toggleBtn);
-    toggles.appendChild(toggleRow);
+    toggles.appendChild(toggleBtn);
   }
   rebuildToggles();
   container.appendChild(toggles);
@@ -345,6 +347,8 @@ export function renderMaps(data, options = {}) {
 
       // Mob spawns
       const mobs = mapMobs.get(mapEntry.id);
+      // Build a lookup for full monster data by id
+      const monsterById = new Map((monsters?.monsters || []).map(mob => [String(mob.id), mob]));
       if (!mobs || mobs.length === 0) {
         panel.appendChild(el('span', { style: { fontSize: '13px', color: 'var(--dim)' }, textContent: 'No mob spawns' }));
       } else {
@@ -370,9 +374,10 @@ export function renderMaps(data, options = {}) {
             style: { color: timerColor, marginLeft: '4px', fontSize: '11px' },
             textContent: `⏱ ${mob.mobTime != null ? formatSpawnTime(mob.mobTime) : '—'}`,
           }));
+          // Use full monster data for tooltip if available
+          attachTooltip(chip, () => monsterById.get(String(mob.id)) || mob, 'mob');
           if (onMobClick) {
             chip.style.cursor = 'pointer';
-            chip.title = `View ${mob.name || `#${mob.id}`} in Monsters tab`;
             chip.classList.add('mob-chip-clickable');
             chip.addEventListener('click', (e) => {
               e.stopPropagation();

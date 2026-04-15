@@ -1,5 +1,5 @@
 import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
-import { attachTooltip } from '../lib/utils.js';
+import { attachTooltip } from '../lib/tooltip.js';
 
 function parseIdFilter(query) {
   const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
