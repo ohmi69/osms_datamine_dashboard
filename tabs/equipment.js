@@ -1,10 +1,4 @@
-import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton } from '../lib/utils.js';
-
-function parseIdFilter(query) {
-  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
-  if (!match) return null;
-  return Number(match[1]);
-}
+import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makePillGroup } from '../lib/utils.js';
 
 function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
@@ -91,59 +85,32 @@ export function renderEquipment(data, options = {}) {
     });
   }
 
-  // Class filter pills
-  const classBar = el('div', {
-    style: { display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', margin: '12px 0 8px 0' },
-  });
+  // Class filter pills using makePillGroup
   const classOptions = [
     { label: 'All Classes', value: 0 },
     ...((equipmentMeta.job_filters || []).map((opt) => ({ label: opt.label, value: opt.value }))),
   ];
-  const classButtons = [];
-  classOptions.forEach((opt) => {
-    const btn = el('button', {
-      className: `pill${opt.value === classFilter ? ' active' : ''}`,
-      textContent: opt.label,
-    });
-    btn.addEventListener('click', () => {
-      classFilter = opt.value;
-      classButtons.forEach((b, i) => b.classList.toggle('active', classOptions[i].value === classFilter));
-      buildWeaponTypePills();
-      renderData();
-    });
-    classButtons.push(btn);
-    classBar.appendChild(btn);
-  });
-  container.appendChild(classBar);
+  function handleClassPillChange(value) {
+    classFilter = value;
+    const newGroup = makePillGroup(classOptions, classFilter, handleClassPillChange, { groupLabel: 'Class:' });
+    container.replaceChild(newGroup, classPillGroup);
+    classPillGroup = newGroup;
+    buildWeaponTypePills();
+    renderData();
+  }
+  let classPillGroup = makePillGroup(classOptions, classFilter, handleClassPillChange, { groupLabel: 'Class:' });
+  container.appendChild(classPillGroup);
   container.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
 
-  // Level 1 pills: sub_categories (Weapon, Cap, Coat, ...)
-  const pillRow = el('div', {
-    style: { display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '0 0 8px 0', alignItems: 'center' },
-  });
-  container.appendChild(pillRow);
-
-  // Level 2 pills: weapon types (hidden unless Weapon is selected)
-  const weaponTypePillRow = el('div', {
-    style: { display: 'none', flexWrap: 'wrap', gap: '6px', margin: '0 0 8px 0', alignItems: 'center' },
-  });
-  container.appendChild(weaponTypePillRow);
-
-  const dataDiv = el('div');
-  container.appendChild(dataDiv);
-
-  function setActivePill(activeBtn, row) {
-    row.querySelectorAll('button').forEach((b) => b.classList.remove('active'));
-    activeBtn.classList.add('active');
-  }
-
-  function buildCategoryPills() {
-    pillRow.innerHTML = '';
-
+  // Subcategory pills using makePillGroup
+  let subCategoryOptions = [];
+  let subCategoryPillGroup = null;
+  let weaponTypeOptions = [];
+  let weaponTypePillGroup = null;
+  function buildSubCategoryPills() {
     const allEquips = items.items.filter((item) => item.category === 'Equipment');
     const armorOrder = Array.isArray(equipmentMeta.armor_order) ? equipmentMeta.armor_order : [];
     const subCats = [...new Set(allEquips.map((item) => item.sub_category).filter(Boolean))];
-
     subCats.sort((a, b) => {
       if (a === 'Weapon') return -1;
       if (b === 'Weapon') return 1;
@@ -151,81 +118,70 @@ export function renderEquipment(data, options = {}) {
       const bi = armorOrder.indexOf(b);
       return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
     });
-
-    const allBtn = el('button', { className: 'pill active', textContent: 'All' });
-    allBtn.addEventListener('click', () => {
-      selectedSubCategory = null;
+    subCategoryOptions = [
+      { label: 'All', value: null },
+      ...subCats.map(sub => ({ label: sub, value: sub })),
+    ];
+    function handleSubCategoryPillChange(value) {
+      selectedSubCategory = value;
       selectedWeaponType = null;
-      setActivePill(allBtn, pillRow);
+      buildSubCategoryPills();
       buildWeaponTypePills();
       renderData();
-    });
-    pillRow.appendChild(allBtn);
-
-    subCats.forEach((sub) => {
-      const btn = el('button', { className: 'pill', textContent: sub });
-      btn.addEventListener('click', () => {
-        selectedSubCategory = sub;
-        selectedWeaponType = null;
-        setActivePill(btn, pillRow);
-        buildWeaponTypePills();
-        renderData();
-      });
-      pillRow.appendChild(btn);
-    });
-  }
-
-  function buildWeaponTypePills() {
-    weaponTypePillRow.innerHTML = '';
-    if (selectedSubCategory !== 'Weapon') {
-      weaponTypePillRow.style.display = 'none';
-      selectedWeaponType = null;
-      return;
     }
-
-    const defaultOrder = Array.isArray(equipmentMeta.weapon_type_order) ? equipmentMeta.weapon_type_order : [];
-    let typeOrder = defaultOrder;
+    const newPillGroup = makePillGroup(subCategoryOptions, selectedSubCategory, handleSubCategoryPillChange, { groupLabel: 'Type:' });
+    if (subCategoryPillGroup) {
+      container.replaceChild(newPillGroup, subCategoryPillGroup);
+    } else {
+      container.appendChild(newPillGroup);
+    }
+    subCategoryPillGroup = newPillGroup;
+  }
+  function buildWeaponTypePills() {
+    const allWeapons = items.items.filter((item) => item.category === 'Equipment' && item.sub_category === 'Weapon');
+    let typeOrder = Array.isArray(equipmentMeta.weapon_type_order) ? equipmentMeta.weapon_type_order : [];
     let primaryTypes = new Set();
     if (classFilter !== 0 && equipmentMeta.weapon_types_by_class?.[String(classFilter)]) {
       const primary = equipmentMeta.weapon_types_by_class[String(classFilter)];
       primaryTypes = new Set(primary);
-      const rest = defaultOrder.filter((t) => !primary.includes(t));
+      const rest = typeOrder.filter((t) => !primary.includes(t));
       typeOrder = [...primary, ...rest];
     }
-
-    const allWeapons = items.items.filter((item) => item.category === 'Equipment' && item.sub_category === 'Weapon');
     const types = [...new Set(allWeapons.map((w) => w.weapon_type).filter(Boolean))].sort((a, b) => {
       const ai = typeOrder.indexOf(a);
       const bi = typeOrder.indexOf(b);
       return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
     });
-
-    if (types.length === 0) {
-      weaponTypePillRow.style.display = 'none';
+    weaponTypeOptions = [
+      { label: 'All', value: null },
+      ...types.map(type => ({ label: type, value: type, className: `pill--sub${primaryTypes.has(type) ? ' pill--primary' : ''}` })),
+    ];
+    function handleWeaponTypePillChange(value) {
+      selectedWeaponType = value;
+      buildWeaponTypePills();
+      renderData();
+    }
+    if (selectedSubCategory !== 'Weapon' || types.length === 0) {
+      if (weaponTypePillGroup) {
+        container.removeChild(weaponTypePillGroup);
+        weaponTypePillGroup = null;
+      }
+      selectedWeaponType = null;
       return;
     }
-
-    weaponTypePillRow.style.display = 'flex';
-
-    const allBtn = el('button', { className: 'pill pill--sub active', textContent: 'All' });
-    allBtn.addEventListener('click', () => {
-      selectedWeaponType = null;
-      setActivePill(allBtn, weaponTypePillRow);
-      renderData();
-    });
-    weaponTypePillRow.appendChild(allBtn);
-
-    types.forEach((type) => {
-      const isPrimary = primaryTypes.has(type);
-      const btn = el('button', { className: `pill pill--sub${isPrimary ? ' pill--primary' : ''}`, textContent: type });
-      btn.addEventListener('click', () => {
-        selectedWeaponType = type;
-        setActivePill(btn, weaponTypePillRow);
-        renderData();
-      });
-      weaponTypePillRow.appendChild(btn);
-    });
+    const newPillGroup = makePillGroup(weaponTypeOptions, selectedWeaponType, handleWeaponTypePillChange, { groupLabel: 'Weapon Type:' });
+    if (weaponTypePillGroup) {
+      container.replaceChild(newPillGroup, weaponTypePillGroup);
+    } else {
+      container.insertBefore(newPillGroup, dataDiv);
+    }
+    weaponTypePillGroup = newPillGroup;
   }
+  buildSubCategoryPills();
+  buildWeaponTypePills();
+
+  const dataDiv = el('div');
+  container.appendChild(dataDiv);
 
   function renderData() {
     dataDiv.innerHTML = '';
@@ -297,7 +253,7 @@ export function renderEquipment(data, options = {}) {
     }
   }
 
-  buildCategoryPills();
+  buildSubCategoryPills();
   buildWeaponTypePills();
   renderData();
   return container;

@@ -1,11 +1,5 @@
-import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
+import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
-
-function parseIdFilter(query) {
-  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
-  if (!match) return null;
-  return Number(match[1]);
-}
 
 function toItemThumbPath(itemId) {
   const n = Number(itemId);
@@ -17,6 +11,7 @@ export function renderCrafting(data, options = {}) {
   const { recipes, items } = data;
   const { onItemClick } = options;
   let searchQuery = '';
+  let selectedDiscipline = null; // null = all
   const container = el('div');
 
   const itemNameToId = new Map();
@@ -47,23 +42,28 @@ export function renderCrafting(data, options = {}) {
     });
   }
 
-  // Pills (quest-style toggles)
-  const pillRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '16px 0 8px 0', alignItems: 'center' } });
-  const allTab = el('button', { className: 'pill active', textContent: 'All' });
-  pillRow.appendChild(allTab);
-  const disciplineTabs = recipes.disciplines.map((discipline) => {
-    const btn = el('button', { className: 'pill', textContent: discipline.discipline });
-    pillRow.appendChild(btn);
-    return btn;
-  });
-  container.appendChild(pillRow);
+  // Pills for discipline filtering using reusable utility
+  const DISCIPLINE_PILLS = [
+    { label: 'All', value: null },
+    ...recipes.disciplines.map((discipline) => ({ label: discipline.discipline, value: discipline.discipline }))
+  ];
+  function handleDisciplinePillChange(value) {
+    selectedDiscipline = value;
+    renderData();
+  }
+  let pillGroup = makePillGroup(DISCIPLINE_PILLS, selectedDiscipline, handleDisciplinePillChange);
+  container.appendChild(pillGroup);
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);
 
-  let selectedDiscipline = null; // null = all
+  // let selectedDiscipline = null; // (moved above)
 
   function renderData() {
+    // Rebuild pills to update active state
+    const newPillGroup = makePillGroup(DISCIPLINE_PILLS, selectedDiscipline, handleDisciplinePillChange);
+    container.replaceChild(newPillGroup, pillGroup);
+    pillGroup = newPillGroup;
     dataDiv.innerHTML = '';
     const exactId = parseIdFilter(searchQuery);
     const sq = searchQuery.toLowerCase();
@@ -291,23 +291,7 @@ export function renderCrafting(data, options = {}) {
     });
   }
 
-  // Tab event listeners
-  allTab.addEventListener('click', () => {
-    selectedDiscipline = null;
-    allTab.classList.add('active');
-    disciplineTabs.forEach((btn) => btn.classList.remove('active'));
-    renderData();
-  });
-  disciplineTabs.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-      selectedDiscipline = recipes.disciplines[idx].discipline;
-      allTab.classList.remove('active');
-      disciplineTabs.forEach((b, i) => b.classList.toggle('active', i === idx));
-      btn.classList.add('active');
-      disciplineTabs.forEach((b, i) => { if (i !== idx) b.classList.remove('active'); });
-      renderData();
-    });
-  });
+
 
   renderData();
   return container;

@@ -1,10 +1,4 @@
-import { el, matchSearch, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
-
-function parseIdFilter(query) {
-  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
-  if (!match) return null;
-  return Number(match[1]);
-}
+import { el, matchSearch, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup } from '../lib/utils.js';
 
 function getSkillThumbnail(skill) {
   if (skill.thumbnail) return skill.thumbnail;
@@ -26,8 +20,7 @@ export function renderSkills(data, options = {}) {
 
 
 
-  // Pills for class filtering (by main_class)
-  const pillGroup = el('div', { className: 'pill-group' });
+  // Pills for class filtering (by main_class) using reusable utility
   const CLASS_PILLS = [
     { label: 'All', value: '' },
     { label: 'Warrior', value: 'Warrior' },
@@ -35,22 +28,11 @@ export function renderSkills(data, options = {}) {
     { label: 'Bowman', value: 'Archer' },
     { label: 'Thief', value: 'Rogue' },
   ];
-  function rebuildPills() {
-    pillGroup.innerHTML = '';
-    CLASS_PILLS.forEach(({ label, value }) => {
-      const pill = el('button', {
-        className: `pill${classFilter === value ? ' active' : ''}`,
-        textContent: label,
-      });
-      pill.addEventListener('click', () => {
-        classFilter = value;
-        rebuildPills();
-        renderData();
-      });
-      pillGroup.appendChild(pill);
-    });
+  function handleClassPillChange(value) {
+    classFilter = value;
+    renderData();
   }
-  rebuildPills();
+  let pillGroup = makePillGroup(CLASS_PILLS, classFilter, handleClassPillChange);
   const searchBox = makeSearchBox('Search by name or description...', (value) => {
     searchQuery = value;
     renderData();
@@ -75,6 +57,10 @@ export function renderSkills(data, options = {}) {
   container.appendChild(dataDiv);
 
   function renderData() {
+    // Rebuild pills to update active state
+    const newPillGroup = makePillGroup(CLASS_PILLS, classFilter, handleClassPillChange);
+    container.replaceChild(newPillGroup, pillGroup);
+    pillGroup = newPillGroup;
     dataDiv.innerHTML = '';
     const exactId = parseIdFilter(searchQuery);
     // Filter by main_class property

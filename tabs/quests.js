@@ -1,11 +1,5 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
-
-function parseIdFilter(query) {
-  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
-  if (!match) return null;
-  return Number(match[1]);
-}
 
 const CHAIN_COLORS = [
   '#f59e0b', '#3b82f6', '#22c55e', '#a855f7',
@@ -57,6 +51,7 @@ const rewardChipStyle = {
   lineHeight: '1.4',
 };
 
+
 function getItemThumbPath(itemId) {
   const numericId = Number(itemId);
   if (!Number.isFinite(numericId) || numericId <= 0) return '';
@@ -65,10 +60,32 @@ function getItemThumbPath(itemId) {
 
 function getMobThumbPath(mobId) {
   const numericId = Number(mobId);
-  if (!Number.isFinite(numericId) || numericId < 0) return '';
+  if (!Number.isFinite(numericId) || numericId <= 0) return '';
   return `images/monsters/${String(numericId).padStart(7, '0')}.png`;
 }
 
+      // Move regionFilter and regions definition above their first use
+      let regionFilter = 'All';
+      const regions = typeof quests !== 'undefined' && quests && Array.isArray(quests.regions)
+        ? ['All', ...quests.regions]
+        : ['All'];
+      function handleRegionPillChange(value) {
+        regionFilter = value;
+        renderData();
+      }
+      let regionPillGroup = makePillGroup(
+        regions.map(r => ({ label: r, value: r })),
+        regionFilter,
+        handleRegionPillChange,
+        { groupLabel: 'Region:' }
+      );
+      const filterRow = el('div', {
+        style: {
+          display: 'flex', flexWrap: 'wrap', gap: '6px',
+          marginBottom: '16px', alignItems: 'center',
+        },
+      });
+      filterRow.appendChild(regionPillGroup);
 function getRequirementThumbPath(requirement) {
   if (!requirement || !requirement.type) return '';
   if (requirement.type === 'item') return getItemThumbPath(requirement.id);
@@ -78,11 +95,15 @@ function getRequirementThumbPath(requirement) {
 
 function formatRequirementLabel(requirement) {
   if (!requirement) return '';
-  if (requirement.label) return requirement.label;
-  if (requirement.type === 'mob') {
-    return `Defeat ${requirement.name} x ${requirement.count}`;
-  }
-  return `${requirement.name} x ${requirement.count}`;
+          // Rebuild region pill group to update active state
+          const newRegionPillGroup = makePillGroup(
+            regions.map(r => ({ label: r, value: r })),
+            regionFilter,
+            handleRegionPillChange,
+            { groupLabel: 'Region:' }
+          );
+          filterRow.replaceChild(newRegionPillGroup, regionPillGroup);
+          regionPillGroup = newRegionPillGroup;
 }
 
 function renderRequirementChips(requirements, itemById, monsterById) {

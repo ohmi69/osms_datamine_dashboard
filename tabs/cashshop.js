@@ -1,14 +1,11 @@
-import { el, matchSearch, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton } from '../lib/utils.js';
-
-function parseIdFilter(query) {
-  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
-  if (!match) return null;
-  return Number(match[1]);
-}
+import { el, matchSearch, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter } from '../lib/utils.js';
+import { makePillGroup } from '../lib/utils.js';
 
 export function renderCashShop(data, options = {}) {
   const { cashShop } = data;
   let searchQuery = '';
+  let selectedCategory = null; // null = all, '__unnamed__' = unnamed section
+  let selectedSubCategory = null;
   const container = el('div');
   const csSearchBox = makeSearchBox('Search by name or description...', (value) => {
     searchQuery = value;
@@ -39,22 +36,19 @@ export function renderCashShop(data, options = {}) {
   })).filter((cat) => cat.items.length > 0);
 
   // Pills (quest-style toggles)
-  const pillRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '16px 0 8px 0', alignItems: 'center' } });
-  const allTab = el('button', { className: 'pill active', textContent: 'All' });
-  pillRow.appendChild(allTab);
-  const categoryTabs = namedCategories.map((cat) => {
-    const btn = el('button', { className: 'pill', textContent: cat.category });
-    pillRow.appendChild(btn);
-    return btn;
-  });
-
-  // Unnamed pill goes last
-  const unnamedTab = el('button', { className: 'pill', textContent: 'Unnamed Unavailable Items' });
-  if (unnamedItems.length > 0) {
-    pillRow.appendChild(unnamedTab);
+  // Pills for category filtering using reusable utility
+  const CATEGORY_PILLS = [
+    { label: 'All', value: null },
+    ...namedCategories.map((cat) => ({ label: cat.category, value: cat.category })),
+    ...(unnamedItems.length > 0 ? [{ label: 'Unnamed Unavailable Items', value: '__unnamed__' }] : [])
+  ];
+  // let selectedCategory = null; // (moved above)
+  function handleCategoryPillChange(value) {
+    selectedCategory = value;
+    renderData();
   }
-
-  container.appendChild(pillRow);
+  let pillGroup = makePillGroup(CATEGORY_PILLS, selectedCategory, handleCategoryPillChange);
+  container.appendChild(pillGroup);
 
   // Sub-category filter row (shown only when Equipment is selected)
   const subPillRow = el('div', { style: { display: 'none', flexWrap: 'wrap', gap: '6px', margin: '0 0 8px 0', alignItems: 'center' } });
@@ -120,8 +114,8 @@ export function renderCashShop(data, options = {}) {
   const dataDiv = el('div');
   container.appendChild(dataDiv);
 
-  let selectedCategory = null; // null = all, '__unnamed__' = unnamed section
-  let selectedSubCategory = null;
+  // let selectedCategory = null; // (moved above)
+  // let selectedSubCategory = null; // (moved above)
 
   function buildSubCategoryPills() {
     subPillRow.innerHTML = '';
@@ -268,6 +262,11 @@ export function renderCashShop(data, options = {}) {
   function renderData() {
     dataDiv.innerHTML = '';
 
+    // Rebuild pills to update active state
+    const newPillGroup = makePillGroup(CATEGORY_PILLS, selectedCategory, handleCategoryPillChange);
+    container.replaceChild(newPillGroup, pillGroup);
+    pillGroup = newPillGroup;
+
     if (selectedCategory === '__unnamed__') {
       dataDiv.appendChild(el('div', { className: 'count-text', textContent: `${unnamedItems.length} items` }));
       renderUnnamedSection(unnamedItems);
@@ -338,33 +337,7 @@ export function renderCashShop(data, options = {}) {
     }
   }
 
-  // Pill event listeners
-  allTab.addEventListener('click', () => {
-    selectedCategory = null;
-    allTab.classList.add('active');
-    categoryTabs.forEach((btn) => btn.classList.remove('active'));
-    unnamedTab.classList.remove('active');
-    buildSubCategoryPills();
-    renderData();
-  });
-  categoryTabs.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-      selectedCategory = namedCategories[idx].category;
-      allTab.classList.remove('active');
-      categoryTabs.forEach((b, i) => b.classList.toggle('active', i === idx));
-      unnamedTab.classList.remove('active');
-      buildSubCategoryPills();
-      renderData();
-    });
-  });
-  unnamedTab.addEventListener('click', () => {
-    selectedCategory = '__unnamed__';
-    allTab.classList.remove('active');
-    categoryTabs.forEach((b) => b.classList.remove('active'));
-    unnamedTab.classList.add('active');
-    buildSubCategoryPills();
-    renderData();
-  });
+
 
   renderData();
   return container;

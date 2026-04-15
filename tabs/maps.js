@@ -239,8 +239,6 @@ export function renderMaps(data, options = {}) {
       searchQuery = nextFilter;
       searchBox._input.value = nextFilter;
       selectedRegion = null;
-      allTab.classList.add('active');
-      regionTabs.forEach((btn) => btn.classList.remove('active'));
       renderData();
       window.scrollTo(0, 0);
     };
@@ -248,16 +246,7 @@ export function renderMaps(data, options = {}) {
     options.setNavigate(navigateFn);
   }
 
-  // Pills
-  const pillRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '16px 0 8px 0', alignItems: 'center' } });
-  const allTab = el('button', { className: 'pill active', textContent: 'All' });
-  pillRow.appendChild(allTab);
-  const regionTabs = maps.regions.map((region) => {
-    const btn = el('button', { className: 'pill', textContent: region.region });
-    pillRow.appendChild(btn);
-    return btn;
-  });
-  container.appendChild(pillRow);
+
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);
@@ -758,23 +747,7 @@ export function renderMaps(data, options = {}) {
       }
     }
 
-  // Tab event listeners
-  allTab.addEventListener('click', () => {
-    selectedRegion = null;
-    allTab.classList.add('active');
-    regionTabs.forEach((btn) => btn.classList.remove('active'));
-    renderData();
-  });
-  regionTabs.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-      selectedRegion = maps.regions[idx].region;
-      allTab.classList.remove('active');
-      regionTabs.forEach((b, i) => b.classList.toggle('active', i === idx));
-      btn.classList.add('active');
-      regionTabs.forEach((b, i) => { if (i !== idx) b.classList.remove('active'); });
-      renderData();
-    });
-  });
+
 
   renderData();
   return container;

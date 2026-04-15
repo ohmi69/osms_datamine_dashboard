@@ -3818,7 +3818,7 @@
       "id": 1002000,
       "name": "Brown Skullcap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 5,
@@ -3840,7 +3840,7 @@
       "id": 1002001,
       "name": "Green Skullcap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 5,
@@ -3862,7 +3862,7 @@
       "id": 1002002,
       "name": "Red Skullcap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 5,
@@ -3884,7 +3884,7 @@
       "id": 1002003,
       "name": "Red Headband",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 5,
@@ -3907,7 +3907,7 @@
       "id": 1002004,
       "name": "Black Headband",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 5,
@@ -3930,7 +3930,7 @@
       "id": 1002005,
       "name": "Green Headband",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 5,
@@ -3953,7 +3953,7 @@
       "id": 1002006,
       "name": "Yellow Headband",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 5,
@@ -3976,7 +3976,7 @@
       "id": 1002007,
       "name": "Blue Headband",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 5,
@@ -3999,7 +3999,7 @@
       "id": 1002008,
       "name": "Black Swimming Cap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 8,
@@ -4023,7 +4023,7 @@
       "id": 1002009,
       "name": "Blue Swimming Cap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 8,
@@ -4046,7 +4046,7 @@
       "id": 1002010,
       "name": "Red Swimming Cap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 8,
@@ -4069,7 +4069,7 @@
       "id": 1002011,
       "name": "White Bandana",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4092,7 +4092,7 @@
       "id": 1002012,
       "name": "Red Bandana",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4115,7 +4115,7 @@
       "id": 1002013,
       "name": "Blue Bandana",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4138,7 +4138,7 @@
       "id": 1002014,
       "name": "Yellow Bandana",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4161,7 +4161,7 @@
       "id": 1002015,
       "name": "Black Bandana",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4184,7 +4184,7 @@
       "id": 1002016,
       "name": "Bronze Koif",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4208,7 +4208,7 @@
       "id": 1002017,
       "name": "Metal Koif",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4234,7 +4234,7 @@
       "id": 1002018,
       "name": "Mithril Koif",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4260,7 +4260,7 @@
       "id": 1002019,
       "name": "Brown Apprentice Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4284,7 +4284,7 @@
       "id": 1002020,
       "name": "Blue Apprentice Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4308,7 +4308,7 @@
       "id": 1002021,
       "name": "Red Apprentice Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4332,7 +4332,7 @@
       "id": 1002022,
       "name": "Brown Winter Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4355,7 +4355,7 @@
       "id": 1002023,
       "name": "Green Winter Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4378,7 +4378,7 @@
       "id": 1002024,
       "name": "Red Ghetto Beanie",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4401,7 +4401,7 @@
       "id": 1002025,
       "name": "Blue Ghetto Beanie",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4424,7 +4424,7 @@
       "id": 1002026,
       "name": "Brown Ghetto Beanie",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4447,7 +4447,7 @@
       "id": 1002027,
       "name": "Black Ghetto Beanie",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4470,7 +4470,7 @@
       "id": 1002028,
       "name": "Green Ghetto Beanie",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -4493,7 +4493,7 @@
       "id": 1002029,
       "name": "Bronze Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 12,
@@ -4518,7 +4518,7 @@
       "id": 1002030,
       "name": "Steel Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 12,
@@ -4544,7 +4544,7 @@
       "id": 1002031,
       "name": "Mithril Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 12,
@@ -4570,7 +4570,7 @@
       "id": 1002032,
       "name": "Metal Gear",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4594,7 +4594,7 @@
       "id": 1002033,
       "name": "Yellow Metal Gear",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4618,7 +4618,7 @@
       "id": 1002034,
       "name": "Blue Metal Gear",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4642,7 +4642,7 @@
       "id": 1002035,
       "name": "Bronze Full Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4667,7 +4667,7 @@
       "id": 1002036,
       "name": "Steel Full Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4693,7 +4693,7 @@
       "id": 1002037,
       "name": "Mithril Full Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4719,7 +4719,7 @@
       "id": 1002038,
       "name": "Blue Moon Conehat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4743,7 +4743,7 @@
       "id": 1002039,
       "name": "Pink Moon Conehat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4767,7 +4767,7 @@
       "id": 1002040,
       "name": "Green Moon Conehat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4792,7 +4792,7 @@
       "id": 1002041,
       "name": "Dark Moon Conehat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4817,7 +4817,7 @@
       "id": 1002042,
       "name": "Brown Moon Conehat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4842,7 +4842,7 @@
       "id": 1002043,
       "name": "Green Feather Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4866,7 +4866,7 @@
       "id": 1002044,
       "name": "Brown Feather Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4890,7 +4890,7 @@
       "id": 1002045,
       "name": "Blue Feather Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4913,7 +4913,7 @@
       "id": 1002046,
       "name": "Red Feather Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4936,7 +4936,7 @@
       "id": 1002047,
       "name": "Black Feather Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4960,7 +4960,7 @@
       "id": 1002048,
       "name": "Red Thief Hood",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -4983,7 +4983,7 @@
       "id": 1002049,
       "name": "Green Thief Hood",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -5007,7 +5007,7 @@
       "id": 1002050,
       "name": "Blue Thief Hood",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -5030,7 +5030,7 @@
       "id": 1002051,
       "name": "Yellow Thief Hood",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -5054,7 +5054,7 @@
       "id": 1002052,
       "name": "Black Thief Hood",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -5078,7 +5078,7 @@
       "id": 1002053,
       "name": "Old Wisconsin",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 17,
@@ -5102,7 +5102,7 @@
       "id": 1002054,
       "name": "Bronze Football Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5126,7 +5126,7 @@
       "id": 1002055,
       "name": "Steel Football Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5151,7 +5151,7 @@
       "id": 1002056,
       "name": "Mithril Football Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5176,7 +5176,7 @@
       "id": 1002057,
       "name": "Bronze Viking Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5200,7 +5200,7 @@
       "id": 1002058,
       "name": "Iron Viking Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5225,7 +5225,7 @@
       "id": 1002059,
       "name": "Mithril Viking Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5250,7 +5250,7 @@
       "id": 1002060,
       "name": "Blue Wizardry Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5275,7 +5275,7 @@
       "id": 1002061,
       "name": "Red Wizardry Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5299,7 +5299,7 @@
       "id": 1002062,
       "name": "Green Wizardry Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5323,7 +5323,7 @@
       "id": 1002063,
       "name": "Green Robin Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5346,7 +5346,7 @@
       "id": 1002064,
       "name": "Brown Robin Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5369,7 +5369,7 @@
       "id": 1002065,
       "name": "Red Robin Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5392,7 +5392,7 @@
       "id": 1002066,
       "name": "Blue Robin Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5415,7 +5415,7 @@
       "id": 1002067,
       "name": "Black Robin Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5439,7 +5439,7 @@
       "id": 1002068,
       "name": "Red Loosecap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5462,7 +5462,7 @@
       "id": 1002069,
       "name": "Black Loosecap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5485,7 +5485,7 @@
       "id": 1002070,
       "name": "Blue Loosecap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5508,7 +5508,7 @@
       "id": 1002071,
       "name": "Brown Loosecap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5531,7 +5531,7 @@
       "id": 1002072,
       "name": "Green Loosecap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -5554,7 +5554,7 @@
       "id": 1002073,
       "name": "Red Baseball Cap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -5577,7 +5577,7 @@
       "id": 1002074,
       "name": "Black Baseball Cap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -5601,7 +5601,7 @@
       "id": 1002075,
       "name": "Yellow Baseball Cap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -5625,7 +5625,7 @@
       "id": 1002076,
       "name": "Brown Baseball Cap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -5649,7 +5649,7 @@
       "id": 1002077,
       "name": "Blue Baseball Cap",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -5672,7 +5672,7 @@
       "id": 1002078,
       "name": "Steel Sharp Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -5697,7 +5697,7 @@
       "id": 1002079,
       "name": "Mithril Sharp Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -5722,7 +5722,7 @@
       "id": 1002080,
       "name": "Gold Sharp Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -5747,7 +5747,7 @@
       "id": 1002081,
       "name": "Brown Bamboo Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -5771,7 +5771,7 @@
       "id": 1002082,
       "name": "Green Bamboo Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -5795,7 +5795,7 @@
       "id": 1002083,
       "name": "Blue Bamboo Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -5819,7 +5819,7 @@
       "id": 1002084,
       "name": "Red Starry Bandana",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -5843,7 +5843,7 @@
       "id": 1002085,
       "name": "Sky Blue Starry Bandana",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -5867,7 +5867,7 @@
       "id": 1002086,
       "name": "Yellow Starry Bandana",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -5891,7 +5891,7 @@
       "id": 1002087,
       "name": "Iron Burgernet Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -5917,7 +5917,7 @@
       "id": 1002088,
       "name": "Gold Burgernet Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -5943,7 +5943,7 @@
       "id": 1002089,
       "name": "Orihalcon Burgernet Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -5969,7 +5969,7 @@
       "id": 1002090,
       "name": "Green Hunter",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -5993,7 +5993,7 @@
       "id": 1002091,
       "name": "Brown Hunter",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -6017,7 +6017,7 @@
       "id": 1002092,
       "name": "Red Hunter",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -6040,7 +6040,7 @@
       "id": 1002093,
       "name": "Blue Hunter",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -6063,7 +6063,7 @@
       "id": 1002094,
       "name": "Black Hunter",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -6087,7 +6087,7 @@
       "id": 1002095,
       "name": "Red Tiberian",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -6110,7 +6110,7 @@
       "id": 1002096,
       "name": "Dark Tiberian",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -6134,7 +6134,7 @@
       "id": 1002097,
       "name": "Blue Tiberian",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -6157,7 +6157,7 @@
       "id": 1002098,
       "name": "Brown Tiberian",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -6181,7 +6181,7 @@
       "id": 1002099,
       "name": "Green Tiberian",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -6205,7 +6205,7 @@
       "id": 1002100,
       "name": "Ribboned Pig Headband",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 27,
@@ -6228,7 +6228,7 @@
       "id": 1002101,
       "name": "Bronze Pride",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6253,7 +6253,7 @@
       "id": 1002102,
       "name": "Steel Pride",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6278,7 +6278,7 @@
       "id": 1002103,
       "name": "Golden Pride",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6303,7 +6303,7 @@
       "id": 1002104,
       "name": "Jousting Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6327,7 +6327,7 @@
       "id": 1002105,
       "name": "Blue Jester",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6351,7 +6351,7 @@
       "id": 1002106,
       "name": "Brown Jester",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6375,7 +6375,7 @@
       "id": 1002107,
       "name": "Pink Jester",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6399,7 +6399,7 @@
       "id": 1002108,
       "name": "Black Jester",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6424,7 +6424,7 @@
       "id": 1002109,
       "name": "Green Jester",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6448,7 +6448,7 @@
       "id": 1002110,
       "name": "Green Hawkeye",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6471,7 +6471,7 @@
       "id": 1002111,
       "name": "Brown Hawkeye",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6494,7 +6494,7 @@
       "id": 1002112,
       "name": "Red Hawkeye",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6517,7 +6517,7 @@
       "id": 1002113,
       "name": "Blue Hawkeye",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6540,7 +6540,7 @@
       "id": 1002114,
       "name": "Dark Hawkeye",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6564,7 +6564,7 @@
       "id": 1002115,
       "name": "Red Guise",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6587,7 +6587,7 @@
       "id": 1002116,
       "name": "Dark Guise",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6610,7 +6610,7 @@
       "id": 1002117,
       "name": "Blue Guise",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6633,7 +6633,7 @@
       "id": 1002118,
       "name": "Brown Guise",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6656,7 +6656,7 @@
       "id": 1002119,
       "name": "Green Guise",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -6679,7 +6679,7 @@
       "id": 1002120,
       "name": "Great Brown Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6704,7 +6704,7 @@
       "id": 1002121,
       "name": "Great Red Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6728,7 +6728,7 @@
       "id": 1002122,
       "name": "Great Blue Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6752,7 +6752,7 @@
       "id": 1002123,
       "name": "Green Pole-Feather Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6776,7 +6776,7 @@
       "id": 1002124,
       "name": "Brown Pole-Feather Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6800,7 +6800,7 @@
       "id": 1002125,
       "name": "Red Pole-Feather Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6823,7 +6823,7 @@
       "id": 1002126,
       "name": "Blue Pole-Feather Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6846,7 +6846,7 @@
       "id": 1002127,
       "name": "Dark Pole-Feather Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6870,7 +6870,7 @@
       "id": 1002128,
       "name": "Brown Matty",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6895,7 +6895,7 @@
       "id": 1002129,
       "name": "Green Matty",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6920,7 +6920,7 @@
       "id": 1002130,
       "name": "Red Matty",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6944,7 +6944,7 @@
       "id": 1002131,
       "name": "Blue Matty",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6968,7 +6968,7 @@
       "id": 1002132,
       "name": "Dark Matty",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -6993,7 +6993,7 @@
       "id": 1002133,
       "name": "Green Burgler",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -7017,7 +7017,7 @@
       "id": 1002134,
       "name": "Red Burgler",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -7040,7 +7040,7 @@
       "id": 1002135,
       "name": "Brown Burgler",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -7064,7 +7064,7 @@
       "id": 1002136,
       "name": "Blue Burgler",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -7087,7 +7087,7 @@
       "id": 1002137,
       "name": "Dark Burgler",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -7111,7 +7111,7 @@
       "id": 1002138,
       "name": "Chief Stan Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -7135,7 +7135,7 @@
       "id": 1002139,
       "name": "Steel Nordic Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7159,7 +7159,7 @@
       "id": 1002140,
       "name": "Mithril Nordic Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7184,7 +7184,7 @@
       "id": 1002141,
       "name": "Gold Nordic Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7209,7 +7209,7 @@
       "id": 1002142,
       "name": "White Guiltian",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7233,7 +7233,7 @@
       "id": 1002143,
       "name": "Red Guiltian",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7257,7 +7257,7 @@
       "id": 1002144,
       "name": "Dark Guiltian",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7282,7 +7282,7 @@
       "id": 1002145,
       "name": "Blue Guiltian",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7306,7 +7306,7 @@
       "id": 1002146,
       "name": "Brown Guiltian",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7330,7 +7330,7 @@
       "id": 1002147,
       "name": "Green Distinction",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7353,7 +7353,7 @@
       "id": 1002148,
       "name": "Brown Distinction",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7376,7 +7376,7 @@
       "id": 1002149,
       "name": "Red Distinction",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7399,7 +7399,7 @@
       "id": 1002150,
       "name": "Blue Distinction",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7422,7 +7422,7 @@
       "id": 1002151,
       "name": "Dark Distinction",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7446,7 +7446,7 @@
       "id": 1002152,
       "name": "Red Pilfer",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7469,7 +7469,7 @@
       "id": 1002153,
       "name": "Blue Pilfer",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7492,7 +7492,7 @@
       "id": 1002154,
       "name": "Green Pilfer",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7515,7 +7515,7 @@
       "id": 1002155,
       "name": "Brown Pilfer",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7538,7 +7538,7 @@
       "id": 1002156,
       "name": "Dark Pilfer",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -7561,7 +7561,7 @@
       "id": 1002157,
       "name": "Red Duke",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 42,
@@ -7586,7 +7586,7 @@
       "id": 1002158,
       "name": "Yellow Duke",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 42,
@@ -7610,7 +7610,7 @@
       "id": 1002159,
       "name": "Blue Duke",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 42,
@@ -7635,7 +7635,7 @@
       "id": 1002160,
       "name": "Bone Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 45,
@@ -7660,7 +7660,7 @@
       "id": 1002161,
       "name": "Blue Bone Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 45,
@@ -7685,7 +7685,7 @@
       "id": 1002162,
       "name": "Red Bone Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 45,
@@ -7710,7 +7710,7 @@
       "id": 1002163,
       "name": "Emerald Dome",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 47,
@@ -7735,7 +7735,7 @@
       "id": 1002164,
       "name": "Dark Dome",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 47,
@@ -7761,7 +7761,7 @@
       "id": 1002165,
       "name": "Bronze Crusader Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -7786,7 +7786,7 @@
       "id": 1002166,
       "name": "Silver Crusader Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -7811,7 +7811,7 @@
       "id": 1002167,
       "name": "Mithril Crusader Helm",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -7836,7 +7836,7 @@
       "id": 1002168,
       "name": "Flame Golden Circlet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -7860,7 +7860,7 @@
       "id": 1002169,
       "name": "Aqua Golden Circlet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -7884,7 +7884,7 @@
       "id": 1002170,
       "name": "Orange Golden Circlet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -7908,7 +7908,7 @@
       "id": 1002171,
       "name": "Dark Golden Circlet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -7933,7 +7933,7 @@
       "id": 1002172,
       "name": "Green Maro",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -7956,7 +7956,7 @@
       "id": 1002173,
       "name": "Red Maro",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -7979,7 +7979,7 @@
       "id": 1002174,
       "name": "Blue Maro",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -8002,7 +8002,7 @@
       "id": 1002175,
       "name": "Black Maro",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -8026,7 +8026,7 @@
       "id": 1002176,
       "name": "Red Sonata",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -8049,7 +8049,7 @@
       "id": 1002177,
       "name": "Blue Sonata",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -8072,7 +8072,7 @@
       "id": 1002178,
       "name": "Green Sonata",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -8095,7 +8095,7 @@
       "id": 1002179,
       "name": "Brown Sonata",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -8118,7 +8118,7 @@
       "id": 1002180,
       "name": "Zakum Helmet",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -8147,7 +8147,7 @@
       "id": 1002995,
       "name": "MapleStory Invincible Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -8178,7 +8178,7 @@
       "id": 1002996,
       "name": "Dr. Lim Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -8209,7 +8209,7 @@
       "id": 1002997,
       "name": "Nemi Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -8240,7 +8240,7 @@
       "id": 1002998,
       "name": "Inkwell Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -8267,7 +8267,7 @@
       "id": 1002999,
       "name": "Wizet Invincible Hat",
       "category": "Equipment",
-      "sub_category": "Cap",
+      "sub_category": "Hat",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -8513,7 +8513,7 @@
       "id": 1040000,
       "name": "Blue-Striped Undershirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -8535,7 +8535,7 @@
       "id": 1040001,
       "name": "White Undershirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -8557,7 +8557,7 @@
       "id": 1040002,
       "name": "Grey T-Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -8579,7 +8579,7 @@
       "id": 1040003,
       "name": "Undershirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -8601,7 +8601,7 @@
       "id": 1040004,
       "name": "Brown Lolico Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -8624,7 +8624,7 @@
       "id": 1040005,
       "name": "Blue Lolico Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -8647,7 +8647,7 @@
       "id": 1040006,
       "name": "Blue Training Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -8671,7 +8671,7 @@
       "id": 1040007,
       "name": "Grey / Brown Training Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -8695,7 +8695,7 @@
       "id": 1040008,
       "name": "Green Archer Top",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -8718,7 +8718,7 @@
       "id": 1040009,
       "name": "Brown Archer Top",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -8741,7 +8741,7 @@
       "id": 1040010,
       "name": "Red Cloth Vest",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -8764,7 +8764,7 @@
       "id": 1040011,
       "name": "Blue Cloth Vest",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -8787,7 +8787,7 @@
       "id": 1040012,
       "name": "Black Cloth Vest",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -8810,7 +8810,7 @@
       "id": 1040013,
       "name": "Blue One-lined T-Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 12,
@@ -8833,7 +8833,7 @@
       "id": 1040014,
       "name": "Orange Sporty T-Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 12,
@@ -8856,7 +8856,7 @@
       "id": 1040015,
       "name": "Brown Corporal",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -8880,7 +8880,7 @@
       "id": 1040016,
       "name": "Steel Corporal",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -8904,7 +8904,7 @@
       "id": 1040017,
       "name": "Green Leather Hoodwear",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -8928,7 +8928,7 @@
       "id": 1040018,
       "name": "Silver Leather Hoodwear",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -8952,7 +8952,7 @@
       "id": 1040019,
       "name": "Blue Nightshift",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -8976,7 +8976,7 @@
       "id": 1040020,
       "name": "Dark Nightshift",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -9000,7 +9000,7 @@
       "id": 1040021,
       "name": "Blue Sergeant",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -9023,7 +9023,7 @@
       "id": 1040022,
       "name": "Red Sergeant",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -9046,7 +9046,7 @@
       "id": 1040023,
       "name": "Blue Split Piece",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -9070,7 +9070,7 @@
       "id": 1040024,
       "name": "Orange Split Piece",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -9094,7 +9094,7 @@
       "id": 1040025,
       "name": "Black Split Piece",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -9118,7 +9118,7 @@
       "id": 1040026,
       "name": "Brown Hard Leather Top",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -9141,7 +9141,7 @@
       "id": 1040027,
       "name": "Red Pao",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -9164,7 +9164,7 @@
       "id": 1040028,
       "name": "Blue Pao",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -9187,7 +9187,7 @@
       "id": 1040029,
       "name": "Black Pao",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -9210,7 +9210,7 @@
       "id": 1040030,
       "name": "Silver Master Sergeant",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -9234,7 +9234,7 @@
       "id": 1040031,
       "name": "Orihalcon Master Sergeant",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -9258,7 +9258,7 @@
       "id": 1040032,
       "name": "Dark Master Sergeant",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -9283,7 +9283,7 @@
       "id": 1040033,
       "name": "Green Bennis Chainmail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -9307,7 +9307,7 @@
       "id": 1040034,
       "name": "Blue Bennis Chainmail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -9330,7 +9330,7 @@
       "id": 1040035,
       "name": "Red Bennis Chainmail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -9353,7 +9353,7 @@
       "id": 1040036,
       "name": "Black Bennis Chainmail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -9377,7 +9377,7 @@
       "id": 1040037,
       "name": "Brown Sneak",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -9401,7 +9401,7 @@
       "id": 1040038,
       "name": "Blue Sneak",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -9425,7 +9425,7 @@
       "id": 1040039,
       "name": "Black Sneak",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -9450,7 +9450,7 @@
       "id": 1040040,
       "name": "Red Hwarang Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -9473,7 +9473,7 @@
       "id": 1040041,
       "name": "Green Hwarang Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -9496,7 +9496,7 @@
       "id": 1040042,
       "name": "Green Hunter's Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -9519,7 +9519,7 @@
       "id": 1040043,
       "name": "Blue Hunter's Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -9542,7 +9542,7 @@
       "id": 1040044,
       "name": "Red Hunter's Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -9565,7 +9565,7 @@
       "id": 1040045,
       "name": "Dark Hunter's Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -9588,7 +9588,7 @@
       "id": 1040046,
       "name": "Dark Brown Stealer",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -9611,7 +9611,7 @@
       "id": 1040047,
       "name": "Dark Silver Stealer",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -9634,7 +9634,7 @@
       "id": 1040048,
       "name": "Red Gold Stealer",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -9657,7 +9657,7 @@
       "id": 1040049,
       "name": "Silver Black Stealer",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -9680,7 +9680,7 @@
       "id": 1040050,
       "name": "Blue Sky",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 32,
@@ -9705,7 +9705,7 @@
       "id": 1040051,
       "name": "Green Legolier",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -9729,7 +9729,7 @@
       "id": 1040052,
       "name": "Brown Legolier",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -9752,7 +9752,7 @@
       "id": 1040053,
       "name": "Red Legolier",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -9776,7 +9776,7 @@
       "id": 1040054,
       "name": "Blue Legolier",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -9799,7 +9799,7 @@
       "id": 1040055,
       "name": "Dark Legolier",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -9824,7 +9824,7 @@
       "id": 1040056,
       "name": "Red Knucklevest",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -9848,7 +9848,7 @@
       "id": 1040057,
       "name": "Green Knucklevest",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -9872,7 +9872,7 @@
       "id": 1040058,
       "name": "Black Knucklevest",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -9896,7 +9896,7 @@
       "id": 1040059,
       "name": "Maroon Jangoon Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -9919,7 +9919,7 @@
       "id": 1040060,
       "name": "Blue Jangoon Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -9942,7 +9942,7 @@
       "id": 1040061,
       "name": "Yellow Jangoon Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -9965,7 +9965,7 @@
       "id": 1040062,
       "name": "Brown Piette",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -9988,7 +9988,7 @@
       "id": 1040063,
       "name": "Dark Piette",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -10011,7 +10011,7 @@
       "id": 1040064,
       "name": "White Piette",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -10035,7 +10035,7 @@
       "id": 1040065,
       "name": "Khaki Shadow",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -10058,7 +10058,7 @@
       "id": 1040066,
       "name": "Marine Shadow",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -10081,7 +10081,7 @@
       "id": 1040067,
       "name": "Dark Shadow",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -10104,7 +10104,7 @@
       "id": 1040068,
       "name": "Blue Dragon",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 45,
@@ -10128,7 +10128,7 @@
       "id": 1040069,
       "name": "Gold Dragon",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 45,
@@ -10152,7 +10152,7 @@
       "id": 1040070,
       "name": "Umber Shouldermail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -10175,7 +10175,7 @@
       "id": 1040071,
       "name": "Blue Shouldermail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -10198,7 +10198,7 @@
       "id": 1040072,
       "name": "Oaker Shouldermail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -10222,7 +10222,7 @@
       "id": 1040073,
       "name": "Red China",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -10245,7 +10245,7 @@
       "id": 1040074,
       "name": "Blue China",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -10269,7 +10269,7 @@
       "id": 1040075,
       "name": "Brown China",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -10292,7 +10292,7 @@
       "id": 1040076,
       "name": "Green China",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -10315,7 +10315,7 @@
       "id": 1041000,
       "name": "Pink Tanktop",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -10337,7 +10337,7 @@
       "id": 1041001,
       "name": "White Tubetop",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -10359,7 +10359,7 @@
       "id": 1041002,
       "name": "Yellow T-Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -10381,7 +10381,7 @@
       "id": 1041003,
       "name": "Green T-Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -10403,7 +10403,7 @@
       "id": 1041004,
       "name": "Red-Striped Top",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -10425,7 +10425,7 @@
       "id": 1041005,
       "name": "Orange Lolica Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -10448,7 +10448,7 @@
       "id": 1041006,
       "name": "Blueberry Lolica Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -10471,7 +10471,7 @@
       "id": 1041007,
       "name": "Black Armine",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -10495,7 +10495,7 @@
       "id": 1041008,
       "name": "Green Armine",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -10519,7 +10519,7 @@
       "id": 1041009,
       "name": "Green Avelin",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -10542,7 +10542,7 @@
       "id": 1041010,
       "name": "Yellow Avelin",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -10565,7 +10565,7 @@
       "id": 1041011,
       "name": "Red Cloth Vest",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -10588,7 +10588,7 @@
       "id": 1041012,
       "name": "Blue Cloth Vest",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -10611,7 +10611,7 @@
       "id": 1041013,
       "name": "Black Cloth Vest",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -10634,7 +10634,7 @@
       "id": 1041014,
       "name": "Pink Starry Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 12,
@@ -10657,7 +10657,7 @@
       "id": 1041015,
       "name": "Red-Striped T-Shirt",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 12,
@@ -10680,7 +10680,7 @@
       "id": 1041016,
       "name": "Purple Arianne",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -10704,7 +10704,7 @@
       "id": 1041017,
       "name": "Green Arianne",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -10729,7 +10729,7 @@
       "id": 1041018,
       "name": "Pink Arianne",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -10753,7 +10753,7 @@
       "id": 1041019,
       "name": "Yellow Arianne",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -10778,7 +10778,7 @@
       "id": 1041020,
       "name": "Green Able Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -10802,7 +10802,7 @@
       "id": 1041021,
       "name": "Yellow Able Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -10826,7 +10826,7 @@
       "id": 1041022,
       "name": "Grey Able Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -10850,7 +10850,7 @@
       "id": 1041023,
       "name": "Red Nightshift",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -10874,7 +10874,7 @@
       "id": 1041024,
       "name": "Brown Nightshift",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -10898,7 +10898,7 @@
       "id": 1041025,
       "name": "Red Lamelle",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -10921,7 +10921,7 @@
       "id": 1041026,
       "name": "Green Lamelle",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -10944,7 +10944,7 @@
       "id": 1041027,
       "name": "Brown Lamelle",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -10967,7 +10967,7 @@
       "id": 1041028,
       "name": "Purple Split",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -10991,7 +10991,7 @@
       "id": 1041029,
       "name": "Red Split",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -11015,7 +11015,7 @@
       "id": 1041030,
       "name": "Black Split",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -11040,7 +11040,7 @@
       "id": 1041031,
       "name": "Green Shivermail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -11063,7 +11063,7 @@
       "id": 1041032,
       "name": "Red Shivermail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -11086,7 +11086,7 @@
       "id": 1041033,
       "name": "Purple Shivermail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -11109,7 +11109,7 @@
       "id": 1041034,
       "name": "Red Qi Pao",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -11132,7 +11132,7 @@
       "id": 1041035,
       "name": "Pink Qi Pao",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -11155,7 +11155,7 @@
       "id": 1041036,
       "name": "Blue Qi Pao",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -11178,7 +11178,7 @@
       "id": 1041037,
       "name": "Blue Shark",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11201,7 +11201,7 @@
       "id": 1041038,
       "name": "Sky Shark",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11225,7 +11225,7 @@
       "id": 1041039,
       "name": "Red Shark",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11249,7 +11249,7 @@
       "id": 1041040,
       "name": "Green Bennis Chainmail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11273,7 +11273,7 @@
       "id": 1041041,
       "name": "Blue Bennis Chainmail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11296,7 +11296,7 @@
       "id": 1041042,
       "name": "Red Bennis Chainmail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11319,7 +11319,7 @@
       "id": 1041043,
       "name": "Yellow Bennis Chainmail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11343,7 +11343,7 @@
       "id": 1041044,
       "name": "Blood Sneak",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11366,7 +11366,7 @@
       "id": 1041045,
       "name": "Sky Sneak",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11390,7 +11390,7 @@
       "id": 1041046,
       "name": "Gold Sneak",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11414,7 +11414,7 @@
       "id": 1041047,
       "name": "Dark Sneak",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -11438,7 +11438,7 @@
       "id": 1041048,
       "name": "Blue Fairy Top",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -11462,7 +11462,7 @@
       "id": 1041049,
       "name": "Green Fairy Top",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -11486,7 +11486,7 @@
       "id": 1041050,
       "name": "Purple Fairy Top",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -11510,7 +11510,7 @@
       "id": 1041051,
       "name": "Green Huntress Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -11533,7 +11533,7 @@
       "id": 1041052,
       "name": "Black Huntress Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -11556,7 +11556,7 @@
       "id": 1041053,
       "name": "Red Steal",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -11579,7 +11579,7 @@
       "id": 1041054,
       "name": "Blue Steal",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -11602,7 +11602,7 @@
       "id": 1041055,
       "name": "Purple Steal",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -11625,7 +11625,7 @@
       "id": 1041056,
       "name": "Black Steal",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -11648,7 +11648,7 @@
       "id": 1041057,
       "name": "Red Amoria Top",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -11673,7 +11673,7 @@
       "id": 1041058,
       "name": "Blue Amoria Top",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -11698,7 +11698,7 @@
       "id": 1041059,
       "name": "Black Amoria Top",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -11724,7 +11724,7 @@
       "id": 1041060,
       "name": "Green Legolia",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -11748,7 +11748,7 @@
       "id": 1041061,
       "name": "Brown Legolia",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -11771,7 +11771,7 @@
       "id": 1041062,
       "name": "Red Legolia",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -11795,7 +11795,7 @@
       "id": 1041063,
       "name": "Blue Legolia",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -11818,7 +11818,7 @@
       "id": 1041064,
       "name": "Dark Legolia",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -11843,7 +11843,7 @@
       "id": 1041065,
       "name": "Red Jangoon Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -11866,7 +11866,7 @@
       "id": 1041066,
       "name": "Brown Jangoon Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -11889,7 +11889,7 @@
       "id": 1041067,
       "name": "Black Jangoon Armor",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -11913,7 +11913,7 @@
       "id": 1041068,
       "name": "White Piettra",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -11937,7 +11937,7 @@
       "id": 1041069,
       "name": "Brown Piettra",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -11960,7 +11960,7 @@
       "id": 1041070,
       "name": "Dark Piettra",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -11983,7 +11983,7 @@
       "id": 1041071,
       "name": "Red Shadow",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -12006,7 +12006,7 @@
       "id": 1041072,
       "name": "Purple Shadow",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -12029,7 +12029,7 @@
       "id": 1041073,
       "name": "Dark Shadow",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -12052,7 +12052,7 @@
       "id": 1041074,
       "name": "Red Shouldermail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -12075,7 +12075,7 @@
       "id": 1041075,
       "name": "Ivory Shouldermail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -12098,7 +12098,7 @@
       "id": 1041076,
       "name": "Dark Shouldermail",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -12122,7 +12122,7 @@
       "id": 1041077,
       "name": "Red Moon",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -12145,7 +12145,7 @@
       "id": 1041078,
       "name": "Blue Moon",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -12169,7 +12169,7 @@
       "id": 1041079,
       "name": "Maroon Moon",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -12192,7 +12192,7 @@
       "id": 1041080,
       "name": "Brown Moon",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -12215,7 +12215,7 @@
       "id": 1042999,
       "name": "Wizet Plain Suit",
       "category": "Equipment",
-      "sub_category": "Coat",
+      "sub_category": "Top",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -14119,7 +14119,7 @@
       "id": 1050000,
       "name": "Beige Plain Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -14143,7 +14143,7 @@
       "id": 1050001,
       "name": "Blue Plain Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -14167,7 +14167,7 @@
       "id": 1050002,
       "name": "Green Plain Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -14191,7 +14191,7 @@
       "id": 1050003,
       "name": "Blue Kendo Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -14214,7 +14214,7 @@
       "id": 1050004,
       "name": "Red Kendo Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -14237,7 +14237,7 @@
       "id": 1050005,
       "name": "White Kendo Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -14261,7 +14261,7 @@
       "id": 1050006,
       "name": "Brown Doros Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -14286,7 +14286,7 @@
       "id": 1050007,
       "name": "Blue Doros Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -14310,7 +14310,7 @@
       "id": 1050008,
       "name": "Yellow Doros Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -14334,7 +14334,7 @@
       "id": 1050009,
       "name": "White Doros Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -14359,7 +14359,7 @@
       "id": 1050010,
       "name": "Blue Sauna Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "If worn inside the hotel sauna, the recovery rate for HP and MP will increase 1.5x.",
       "stats": {
         "reqLevel": 30,
@@ -14388,7 +14388,7 @@
       "id": 1050011,
       "name": "Black Dragon Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -14412,7 +14412,7 @@
       "id": 1050012,
       "name": "Blue Wizard Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -14436,7 +14436,7 @@
       "id": 1050013,
       "name": "White Wizard Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -14461,7 +14461,7 @@
       "id": 1050014,
       "name": "Black Wizard Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -14485,7 +14485,7 @@
       "id": 1050015,
       "name": "Green Wizard Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -14510,7 +14510,7 @@
       "id": 1050016,
       "name": "Blue Crusader Chainmail",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -14535,7 +14535,7 @@
       "id": 1050017,
       "name": "Dark Crusader Chainmail",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -14560,7 +14560,7 @@
       "id": 1050018,
       "name": "White Crusader Chainmail",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -14586,7 +14586,7 @@
       "id": 1050019,
       "name": "Blood Chaos Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -14611,7 +14611,7 @@
       "id": 1050020,
       "name": "Blue Chaos Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -14636,7 +14636,7 @@
       "id": 1050021,
       "name": "Dark Chaos Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -14662,7 +14662,7 @@
       "id": 1050022,
       "name": "White Chaos Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -14687,7 +14687,7 @@
       "id": 1050023,
       "name": "Brown Starlight",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -14711,7 +14711,7 @@
       "id": 1050024,
       "name": "Red Starlight",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -14736,7 +14736,7 @@
       "id": 1050025,
       "name": "Blue Starlight",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -14760,7 +14760,7 @@
       "id": 1050026,
       "name": "Green Starlight",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -14785,7 +14785,7 @@
       "id": 1050027,
       "name": "Dark Starlight",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -14810,7 +14810,7 @@
       "id": 1050028,
       "name": "Red Calas",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -14835,7 +14835,7 @@
       "id": 1050029,
       "name": "Blue Calas",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -14859,7 +14859,7 @@
       "id": 1050030,
       "name": "Orange Calas",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -14883,7 +14883,7 @@
       "id": 1050031,
       "name": "White Calas",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -14908,7 +14908,7 @@
       "id": 1050032,
       "name": "Dark Calas",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -14933,7 +14933,7 @@
       "id": 1050033,
       "name": "Red-Lined Kismet",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -14956,7 +14956,7 @@
       "id": 1050034,
       "name": "Blue-Lined Kismet",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -14979,7 +14979,7 @@
       "id": 1051000,
       "name": "Steel Fitted Mail",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -15003,7 +15003,7 @@
       "id": 1051001,
       "name": "Brown Doroness Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -15027,7 +15027,7 @@
       "id": 1051002,
       "name": "Purple Doroness Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -15051,7 +15051,7 @@
       "id": 1051003,
       "name": "Red Doroness Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -15075,7 +15075,7 @@
       "id": 1051004,
       "name": "Red Sauna Robe",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "If worn inside the hotel sauna, the recovery rate of HP and MP will be 1.5x faster.",
       "stats": {
         "reqLevel": 30,
@@ -15104,7 +15104,7 @@
       "id": 1051005,
       "name": "Dark Engrit",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -15128,7 +15128,7 @@
       "id": 1051006,
       "name": "Red Engrit",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -15151,7 +15151,7 @@
       "id": 1051007,
       "name": "Blue Engrit",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -15174,7 +15174,7 @@
       "id": 1051008,
       "name": "Yellow Engrit",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -15198,7 +15198,7 @@
       "id": 1051009,
       "name": "Blood Fitted Mail",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -15223,7 +15223,7 @@
       "id": 1051010,
       "name": "Sapphire Fitted Mail",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -15248,7 +15248,7 @@
       "id": 1051011,
       "name": "Emerald Fitted Mail",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -15273,7 +15273,7 @@
       "id": 1051012,
       "name": "Silver Fitted Mail",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -15299,7 +15299,7 @@
       "id": 1051013,
       "name": "Red Avenger",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -15323,7 +15323,7 @@
       "id": 1051014,
       "name": "Blue Avenger",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -15347,7 +15347,7 @@
       "id": 1051015,
       "name": "Purple Avenger",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -15372,7 +15372,7 @@
       "id": 1051016,
       "name": "Dark Avenger",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -15396,7 +15396,7 @@
       "id": 1051017,
       "name": "Brown Moonlight",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -15420,7 +15420,7 @@
       "id": 1051018,
       "name": "Red Moonlight",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -15445,7 +15445,7 @@
       "id": 1051019,
       "name": "Blue Moonlight",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -15469,7 +15469,7 @@
       "id": 1051020,
       "name": "Purple Moonlight",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -15494,7 +15494,7 @@
       "id": 1051021,
       "name": "Dark Moonlight",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -15519,7 +15519,7 @@
       "id": 1051022,
       "name": "Red Calaf",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -15544,7 +15544,7 @@
       "id": 1051023,
       "name": "Blue Calaf",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -15568,7 +15568,7 @@
       "id": 1051024,
       "name": "Orange Calaf",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -15592,7 +15592,7 @@
       "id": 1051025,
       "name": "Dark Calaf",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -15617,7 +15617,7 @@
       "id": 1051026,
       "name": "White Calaf",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -15642,7 +15642,7 @@
       "id": 1051027,
       "name": "Green Lumati",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -15665,7 +15665,7 @@
       "id": 1051028,
       "name": "Blue Lumati",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -15689,7 +15689,7 @@
       "id": 1051029,
       "name": "Red Lumati",
       "category": "Equipment",
-      "sub_category": "Longcoat",
+      "sub_category": "Overall",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -15712,7 +15712,7 @@
       "id": 1060000,
       "name": "Blue-Striped Boxers",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -15734,7 +15734,7 @@
       "id": 1060001,
       "name": "Blue Jean Shorts",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -15756,7 +15756,7 @@
       "id": 1060002,
       "name": "Brown Cotton Shorts",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -15778,7 +15778,7 @@
       "id": 1060003,
       "name": "Jean Capris",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 5,
@@ -15801,7 +15801,7 @@
       "id": 1060004,
       "name": "Brown Lolico Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -15824,7 +15824,7 @@
       "id": 1060005,
       "name": "Blue Lolico Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -15847,7 +15847,7 @@
       "id": 1060006,
       "name": "Blue Training Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -15871,7 +15871,7 @@
       "id": 1060007,
       "name": "Grey / Brown Training Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -15895,7 +15895,7 @@
       "id": 1060008,
       "name": "Red Cloth Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -15918,7 +15918,7 @@
       "id": 1060009,
       "name": "Blue Cloth Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -15941,7 +15941,7 @@
       "id": 1060010,
       "name": "Black Cloth Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -15964,7 +15964,7 @@
       "id": 1060011,
       "name": "Grey Thick Sweat Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 12,
@@ -15987,7 +15987,7 @@
       "id": 1060012,
       "name": "Brown Corporal Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -16011,7 +16011,7 @@
       "id": 1060013,
       "name": "Steel Corporal Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -16035,7 +16035,7 @@
       "id": 1060014,
       "name": "Blue Nightshift Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -16059,7 +16059,7 @@
       "id": 1060015,
       "name": "Dark Nightshift Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -16083,7 +16083,7 @@
       "id": 1060016,
       "name": "Steel Sergeant Kilt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -16106,7 +16106,7 @@
       "id": 1060017,
       "name": "Red Sergeant Kilt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -16129,7 +16129,7 @@
       "id": 1060018,
       "name": "White Split Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -16153,7 +16153,7 @@
       "id": 1060019,
       "name": "Black Split Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -16177,7 +16177,7 @@
       "id": 1060020,
       "name": "Red Pao Bottom",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -16200,7 +16200,7 @@
       "id": 1060021,
       "name": "Blue Pao Bottom",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -16223,7 +16223,7 @@
       "id": 1060022,
       "name": "Black Pao Bottom",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -16246,7 +16246,7 @@
       "id": 1060023,
       "name": "Silver Master Sergeant Kilt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -16270,7 +16270,7 @@
       "id": 1060024,
       "name": "Orihalcon Master Sergeant Kilt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -16294,7 +16294,7 @@
       "id": 1060025,
       "name": "Dark Master Sergeant Kilt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -16319,7 +16319,7 @@
       "id": 1060026,
       "name": "Brown Sneak Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -16343,7 +16343,7 @@
       "id": 1060027,
       "name": "Dark Brown Sneak Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -16367,7 +16367,7 @@
       "id": 1060028,
       "name": "Black Sneak Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -16391,7 +16391,7 @@
       "id": 1060029,
       "name": "Warfare Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 26,
@@ -16414,7 +16414,7 @@
       "id": 1060030,
       "name": "Red Martial Arts Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16437,7 +16437,7 @@
       "id": 1060031,
       "name": "Brown Martial Arts Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16460,7 +16460,7 @@
       "id": 1060032,
       "name": "Black Martial Arts Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16484,7 +16484,7 @@
       "id": 1060033,
       "name": "White Martial Arts Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16508,7 +16508,7 @@
       "id": 1060034,
       "name": "Green Hunter's Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16531,7 +16531,7 @@
       "id": 1060035,
       "name": "Blue Hunter's Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16554,7 +16554,7 @@
       "id": 1060036,
       "name": "Red Hunter's Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16577,7 +16577,7 @@
       "id": 1060037,
       "name": "Dark Hunter's Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16600,7 +16600,7 @@
       "id": 1060038,
       "name": "Dark Brown Stealer Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16623,7 +16623,7 @@
       "id": 1060039,
       "name": "Dark Silver Stealer Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16646,7 +16646,7 @@
       "id": 1060040,
       "name": "Red / Gold Stealer Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16669,7 +16669,7 @@
       "id": 1060041,
       "name": "Silver / Black Stealer Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -16692,7 +16692,7 @@
       "id": 1060042,
       "name": "White Martial Arts Shorts",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -16717,7 +16717,7 @@
       "id": 1060043,
       "name": "Green Legolier Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -16741,7 +16741,7 @@
       "id": 1060044,
       "name": "Brown Legolier Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -16764,7 +16764,7 @@
       "id": 1060045,
       "name": "Red Legolier Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -16788,7 +16788,7 @@
       "id": 1060046,
       "name": "Blue Legolier Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -16811,7 +16811,7 @@
       "id": 1060047,
       "name": "Dark Legolier Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -16836,7 +16836,7 @@
       "id": 1060048,
       "name": "Red Knucklevest Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -16860,7 +16860,7 @@
       "id": 1060049,
       "name": "Blue Knucklevest Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -16884,7 +16884,7 @@
       "id": 1060050,
       "name": "Black Knucklevest Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -16908,7 +16908,7 @@
       "id": 1060051,
       "name": "Black Jangoon Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -16931,7 +16931,7 @@
       "id": 1060052,
       "name": "White Jangoon Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -16955,7 +16955,7 @@
       "id": 1060053,
       "name": "Brown Jangoon Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -16978,7 +16978,7 @@
       "id": 1060054,
       "name": "Brown Piette Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -17001,7 +17001,7 @@
       "id": 1060055,
       "name": "Blue Piette Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -17025,7 +17025,7 @@
       "id": 1060056,
       "name": "Dark Piette Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -17048,7 +17048,7 @@
       "id": 1060057,
       "name": "Khaki Shadow Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -17071,7 +17071,7 @@
       "id": 1060058,
       "name": "Marine Shadow Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -17094,7 +17094,7 @@
       "id": 1060059,
       "name": "Dark Shadow Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -17117,7 +17117,7 @@
       "id": 1060060,
       "name": "Umber Shouldermail Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -17140,7 +17140,7 @@
       "id": 1060061,
       "name": "Blue Shouldermail Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -17163,7 +17163,7 @@
       "id": 1060062,
       "name": "Oaker Shouldermail Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -17187,7 +17187,7 @@
       "id": 1060063,
       "name": "Red China Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -17210,7 +17210,7 @@
       "id": 1060064,
       "name": "Blue China Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -17234,7 +17234,7 @@
       "id": 1060065,
       "name": "Brown China Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -17257,7 +17257,7 @@
       "id": 1060066,
       "name": "Green China Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -17280,7 +17280,7 @@
       "id": 1061000,
       "name": "Pink Cotton Boxers",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -17302,7 +17302,7 @@
       "id": 1061001,
       "name": "Red Miniskirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -17324,7 +17324,7 @@
       "id": 1061002,
       "name": "Indigo Miniskirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -17346,7 +17346,7 @@
       "id": 1061003,
       "name": "Rookie Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -17369,7 +17369,7 @@
       "id": 1061004,
       "name": "Sophia Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -17392,7 +17392,7 @@
       "id": 1061005,
       "name": "Black Armine Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -17416,7 +17416,7 @@
       "id": 1061006,
       "name": "Green Armine Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -17440,7 +17440,7 @@
       "id": 1061007,
       "name": "Green Avelin Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -17463,7 +17463,7 @@
       "id": 1061008,
       "name": "Yellow Avelin Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -17486,7 +17486,7 @@
       "id": 1061009,
       "name": "Red Cloth Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -17509,7 +17509,7 @@
       "id": 1061010,
       "name": "Blue Cloth Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -17532,7 +17532,7 @@
       "id": 1061011,
       "name": "Black Cloth Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -17555,7 +17555,7 @@
       "id": 1061012,
       "name": "Purple Arianne Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -17579,7 +17579,7 @@
       "id": 1061013,
       "name": "Green Arianne Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -17604,7 +17604,7 @@
       "id": 1061014,
       "name": "Pink Arianne Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -17628,7 +17628,7 @@
       "id": 1061015,
       "name": "Yellow Arianne Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -17653,7 +17653,7 @@
       "id": 1061016,
       "name": "Green Able Armor Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -17677,7 +17677,7 @@
       "id": 1061017,
       "name": "Brown Able Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -17701,7 +17701,7 @@
       "id": 1061018,
       "name": "Grey Able Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -17725,7 +17725,7 @@
       "id": 1061019,
       "name": "Red Nightshift Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -17749,7 +17749,7 @@
       "id": 1061020,
       "name": "Brown Nightshift Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -17773,7 +17773,7 @@
       "id": 1061021,
       "name": "Red Ramel Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -17796,7 +17796,7 @@
       "id": 1061022,
       "name": "Green Ramel Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -17819,7 +17819,7 @@
       "id": 1061023,
       "name": "Brown Ramel Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -17842,7 +17842,7 @@
       "id": 1061024,
       "name": "White Split Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -17866,7 +17866,7 @@
       "id": 1061025,
       "name": "Black Split Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -17891,7 +17891,7 @@
       "id": 1061026,
       "name": "Green Shivermail Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -17914,7 +17914,7 @@
       "id": 1061027,
       "name": "Red Shivermail Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -17937,7 +17937,7 @@
       "id": 1061028,
       "name": "Purple Shivermail Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -17960,7 +17960,7 @@
       "id": 1061029,
       "name": "Red Qi Pao Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -17983,7 +17983,7 @@
       "id": 1061030,
       "name": "Blue Qi Pao Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -18006,7 +18006,7 @@
       "id": 1061031,
       "name": "Purple Qi Pao Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -18029,7 +18029,7 @@
       "id": 1061032,
       "name": "Red Qi Pao Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -18052,7 +18052,7 @@
       "id": 1061033,
       "name": "Blue Qi Pao Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -18075,7 +18075,7 @@
       "id": 1061034,
       "name": "Purple Qi Pao Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 22,
@@ -18099,7 +18099,7 @@
       "id": 1061035,
       "name": "Blue Shark Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -18122,7 +18122,7 @@
       "id": 1061036,
       "name": "Sky Shark Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -18146,7 +18146,7 @@
       "id": 1061037,
       "name": "Red Shark Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -18170,7 +18170,7 @@
       "id": 1061038,
       "name": "Blood Sneak Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -18193,7 +18193,7 @@
       "id": 1061039,
       "name": "Sky Sneak Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -18217,7 +18217,7 @@
       "id": 1061040,
       "name": "Gold Sneak Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -18241,7 +18241,7 @@
       "id": 1061041,
       "name": "Dark Sneak Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -18265,7 +18265,7 @@
       "id": 1061042,
       "name": "Blue Fairy Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -18289,7 +18289,7 @@
       "id": 1061043,
       "name": "Purple Fairy Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -18312,7 +18312,7 @@
       "id": 1061044,
       "name": "Green Fairy Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -18336,7 +18336,7 @@
       "id": 1061045,
       "name": "Green Huntress Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -18359,7 +18359,7 @@
       "id": 1061046,
       "name": "Black Huntress Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -18382,7 +18382,7 @@
       "id": 1061047,
       "name": "Red Huntress Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -18405,7 +18405,7 @@
       "id": 1061048,
       "name": "Red Steal Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -18428,7 +18428,7 @@
       "id": 1061049,
       "name": "Blue Steal Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -18451,7 +18451,7 @@
       "id": 1061050,
       "name": "Purple Steal Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -18474,7 +18474,7 @@
       "id": 1061051,
       "name": "Black Steal Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -18497,7 +18497,7 @@
       "id": 1061052,
       "name": "Red Amoria Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -18522,7 +18522,7 @@
       "id": 1061053,
       "name": "Blue Amoria Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -18547,7 +18547,7 @@
       "id": 1061054,
       "name": "Black Amoria Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -18573,7 +18573,7 @@
       "id": 1061055,
       "name": "Green Legolia Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -18597,7 +18597,7 @@
       "id": 1061056,
       "name": "Brown Legolia Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -18620,7 +18620,7 @@
       "id": 1061057,
       "name": "Red Legolia Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -18644,7 +18644,7 @@
       "id": 1061058,
       "name": "Blue Legolia Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -18667,7 +18667,7 @@
       "id": 1061059,
       "name": "Dark Legolia Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -18692,7 +18692,7 @@
       "id": 1061060,
       "name": "Red Jangoon Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -18715,7 +18715,7 @@
       "id": 1061061,
       "name": "Brown Jangoon Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -18738,7 +18738,7 @@
       "id": 1061062,
       "name": "Black Jangoon Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -18762,7 +18762,7 @@
       "id": 1061063,
       "name": "Brown Piettra Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -18785,7 +18785,7 @@
       "id": 1061064,
       "name": "Dark Piettra Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -18808,7 +18808,7 @@
       "id": 1061065,
       "name": "White Piettra Skirt",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -18832,7 +18832,7 @@
       "id": 1061066,
       "name": "Red Shadow Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -18855,7 +18855,7 @@
       "id": 1061067,
       "name": "Purple Shadow Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -18878,7 +18878,7 @@
       "id": 1061068,
       "name": "Dark Shadow Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -18901,7 +18901,7 @@
       "id": 1061069,
       "name": "Red Shouldermail Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -18924,7 +18924,7 @@
       "id": 1061070,
       "name": "Ivory Shouldermail Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -18947,7 +18947,7 @@
       "id": 1061071,
       "name": "Dark Shouldermail Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -18971,7 +18971,7 @@
       "id": 1061072,
       "name": "Red Moon Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -18994,7 +18994,7 @@
       "id": 1061073,
       "name": "Blue Moon Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -19018,7 +19018,7 @@
       "id": 1061074,
       "name": "Maroon Moon Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -19041,7 +19041,7 @@
       "id": 1061075,
       "name": "Brown Moon Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -19064,7 +19064,7 @@
       "id": 1062000,
       "name": "Archer Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 10,
@@ -19087,7 +19087,7 @@
       "id": 1062001,
       "name": "Ice Jeans",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 17,
@@ -19111,7 +19111,7 @@
       "id": 1062002,
       "name": "Sandblasted Jeans",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 17,
@@ -19135,7 +19135,7 @@
       "id": 1062003,
       "name": "Brown Hard Leather Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -19159,7 +19159,7 @@
       "id": 1062004,
       "name": "Bennis Chainpants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -19183,7 +19183,7 @@
       "id": 1062999,
       "name": "Wizet Plain Suit Pants",
       "category": "Equipment",
-      "sub_category": "Pants",
+      "sub_category": "Bottom",
       "description": "",
       "stats": {
         "reqLevel": 0,
@@ -22841,7 +22841,7 @@
       "id": 1032000,
       "name": "Single Earring",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -22863,7 +22863,7 @@
       "id": 1032001,
       "name": "Amethyst Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 15,
@@ -22885,7 +22885,7 @@
       "id": 1032002,
       "name": "Weighted Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -22908,7 +22908,7 @@
       "id": 1032003,
       "name": "Yellow Square",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 20,
@@ -22931,7 +22931,7 @@
       "id": 1032004,
       "name": "Gold Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -22955,7 +22955,7 @@
       "id": 1032005,
       "name": "Red Cross Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 25,
@@ -22979,7 +22979,7 @@
       "id": 1032006,
       "name": "Lightning Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -23002,7 +23002,7 @@
       "id": 1032007,
       "name": "Emerald Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -23025,7 +23025,7 @@
       "id": 1032008,
       "name": "Star Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 30,
@@ -23049,7 +23049,7 @@
       "id": 1032009,
       "name": "Sapphire Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -23073,7 +23073,7 @@
       "id": 1032010,
       "name": "Cat's Eye",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 35,
@@ -23097,7 +23097,7 @@
       "id": 1032011,
       "name": "Blue Moon",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 40,
@@ -23120,7 +23120,7 @@
       "id": 1032012,
       "name": "Pansy Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 45,
@@ -23144,7 +23144,7 @@
       "id": 1032013,
       "name": "Skull Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -23167,7 +23167,7 @@
       "id": 1032014,
       "name": "Red-Hearted Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 50,
@@ -23190,7 +23190,7 @@
       "id": 1032015,
       "name": "Leaf Earrings",
       "category": "Equipment",
-      "sub_category": "Accessory",
+      "sub_category": "Earring",
       "description": "",
       "stats": {
         "reqLevel": 25,

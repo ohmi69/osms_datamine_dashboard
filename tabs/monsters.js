@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, makePillGroup } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import { loadState, saveState } from '../lib/data.js';
 
@@ -251,55 +251,37 @@ export function renderMonsters(data, options = {}) {
     });
   }
 
-  const pills = el('div', { className: 'pill-group' });
-  function rebuildPills() {
-    pills.innerHTML = '';
-    pills.appendChild(el('span', { className: 'pill-group-label', textContent: 'Mob Type:' }));
-    [
-      ['All',      ''],
-      ['Non-Boss', 'nonboss'],
-      ['Bosses',   'boss'],
-    ].forEach(([label, value]) => {
-      const pill = el('button', {
-        className: `pill${typeFilter === value ? ' active' : ''}`,
-        textContent: label,
-      });
-      pill.addEventListener('click', () => {
-        typeFilter = value;
-        saveState('monsters', { cols: { ...colState } });
-        rebuildPills();
-        renderData();
-      });
-      pills.appendChild(pill);
-    });
+  // Mob type pills using reusable utility
+  const TYPE_PILLS = [
+    { label: 'All', value: '' },
+    { label: 'Non-Boss', value: 'nonboss' },
+    { label: 'Bosses', value: 'boss' },
+  ];
+  function handleTypePillChange(value) {
+    typeFilter = value;
+    saveState('monsters', { cols: { ...colState } });
+    renderData();
   }
-  rebuildPills();
+  let typePillGroup = makePillGroup(TYPE_PILLS, typeFilter, handleTypePillChange, { groupLabel: 'Mob Type:' });
 
-  const elemPills = el('div', { className: 'pill-group' });
-  function rebuildElemPills() {
-    elemPills.innerHTML = '';
-    const weakLabel = el('span', { className: 'pill-group-label', textContent: 'Weak to:' });
-    elemPills.appendChild(weakLabel);
-    [['Any', ''], ['Fire', 'Fire'], ['Ice', 'Ice'], ['Lightning', 'Lightning'], ['Holy', 'Holy']].forEach(([label, value]) => {
-      const pill = el('button', {
-        className: `pill${elemWeakFilter === value ? ' active' : ''}`,
-        textContent: label,
-      });
-      pill.addEventListener('click', () => {
-        elemWeakFilter = value;
-        rebuildElemPills();
-        renderData();
-      });
-      elemPills.appendChild(pill);
-    });
+  // Element pills using reusable utility
+  const ELEM_PILLS = [
+    { label: 'Any', value: '' },
+    { label: 'Fire', value: 'Fire' },
+    { label: 'Ice', value: 'Ice' },
+    { label: 'Lightning', value: 'Lightning' },
+    { label: 'Holy', value: 'Holy' },
+  ];
+  function handleElemPillChange(value) {
+    elemWeakFilter = value;
+    renderData();
   }
-  rebuildElemPills();
+  let elemPillGroup = makePillGroup(ELEM_PILLS, elemWeakFilter, handleElemPillChange, { groupLabel: 'Weak to:' });
 
   container.appendChild(topRow);
-
   const filterRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' } });
-  filterRow.appendChild(pills);
-  filterRow.appendChild(elemPills);
+  filterRow.appendChild(typePillGroup);
+  filterRow.appendChild(elemPillGroup);
   container.appendChild(filterRow);
 
   const toggles = el('div', { className: 'col-toggles' });
@@ -326,6 +308,13 @@ export function renderMonsters(data, options = {}) {
   container.appendChild(dataContainer);
 
   function renderData() {
+    // Rebuild pill groups to update active state
+    const newTypePillGroup = makePillGroup(TYPE_PILLS, typeFilter, handleTypePillChange, { groupLabel: 'Mob Type:' });
+    filterRow.replaceChild(newTypePillGroup, typePillGroup);
+    typePillGroup = newTypePillGroup;
+    const newElemPillGroup = makePillGroup(ELEM_PILLS, elemWeakFilter, handleElemPillChange, { groupLabel: 'Weak to:' });
+    filterRow.replaceChild(newElemPillGroup, elemPillGroup);
+    elemPillGroup = newElemPillGroup;
     dataContainer.innerHTML = '';
     const visibleCols = allCols.filter((col) => colState[col.id]);
     // +3 for Name col, Tags col, and ID col
