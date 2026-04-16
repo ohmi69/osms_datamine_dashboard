@@ -737,18 +737,51 @@ export function renderMaps(data, options = {}) {
               detailTr.style.display = '';
             }
             tr.classList.add('expanded');
-            // Scroll so the top of the main row is just below the sticky header
-            setTimeout(() => {
-              const header = document.querySelector('.site-header');
-              const headerHeight = header ? header.offsetHeight : 64;
-              const trRect = tr.getBoundingClientRect();
-              // Calculate the scroll position so the top of the main row is just below the header
-              const scrollY = window.scrollY + trRect.top - headerHeight;
-              window.scrollTo({
-                top: scrollY,
-                behavior: "smooth"
+            // Improved: Wait for DOM update and images to load before scrolling
+            const scrollToRow = () => {
+              requestAnimationFrame(() => {
+                const header = document.querySelector('.site-header');
+                const headerHeight = header ? header.offsetHeight : 64;
+                const trRect = tr.getBoundingClientRect();
+                const scrollY = window.scrollY + trRect.top - headerHeight;
+                window.scrollTo({
+                  top: scrollY,
+                  behavior: "smooth"
+                });
               });
-            }, 100);
+            };
+            // If there are images in the detail row, wait for them to load
+            const imgs = detailTr.querySelectorAll('img');
+            if (imgs.length > 0) {
+              let loaded = 0;
+              let fired = false;
+              imgs.forEach(img => {
+                if (img.complete) {
+                  loaded++;
+                } else {
+                  img.addEventListener('load', () => {
+                    loaded++;
+                    if (loaded === imgs.length && !fired) {
+                      fired = true;
+                      scrollToRow();
+                    }
+                  }, { once: true });
+                  img.addEventListener('error', () => {
+                    loaded++;
+                    if (loaded === imgs.length && !fired) {
+                      fired = true;
+                      scrollToRow();
+                    }
+                  }, { once: true });
+                }
+              });
+              if (loaded === imgs.length && !fired) {
+                fired = true;
+                scrollToRow();
+              }
+            } else {
+              scrollToRow();
+            }
           } else {
             if (detailTr) detailTr.style.display = 'none';
             tr.classList.remove('expanded');
