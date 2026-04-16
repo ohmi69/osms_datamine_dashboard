@@ -2,7 +2,7 @@
 
 import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
-import { loadState, saveState } from '../lib/data.js';
+import state from '../lib/data.js';
 
 // Load NPCs data for lookup
 
@@ -86,8 +86,7 @@ export function renderMaps(data, options = {}) {
       { id: 'weighted_exp_hour', label: 'Weighted Exp / hr',   on: false },
     ];
   // Load/save state for columns and hideNoMobs
-  const _savedState = loadState();
-  const mapState = _savedState.maps || {};
+  const mapState = state.get('maps', {});
   const colState = {};
   allCols.forEach((col) => {
     colState[col.id] = mapState.cols && mapState.cols[col.id] !== undefined ? mapState.cols[col.id] : col.on;
@@ -106,7 +105,7 @@ export function renderMaps(data, options = {}) {
       });
       button.addEventListener('click', () => {
         colState[col.id] = !colState[col.id];
-        saveState('maps', { cols: { ...colState }, hideNoMobs });
+        state.set('maps', { cols: { ...colState }, hideNoMobs });
         rebuildToggles();
         renderData();
       });
@@ -161,7 +160,7 @@ export function renderMaps(data, options = {}) {
     }
     toggleBtn.addEventListener('click', () => {
       hideNoMobs = !hideNoMobs;
-      saveState('maps', { cols: { ...colState }, hideNoMobs });
+      state.set('maps', { cols: { ...colState }, hideNoMobs });
       updateToggleStyle();
       renderData();
     });
@@ -217,6 +216,13 @@ export function renderMaps(data, options = {}) {
       mobs.sort((a, b) => b.count - a.count);
     }
   }
+  // Expose all maps and mob data for tooltips
+  window._allMapsCache = maps;
+  // Convert mapMobs to a plain object for tooltip.js
+  window._mapMobsCache = {};
+  for (const [k, v] of mapMobs.entries()) {
+    window._mapMobsCache[String(k)] = v;
+  }
 
   let searchQuery = '';
   let autoExpandAfterId = null;
@@ -260,18 +266,16 @@ export function renderMaps(data, options = {}) {
 
       const panel = el('div', { className: 'map-detail-panel' });
 
-      // --- Full map image preview ---
-      // Try to find a matching image in data/maps/{mapId}.img.png
+      // --- Full map image preview with portal overlays ---
       if (mapEntry.id) {
         const mapImgPath = `data/maps/${String(mapEntry.id).padStart(9, '0')}.img.png`;
-        // Only show if the file likely exists (optimistic, since we can't check existence client-side)
-        const imgContainer = el('div', { className: 'full-map-image-container' });
+        const imgContainer = el('div', { className: 'full-map-image-container', style: { position: 'relative', display: 'inline-block' } });
         const img = el('img', {
           className: 'full-map-image',
           src: mapImgPath,
           alt: `${mapEntry.name || 'Map'} full image`,
           loading: 'lazy',
-          style: { maxWidth: '100%', maxHeight: '600px' },
+          style: { maxWidth: '100%', maxHeight: '600px', display: 'block' },
         });
         img.title = 'Click to view fullscreen';
         img.addEventListener('click', (e) => {
@@ -280,6 +284,89 @@ export function renderMaps(data, options = {}) {
           }
         });
         imgContainer.appendChild(img);
+
+        // Overlay portals after image loads, using portals.json
+        img.addEventListener('load', async () => {
+          // Remove any old overlays
+          const oldOverlays = imgContainer.querySelectorAll('.portal-overlay');
+          oldOverlays.forEach(el => el.remove());
+          // Fetch all portals.json once and cache
+          if (!window._allPortalsCache) {
+            try {
+              const res = await fetch('data/maps/portals.json');
+              if (res.ok) {
+                window._allPortalsCache = await res.json();
+              } else {
+                window._allPortalsCache = {};
+              }
+            } catch {
+              window._allPortalsCache = {};
+            }
+          }
+          const allPortals = window._allPortalsCache || {};
+          const portals = allPortals[String(mapEntry.id).padStart(9, '0')] || [];
+          if (!Array.isArray(portals) || portals.length === 0) return;
+          // Get image display size and scale
+          const naturalW = img.naturalWidth, naturalH = img.naturalHeight;
+          const displayW = img.width, displayH = img.height;
+          const scaleX = displayW / naturalW;
+          const scaleY = displayH / naturalH;
+          portals.forEach(portal => {
+            // Use exported x/y (canvas-relative)
+            const px = portal.x * scaleX;
+            const py = portal.y * scaleY;
+            // Style: intra-map = green, inter-map = blue
+            const isIntra = portal.intra_map;
+            const borderColor = isIntra ? '#2ecc40' : '#3af';
+            const bgColor = isIntra ? 'rgba(46,204,64,0.18)' : 'rgba(0,120,255,0.18)';
+            const boxShadow = isIntra ? '0 0 8px 2px #2ecc4066' : '0 0 8px 2px #3af6';
+            const hoverShadow = isIntra ? '0 0 16px 4px #2ecc40bb' : '0 0 16px 4px #fff8';
+            const overlay = el('div', {
+              className: 'portal-overlay',
+              style: {
+                position: 'absolute',
+                left: `${px - 18}px`,
+                top: `${py - 18}px`,
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+                border: `2.5px solid ${borderColor}`,
+                background: bgColor,
+                boxShadow,
+                cursor: 'pointer',
+                zIndex: 2,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'box-shadow 0.2s',
+              },
+            });
+            // Attach custom tooltip for portal overlays
+            attachTooltip(overlay, () => ({ portal, mapEntry, mobs: mapMobs.get(mapEntry.id) }), 'portal');
+            overlay.addEventListener('mouseenter', () => {
+              overlay.style.boxShadow = hoverShadow;
+            });
+            overlay.addEventListener('mouseleave', () => {
+              overlay.style.boxShadow = boxShadow;
+            });
+            overlay.addEventListener('click', (e) => {
+              e.stopPropagation();
+              // Optionally, navigate to the destination map if available
+              if (!isIntra && portal.dest_map && selfNavigate) {
+                selfNavigate({ id: Number(portal.dest_map), autoExpand: true });
+              }
+            });
+            // Label (arrow or name)
+            const label = el('span', {
+              style: {
+                color: isIntra ? '#2ecc40' : '#fff', fontWeight: 'bold', fontSize: '15px', textShadow: '0 1px 6px #000b', pointerEvents: 'none',
+              },
+              textContent: isIntra ? '⟳' : (portal.dest_name ? '→' : portal.name || ''),
+            });
+            overlay.appendChild(label);
+            imgContainer.appendChild(overlay);
+          });
+        });
 
         panel.appendChild(imgContainer);
       }

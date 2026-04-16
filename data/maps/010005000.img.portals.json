@@ -1,0 +1,56 @@
+[
+  {
+    "id": "11",
+    "type": 1,
+    "dest_map": "10005000",
+    "name": "hide00",
+    "x": 1368,
+    "y": 1064,
+    "dest_name": "Sleepywood"
+  },
+  {
+    "id": "12",
+    "type": 1,
+    "dest_map": "10005000",
+    "name": "hide01",
+    "x": 1534,
+    "y": 761,
+    "dest_name": "Sleepywood"
+  },
+  {
+    "id": "13",
+    "type": 1,
+    "dest_map": "10005050",
+    "name": "in00",
+    "x": 1783,
+    "y": 1062,
+    "dest_name": "Sleepy Dungeon I"
+  },
+  {
+    "id": "16",
+    "type": 2,
+    "dest_map": "10005010",
+    "name": "west00",
+    "x": 460,
+    "y": 883,
+    "dest_name": "Swampy Land in a Deep Forest"
+  },
+  {
+    "id": "17",
+    "type": 2,
+    "dest_map": "10005060",
+    "name": "east00",
+    "x": 2313,
+    "y": 1185,
+    "dest_name": "Ant Tunnel I"
+  },
+  {
+    "id": "18",
+    "type": 2,
+    "dest_map": "10005001",
+    "name": "in01",
+    "x": 1202,
+    "y": 434,
+    "dest_name": "Sleepywood Hotel"
+  }
+]

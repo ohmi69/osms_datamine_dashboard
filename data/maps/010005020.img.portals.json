@@ -1,0 +1,29 @@
+[
+  {
+    "id": "18",
+    "type": 2,
+    "dest_map": "10005010",
+    "name": "under00",
+    "x": 1971,
+    "y": 3157,
+    "dest_name": "Swampy Land in a Deep Forest"
+  },
+  {
+    "id": "19",
+    "type": 2,
+    "dest_map": "10004121",
+    "name": "east00",
+    "x": 1908,
+    "y": 407,
+    "dest_name": "Perion Dungeon Entrance"
+  },
+  {
+    "id": "20",
+    "type": 2,
+    "dest_map": "10005030",
+    "name": "west00",
+    "x": 487,
+    "y": 1177,
+    "dest_name": "Damp Tree-Forest"
+  }
+]

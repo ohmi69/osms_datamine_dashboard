@@ -1,0 +1,56 @@
+[
+  {
+    "id": "24",
+    "type": 1,
+    "dest_map": "10000000",
+    "name": "h_east00",
+    "x": 6082,
+    "y": 1737,
+    "dest_name": "Lith Harbor"
+  },
+  {
+    "id": "25",
+    "type": 1,
+    "dest_map": "10000000",
+    "name": "h_west00",
+    "x": 3357,
+    "y": 1107,
+    "dest_name": "Lith Harbor"
+  },
+  {
+    "id": "30",
+    "type": 2,
+    "dest_map": "10000010",
+    "name": "east00",
+    "x": 6197,
+    "y": 1825,
+    "dest_name": "Right Around Lith Harbor"
+  },
+  {
+    "id": "31",
+    "type": 2,
+    "dest_map": "10000001",
+    "name": "in00",
+    "x": 4755,
+    "y": 1013,
+    "dest_name": "Lith Harbor Armor Shop"
+  },
+  {
+    "id": "32",
+    "type": 2,
+    "dest_map": "10000002",
+    "name": "in01",
+    "x": 5197,
+    "y": 1677,
+    "dest_name": "Lith Harbor Department Store"
+  },
+  {
+    "id": "33",
+    "type": 2,
+    "dest_map": "10000003",
+    "name": "in02",
+    "x": 3962,
+    "y": 1015,
+    "dest_name": "Lith Harbor Weapon Shop"
+  }
+]

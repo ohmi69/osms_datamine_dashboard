@@ -1,0 +1,20 @@
+[
+  {
+    "id": "2",
+    "type": 1,
+    "dest_map": "10006090",
+    "name": "west00",
+    "x": 491,
+    "y": 1044,
+    "dest_name": "Perilous Descent I"
+  },
+  {
+    "id": "3",
+    "type": 2,
+    "dest_map": "10006070",
+    "name": "east00",
+    "x": 4549,
+    "y": 745,
+    "dest_name": "The End of Fleeting Light"
+  }
+]

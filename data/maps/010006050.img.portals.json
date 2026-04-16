@@ -1,0 +1,74 @@
+[
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "10006050",
+    "name": "h_00",
+    "x": 3210,
+    "y": 1307,
+    "dest_name": "Forgotten Entrance II"
+  },
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "10006050",
+    "name": "h_01",
+    "x": 2903,
+    "y": 804,
+    "dest_name": "Forgotten Entrance II"
+  },
+  {
+    "id": "8",
+    "type": 1,
+    "dest_map": "10006050",
+    "name": "h_02",
+    "x": 2250,
+    "y": 805,
+    "dest_name": "Forgotten Entrance II"
+  },
+  {
+    "id": "10",
+    "type": 1,
+    "dest_map": "10006050",
+    "name": "h_04",
+    "x": 1091,
+    "y": 821,
+    "dest_name": "Forgotten Entrance II"
+  },
+  {
+    "id": "11",
+    "type": 1,
+    "dest_map": "10006050",
+    "name": "h_05",
+    "x": 494,
+    "y": 799,
+    "dest_name": "Forgotten Entrance II"
+  },
+  {
+    "id": "12",
+    "type": 1,
+    "dest_map": "10006050",
+    "name": "h_06",
+    "x": 592,
+    "y": 1272,
+    "dest_name": "Forgotten Entrance II"
+  },
+  {
+    "id": "13",
+    "type": 2,
+    "dest_map": "10006040",
+    "name": "west00",
+    "x": 367,
+    "y": 1786,
+    "dest_name": "Forgotten Entrance I"
+  },
+  {
+    "id": "14",
+    "type": 2,
+    "dest_map": "10006060",
+    "name": "east00",
+    "x": 3386,
+    "y": 1306,
+    "dest_name": "Forgotten Entrance III"
+  }
+]

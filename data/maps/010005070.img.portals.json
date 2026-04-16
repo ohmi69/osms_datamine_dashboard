@@ -1,0 +1,47 @@
+[
+  {
+    "id": "5",
+    "type": 1,
+    "dest_map": "10005070",
+    "name": "hide01",
+    "x": 3781,
+    "y": 1980,
+    "dest_name": "Ant Tunnel Park"
+  },
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "10005070",
+    "name": "hide02",
+    "x": 3368,
+    "y": 1606,
+    "dest_name": "Ant Tunnel Park"
+  },
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "10005078",
+    "name": "in00",
+    "x": 2566,
+    "y": 578,
+    "dest_name": "The Grave of Mushmom"
+  },
+  {
+    "id": "8",
+    "type": 2,
+    "dest_map": "10005067",
+    "name": "top00",
+    "x": 385,
+    "y": 1067,
+    "dest_name": "Deep Ant Tunnel II"
+  },
+  {
+    "id": "9",
+    "type": 2,
+    "dest_map": "10005071",
+    "name": "under00",
+    "x": 250,
+    "y": 2081,
+    "dest_name": "The Cave of Evil Eye I"
+  }
+]

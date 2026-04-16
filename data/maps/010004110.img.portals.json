@@ -1,0 +1,29 @@
+[
+  {
+    "id": "5",
+    "type": 1,
+    "dest_map": "10004111",
+    "name": "in00",
+    "x": 834,
+    "y": 902,
+    "dest_name": "The Burnt Land I"
+  },
+  {
+    "id": "6",
+    "type": 2,
+    "dest_map": "10004100",
+    "name": "east00",
+    "x": 1663,
+    "y": 420,
+    "dest_name": "Deep Valley I"
+  },
+  {
+    "id": "7",
+    "type": 2,
+    "dest_map": "10004120",
+    "name": "under00",
+    "x": 513,
+    "y": 1546,
+    "dest_name": "Deep Valley III"
+  }
+]

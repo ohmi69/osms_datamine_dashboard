@@ -1,0 +1,164 @@
+[
+  {
+    "id": "1",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "t001",
+    "x": 207,
+    "y": 1132,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "2",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "t002",
+    "x": 1332,
+    "y": 831,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "3",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "t003",
+    "x": 901,
+    "y": 1071,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "4",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "t004",
+    "x": 1529,
+    "y": 1373,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "5",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "t005",
+    "x": 2148,
+    "y": 774,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "t006",
+    "x": 2453,
+    "y": 1252,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "t007",
+    "x": 3254,
+    "y": 1188,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "16",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "h001",
+    "x": 350,
+    "y": 832,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "17",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "h002",
+    "x": 538,
+    "y": 592,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "18",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "h003",
+    "x": 915,
+    "y": 830,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "19",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "h004",
+    "x": 1568,
+    "y": 1131,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "20",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "h005",
+    "x": 2090,
+    "y": 1372,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "21",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "h006",
+    "x": 2597,
+    "y": 833,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "22",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "h007",
+    "x": 2905,
+    "y": 1130,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "23",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "h008",
+    "x": 1319,
+    "y": 593,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "24",
+    "type": 1,
+    "dest_map": "10001082",
+    "name": "h009",
+    "x": 1798,
+    "y": 894,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "25",
+    "type": 2,
+    "dest_map": "10001080",
+    "name": "out00",
+    "x": 3139,
+    "y": 479,
+    "dest_name": "The Forest East of Henesys"
+  },
+  {
+    "id": "26",
+    "type": 2,
+    "dest_map": "10001080",
+    "name": "out01",
+    "x": 204,
+    "y": 1439,
+    "dest_name": "The Forest East of Henesys"
+  }
+]

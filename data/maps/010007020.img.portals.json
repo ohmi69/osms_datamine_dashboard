@@ -1,0 +1,29 @@
+[
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "10007021",
+    "name": "in00",
+    "x": 2207,
+    "y": 696,
+    "dest_name": "Lorang Lorang Lorang"
+  },
+  {
+    "id": "7",
+    "type": 2,
+    "dest_map": "10007010",
+    "name": "west00",
+    "x": 131,
+    "y": 2125,
+    "dest_name": "A Look-Out Shed Around the Beach"
+  },
+  {
+    "id": "8",
+    "type": 2,
+    "dest_map": "10007030",
+    "name": "east00",
+    "x": 3960,
+    "y": 2132,
+    "dest_name": "Lorang and Clang"
+  }
+]

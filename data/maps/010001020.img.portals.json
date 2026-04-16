@@ -1,0 +1,29 @@
+[
+  {
+    "id": "13",
+    "type": 1,
+    "dest_map": "10001021",
+    "name": "in00",
+    "x": 2452,
+    "y": 451,
+    "dest_name": "Mushroom Garden"
+  },
+  {
+    "id": "14",
+    "type": 2,
+    "dest_map": "10001010",
+    "name": "east00",
+    "x": 3480,
+    "y": 1382,
+    "dest_name": "Henesys Hunting Ground I"
+  },
+  {
+    "id": "15",
+    "type": 2,
+    "dest_map": "10001030",
+    "name": "west00",
+    "x": 265,
+    "y": 1772,
+    "dest_name": "Forest West of Henesys"
+  }
+]

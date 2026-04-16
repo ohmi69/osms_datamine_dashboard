@@ -1,0 +1,29 @@
+[
+  {
+    "id": "10",
+    "type": 1,
+    "dest_map": "10004041",
+    "name": "in00",
+    "x": 1093,
+    "y": 1231,
+    "dest_name": "Land of Wild Boar"
+  },
+  {
+    "id": "11",
+    "type": 2,
+    "dest_map": "10004050",
+    "name": "east00",
+    "x": 3753,
+    "y": 411,
+    "dest_name": "East Rocky Mountain I"
+  },
+  {
+    "id": "12",
+    "type": 2,
+    "dest_map": "10004000",
+    "name": "west00",
+    "x": 488,
+    "y": 537,
+    "dest_name": "Perion"
+  }
+]

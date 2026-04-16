@@ -1,0 +1,20 @@
+[
+  {
+    "id": "6",
+    "type": 2,
+    "dest_map": "10001060",
+    "name": "west00",
+    "x": 280,
+    "y": 615,
+    "dest_name": "The Hill East of Henesys"
+  },
+  {
+    "id": "7",
+    "type": 2,
+    "dest_map": "10001080",
+    "name": "east00",
+    "x": 2304,
+    "y": 620,
+    "dest_name": "The Forest East of Henesys"
+  }
+]

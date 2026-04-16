@@ -1,0 +1,20 @@
+[
+  {
+    "id": "2",
+    "type": 2,
+    "dest_map": "10000011",
+    "name": "west00",
+    "x": 276,
+    "y": 1831,
+    "dest_name": "Thicket Around the Beach I"
+  },
+  {
+    "id": "3",
+    "type": 2,
+    "dest_map": "10000013",
+    "name": "east00",
+    "x": 1905,
+    "y": 1832,
+    "dest_name": "Thicket Around the Beach III"
+  }
+]

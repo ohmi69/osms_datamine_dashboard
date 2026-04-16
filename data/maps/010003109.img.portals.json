@@ -1,0 +1,20 @@
+[
+  {
+    "id": "3",
+    "type": 3,
+    "dest_map": "10003109",
+    "name": "h001",
+    "x": 382,
+    "y": 749,
+    "dest_name": "B3 <Subway Depot>"
+  },
+  {
+    "id": "4",
+    "type": 3,
+    "dest_map": "10003109",
+    "name": "h003",
+    "x": 2153,
+    "y": 749,
+    "dest_name": "B3 <Subway Depot>"
+  }
+]

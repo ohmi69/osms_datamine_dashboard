@@ -1,0 +1,38 @@
+[
+  {
+    "id": "10",
+    "type": 2,
+    "dest_map": "10006070",
+    "name": "west00",
+    "x": 253,
+    "y": 924,
+    "dest_name": "The End of Fleeting Light"
+  },
+  {
+    "id": "11",
+    "type": 2,
+    "dest_map": "10006010",
+    "name": "east00",
+    "x": 2271,
+    "y": 924,
+    "dest_name": "Primeval Forest I"
+  },
+  {
+    "id": "12",
+    "type": 2,
+    "dest_map": "10006002",
+    "name": "in01",
+    "x": 1376,
+    "y": 1163,
+    "dest_name": "Cave Fairy Department Store"
+  },
+  {
+    "id": "13",
+    "type": 2,
+    "dest_map": "10006001",
+    "name": "in02",
+    "x": 699,
+    "y": 983,
+    "dest_name": "Cave Fairy Sanctuary"
+  }
+]

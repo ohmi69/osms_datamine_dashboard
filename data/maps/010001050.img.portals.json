@@ -1,0 +1,65 @@
+[
+  {
+    "id": "9",
+    "type": 1,
+    "dest_map": "10001050",
+    "name": "hide01",
+    "x": 427,
+    "y": 558,
+    "dest_name": "Henesys Park"
+  },
+  {
+    "id": "10",
+    "type": 1,
+    "dest_map": "10001050",
+    "name": "hide02",
+    "x": 3653,
+    "y": 408,
+    "dest_name": "Henesys Park"
+  },
+  {
+    "id": "11",
+    "type": 1,
+    "dest_map": "10001050",
+    "name": "hide03",
+    "x": 1852,
+    "y": 680,
+    "dest_name": "Henesys Park"
+  },
+  {
+    "id": "12",
+    "type": 2,
+    "dest_map": "10001052",
+    "name": "in01",
+    "x": 1961,
+    "y": 408,
+    "dest_name": "Pet-Walking Road"
+  },
+  {
+    "id": "13",
+    "type": 2,
+    "dest_map": "10001000",
+    "name": "out00",
+    "x": 271,
+    "y": 560,
+    "dest_name": "Henesys"
+  },
+  {
+    "id": "14",
+    "type": 2,
+    "dest_map": "10001040",
+    "name": "out01",
+    "x": 1140,
+    "y": 530,
+    "dest_name": "Henesys Market"
+  },
+  {
+    "id": "15",
+    "type": 2,
+    "dest_map": "10001051",
+    "name": "in02",
+    "x": 4171,
+    "y": 799,
+    "dest_name": "Bowman Instructional School"
+  }
+]

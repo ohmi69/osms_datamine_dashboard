@@ -1,0 +1,65 @@
+[
+  {
+    "id": "2",
+    "type": 1,
+    "dest_map": "10002004",
+    "name": "h001",
+    "x": 318,
+    "y": 1273,
+    "dest_name": "Marr's Forest"
+  },
+  {
+    "id": "3",
+    "type": 1,
+    "dest_map": "10002004",
+    "name": "h002",
+    "x": 325,
+    "y": 1102,
+    "dest_name": "Marr's Forest"
+  },
+  {
+    "id": "4",
+    "type": 1,
+    "dest_map": "10002004",
+    "name": "h003",
+    "x": 861,
+    "y": 1101,
+    "dest_name": "Marr's Forest"
+  },
+  {
+    "id": "5",
+    "type": 1,
+    "dest_map": "10002004",
+    "name": "h004",
+    "x": 822,
+    "y": 1272,
+    "dest_name": "Marr's Forest"
+  },
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "10002004",
+    "name": "h005",
+    "x": 1062,
+    "y": 1055,
+    "dest_name": "Marr's Forest"
+  },
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "10002004",
+    "name": "h006",
+    "x": 369,
+    "y": 644,
+    "dest_name": "Marr's Forest"
+  },
+  {
+    "id": "8",
+    "type": 2,
+    "dest_map": "10002000",
+    "name": "out00",
+    "x": 1076,
+    "y": 412,
+    "dest_name": "Ellinia"
+  }
+]

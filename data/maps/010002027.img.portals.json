@@ -1,0 +1,83 @@
+[
+  {
+    "id": "5",
+    "type": 1,
+    "dest_map": "10002027",
+    "name": "dw10",
+    "x": 214,
+    "y": 620,
+    "dest_name": "Downstairs at the Forest"
+  },
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "10002027",
+    "name": "dw11",
+    "x": 219,
+    "y": 1021,
+    "dest_name": "Downstairs at the Forest"
+  },
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "10002027",
+    "name": "dw20",
+    "x": 728,
+    "y": 821,
+    "dest_name": "Downstairs at the Forest"
+  },
+  {
+    "id": "8",
+    "type": 1,
+    "dest_map": "10002027",
+    "name": "dw22",
+    "x": 727,
+    "y": 1623,
+    "dest_name": "Downstairs at the Forest"
+  },
+  {
+    "id": "9",
+    "type": 1,
+    "dest_map": "10002027",
+    "name": "dw21",
+    "x": 807,
+    "y": 1199,
+    "dest_name": "Downstairs at the Forest"
+  },
+  {
+    "id": "10",
+    "type": 1,
+    "dest_map": "10002027",
+    "name": "dw23",
+    "x": 807,
+    "y": 1999,
+    "dest_name": "Downstairs at the Forest"
+  },
+  {
+    "id": "11",
+    "type": 1,
+    "dest_map": "10002027",
+    "name": "dw30",
+    "x": 1351,
+    "y": 1421,
+    "dest_name": "Downstairs at the Forest"
+  },
+  {
+    "id": "12",
+    "type": 1,
+    "dest_map": "10002027",
+    "name": "dw31",
+    "x": 1355,
+    "y": 1822,
+    "dest_name": "Downstairs at the Forest"
+  },
+  {
+    "id": "13",
+    "type": 2,
+    "dest_map": "10002020",
+    "name": "out01",
+    "x": 1287,
+    "y": 418,
+    "dest_name": "The Forest of Wisdom"
+  }
+]

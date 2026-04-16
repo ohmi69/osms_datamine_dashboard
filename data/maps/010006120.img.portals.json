@@ -1,0 +1,20 @@
+[
+  {
+    "id": "2",
+    "type": 1,
+    "dest_map": "10006121",
+    "name": "in00",
+    "x": 265,
+    "y": 559,
+    "dest_name": "Someone Else's Grave"
+  },
+  {
+    "id": "3",
+    "type": 2,
+    "dest_map": "10006110",
+    "name": "east00",
+    "x": 2938,
+    "y": 756,
+    "dest_name": "Perilous Descent III"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "6",
+    "type": 2,
+    "dest_map": "10005101",
+    "name": "west00",
+    "x": 217,
+    "y": 735,
+    "dest_name": "Sanctuary Entrance I"
+  },
+  {
+    "id": "7",
+    "type": 2,
+    "dest_map": "10005103",
+    "name": "east00",
+    "x": 2119,
+    "y": 815,
+    "dest_name": "Sanctuary Entrance III"
+  }
+]

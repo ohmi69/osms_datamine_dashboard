@@ -1,0 +1,29 @@
+[
+  {
+    "id": "9",
+    "type": 1,
+    "dest_map": "10000022",
+    "name": "in01",
+    "x": 3730,
+    "y": 649,
+    "dest_name": "Beach Hunting Ground"
+  },
+  {
+    "id": "10",
+    "type": 1,
+    "dest_map": "10000022",
+    "name": "out01",
+    "x": 409,
+    "y": 800,
+    "dest_name": "Beach Hunting Ground"
+  },
+  {
+    "id": "11",
+    "type": 2,
+    "dest_map": "10000020",
+    "name": "out00",
+    "x": 258,
+    "y": 856,
+    "dest_name": "3-Way Road-Split"
+  }
+]

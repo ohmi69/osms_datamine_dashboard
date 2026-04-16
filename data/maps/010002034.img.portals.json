@@ -1,0 +1,20 @@
+[
+  {
+    "id": "5",
+    "type": 2,
+    "dest_map": "10002030",
+    "name": "out01",
+    "x": 348,
+    "y": 649,
+    "dest_name": "The Forest South of Ellinia"
+  },
+  {
+    "id": "6",
+    "type": 2,
+    "dest_map": "10002030",
+    "name": "out00",
+    "x": 778,
+    "y": 2094,
+    "dest_name": "The Forest South of Ellinia"
+  }
+]

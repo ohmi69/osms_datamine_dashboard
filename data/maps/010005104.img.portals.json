@@ -1,0 +1,20 @@
+[
+  {
+    "id": "2",
+    "type": 2,
+    "dest_map": "10005103",
+    "name": "west00",
+    "x": 187,
+    "y": 645,
+    "dest_name": "Sanctuary Entrance III"
+  },
+  {
+    "id": "3",
+    "type": 2,
+    "dest_map": "10005105",
+    "name": "east00",
+    "x": 2148,
+    "y": 708,
+    "dest_name": "The Cursed Sanctuary"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "7",
+    "type": 2,
+    "dest_map": "10005064",
+    "name": "east00",
+    "x": 3360,
+    "y": 2271,
+    "dest_name": "Dark Cave"
+  },
+  {
+    "id": "8",
+    "type": 2,
+    "dest_map": "10005062",
+    "name": "west00",
+    "x": 272,
+    "y": 337,
+    "dest_name": "Ant Tunnel III"
+  }
+]

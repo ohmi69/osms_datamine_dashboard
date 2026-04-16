@@ -1,0 +1,74 @@
+[
+  {
+    "id": "3",
+    "type": 1,
+    "dest_map": "10006100",
+    "name": "h_00",
+    "x": 263,
+    "y": 905,
+    "dest_name": "Perilous Descent II"
+  },
+  {
+    "id": "4",
+    "type": 1,
+    "dest_map": "10006100",
+    "name": "h_01",
+    "x": 266,
+    "y": 1268,
+    "dest_name": "Perilous Descent II"
+  },
+  {
+    "id": "5",
+    "type": 1,
+    "dest_map": "10006100",
+    "name": "h_02",
+    "x": 1387,
+    "y": 1205,
+    "dest_name": "Perilous Descent II"
+  },
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "10006100",
+    "name": "h_03",
+    "x": 1384,
+    "y": 1627,
+    "dest_name": "Perilous Descent II"
+  },
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "10006100",
+    "name": "h_04",
+    "x": 263,
+    "y": 1987,
+    "dest_name": "Perilous Descent II"
+  },
+  {
+    "id": "8",
+    "type": 1,
+    "dest_map": "10006100",
+    "name": "h_05",
+    "x": 264,
+    "y": 2288,
+    "dest_name": "Perilous Descent II"
+  },
+  {
+    "id": "9",
+    "type": 2,
+    "dest_map": "10006110",
+    "name": "bottom00",
+    "x": 1376,
+    "y": 2616,
+    "dest_name": "Perilous Descent III"
+  },
+  {
+    "id": "10",
+    "type": 2,
+    "dest_map": "10006090",
+    "name": "top00",
+    "x": 1452,
+    "y": 578,
+    "dest_name": "Perilous Descent I"
+  }
+]

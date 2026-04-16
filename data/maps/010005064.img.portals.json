@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "type": 2,
+    "dest_map": "10005063",
+    "name": "west00",
+    "x": 228,
+    "y": 1116,
+    "dest_name": "Ant Tunnel IV"
+  },
+  {
+    "id": "2",
+    "type": 2,
+    "dest_map": "10005065",
+    "name": "east00",
+    "x": 3381,
+    "y": 1117,
+    "dest_name": "Dangerous Steam"
+  }
+]

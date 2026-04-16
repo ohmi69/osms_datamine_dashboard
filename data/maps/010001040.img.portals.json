@@ -1,0 +1,83 @@
+[
+  {
+    "id": "11",
+    "type": 1,
+    "dest_map": "10001040",
+    "name": "h_east",
+    "x": 4034,
+    "y": 684,
+    "dest_name": "Henesys Market"
+  },
+  {
+    "id": "12",
+    "type": 1,
+    "dest_map": "10001040",
+    "name": "h_west",
+    "x": 2018,
+    "y": 801,
+    "dest_name": "Henesys Market"
+  },
+  {
+    "id": "14",
+    "type": 2,
+    "dest_map": "10001000",
+    "name": "out00",
+    "x": 392,
+    "y": 741,
+    "dest_name": "Henesys"
+  },
+  {
+    "id": "15",
+    "type": 2,
+    "dest_map": "10001050",
+    "name": "out01",
+    "x": 5527,
+    "y": 681,
+    "dest_name": "Henesys Park"
+  },
+  {
+    "id": "16",
+    "type": 2,
+    "dest_map": "10001041",
+    "name": "in00",
+    "x": 2569,
+    "y": 798,
+    "dest_name": "Henesys Weapon Store"
+  },
+  {
+    "id": "17",
+    "type": 2,
+    "dest_map": "10001042",
+    "name": "in01",
+    "x": 3593,
+    "y": 469,
+    "dest_name": "Henesys Department Store"
+  },
+  {
+    "id": "18",
+    "type": 2,
+    "dest_map": "10001043",
+    "name": "in04",
+    "x": 4871,
+    "y": 406,
+    "dest_name": "Henesys Plastic Surgery"
+  },
+  {
+    "id": "19",
+    "type": 2,
+    "dest_map": "10001044",
+    "name": "in05",
+    "x": 4845,
+    "y": 680,
+    "dest_name": "Henesys Hair Salon"
+  },
+  {
+    "id": "20",
+    "type": 2,
+    "dest_map": "10001045",
+    "name": "in06",
+    "x": 4333,
+    "y": 677,
+    "dest_name": "Henesys Skin-Care"
+  }
+]

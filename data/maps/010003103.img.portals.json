@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "type": 1,
+    "dest_map": "10003103",
+    "name": "go001",
+    "x": 537,
+    "y": 1821,
+    "dest_name": "B2 <Area 1>"
+  },
+  {
+    "id": "2",
+    "type": 1,
+    "dest_map": "10003103",
+    "name": "go002",
+    "x": 713,
+    "y": 1821,
+    "dest_name": "B2 <Area 1>"
+  },
+  {
+    "id": "3",
+    "type": 1,
+    "dest_map": "10003103",
+    "name": "go003",
+    "x": 1073,
+    "y": 1821,
+    "dest_name": "B2 <Area 1>"
+  },
+  {
+    "id": "4",
+    "type": 1,
+    "dest_map": "10003103",
+    "name": "go004",
+    "x": 898,
+    "y": 1821,
+    "dest_name": "B2 <Area 1>"
+  },
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "10003103",
+    "name": "go005",
+    "x": 621,
+    "y": 1822,
+    "dest_name": "B2 <Area 1>"
+  },
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "10003103",
+    "name": "go006",
+    "x": 443,
+    "y": 1821,
+    "dest_name": "B2 <Area 1>"
+  },
+  {
+    "id": "9",
+    "type": 1,
+    "dest_map": "10003103",
+    "name": "go007",
+    "x": 984,
+    "y": 1822,
+    "dest_name": "B2 <Area 1>"
+  },
+  {
+    "id": "11",
+    "type": 2,
+    "dest_map": "10003104",
+    "name": "in00",
+    "x": 759,
+    "y": 381,
+    "dest_name": "B2 <Area 2>"
+  }
+]

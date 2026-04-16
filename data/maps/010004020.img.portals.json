@@ -1,0 +1,29 @@
+[
+  {
+    "id": "9",
+    "type": 2,
+    "dest_map": "10004030",
+    "name": "west00",
+    "x": 417,
+    "y": 1101,
+    "dest_name": "West Domain of Perion"
+  },
+  {
+    "id": "10",
+    "type": 2,
+    "dest_map": "10004010",
+    "name": "east00",
+    "x": 2703,
+    "y": 976,
+    "dest_name": "West Street Corner of Perion"
+  },
+  {
+    "id": "11",
+    "type": 2,
+    "dest_map": "10004021",
+    "name": "in00",
+    "x": 1300,
+    "y": 477,
+    "dest_name": "West Rocky Mountain II"
+  }
+]

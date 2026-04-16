@@ -1,0 +1,47 @@
+[
+  {
+    "id": "8",
+    "type": 2,
+    "dest_map": "10001050",
+    "name": "out00",
+    "x": 2433,
+    "y": 1928,
+    "dest_name": "Henesys Park"
+  },
+  {
+    "id": "9",
+    "type": 1,
+    "dest_map": "10001052",
+    "name": "h001",
+    "x": 2013,
+    "y": 2227,
+    "dest_name": "Pet-Walking Road"
+  },
+  {
+    "id": "10",
+    "type": 1,
+    "dest_map": "10001052",
+    "name": "h002",
+    "x": 3203,
+    "y": 2227,
+    "dest_name": "Pet-Walking Road"
+  },
+  {
+    "id": "11",
+    "type": 1,
+    "dest_map": "10001052",
+    "name": "h003",
+    "x": 3188,
+    "y": 1747,
+    "dest_name": "Pet-Walking Road"
+  },
+  {
+    "id": "13",
+    "type": 1,
+    "dest_map": "10001052",
+    "name": "h005",
+    "x": 701,
+    "y": 448,
+    "dest_name": "Pet-Walking Road"
+  }
+]

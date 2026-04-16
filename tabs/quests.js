@@ -6,25 +6,15 @@ const CHAIN_COLORS = [
   '#ec4899', '#14b8a6', '#eab308', '#ef4444',
 ];
 
-const QUEST_COMPLETION_STORAGE_KEY = 'questsCompletionById';
+
+import state from '../lib/data.js';
 
 function loadCompletionState() {
-  try {
-    const raw = localStorage.getItem(QUEST_COMPLETION_STORAGE_KEY);
-    if (!raw) return {};
-    const parsed = JSON.parse(raw);
-    return parsed && typeof parsed === 'object' ? parsed : {};
-  } catch {
-    return {};
-  }
+  return state.get('questsCompletionById', {});
 }
 
-function saveCompletionState(state) {
-  try {
-    localStorage.setItem(QUEST_COMPLETION_STORAGE_KEY, JSON.stringify(state));
-  } catch {
-    // Ignore storage failures (private mode/quota/etc.) so the UI still works.
-  }
+function saveCompletionState(val) {
+  state.set('questsCompletionById', val);
 }
 
 function getQuestCompletionKey(quest) {

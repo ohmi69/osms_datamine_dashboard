@@ -1,0 +1,38 @@
+[
+  {
+    "id": "3",
+    "type": 2,
+    "dest_map": "80000400",
+    "name": "in00",
+    "x": 458,
+    "y": 991,
+    "dest_name": "1st Accompaniment <Last Stage>"
+  },
+  {
+    "id": "4",
+    "type": 2,
+    "dest_map": "80000400",
+    "name": "in00_1",
+    "x": 455,
+    "y": 1411,
+    "dest_name": "1st Accompaniment <Last Stage>"
+  },
+  {
+    "id": "5",
+    "type": 2,
+    "dest_map": "80000400",
+    "name": "in01",
+    "x": 1124,
+    "y": 1710,
+    "dest_name": "1st Accompaniment <Last Stage>"
+  },
+  {
+    "id": "6",
+    "type": 2,
+    "dest_map": "80000400",
+    "name": "in01_1",
+    "x": 1147,
+    "y": 2430,
+    "dest_name": "1st Accompaniment <Last Stage>"
+  }
+]

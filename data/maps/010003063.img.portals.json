@@ -1,0 +1,20 @@
+[
+  {
+    "id": "2",
+    "type": 1,
+    "dest_map": "10003064",
+    "name": "in00",
+    "x": 3800,
+    "y": 1022,
+    "dest_name": "Line 1 <Area 3>"
+  },
+  {
+    "id": "3",
+    "type": 2,
+    "dest_map": "10003062",
+    "name": "out00",
+    "x": 450,
+    "y": 1061,
+    "dest_name": "Transfer Area"
+  }
+]

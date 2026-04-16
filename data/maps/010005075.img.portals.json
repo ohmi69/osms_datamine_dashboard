@@ -1,0 +1,20 @@
+[
+  {
+    "id": "2",
+    "type": 2,
+    "dest_map": "10005074",
+    "name": "east00",
+    "x": 232,
+    "y": 820,
+    "dest_name": "The Cave of Evil Eye IV"
+  },
+  {
+    "id": "3",
+    "type": 2,
+    "dest_map": "10005076",
+    "name": "east01",
+    "x": 2298,
+    "y": 759,
+    "dest_name": "The Tunnel That Lost Light I"
+  }
+]

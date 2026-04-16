@@ -26,9 +26,13 @@ function showZoomTipModal() {
     setTimeout(() => tip.remove(), 600);
   }, 1800);
 }
-import { TABS } from './lib/config.js';
+import { TABS, ICONS } from './lib/config.js';
 import { el, $, $$ } from './lib/utils.js';
-import { loadData, loadState, saveState } from './lib/data.js';
+import state, { loadData } from './lib/data.js';
+import { TabManager } from './lib/TabManager.js';
+import { ThemeManager } from './lib/ThemeManager.js';
+import { Router } from './lib/Router.js';
+import { createToggleButton } from './lib/ButtonFactory.js';
 import { renderOverview }  from './tabs/overview.js';
 import { renderMonsters }  from './tabs/monsters.js';
 import { renderMaps }      from './tabs/maps.js';
@@ -41,98 +45,120 @@ import { renderBeautyStyles } from './tabs/beauty.js';
 import { renderQuests }    from './tabs/quests.js';
 import { renderFormulas }  from './tabs/formulas.js';
 
-// Apply theme immediately to avoid flash
-(function () {
-  try {
-    const stored = JSON.parse(localStorage.getItem('mscw-datamine-state') || '{}');
-    const theme = stored.theme || 'mapletip';
-    if (theme === 'mapletip') document.documentElement.setAttribute('data-theme', 'mapletip');
-  } catch {}
-})();
+
+// Apply theme immediately
+ThemeManager.applyTheme();
+
 
 let appData = null;
-let activeTab = 'overview';
-const panelCache = {};
+let tabManager = null;
 
-let navigateMonsters = null;
-let navigateMaps = null;
-const navigators = {};
 
-function parseDeepLink(hash) {
-  const [tabPart, qPart] = hash.split('?q=');
-  return { tab: tabPart, query: qPart ? decodeURIComponent(qPart) : null };
+// Use Router for deep link parsing
+
+// Tab renderers as a config array for TabManager
+function getTabConfigs(appData) {
+  return [
+    {
+      id: 'overview',
+      label: 'Overview',
+      icon: ICONS.chartColumn,
+      render: () => renderOverview(appData, { switchTab: (id, push, query) => tabManager.switchTab(id, push, query) })
+    },
+    {
+      id: 'monsters',
+      label: 'Monsters',
+      icon: ICONS.skull,
+      render: ({ setNavigate, navigators }) => renderMonsters(appData, {
+        setNavigate,
+        onMapClick: (mapId) => {
+          tabManager.switchTab('maps');
+          if (navigators.maps) navigators.maps({ id: mapId, autoExpand: true });
+        },
+      })
+    },
+    {
+      id: 'maps',
+      label: 'Maps',
+      icon: ICONS.map,
+      render: ({ setNavigate, navigators }) => renderMaps(appData, {
+        setNavigate,
+        onMobClick: (mobId) => {
+          tabManager.switchTab('monsters');
+          if (navigators.monsters) navigators.monsters({ id: mobId, autoExpand: true });
+        },
+      })
+    },
+    {
+      id: 'skills',
+      label: 'Skills',
+      icon: ICONS.swords,
+      render: ({ setNavigate }) => renderSkills(appData, { setNavigate })
+    },
+    {
+      id: 'crafting',
+      label: 'Crafting',
+      icon: ICONS.hammer,
+      render: ({ setNavigate, navigators }) => renderCrafting(appData, {
+        setNavigate,
+        onItemClick: (item, id) => {
+          const isEquip = item?.category === 'Equipment';
+          const tab = isEquip ? 'equipment' : 'items';
+          tabManager.switchTab(tab);
+          if (navigators[tab]) navigators[tab](id != null ? `id:${id}` : (item?.name || ''));
+        },
+      })
+    },
+    {
+      id: 'items',
+      label: 'Items',
+      icon: ICONS.scrollText,
+      render: ({ setNavigate }) => renderItems(appData, { setNavigate })
+    },
+    {
+      id: 'equipment',
+      label: 'Equipment',
+      icon: ICONS.swords,
+      render: ({ setNavigate }) => renderEquipment(appData, { setNavigate })
+    },
+    {
+      id: 'cashshop',
+      label: 'Cash Shop',
+      icon: ICONS.shoppingBag,
+      render: ({ setNavigate }) => renderCashShop(appData, { setNavigate })
+    },
+    {
+      id: 'quests',
+      label: 'Quests',
+      icon: ICONS.bookOpen,
+      render: ({ setNavigate }) => renderQuests(appData, { setNavigate })
+    },
+    {
+      id: 'formulas',
+      label: 'Formulas',
+      icon: ICONS.flaskConical,
+      render: () => renderFormulas()
+    },
+    // Uncomment if beauty tab is enabled
+    // {
+    //   id: 'beauty',
+    //   label: 'Beauty',
+    //   icon: ICONS.sparkles,
+    //   render: () => renderBeautyStyles(appData)
+    // },
+  ];
 }
 
-// Renderers are thunks so switchTab is captured by closure (defined below)
-const renderers = {
-  overview:  () => renderOverview(appData, { switchTab }),
-  monsters:  () => renderMonsters(appData, {
-    setNavigate: (fn) => { navigateMonsters = fn; navigators.monsters = fn; },
-    onMapClick: (mapId) => {
-      switchTab('maps');
-      if (navigateMaps) navigateMaps({ id: mapId, autoExpand: true });
-    },
-  }),
-  maps:      () => renderMaps(appData, {
-    setNavigate: (fn) => { navigateMaps = fn; navigators.maps = fn; },
-    onMobClick: (mobId) => {
-      switchTab('monsters');
-      if (navigateMonsters) navigateMonsters({ id: mobId, autoExpand: true });
-    },
-  }),
-  skills:    () => renderSkills(appData, { setNavigate: (fn) => { navigators.skills = fn; } }),
-  crafting:  () => renderCrafting(appData, {
-    setNavigate: (fn) => { navigators.crafting = fn; },
-    onItemClick: (item, id) => {
-      const isEquip = item?.category === 'Equipment';
-      const tab = isEquip ? 'equipment' : 'items';
-      switchTab(tab);
-      if (navigators[tab]) navigators[tab](id != null ? `id:${id}` : (item?.name || ''));
-    },
-  }),
-  items:     () => renderItems(appData, { setNavigate: (fn) => { navigators.items = fn; } }),
-  equipment: () => renderEquipment(appData, { setNavigate: (fn) => { navigators.equipment = fn; } }),
-  cashshop:  () => renderCashShop(appData, { setNavigate: (fn) => { navigators.cashshop = fn; } }),
-  quests:    () => renderQuests(appData, { setNavigate: (fn) => { navigators.quests = fn; } }),
-  formulas:  () => renderFormulas(),
-  beauty:    () => renderBeautyStyles(appData),
-};
 
-function switchTab(tabId, pushState = true, query = null) {
-  activeTab = tabId;
-  if (pushState) {
-    history.pushState(null, '', `#${tabId}`);
-  } else {
-    history.replaceState(null, '', `#${tabId}`);
-  }
-  $$('.tab-btn').forEach((button) => {
-    button.classList.toggle('active', button.dataset.tab === tabId);
-  });
+// No global switchTab; use tabManager.switchTab
 
-  const panels = $('#tabPanels');
-  [...panels.children].forEach((panel) => {
-    panel.style.display = 'none';
-  });
 
-  if (!panelCache[tabId]) {
-    const panel = el('div', { className: 'tab-panel' });
-    panel.appendChild(renderers[tabId]());
-    panels.appendChild(panel);
-    panelCache[tabId] = panel;
-  }
 
-  panelCache[tabId].style.display = 'block';
-  window.scrollTo(0, 0);
-  if (query && navigators[tabId]) {
-    navigators[tabId](query);
-  }
-}
-window.switchTab = switchTab;
-
-window.addEventListener('hashchange', () => {
-  const { tab, query } = parseDeepLink(location.hash.slice(1));
+// Listen for route changes using Router
+Router.onRouteChange((tab, query) => {
+  if (!tabManager) return;
   let tabId = tab === 'cash_shop' ? 'cashshop' : tab;
-  if (tabId && renderers[tabId]) switchTab(tabId, false, query);
+  if (tabId && tabManager.tabs.some(t => t.id === tabId)) tabManager.switchTab(tabId, false, query);
 });
 
 async function showMapleTip() {
@@ -186,57 +212,54 @@ async function init() {
   panels.innerHTML = '';
   const nav = $('#tabNav');
   nav.innerHTML = '';
-  TABS.forEach((tab) => {
-    const button = el('button', {
-      className: `tab-btn${tab.id === activeTab ? ' active' : ''}`,
-      'data-tab': tab.id,
-      innerHTML: `${tab.icon}<span>${tab.label}</span>`,
-    });
-    button.addEventListener('click', () => switchTab(tab.id));
-    nav.appendChild(button);
+
+
+
+  // Determine initial tab from Router
+
+  const route = Router.getCurrentRoute();
+  const query = Router.getCurrentQuery();
+  const validTab = route && getTabConfigs(appData).some(t => t.id === route) ? route : 'overview';
+
+  tabManager = new TabManager({
+    tabs: getTabConfigs(appData),
+    panelContainer: panels,
+    navContainer: nav,
+    initialTab: validTab,
   });
-
-  const _state = loadState();
-  let showIds = _state.showIds;
-  if (!showIds) document.body.classList.add('hide-ids');
-
-  let theme = _state.theme;
-  if (theme === 'mapletip') {
-    document.documentElement.setAttribute('data-theme', 'mapletip');
-  } else {
-    document.documentElement.removeAttribute('data-theme');
+  // If there is a query, pass it to the tab
+  if (query && tabManager.navigators[validTab]) {
+    tabManager.navigators[validTab](query);
   }
 
-  const idToggle = el('button', {
-    className: `id-toggle${showIds ? ' active' : ''}`,
-    title: 'Show/hide IDs',
-    textContent: 'Show IDs',
-  });
-  idToggle.addEventListener('click', () => {
-    showIds = !showIds;
-    document.body.classList.toggle('hide-ids', !showIds);
-    idToggle.classList.toggle('active', showIds);
-    saveState('showIds', showIds);
+  // State is now handled by StateManager (state)
+
+
+  let showIds = state.get('showIds', false);
+  if (!showIds) document.body.classList.add('hide-ids');
+
+  // Use ButtonFactory for toggles
+  const idToggle = createToggleButton({
+    label: 'Show IDs',
+    active: showIds,
+    onClick: () => {
+      showIds = !showIds;
+      document.body.classList.toggle('hide-ids', !showIds);
+      idToggle.classList.toggle('active', showIds);
+      state.set('showIds', showIds);
+    },
+    className: 'id-toggle'
   });
 
-  const themeToggle = el('button', {
-    className: `id-toggle theme-toggle${theme === 'mapletip' ? '' : ' active'}`,
-    title: 'Toggle dark/light theme',
-    innerHTML: theme === 'mapletip' ? '🌙 Dark Mode' : '☀️ Light Mode',
-  });
-  themeToggle.addEventListener('click', () => {
-    if (theme === 'dark') {
-      theme = 'mapletip';
-      document.documentElement.setAttribute('data-theme', 'mapletip');
-      themeToggle.innerHTML = '🌙 Dark Mode';
-      themeToggle.classList.remove('active');
-    } else {
-      theme = 'dark';
-      document.documentElement.removeAttribute('data-theme');
-      themeToggle.innerHTML = '☀️ Light Mode';
-      themeToggle.classList.add('active');
-    }
-    saveState('theme', theme);
+  const themeToggle = createToggleButton({
+    label: ThemeManager.getTheme() === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode',
+    active: ThemeManager.getTheme() === 'dark',
+    onClick: () => {
+      ThemeManager.toggleTheme();
+      themeToggle.classList.toggle('active', ThemeManager.getTheme() === 'dark');
+      themeToggle.textContent = ThemeManager.getTheme() === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    },
+    className: 'id-toggle theme-toggle'
   });
 
   const toggleDock = el('div', { className: 'toggle-dock' });
@@ -244,9 +267,7 @@ async function init() {
   toggleDock.appendChild(themeToggle);
   document.body.appendChild(toggleDock);
 
-  const { tab: rawHashTab, query: hashQuery } = parseDeepLink(location.hash.slice(1));
-  const hashTab = rawHashTab === 'cash_shop' ? 'cashshop' : rawHashTab;
-  switchTab(hashTab && renderers[hashTab] ? hashTab : 'overview', false, hashQuery);
+
 
   showMapleTip();
 }

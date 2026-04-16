@@ -1,0 +1,29 @@
+[
+  {
+    "id": "3",
+    "type": 2,
+    "dest_map": "10",
+    "name": "in00",
+    "x": 203,
+    "y": 713,
+    "dest_name": "Mushroom Town"
+  },
+  {
+    "id": "4",
+    "type": 2,
+    "dest_map": "21",
+    "name": "in01",
+    "x": 967,
+    "y": 589,
+    "dest_name": "Mushroom Town Townstreet"
+  },
+  {
+    "id": "5",
+    "type": 2,
+    "dest_map": "30",
+    "name": "out00",
+    "x": 1519,
+    "y": 592,
+    "dest_name": "East Entrance to Mushroom Town"
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "type": 1,
+    "dest_map": "10002042",
+    "name": "h001",
+    "x": 499,
+    "y": 1657,
+    "dest_name": "The Forest of Patience <Step 3>"
+  },
+  {
+    "id": "2",
+    "type": 1,
+    "dest_map": "10002042",
+    "name": "h001_1",
+    "x": 574,
+    "y": 1232,
+    "dest_name": "The Forest of Patience <Step 3>"
+  },
+  {
+    "id": "4",
+    "type": 2,
+    "dest_map": "10002043",
+    "name": "in00",
+    "x": 1215,
+    "y": 412,
+    "dest_name": "The Forest of Patience <Step 4>"
+  }
+]

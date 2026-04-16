@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "type": 2,
+    "dest_map": "1010",
+    "name": "out00",
+    "x": 783,
+    "y": 771,
+    "dest_name": "Amherst"
+  },
+  {
+    "id": "2",
+    "type": 2,
+    "dest_map": "1014",
+    "name": "west00",
+    "x": 458,
+    "y": 802,
+    "dest_name": "Snail Field of Flowers"
+  }
+]

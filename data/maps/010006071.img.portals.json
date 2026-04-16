@@ -1,0 +1,56 @@
+[
+  {
+    "id": "2",
+    "type": 2,
+    "dest_map": "10006070",
+    "name": "under00",
+    "x": 899,
+    "y": 3142,
+    "dest_name": "The End of Fleeting Light"
+  },
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "10005054",
+    "name": "top00",
+    "x": 995,
+    "y": 634,
+    "dest_name": "Sleepy Dungeon V"
+  },
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "10006071",
+    "name": "h_02",
+    "x": 899,
+    "y": 2038,
+    "dest_name": "Forgotten Dungeon Tunnel"
+  },
+  {
+    "id": "8",
+    "type": 1,
+    "dest_map": "10006071",
+    "name": "h_03",
+    "x": 903,
+    "y": 2521,
+    "dest_name": "Forgotten Dungeon Tunnel"
+  },
+  {
+    "id": "9",
+    "type": 1,
+    "dest_map": "10006071",
+    "name": "h_00",
+    "x": 900,
+    "y": 1088,
+    "dest_name": "Forgotten Dungeon Tunnel"
+  },
+  {
+    "id": "10",
+    "type": 1,
+    "dest_map": "10006071",
+    "name": "h_01",
+    "x": 900,
+    "y": 1564,
+    "dest_name": "Forgotten Dungeon Tunnel"
+  }
+]

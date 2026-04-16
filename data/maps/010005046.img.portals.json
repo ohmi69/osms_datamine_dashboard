@@ -1,0 +1,38 @@
+[
+  {
+    "id": "7",
+    "type": 3,
+    "dest_map": "10005046",
+    "name": "tr00",
+    "x": 1355,
+    "y": 4255,
+    "dest_name": "The Deep Forest of Patience <Step 7>"
+  },
+  {
+    "id": "8",
+    "type": 3,
+    "dest_map": "10005046",
+    "name": "tr01",
+    "x": 1040,
+    "y": 4256,
+    "dest_name": "The Deep Forest of Patience <Step 7>"
+  },
+  {
+    "id": "9",
+    "type": 3,
+    "dest_map": "10005046",
+    "name": "tr02",
+    "x": 727,
+    "y": 4255,
+    "dest_name": "The Deep Forest of Patience <Step 7>"
+  },
+  {
+    "id": "10",
+    "type": 3,
+    "dest_map": "10005046",
+    "name": "tr03",
+    "x": 500,
+    "y": 4256,
+    "dest_name": "The Deep Forest of Patience <Step 7>"
+  }
+]

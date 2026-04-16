@@ -1,0 +1,20 @@
+[
+  {
+    "id": "5",
+    "type": 2,
+    "dest_map": "10005075",
+    "name": "west00",
+    "x": 311,
+    "y": 907,
+    "dest_name": "Drake Hunting Ground"
+  },
+  {
+    "id": "6",
+    "type": 2,
+    "dest_map": "10005077",
+    "name": "east00",
+    "x": 2834,
+    "y": 4259,
+    "dest_name": "The Tunnel That Lost Light II"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "15",
+    "type": 2,
+    "dest_map": "10003000",
+    "name": "west00",
+    "x": 151,
+    "y": 1531,
+    "dest_name": "Kerning City"
+  },
+  {
+    "id": "16",
+    "type": 2,
+    "dest_map": "10003091",
+    "name": "east00",
+    "x": 3039,
+    "y": 1579,
+    "dest_name": "The Swamp of Despair II"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "4",
+    "type": 1,
+    "dest_map": "80002000",
+    "name": "out00",
+    "x": 1383,
+    "y": 888,
+    "dest_name": "Free Market Entrance"
+  },
+  {
+    "id": "5",
+    "type": 1,
+    "dest_map": "80002004",
+    "name": "up00",
+    "x": 319,
+    "y": 885,
+    "dest_name": "Free Market<4>"
+  },
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "80002004",
+    "name": "up01",
+    "x": 335,
+    "y": 645,
+    "dest_name": "Free Market<4>"
+  },
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "80002004",
+    "name": "dn00",
+    "x": 1260,
+    "y": 438,
+    "dest_name": "Free Market<4>"
+  },
+  {
+    "id": "8",
+    "type": 1,
+    "dest_map": "80002004",
+    "name": "dn01",
+    "x": 1013,
+    "y": 644,
+    "dest_name": "Free Market<4>"
+  }
+]

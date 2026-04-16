@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "type": 2,
+    "dest_map": "42",
+    "name": "west00",
+    "x": 220,
+    "y": 831,
+    "dest_name": "Snail Hunting Ground III"
+  },
+  {
+    "id": "2",
+    "type": 2,
+    "dest_map": "1000",
+    "name": "east00",
+    "x": 3766,
+    "y": 592,
+    "dest_name": "The Field West of Amherst"
+  },
+  {
+    "id": "3",
+    "type": 2,
+    "dest_map": "60",
+    "name": "east01",
+    "x": 3771,
+    "y": 946,
+    "dest_name": "Southperry"
+  }
+]

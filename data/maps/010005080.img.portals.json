@@ -1,0 +1,38 @@
+[
+  {
+    "id": "4",
+    "type": 1,
+    "dest_map": "10005090",
+    "name": "east00",
+    "x": 943,
+    "y": 595,
+    "dest_name": "Drake's Meal Table"
+  },
+  {
+    "id": "5",
+    "type": 1,
+    "dest_map": "10005100",
+    "name": "east01",
+    "x": 916,
+    "y": 1382,
+    "dest_name": "Another Path"
+  },
+  {
+    "id": "6",
+    "type": 2,
+    "dest_map": "10005077",
+    "name": "west00",
+    "x": 425,
+    "y": 586,
+    "dest_name": "The Tunnel That Lost Light II"
+  },
+  {
+    "id": "7",
+    "type": 2,
+    "dest_map": "10005077",
+    "name": "west01",
+    "x": 471,
+    "y": 1421,
+    "dest_name": "The Tunnel That Lost Light II"
+  }
+]

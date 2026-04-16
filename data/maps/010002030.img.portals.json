@@ -1,0 +1,83 @@
+[
+  {
+    "id": "4",
+    "type": 1,
+    "dest_map": "10002031",
+    "name": "in01",
+    "x": 317,
+    "y": 2154,
+    "dest_name": "Dungeon, Southern Forest I"
+  },
+  {
+    "id": "5",
+    "type": 1,
+    "dest_map": "10002031",
+    "name": "in01_1",
+    "x": 363,
+    "y": 1558,
+    "dest_name": "Dungeon, Southern Forest I"
+  },
+  {
+    "id": "6",
+    "type": 1,
+    "dest_map": "10002032",
+    "name": "in02",
+    "x": 965,
+    "y": 1496,
+    "dest_name": "Dungeon, Southern Forest II"
+  },
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "10002032",
+    "name": "in02_1",
+    "x": 900,
+    "y": 889,
+    "dest_name": "Dungeon, Southern Forest II"
+  },
+  {
+    "id": "8",
+    "type": 1,
+    "dest_map": "10002033",
+    "name": "in03",
+    "x": 2622,
+    "y": 502,
+    "dest_name": "Dungeon, Southern Forest III"
+  },
+  {
+    "id": "9",
+    "type": 1,
+    "dest_map": "10002034",
+    "name": "in04",
+    "x": 3084,
+    "y": 1202,
+    "dest_name": "Dungeon, Southern Forest IV"
+  },
+  {
+    "id": "10",
+    "type": 1,
+    "dest_map": "10002034",
+    "name": "in04_1",
+    "x": 3022,
+    "y": 595,
+    "dest_name": "Dungeon, Southern Forest IV"
+  },
+  {
+    "id": "11",
+    "type": 2,
+    "dest_map": "10002020",
+    "name": "east00",
+    "x": 3173,
+    "y": 420,
+    "dest_name": "The Forest of Wisdom"
+  },
+  {
+    "id": "12",
+    "type": 2,
+    "dest_map": "10001080",
+    "name": "west00",
+    "x": 192,
+    "y": 2671,
+    "dest_name": "The Forest East of Henesys"
+  }
+]

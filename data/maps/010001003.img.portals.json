@@ -1,0 +1,38 @@
+[
+  {
+    "id": "3",
+    "type": 1,
+    "dest_map": "10001004",
+    "name": "in00",
+    "x": 3901,
+    "y": 409,
+    "dest_name": "Pig Park II"
+  },
+  {
+    "id": "5",
+    "type": 2,
+    "dest_map": "10001002",
+    "name": "out00",
+    "x": 314,
+    "y": 589,
+    "dest_name": "An Empty House"
+  },
+  {
+    "id": "6",
+    "type": 3,
+    "dest_map": "10001006",
+    "name": "in01",
+    "x": 2619,
+    "y": 731,
+    "dest_name": "The Resting Spot, Pig Park"
+  },
+  {
+    "id": "7",
+    "type": 3,
+    "dest_map": "10001006",
+    "name": "in02",
+    "x": 1532,
+    "y": 725,
+    "dest_name": "The Resting Spot, Pig Park"
+  }
+]

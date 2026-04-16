@@ -1,0 +1,29 @@
+[
+  {
+    "id": "4",
+    "type": 1,
+    "dest_map": "10006031",
+    "name": "top00",
+    "x": 255,
+    "y": 470,
+    "dest_name": "The Valley of Death"
+  },
+  {
+    "id": "5",
+    "type": 2,
+    "dest_map": "10006040",
+    "name": "east00",
+    "x": 2443,
+    "y": 1102,
+    "dest_name": "Forgotten Entrance I"
+  },
+  {
+    "id": "6",
+    "type": 2,
+    "dest_map": "10006020",
+    "name": "west00",
+    "x": 230,
+    "y": 1403,
+    "dest_name": "Primeval Forest II"
+  }
+]

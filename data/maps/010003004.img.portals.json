@@ -1,0 +1,20 @@
+[
+  {
+    "id": "2",
+    "type": 1,
+    "dest_map": "10003000",
+    "name": "out01",
+    "x": 960,
+    "y": 304,
+    "dest_name": "Kerning City"
+  },
+  {
+    "id": "3",
+    "type": 2,
+    "dest_map": "10003000",
+    "name": "out00",
+    "x": 947,
+    "y": 529,
+    "dest_name": "Kerning City"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "id": "15",
+    "type": 1,
+    "dest_map": "10003001",
+    "name": "in01_1",
+    "x": 1209,
+    "y": 1500,
+    "dest_name": "Kerning City Self-Defence Item Store"
+  },
+  {
+    "id": "16",
+    "type": 1,
+    "dest_map": "10003001",
+    "name": "in01_2",
+    "x": 984,
+    "y": 1244,
+    "dest_name": "Kerning City Self-Defence Item Store"
+  },
+  {
+    "id": "17",
+    "type": 1,
+    "dest_map": "10003004",
+    "name": "in04_1",
+    "x": 1884,
+    "y": 1480,
+    "dest_name": "Niora Hospital"
+  },
+  {
+    "id": "18",
+    "type": 1,
+    "dest_map": "10003000",
+    "name": "hide01",
+    "x": 2570,
+    "y": 971,
+    "dest_name": "Kerning City"
+  },
+  {
+    "id": "19",
+    "type": 1,
+    "dest_map": "10003000",
+    "name": "hide01_1",
+    "x": 2786,
+    "y": 691,
+    "dest_name": "Kerning City"
+  },
+  {
+    "id": "20",
+    "type": 1,
+    "dest_map": "10003000",
+    "name": "hide02",
+    "x": 4033,
+    "y": 887,
+    "dest_name": "Kerning City"
+  },
+  {
+    "id": "21",
+    "type": 1,
+    "dest_map": "10003000",
+    "name": "hide02_1",
+    "x": 4255,
+    "y": 606,
+    "dest_name": "Kerning City"
+  },
+  {
+    "id": "22",
+    "type": 1,
+    "dest_map": "10003000",
+    "name": "hide03",
+    "x": 4645,
+    "y": 1802,
+    "dest_name": "Kerning City"
+  },
+  {
+    "id": "23",
+    "type": 1,
+    "dest_map": "10003000",
+    "name": "hide03_1",
+    "x": 270,
+    "y": 1748,
+    "dest_name": "Kerning City"
+  },
+  {
+    "id": "24",
+    "type": 1,
+    "dest_map": "10003001",
+    "name": "in01",
+    "x": 890,
+    "y": 1499,
+    "dest_name": "Kerning City Self-Defence Item Store"
+  },
+  {
+    "id": "25",
+    "type": 1,
+    "dest_map": "10003002",
+    "name": "in02",
+    "x": 3623,
+    "y": 1493,
+    "dest_name": "Kerning City Pharmacy"
+  },
+  {
+    "id": "26",
+    "type": 1,
+    "dest_map": "10003003",
+    "name": "in03",
+    "x": 4019,
+    "y": 1649,
+    "dest_name": "Thieves' Hideout"
+  },
+  {
+    "id": "27",
+    "type": 1,
+    "dest_map": "10003004",
+    "name": "in04",
+    "x": 1854,
+    "y": 1608,
+    "dest_name": "Niora Hospital"
+  },
+  {
+    "id": "28",
+    "type": 1,
+    "dest_map": "10003005",
+    "name": "in05",
+    "x": 2807,
+    "y": 1393,
+    "dest_name": "Kerning City Hair Salon"
+  },
+  {
+    "id": "29",
+    "type": 1,
+    "dest_map": "10003006",
+    "name": "in06",
+    "x": 2870,
+    "y": 1159,
+    "dest_name": "Kerning City Repair Shop"
+  },
+  {
+    "id": "30",
+    "type": 1,
+    "dest_map": "10003006",
+    "name": "in06_1",
+    "x": 3059,
+    "y": 1001,
+    "dest_name": "Kerning City Repair Shop"
+  },
+  {
+    "id": "31",
+    "type": 1,
+    "dest_map": "10003090",
+    "name": "mid00",
+    "x": 1766,
+    "y": 1866,
+    "dest_name": "The Swamp of Despair I"
+  },
+  {
+    "id": "32",
+    "type": 1,
+    "dest_map": "10003060",
+    "name": "sub00",
+    "x": 3267,
+    "y": 1918,
+    "dest_name": "Subway Ticketing Booth"
+  },
+  {
+    "id": "35",
+    "type": 2,
+    "dest_map": "10003070",
+    "name": "east00",
+    "x": 5127,
+    "y": 1289,
+    "dest_name": "Sunset Sky"
+  },
+  {
+    "id": "36",
+    "type": 2,
+    "dest_map": "10003010",
+    "name": "west00",
+    "x": 336,
+    "y": 1646,
+    "dest_name": "Kerning City Construction Site"
+  }
+]

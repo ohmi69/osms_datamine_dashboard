@@ -1,0 +1,92 @@
+[
+  {
+    "id": "12",
+    "type": 1,
+    "dest_map": "10001030",
+    "name": "hide01",
+    "x": 3053,
+    "y": 1789,
+    "dest_name": "Forest West of Henesys"
+  },
+  {
+    "id": "13",
+    "type": 1,
+    "dest_map": "10001030",
+    "name": "tohide01",
+    "x": 3498,
+    "y": 409,
+    "dest_name": "Forest West of Henesys"
+  },
+  {
+    "id": "14",
+    "type": 1,
+    "dest_map": "10001030",
+    "name": "hide02",
+    "x": 2670,
+    "y": 1789,
+    "dest_name": "Forest West of Henesys"
+  },
+  {
+    "id": "15",
+    "type": 1,
+    "dest_map": "10001030",
+    "name": "tohide02",
+    "x": 1552,
+    "y": 890,
+    "dest_name": "Forest West of Henesys"
+  },
+  {
+    "id": "16",
+    "type": 1,
+    "dest_map": "10001030",
+    "name": "hide03",
+    "x": 1257,
+    "y": 1490,
+    "dest_name": "Forest West of Henesys"
+  },
+  {
+    "id": "18",
+    "type": 1,
+    "dest_map": "10001030",
+    "name": "hide04",
+    "x": 2115,
+    "y": 1491,
+    "dest_name": "Forest West of Henesys"
+  },
+  {
+    "id": "20",
+    "type": 1,
+    "dest_map": "10001030",
+    "name": "hide05",
+    "x": 2904,
+    "y": 1191,
+    "dest_name": "Forest West of Henesys"
+  },
+  {
+    "id": "21",
+    "type": 1,
+    "dest_map": "10001030",
+    "name": "tohide05",
+    "x": 2420,
+    "y": 890,
+    "dest_name": "Forest West of Henesys"
+  },
+  {
+    "id": "22",
+    "type": 2,
+    "dest_map": "10000020",
+    "name": "west00",
+    "x": 312,
+    "y": 1611,
+    "dest_name": "3-Way Road-Split"
+  },
+  {
+    "id": "23",
+    "type": 2,
+    "dest_map": "10001020",
+    "name": "east00",
+    "x": 4078,
+    "y": 1610,
+    "dest_name": "A Hill West of Henesys "
+  }
+]

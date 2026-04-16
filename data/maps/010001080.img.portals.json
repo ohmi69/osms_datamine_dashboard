@@ -1,0 +1,56 @@
+[
+  {
+    "id": "2",
+    "type": 2,
+    "dest_map": "10001082",
+    "name": "farm00",
+    "x": 212,
+    "y": 590,
+    "dest_name": "Utah's Pig Farm"
+  },
+  {
+    "id": "4",
+    "type": 2,
+    "dest_map": "10001070",
+    "name": "west00",
+    "x": 314,
+    "y": 2029,
+    "dest_name": "The Rain-Forest East of Henesys"
+  },
+  {
+    "id": "6",
+    "type": 2,
+    "dest_map": "10002030",
+    "name": "east00",
+    "x": 4614,
+    "y": 1011,
+    "dest_name": "The Forest South of Ellinia"
+  },
+  {
+    "id": "23",
+    "type": 1,
+    "dest_map": "10001081",
+    "name": "in00",
+    "x": 1272,
+    "y": 412,
+    "dest_name": "The Blue Mushroom Forest"
+  },
+  {
+    "id": "24",
+    "type": 1,
+    "dest_map": "10001080",
+    "name": "h_east00",
+    "x": 3403,
+    "y": 1005,
+    "dest_name": "The Forest East of Henesys"
+  },
+  {
+    "id": "25",
+    "type": 1,
+    "dest_map": "10001080",
+    "name": "h_west00",
+    "x": 1654,
+    "y": 2148,
+    "dest_name": "The Forest East of Henesys"
+  }
+]

@@ -1,8 +1,10 @@
 import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
-import { loadState, saveState } from '../lib/data.js';
+import state from '../lib/data.js';
 
-const _savedState = loadState();
+const _savedState = {
+  monsters: state.get('monsters', { cols: null })
+};
 
 const ELEMENT_CLASSES = {
   Immune: 'immune',
@@ -266,7 +268,7 @@ export function renderMonsters(data, options = {}) {
       });
       pill.addEventListener('click', () => {
         typeFilter = value;
-        saveState('monsters', { cols: { ...colState } });
+        state.set('monsters', { cols: { ...colState } });
         rebuildPills();
         renderData();
       });
@@ -313,7 +315,7 @@ export function renderMonsters(data, options = {}) {
       });
       button.addEventListener('click', () => {
         colState[col.id] = !colState[col.id];
-        saveState('monsters', { cols: { ...colState } });
+        state.set('monsters', { cols: { ...colState } });
         rebuildToggles();
         renderData();
       });
@@ -373,7 +375,7 @@ export function renderMonsters(data, options = {}) {
         sortCol = 'name';
         sortDir = 1;
       }
-      saveState('monsters', { cols: { ...colState } });
+      state.set('monsters', { cols: { ...colState } });
       renderData();
     });
     headRow.appendChild(nameHeader);
@@ -394,7 +396,7 @@ export function renderMonsters(data, options = {}) {
             sortCol = col.id;
             sortDir = 1;
           }
-          saveState('monsters', { cols: { ...colState } });
+          state.set('monsters', { cols: { ...colState } });
           renderData();
         });
       }

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "8",
+    "type": 1,
+    "dest_map": "10003080",
+    "name": "h_east00",
+    "x": 2934,
+    "y": 1487,
+    "dest_name": "Construction Site North of Kerning City"
+  },
+  {
+    "id": "9",
+    "type": 1,
+    "dest_map": "10003080",
+    "name": "h_west00",
+    "x": 626,
+    "y": 1907,
+    "dest_name": "Construction Site North of Kerning City"
+  },
+  {
+    "id": "11",
+    "type": 2,
+    "dest_map": "10003070",
+    "name": "west00",
+    "x": 210,
+    "y": 1545,
+    "dest_name": "Sunset Sky"
+  },
+  {
+    "id": "12",
+    "type": 2,
+    "dest_map": "10004030",
+    "name": "east00",
+    "x": 2984,
+    "y": 1697,
+    "dest_name": "West Domain of Perion"
+  },
+  {
+    "id": "13",
+    "type": 1,
+    "dest_map": "10003081",
+    "name": "hiden00",
+    "x": 2260,
+    "y": 629,
+    "dest_name": "Northern Top of Construction Site"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "7",
+    "type": 1,
+    "dest_map": "10006070",
+    "name": "h_00",
+    "x": 2245,
+    "y": 1057,
+    "dest_name": "The End of Fleeting Light"
+  },
+  {
+    "id": "8",
+    "type": 2,
+    "dest_map": "10006071",
+    "name": "top00",
+    "x": 2245,
+    "y": 563,
+    "dest_name": "Forgotten Dungeon Tunnel"
+  },
+  {
+    "id": "9",
+    "type": 2,
+    "dest_map": "10006080",
+    "name": "west00",
+    "x": 203,
+    "y": 1403,
+    "dest_name": "Forbidden Entrance"
+  },
+  {
+    "id": "10",
+    "type": 2,
+    "dest_map": "10006000",
+    "name": "east00",
+    "x": 4540,
+    "y": 923,
+    "dest_name": "Forgotten Hollow"
+  }
+]

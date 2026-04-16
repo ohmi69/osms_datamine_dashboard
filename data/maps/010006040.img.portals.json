@@ -1,0 +1,20 @@
+[
+  {
+    "id": "6",
+    "type": 2,
+    "dest_map": "10006030",
+    "name": "west00",
+    "x": 180,
+    "y": 1943,
+    "dest_name": "Primeval Forest III"
+  },
+  {
+    "id": "7",
+    "type": 2,
+    "dest_map": "10006050",
+    "name": "east00",
+    "x": 3280,
+    "y": 683,
+    "dest_name": "Forgotten Entrance II"
+  }
+]

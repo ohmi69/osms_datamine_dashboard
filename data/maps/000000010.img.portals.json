@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "type": 2,
+    "dest_map": "1",
+    "name": "in00",
+    "x": 395,
+    "y": 623,
+    "dest_name": "Mushroom Town - West Entrance"
+  },
+  {
+    "id": "2",
+    "type": 2,
+    "dest_map": "20",
+    "name": "out00",
+    "x": 1296,
+    "y": 561,
+    "dest_name": "Mushroom Town"
+  }
+]

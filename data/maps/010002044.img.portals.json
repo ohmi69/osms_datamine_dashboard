@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "type": 1,
+    "dest_map": "10002044",
+    "name": "h001",
+    "x": 1074,
+    "y": 4318,
+    "dest_name": "The Forest of Patience <Step 5>"
+  },
+  {
+    "id": "2",
+    "type": 1,
+    "dest_map": "10002044",
+    "name": "h001_1",
+    "x": 1077,
+    "y": 3914,
+    "dest_name": "The Forest of Patience <Step 5>"
+  },
+  {
+    "id": "3",
+    "type": 1,
+    "dest_map": "10002044",
+    "name": "h002",
+    "x": 570,
+    "y": 3506,
+    "dest_name": "The Forest of Patience <Step 5>"
+  },
+  {
+    "id": "4",
+    "type": 1,
+    "dest_map": "10002044",
+    "name": "h002_1",
+    "x": 561,
+    "y": 3107,
+    "dest_name": "The Forest of Patience <Step 5>"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "8",
+    "type": 2,
+    "dest_map": "10004113",
+    "name": "out00",
+    "x": 200,
+    "y": 991,
+    "dest_name": "The Burnt Land III"
+  },
+  {
+    "id": "9",
+    "type": 2,
+    "dest_map": "10004115",
+    "name": "in00",
+    "x": 652,
+    "y": 415,
+    "dest_name": "The Burnt Land V"
+  }
+]

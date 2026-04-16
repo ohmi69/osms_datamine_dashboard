@@ -1,0 +1,20 @@
+[
+  {
+    "id": "7",
+    "type": 2,
+    "dest_map": "10005000",
+    "name": "out00",
+    "x": 1078,
+    "y": 410,
+    "dest_name": "Sleepywood"
+  },
+  {
+    "id": "8",
+    "type": 3,
+    "dest_map": "10005051",
+    "name": "in00",
+    "x": 421,
+    "y": 2441,
+    "dest_name": "Sleepy Dungeon II"
+  }
+]

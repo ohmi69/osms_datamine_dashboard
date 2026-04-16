@@ -1,0 +1,92 @@
+[
+  {
+    "id": "11",
+    "type": 1,
+    "dest_map": "10001000",
+    "name": "h_east",
+    "x": 5856,
+    "y": 690,
+    "dest_name": "Henesys"
+  },
+  {
+    "id": "12",
+    "type": 1,
+    "dest_map": "10001000",
+    "name": "h_west",
+    "x": 1985,
+    "y": 691,
+    "dest_name": "Henesys"
+  },
+  {
+    "id": "13",
+    "type": 1,
+    "dest_map": "10001002",
+    "name": "in03",
+    "x": 997,
+    "y": 499,
+    "dest_name": "An Empty House"
+  },
+  {
+    "id": "14",
+    "type": 1,
+    "dest_map": "10001000",
+    "name": "up00",
+    "x": 992,
+    "y": 659,
+    "dest_name": "Henesys"
+  },
+  {
+    "id": "16",
+    "type": 2,
+    "dest_map": "10001010",
+    "name": "west00",
+    "x": 246,
+    "y": 870,
+    "dest_name": "Henesys Hunting Ground I"
+  },
+  {
+    "id": "17",
+    "type": 2,
+    "dest_map": "10001060",
+    "name": "east00",
+    "x": 6587,
+    "y": 1050,
+    "dest_name": "The Hill East of Henesys"
+  },
+  {
+    "id": "18",
+    "type": 2,
+    "dest_map": "10001090",
+    "name": "east10",
+    "x": 6753,
+    "y": 419,
+    "dest_name": "The Road to the Dungeon"
+  },
+  {
+    "id": "19",
+    "type": 2,
+    "dest_map": "10001040",
+    "name": "in00",
+    "x": 3706,
+    "y": 930,
+    "dest_name": "Henesys Market"
+  },
+  {
+    "id": "20",
+    "type": 2,
+    "dest_map": "10001050",
+    "name": "in01",
+    "x": 4528,
+    "y": 719,
+    "dest_name": "Henesys Park"
+  },
+  {
+    "id": "21",
+    "type": 2,
+    "dest_map": "10001001",
+    "name": "in02",
+    "x": 5816,
+    "y": 1048,
+    "dest_name": "Henesys Townstreet"
+  }
+]
