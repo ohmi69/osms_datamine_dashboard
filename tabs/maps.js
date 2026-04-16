@@ -1,7 +1,7 @@
 
 
 import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
-import { attachTooltip } from '../lib/tooltip.js';
+import { attachTooltip, hideItemTooltip } from '../lib/tooltip.js';
 import state from '../lib/data.js';
 
 // Load NPCs data for lookup
@@ -245,13 +245,7 @@ export function renderMaps(data, options = {}) {
       searchQuery = nextFilter;
       searchBox._input.value = nextFilter;
       selectedRegion = null;
-      // Update the address bar with the deeplink if navigating to a map by id
-      if (/^id:\d+$/.test(nextFilter)) {
-        const url = new URL(window.location.href);
-        url.hash = `#maps/${nextFilter.replace('id:', '')}`;
-        window.history.replaceState(null, '', url);
-      }
-      renderData();
+                                                                renderData();
       window.scrollTo(0, 0);
     };
     selfNavigate = navigateFn;
@@ -361,6 +355,8 @@ export function renderMaps(data, options = {}) {
             });
             overlay.addEventListener('click', (e) => {
               e.stopPropagation();
+              // Hide tooltip immediately on navigation
+              hideItemTooltip();
               // Optionally, navigate to the destination map if available
               if (!isIntra && portal.dest_map && selfNavigate) {
                 selfNavigate({ id: Number(portal.dest_map), autoExpand: true });

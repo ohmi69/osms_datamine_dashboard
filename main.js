@@ -227,6 +227,10 @@ async function init() {
     navContainer: nav,
     initialTab: validTab,
   });
+  // Expose global switchTab for header banner
+  window.switchTab = function(tabId, push, query) {
+    if (tabManager) tabManager.switchTab(tabId, push, query);
+  };
   // If there is a query, pass it to the tab
   if (query && tabManager.navigators[validTab]) {
     tabManager.navigators[validTab](query);
