@@ -156,7 +156,8 @@ function buildDetailRow(monster, colSpan, onMapClick) {
     const mapsCol = el('div', { className: 'monster-detail-col monster-detail-col-maps' });
     mapsCol.appendChild(el('div', { className: 'monster-stat-group-label', textContent: 'Spawns In' }));
     const mapList = el('div', { className: 'monster-map-list' });
-    [...spawnMaps].sort((a, b) => a.id - b.id).forEach((m) => {
+    const sortedSpawnMaps = [...spawnMaps].sort((a, b) => b.count - a.count || a.id - b.id);
+    sortedSpawnMaps.forEach((m) => {
       const chip = el('span', { className: 'monster-map-chip' });
       chip.appendChild(el('span', { textContent: m.name || String(m.id) }));
       chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${m.count}` }));
