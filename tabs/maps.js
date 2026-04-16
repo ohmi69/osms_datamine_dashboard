@@ -245,6 +245,12 @@ export function renderMaps(data, options = {}) {
       searchQuery = nextFilter;
       searchBox._input.value = nextFilter;
       selectedRegion = null;
+      // Update the address bar with the deeplink if navigating to a map by id
+      if (/^id:\d+$/.test(nextFilter)) {
+        const url = new URL(window.location.href);
+        url.hash = `#maps/${nextFilter.replace('id:', '')}`;
+        window.history.replaceState(null, '', url);
+      }
       renderData();
       window.scrollTo(0, 0);
     };
@@ -342,7 +348,11 @@ export function renderMaps(data, options = {}) {
               },
             });
             // Attach custom tooltip for portal overlays
-            attachTooltip(overlay, () => ({ portal, mapEntry, mobs: mapMobs.get(mapEntry.id) }), 'portal');
+            if (isIntra) {
+              attachTooltip(overlay, () => ({ portal: { is_intra: true } }), 'portal');
+            } else {
+              attachTooltip(overlay, () => ({ portal, mapEntry, mobs: mapMobs.get(mapEntry.id) }), 'portal');
+            }
             overlay.addEventListener('mouseenter', () => {
               overlay.style.boxShadow = hoverShadow;
             });
@@ -731,6 +741,18 @@ export function renderMaps(data, options = {}) {
               detailTr.style.display = '';
             }
             tr.classList.add('expanded');
+            // Scroll so the top of the main row is just below the sticky header
+            setTimeout(() => {
+              const header = document.querySelector('.site-header');
+              const headerHeight = header ? header.offsetHeight : 64;
+              const trRect = tr.getBoundingClientRect();
+              // Calculate the scroll position so the top of the main row is just below the header
+              const scrollY = window.scrollY + trRect.top - headerHeight;
+              window.scrollTo({
+                top: scrollY,
+                behavior: "smooth"
+              });
+            }, 100);
           } else {
             if (detailTr) detailTr.style.display = 'none';
             tr.classList.remove('expanded');
@@ -774,32 +796,37 @@ export function renderMaps(data, options = {}) {
         ? maps.regions.filter((r) => r.region === selectedRegion)
         : maps.regions;
       regions.forEach((region) => {
-        let filtered = exactId != null
-          ? region.maps.filter((m) => Number(m.id) === exactId)
-          : sq
-            ? region.maps.filter((m) => {
-                // Match map name or street name
-                if ((m.name || '').toLowerCase().includes(sq) || (m.street_name || '').toLowerCase().includes(sq)) {
+        let filtered;
+        if (exactId != null) {
+          // Always include the map with exactId, even if it has no mobs
+          filtered = region.maps.filter((m) => Number(m.id) === exactId);
+        } else if (sq) {
+          filtered = region.maps.filter((m) => {
+            // Match map name or street name
+            if ((m.name || '').toLowerCase().includes(sq) || (m.street_name || '').toLowerCase().includes(sq)) {
+              return true;
+            }
+            // Match mob names that spawn on this map
+            const mobs = mapMobs.get(m.id);
+            if (mobs && mobs.some(mob => (mob.name || '').toLowerCase().includes(sq))) {
+              return true;
+            }
+            // Match NPC names on this map
+            if (Array.isArray(m.npcs) && m.npcs.length > 0) {
+              for (const npcId of m.npcs) {
+                const npc = npcLookup.get(Number(npcId));
+                if ((npc?.name || '').toLowerCase().includes(sq)) {
                   return true;
                 }
-                // Match mob names that spawn on this map
-                const mobs = mapMobs.get(m.id);
-                if (mobs && mobs.some(mob => (mob.name || '').toLowerCase().includes(sq))) {
-                  return true;
-                }
-                // Match NPC names on this map
-                if (Array.isArray(m.npcs) && m.npcs.length > 0) {
-                  for (const npcId of m.npcs) {
-                    const npc = npcLookup.get(Number(npcId));
-                    if ((npc?.name || '').toLowerCase().includes(sq)) {
-                      return true;
-                    }
-                  }
-                }
-                return false;
-              })
-            : region.maps;
-        if (hideNoMobs) {
+              }
+            }
+            return false;
+          });
+        } else {
+          filtered = region.maps;
+        }
+        // If deeplinked (exactId), ignore hideNoMobs filter
+        if (hideNoMobs && exactId == null) {
           filtered = filtered.filter((m) => {
             const mobs = mapMobs.get(m.id);
             return mobs && mobs.length > 0;
@@ -826,6 +853,13 @@ export function renderMaps(data, options = {}) {
             const idCell = row.querySelector('.id-col .id');
             if (idCell && Number(idCell.textContent) === autoExpandAfterId) {
               row.click();
+              // Scroll the detail row into view after it is expanded
+              setTimeout(() => {
+                const detailRow = row.nextElementSibling;
+                if (detailRow && detailRow.classList.contains('map-detail-row')) {
+                  detailRow.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+              }, 100);
               autoExpandAfterId = null;
               break;
             }
