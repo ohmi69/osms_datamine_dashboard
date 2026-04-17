@@ -150,9 +150,28 @@ export function renderMaps(data, options = {}) {
       input.addEventListener('keydown', onKey);
       input.addEventListener('blur', () => setTimeout(hideList, 120));
       input.addEventListener('focus', showList);
+
+      // Helper: get all maps
+      function getAllMaps() {
+        return allMaps;
+      }
+
       function showList() {
-        const val = input.value.trim().toLowerCase();
-        const matches = !val ? options.slice(0, 20) : options.filter(n => n.toLowerCase().includes(val)).slice(0, 20);
+        const val = input.value.trim();
+        const valLower = val.toLowerCase();
+        let matches = !valLower
+          ? options.slice(0, 20)
+          : options.filter(n => n.toLowerCase().includes(valLower)).slice(0, 20);
+
+        // If input is a valid map ID, ensure its name is in the dropdown
+        if (/^\d+$/.test(val)) {
+          const mapId = Number(val);
+          const map = getAllMaps().find(m => m.id === mapId);
+          if (map && !matches.includes(map.name)) {
+            matches = [map.name, ...matches.filter(n => n !== map.name)];
+          }
+        }
+
         if (!listDiv) {
           listDiv = el('div', { className: 'mapnav-autocomplete-list' });
           input.parentNode.insertBefore(listDiv, input.nextSibling);
@@ -286,7 +305,7 @@ export function renderMaps(data, options = {}) {
               const scaleY = img.height / img.naturalHeight;
               const px = portal.x * scaleX;
               const py = portal.y * scaleY;
-              // Overlay
+              // Overlay with high-contrast cyan
               const overlay = el('div', {
                 className: 'portal-highlight',
                 style: {
@@ -296,9 +315,9 @@ export function renderMaps(data, options = {}) {
                   width: '32px',
                   height: '32px',
                   borderRadius: '50%',
-                  border: '3px solid #ff0',
-                  background: 'rgba(255,255,0,0.18)',
-                  boxShadow: '0 0 12px 4px #ff08',
+                  border: '3px solid #00e0ff',
+                  background: 'rgba(0,224,255,0.18)',
+                  boxShadow: '0 0 16px 4px #00e0ff88',
                   zIndex: 2,
                   pointerEvents: 'none',
                 }
@@ -325,8 +344,6 @@ export function renderMaps(data, options = {}) {
         resultDiv.appendChild(stepDiv);
       }
     };
-    // Autofocus
-    setTimeout(() => fromInput.focus(), 100);
     // Enter key triggers search
     fromInput.addEventListener('keydown', e => { if (e.key === 'Enter') goBtn.click(); });
     toInput.addEventListener('keydown', e => { if (e.key === 'Enter') goBtn.click(); });
