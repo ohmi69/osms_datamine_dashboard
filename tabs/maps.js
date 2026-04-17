@@ -669,6 +669,7 @@ export function renderMaps(data, options = {}) {
               textContent: isIntra ? '⟳' : (portal.dest_name ? '→' : portal.name || ''),
             });
             overlay.appendChild(label);
+            attachTooltip(overlay, () => ({ portal, mapEntry, mobs: mapMobs.get(mapEntry.id) }), 'portal');
             imgContainer.appendChild(overlay);
           });
         });
