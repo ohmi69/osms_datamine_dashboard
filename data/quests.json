@@ -139,7 +139,7 @@
       "parent": "",
       "area": 11,
       "region": "Victoria Island",
-      "description": "Look for Jane in Lith Harbor.\nIn Lith Harbor, I met Jane, a girl wearing bunny ears. Jane says she wants to travel the world, but her dad won't let her. She thinks if I get her 15 Blue Mushroom Caps and 15 Horny Mushroom Caps, her father will change his mind.\nI delivered the Horny Mushroom Caps and Wild Boar Tooths to Jane. I wonder if this will really change her father's mind... she's wearing bunny ears, for goodness sake! Ah well, it's none of my business. In return, Jane gave me a Scroll for ATT. My weapon's going to be awesome... if the scroll works.",
+      "description": "Look for Jane in Lith Harbor.\nIn Lith Harbor, I met Jane, a girl wearing bunny ears. Jane says she wants to travel the world, but her dad won't let her. She thinks if I get her 15 Blue Mushroom Caps and 15 Horny Mushroom Caps, her father will change his mind.\nI delivered the Blue Mushroom Caps and Horny Mushroom Caps to Jane. I wonder if this will really change her father's mind... she's wearing bunny ears, for goodness sake! Ah well, it's none of my business. In return, Jane gave me a Scroll for ATT. My weapon's going to be awesome... if the scroll works.",
       "npc_name": "Jane",
       "requirements": "Defeat Blue Mushroom x 30, Defeat Horny Mushroom x 30, Blue Mushroom Cap x 15, Horny Mushroom Cap x 15",
       "requirements_list": [
@@ -1361,7 +1361,7 @@
       "parent": "Please bring this letter to Lucas",
       "area": 1,
       "region": "Maple Island",
-      "description": "Maria needs someone to help her...\nMaria needs someone to help her. She wants you to deliver a letter to Lucas inAmherst.\nYou delivered Maria's Letter to Lucas in Amherst.",
+      "description": "Maria needs someone to help her...\nMaria needs someone to help her. She wants me to deliver a letter to Lucas in Amherst.\nI delivered Maria's Letter to Lucas in Amherst.",
       "npc_name": "Maria",
       "requirements": "Maria's Letter x 1",
       "requirements_list": [
@@ -1683,7 +1683,7 @@
       "parent": "",
       "area": 12,
       "region": "Henesys",
-      "description": "I hear that Mrs. Ming Ming in Henesys is worried about something...\nI ran into Mrs. Ming Ming in Henesys, who is overcome with concern. She says there aren't enough decorations for the village festival, and asks you to get 10 Slime Bubbles and 20 Pig's Ribbons.\nI brought back all the stuff Mrs. Ming Ming asked me for, but I'm sure these decorations are not the only things needed for the festival...",
+      "description": "I hear that Mrs. Ming Ming in Henesys is worried about something...\nI ran into Mrs. Ming Ming in Henesys, who was overcome with concern. She said there aren't enough decorations for the village festival, and asked me to bring 10 Slime Bubbles and 20 Pig's Ribbons.\nI brought back all the stuff Mrs. Ming Ming asked me for, but I'm sure these decorations are not the only things needed for the festival...",
       "npc_name": "Mrs. Ming Ming",
       "requirements": "Slime Bubble x 10, Pig's Ribbon x 20",
       "requirements_list": [

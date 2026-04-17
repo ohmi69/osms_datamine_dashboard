@@ -2,7 +2,7 @@
   "stats": {
     "monsters": 83,
     "equipment": 969,
-    "consumables": 96,
+    "consumables": 98,
     "scrolls": 208,
     "etc": 217,
     "setup": 19,
@@ -10,7 +10,7 @@
     "maps": 304,
     "quests": 174,
     "recipes": 342,
-    "cash_shop_items": 1520,
+    "cash_shop_items": 1522,
     "npcs": 188,
     "num_classes": 15,
     "num_regions": 4,

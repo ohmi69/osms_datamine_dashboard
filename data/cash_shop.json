@@ -17708,7 +17708,7 @@
           "count": 1,
           "period": 0,
           "on_sale": true,
-          "description": "A mysterious water gathered from the deepest valleys of Ellinia. It can extend a living pet’s active time, and if you bring it to Mar the fairy in Ellinia, she can restore a pet that has turned into a doll.",
+          "description": "A mysterious water gathered from the deepest valleys of Ellinia. It can extend a living pet's active time, and if you bring it to Mar the fairy in Ellinia, she can restore a pet that has turned into a doll.",
           "thumbnail": "images/items/05180000.png"
         },
         {
@@ -18300,9 +18300,33 @@
           "on_sale": true,
           "description": "Ignites fireworks on the map where your character is for 30 sec. Enter a message of your choice.",
           "thumbnail": "images/items/05120009.png"
+        },
+        {
+          "id": 5121000,
+          "name": "GM's Blessing of Wind",
+          "category": "Weather Effect",
+          "sub_category": null,
+          "price": 0,
+          "count": 1,
+          "period": 0,
+          "on_sale": false,
+          "description": "GM's Blessing of Wind on the map where your character is for 30 min. Enter a message of your choice.",
+          "thumbnail": "images/items/05121000.png"
+        },
+        {
+          "id": 5121001,
+          "name": "GM's Blessing of Precision",
+          "category": "Weather Effect",
+          "sub_category": null,
+          "price": 0,
+          "count": 1,
+          "period": 0,
+          "on_sale": false,
+          "description": "GM's Blessing of Precision on the map where your character is for 30 min. Enter a message of your choice.",
+          "thumbnail": "images/items/05121001.png"
         }
       ]
     }
   ],
-  "total": 1520
+  "total": 1522
 }

@@ -8071,7 +8071,7 @@
                   "result_count": 1,
                   "req_level": 1,
                   "craft_exp": 3,
-                  "meso_cost": 1000,
+                  "meso_cost": 200,
                   "ingredients": [
                     {
                       "item_name": "Garnet Ore",
@@ -8086,7 +8086,7 @@
                   "result_count": 1,
                   "req_level": 1,
                   "craft_exp": 3,
-                  "meso_cost": 1000,
+                  "meso_cost": 200,
                   "ingredients": [
                     {
                       "item_name": "Aquamarine Ore",

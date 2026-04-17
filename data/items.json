@@ -23744,6 +23744,24 @@
       "thumbnail": "images/items/02022003.png"
     },
     {
+      "id": 2023000,
+      "name": "GM's Blessing of Wind",
+      "category": "Consumable",
+      "sub_category": "Consume",
+      "description": "A special blessing from the GM that makes you feel as light as a feather.\n\nSpeed +30\nJump +10\n\nStacks with other boost effects.\nEffects disappear upon relogin.",
+      "stats": {},
+      "thumbnail": "images/items/02023000.png"
+    },
+    {
+      "id": 2023001,
+      "name": "GM's Blessing of Precision",
+      "category": "Consumable",
+      "sub_category": "Consume",
+      "description": "A special blessing from the GM that sharpens your senses.\n\nAccuracy +20\n\nStacks with other boost effects.\nEffects disappear upon relogin.",
+      "stats": {},
+      "thumbnail": "images/items/02023001.png"
+    },
+    {
       "id": 2028000,
       "name": "Mysterious Meso Pouch",
       "category": "Consumable",
@@ -24237,7 +24255,7 @@
     },
     {
       "id": 2430000,
-      "name": "Companion’s Magic Box",
+      "name": "Companion's Magic Box",
       "category": "Consumable",
       "sub_category": "Consume",
       "description": "A box locked away with a powerful magical lock. Apparently there are jewels inside.",
@@ -24282,7 +24300,7 @@
       "name": "Gift for the New Journey",
       "category": "Consumable",
       "sub_category": "Consume",
-      "description": "Double-click to obtain the below items.\n\n- Leaf Points 1,000 Exchange Coupon x5\n- Regular Store Permit x1\n- Megaphone x10\n- Super Megaphone x5\n- Red Potion x30\n- Blue Potion x30",
+      "description": "Double-click to obtain the below items.\n\n- Leaf Points 10,000 Exchange Coupon x5\n- Regular Store Permit x1\n- Megaphone x10\n- Super Megaphone x5\n- Red Potion x30\n- Blue Potion x30",
       "stats": {
         "price": 1,
         "tradeBlock": 1,
@@ -29010,11 +29028,11 @@
       "thumbnail": "images/items/02048007.png"
     }
   ],
-  "item_total": 1301,
+  "item_total": 1303,
   "scroll_total": 208,
   "counts": {
     "equipment": 969,
-    "consumables": 96,
+    "consumables": 98,
     "etc": 217,
     "setup": 19,
     "scrolls": 208

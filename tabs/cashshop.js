@@ -1,5 +1,6 @@
 import { el, matchSearch, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter } from '../lib/utils.js';
 import { makePillGroup } from '../lib/utils.js';
+import state from '../lib/data.js';
 
 export function renderCashShop(data, options = {}) {
   const { cashShop } = data;
@@ -55,8 +56,13 @@ export function renderCashShop(data, options = {}) {
   container.appendChild(subPillRow);
 
   // Hide unavailable toggle
-  let hideUnavailable = false;
+  // Use StateManager for hideUnavailable
+  let hideUnavailable = state.get('cashshop_hide_unavailable', false);
+
+  // Internal flag to show price (default: false)
+  const SHOW_PRICE = true;
   const toggleRow = el('div', { style: { display: 'flex', alignItems: 'center', gap: '8px', margin: '0 0 8px 0' } });
+
 
   const checkBox = el('span', {
     style: {
@@ -105,6 +111,7 @@ export function renderCashShop(data, options = {}) {
 
   toggleBtn.addEventListener('click', () => {
     hideUnavailable = !hideUnavailable;
+    state.set('cashshop_hide_unavailable', hideUnavailable);
     updateToggleStyle();
     renderData();
   });
@@ -195,6 +202,24 @@ export function renderCashShop(data, options = {}) {
           textContent: `${item.period}d`,
         })
       );
+    }
+    // Show price only if available and internal flag is true
+    if (SHOW_PRICE && item.price != null && item.on_sale !== false) {
+      const priceLabel = el('span', {
+        style: {
+          fontSize: '12px',
+          padding: '1px 8px',
+          borderRadius: '3px',
+          background: '#e0e7ff',
+          color: '#3730a3',
+          border: '1px solid #a5b4fc',
+          marginLeft: '4px',
+          fontWeight: 'bold',
+          whiteSpace: 'nowrap',
+        },
+        textContent: `${item.price} NX`,
+      });
+      nameWrap.appendChild(priceLabel);
     }
     const petBadgeStyle = {
       fontSize: '11px',
@@ -340,5 +365,15 @@ export function renderCashShop(data, options = {}) {
 
 
   renderData();
+  // Set initial toggle style on load
+  updateToggleStyle();
+  // Subscribe to state changes (if toggled elsewhere)
+  state.subscribe('cashshop_hide_unavailable', (val) => {
+    if (hideUnavailable !== val) {
+      hideUnavailable = val;
+      updateToggleStyle();
+      renderData();
+    }
+  });
   return container;
 }

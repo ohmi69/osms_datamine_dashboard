@@ -3726,7 +3726,7 @@
           "id": 10000021,
           "name": "The Pig Beach",
           "count": 1,
-          "mob_time": "7.56"
+          "mob_time": "3600.00"
         },
         {
           "id": 10001003,
@@ -6456,7 +6456,7 @@
       "MADamage": 0,
       "MDDamage": 30,
       "acc": 113,
-      "eva": 18,
+      "eva": 13,
       "speed": 10,
       "undead": 0,
       "elements": null,
@@ -6491,7 +6491,7 @@
       "MADamage": 0,
       "MDDamage": 30,
       "acc": 115,
-      "eva": 16,
+      "eva": 12,
       "speed": -15,
       "undead": 0,
       "elements": {
@@ -6528,7 +6528,7 @@
       "MADamage": 353,
       "MDDamage": 15,
       "acc": 113,
-      "eva": 16,
+      "eva": 11,
       "speed": -20,
       "undead": 0,
       "elements": {
@@ -6559,7 +6559,7 @@
     {
       "id": 800010,
       "name": "Evil Eye",
-      "level": 35,
+      "level": 30,
       "hp": 1338,
       "mp": 50,
       "exp": 74,
@@ -6568,7 +6568,7 @@
       "MADamage": 0,
       "MDDamage": 20,
       "acc": 113,
-      "eva": 31,
+      "eva": 25,
       "speed": -10,
       "undead": 0,
       "elements": null,
@@ -6594,7 +6594,7 @@
     {
       "id": 800011,
       "name": "Zombie Mushroom",
-      "level": 35,
+      "level": 30,
       "hp": 1216,
       "mp": 30,
       "exp": 74,
@@ -6603,7 +6603,7 @@
       "MADamage": 0,
       "MDDamage": 15,
       "acc": 113,
-      "eva": 30,
+      "eva": 24,
       "speed": 0,
       "undead": 1,
       "elements": {
@@ -6631,7 +6631,7 @@
     {
       "id": 800012,
       "name": "Curse Eye",
-      "level": 35,
+      "level": 30,
       "hp": 1338,
       "mp": 50,
       "exp": 74,
@@ -6668,7 +6668,7 @@
     {
       "id": 800013,
       "name": "Horny Mushroom",
-      "level": 35,
+      "level": 30,
       "hp": 1216,
       "mp": 30,
       "exp": 74,
@@ -6703,7 +6703,7 @@
     {
       "id": 800014,
       "name": "Cold Eye",
-      "level": 35,
+      "level": 30,
       "hp": 1338,
       "mp": 50,
       "exp": 74,
@@ -6712,7 +6712,7 @@
       "MADamage": 0,
       "MDDamage": 30,
       "acc": 113,
-      "eva": 23,
+      "eva": 19,
       "speed": 5,
       "undead": 0,
       "elements": {
@@ -6742,7 +6742,7 @@
     {
       "id": 800015,
       "name": "Blue Mushroom",
-      "level": 35,
+      "level": 30,
       "hp": 1338,
       "mp": 30,
       "exp": 74,
@@ -6751,7 +6751,7 @@
       "MADamage": 0,
       "MDDamage": 20,
       "acc": 113,
-      "eva": 23,
+      "eva": 18,
       "speed": 5,
       "undead": 0,
       "elements": null,
@@ -6777,7 +6777,7 @@
     {
       "id": 800016,
       "name": "Fire Boar",
-      "level": 35,
+      "level": 30,
       "hp": 1216,
       "mp": 0,
       "exp": 74,
@@ -6786,7 +6786,7 @@
       "MADamage": 0,
       "MDDamage": 0,
       "acc": 108,
-      "eva": 19,
+      "eva": 16,
       "speed": 0,
       "undead": 0,
       "elements": {
@@ -6815,7 +6815,7 @@
     {
       "id": 800017,
       "name": "Lupin",
-      "level": 35,
+      "level": 30,
       "hp": 1216,
       "mp": 100,
       "exp": 74,
@@ -6824,7 +6824,7 @@
       "MADamage": 250,
       "MDDamage": 30,
       "acc": 108,
-      "eva": 19,
+      "eva": 16,
       "speed": 25,
       "undead": 0,
       "elements": null,
