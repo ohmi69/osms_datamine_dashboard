@@ -1,3 +1,16 @@
+/* Special mob info icon */
+.special-tooltip-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 2px;
+  cursor: help;
+  vertical-align: middle;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+.special-tooltip-icon:hover {
+  opacity: 1;
+}
 /* ── MapleTip Toast ─────────────────────────────────────────── */
 .mapletip-toast {
   position: fixed;

@@ -6094,6 +6094,7 @@
           "mob_time": "1.00-30.00 [27.93]"
         }
       ],
+      "special": "Jump Quest",
       "thumbnail": "images/monsters/0000090.png",
       "gifs": {
         "move": "images/monsters/0000090.move.webp",
@@ -6129,6 +6130,7 @@
           "mob_time": "1.00"
         }
       ],
+      "special": "Jump Quest",
       "thumbnail": "images/monsters/0000091.png",
       "gifs": {
         "move": "images/monsters/0000091.move.webp",
@@ -6164,6 +6166,7 @@
           "mob_time": "1.00"
         }
       ],
+      "special": "Jump Quest",
       "thumbnail": "images/monsters/0000092.png",
       "gifs": {
         "move": "images/monsters/0000092.move.webp",
@@ -6205,6 +6208,7 @@
           "mob_time": "1.00"
         }
       ],
+      "special": "Jump Quest",
       "thumbnail": "images/monsters/0000093.png",
       "gifs": {
         "fly": "images/monsters/0000093.fly.webp",
@@ -6470,6 +6474,7 @@
           "mob_time": "180.00"
         }
       ],
+      "special": "KPQ",
       "thumbnail": "images/monsters/0800001.png",
       "gifs": {
         "move": "images/monsters/0800001.move.webp",
@@ -6507,6 +6512,7 @@
           "mob_time": "180.00"
         }
       ],
+      "special": "Job Advancement",
       "thumbnail": "images/monsters/0800002.png",
       "gifs": {
         "move": "images/monsters/0800002.move.webp",
@@ -6546,6 +6552,7 @@
           "count": 1
         }
       ],
+      "special": "KPQ",
       "thumbnail": "images/monsters/0800003.png",
       "gifs": {
         "move": "images/monsters/0800003.move.webp",
@@ -6582,6 +6589,7 @@
           "mob_time": "7.56"
         }
       ],
+      "special": "Job Advancement",
       "thumbnail": "images/monsters/0800010.png",
       "gifs": {
         "move": "images/monsters/0800010.move.webp",
@@ -6619,6 +6627,7 @@
           "mob_time": "7.56"
         }
       ],
+      "special": "Job Advancement",
       "thumbnail": "images/monsters/0800011.png",
       "gifs": {
         "move": "images/monsters/0800011.move.webp",
@@ -6656,6 +6665,7 @@
           "mob_time": "7.56"
         }
       ],
+      "special": "Job Advancement",
       "thumbnail": "images/monsters/0800012.png",
       "gifs": {
         "move": "images/monsters/0800012.move.webp",
@@ -6691,6 +6701,7 @@
           "mob_time": "7.56"
         }
       ],
+      "special": "Job Advancement",
       "thumbnail": "images/monsters/0800013.png",
       "gifs": {
         "move": "images/monsters/0800013.move.webp",
@@ -6729,6 +6740,7 @@
           "mob_time": "7.56"
         }
       ],
+      "special": "Job Advancement",
       "thumbnail": "images/monsters/0800014.png",
       "gifs": {
         "move": "images/monsters/0800014.move.webp",
@@ -6765,6 +6777,7 @@
           "mob_time": "7.56"
         }
       ],
+      "special": "Job Advancement",
       "thumbnail": "images/monsters/0800015.png",
       "gifs": {
         "move": "images/monsters/0800015.move.webp",
@@ -6803,6 +6816,7 @@
           "mob_time": "7.56"
         }
       ],
+      "special": "Job Advancement",
       "thumbnail": "images/monsters/0800016.png",
       "gifs": {
         "move": "images/monsters/0800016.move.webp",
@@ -6838,6 +6852,7 @@
           "mob_time": "7.56"
         }
       ],
+      "special": "Job Advancement",
       "thumbnail": "images/monsters/0800017.png",
       "gifs": {
         "move": "images/monsters/0800017.move.webp",

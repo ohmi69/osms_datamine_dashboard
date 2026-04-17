@@ -148,19 +148,25 @@ const DAMAGE_PIPELINE = [
     label: 'Base Range',
     wip: false,
     lines: [
+      'Physical Damage:',
       'MIN = SkillMult × ((80 + PrimaryStat × MinMult × MasteryMult + SecondaryStat + AttackPower) / 100) × WeaponAttack × 100',
       'MAX = SkillMult × ((100 + PrimaryStat × MaxMult + SecondaryStat + AttackPower) / 100) × WeaponAttack × 100',
+      '────────────────────────────────────────────',
+      'Magic Damage:',
+      'MAX = (SkillDamage + MagicAttack / 7) * ((MagicAttack * 2 + Int) / 100 + 1)',
+      'MIN = (SkillDamage + MagicAttack / 7) * ((MagicAttack * 2 * Mastery + Int) / 100 + 1)',
       '',
       'Roll a value between MIN and MAX',
     ],
   },
   {
-    label: 'Weapon Defense Reduction',
+    label: 'Defense Reduction',
     wip: true,
     lines: [
       `// Where iVar9 and iVar10 can be ignored (set to 0) for normal mobs
 DefenseMulti = (iVar9 × (iVar10 / 100.0 + 1.0)) + WeaponDefense
 Damage × 100 / (DefenseMulti + 100)`,
+      'Currently unknown for Magic Defense',
     ],
   },
   {
@@ -265,21 +271,16 @@ export function renderFormulas() {
   credit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> on Discord';
   expSection.querySelector('.left').appendChild(credit);
 
-  const physDmgSection = makeCollapsibleSection(
+  const dmgSection = makeCollapsibleSection(
     'Physical Range Formula',
     '',
     buildDamageFormula,
   );
 
   const dmgCredit = el('span', { className: 'formulas-credit' });
-  dmgCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist</strong> on Discord';
-  physDmgSection.querySelector('.left').appendChild(dmgCredit);
+  dmgCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist, @jimmybald</strong> on Discord';
+  dmgSection.querySelector('.left').appendChild(dmgCredit);
 
-  const magicDmgSection = makeCollapsibleSection(
-    'Magic Range Formula',
-    '',
-    () => el('div', { className: 'formulas-tbd', textContent: 'TBD' }),
-  );
 
   const weaponMultSection = makeCollapsibleSection(
     'Weapon Min/Max Multipliers',
@@ -321,8 +322,7 @@ export function renderFormulas() {
 
   const rightCol = el('div', { className: 'formulas-col' });
   rightCol.appendChild(changesSection);
-  rightCol.appendChild(physDmgSection);
-  rightCol.appendChild(magicDmgSection);
+  rightCol.appendChild(dmgSection);
   rightCol.appendChild(weaponMultSection);
 
   const row = el('div', { className: 'formulas-row' });

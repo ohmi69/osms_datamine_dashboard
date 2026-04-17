@@ -439,7 +439,24 @@ export function renderMonsters(data, options = {}) {
           fallbackText: 'MOB',
         })
       );
-      nameLeft.appendChild(el('span', { textContent: monster.name }));
+      // Monster name with (?) tooltip if special
+      const nameSpan = el('span', { textContent: monster.name });
+      nameLeft.appendChild(nameSpan);
+      if (monster.special) {
+        const SPECIAL_DESCRIPTIONS = {
+          'Job Advancement': 'This mob appears only during job advancement trials.',
+          'Jump Quest': 'This mob appears only in jump quest maps.',
+          'KPQ': 'This mob appears only in the Kerning Party Quest.',
+        };
+        const desc = SPECIAL_DESCRIPTIONS[monster.special] || 'This mob is considered special.';
+        const q = el('span', {
+          className: 'special-tooltip-icon',
+          textContent: ' (?)',
+          title: desc,
+          style: 'color: #888; cursor: help; font-size: 0.95em; user-select: none;'
+        });
+        nameLeft.appendChild(q);
+      }
       nameWrap.appendChild(nameLeft);
       if (monster.id != null) nameWrap.appendChild(makeDeepLinkButton('monsters', monster.id));
       nameCell.appendChild(nameWrap);
