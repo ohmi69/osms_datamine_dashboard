@@ -1312,9 +1312,9 @@
       "main_class": "Magician",
       "base_class": "magician",
       "subclasses": [
-        "I/L Wizard",
         "Cleric",
-        "F/P Wizard"
+        "F/P Wizard",
+        "I/L Wizard"
       ]
     },
     {
@@ -2164,8 +2164,8 @@
       "main_class": "Archer",
       "base_class": "archer",
       "subclasses": [
-        "Hunter",
-        "Crossbowman"
+        "Crossbowman",
+        "Hunter"
       ]
     },
     {
