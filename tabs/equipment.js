@@ -56,6 +56,7 @@ export function renderEquipment(data, options = {}) {
   const { items } = data;
   let searchQuery = '';
   let classFilter = 0;
+  let genderFilter = null; // null = All genders
   let selectedSubCategory = null; // null = All
   let selectedWeaponType = null;  // null = All weapon types
   const equipTextCache = new Map();
@@ -93,6 +94,23 @@ export function renderEquipment(data, options = {}) {
   }
   let classPillGroup = makePillGroup(classOptions, classFilter, handleClassPillChange, { groupLabel: 'Class:' });
   container.appendChild(classPillGroup);
+  container.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
+
+  // Gender filter pills
+  const genderOptions = [
+    { label: 'All Genders', value: null },
+    { label: 'Male', value: 'male' },
+    { label: 'Female', value: 'female' },
+  ];
+  function handleGenderPillChange(value) {
+    genderFilter = value;
+    const newGroup = makePillGroup(genderOptions, genderFilter, handleGenderPillChange, { groupLabel: 'Gender:' });
+    container.replaceChild(newGroup, genderPillGroup);
+    genderPillGroup = newGroup;
+    renderData();
+  }
+  let genderPillGroup = makePillGroup(genderOptions, genderFilter, handleGenderPillChange, { groupLabel: 'Gender:' });
+  container.appendChild(genderPillGroup);
   container.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
 
   // Subcategory pills using makePillGroup
@@ -194,6 +212,10 @@ export function renderEquipment(data, options = {}) {
 
     if (classFilter !== 0) {
       equips = equips.filter((equip) => matchesClass(equip, classFilter));
+    }
+
+    if (genderFilter !== null) {
+      equips = equips.filter((equip) => !equip.gender || equip.gender === genderFilter);
     }
 
     if (selectedSubCategory) {

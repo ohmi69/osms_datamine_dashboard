@@ -762,6 +762,8 @@ body.hide-ids .id-col { display: none !important; }
   align-items: center;
 }
 .equip-req-job { color: #c084fc; }
+.equip-req-gender--male { color: #60a5fa; }
+.equip-req-gender--female { color: #f472b6; }
 .equip-type-badge {
   font-size: 11px;
   color: var(--dim);
