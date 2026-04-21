@@ -36,7 +36,7 @@ export function renderOverview(data, { switchTab }) {
       whiteSpace: 'nowrap',
       alignSelf: 'flex-start',
     },
-    textContent: 'Closed Beta Test (CBT) Patch 1',
+    textContent: 'Closed Beta Test (CBT) Patch 2',
   });
   const heroPatchHash = el('div', {
     style: {
@@ -44,7 +44,7 @@ export function renderOverview(data, { switchTab }) {
       alignItems: 'center',
       gap: '5px',
     },
-    title: '4237b9737fbafba56ef8c0499cd35748a36d161a',
+    title: 'c80c0a8a',
   });
   heroPatchHash.appendChild(el('span', {
     style: { fontSize: '9px', color: 'var(--dim)', opacity: '.5', letterSpacing: '.4px', fontWeight: '600', textTransform: 'uppercase' },
@@ -60,7 +60,7 @@ export function renderOverview(data, { switchTab }) {
       borderRadius: '3px',
       padding: '0 4px',
     },
-    textContent: '903789f',
+    textContent: 'c80c0a8a',
   }));
   heroBadgeMeta.appendChild(heroBadge);
   heroBadgeMeta.appendChild(heroPatchHash);
@@ -83,7 +83,7 @@ export function renderOverview(data, { switchTab }) {
   }));
   heroTimeLine.appendChild(el('span', {
     style: { fontSize: '10px', color: 'var(--dim)', opacity: '.75', fontFamily: 'monospace' },
-    textContent: 'April 17, 2026 09:56 PT',
+    textContent: 'April 21, 2026 09:01 PT',
   }));
   heroInfo.appendChild(heroTimeLine);
   heroBanner.appendChild(heroInfo);
