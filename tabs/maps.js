@@ -620,13 +620,67 @@ export function renderMaps(data, options = {}) {
           const displayW = img.width, displayH = img.height;
           const scaleX = displayW / naturalW;
           const scaleY = displayH / naturalH;
-          const portalOverlayMap = new Map(); // portalName -> { overlay, boxShadow }
+          const portalOverlayMap = new Map(); // portalName -> { overlay, boxShadow, bgColor, isIntra }
           const portalNames = new Set(portals.map(p => p.name).filter(Boolean));
+          let showAllIntra = true;
+
+          function drawAllIntraArrows() {
+            imgContainer.querySelectorAll('.portal-arrow-svg-all').forEach(s => s.remove());
+            const uid = Math.random().toString(36).slice(2);
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('class', 'portal-arrow-svg-all');
+            svg.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:9;overflow:visible';
+            const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+            const mkEnd = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+            mkEnd.setAttribute('id', `pae-${uid}`);
+            mkEnd.setAttribute('markerWidth', '8'); mkEnd.setAttribute('markerHeight', '6');
+            mkEnd.setAttribute('refX', '8'); mkEnd.setAttribute('refY', '3');
+            mkEnd.setAttribute('orient', 'auto');
+            const p1 = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            p1.setAttribute('points', '0 0, 8 3, 0 6'); p1.setAttribute('fill', '#2ecc40');
+            mkEnd.appendChild(p1); defs.appendChild(mkEnd);
+            const mkStart = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+            mkStart.setAttribute('id', `pas-${uid}`);
+            mkStart.setAttribute('markerWidth', '8'); mkStart.setAttribute('markerHeight', '6');
+            mkStart.setAttribute('refX', '0'); mkStart.setAttribute('refY', '3');
+            mkStart.setAttribute('orient', 'auto');
+            const p2 = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            p2.setAttribute('points', '8 0, 0 3, 8 6'); p2.setAttribute('fill', '#2ecc40');
+            mkStart.appendChild(p2); defs.appendChild(mkStart);
+            svg.appendChild(defs);
+            const drawn = new Set();
+            portals.forEach(portal => {
+              if (!portal.intra_map || !portal.dest_portal || !portal.name) return;
+              const pairKey = [portal.name, portal.dest_portal].sort().join('|');
+              if (drawn.has(pairKey)) return;
+              drawn.add(pairKey);
+              const src = portalOverlayMap.get(portal.name);
+              const dst = portalOverlayMap.get(portal.dest_portal);
+              if (!src || !dst) return;
+              const destData = portals.find(p => p.name === portal.dest_portal);
+              const isMutual = destData && destData.dest_portal === portal.name;
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              line.setAttribute('x1', src.px); line.setAttribute('y1', src.py);
+              line.setAttribute('x2', dst.px); line.setAttribute('y2', dst.py);
+              line.setAttribute('stroke', '#2ecc40');
+              line.setAttribute('stroke-width', '2');
+              line.setAttribute('stroke-dasharray', '6 3');
+              line.setAttribute('marker-end', `url(#pae-${uid})`);
+              if (isMutual) line.setAttribute('marker-start', `url(#pas-${uid})`);
+              svg.appendChild(line);
+            });
+            imgContainer.appendChild(svg);
+          }
+
           portals.forEach(portal => {
-            if (portal.intra_map && !portalNames.has(portal.dest_portal)) return;
+            // if (portal.intra_map && !portalNames.has(portal.dest_portal)) return;
             // Use exported x/y (canvas-relative)
             const px = portal.x * scaleX;
             const py = portal.y * scaleY;
+            if (portal.dest_map === '999999999') {
+              if (portal.name) portalOverlayMap.set(portal.name, { overlay: null, boxShadow: null, hoverShadow: null, bgColor: null, isIntra: false, px, py });
+              return;
+            }
             // Style: intra-map = green, inter-map = blue
             const isIntra = portal.intra_map;
             const borderColor = isIntra ? '#2ecc40' : '#3af';
@@ -647,77 +701,105 @@ export function renderMaps(data, options = {}) {
                 boxShadow: boxShadow,
                 zIndex: 2,
                 pointerEvents: 'auto',
-                cursor: !isIntra ? 'pointer' : 'default',
+                cursor: 'pointer',
               }
             });
             // DEBUG: show dest portal names
-            // if (portal.dest_portal) {
+            // if (portal.name) {
             //   overlay.appendChild(el('span', {
             //     style: {
             //       position: 'absolute', bottom: '-18px', left: '50%', transform: 'translateX(-50%)',
             //       fontSize: '10px', color: '#fff', whiteSpace: 'nowrap', pointerEvents: 'none',
             //       textShadow: '0 1px 4px #000',
             //     },
-            //     textContent: portal.dest_portal,
+            //     textContent: portal.name,
             //   }));
             // }
-            if (portal.name) portalOverlayMap.set(portal.name, { overlay, boxShadow, hoverShadow, px, py });
+            if (portal.name) portalOverlayMap.set(portal.name, { overlay, boxShadow, hoverShadow, bgColor, isIntra, px, py });
             overlay.addEventListener('mouseenter', () => {
               overlay.style.boxShadow = hoverShadow;
+              overlay.style.background = 'rgba(0,0,0,0.45)';
               if (isIntra && portal.dest_portal) {
                 const partner = portalOverlayMap.get(portal.dest_portal);
-                if (partner) {
+                if (partner && partner.overlay) {
                   partner.overlay.style.boxShadow = '0 0 16px 4px #2ecc40bb';
+                  partner.overlay.style.background = 'rgba(0,0,0,0.45)';
+                }
+                if (!showAllIntra && partner) {
                   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-                  svg.setAttribute('class', 'portal-arrow-svg');
+                  svg.setAttribute('class', 'portal-arrow-svg-hover');
                   svg.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:9;overflow:visible';
                   const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
                   const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
-                  marker.setAttribute('id', 'portal-arrowhead');
-                  marker.setAttribute('markerWidth', '8');
-                  marker.setAttribute('markerHeight', '6');
-                  marker.setAttribute('refX', '8');
-                  marker.setAttribute('refY', '3');
+                  marker.setAttribute('id', 'portal-arrowhead-hover');
+                  marker.setAttribute('markerWidth', '8'); marker.setAttribute('markerHeight', '6');
+                  marker.setAttribute('refX', '8'); marker.setAttribute('refY', '3');
                   marker.setAttribute('orient', 'auto');
                   const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-                  poly.setAttribute('points', '0 0, 8 3, 0 6');
-                  poly.setAttribute('fill', '#2ecc40');
-                  marker.appendChild(poly);
-                  defs.appendChild(marker);
-                  svg.appendChild(defs);
+                  poly.setAttribute('points', '0 0, 8 3, 0 6'); poly.setAttribute('fill', '#2ecc40');
+                  marker.appendChild(poly); defs.appendChild(marker); svg.appendChild(defs);
                   const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                  line.setAttribute('x1', px);
-                  line.setAttribute('y1', py);
-                  line.setAttribute('x2', partner.px);
-                  line.setAttribute('y2', partner.py);
+                  line.setAttribute('x1', px); line.setAttribute('y1', py);
+                  line.setAttribute('x2', partner.px); line.setAttribute('y2', partner.py);
                   line.setAttribute('stroke', '#2ecc40');
                   line.setAttribute('stroke-width', '2');
                   line.setAttribute('stroke-dasharray', '6 3');
-                  line.setAttribute('marker-end', 'url(#portal-arrowhead)');
+                  line.setAttribute('marker-end', 'url(#portal-arrowhead-hover)');
                   svg.appendChild(line);
                   imgContainer.appendChild(svg);
                 }
               }
             });
             overlay.addEventListener('mouseleave', () => {
-              overlay.style.boxShadow = boxShadow;
+              if (!showAllIntra) {
+                overlay.style.boxShadow = boxShadow;
+                overlay.style.background = bgColor;
+              }
               if (isIntra && portal.dest_portal) {
                 const partner = portalOverlayMap.get(portal.dest_portal);
-                if (partner) partner.overlay.style.boxShadow = partner.boxShadow;
+                if (partner && partner.overlay && !showAllIntra) {
+                  partner.overlay.style.boxShadow = partner.boxShadow;
+                  partner.overlay.style.background = partner.bgColor;
+                }
               }
-              imgContainer.querySelectorAll('.portal-arrow-svg').forEach(s => s.remove());
+              imgContainer.querySelectorAll('.portal-arrow-svg-hover').forEach(s => s.remove());
             });
             overlay.addEventListener('click', (e) => {
               e.stopPropagation();
-              // Hide tooltip immediately on navigation
               hideItemTooltip();
-              // Optionally, navigate to the destination map if available
-              if (!isIntra && portal.dest_map && selfNavigate) {
+              if (isIntra) {
+                showAllIntra = !showAllIntra;
+                if (showAllIntra) {
+                  drawAllIntraArrows();
+                  portalOverlayMap.forEach(entry => {
+                    if (entry.isIntra && entry.overlay) {
+                      entry.overlay.style.boxShadow = entry.hoverShadow;
+                      entry.overlay.style.background = 'rgba(0,0,0,0.45)';
+                    }
+                  });
+                } else {
+                  imgContainer.querySelectorAll('.portal-arrow-svg-all').forEach(s => s.remove());
+                  portalOverlayMap.forEach(entry => {
+                    if (entry.isIntra && entry.overlay) {
+                      entry.overlay.style.boxShadow = entry.boxShadow;
+                      entry.overlay.style.background = entry.bgColor;
+                    }
+                  });
+                }
+              } else if (portal.dest_map && selfNavigate) {
                 selfNavigate({ id: Number(portal.dest_map), autoExpand: true });
               }
             });
-            attachTooltip(overlay, () => ({ portal, mapEntry, mobs: mapMobs.get(mapEntry.id) }), 'portal');
+            attachTooltip(overlay, () => ({ portal, mapEntry, mobs: mapMobs.get(mapEntry.id), showAllIntra }), 'portal');
             imgContainer.appendChild(overlay);
+          });
+          // Draw all intra-map arrows on load by default
+          drawAllIntraArrows();
+          portalOverlayMap.forEach(entry => {
+            if (entry.isIntra && entry.overlay) {
+              entry.overlay.style.boxShadow = entry.hoverShadow;
+              entry.overlay.style.background = 'rgba(0,0,0,0.45)';
+            }
           });
         });
 
