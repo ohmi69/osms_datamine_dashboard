@@ -305,17 +305,18 @@ export function renderMaps(data, options = {}) {
               const scaleY = img.height / img.naturalHeight;
               const px = portal.x * scaleX;
               const py = portal.y * scaleY;
+              const navR = Math.max(7, Math.min(16, Math.round(8 + 14 * Math.min(scaleX, scaleY))));
               // Overlay with high-contrast cyan
               const overlay = el('div', {
                 className: 'portal-highlight',
                 style: {
                   position: 'absolute',
-                  left: `${img.offsetLeft + px - 16}px`,
-                  top: `${img.offsetTop + py - 16}px`,
-                  width: '32px',
-                  height: '32px',
+                  left: `${img.offsetLeft + px - navR}px`,
+                  top: `${img.offsetTop + py - navR}px`,
+                  width: `${navR * 2}px`,
+                  height: `${navR * 2}px`,
                   borderRadius: '50%',
-                  border: '3px solid #00e0ff',
+                  border: `${Math.max(1, Math.round(3 * Math.min(scaleX, scaleY)))}px solid #00e0ff`,
                   background: 'rgba(0,224,255,0.18)',
                   boxShadow: '0 0 16px 4px #00e0ff88',
                   zIndex: 2,
@@ -620,6 +621,9 @@ export function renderMaps(data, options = {}) {
           const displayW = img.width, displayH = img.height;
           const scaleX = displayW / naturalW;
           const scaleY = displayH / naturalH;
+          const imgScale = Math.min(scaleX, scaleY);
+          const portalR = Math.max(8, Math.min(18, Math.round(10 + 16 * imgScale)));
+          const portalBorder = Math.max(1, Math.round(2 + imgScale));
           const portalOverlayMap = new Map(); // portalName -> { overlay, boxShadow, bgColor, isIntra }
           const portalNames = new Set(portals.map(p => p.name).filter(Boolean));
           let showAllIntra = true;
@@ -691,12 +695,12 @@ export function renderMaps(data, options = {}) {
               className: 'portal-overlay',
               style: {
                 position: 'absolute',
-                left: `${px - 18}px`,
-                top: `${py - 18}px`,
-                width: '36px',
-                height: '36px',
+                left: `${px - portalR}px`,
+                top: `${py - portalR}px`,
+                width: `${portalR * 2}px`,
+                height: `${portalR * 2}px`,
                 borderRadius: '50%',
-                border: `3px solid ${borderColor}`,
+                border: `${portalBorder}px solid ${borderColor}`,
                 background: bgColor,
                 boxShadow: boxShadow,
                 zIndex: 2,

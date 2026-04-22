@@ -393,4 +393,21 @@ function closeImageModal() {
 // Expose modal helpers globally for tab modules
 window.openImageModal = openImageModal;
 window.closeImageModal = closeImageModal;
+
+// Hide site-header on scroll down, show on scroll up
+(function () {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y <= 0 || y < lastY) {
+      header.classList.remove('site-header--hidden');
+    } else {
+      header.classList.add('site-header--hidden');
+    }
+    lastY = y;
+  }, { passive: true });
+})();
+
 init();

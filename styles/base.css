@@ -281,6 +281,12 @@ body {
   top: 0;
   z-index: 200;
   box-shadow: 0 2px 12px rgba(0,0,0,.4);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.site-header--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 .site-header-inner {
   max-width: 1200px;
