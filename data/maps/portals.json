@@ -1,0 +1,9130 @@
+{
+  "000000001": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10",
+      "name": "out00",
+      "x": 1481,
+      "y": 725,
+      "intra_map": false,
+      "dest_name": "Mushroom Town"
+    }
+  ],
+  "000000010": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "1",
+      "name": "in00",
+      "x": 395,
+      "y": 623,
+      "intra_map": false,
+      "dest_name": "Mushroom Town - West Entrance"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "20",
+      "name": "out00",
+      "x": 1296,
+      "y": 561,
+      "intra_map": false,
+      "dest_name": "Mushroom Town"
+    }
+  ],
+  "000000020": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10",
+      "name": "in00",
+      "x": 203,
+      "y": 713,
+      "intra_map": false,
+      "dest_name": "Mushroom Town"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "21",
+      "name": "in01",
+      "x": 967,
+      "y": 589,
+      "intra_map": false,
+      "dest_name": "Mushroom Town Townstreet"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "30",
+      "name": "out00",
+      "x": 1519,
+      "y": 592,
+      "intra_map": false,
+      "dest_name": "East Entrance to Mushroom Town"
+    }
+  ],
+  "000000021": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "20",
+      "name": "out00",
+      "x": 693,
+      "y": 771,
+      "intra_map": false,
+      "dest_name": "Mushroom Town"
+    }
+  ],
+  "000000030": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "20",
+      "name": "in00",
+      "x": 192,
+      "y": 1552,
+      "intra_map": false,
+      "dest_name": "Mushroom Town"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "40",
+      "name": "out00",
+      "x": 1843,
+      "y": 411,
+      "intra_map": false,
+      "dest_name": "Snail Hunting Ground I"
+    }
+  ],
+  "000000040": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "41",
+      "name": "east00",
+      "x": 3102,
+      "y": 1607,
+      "intra_map": false,
+      "dest_name": "Snail Hunting Ground II"
+    }
+  ],
+  "000000041": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "40",
+      "name": "west00",
+      "x": 191,
+      "y": 1968,
+      "intra_map": false,
+      "dest_name": "Snail Hunting Ground I"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "42",
+      "name": "east00",
+      "x": 3202,
+      "y": 1970,
+      "intra_map": false,
+      "dest_name": "Snail Hunting Ground III"
+    }
+  ],
+  "000000042": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "50",
+      "name": "east00",
+      "x": 3163,
+      "y": 410,
+      "intra_map": false,
+      "dest_name": "A Split Road"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "41",
+      "name": "west00",
+      "x": 391,
+      "y": 1369,
+      "intra_map": false,
+      "dest_name": "Snail Hunting Ground II"
+    }
+  ],
+  "000000050": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "42",
+      "name": "west00",
+      "x": 220,
+      "y": 831,
+      "intra_map": false,
+      "dest_name": "Snail Hunting Ground III"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "1000",
+      "name": "east00",
+      "x": 3766,
+      "y": 592,
+      "intra_map": false,
+      "dest_name": "The Field West of Amherst"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "60",
+      "name": "east01",
+      "x": 3771,
+      "y": 946,
+      "intra_map": false,
+      "dest_name": "Southperry"
+    }
+  ],
+  "000000060": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "50",
+      "name": "west00",
+      "x": 223,
+      "y": 1841,
+      "intra_map": false,
+      "dest_name": "A Split Road"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "61",
+      "name": "in00",
+      "x": 1469,
+      "y": 2082,
+      "intra_map": false,
+      "dest_name": "Southperry Armor Store"
+    }
+  ],
+  "000000061": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "60",
+      "name": "out00",
+      "x": 714,
+      "y": 531,
+      "intra_map": false,
+      "dest_name": "Southperry"
+    }
+  ],
+  "000001000": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "50",
+      "name": "west00",
+      "x": 199,
+      "y": 1731,
+      "intra_map": false,
+      "dest_name": "A Split Road"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "1010",
+      "name": "east00",
+      "x": 3928,
+      "y": 1911,
+      "intra_map": false,
+      "dest_name": "Amherst"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "1001",
+      "name": "in00",
+      "x": 530,
+      "y": 1070,
+      "intra_map": false,
+      "dest_name": "In a Small Forest"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "1002",
+      "name": "in01",
+      "x": 3577,
+      "y": 947,
+      "intra_map": false,
+      "dest_name": "Dangerous Forest"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "1003",
+      "name": "in02",
+      "x": 2330,
+      "y": 1910,
+      "intra_map": false,
+      "dest_name": "Mushroom Garden"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "1004",
+      "name": "in03",
+      "x": 2498,
+      "y": 1911,
+      "intra_map": false,
+      "dest_name": "Snail Garden"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "1005",
+      "name": "in04",
+      "x": 979,
+      "y": 767,
+      "intra_map": false,
+      "dest_name": "Hunting Ground Middle of the Forest I"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "1006",
+      "name": "in05",
+      "x": 1347,
+      "y": 708,
+      "intra_map": false,
+      "dest_name": "Hunting Ground Middle of the Forest II"
+    }
+  ],
+  "000001001": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "1000",
+      "name": "out00",
+      "x": 1878,
+      "y": 889,
+      "intra_map": false,
+      "dest_name": "The Field West of Amherst"
+    }
+  ],
+  "000001002": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "1000",
+      "name": "out01",
+      "x": 190,
+      "y": 471,
+      "intra_map": false,
+      "dest_name": "The Field West of Amherst"
+    }
+  ],
+  "000001003": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "1000",
+      "name": "out00",
+      "x": 1755,
+      "y": 1094,
+      "intra_map": false,
+      "dest_name": "The Field West of Amherst"
+    }
+  ],
+  "000001004": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "1000",
+      "name": "out00",
+      "x": 310,
+      "y": 1184,
+      "intra_map": false,
+      "dest_name": "The Field West of Amherst"
+    }
+  ],
+  "000001005": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "1000",
+      "name": "out00",
+      "x": 992,
+      "y": 1970,
+      "intra_map": false,
+      "dest_name": "The Field West of Amherst"
+    }
+  ],
+  "000001006": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "1000",
+      "name": "out00",
+      "x": 1353,
+      "y": 1189,
+      "intra_map": false,
+      "dest_name": "The Field West of Amherst"
+    }
+  ],
+  "000001010": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "1000",
+      "name": "west00",
+      "x": 209,
+      "y": 914,
+      "intra_map": false,
+      "dest_name": "The Field West of Amherst"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "1011",
+      "name": "in00",
+      "x": 727,
+      "y": 463,
+      "intra_map": false,
+      "dest_name": "Amherst Weapon Store"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "1012",
+      "name": "in01",
+      "x": 2776,
+      "y": 913,
+      "intra_map": false,
+      "dest_name": "Amherst Townstreet"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "1013",
+      "name": "in02",
+      "x": 2016,
+      "y": 794,
+      "intra_map": false,
+      "dest_name": "Amherst Department Store"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "1020",
+      "name": "east00",
+      "x": 3555,
+      "y": 912,
+      "intra_map": false,
+      "dest_name": "The Field East of Amherst"
+    }
+  ],
+  "000001011": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "1010",
+      "name": "out00",
+      "x": 714,
+      "y": 531,
+      "intra_map": false,
+      "dest_name": "Amherst"
+    }
+  ],
+  "000001012": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "1010",
+      "name": "out00",
+      "x": 783,
+      "y": 771,
+      "intra_map": false,
+      "dest_name": "Amherst"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "1014",
+      "name": "west00",
+      "x": 458,
+      "y": 802,
+      "intra_map": false,
+      "dest_name": "Snail Field of Flowers"
+    }
+  ],
+  "000001013": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "1010",
+      "name": "out00",
+      "x": 1061,
+      "y": 532,
+      "intra_map": false,
+      "dest_name": "Amherst"
+    }
+  ],
+  "000001014": [
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "1012",
+      "name": "east00",
+      "x": 1689,
+      "y": 412,
+      "intra_map": false,
+      "dest_name": "Amherst Townstreet"
+    }
+  ],
+  "000001020": [
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "1021",
+      "name": "in00",
+      "x": 2382,
+      "y": 771,
+      "intra_map": false,
+      "dest_name": "Tomato Field"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "1010",
+      "name": "west00",
+      "x": 258,
+      "y": 1245,
+      "intra_map": false,
+      "dest_name": "Amherst"
+    }
+  ],
+  "000001021": [
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "1020",
+      "name": "out00",
+      "x": 225,
+      "y": 949,
+      "intra_map": false,
+      "dest_name": "The Field East of Amherst"
+    }
+  ],
+  "010000000": [
+    {
+      "id": "24",
+      "type": 1,
+      "dest_map": "10000000",
+      "name": "h_east00",
+      "x": 6082,
+      "y": 1737,
+      "intra_map": true,
+      "dest_name": "Lith Harbor"
+    },
+    {
+      "id": "25",
+      "type": 1,
+      "dest_map": "10000000",
+      "name": "h_west00",
+      "x": 3357,
+      "y": 1107,
+      "intra_map": true,
+      "dest_name": "Lith Harbor"
+    },
+    {
+      "id": "30",
+      "type": 2,
+      "dest_map": "10000010",
+      "name": "east00",
+      "x": 6197,
+      "y": 1825,
+      "intra_map": false,
+      "dest_name": "Right Around Lith Harbor"
+    },
+    {
+      "id": "31",
+      "type": 2,
+      "dest_map": "10000001",
+      "name": "in00",
+      "x": 4755,
+      "y": 1013,
+      "intra_map": false,
+      "dest_name": "Lith Harbor Armor Shop"
+    },
+    {
+      "id": "32",
+      "type": 2,
+      "dest_map": "10000002",
+      "name": "in01",
+      "x": 5197,
+      "y": 1677,
+      "intra_map": false,
+      "dest_name": "Lith Harbor Department Store"
+    },
+    {
+      "id": "33",
+      "type": 2,
+      "dest_map": "10000003",
+      "name": "in02",
+      "x": 3962,
+      "y": 1015,
+      "intra_map": false,
+      "dest_name": "Lith Harbor Weapon Shop"
+    }
+  ],
+  "010000001": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10000000",
+      "name": "out00",
+      "x": 714,
+      "y": 531,
+      "intra_map": false,
+      "dest_name": "Lith Harbor"
+    }
+  ],
+  "010000002": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10000000",
+      "name": "out01",
+      "x": 1062,
+      "y": 532,
+      "intra_map": false,
+      "dest_name": "Lith Harbor"
+    }
+  ],
+  "010000003": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10000000",
+      "name": "out00",
+      "x": 714,
+      "y": 531,
+      "intra_map": false,
+      "dest_name": "Lith Harbor"
+    }
+  ],
+  "010000010": [
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10000000",
+      "name": "west00",
+      "x": 283,
+      "y": 410,
+      "intra_map": false,
+      "dest_name": "Lith Harbor"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10000011",
+      "name": "east00",
+      "x": 3227,
+      "y": 521,
+      "intra_map": false,
+      "dest_name": "Thicket Around the Beach I"
+    }
+  ],
+  "010000011": [
+    {
+      "id": "17",
+      "type": 2,
+      "dest_map": "10000010",
+      "name": "west00",
+      "x": 253,
+      "y": 1732,
+      "intra_map": false,
+      "dest_name": "Right Around Lith Harbor"
+    },
+    {
+      "id": "18",
+      "type": 2,
+      "dest_map": "10000012",
+      "name": "east00",
+      "x": 2666,
+      "y": 1852,
+      "intra_map": false,
+      "dest_name": "Thicket Around the Beach II"
+    }
+  ],
+  "010000012": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10000011",
+      "name": "west00",
+      "x": 276,
+      "y": 1831,
+      "intra_map": false,
+      "dest_name": "Thicket Around the Beach I"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10000013",
+      "name": "east00",
+      "x": 1905,
+      "y": 1832,
+      "intra_map": false,
+      "dest_name": "Thicket Around the Beach III"
+    }
+  ],
+  "010000013": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10000012",
+      "name": "west00",
+      "x": 226,
+      "y": 1279,
+      "intra_map": false,
+      "dest_name": "Thicket Around the Beach II"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10000020",
+      "name": "east00",
+      "x": 1588,
+      "y": 1102,
+      "intra_map": false,
+      "dest_name": "3-Way Road-Split"
+    }
+  ],
+  "010000020": [
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10000021",
+      "name": "h_in00",
+      "x": 1983,
+      "y": 1759,
+      "intra_map": false,
+      "dest_name": "The Pig Beach"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10000022",
+      "name": "in01",
+      "x": 2582,
+      "y": 2358,
+      "intra_map": false,
+      "dest_name": "Beach Hunting Ground"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10000013",
+      "name": "west00",
+      "x": 387,
+      "y": 2297,
+      "intra_map": false,
+      "dest_name": "Thicket Around the Beach III"
+    },
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10001030",
+      "name": "east00",
+      "x": 5124,
+      "y": 2299,
+      "intra_map": false,
+      "dest_name": "Forest West of Henesys"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10003050",
+      "name": "top00",
+      "x": 393,
+      "y": 556,
+      "intra_map": false,
+      "dest_name": "Kerning City Middle Forest I"
+    }
+  ],
+  "010000021": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10000020",
+      "name": "h_out00",
+      "x": 806,
+      "y": 411,
+      "intra_map": false,
+      "dest_name": "3-Way Road-Split"
+    }
+  ],
+  "010000022": [
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10000022",
+      "name": "in01",
+      "x": 3730,
+      "y": 649,
+      "intra_map": true,
+      "dest_name": "Beach Hunting Ground"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10000022",
+      "name": "out01",
+      "x": 409,
+      "y": 800,
+      "intra_map": true,
+      "dest_name": "Beach Hunting Ground"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10000020",
+      "name": "out00",
+      "x": 258,
+      "y": 856,
+      "intra_map": false,
+      "dest_name": "3-Way Road-Split"
+    }
+  ],
+  "010001000": [
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10001000",
+      "name": "h_east",
+      "x": 5856,
+      "y": 690,
+      "intra_map": true,
+      "dest_name": "Henesys"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10001000",
+      "name": "h_west",
+      "x": 1985,
+      "y": 691,
+      "intra_map": true,
+      "dest_name": "Henesys"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10001002",
+      "name": "in03",
+      "x": 997,
+      "y": 499,
+      "intra_map": false,
+      "dest_name": "An Empty House"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10001000",
+      "name": "up00",
+      "x": 992,
+      "y": 659,
+      "intra_map": true,
+      "dest_name": "Henesys"
+    },
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10001010",
+      "name": "west00",
+      "x": 246,
+      "y": 870,
+      "intra_map": false,
+      "dest_name": "Henesys Hunting Ground I"
+    },
+    {
+      "id": "17",
+      "type": 2,
+      "dest_map": "10001060",
+      "name": "east00",
+      "x": 6587,
+      "y": 1050,
+      "intra_map": false,
+      "dest_name": "The Hill East of Henesys"
+    },
+    {
+      "id": "18",
+      "type": 2,
+      "dest_map": "10001090",
+      "name": "east10",
+      "x": 6753,
+      "y": 419,
+      "intra_map": false,
+      "dest_name": "The Road to the Dungeon"
+    },
+    {
+      "id": "19",
+      "type": 2,
+      "dest_map": "10001040",
+      "name": "in00",
+      "x": 3706,
+      "y": 930,
+      "intra_map": false,
+      "dest_name": "Henesys Market"
+    },
+    {
+      "id": "20",
+      "type": 2,
+      "dest_map": "10001050",
+      "name": "in01",
+      "x": 4528,
+      "y": 719,
+      "intra_map": false,
+      "dest_name": "Henesys Park"
+    },
+    {
+      "id": "21",
+      "type": 2,
+      "dest_map": "10001001",
+      "name": "in02",
+      "x": 5816,
+      "y": 1048,
+      "intra_map": false,
+      "dest_name": "Henesys Townstreet"
+    }
+  ],
+  "010001001": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "10001000",
+      "name": "out02",
+      "x": 882,
+      "y": 778,
+      "intra_map": false,
+      "dest_name": "Henesys"
+    }
+  ],
+  "010001002": [
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10001002",
+      "name": "up00",
+      "x": 1282,
+      "y": 702,
+      "intra_map": true,
+      "dest_name": "An Empty House"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10001003",
+      "name": "in00",
+      "x": 439,
+      "y": 589,
+      "intra_map": false,
+      "dest_name": "Pig Park"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10001000",
+      "name": "out00",
+      "x": 1294,
+      "y": 544,
+      "intra_map": false,
+      "dest_name": "Henesys"
+    }
+  ],
+  "010001003": [
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10001004",
+      "name": "in00",
+      "x": 3901,
+      "y": 409,
+      "intra_map": false,
+      "dest_name": "Pig Park II"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10001002",
+      "name": "out00",
+      "x": 314,
+      "y": 589,
+      "intra_map": false,
+      "dest_name": "An Empty House"
+    },
+    {
+      "id": "6",
+      "type": 3,
+      "dest_map": "10001006",
+      "name": "in01",
+      "x": 2619,
+      "y": 731,
+      "intra_map": false,
+      "dest_name": "The Resting Spot, Pig Park"
+    },
+    {
+      "id": "7",
+      "type": 3,
+      "dest_map": "10001006",
+      "name": "in02",
+      "x": 1532,
+      "y": 725,
+      "intra_map": false,
+      "dest_name": "The Resting Spot, Pig Park"
+    }
+  ],
+  "010001004": [
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10001005",
+      "name": "in00",
+      "x": 1307,
+      "y": 411,
+      "intra_map": false,
+      "dest_name": "Someone Else's House"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10001003",
+      "name": "out00",
+      "x": 447,
+      "y": 1728,
+      "intra_map": false,
+      "dest_name": "Pig Park"
+    }
+  ],
+  "010001005": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10001004",
+      "name": "out00",
+      "x": 796,
+      "y": 409,
+      "intra_map": false,
+      "dest_name": "Pig Park II"
+    }
+  ],
+  "010001006": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10001003",
+      "name": "out00",
+      "x": 840,
+      "y": 409,
+      "intra_map": false,
+      "dest_name": "Pig Park"
+    }
+  ],
+  "010001010": [
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10001020",
+      "name": "west00",
+      "x": 268,
+      "y": 1730,
+      "intra_map": false,
+      "dest_name": "A Hill West of Henesys "
+    },
+    {
+      "id": "17",
+      "type": 2,
+      "dest_map": "10001000",
+      "name": "east00",
+      "x": 2215,
+      "y": 1731,
+      "intra_map": false,
+      "dest_name": "Henesys"
+    },
+    {
+      "id": "18",
+      "type": 3,
+      "dest_map": "10001011",
+      "name": "in00",
+      "x": 1548,
+      "y": 664,
+      "intra_map": false,
+      "dest_name": "Henesys Hunting Ground II"
+    }
+  ],
+  "010001011": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10001010",
+      "name": "out00",
+      "x": 1740,
+      "y": 1623,
+      "intra_map": false,
+      "dest_name": "Henesys Hunting Ground I"
+    },
+    {
+      "id": "8",
+      "type": 3,
+      "dest_map": "10001012",
+      "name": "in00",
+      "x": 1264,
+      "y": 420,
+      "intra_map": false,
+      "dest_name": "Henesys Hunting Ground III"
+    }
+  ],
+  "010001012": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10001011",
+      "name": "out00",
+      "x": 1740,
+      "y": 1427,
+      "intra_map": false,
+      "dest_name": "Henesys Hunting Ground II"
+    }
+  ],
+  "010001020": [
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10001021",
+      "name": "in00",
+      "x": 2452,
+      "y": 451,
+      "intra_map": false,
+      "dest_name": "Mushroom Garden"
+    },
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10001010",
+      "name": "east00",
+      "x": 3480,
+      "y": 1382,
+      "intra_map": false,
+      "dest_name": "Henesys Hunting Ground I"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10001030",
+      "name": "west00",
+      "x": 265,
+      "y": 1772,
+      "intra_map": false,
+      "dest_name": "Forest West of Henesys"
+    }
+  ],
+  "010001021": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10001020",
+      "name": "out00",
+      "x": 2275,
+      "y": 947,
+      "intra_map": false,
+      "dest_name": "A Hill West of Henesys "
+    }
+  ],
+  "010001030": [
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10001030",
+      "name": "hide01",
+      "x": 3053,
+      "y": 1789,
+      "intra_map": true,
+      "dest_name": "Forest West of Henesys"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10001030",
+      "name": "tohide01",
+      "x": 3498,
+      "y": 409,
+      "intra_map": true,
+      "dest_name": "Forest West of Henesys"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10001030",
+      "name": "hide02",
+      "x": 2670,
+      "y": 1789,
+      "intra_map": true,
+      "dest_name": "Forest West of Henesys"
+    },
+    {
+      "id": "15",
+      "type": 1,
+      "dest_map": "10001030",
+      "name": "tohide02",
+      "x": 1552,
+      "y": 890,
+      "intra_map": true,
+      "dest_name": "Forest West of Henesys"
+    },
+    {
+      "id": "16",
+      "type": 1,
+      "dest_map": "10001030",
+      "name": "hide03",
+      "x": 1257,
+      "y": 1490,
+      "intra_map": true,
+      "dest_name": "Forest West of Henesys"
+    },
+    {
+      "id": "18",
+      "type": 1,
+      "dest_map": "10001030",
+      "name": "hide04",
+      "x": 2115,
+      "y": 1491,
+      "intra_map": true,
+      "dest_name": "Forest West of Henesys"
+    },
+    {
+      "id": "20",
+      "type": 1,
+      "dest_map": "10001030",
+      "name": "hide05",
+      "x": 2904,
+      "y": 1191,
+      "intra_map": true,
+      "dest_name": "Forest West of Henesys"
+    },
+    {
+      "id": "21",
+      "type": 1,
+      "dest_map": "10001030",
+      "name": "tohide05",
+      "x": 2420,
+      "y": 890,
+      "intra_map": true,
+      "dest_name": "Forest West of Henesys"
+    },
+    {
+      "id": "22",
+      "type": 2,
+      "dest_map": "10000020",
+      "name": "west00",
+      "x": 312,
+      "y": 1611,
+      "intra_map": false,
+      "dest_name": "3-Way Road-Split"
+    },
+    {
+      "id": "23",
+      "type": 2,
+      "dest_map": "10001020",
+      "name": "east00",
+      "x": 4078,
+      "y": 1610,
+      "intra_map": false,
+      "dest_name": "A Hill West of Henesys "
+    }
+  ],
+  "010001040": [
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10001040",
+      "name": "h_east",
+      "x": 4034,
+      "y": 684,
+      "intra_map": true,
+      "dest_name": "Henesys Market"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10001040",
+      "name": "h_west",
+      "x": 2018,
+      "y": 801,
+      "intra_map": true,
+      "dest_name": "Henesys Market"
+    },
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10001000",
+      "name": "out00",
+      "x": 392,
+      "y": 741,
+      "intra_map": false,
+      "dest_name": "Henesys"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10001050",
+      "name": "out01",
+      "x": 5527,
+      "y": 681,
+      "intra_map": false,
+      "dest_name": "Henesys Park"
+    },
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10001041",
+      "name": "in00",
+      "x": 2569,
+      "y": 798,
+      "intra_map": false,
+      "dest_name": "Henesys Weapon Store"
+    },
+    {
+      "id": "17",
+      "type": 2,
+      "dest_map": "10001042",
+      "name": "in01",
+      "x": 3593,
+      "y": 469,
+      "intra_map": false,
+      "dest_name": "Henesys Department Store"
+    },
+    {
+      "id": "18",
+      "type": 2,
+      "dest_map": "10001043",
+      "name": "in04",
+      "x": 4871,
+      "y": 406,
+      "intra_map": false,
+      "dest_name": "Henesys Plastic Surgery"
+    },
+    {
+      "id": "19",
+      "type": 2,
+      "dest_map": "10001044",
+      "name": "in05",
+      "x": 4845,
+      "y": 680,
+      "intra_map": false,
+      "dest_name": "Henesys Hair Salon"
+    },
+    {
+      "id": "20",
+      "type": 2,
+      "dest_map": "10001045",
+      "name": "in06",
+      "x": 4333,
+      "y": 677,
+      "intra_map": false,
+      "dest_name": "Henesys Skin-Care"
+    }
+  ],
+  "010001041": [
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10001040",
+      "name": "out00",
+      "x": 1004,
+      "y": 856,
+      "intra_map": false,
+      "dest_name": "Henesys Market"
+    }
+  ],
+  "010001042": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10001040",
+      "name": "out01",
+      "x": 1062,
+      "y": 532,
+      "intra_map": false,
+      "dest_name": "Henesys Market"
+    }
+  ],
+  "010001043": [
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10001040",
+      "name": "out00",
+      "x": 474,
+      "y": 529,
+      "intra_map": false,
+      "dest_name": "Henesys Market"
+    }
+  ],
+  "010001044": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10001040",
+      "name": "out00",
+      "x": 1102,
+      "y": 529,
+      "intra_map": false,
+      "dest_name": "Henesys Market"
+    }
+  ],
+  "010001045": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10001040",
+      "name": "out00",
+      "x": 1102,
+      "y": 529,
+      "intra_map": false,
+      "dest_name": "Henesys Market"
+    }
+  ],
+  "010001050": [
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10001050",
+      "name": "hide01",
+      "x": 427,
+      "y": 558,
+      "intra_map": true,
+      "dest_name": "Henesys Park"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10001050",
+      "name": "hide02",
+      "x": 3653,
+      "y": 408,
+      "intra_map": true,
+      "dest_name": "Henesys Park"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10001050",
+      "name": "hide03",
+      "x": 1852,
+      "y": 680,
+      "intra_map": true,
+      "dest_name": "Henesys Park"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10001052",
+      "name": "in01",
+      "x": 1961,
+      "y": 408,
+      "intra_map": false,
+      "dest_name": "Pet-Walking Road"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10001000",
+      "name": "out00",
+      "x": 271,
+      "y": 560,
+      "intra_map": false,
+      "dest_name": "Henesys"
+    },
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10001040",
+      "name": "out01",
+      "x": 1140,
+      "y": 530,
+      "intra_map": false,
+      "dest_name": "Henesys Market"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10001051",
+      "name": "in02",
+      "x": 4171,
+      "y": 799,
+      "intra_map": false,
+      "dest_name": "Bowman Instructional School"
+    }
+  ],
+  "010001051": [
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10001050",
+      "name": "out02",
+      "x": 1032,
+      "y": 667,
+      "intra_map": false,
+      "dest_name": "Henesys Park"
+    }
+  ],
+  "010001052": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10001050",
+      "name": "out00",
+      "x": 2433,
+      "y": 1928,
+      "intra_map": false,
+      "dest_name": "Henesys Park"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10001052",
+      "name": "h001",
+      "x": 2013,
+      "y": 2227,
+      "intra_map": true,
+      "dest_name": "Pet-Walking Road"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10001052",
+      "name": "h002",
+      "x": 3203,
+      "y": 2227,
+      "intra_map": true,
+      "dest_name": "Pet-Walking Road"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10001052",
+      "name": "h003",
+      "x": 3188,
+      "y": 1747,
+      "intra_map": true,
+      "dest_name": "Pet-Walking Road"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10001052",
+      "name": "h005",
+      "x": 701,
+      "y": 448,
+      "intra_map": true,
+      "dest_name": "Pet-Walking Road"
+    }
+  ],
+  "010001060": [
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10001000",
+      "name": "west00",
+      "x": 228,
+      "y": 1462,
+      "intra_map": false,
+      "dest_name": "Henesys"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10001070",
+      "name": "east00",
+      "x": 2625,
+      "y": 1461,
+      "intra_map": false,
+      "dest_name": "The Rain-Forest East of Henesys"
+    }
+  ],
+  "010001070": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10001060",
+      "name": "west00",
+      "x": 280,
+      "y": 615,
+      "intra_map": false,
+      "dest_name": "The Hill East of Henesys"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10001080",
+      "name": "east00",
+      "x": 2304,
+      "y": 620,
+      "intra_map": false,
+      "dest_name": "The Forest East of Henesys"
+    }
+  ],
+  "010001080": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10001082",
+      "name": "farm00",
+      "x": 212,
+      "y": 590,
+      "intra_map": false,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10001070",
+      "name": "west00",
+      "x": 314,
+      "y": 2029,
+      "intra_map": false,
+      "dest_name": "The Rain-Forest East of Henesys"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10002030",
+      "name": "east00",
+      "x": 4614,
+      "y": 1011,
+      "intra_map": false,
+      "dest_name": "The Forest South of Ellinia"
+    },
+    {
+      "id": "23",
+      "type": 1,
+      "dest_map": "10001081",
+      "name": "in00",
+      "x": 1272,
+      "y": 412,
+      "intra_map": false,
+      "dest_name": "The Blue Mushroom Forest"
+    },
+    {
+      "id": "24",
+      "type": 1,
+      "dest_map": "10001080",
+      "name": "h_east00",
+      "x": 3403,
+      "y": 1005,
+      "intra_map": true,
+      "dest_name": "The Forest East of Henesys"
+    },
+    {
+      "id": "25",
+      "type": 1,
+      "dest_map": "10001080",
+      "name": "h_west00",
+      "x": 1654,
+      "y": 2148,
+      "intra_map": true,
+      "dest_name": "The Forest East of Henesys"
+    }
+  ],
+  "010001081": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10001080",
+      "name": "out00",
+      "x": 2794,
+      "y": 769,
+      "intra_map": false,
+      "dest_name": "The Forest East of Henesys"
+    }
+  ],
+  "010001082": [
+    {
+      "id": "1",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "t001",
+      "x": 207,
+      "y": 1132,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "t002",
+      "x": 1332,
+      "y": 831,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "t003",
+      "x": 901,
+      "y": 1071,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "t004",
+      "x": 1529,
+      "y": 1373,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "t005",
+      "x": 2148,
+      "y": 774,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "t006",
+      "x": 2453,
+      "y": 1252,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "t007",
+      "x": 3254,
+      "y": 1188,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "16",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "h001",
+      "x": 350,
+      "y": 832,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "17",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "h002",
+      "x": 538,
+      "y": 592,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "18",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "h003",
+      "x": 915,
+      "y": 830,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "19",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "h004",
+      "x": 1568,
+      "y": 1131,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "20",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "h005",
+      "x": 2090,
+      "y": 1372,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "21",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "h006",
+      "x": 2597,
+      "y": 833,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "22",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "h007",
+      "x": 2905,
+      "y": 1130,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "23",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "h008",
+      "x": 1319,
+      "y": 593,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "24",
+      "type": 1,
+      "dest_map": "10001082",
+      "name": "h009",
+      "x": 1798,
+      "y": 894,
+      "intra_map": true,
+      "dest_name": "Utah's Pig Farm"
+    },
+    {
+      "id": "25",
+      "type": 2,
+      "dest_map": "10001080",
+      "name": "out00",
+      "x": 3139,
+      "y": 479,
+      "intra_map": false,
+      "dest_name": "The Forest East of Henesys"
+    },
+    {
+      "id": "26",
+      "type": 2,
+      "dest_map": "10001080",
+      "name": "out01",
+      "x": 204,
+      "y": 1439,
+      "intra_map": false,
+      "dest_name": "The Forest East of Henesys"
+    }
+  ],
+  "010001090": [
+    {
+      "id": "20",
+      "type": 2,
+      "dest_map": "10001000",
+      "name": "west00",
+      "x": 331,
+      "y": 1486,
+      "intra_map": false,
+      "dest_name": "Henesys"
+    },
+    {
+      "id": "21",
+      "type": 2,
+      "dest_map": "10001100",
+      "name": "east00",
+      "x": 3328,
+      "y": 1552,
+      "intra_map": false,
+      "dest_name": "Henesys Dungeon Entrance"
+    }
+  ],
+  "010001100": [
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10001101",
+      "name": "in00",
+      "x": 1425,
+      "y": 1425,
+      "intra_map": false,
+      "dest_name": "The Breathing Rock"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10001090",
+      "name": "west00",
+      "x": 346,
+      "y": 952,
+      "intra_map": false,
+      "dest_name": "The Road to the Dungeon"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10005010",
+      "name": "dun00",
+      "x": 3564,
+      "y": 1073,
+      "intra_map": false,
+      "dest_name": "Swampy Land in a Deep Forest"
+    }
+  ],
+  "010001101": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10001102",
+      "name": "in00",
+      "x": 862,
+      "y": 554,
+      "intra_map": false,
+      "dest_name": "The Entrance of Golem's Temple"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10001100",
+      "name": "out00",
+      "x": 380,
+      "y": 1363,
+      "intra_map": false,
+      "dest_name": "Henesys Dungeon Entrance"
+    }
+  ],
+  "010001102": [
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10001103",
+      "name": "in03",
+      "x": 704,
+      "y": 1001,
+      "intra_map": false,
+      "dest_name": "Golem's Temple I"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10001104",
+      "name": "in04",
+      "x": 1040,
+      "y": 1005,
+      "intra_map": false,
+      "dest_name": "Golem's Temple II"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10001105",
+      "name": "in05",
+      "x": 722,
+      "y": 721,
+      "intra_map": false,
+      "dest_name": "Golem's Temple III"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10001106",
+      "name": "in06",
+      "x": 723,
+      "y": 547,
+      "intra_map": false,
+      "dest_name": "Golem's Temple IV"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10001101",
+      "name": "out00",
+      "x": 272,
+      "y": 1101,
+      "intra_map": false,
+      "dest_name": "The Breathing Rock"
+    }
+  ],
+  "010001103": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10001102",
+      "name": "out00",
+      "x": 206,
+      "y": 939,
+      "intra_map": false,
+      "dest_name": "The Entrance of Golem's Temple"
+    }
+  ],
+  "010001104": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10001102",
+      "name": "out00",
+      "x": 206,
+      "y": 964,
+      "intra_map": false,
+      "dest_name": "The Entrance of Golem's Temple"
+    }
+  ],
+  "010001105": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10001102",
+      "name": "out00",
+      "x": 200,
+      "y": 953,
+      "intra_map": false,
+      "dest_name": "The Entrance of Golem's Temple"
+    }
+  ],
+  "010001106": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10001102",
+      "name": "out00",
+      "x": 621,
+      "y": 824,
+      "intra_map": false,
+      "dest_name": "The Entrance of Golem's Temple"
+    }
+  ],
+  "010002000": [
+    {
+      "id": "26",
+      "type": 1,
+      "dest_map": "10002000",
+      "name": "h_under00",
+      "x": 1742,
+      "y": 4779,
+      "intra_map": true,
+      "dest_name": "Ellinia"
+    },
+    {
+      "id": "27",
+      "type": 1,
+      "dest_map": "10002000",
+      "name": "h_top00",
+      "x": 338,
+      "y": 2125,
+      "intra_map": true,
+      "dest_name": "Ellinia"
+    },
+    {
+      "id": "28",
+      "type": 2,
+      "dest_map": "10002004",
+      "name": "in02",
+      "x": 2613,
+      "y": 4839,
+      "intra_map": false,
+      "dest_name": "Marr's Forest"
+    },
+    {
+      "id": "33",
+      "type": 2,
+      "dest_map": "10002010",
+      "name": "west00",
+      "x": 252,
+      "y": 4895,
+      "intra_map": false,
+      "dest_name": "The Field South of Ellinia"
+    },
+    {
+      "id": "34",
+      "type": 2,
+      "dest_map": "10002050",
+      "name": "top00",
+      "x": 173,
+      "y": 1788,
+      "intra_map": false,
+      "dest_name": "The Field Up North of Ellinia"
+    },
+    {
+      "id": "35",
+      "type": 2,
+      "dest_map": "10002001",
+      "name": "in00",
+      "x": 2050,
+      "y": 2316,
+      "intra_map": false,
+      "dest_name": "Ellinia Weapon Store"
+    },
+    {
+      "id": "36",
+      "type": 2,
+      "dest_map": "10002002",
+      "name": "in01",
+      "x": 1141,
+      "y": 2657,
+      "intra_map": false,
+      "dest_name": "Ellinia Department Store"
+    },
+    {
+      "id": "37",
+      "type": 2,
+      "dest_map": "10002003",
+      "name": "jobin00",
+      "x": 1598,
+      "y": 610,
+      "intra_map": false,
+      "dest_name": "Magic Library"
+    }
+  ],
+  "010002001": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10002000",
+      "name": "out00",
+      "x": 714,
+      "y": 531,
+      "intra_map": false,
+      "dest_name": "Ellinia"
+    }
+  ],
+  "010002002": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10002000",
+      "name": "out01",
+      "x": 1062,
+      "y": 532,
+      "intra_map": false,
+      "dest_name": "Ellinia"
+    }
+  ],
+  "010002003": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10002000",
+      "name": "jobout00",
+      "x": 847,
+      "y": 802,
+      "intra_map": false,
+      "dest_name": "Ellinia"
+    }
+  ],
+  "010002004": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10002004",
+      "name": "h001",
+      "x": 318,
+      "y": 1273,
+      "intra_map": true,
+      "dest_name": "Marr's Forest"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10002004",
+      "name": "h002",
+      "x": 325,
+      "y": 1102,
+      "intra_map": true,
+      "dest_name": "Marr's Forest"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10002004",
+      "name": "h003",
+      "x": 861,
+      "y": 1101,
+      "intra_map": true,
+      "dest_name": "Marr's Forest"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10002004",
+      "name": "h004",
+      "x": 822,
+      "y": 1272,
+      "intra_map": true,
+      "dest_name": "Marr's Forest"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10002004",
+      "name": "h005",
+      "x": 1062,
+      "y": 1055,
+      "intra_map": true,
+      "dest_name": "Marr's Forest"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10002004",
+      "name": "h006",
+      "x": 369,
+      "y": 644,
+      "intra_map": true,
+      "dest_name": "Marr's Forest"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10002000",
+      "name": "out00",
+      "x": 1076,
+      "y": 412,
+      "intra_map": false,
+      "dest_name": "Ellinia"
+    }
+  ],
+  "010002010": [
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10002020",
+      "name": "west00",
+      "x": 241,
+      "y": 2283,
+      "intra_map": false,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10002000",
+      "name": "east00",
+      "x": 1549,
+      "y": 1281,
+      "intra_map": false,
+      "dest_name": "Ellinia"
+    }
+  ],
+  "010002020": [
+    {
+      "id": "1",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "up10",
+      "x": 1158,
+      "y": 2219,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "up11",
+      "x": 1164,
+      "y": 1820,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "up12",
+      "x": 1238,
+      "y": 1397,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "up00",
+      "x": 719,
+      "y": 1824,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "up01",
+      "x": 644,
+      "y": 818,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "up20",
+      "x": 1719,
+      "y": 1417,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "up21",
+      "x": 1715,
+      "y": 618,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "dw00",
+      "x": 1721,
+      "y": 2218,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "dw01",
+      "x": 1779,
+      "y": 2421,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10002027",
+      "name": "in01",
+      "x": 1720,
+      "y": 3018,
+      "intra_map": false,
+      "dest_name": "Downstairs at the Forest"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "up30",
+      "x": 1149,
+      "y": 3021,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10002021",
+      "name": "in00",
+      "x": 658,
+      "y": 420,
+      "intra_map": false,
+      "dest_name": "Monkey Forest I"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "dw20",
+      "x": 711,
+      "y": 2623,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "15",
+      "type": 1,
+      "dest_map": "10002020",
+      "name": "dw21",
+      "x": 706,
+      "y": 3022,
+      "intra_map": true,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10002030",
+      "name": "west00",
+      "x": 235,
+      "y": 2222,
+      "intra_map": false,
+      "dest_name": "The Forest South of Ellinia"
+    },
+    {
+      "id": "17",
+      "type": 2,
+      "dest_map": "10002010",
+      "name": "east00",
+      "x": 2020,
+      "y": 2236,
+      "intra_map": false,
+      "dest_name": "The Field South of Ellinia"
+    }
+  ],
+  "010002021": [
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10002021",
+      "name": "dw00",
+      "x": 401,
+      "y": 820,
+      "intra_map": true,
+      "dest_name": "Monkey Forest I"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10002021",
+      "name": "up00",
+      "x": 1470,
+      "y": 1419,
+      "intra_map": true,
+      "dest_name": "Monkey Forest I"
+    },
+    {
+      "id": "15",
+      "type": 1,
+      "dest_map": "10002022",
+      "name": "in01",
+      "x": 899,
+      "y": 2219,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Monkey Forest I"
+    },
+    {
+      "id": "16",
+      "type": 1,
+      "dest_map": "10002022",
+      "name": "in02",
+      "x": 966,
+      "y": 1004,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Monkey Forest I"
+    },
+    {
+      "id": "17",
+      "type": 2,
+      "dest_map": "10002020",
+      "name": "out00",
+      "x": 412,
+      "y": 418,
+      "intra_map": false,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "18",
+      "type": 2,
+      "dest_map": "10002023",
+      "name": "in00",
+      "x": 1469,
+      "y": 615,
+      "intra_map": false,
+      "dest_name": "Monkey Forest II"
+    }
+  ],
+  "010002022": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10002021",
+      "name": "out00",
+      "x": 409,
+      "y": 2398,
+      "intra_map": false,
+      "dest_name": "Monkey Forest I"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10002021",
+      "name": "out01",
+      "x": 862,
+      "y": 770,
+      "intra_map": false,
+      "dest_name": "Monkey Forest I"
+    }
+  ],
+  "010002023": [
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10002023",
+      "name": "up00",
+      "x": 400,
+      "y": 623,
+      "intra_map": true,
+      "dest_name": "Monkey Forest II"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10002023",
+      "name": "up01",
+      "x": 463,
+      "y": 1232,
+      "intra_map": true,
+      "dest_name": "Monkey Forest II"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10002023",
+      "name": "up02",
+      "x": 400,
+      "y": 1422,
+      "intra_map": true,
+      "dest_name": "Monkey Forest II"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10002023",
+      "name": "up03",
+      "x": 462,
+      "y": 2031,
+      "intra_map": true,
+      "dest_name": "Monkey Forest II"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10002024",
+      "name": "in00",
+      "x": 1437,
+      "y": 2034,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Monkey Forest II"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10002024",
+      "name": "in01",
+      "x": 1447,
+      "y": 1638,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Monkey Forest II"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10002024",
+      "name": "in02",
+      "x": 1450,
+      "y": 1235,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Monkey Forest II"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10002021",
+      "name": "out00",
+      "x": 453,
+      "y": 425,
+      "intra_map": false,
+      "dest_name": "Monkey Forest I"
+    },
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10002025",
+      "name": "in03",
+      "x": 1510,
+      "y": 407,
+      "intra_map": false,
+      "dest_name": "The Forest of Evil I"
+    }
+  ],
+  "010002024": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10002023",
+      "name": "out00",
+      "x": 318,
+      "y": 2075,
+      "intra_map": false,
+      "dest_name": "Monkey Forest II"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10002023",
+      "name": "out01",
+      "x": 294,
+      "y": 1439,
+      "intra_map": false,
+      "dest_name": "Monkey Forest II"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10002023",
+      "name": "out02",
+      "x": 315,
+      "y": 654,
+      "intra_map": false,
+      "dest_name": "Monkey Forest II"
+    }
+  ],
+  "010002025": [
+    {
+      "id": "1",
+      "type": 1,
+      "dest_map": "10002025",
+      "name": "up00",
+      "x": 466,
+      "y": 2016,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil I"
+    },
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10002025",
+      "name": "up01",
+      "x": 408,
+      "y": 1408,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil I"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10002025",
+      "name": "up10",
+      "x": 907,
+      "y": 2012,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil I"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10002025",
+      "name": "up11",
+      "x": 901,
+      "y": 1611,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil I"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10002025",
+      "name": "up20",
+      "x": 1449,
+      "y": 2022,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil I"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10002025",
+      "name": "up21",
+      "x": 1449,
+      "y": 1624,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil I"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10002025",
+      "name": "up22",
+      "x": 1445,
+      "y": 1224,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil I"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10002026",
+      "name": "in00",
+      "x": 1458,
+      "y": 427,
+      "intra_map": false,
+      "dest_name": "The Forest of Evil II"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10002023",
+      "name": "out00",
+      "x": 453,
+      "y": 415,
+      "intra_map": false,
+      "dest_name": "Monkey Forest II"
+    }
+  ],
+  "010002026": [
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10002026",
+      "name": "up00",
+      "x": 466,
+      "y": 2016,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil II"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10002026",
+      "name": "up01",
+      "x": 408,
+      "y": 1408,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil II"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10002026",
+      "name": "up10",
+      "x": 907,
+      "y": 2012,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil II"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10002026",
+      "name": "up11",
+      "x": 901,
+      "y": 1611,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil II"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10002026",
+      "name": "up20",
+      "x": 1449,
+      "y": 2022,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil II"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10002026",
+      "name": "up21",
+      "x": 1449,
+      "y": 1624,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil II"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10002026",
+      "name": "up22",
+      "x": 1445,
+      "y": 1224,
+      "intra_map": true,
+      "dest_name": "The Forest of Evil II"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10002025",
+      "name": "out00",
+      "x": 453,
+      "y": 415,
+      "intra_map": false,
+      "dest_name": "The Forest of Evil I"
+    }
+  ],
+  "010002027": [
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10002027",
+      "name": "dw10",
+      "x": 214,
+      "y": 620,
+      "intra_map": true,
+      "dest_name": "Downstairs at the Forest"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10002027",
+      "name": "dw11",
+      "x": 219,
+      "y": 1021,
+      "intra_map": true,
+      "dest_name": "Downstairs at the Forest"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10002027",
+      "name": "dw20",
+      "x": 728,
+      "y": 821,
+      "intra_map": true,
+      "dest_name": "Downstairs at the Forest"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10002027",
+      "name": "dw22",
+      "x": 727,
+      "y": 1623,
+      "intra_map": true,
+      "dest_name": "Downstairs at the Forest"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10002027",
+      "name": "dw21",
+      "x": 807,
+      "y": 1199,
+      "intra_map": true,
+      "dest_name": "Downstairs at the Forest"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10002027",
+      "name": "dw23",
+      "x": 807,
+      "y": 1999,
+      "intra_map": true,
+      "dest_name": "Downstairs at the Forest"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10002027",
+      "name": "dw30",
+      "x": 1351,
+      "y": 1421,
+      "intra_map": true,
+      "dest_name": "Downstairs at the Forest"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10002027",
+      "name": "dw31",
+      "x": 1355,
+      "y": 1822,
+      "intra_map": true,
+      "dest_name": "Downstairs at the Forest"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10002020",
+      "name": "out01",
+      "x": 1287,
+      "y": 418,
+      "intra_map": false,
+      "dest_name": "The Forest of Wisdom"
+    }
+  ],
+  "010002030": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10002031",
+      "name": "in01",
+      "x": 317,
+      "y": 2154,
+      "intra_map": false,
+      "dest_name": "Dungeon, Southern Forest I"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10002031",
+      "name": "in01_1",
+      "x": 363,
+      "y": 1558,
+      "intra_map": false,
+      "dest_name": "Dungeon, Southern Forest I"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10002032",
+      "name": "in02",
+      "x": 965,
+      "y": 1496,
+      "intra_map": false,
+      "dest_name": "Dungeon, Southern Forest II"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10002032",
+      "name": "in02_1",
+      "x": 900,
+      "y": 889,
+      "intra_map": false,
+      "dest_name": "Dungeon, Southern Forest II"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10002033",
+      "name": "in03",
+      "x": 2622,
+      "y": 502,
+      "intra_map": false,
+      "dest_name": "Dungeon, Southern Forest III"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10002034",
+      "name": "in04",
+      "x": 3084,
+      "y": 1202,
+      "intra_map": false,
+      "dest_name": "Dungeon, Southern Forest IV"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10002034",
+      "name": "in04_1",
+      "x": 3022,
+      "y": 595,
+      "intra_map": false,
+      "dest_name": "Dungeon, Southern Forest IV"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10002020",
+      "name": "east00",
+      "x": 3173,
+      "y": 420,
+      "intra_map": false,
+      "dest_name": "The Forest of Wisdom"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10001080",
+      "name": "west00",
+      "x": 192,
+      "y": 2671,
+      "intra_map": false,
+      "dest_name": "The Forest East of Henesys"
+    }
+  ],
+  "010002031": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10002030",
+      "name": "out00",
+      "x": 311,
+      "y": 2487,
+      "intra_map": false,
+      "dest_name": "The Forest South of Ellinia"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10002030",
+      "name": "out01",
+      "x": 775,
+      "y": 1120,
+      "intra_map": false,
+      "dest_name": "The Forest South of Ellinia"
+    }
+  ],
+  "010002032": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10002030",
+      "name": "out00",
+      "x": 780,
+      "y": 2056,
+      "intra_map": false,
+      "dest_name": "The Forest South of Ellinia"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10002030",
+      "name": "out01",
+      "x": 305,
+      "y": 638,
+      "intra_map": false,
+      "dest_name": "The Forest South of Ellinia"
+    }
+  ],
+  "010002033": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10002030",
+      "name": "out00",
+      "x": 778,
+      "y": 728,
+      "intra_map": false,
+      "dest_name": "The Forest South of Ellinia"
+    }
+  ],
+  "010002034": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10002030",
+      "name": "out01",
+      "x": 348,
+      "y": 649,
+      "intra_map": false,
+      "dest_name": "The Forest South of Ellinia"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10002030",
+      "name": "out00",
+      "x": 778,
+      "y": 2094,
+      "intra_map": false,
+      "dest_name": "The Forest South of Ellinia"
+    }
+  ],
+  "010002040": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "10002041",
+      "name": "in00",
+      "x": 1044,
+      "y": 413,
+      "intra_map": false,
+      "dest_name": "The Forest of Patience <Step 2>"
+    }
+  ],
+  "010002042": [
+    {
+      "id": "1",
+      "type": 1,
+      "dest_map": "10002042",
+      "name": "h001",
+      "x": 499,
+      "y": 1657,
+      "intra_map": true,
+      "dest_name": "The Forest of Patience <Step 3>"
+    },
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10002042",
+      "name": "h001_1",
+      "x": 574,
+      "y": 1232,
+      "intra_map": true,
+      "dest_name": "The Forest of Patience <Step 3>"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10002043",
+      "name": "in00",
+      "x": 1215,
+      "y": 412,
+      "intra_map": false,
+      "dest_name": "The Forest of Patience <Step 4>"
+    }
+  ],
+  "010002043": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10002044",
+      "name": "in00",
+      "x": 318,
+      "y": 419,
+      "intra_map": false,
+      "dest_name": "The Forest of Patience <Step 5>"
+    }
+  ],
+  "010002044": [
+    {
+      "id": "1",
+      "type": 1,
+      "dest_map": "10002044",
+      "name": "h001",
+      "x": 1074,
+      "y": 4318,
+      "intra_map": true,
+      "dest_name": "The Forest of Patience <Step 5>"
+    },
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10002044",
+      "name": "h001_1",
+      "x": 1077,
+      "y": 3914,
+      "intra_map": true,
+      "dest_name": "The Forest of Patience <Step 5>"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10002044",
+      "name": "h002",
+      "x": 570,
+      "y": 3506,
+      "intra_map": true,
+      "dest_name": "The Forest of Patience <Step 5>"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10002044",
+      "name": "h002_1",
+      "x": 561,
+      "y": 3107,
+      "intra_map": true,
+      "dest_name": "The Forest of Patience <Step 5>"
+    }
+  ],
+  "010002050": [
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10002060",
+      "name": "west00",
+      "x": 219,
+      "y": 1364,
+      "intra_map": false,
+      "dest_name": "The Tree That Grew I"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10002000",
+      "name": "east00",
+      "x": 1765,
+      "y": 1823,
+      "intra_map": false,
+      "dest_name": "Ellinia"
+    }
+  ],
+  "010002060": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10002060",
+      "name": "dw00",
+      "x": 1453,
+      "y": 506,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew I"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10002060",
+      "name": "dw01",
+      "x": 1452,
+      "y": 908,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew I"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10002060",
+      "name": "dw02",
+      "x": 1459,
+      "y": 1309,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew I"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "west00",
+      "x": 241,
+      "y": 1763,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10002050",
+      "name": "east00",
+      "x": 1739,
+      "y": 1703,
+      "intra_map": false,
+      "dest_name": "The Field Up North of Ellinia"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10002060",
+      "name": "up00",
+      "x": 455,
+      "y": 1701,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew I"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10002060",
+      "name": "up01",
+      "x": 472,
+      "y": 1302,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew I"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10002060",
+      "name": "up02",
+      "x": 474,
+      "y": 903,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew I"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "up03",
+      "x": 476,
+      "y": 501,
+      "intra_map": false,
+      "dest_name": "The Tree That Grew II"
+    }
+  ],
+  "010002061": [
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "up00",
+      "x": 358,
+      "y": 2413,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "up01",
+      "x": 375,
+      "y": 2014,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "up02",
+      "x": 377,
+      "y": 1615,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "up03",
+      "x": 379,
+      "y": 1213,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "up04",
+      "x": 377,
+      "y": 815,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "15",
+      "type": 1,
+      "dest_map": "10002062",
+      "name": "up05",
+      "x": 375,
+      "y": 416,
+      "intra_map": false,
+      "dest_name": "The Tree That Grew III"
+    },
+    {
+      "id": "16",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "dw00",
+      "x": 1354,
+      "y": 417,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "17",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "dw01",
+      "x": 1350,
+      "y": 819,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "18",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "dw02",
+      "x": 1356,
+      "y": 1220,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "19",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "dw03",
+      "x": 1355,
+      "y": 1622,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "20",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "dw04",
+      "x": 1344,
+      "y": 2018,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "21",
+      "type": 1,
+      "dest_map": "10002060",
+      "name": "dw05",
+      "x": 1357,
+      "y": 2420,
+      "intra_map": false,
+      "dest_name": "The Tree That Grew I"
+    }
+  ],
+  "010002062": [
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10002062",
+      "name": "dw00",
+      "x": 1356,
+      "y": 420,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew III"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10002062",
+      "name": "dw01",
+      "x": 1356,
+      "y": 819,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew III"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10002062",
+      "name": "dw02",
+      "x": 1355,
+      "y": 1219,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew III"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10002062",
+      "name": "dw03",
+      "x": 1362,
+      "y": 1620,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew III"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10002061",
+      "name": "dw04",
+      "x": 1362,
+      "y": 2019,
+      "intra_map": false,
+      "dest_name": "The Tree That Grew II"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10002062",
+      "name": "up00",
+      "x": 358,
+      "y": 2012,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew III"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10002062",
+      "name": "up01",
+      "x": 375,
+      "y": 1613,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew III"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10002062",
+      "name": "up02",
+      "x": 377,
+      "y": 1214,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew III"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10002062",
+      "name": "up03",
+      "x": 379,
+      "y": 812,
+      "intra_map": true,
+      "dest_name": "The Tree That Grew III"
+    }
+  ],
+  "010002070": [
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10002071",
+      "name": "in01",
+      "x": 1159,
+      "y": 6630,
+      "intra_map": false,
+      "dest_name": "The Tree Tunnel At the Forest Up North"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10002071",
+      "name": "in01_1",
+      "x": 1099,
+      "y": 5622,
+      "intra_map": false,
+      "dest_name": "The Tree Tunnel At the Forest Up North"
+    },
+    {
+      "id": "15",
+      "type": 1,
+      "dest_map": "10002071",
+      "name": "in01_2",
+      "x": 1162,
+      "y": 4630,
+      "intra_map": false,
+      "dest_name": "The Tree Tunnel At the Forest Up North"
+    },
+    {
+      "id": "16",
+      "type": 1,
+      "dest_map": "10002071",
+      "name": "in01_3",
+      "x": 1167,
+      "y": 2625,
+      "intra_map": false,
+      "dest_name": "The Tree Tunnel At the Forest Up North"
+    },
+    {
+      "id": "17",
+      "type": 1,
+      "dest_map": "10002072",
+      "name": "in02",
+      "x": 1657,
+      "y": 6085,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North I"
+    },
+    {
+      "id": "18",
+      "type": 1,
+      "dest_map": "10002072",
+      "name": "in02_1",
+      "x": 1641,
+      "y": 5680,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North I"
+    },
+    {
+      "id": "19",
+      "type": 1,
+      "dest_map": "10002073",
+      "name": "in03",
+      "x": 389,
+      "y": 6020,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North II"
+    },
+    {
+      "id": "20",
+      "type": 1,
+      "dest_map": "10002073",
+      "name": "in03_1",
+      "x": 387,
+      "y": 5613,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North II"
+    },
+    {
+      "id": "21",
+      "type": 1,
+      "dest_map": "10002080",
+      "name": "in04",
+      "x": 1731,
+      "y": 3658,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North VI"
+    },
+    {
+      "id": "22",
+      "type": 1,
+      "dest_map": "10002080",
+      "name": "in04_1",
+      "x": 1643,
+      "y": 2881,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North VI"
+    },
+    {
+      "id": "23",
+      "type": 1,
+      "dest_map": "10002081",
+      "name": "in05",
+      "x": 325,
+      "y": 2209,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North VII"
+    },
+    {
+      "id": "24",
+      "type": 1,
+      "dest_map": "10002074",
+      "name": "in06",
+      "x": 1102,
+      "y": 2013,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North III"
+    },
+    {
+      "id": "25",
+      "type": 1,
+      "dest_map": "10002075",
+      "name": "in07",
+      "x": 730,
+      "y": 2120,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North IV"
+    },
+    {
+      "id": "26",
+      "type": 1,
+      "dest_map": "10002075",
+      "name": "in07_1",
+      "x": 653,
+      "y": 1344,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North IV"
+    },
+    {
+      "id": "27",
+      "type": 1,
+      "dest_map": "10002076",
+      "name": "in08",
+      "x": 1660,
+      "y": 2077,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North V"
+    },
+    {
+      "id": "28",
+      "type": 1,
+      "dest_map": "10002076",
+      "name": "in08_1",
+      "x": 1658,
+      "y": 1278,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North V"
+    },
+    {
+      "id": "29",
+      "type": 1,
+      "dest_map": "10002082",
+      "name": "in09",
+      "x": 388,
+      "y": 1210,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North VIII"
+    },
+    {
+      "id": "30",
+      "type": 1,
+      "dest_map": "10002082",
+      "name": "in09_1",
+      "x": 384,
+      "y": 813,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North VIII"
+    },
+    {
+      "id": "31",
+      "type": 1,
+      "dest_map": "10002083",
+      "name": "in10",
+      "x": 719,
+      "y": 520,
+      "intra_map": false,
+      "dest_name": "Tree Dungeon, Forest Up North IX"
+    },
+    {
+      "id": "33",
+      "type": 2,
+      "dest_map": "10002060",
+      "name": "east00",
+      "x": 1974,
+      "y": 6629,
+      "intra_map": false,
+      "dest_name": "The Tree That Grew I"
+    },
+    {
+      "id": "34",
+      "type": 2,
+      "dest_map": "10004090",
+      "name": "top00",
+      "x": 164,
+      "y": 5780,
+      "intra_map": false,
+      "dest_name": "East Domain of Perion"
+    }
+  ],
+  "010002071": [
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out00",
+      "x": 798,
+      "y": 3141,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out01",
+      "x": 354,
+      "y": 2398,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out02",
+      "x": 816,
+      "y": 1729,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out03",
+      "x": 819,
+      "y": 688,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    }
+  ],
+  "010002072": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out00",
+      "x": 311,
+      "y": 3180,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out01",
+      "x": 314,
+      "y": 2398,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    }
+  ],
+  "010002073": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out00",
+      "x": 782,
+      "y": 2221,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out01",
+      "x": 781,
+      "y": 1087,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    }
+  ],
+  "010002074": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out00",
+      "x": 316,
+      "y": 2266,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    }
+  ],
+  "010002075": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out00",
+      "x": 772,
+      "y": 2177,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out01",
+      "x": 316,
+      "y": 938,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    }
+  ],
+  "010002076": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out00",
+      "x": 318,
+      "y": 2250,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out01",
+      "x": 315,
+      "y": 1231,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    }
+  ],
+  "010002080": [
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out00",
+      "x": 782,
+      "y": 2558,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out01",
+      "x": 311,
+      "y": 1133,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    }
+  ],
+  "010002081": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out00",
+      "x": 354,
+      "y": 1905,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    }
+  ],
+  "010002082": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out00",
+      "x": 800,
+      "y": 2503,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out01",
+      "x": 800,
+      "y": 955,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    }
+  ],
+  "010002083": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "out00",
+      "x": 762,
+      "y": 2479,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    }
+  ],
+  "010003000": [
+    {
+      "id": "15",
+      "type": 1,
+      "dest_map": "10003001",
+      "name": "in01_1",
+      "x": 1209,
+      "y": 1500,
+      "intra_map": false,
+      "dest_name": "Kerning City Self-Defence Item Store"
+    },
+    {
+      "id": "16",
+      "type": 1,
+      "dest_map": "10003001",
+      "name": "in01_2",
+      "x": 984,
+      "y": 1244,
+      "intra_map": false,
+      "dest_name": "Kerning City Self-Defence Item Store"
+    },
+    {
+      "id": "17",
+      "type": 1,
+      "dest_map": "10003004",
+      "name": "in04_1",
+      "x": 1884,
+      "y": 1480,
+      "intra_map": false,
+      "dest_name": "Niora Hospital"
+    },
+    {
+      "id": "18",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "hide01",
+      "x": 2570,
+      "y": 971,
+      "intra_map": true,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "19",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "hide01_1",
+      "x": 2786,
+      "y": 691,
+      "intra_map": true,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "20",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "hide02",
+      "x": 4033,
+      "y": 887,
+      "intra_map": true,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "21",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "hide02_1",
+      "x": 4255,
+      "y": 606,
+      "intra_map": true,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "22",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "hide03",
+      "x": 4645,
+      "y": 1802,
+      "intra_map": true,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "23",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "hide03_1",
+      "x": 270,
+      "y": 1748,
+      "intra_map": true,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "24",
+      "type": 1,
+      "dest_map": "10003001",
+      "name": "in01",
+      "x": 890,
+      "y": 1499,
+      "intra_map": false,
+      "dest_name": "Kerning City Self-Defence Item Store"
+    },
+    {
+      "id": "25",
+      "type": 1,
+      "dest_map": "10003002",
+      "name": "in02",
+      "x": 3623,
+      "y": 1493,
+      "intra_map": false,
+      "dest_name": "Kerning City Pharmacy"
+    },
+    {
+      "id": "26",
+      "type": 1,
+      "dest_map": "10003003",
+      "name": "in03",
+      "x": 4019,
+      "y": 1649,
+      "intra_map": false,
+      "dest_name": "Thieves' Hideout"
+    },
+    {
+      "id": "27",
+      "type": 1,
+      "dest_map": "10003004",
+      "name": "in04",
+      "x": 1854,
+      "y": 1608,
+      "intra_map": false,
+      "dest_name": "Niora Hospital"
+    },
+    {
+      "id": "28",
+      "type": 1,
+      "dest_map": "10003005",
+      "name": "in05",
+      "x": 2807,
+      "y": 1393,
+      "intra_map": false,
+      "dest_name": "Kerning City Hair Salon"
+    },
+    {
+      "id": "29",
+      "type": 1,
+      "dest_map": "10003006",
+      "name": "in06",
+      "x": 2870,
+      "y": 1159,
+      "intra_map": false,
+      "dest_name": "Kerning City Repair Shop"
+    },
+    {
+      "id": "30",
+      "type": 1,
+      "dest_map": "10003006",
+      "name": "in06_1",
+      "x": 3059,
+      "y": 1001,
+      "intra_map": false,
+      "dest_name": "Kerning City Repair Shop"
+    },
+    {
+      "id": "31",
+      "type": 1,
+      "dest_map": "10003090",
+      "name": "mid00",
+      "x": 1766,
+      "y": 1866,
+      "intra_map": false,
+      "dest_name": "The Swamp of Despair I"
+    },
+    {
+      "id": "32",
+      "type": 1,
+      "dest_map": "10003060",
+      "name": "sub00",
+      "x": 3267,
+      "y": 1918,
+      "intra_map": false,
+      "dest_name": "Subway Ticketing Booth"
+    },
+    {
+      "id": "35",
+      "type": 2,
+      "dest_map": "10003070",
+      "name": "east00",
+      "x": 5127,
+      "y": 1289,
+      "intra_map": false,
+      "dest_name": "Sunset Sky"
+    },
+    {
+      "id": "36",
+      "type": 2,
+      "dest_map": "10003010",
+      "name": "west00",
+      "x": 336,
+      "y": 1646,
+      "intra_map": false,
+      "dest_name": "Kerning City Construction Site"
+    }
+  ],
+  "010003001": [
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "out01",
+      "x": 348,
+      "y": 604,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "out02",
+      "x": 615,
+      "y": 127,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10003000",
+      "name": "out00",
+      "x": 925,
+      "y": 600,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    }
+  ],
+  "010003002": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10003000",
+      "name": "out00",
+      "x": 937,
+      "y": 333,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    }
+  ],
+  "010003003": [
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "out00",
+      "x": 851,
+      "y": 444,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    }
+  ],
+  "010003004": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "out01",
+      "x": 960,
+      "y": 304,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10003000",
+      "name": "out00",
+      "x": 947,
+      "y": 529,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    }
+  ],
+  "010003005": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10003000",
+      "name": "out00",
+      "x": 455,
+      "y": 535,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    }
+  ],
+  "010003006": [
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "out00",
+      "x": 928,
+      "y": 292,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10003000",
+      "name": "out01",
+      "x": 710,
+      "y": 338,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    }
+  ],
+  "010003010": [
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10003011",
+      "name": "hiden00",
+      "x": 1239,
+      "y": 455,
+      "intra_map": false,
+      "dest_name": "Caution Falling Down"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10003020",
+      "name": "east00",
+      "x": 4527,
+      "y": 1909,
+      "intra_map": false,
+      "dest_name": "L Forest I"
+    },
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10003000",
+      "name": "top00",
+      "x": 4531,
+      "y": 591,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    }
+  ],
+  "010003011": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "10003010",
+      "name": "out00",
+      "x": 1284,
+      "y": 410,
+      "intra_map": false,
+      "dest_name": "Kerning City Construction Site"
+    }
+  ],
+  "010003020": [
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10003030",
+      "name": "east00",
+      "x": 2953,
+      "y": 1885,
+      "intra_map": false,
+      "dest_name": "L Forest II"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10003010",
+      "name": "west00",
+      "x": 302,
+      "y": 1705,
+      "intra_map": false,
+      "dest_name": "Kerning City Construction Site"
+    }
+  ],
+  "010003030": [
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10003040",
+      "name": "east00",
+      "x": 2459,
+      "y": 1397,
+      "intra_map": false,
+      "dest_name": "L Forest III"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10003020",
+      "name": "west00",
+      "x": 213,
+      "y": 1639,
+      "intra_map": false,
+      "dest_name": "L Forest I"
+    }
+  ],
+  "010003040": [
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10003050",
+      "name": "east00",
+      "x": 3592,
+      "y": 1847,
+      "intra_map": false,
+      "dest_name": "Kerning City Middle Forest I"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10003030",
+      "name": "west00",
+      "x": 249,
+      "y": 1908,
+      "intra_map": false,
+      "dest_name": "L Forest II"
+    }
+  ],
+  "010003050": [
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10000020",
+      "name": "east00",
+      "x": 2984,
+      "y": 1609,
+      "intra_map": false,
+      "dest_name": "3-Way Road-Split"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10003040",
+      "name": "west00",
+      "x": 338,
+      "y": 1671,
+      "intra_map": false,
+      "dest_name": "L Forest III"
+    },
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10003051",
+      "name": "in00",
+      "x": 1632,
+      "y": 409,
+      "intra_map": false,
+      "dest_name": "Kerning City Middle Forest II"
+    }
+  ],
+  "010003051": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10003052",
+      "name": "in00",
+      "x": 1447,
+      "y": 411,
+      "intra_map": false,
+      "dest_name": "Kerning City Middle Forest III"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10003050",
+      "name": "out00",
+      "x": 1677,
+      "y": 1668,
+      "intra_map": false,
+      "dest_name": "Kerning City Middle Forest I"
+    }
+  ],
+  "010003052": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10003051",
+      "name": "out00",
+      "x": 1637,
+      "y": 1670,
+      "intra_map": false,
+      "dest_name": "Kerning City Middle Forest II"
+    }
+  ],
+  "010003060": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10003000",
+      "name": "out00",
+      "x": 238,
+      "y": 185,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10003061",
+      "name": "in00",
+      "x": 637,
+      "y": 535,
+      "intra_map": false,
+      "dest_name": "Line 1 <Area 1>"
+    }
+  ],
+  "010003061": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10003062",
+      "name": "in00",
+      "x": 3800,
+      "y": 1022,
+      "intra_map": false,
+      "dest_name": "Transfer Area"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10003060",
+      "name": "out00",
+      "x": 450,
+      "y": 1061,
+      "intra_map": false,
+      "dest_name": "Subway Ticketing Booth"
+    }
+  ],
+  "010003062": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10003063",
+      "name": "in00",
+      "x": 1722,
+      "y": 1025,
+      "intra_map": false,
+      "dest_name": "Line 1 <Area 2>"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10003066",
+      "name": "in01",
+      "x": 1714,
+      "y": 1921,
+      "intra_map": false,
+      "dest_name": "Line 2 <Area 1>"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10003061",
+      "name": "out00",
+      "x": 450,
+      "y": 1061,
+      "intra_map": false,
+      "dest_name": "Line 1 <Area 1>"
+    }
+  ],
+  "010003063": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10003064",
+      "name": "in00",
+      "x": 3800,
+      "y": 1022,
+      "intra_map": false,
+      "dest_name": "Line 1 <Area 3>"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10003062",
+      "name": "out00",
+      "x": 450,
+      "y": 1061,
+      "intra_map": false,
+      "dest_name": "Transfer Area"
+    }
+  ],
+  "010003064": [
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10003065",
+      "name": "in00",
+      "x": 3616,
+      "y": 1023,
+      "intra_map": false,
+      "dest_name": "Line 1 <Area 4>"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10003063",
+      "name": "out00",
+      "x": 465,
+      "y": 1062,
+      "intra_map": false,
+      "dest_name": "Line 1 <Area 2>"
+    }
+  ],
+  "010003065": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10003064",
+      "name": "out00",
+      "x": 465,
+      "y": 1062,
+      "intra_map": false,
+      "dest_name": "Line 1 <Area 3>"
+    }
+  ],
+  "010003066": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10003067",
+      "name": "in00",
+      "x": 3776,
+      "y": 1025,
+      "intra_map": false,
+      "dest_name": "Line 2 <Area 2>"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10003062",
+      "name": "out00",
+      "x": 416,
+      "y": 1064,
+      "intra_map": false,
+      "dest_name": "Transfer Area"
+    }
+  ],
+  "010003067": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10003066",
+      "name": "out00",
+      "x": 425,
+      "y": 1063,
+      "intra_map": false,
+      "dest_name": "Line 2 <Area 1>"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10003068",
+      "name": "in00",
+      "x": 3617,
+      "y": 1022,
+      "intra_map": false,
+      "dest_name": "Line 2 <Area 3>"
+    }
+  ],
+  "010003068": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10003067",
+      "name": "out00",
+      "x": 425,
+      "y": 1063,
+      "intra_map": false,
+      "dest_name": "Line 2 <Area 2>"
+    }
+  ],
+  "010003070": [
+    {
+      "id": "15",
+      "type": 1,
+      "dest_map": "10003070",
+      "name": "hide01",
+      "x": 1948,
+      "y": 1491,
+      "intra_map": true,
+      "dest_name": "Sunset Sky"
+    },
+    {
+      "id": "16",
+      "type": 1,
+      "dest_map": "10003070",
+      "name": "hide02",
+      "x": 1906,
+      "y": 1358,
+      "intra_map": true,
+      "dest_name": "Sunset Sky"
+    },
+    {
+      "id": "17",
+      "type": 1,
+      "dest_map": "10003070",
+      "name": "hide03",
+      "x": 1741,
+      "y": 913,
+      "intra_map": true,
+      "dest_name": "Sunset Sky"
+    },
+    {
+      "id": "18",
+      "type": 1,
+      "dest_map": "10003070",
+      "name": "hide04",
+      "x": 1697,
+      "y": 776,
+      "intra_map": true,
+      "dest_name": "Sunset Sky"
+    },
+    {
+      "id": "19",
+      "type": 1,
+      "dest_map": "10003070",
+      "name": "hide05",
+      "x": 2288,
+      "y": 742,
+      "intra_map": true,
+      "dest_name": "Sunset Sky"
+    },
+    {
+      "id": "20",
+      "type": 1,
+      "dest_map": "10003070",
+      "name": "hide06",
+      "x": 2242,
+      "y": 606,
+      "intra_map": true,
+      "dest_name": "Sunset Sky"
+    },
+    {
+      "id": "21",
+      "type": 2,
+      "dest_map": "10003080",
+      "name": "east00",
+      "x": 2686,
+      "y": 1693,
+      "intra_map": false,
+      "dest_name": "Construction Site North of Kerning City"
+    },
+    {
+      "id": "22",
+      "type": 2,
+      "dest_map": "10003000",
+      "name": "west00",
+      "x": 181,
+      "y": 1810,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    }
+  ],
+  "010003080": [
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10003080",
+      "name": "h_east00",
+      "x": 2934,
+      "y": 1487,
+      "intra_map": true,
+      "dest_name": "Construction Site North of Kerning City"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10003080",
+      "name": "h_west00",
+      "x": 626,
+      "y": 1907,
+      "intra_map": true,
+      "dest_name": "Construction Site North of Kerning City"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10003070",
+      "name": "west00",
+      "x": 210,
+      "y": 1545,
+      "intra_map": false,
+      "dest_name": "Sunset Sky"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10004030",
+      "name": "east00",
+      "x": 2984,
+      "y": 1697,
+      "intra_map": false,
+      "dest_name": "West Domain of Perion"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10003081",
+      "name": "hiden00",
+      "x": 2260,
+      "y": 629,
+      "intra_map": false,
+      "dest_name": "Northern Top of Construction Site"
+    }
+  ],
+  "010003081": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "10003080",
+      "name": "out00",
+      "x": 656,
+      "y": 410,
+      "intra_map": false,
+      "dest_name": "Construction Site North of Kerning City"
+    }
+  ],
+  "010003090": [
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10003000",
+      "name": "west00",
+      "x": 151,
+      "y": 1531,
+      "intra_map": false,
+      "dest_name": "Kerning City"
+    },
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10003091",
+      "name": "east00",
+      "x": 3039,
+      "y": 1579,
+      "intra_map": false,
+      "dest_name": "The Swamp of Despair II"
+    }
+  ],
+  "010003091": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "10003090",
+      "name": "west00",
+      "x": 216,
+      "y": 1437,
+      "intra_map": false,
+      "dest_name": "The Swamp of Despair I"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10003092",
+      "name": "east00",
+      "x": 3440,
+      "y": 1379,
+      "intra_map": false,
+      "dest_name": "The Swamp of Despair III"
+    }
+  ],
+  "010003092": [
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10003091",
+      "name": "west00",
+      "x": 199,
+      "y": 1626,
+      "intra_map": false,
+      "dest_name": "The Swamp of Despair II"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10003093",
+      "name": "east00",
+      "x": 2935,
+      "y": 1651,
+      "intra_map": false,
+      "dest_name": "Dangerous Croko I"
+    }
+  ],
+  "010003093": [
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10003092",
+      "name": "west00",
+      "x": 133,
+      "y": 1875,
+      "intra_map": false,
+      "dest_name": "The Swamp of Despair III"
+    },
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10003094",
+      "name": "east00",
+      "x": 3530,
+      "y": 1842,
+      "intra_map": false,
+      "dest_name": "Dangerous Croko II"
+    }
+  ],
+  "010003094": [
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10003093",
+      "name": "west00",
+      "x": 94,
+      "y": 1755,
+      "intra_map": false,
+      "dest_name": "Dangerous Croko I"
+    },
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10005030",
+      "name": "east00",
+      "x": 3167,
+      "y": 1740,
+      "intra_map": false,
+      "dest_name": "Damp Tree-Forest"
+    },
+    {
+      "id": "15",
+      "type": 3,
+      "dest_map": "10003095",
+      "name": "in00",
+      "x": 366,
+      "y": 127,
+      "intra_map": false,
+      "dest_name": "Monkey Swamp I"
+    }
+  ],
+  "010003095": [
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10003094",
+      "name": "out00",
+      "x": 536,
+      "y": 1738,
+      "intra_map": false,
+      "dest_name": "Dangerous Croko II"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10003096",
+      "name": "in00",
+      "x": 1168,
+      "y": 1758,
+      "intra_map": false,
+      "dest_name": "Monkey Swamp II"
+    }
+  ],
+  "010003096": [
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10003095",
+      "name": "out00",
+      "x": 1191,
+      "y": 1756,
+      "intra_map": false,
+      "dest_name": "Monkey Swamp I"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10003097",
+      "name": "in00",
+      "x": 563,
+      "y": 1734,
+      "intra_map": false,
+      "dest_name": "Monkey Swamp III"
+    }
+  ],
+  "010003097": [
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10003096",
+      "name": "out00",
+      "x": 331,
+      "y": 1743,
+      "intra_map": false,
+      "dest_name": "Monkey Swamp II"
+    }
+  ],
+  "010003100": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10003100",
+      "name": "in00",
+      "x": 1292,
+      "y": 1220,
+      "intra_map": true,
+      "dest_name": "B1 <Area 1>"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10003100",
+      "name": "out00",
+      "x": 496,
+      "y": 929,
+      "intra_map": true,
+      "dest_name": "B1 <Area 1>"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10003100",
+      "name": "in02",
+      "x": 2199,
+      "y": 500,
+      "intra_map": true,
+      "dest_name": "B1 <Area 1>"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10003100",
+      "name": "in04",
+      "x": 4321,
+      "y": 591,
+      "intra_map": true,
+      "dest_name": "B1 <Area 1>"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10003100",
+      "name": "in01",
+      "x": 2297,
+      "y": 1771,
+      "intra_map": true,
+      "dest_name": "B1 <Area 1>"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10003100",
+      "name": "out01",
+      "x": 2248,
+      "y": 2151,
+      "intra_map": true,
+      "dest_name": "B1 <Area 1>"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10003100",
+      "name": "in03",
+      "x": 2254,
+      "y": 2612,
+      "intra_map": true,
+      "dest_name": "B1 <Area 1>"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10003100",
+      "name": "in05",
+      "x": 4343,
+      "y": 2271,
+      "intra_map": true,
+      "dest_name": "B1 <Area 1>"
+    },
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10003101",
+      "name": "end00",
+      "x": 4324,
+      "y": 1490,
+      "intra_map": false,
+      "dest_name": "B1 <Area 2>"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10003100",
+      "name": "cross00",
+      "x": 679,
+      "y": 2610,
+      "intra_map": true,
+      "dest_name": "B1 <Area 1>"
+    },
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10003100",
+      "name": "cross01",
+      "x": 972,
+      "y": 2609,
+      "intra_map": true,
+      "dest_name": "B1 <Area 1>"
+    }
+  ],
+  "010003101": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10003101",
+      "name": "out00",
+      "x": 986,
+      "y": 1205,
+      "intra_map": true,
+      "dest_name": "B1 <Area 2>"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10003102",
+      "name": "out01",
+      "x": 833,
+      "y": 431,
+      "intra_map": false,
+      "dest_name": "B1 <Subway Depot>"
+    }
+  ],
+  "010003102": [
+    {
+      "id": "3",
+      "type": 3,
+      "dest_map": "10003102",
+      "name": "h001",
+      "x": 390,
+      "y": 742,
+      "intra_map": true,
+      "dest_name": "B1 <Subway Depot>"
+    },
+    {
+      "id": "4",
+      "type": 3,
+      "dest_map": "10003102",
+      "name": "h003",
+      "x": 2154,
+      "y": 746,
+      "intra_map": true,
+      "dest_name": "B1 <Subway Depot>"
+    }
+  ],
+  "010003103": [
+    {
+      "id": "1",
+      "type": 1,
+      "dest_map": "10003103",
+      "name": "go001",
+      "x": 537,
+      "y": 1821,
+      "intra_map": true,
+      "dest_name": "B2 <Area 1>"
+    },
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10003103",
+      "name": "go002",
+      "x": 713,
+      "y": 1821,
+      "intra_map": true,
+      "dest_name": "B2 <Area 1>"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10003103",
+      "name": "go003",
+      "x": 1073,
+      "y": 1821,
+      "intra_map": true,
+      "dest_name": "B2 <Area 1>"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10003103",
+      "name": "go004",
+      "x": 898,
+      "y": 1821,
+      "intra_map": true,
+      "dest_name": "B2 <Area 1>"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10003103",
+      "name": "go005",
+      "x": 621,
+      "y": 1822,
+      "intra_map": true,
+      "dest_name": "B2 <Area 1>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10003103",
+      "name": "go006",
+      "x": 443,
+      "y": 1821,
+      "intra_map": true,
+      "dest_name": "B2 <Area 1>"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10003103",
+      "name": "go007",
+      "x": 984,
+      "y": 1822,
+      "intra_map": true,
+      "dest_name": "B2 <Area 1>"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10003104",
+      "name": "in00",
+      "x": 759,
+      "y": 381,
+      "intra_map": false,
+      "dest_name": "B2 <Area 2>"
+    }
+  ],
+  "010003104": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10003104",
+      "name": "cross00",
+      "x": 670,
+      "y": 2888,
+      "intra_map": true,
+      "dest_name": "B2 <Area 2>"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10003104",
+      "name": "cross01",
+      "x": 1291,
+      "y": 2890,
+      "intra_map": true,
+      "dest_name": "B2 <Area 2>"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10003105",
+      "name": "in00",
+      "x": 1795,
+      "y": 1260,
+      "intra_map": false,
+      "dest_name": "B2 <Subway Depot>"
+    }
+  ],
+  "010003105": [
+    {
+      "id": "3",
+      "type": 3,
+      "dest_map": "10003105",
+      "name": "h001",
+      "x": 382,
+      "y": 746,
+      "intra_map": true,
+      "dest_name": "B2 <Subway Depot>"
+    },
+    {
+      "id": "4",
+      "type": 3,
+      "dest_map": "10003105",
+      "name": "h003",
+      "x": 2165,
+      "y": 751,
+      "intra_map": true,
+      "dest_name": "B2 <Subway Depot>"
+    }
+  ],
+  "010003106": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10003106",
+      "name": "stage1",
+      "x": 643,
+      "y": 2952,
+      "intra_map": true,
+      "dest_name": "B3 <Area 1>"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10003107",
+      "name": "in00",
+      "x": 909,
+      "y": 732,
+      "intra_map": false,
+      "dest_name": "B3 <Area 2>"
+    }
+  ],
+  "010003107": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10003108",
+      "name": "out00",
+      "x": 4001,
+      "y": 602,
+      "intra_map": false,
+      "dest_name": "B3 <Area 3>"
+    }
+  ],
+  "010003108": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10003108",
+      "name": "h001",
+      "x": 924,
+      "y": 3671,
+      "intra_map": true,
+      "dest_name": "B3 <Area 3>"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10003108",
+      "name": "h002",
+      "x": 422,
+      "y": 2950,
+      "intra_map": true,
+      "dest_name": "B3 <Area 3>"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10003109",
+      "name": "in00",
+      "x": 489,
+      "y": 421,
+      "intra_map": false,
+      "dest_name": "B3 <Subway Depot>"
+    }
+  ],
+  "010003109": [
+    {
+      "id": "3",
+      "type": 3,
+      "dest_map": "10003109",
+      "name": "h001",
+      "x": 382,
+      "y": 749,
+      "intra_map": true,
+      "dest_name": "B3 <Subway Depot>"
+    },
+    {
+      "id": "4",
+      "type": 3,
+      "dest_map": "10003109",
+      "name": "h003",
+      "x": 2153,
+      "y": 749,
+      "intra_map": true,
+      "dest_name": "B3 <Subway Depot>"
+    }
+  ],
+  "010004000": [
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10004000",
+      "name": "h_00",
+      "x": 2869,
+      "y": 2884,
+      "intra_map": true,
+      "dest_name": "Perion"
+    },
+    {
+      "id": "15",
+      "type": 1,
+      "dest_map": "10004000",
+      "name": "h_01",
+      "x": 1810,
+      "y": 1692,
+      "intra_map": true,
+      "dest_name": "Perion"
+    },
+    {
+      "id": "18",
+      "type": 2,
+      "dest_map": "10004040",
+      "name": "east00",
+      "x": 2962,
+      "y": 2191,
+      "intra_map": false,
+      "dest_name": "Perion Street Corner"
+    },
+    {
+      "id": "19",
+      "type": 2,
+      "dest_map": "10004010",
+      "name": "west00",
+      "x": 432,
+      "y": 2633,
+      "intra_map": false,
+      "dest_name": "West Street Corner of Perion"
+    },
+    {
+      "id": "20",
+      "type": 2,
+      "dest_map": "10004100",
+      "name": "under00",
+      "x": 3189,
+      "y": 2878,
+      "intra_map": false,
+      "dest_name": "Deep Valley I"
+    },
+    {
+      "id": "21",
+      "type": 2,
+      "dest_map": "10004002",
+      "name": "in01",
+      "x": 1380,
+      "y": 1914,
+      "intra_map": false,
+      "dest_name": "Perion Department Store"
+    },
+    {
+      "id": "22",
+      "type": 2,
+      "dest_map": "10004001",
+      "name": "in00",
+      "x": 2620,
+      "y": 1597,
+      "intra_map": false,
+      "dest_name": "Perion Weapon Store"
+    },
+    {
+      "id": "23",
+      "type": 2,
+      "dest_map": "10004003",
+      "name": "in02",
+      "x": 2349,
+      "y": 840,
+      "intra_map": false,
+      "dest_name": "Warriors' Sanctuary"
+    }
+  ],
+  "010004001": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10004000",
+      "name": "out00",
+      "x": 714,
+      "y": 531,
+      "intra_map": false,
+      "dest_name": "Perion"
+    }
+  ],
+  "010004002": [
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10004000",
+      "name": "out01",
+      "x": 752,
+      "y": 494,
+      "intra_map": false,
+      "dest_name": "Perion"
+    }
+  ],
+  "010004003": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10004000",
+      "name": "out02",
+      "x": 893,
+      "y": 471,
+      "intra_map": false,
+      "dest_name": "Perion"
+    }
+  ],
+  "010004010": [
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10004010",
+      "name": "hide00",
+      "x": 2538,
+      "y": 1018,
+      "intra_map": true,
+      "dest_name": "West Street Corner of Perion"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10004010",
+      "name": "tohide00",
+      "x": 3119,
+      "y": 513,
+      "intra_map": true,
+      "dest_name": "West Street Corner of Perion"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10004010",
+      "name": "hide01",
+      "x": 2324,
+      "y": 1018,
+      "intra_map": true,
+      "dest_name": "West Street Corner of Perion"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10004010",
+      "name": "tohide01",
+      "x": 2591,
+      "y": 434,
+      "intra_map": true,
+      "dest_name": "West Street Corner of Perion"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10004010",
+      "name": "hide03",
+      "x": 723,
+      "y": 1018,
+      "intra_map": true,
+      "dest_name": "West Street Corner of Perion"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10004010",
+      "name": "tohide03",
+      "x": 381,
+      "y": 576,
+      "intra_map": true,
+      "dest_name": "West Street Corner of Perion"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10004010",
+      "name": "hide02",
+      "x": 1452,
+      "y": 1076,
+      "intra_map": true,
+      "dest_name": "West Street Corner of Perion"
+    },
+    {
+      "id": "15",
+      "type": 1,
+      "dest_map": "10004010",
+      "name": "tohide02",
+      "x": 1696,
+      "y": 443,
+      "intra_map": true,
+      "dest_name": "West Street Corner of Perion"
+    },
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10004000",
+      "name": "east00",
+      "x": 3568,
+      "y": 896,
+      "intra_map": false,
+      "dest_name": "Perion"
+    },
+    {
+      "id": "17",
+      "type": 2,
+      "dest_map": "10004020",
+      "name": "west00",
+      "x": 221,
+      "y": 955,
+      "intra_map": false,
+      "dest_name": "West Rocky Mountain I"
+    }
+  ],
+  "010004020": [
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10004030",
+      "name": "west00",
+      "x": 417,
+      "y": 1101,
+      "intra_map": false,
+      "dest_name": "West Domain of Perion"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10004010",
+      "name": "east00",
+      "x": 2703,
+      "y": 976,
+      "intra_map": false,
+      "dest_name": "West Street Corner of Perion"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10004021",
+      "name": "in00",
+      "x": 1300,
+      "y": 477,
+      "intra_map": false,
+      "dest_name": "West Rocky Mountain II"
+    }
+  ],
+  "010004021": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10004022",
+      "name": "in00",
+      "x": 1055,
+      "y": 414,
+      "intra_map": false,
+      "dest_name": "West Rocky Mountain III"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10004020",
+      "name": "out00",
+      "x": 996,
+      "y": 1183,
+      "intra_map": false,
+      "dest_name": "West Rocky Mountain I"
+    }
+  ],
+  "010004022": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10004023",
+      "name": "in00",
+      "x": 1099,
+      "y": 423,
+      "intra_map": false,
+      "dest_name": "West Rocky Mountain IV"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10004021",
+      "name": "out00",
+      "x": 384,
+      "y": 1753,
+      "intra_map": false,
+      "dest_name": "West Rocky Mountain II"
+    }
+  ],
+  "010004023": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10004022",
+      "name": "out00",
+      "x": 556,
+      "y": 1020,
+      "intra_map": false,
+      "dest_name": "West Rocky Mountain III"
+    }
+  ],
+  "010004030": [
+    {
+      "id": "19",
+      "type": 1,
+      "dest_map": "10004030",
+      "name": "hide00",
+      "x": 2933,
+      "y": 2090,
+      "intra_map": true,
+      "dest_name": "West Domain of Perion"
+    },
+    {
+      "id": "20",
+      "type": 1,
+      "dest_map": "10004030",
+      "name": "hide01",
+      "x": 2569,
+      "y": 949,
+      "intra_map": true,
+      "dest_name": "West Domain of Perion"
+    },
+    {
+      "id": "21",
+      "type": 2,
+      "dest_map": "10003080",
+      "name": "west00",
+      "x": 458,
+      "y": 1777,
+      "intra_map": false,
+      "dest_name": "Construction Site North of Kerning City"
+    },
+    {
+      "id": "22",
+      "type": 2,
+      "dest_map": "10004020",
+      "name": "top00",
+      "x": 3186,
+      "y": 564,
+      "intra_map": false,
+      "dest_name": "West Rocky Mountain I"
+    }
+  ],
+  "010004040": [
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10004041",
+      "name": "in00",
+      "x": 1093,
+      "y": 1231,
+      "intra_map": false,
+      "dest_name": "Land of Wild Boar"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10004050",
+      "name": "east00",
+      "x": 3753,
+      "y": 411,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain I"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10004000",
+      "name": "west00",
+      "x": 488,
+      "y": 537,
+      "intra_map": false,
+      "dest_name": "Perion"
+    }
+  ],
+  "010004041": [
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10004042",
+      "name": "in00",
+      "x": 1713,
+      "y": 1338,
+      "intra_map": false,
+      "dest_name": "Over the Wall"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10004040",
+      "name": "out00",
+      "x": 370,
+      "y": 956,
+      "intra_map": false,
+      "dest_name": "Perion Street Corner"
+    },
+    {
+      "id": "14",
+      "type": 3,
+      "dest_map": "10004041",
+      "name": "trap00",
+      "x": 156,
+      "y": 1352,
+      "intra_map": true,
+      "dest_name": "Land of Wild Boar"
+    },
+    {
+      "id": "15",
+      "type": 3,
+      "dest_map": "10004041",
+      "name": "trap01",
+      "x": 2824,
+      "y": 1349,
+      "intra_map": true,
+      "dest_name": "Land of Wild Boar"
+    }
+  ],
+  "010004042": [
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10004041",
+      "name": "out00",
+      "x": 1174,
+      "y": 985,
+      "intra_map": false,
+      "dest_name": "Land of Wild Boar"
+    }
+  ],
+  "010004050": [
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10004060",
+      "name": "east00",
+      "x": 1668,
+      "y": 1271,
+      "intra_map": false,
+      "dest_name": "Rocky Road I"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10004040",
+      "name": "west00",
+      "x": 349,
+      "y": 1303,
+      "intra_map": false,
+      "dest_name": "Perion Street Corner"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10004051",
+      "name": "in00",
+      "x": 445,
+      "y": 415,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain II"
+    }
+  ],
+  "010004051": [
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10004050",
+      "name": "out00",
+      "x": 1668,
+      "y": 1023,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain I"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10004052",
+      "name": "in00",
+      "x": 496,
+      "y": 437,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain III"
+    }
+  ],
+  "010004052": [
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10004051",
+      "name": "out00",
+      "x": 1668,
+      "y": 1017,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain II"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10004053",
+      "name": "in00",
+      "x": 493,
+      "y": 422,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain IV"
+    }
+  ],
+  "010004053": [
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10004054",
+      "name": "in00",
+      "x": 443,
+      "y": 413,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain V"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10004052",
+      "name": "out00",
+      "x": 1647,
+      "y": 1273,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain III"
+    }
+  ],
+  "010004054": [
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10004055",
+      "name": "in00",
+      "x": 1443,
+      "y": 426,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain VI"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10004053",
+      "name": "out00",
+      "x": 1267,
+      "y": 1160,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain IV"
+    }
+  ],
+  "010004055": [
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10004056",
+      "name": "in00",
+      "x": 1594,
+      "y": 425,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain VII"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10004054",
+      "name": "out00",
+      "x": 250,
+      "y": 1064,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain V"
+    }
+  ],
+  "010004056": [
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10004055",
+      "name": "out00",
+      "x": 340,
+      "y": 1700,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain VI"
+    }
+  ],
+  "010004060": [
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10004070",
+      "name": "east00",
+      "x": 1731,
+      "y": 1041,
+      "intra_map": false,
+      "dest_name": "Rocky Road II"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10004050",
+      "name": "west00",
+      "x": 395,
+      "y": 1069,
+      "intra_map": false,
+      "dest_name": "East Rocky Mountain I"
+    }
+  ],
+  "010004070": [
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10004080",
+      "name": "east00",
+      "x": 1731,
+      "y": 1100,
+      "intra_map": false,
+      "dest_name": "Rocky Road III"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10004060",
+      "name": "west00",
+      "x": 395,
+      "y": 1128,
+      "intra_map": false,
+      "dest_name": "Rocky Road I"
+    }
+  ],
+  "010004080": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "10004090",
+      "name": "east00",
+      "x": 1763,
+      "y": 1047,
+      "intra_map": false,
+      "dest_name": "East Domain of Perion"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10004070",
+      "name": "west00",
+      "x": 401,
+      "y": 1084,
+      "intra_map": false,
+      "dest_name": "Rocky Road II"
+    }
+  ],
+  "010004090": [
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10004090",
+      "name": "h_00",
+      "x": 299,
+      "y": 3379,
+      "intra_map": true,
+      "dest_name": "East Domain of Perion"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10004090",
+      "name": "h_01",
+      "x": 967,
+      "y": 920,
+      "intra_map": true,
+      "dest_name": "East Domain of Perion"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10004091",
+      "name": "in00",
+      "x": 2126,
+      "y": 409,
+      "intra_map": false,
+      "dest_name": "The Land of Wild Boar II"
+    },
+    {
+      "id": "15",
+      "type": 2,
+      "dest_map": "10002070",
+      "name": "east00",
+      "x": 2251,
+      "y": 3678,
+      "intra_map": false,
+      "dest_name": "The Forest North of Ellinia"
+    },
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10004080",
+      "name": "west00",
+      "x": 384,
+      "y": 805,
+      "intra_map": false,
+      "dest_name": "Rocky Road III"
+    }
+  ],
+  "010004091": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10004090",
+      "name": "out00",
+      "x": 1383,
+      "y": 1123,
+      "intra_map": false,
+      "dest_name": "East Domain of Perion"
+    }
+  ],
+  "010004100": [
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10004101",
+      "name": "in00",
+      "x": 632,
+      "y": 689,
+      "intra_map": false,
+      "dest_name": "Dangerous Valley"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10004000",
+      "name": "east00",
+      "x": 2133,
+      "y": 845,
+      "intra_map": false,
+      "dest_name": "Perion"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10004110",
+      "name": "west00",
+      "x": 1708,
+      "y": 2047,
+      "intra_map": false,
+      "dest_name": "Deep Valley II"
+    }
+  ],
+  "010004101": [
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10004100",
+      "name": "out00",
+      "x": 459,
+      "y": 1454,
+      "intra_map": false,
+      "dest_name": "Deep Valley I"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10004102",
+      "name": "in00",
+      "x": 1034,
+      "y": 418,
+      "intra_map": false,
+      "dest_name": "Dangerous Valley II"
+    }
+  ],
+  "010004102": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10004101",
+      "name": "out00",
+      "x": 1966,
+      "y": 1458,
+      "intra_map": false,
+      "dest_name": "Dangerous Valley"
+    }
+  ],
+  "010004110": [
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10004111",
+      "name": "in00",
+      "x": 834,
+      "y": 902,
+      "intra_map": false,
+      "dest_name": "The Burnt Land I"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10004100",
+      "name": "east00",
+      "x": 1663,
+      "y": 420,
+      "intra_map": false,
+      "dest_name": "Deep Valley I"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10004120",
+      "name": "under00",
+      "x": 513,
+      "y": 1546,
+      "intra_map": false,
+      "dest_name": "Deep Valley III"
+    }
+  ],
+  "010004111": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10004112",
+      "name": "in00",
+      "x": 2127,
+      "y": 409,
+      "intra_map": false,
+      "dest_name": "The Burnt Land II"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10004110",
+      "name": "out00",
+      "x": 280,
+      "y": 973,
+      "intra_map": false,
+      "dest_name": "Deep Valley II"
+    }
+  ],
+  "010004112": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10004111",
+      "name": "out00",
+      "x": 904,
+      "y": 412,
+      "intra_map": false,
+      "dest_name": "The Burnt Land I"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10004113",
+      "name": "in00",
+      "x": 2189,
+      "y": 736,
+      "intra_map": false,
+      "dest_name": "The Burnt Land III"
+    }
+  ],
+  "010004113": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10004112",
+      "name": "out00",
+      "x": 200,
+      "y": 991,
+      "intra_map": false,
+      "dest_name": "The Burnt Land II"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10004114",
+      "name": "in00",
+      "x": 652,
+      "y": 415,
+      "intra_map": false,
+      "dest_name": "The Burnt Land IV"
+    }
+  ],
+  "010004114": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10004113",
+      "name": "out00",
+      "x": 200,
+      "y": 991,
+      "intra_map": false,
+      "dest_name": "The Burnt Land III"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10004115",
+      "name": "in00",
+      "x": 652,
+      "y": 415,
+      "intra_map": false,
+      "dest_name": "The Burnt Land V"
+    }
+  ],
+  "010004115": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10004114",
+      "name": "out00",
+      "x": 904,
+      "y": 412,
+      "intra_map": false,
+      "dest_name": "The Burnt Land IV"
+    }
+  ],
+  "010004120": [
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10004110",
+      "name": "top00",
+      "x": 429,
+      "y": 1104,
+      "intra_map": false,
+      "dest_name": "Deep Valley II"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10004121",
+      "name": "under00",
+      "x": 2142,
+      "y": 1864,
+      "intra_map": false,
+      "dest_name": "Perion Dungeon Entrance"
+    }
+  ],
+  "010004121": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10004120",
+      "name": "top00",
+      "x": 1887,
+      "y": 722,
+      "intra_map": false,
+      "dest_name": "Deep Valley III"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10005020",
+      "name": "under00",
+      "x": 354,
+      "y": 2102,
+      "intra_map": false,
+      "dest_name": "Deep Forest"
+    }
+  ],
+  "010005000": [
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10005000",
+      "name": "hide00",
+      "x": 1368,
+      "y": 1064,
+      "intra_map": true,
+      "dest_name": "Sleepywood"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10005000",
+      "name": "hide01",
+      "x": 1534,
+      "y": 761,
+      "intra_map": true,
+      "dest_name": "Sleepywood"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10005050",
+      "name": "in00",
+      "x": 1783,
+      "y": 1062,
+      "intra_map": false,
+      "dest_name": "Sleepy Dungeon I"
+    },
+    {
+      "id": "16",
+      "type": 2,
+      "dest_map": "10005010",
+      "name": "west00",
+      "x": 460,
+      "y": 883,
+      "intra_map": false,
+      "dest_name": "Swampy Land in a Deep Forest"
+    },
+    {
+      "id": "17",
+      "type": 2,
+      "dest_map": "10005060",
+      "name": "east00",
+      "x": 2313,
+      "y": 1185,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel I"
+    },
+    {
+      "id": "18",
+      "type": 2,
+      "dest_map": "10005001",
+      "name": "in01",
+      "x": 1202,
+      "y": 434,
+      "intra_map": false,
+      "dest_name": "Sleepywood Hotel"
+    }
+  ],
+  "010005001": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10005000",
+      "name": "out00",
+      "x": 1037,
+      "y": 674,
+      "intra_map": false,
+      "dest_name": "Sleepywood"
+    }
+  ],
+  "010005002": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10005001",
+      "name": "out00",
+      "x": 1004,
+      "y": 529,
+      "intra_map": false,
+      "dest_name": "Sleepywood Hotel"
+    }
+  ],
+  "010005003": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10005001",
+      "name": "out00",
+      "x": 1004,
+      "y": 530,
+      "intra_map": false,
+      "dest_name": "Sleepywood Hotel"
+    }
+  ],
+  "010005010": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "10005020",
+      "name": "top00",
+      "x": 1580,
+      "y": 407,
+      "intra_map": false,
+      "dest_name": "Deep Forest"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10005000",
+      "name": "under00",
+      "x": 1518,
+      "y": 2855,
+      "intra_map": false,
+      "dest_name": "Sleepywood"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10005011",
+      "name": "under01",
+      "x": 1728,
+      "y": 3328,
+      "intra_map": false,
+      "dest_name": "Hunting Ground in the Deep Forest I"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10001100",
+      "name": "west00",
+      "x": 455,
+      "y": 1171,
+      "intra_map": false,
+      "dest_name": "Henesys Dungeon Entrance"
+    }
+  ],
+  "010005011": [
+    {
+      "id": "17",
+      "type": 2,
+      "dest_map": "10005010",
+      "name": "west10",
+      "x": 222,
+      "y": 1232,
+      "intra_map": false,
+      "dest_name": "Swampy Land in a Deep Forest"
+    },
+    {
+      "id": "18",
+      "type": 3,
+      "dest_map": "10005012",
+      "name": "east00",
+      "x": 1663,
+      "y": 460,
+      "intra_map": false,
+      "dest_name": "Hunting Ground in the Deep Forest II"
+    }
+  ],
+  "010005012": [
+    {
+      "id": "10",
+      "type": 3,
+      "dest_map": "10005011",
+      "name": "east00",
+      "x": 1845,
+      "y": 1493,
+      "intra_map": false,
+      "dest_name": "Hunting Ground in the Deep Forest I"
+    }
+  ],
+  "010005020": [
+    {
+      "id": "18",
+      "type": 2,
+      "dest_map": "10005010",
+      "name": "under00",
+      "x": 1971,
+      "y": 3157,
+      "intra_map": false,
+      "dest_name": "Swampy Land in a Deep Forest"
+    },
+    {
+      "id": "19",
+      "type": 2,
+      "dest_map": "10004121",
+      "name": "east00",
+      "x": 1908,
+      "y": 407,
+      "intra_map": false,
+      "dest_name": "Perion Dungeon Entrance"
+    },
+    {
+      "id": "20",
+      "type": 2,
+      "dest_map": "10005030",
+      "name": "west00",
+      "x": 487,
+      "y": 1177,
+      "intra_map": false,
+      "dest_name": "Damp Tree-Forest"
+    }
+  ],
+  "010005030": [
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10005031",
+      "name": "in00",
+      "x": 1023,
+      "y": 644,
+      "intra_map": false,
+      "dest_name": "Damp Forest"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10003094",
+      "name": "west00",
+      "x": 383,
+      "y": 1186,
+      "intra_map": false,
+      "dest_name": "Dangerous Croko II"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10005020",
+      "name": "east00",
+      "x": 2157,
+      "y": 2146,
+      "intra_map": false,
+      "dest_name": "Deep Forest"
+    }
+  ],
+  "010005031": [
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10005030",
+      "name": "out00",
+      "x": 1023,
+      "y": 644,
+      "intra_map": false,
+      "dest_name": "Damp Tree-Forest"
+    }
+  ],
+  "010005040": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10005041",
+      "name": "in00",
+      "x": 200,
+      "y": 408,
+      "intra_map": false,
+      "dest_name": "The Deep Forest of Patience <Step 2>"
+    }
+  ],
+  "010005042": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10005043",
+      "name": "in00",
+      "x": 1624,
+      "y": 406,
+      "intra_map": false,
+      "dest_name": "The Deep Forest of Patience <Step 4>"
+    }
+  ],
+  "010005044": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10005045",
+      "name": "in00",
+      "x": 1798,
+      "y": 646,
+      "intra_map": false,
+      "dest_name": "The Deep Forest of Patience <Step 6>"
+    }
+  ],
+  "010005045": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10005046",
+      "name": "in00",
+      "x": 530,
+      "y": 642,
+      "intra_map": false,
+      "dest_name": "The Deep Forest of Patience <Step 7>"
+    }
+  ],
+  "010005046": [
+    {
+      "id": "7",
+      "type": 3,
+      "dest_map": "10005046",
+      "name": "tr00",
+      "x": 1355,
+      "y": 4255,
+      "intra_map": true,
+      "dest_name": "The Deep Forest of Patience <Step 7>"
+    },
+    {
+      "id": "8",
+      "type": 3,
+      "dest_map": "10005046",
+      "name": "tr01",
+      "x": 1040,
+      "y": 4256,
+      "intra_map": true,
+      "dest_name": "The Deep Forest of Patience <Step 7>"
+    },
+    {
+      "id": "9",
+      "type": 3,
+      "dest_map": "10005046",
+      "name": "tr02",
+      "x": 727,
+      "y": 4255,
+      "intra_map": true,
+      "dest_name": "The Deep Forest of Patience <Step 7>"
+    },
+    {
+      "id": "10",
+      "type": 3,
+      "dest_map": "10005046",
+      "name": "tr03",
+      "x": 500,
+      "y": 4256,
+      "intra_map": true,
+      "dest_name": "The Deep Forest of Patience <Step 7>"
+    }
+  ],
+  "010005050": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10005000",
+      "name": "out00",
+      "x": 1078,
+      "y": 410,
+      "intra_map": false,
+      "dest_name": "Sleepywood"
+    },
+    {
+      "id": "8",
+      "type": 3,
+      "dest_map": "10005051",
+      "name": "in00",
+      "x": 421,
+      "y": 2441,
+      "intra_map": false,
+      "dest_name": "Sleepy Dungeon II"
+    }
+  ],
+  "010005051": [
+    {
+      "id": "8",
+      "type": 3,
+      "dest_map": "10005052",
+      "name": "in00",
+      "x": 602,
+      "y": 2446,
+      "intra_map": false,
+      "dest_name": "Sleepy Dungeon III"
+    },
+    {
+      "id": "9",
+      "type": 3,
+      "dest_map": "10005050",
+      "name": "out00",
+      "x": 253,
+      "y": 275,
+      "intra_map": false,
+      "dest_name": "Sleepy Dungeon I"
+    }
+  ],
+  "010005052": [
+    {
+      "id": "9",
+      "type": 3,
+      "dest_map": "10005053",
+      "name": "in00",
+      "x": 1174,
+      "y": 3048,
+      "intra_map": false,
+      "dest_name": "Sleepy Dungeon IV"
+    },
+    {
+      "id": "10",
+      "type": 3,
+      "dest_map": "10005051",
+      "name": "out00",
+      "x": 545,
+      "y": 342,
+      "intra_map": false,
+      "dest_name": "Sleepy Dungeon II"
+    }
+  ],
+  "010005053": [
+    {
+      "id": "8",
+      "type": 3,
+      "dest_map": "10005054",
+      "name": "in00",
+      "x": 329,
+      "y": 2390,
+      "intra_map": false,
+      "dest_name": "Sleepy Dungeon V"
+    },
+    {
+      "id": "9",
+      "type": 3,
+      "dest_map": "10005052",
+      "name": "out00",
+      "x": 1160,
+      "y": 418,
+      "intra_map": false,
+      "dest_name": "Sleepy Dungeon III"
+    }
+  ],
+  "010005054": [
+    {
+      "id": "7",
+      "type": 3,
+      "dest_map": "10005053",
+      "name": "out00",
+      "x": 277,
+      "y": 324,
+      "intra_map": false,
+      "dest_name": "Sleepy Dungeon IV"
+    }
+  ],
+  "010005060": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10005061",
+      "name": "east00",
+      "x": 3090,
+      "y": 1971,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel II"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10005000",
+      "name": "west00",
+      "x": 543,
+      "y": 427,
+      "intra_map": false,
+      "dest_name": "Sleepywood"
+    }
+  ],
+  "010005061": [
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10005060",
+      "name": "west00",
+      "x": 246,
+      "y": 647,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel I"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10005062",
+      "name": "east00",
+      "x": 2730,
+      "y": 817,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel III"
+    }
+  ],
+  "010005062": [
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10005061",
+      "name": "west00",
+      "x": 233,
+      "y": 963,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel II"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10005063",
+      "name": "east00",
+      "x": 3468,
+      "y": 783,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel IV"
+    }
+  ],
+  "010005063": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10005064",
+      "name": "east00",
+      "x": 3360,
+      "y": 2271,
+      "intra_map": false,
+      "dest_name": "Dark Cave"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10005062",
+      "name": "west00",
+      "x": 272,
+      "y": 337,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel III"
+    }
+  ],
+  "010005064": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "10005063",
+      "name": "west00",
+      "x": 228,
+      "y": 1116,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel IV"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10005065",
+      "name": "east00",
+      "x": 3381,
+      "y": 1117,
+      "intra_map": false,
+      "dest_name": "Dangerous Steam"
+    }
+  ],
+  "010005065": [
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10005064",
+      "name": "west00",
+      "x": 239,
+      "y": 643,
+      "intra_map": false,
+      "dest_name": "Dark Cave"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10005066",
+      "name": "east00",
+      "x": 3047,
+      "y": 2800,
+      "intra_map": false,
+      "dest_name": "Deep Ant Tunnel I"
+    }
+  ],
+  "010005066": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10005067",
+      "name": "east00",
+      "x": 3191,
+      "y": 2038,
+      "intra_map": false,
+      "dest_name": "Deep Ant Tunnel II"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10005065",
+      "name": "west00",
+      "x": 633,
+      "y": 487,
+      "intra_map": false,
+      "dest_name": "Dangerous Steam"
+    }
+  ],
+  "010005067": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10005070",
+      "name": "east00",
+      "x": 3049,
+      "y": 1898,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel Park"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10005066",
+      "name": "west00",
+      "x": 231,
+      "y": 1322,
+      "intra_map": false,
+      "dest_name": "Deep Ant Tunnel I"
+    }
+  ],
+  "010005070": [
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10005070",
+      "name": "hide01",
+      "x": 3781,
+      "y": 1980,
+      "intra_map": true,
+      "dest_name": "Ant Tunnel Park"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10005070",
+      "name": "hide02",
+      "x": 3368,
+      "y": 1606,
+      "intra_map": true,
+      "dest_name": "Ant Tunnel Park"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10005078",
+      "name": "in00",
+      "x": 2566,
+      "y": 578,
+      "intra_map": false,
+      "dest_name": "The Grave of Mushmom"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10005067",
+      "name": "top00",
+      "x": 385,
+      "y": 1067,
+      "intra_map": false,
+      "dest_name": "Deep Ant Tunnel II"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10005071",
+      "name": "under00",
+      "x": 250,
+      "y": 2081,
+      "intra_map": false,
+      "dest_name": "The Cave of Evil Eye I"
+    }
+  ],
+  "010005071": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10005070",
+      "name": "top00",
+      "x": 576,
+      "y": 640,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel Park"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10005072",
+      "name": "under00",
+      "x": 1235,
+      "y": 2560,
+      "intra_map": false,
+      "dest_name": "The Cave of Evil Eye II"
+    }
+  ],
+  "010005072": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "10005071",
+      "name": "top00",
+      "x": 666,
+      "y": 523,
+      "intra_map": false,
+      "dest_name": "The Cave of Evil Eye I"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10005073",
+      "name": "under00",
+      "x": 502,
+      "y": 2317,
+      "intra_map": false,
+      "dest_name": "The Cave of Evil Eye III"
+    }
+  ],
+  "010005073": [
+    {
+      "id": "1",
+      "type": 2,
+      "dest_map": "10005072",
+      "name": "top00",
+      "x": 1054,
+      "y": 624,
+      "intra_map": false,
+      "dest_name": "The Cave of Evil Eye II"
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10005074",
+      "name": "under00",
+      "x": 1221,
+      "y": 2315,
+      "intra_map": false,
+      "dest_name": "The Cave of Evil Eye IV"
+    }
+  ],
+  "010005074": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10005073",
+      "name": "top00",
+      "x": 555,
+      "y": 1300,
+      "intra_map": false,
+      "dest_name": "The Cave of Evil Eye III"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10005075",
+      "name": "east00",
+      "x": 1333,
+      "y": 3098,
+      "intra_map": false,
+      "dest_name": "Drake Hunting Ground"
+    }
+  ],
+  "010005075": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10005074",
+      "name": "east00",
+      "x": 232,
+      "y": 820,
+      "intra_map": false,
+      "dest_name": "The Cave of Evil Eye IV"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10005076",
+      "name": "east01",
+      "x": 2298,
+      "y": 759,
+      "intra_map": false,
+      "dest_name": "The Tunnel That Lost Light I"
+    }
+  ],
+  "010005076": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10005075",
+      "name": "west00",
+      "x": 311,
+      "y": 907,
+      "intra_map": false,
+      "dest_name": "Drake Hunting Ground"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10005077",
+      "name": "east00",
+      "x": 2834,
+      "y": 4259,
+      "intra_map": false,
+      "dest_name": "The Tunnel That Lost Light II"
+    }
+  ],
+  "010005077": [
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10005080",
+      "name": "east01",
+      "x": 2643,
+      "y": 2923,
+      "intra_map": false,
+      "dest_name": "Another Entrance"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10005080",
+      "name": "east00",
+      "x": 2750,
+      "y": 1239,
+      "intra_map": false,
+      "dest_name": "Another Entrance"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10005076",
+      "name": "west00",
+      "x": 230,
+      "y": 820,
+      "intra_map": false,
+      "dest_name": "The Tunnel That Lost Light I"
+    }
+  ],
+  "010005078": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10005070",
+      "name": "out00",
+      "x": 742,
+      "y": 649,
+      "intra_map": false,
+      "dest_name": "Ant Tunnel Park"
+    }
+  ],
+  "010005080": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10005090",
+      "name": "east00",
+      "x": 943,
+      "y": 595,
+      "intra_map": false,
+      "dest_name": "Drake's Meal Table"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10005100",
+      "name": "east01",
+      "x": 916,
+      "y": 1382,
+      "intra_map": false,
+      "dest_name": "Another Path"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10005077",
+      "name": "west00",
+      "x": 425,
+      "y": 586,
+      "intra_map": false,
+      "dest_name": "The Tunnel That Lost Light II"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10005077",
+      "name": "west01",
+      "x": 471,
+      "y": 1421,
+      "intra_map": false,
+      "dest_name": "The Tunnel That Lost Light II"
+    }
+  ],
+  "010005090": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10005080",
+      "name": "west00",
+      "x": 231,
+      "y": 3039,
+      "intra_map": false,
+      "dest_name": "Another Entrance"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10005091",
+      "name": "east00",
+      "x": 2216,
+      "y": 698,
+      "intra_map": false,
+      "dest_name": "Wild Kargo's Area"
+    }
+  ],
+  "010005091": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10005090",
+      "name": "west00",
+      "x": 153,
+      "y": 409,
+      "intra_map": false,
+      "dest_name": "Drake's Meal Table"
+    }
+  ],
+  "010005100": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10005080",
+      "name": "west00",
+      "x": 140,
+      "y": 453,
+      "intra_map": false,
+      "dest_name": "Another Entrance"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10005101",
+      "name": "east00",
+      "x": 1578,
+      "y": 2913,
+      "intra_map": false,
+      "dest_name": "Sanctuary Entrance I"
+    }
+  ],
+  "010005101": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10005100",
+      "name": "west00",
+      "x": 158,
+      "y": 738,
+      "intra_map": false,
+      "dest_name": "Another Path"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10005102",
+      "name": "east00",
+      "x": 2198,
+      "y": 794,
+      "intra_map": false,
+      "dest_name": "Sanctuary Entrance II"
+    }
+  ],
+  "010005102": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10005101",
+      "name": "west00",
+      "x": 217,
+      "y": 735,
+      "intra_map": false,
+      "dest_name": "Sanctuary Entrance I"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10005103",
+      "name": "east00",
+      "x": 2119,
+      "y": 815,
+      "intra_map": false,
+      "dest_name": "Sanctuary Entrance III"
+    }
+  ],
+  "010005103": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10005102",
+      "name": "west00",
+      "x": 186,
+      "y": 717,
+      "intra_map": false,
+      "dest_name": "Sanctuary Entrance II"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10005104",
+      "name": "east00",
+      "x": 2540,
+      "y": 506,
+      "intra_map": false,
+      "dest_name": "Sanctuary Entrance IV"
+    }
+  ],
+  "010005104": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10005103",
+      "name": "west00",
+      "x": 187,
+      "y": 645,
+      "intra_map": false,
+      "dest_name": "Sanctuary Entrance III"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10005105",
+      "name": "east00",
+      "x": 2148,
+      "y": 708,
+      "intra_map": false,
+      "dest_name": "The Cursed Sanctuary"
+    }
+  ],
+  "010005105": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10005104",
+      "name": "west00",
+      "x": 158,
+      "y": 423,
+      "intra_map": false,
+      "dest_name": "Sanctuary Entrance IV"
+    }
+  ],
+  "010006000": [
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10006070",
+      "name": "west00",
+      "x": 253,
+      "y": 924,
+      "intra_map": false,
+      "dest_name": "The End of Fleeting Light"
+    },
+    {
+      "id": "11",
+      "type": 2,
+      "dest_map": "10006010",
+      "name": "east00",
+      "x": 2271,
+      "y": 924,
+      "intra_map": false,
+      "dest_name": "Primeval Forest I"
+    },
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "10006002",
+      "name": "in01",
+      "x": 1376,
+      "y": 1163,
+      "intra_map": false,
+      "dest_name": "Cave Fairy Department Store"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10006001",
+      "name": "in02",
+      "x": 699,
+      "y": 983,
+      "intra_map": false,
+      "dest_name": "Cave Fairy Sanctuary"
+    }
+  ],
+  "010006001": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10006000",
+      "name": "out00",
+      "x": 1199,
+      "y": 547,
+      "intra_map": false,
+      "dest_name": "Forgotten Hollow"
+    }
+  ],
+  "010006002": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10006000",
+      "name": "out00",
+      "x": 1199,
+      "y": 547,
+      "intra_map": false,
+      "dest_name": "Forgotten Hollow"
+    }
+  ],
+  "010006010": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10006000",
+      "name": "west00",
+      "x": 208,
+      "y": 1042,
+      "intra_map": false,
+      "dest_name": "Forgotten Hollow"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10006020",
+      "name": "east00",
+      "x": 3074,
+      "y": 504,
+      "intra_map": false,
+      "dest_name": "Primeval Forest II"
+    }
+  ],
+  "010006020": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10006030",
+      "name": "east00",
+      "x": 1422,
+      "y": 622,
+      "intra_map": false,
+      "dest_name": "Primeval Forest III"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10006010",
+      "name": "west00",
+      "x": 198,
+      "y": 1643,
+      "intra_map": false,
+      "dest_name": "Primeval Forest I"
+    }
+  ],
+  "010006030": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10006031",
+      "name": "top00",
+      "x": 255,
+      "y": 470,
+      "intra_map": false,
+      "dest_name": "The Valley of Death"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10006040",
+      "name": "east00",
+      "x": 2443,
+      "y": 1102,
+      "intra_map": false,
+      "dest_name": "Forgotten Entrance I"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10006020",
+      "name": "west00",
+      "x": 230,
+      "y": 1403,
+      "intra_map": false,
+      "dest_name": "Primeval Forest II"
+    }
+  ],
+  "010006031": [
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10006030",
+      "name": "east00",
+      "x": 2322,
+      "y": 976,
+      "intra_map": false,
+      "dest_name": "Primeval Forest III"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10006031",
+      "name": "h_00",
+      "x": 1723,
+      "y": 1008,
+      "intra_map": true,
+      "dest_name": "The Valley of Death"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10006031",
+      "name": "h_01",
+      "x": 1721,
+      "y": 773,
+      "intra_map": true,
+      "dest_name": "The Valley of Death"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10006031",
+      "name": "h_02",
+      "x": 558,
+      "y": 766,
+      "intra_map": true,
+      "dest_name": "The Valley of Death"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10006031",
+      "name": "h_03",
+      "x": 560,
+      "y": 531,
+      "intra_map": true,
+      "dest_name": "The Valley of Death"
+    }
+  ],
+  "010006040": [
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10006030",
+      "name": "west00",
+      "x": 180,
+      "y": 1943,
+      "intra_map": false,
+      "dest_name": "Primeval Forest III"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10006050",
+      "name": "east00",
+      "x": 3280,
+      "y": 683,
+      "intra_map": false,
+      "dest_name": "Forgotten Entrance II"
+    }
+  ],
+  "010006050": [
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10006050",
+      "name": "h_00",
+      "x": 3210,
+      "y": 1307,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance II"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10006050",
+      "name": "h_01",
+      "x": 2903,
+      "y": 804,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance II"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10006050",
+      "name": "h_02",
+      "x": 2250,
+      "y": 805,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance II"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10006050",
+      "name": "h_04",
+      "x": 1091,
+      "y": 821,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance II"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10006050",
+      "name": "h_05",
+      "x": 494,
+      "y": 799,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance II"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10006050",
+      "name": "h_06",
+      "x": 592,
+      "y": 1272,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance II"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10006040",
+      "name": "west00",
+      "x": 367,
+      "y": 1786,
+      "intra_map": false,
+      "dest_name": "Forgotten Entrance I"
+    },
+    {
+      "id": "14",
+      "type": 2,
+      "dest_map": "10006060",
+      "name": "east00",
+      "x": 3386,
+      "y": 1306,
+      "intra_map": false,
+      "dest_name": "Forgotten Entrance III"
+    }
+  ],
+  "010006060": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10006050",
+      "name": "west00",
+      "x": 189,
+      "y": 1382,
+      "intra_map": false,
+      "dest_name": "Forgotten Entrance II"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10002071",
+      "name": "east00",
+      "x": 4143,
+      "y": 842,
+      "intra_map": false,
+      "dest_name": "The Tree Tunnel At the Forest Up North"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_00",
+      "x": 3854,
+      "y": 842,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_01",
+      "x": 3600,
+      "y": 715,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_02",
+      "x": 2978,
+      "y": 715,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_03",
+      "x": 3101,
+      "y": 995,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_04",
+      "x": 2492,
+      "y": 1017,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_05",
+      "x": 2605,
+      "y": 658,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "15",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_06",
+      "x": 1948,
+      "y": 651,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "16",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_07",
+      "x": 1658,
+      "y": 1138,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "17",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_08",
+      "x": 1644,
+      "y": 730,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "18",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_09",
+      "x": 2119,
+      "y": 409,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "19",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_10",
+      "x": 648,
+      "y": 1262,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "20",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_11",
+      "x": 1054,
+      "y": 1139,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    },
+    {
+      "id": "21",
+      "type": 1,
+      "dest_map": "10006060",
+      "name": "h_12",
+      "x": 2146,
+      "y": 1313,
+      "intra_map": true,
+      "dest_name": "Forgotten Entrance III"
+    }
+  ],
+  "010006070": [
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10006070",
+      "name": "h_00",
+      "x": 2245,
+      "y": 1057,
+      "intra_map": true,
+      "dest_name": "The End of Fleeting Light"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10006071",
+      "name": "top00",
+      "x": 2245,
+      "y": 563,
+      "intra_map": false,
+      "dest_name": "Forgotten Dungeon Tunnel"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10006080",
+      "name": "west00",
+      "x": 203,
+      "y": 1403,
+      "intra_map": false,
+      "dest_name": "Forbidden Entrance"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10006000",
+      "name": "east00",
+      "x": 4540,
+      "y": 923,
+      "intra_map": false,
+      "dest_name": "Forgotten Hollow"
+    }
+  ],
+  "010006071": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10006070",
+      "name": "under00",
+      "x": 899,
+      "y": 3142,
+      "intra_map": false,
+      "dest_name": "The End of Fleeting Light"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10005054",
+      "name": "top00",
+      "x": 995,
+      "y": 634,
+      "intra_map": false,
+      "dest_name": "Sleepy Dungeon V"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10006071",
+      "name": "h_02",
+      "x": 899,
+      "y": 2038,
+      "intra_map": true,
+      "dest_name": "Forgotten Dungeon Tunnel"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10006071",
+      "name": "h_03",
+      "x": 903,
+      "y": 2521,
+      "intra_map": true,
+      "dest_name": "Forgotten Dungeon Tunnel"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10006071",
+      "name": "h_00",
+      "x": 900,
+      "y": 1088,
+      "intra_map": true,
+      "dest_name": "Forgotten Dungeon Tunnel"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10006071",
+      "name": "h_01",
+      "x": 900,
+      "y": 1564,
+      "intra_map": true,
+      "dest_name": "Forgotten Dungeon Tunnel"
+    }
+  ],
+  "010006080": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10006090",
+      "name": "west00",
+      "x": 491,
+      "y": 1044,
+      "intra_map": false,
+      "dest_name": "Perilous Descent I"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10006070",
+      "name": "east00",
+      "x": 4549,
+      "y": 745,
+      "intra_map": false,
+      "dest_name": "The End of Fleeting Light"
+    }
+  ],
+  "010006090": [
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10006080",
+      "name": "east00",
+      "x": 1582,
+      "y": 698,
+      "intra_map": false,
+      "dest_name": "Forbidden Entrance"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10006100",
+      "name": "west00",
+      "x": 243,
+      "y": 2616,
+      "intra_map": false,
+      "dest_name": "Perilous Descent II"
+    }
+  ],
+  "010006100": [
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10006100",
+      "name": "h_00",
+      "x": 263,
+      "y": 905,
+      "intra_map": true,
+      "dest_name": "Perilous Descent II"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10006100",
+      "name": "h_01",
+      "x": 266,
+      "y": 1268,
+      "intra_map": true,
+      "dest_name": "Perilous Descent II"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10006100",
+      "name": "h_02",
+      "x": 1387,
+      "y": 1205,
+      "intra_map": true,
+      "dest_name": "Perilous Descent II"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10006100",
+      "name": "h_03",
+      "x": 1384,
+      "y": 1627,
+      "intra_map": true,
+      "dest_name": "Perilous Descent II"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10006100",
+      "name": "h_04",
+      "x": 263,
+      "y": 1987,
+      "intra_map": true,
+      "dest_name": "Perilous Descent II"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "10006100",
+      "name": "h_05",
+      "x": 264,
+      "y": 2288,
+      "intra_map": true,
+      "dest_name": "Perilous Descent II"
+    },
+    {
+      "id": "9",
+      "type": 2,
+      "dest_map": "10006110",
+      "name": "bottom00",
+      "x": 1376,
+      "y": 2616,
+      "intra_map": false,
+      "dest_name": "Perilous Descent III"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "10006090",
+      "name": "top00",
+      "x": 1452,
+      "y": 578,
+      "intra_map": false,
+      "dest_name": "Perilous Descent I"
+    }
+  ],
+  "010006110": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10006100",
+      "name": "top00",
+      "x": 168,
+      "y": 456,
+      "intra_map": false,
+      "dest_name": "Perilous Descent II"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10006120",
+      "name": "bottom00",
+      "x": 176,
+      "y": 1835,
+      "intra_map": false,
+      "dest_name": "Decayed Tunnel I"
+    }
+  ],
+  "010006120": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10006121",
+      "name": "in00",
+      "x": 265,
+      "y": 559,
+      "intra_map": false,
+      "dest_name": "Someone Else's Grave"
+    },
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "10006110",
+      "name": "east00",
+      "x": 2938,
+      "y": 756,
+      "intra_map": false,
+      "dest_name": "Perilous Descent III"
+    }
+  ],
+  "010006121": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10006120",
+      "name": "out00",
+      "x": 268,
+      "y": 475,
+      "intra_map": false,
+      "dest_name": "Decayed Tunnel I"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10006152",
+      "name": "in00",
+      "x": 1163,
+      "y": 817,
+      "intra_map": false,
+      "dest_name": "Bygone Days"
+    }
+  ],
+  "010006152": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10006121",
+      "name": "out00",
+      "x": 943,
+      "y": 546,
+      "intra_map": false,
+      "dest_name": "Someone Else's Grave"
+    }
+  ],
+  "010007000": [
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10007010",
+      "name": "east00",
+      "x": 3100,
+      "y": 1079,
+      "intra_map": false,
+      "dest_name": "A Look-Out Shed Around the Beach"
+    }
+  ],
+  "010007010": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10007000",
+      "name": "west00",
+      "x": 119,
+      "y": 1427,
+      "intra_map": false,
+      "dest_name": "Florina Beach"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10007020",
+      "name": "east00",
+      "x": 3922,
+      "y": 1431,
+      "intra_map": false,
+      "dest_name": "Lorang Lorang"
+    }
+  ],
+  "010007020": [
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10007021",
+      "name": "in00",
+      "x": 2207,
+      "y": 696,
+      "intra_map": false,
+      "dest_name": "Lorang Lorang Lorang"
+    },
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "10007010",
+      "name": "west00",
+      "x": 131,
+      "y": 2125,
+      "intra_map": false,
+      "dest_name": "A Look-Out Shed Around the Beach"
+    },
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "10007030",
+      "name": "east00",
+      "x": 3960,
+      "y": 2132,
+      "intra_map": false,
+      "dest_name": "Lorang and Clang"
+    }
+  ],
+  "010007021": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "10007020",
+      "name": "out00",
+      "x": 675,
+      "y": 695,
+      "intra_map": false,
+      "dest_name": "Lorang Lorang"
+    }
+  ],
+  "010007030": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10007031",
+      "name": "in00",
+      "x": 2805,
+      "y": 1316,
+      "intra_map": false,
+      "dest_name": "Clang and Lorang"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "10007020",
+      "name": "west00",
+      "x": 124,
+      "y": 1428,
+      "intra_map": false,
+      "dest_name": "Lorang Lorang"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "10007040",
+      "name": "east00",
+      "x": 3074,
+      "y": 1429,
+      "intra_map": false,
+      "dest_name": "Hot Sand"
+    }
+  ],
+  "010007031": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "10007030",
+      "name": "out00",
+      "x": 848,
+      "y": 676,
+      "intra_map": false,
+      "dest_name": "Lorang and Clang"
+    }
+  ],
+  "010007040": [
+    {
+      "id": "2",
+      "type": 1,
+      "dest_map": "10007040",
+      "name": "h001",
+      "x": 1909,
+      "y": 1609,
+      "intra_map": true,
+      "dest_name": "Hot Sand"
+    },
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "10007040",
+      "name": "h001_1",
+      "x": 1821,
+      "y": 1337,
+      "intra_map": true,
+      "dest_name": "Hot Sand"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "10007040",
+      "name": "h002",
+      "x": 457,
+      "y": 1595,
+      "intra_map": true,
+      "dest_name": "Hot Sand"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "10007040",
+      "name": "h003",
+      "x": 1023,
+      "y": 1336,
+      "intra_map": true,
+      "dest_name": "Hot Sand"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "10007040",
+      "name": "h004",
+      "x": 1216,
+      "y": 1096,
+      "intra_map": true,
+      "dest_name": "Hot Sand"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "10007040",
+      "name": "h005",
+      "x": 1713,
+      "y": 856,
+      "intra_map": true,
+      "dest_name": "Hot Sand"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "10007040",
+      "name": "h007",
+      "x": 2895,
+      "y": 1600,
+      "intra_map": true,
+      "dest_name": "Hot Sand"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "10007040",
+      "name": "h008",
+      "x": 2691,
+      "y": 1337,
+      "intra_map": true,
+      "dest_name": "Hot Sand"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "10007040",
+      "name": "h009",
+      "x": 2568,
+      "y": 1156,
+      "intra_map": true,
+      "dest_name": "Hot Sand"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "10007040",
+      "name": "h010",
+      "x": 2324,
+      "y": 976,
+      "intra_map": true,
+      "dest_name": "Hot Sand"
+    },
+    {
+      "id": "13",
+      "type": 2,
+      "dest_map": "10007030",
+      "name": "west00",
+      "x": 124,
+      "y": 1628,
+      "intra_map": false,
+      "dest_name": "Lorang and Clang"
+    }
+  ],
+  "080000400": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "80000400",
+      "name": "in00",
+      "x": 458,
+      "y": 991,
+      "intra_map": true,
+      "dest_name": "1st Accompaniment <Last Stage>"
+    },
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "80000400",
+      "name": "in00_1",
+      "x": 455,
+      "y": 1411,
+      "intra_map": true,
+      "dest_name": "1st Accompaniment <Last Stage>"
+    },
+    {
+      "id": "5",
+      "type": 2,
+      "dest_map": "80000400",
+      "name": "in01",
+      "x": 1124,
+      "y": 1710,
+      "intra_map": true,
+      "dest_name": "1st Accompaniment <Last Stage>"
+    },
+    {
+      "id": "6",
+      "type": 2,
+      "dest_map": "80000400",
+      "name": "in01_1",
+      "x": 1147,
+      "y": 2430,
+      "intra_map": true,
+      "dest_name": "1st Accompaniment <Last Stage>"
+    }
+  ],
+  "080002000": [
+    {
+      "id": "3",
+      "type": 1,
+      "dest_map": "80002001",
+      "name": "in01",
+      "x": 1114,
+      "y": 919,
+      "intra_map": false,
+      "dest_name": "Free Market<1>"
+    },
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002002",
+      "name": "in02",
+      "x": 1264,
+      "y": 919,
+      "intra_map": false,
+      "dest_name": "Free Market<2>"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002003",
+      "name": "in03",
+      "x": 1417,
+      "y": 919,
+      "intra_map": false,
+      "dest_name": "Free Market<3>"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "80002004",
+      "name": "in04",
+      "x": 1570,
+      "y": 919,
+      "intra_map": false,
+      "dest_name": "Free Market<4>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002005",
+      "name": "in05",
+      "x": 1779,
+      "y": 919,
+      "intra_map": false,
+      "dest_name": "Free Market<5>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002006",
+      "name": "in06",
+      "x": 1934,
+      "y": 919,
+      "intra_map": false,
+      "dest_name": "Free Market<6>"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "80002007",
+      "name": "in07",
+      "x": 1165,
+      "y": 649,
+      "intra_map": false,
+      "dest_name": "Free Market<7>"
+    },
+    {
+      "id": "10",
+      "type": 1,
+      "dest_map": "80002008",
+      "name": "in08",
+      "x": 1317,
+      "y": 648,
+      "intra_map": false,
+      "dest_name": "Free Market<8>"
+    },
+    {
+      "id": "11",
+      "type": 1,
+      "dest_map": "80002009",
+      "name": "in09",
+      "x": 1474,
+      "y": 649,
+      "intra_map": false,
+      "dest_name": "Free Market<9>"
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "dest_map": "80002010",
+      "name": "in10",
+      "x": 1732,
+      "y": 649,
+      "intra_map": false,
+      "dest_name": "Free Market<10>"
+    },
+    {
+      "id": "13",
+      "type": 1,
+      "dest_map": "80002011",
+      "name": "in11",
+      "x": 1881,
+      "y": 651,
+      "intra_map": false,
+      "dest_name": "Free Market<11>"
+    },
+    {
+      "id": "14",
+      "type": 1,
+      "dest_map": "80002000",
+      "name": "dn02",
+      "x": 2003,
+      "y": 649,
+      "intra_map": true,
+      "dest_name": "Free Market Entrance"
+    },
+    {
+      "id": "19",
+      "type": 1,
+      "dest_map": "80002000",
+      "name": "up00",
+      "x": 1005,
+      "y": 919,
+      "intra_map": true,
+      "dest_name": "Free Market Entrance"
+    }
+  ],
+  "080002001": [
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 1383,
+      "y": 888,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "80002001",
+      "name": "up00",
+      "x": 316,
+      "y": 885,
+      "intra_map": true,
+      "dest_name": "Free Market<1>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002001",
+      "name": "up01",
+      "x": 342,
+      "y": 646,
+      "intra_map": true,
+      "dest_name": "Free Market<1>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002001",
+      "name": "dn00",
+      "x": 1266,
+      "y": 434,
+      "intra_map": true,
+      "dest_name": "Free Market<1>"
+    },
+    {
+      "id": "9",
+      "type": 1,
+      "dest_map": "80002001",
+      "name": "dn01",
+      "x": 1013,
+      "y": 644,
+      "intra_map": true,
+      "dest_name": "Free Market<1>"
+    }
+  ],
+  "080002002": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 1383,
+      "y": 888,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002002",
+      "name": "up00",
+      "x": 312,
+      "y": 885,
+      "intra_map": true,
+      "dest_name": "Free Market<2>"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "80002002",
+      "name": "up01",
+      "x": 328,
+      "y": 645,
+      "intra_map": true,
+      "dest_name": "Free Market<2>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002002",
+      "name": "dn00",
+      "x": 1262,
+      "y": 435,
+      "intra_map": true,
+      "dest_name": "Free Market<2>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002002",
+      "name": "dn01",
+      "x": 1015,
+      "y": 644,
+      "intra_map": true,
+      "dest_name": "Free Market<2>"
+    }
+  ],
+  "080002003": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 1383,
+      "y": 888,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002003",
+      "name": "up00",
+      "x": 313,
+      "y": 886,
+      "intra_map": true,
+      "dest_name": "Free Market<3>"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "80002003",
+      "name": "up01",
+      "x": 335,
+      "y": 645,
+      "intra_map": true,
+      "dest_name": "Free Market<3>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002003",
+      "name": "dn00",
+      "x": 1270,
+      "y": 435,
+      "intra_map": true,
+      "dest_name": "Free Market<3>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002003",
+      "name": "dn01",
+      "x": 1012,
+      "y": 645,
+      "intra_map": true,
+      "dest_name": "Free Market<3>"
+    }
+  ],
+  "080002004": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 1383,
+      "y": 888,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002004",
+      "name": "up00",
+      "x": 319,
+      "y": 885,
+      "intra_map": true,
+      "dest_name": "Free Market<4>"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "80002004",
+      "name": "up01",
+      "x": 335,
+      "y": 645,
+      "intra_map": true,
+      "dest_name": "Free Market<4>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002004",
+      "name": "dn00",
+      "x": 1260,
+      "y": 438,
+      "intra_map": true,
+      "dest_name": "Free Market<4>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002004",
+      "name": "dn01",
+      "x": 1013,
+      "y": 644,
+      "intra_map": true,
+      "dest_name": "Free Market<4>"
+    }
+  ],
+  "080002005": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 1383,
+      "y": 888,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002005",
+      "name": "up00",
+      "x": 312,
+      "y": 888,
+      "intra_map": true,
+      "dest_name": "Free Market<5>"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "80002005",
+      "name": "up01",
+      "x": 334,
+      "y": 646,
+      "intra_map": true,
+      "dest_name": "Free Market<5>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002005",
+      "name": "dn00",
+      "x": 1266,
+      "y": 437,
+      "intra_map": true,
+      "dest_name": "Free Market<5>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002005",
+      "name": "dn01",
+      "x": 1016,
+      "y": 644,
+      "intra_map": true,
+      "dest_name": "Free Market<5>"
+    }
+  ],
+  "080002006": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 1383,
+      "y": 888,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002006",
+      "name": "up00",
+      "x": 312,
+      "y": 888,
+      "intra_map": true,
+      "dest_name": "Free Market<6>"
+    },
+    {
+      "id": "6",
+      "type": 1,
+      "dest_map": "80002006",
+      "name": "up01",
+      "x": 334,
+      "y": 646,
+      "intra_map": true,
+      "dest_name": "Free Market<6>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002006",
+      "name": "dn00",
+      "x": 1266,
+      "y": 437,
+      "intra_map": true,
+      "dest_name": "Free Market<6>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002006",
+      "name": "dn01",
+      "x": 1016,
+      "y": 644,
+      "intra_map": true,
+      "dest_name": "Free Market<6>"
+    }
+  ],
+  "080002007": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002007",
+      "name": "up00",
+      "x": 377,
+      "y": 946,
+      "intra_map": true,
+      "dest_name": "Free Market<7>"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002007",
+      "name": "up01",
+      "x": 399,
+      "y": 616,
+      "intra_map": true,
+      "dest_name": "Free Market<7>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002007",
+      "name": "dn00",
+      "x": 1276,
+      "y": 406,
+      "intra_map": true,
+      "dest_name": "Free Market<7>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002007",
+      "name": "dn01",
+      "x": 1306,
+      "y": 616,
+      "intra_map": true,
+      "dest_name": "Free Market<7>"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 865,
+      "y": 856,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    }
+  ],
+  "080002008": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002008",
+      "name": "up00",
+      "x": 377,
+      "y": 946,
+      "intra_map": true,
+      "dest_name": "Free Market<8>"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002008",
+      "name": "up01",
+      "x": 399,
+      "y": 616,
+      "intra_map": true,
+      "dest_name": "Free Market<8>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002008",
+      "name": "dn00",
+      "x": 1276,
+      "y": 406,
+      "intra_map": true,
+      "dest_name": "Free Market<8>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002008",
+      "name": "dn01",
+      "x": 1306,
+      "y": 616,
+      "intra_map": true,
+      "dest_name": "Free Market<8>"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 865,
+      "y": 856,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    }
+  ],
+  "080002009": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002009",
+      "name": "up00",
+      "x": 377,
+      "y": 946,
+      "intra_map": true,
+      "dest_name": "Free Market<9>"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002009",
+      "name": "up01",
+      "x": 399,
+      "y": 616,
+      "intra_map": true,
+      "dest_name": "Free Market<9>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002009",
+      "name": "dn00",
+      "x": 1276,
+      "y": 406,
+      "intra_map": true,
+      "dest_name": "Free Market<9>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002009",
+      "name": "dn01",
+      "x": 1306,
+      "y": 616,
+      "intra_map": true,
+      "dest_name": "Free Market<9>"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 865,
+      "y": 856,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    }
+  ],
+  "080002010": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002010",
+      "name": "up00",
+      "x": 377,
+      "y": 946,
+      "intra_map": true,
+      "dest_name": "Free Market<10>"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002010",
+      "name": "up01",
+      "x": 399,
+      "y": 616,
+      "intra_map": true,
+      "dest_name": "Free Market<10>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002010",
+      "name": "dn00",
+      "x": 1276,
+      "y": 406,
+      "intra_map": true,
+      "dest_name": "Free Market<10>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002010",
+      "name": "dn01",
+      "x": 1306,
+      "y": 616,
+      "intra_map": true,
+      "dest_name": "Free Market<10>"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 865,
+      "y": 856,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    }
+  ],
+  "080002011": [
+    {
+      "id": "4",
+      "type": 1,
+      "dest_map": "80002011",
+      "name": "up00",
+      "x": 377,
+      "y": 946,
+      "intra_map": true,
+      "dest_name": "Free Market<11>"
+    },
+    {
+      "id": "5",
+      "type": 1,
+      "dest_map": "80002011",
+      "name": "up01",
+      "x": 399,
+      "y": 616,
+      "intra_map": true,
+      "dest_name": "Free Market<11>"
+    },
+    {
+      "id": "7",
+      "type": 1,
+      "dest_map": "80002011",
+      "name": "dn00",
+      "x": 1276,
+      "y": 406,
+      "intra_map": true,
+      "dest_name": "Free Market<11>"
+    },
+    {
+      "id": "8",
+      "type": 1,
+      "dest_map": "80002011",
+      "name": "dn01",
+      "x": 1306,
+      "y": 616,
+      "intra_map": true,
+      "dest_name": "Free Market<11>"
+    },
+    {
+      "id": "10",
+      "type": 2,
+      "dest_map": "80002000",
+      "name": "out00",
+      "x": 865,
+      "y": 856,
+      "intra_map": false,
+      "dest_name": "Free Market Entrance"
+    }
+  ],
+  "090040000": [
+    {
+      "id": "27",
+      "type": 2,
+      "dest_map": "90040001",
+      "name": "in00",
+      "x": 1463,
+      "y": 387,
+      "intra_map": false,
+      "dest_name": "MapleStory Physical Fitness Challenge <Level 1>"
+    },
+    {
+      "id": "28",
+      "type": 4,
+      "dest_map": "90040000",
+      "name": "join00",
+      "x": 909,
+      "y": 631,
+      "intra_map": true,
+      "dest_name": "MapleStory Physical Fitness Test <Waiting Room>"
+    }
+  ],
+  "090040001": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "90040002",
+      "name": "in00",
+      "x": 1228,
+      "y": 160,
+      "intra_map": false,
+      "dest_name": "MapleStory Physical Fitness Challenge <Level 2>"
+    }
+  ],
+  "090040002": [
+    {
+      "id": "8",
+      "type": 2,
+      "dest_map": "90040003",
+      "name": "in00",
+      "x": 2596,
+      "y": 164,
+      "intra_map": false,
+      "dest_name": "MapleStory Physical Fitness Challenge <Level 3>"
+    }
+  ],
+  "090040003": [
+    {
+      "id": "7",
+      "type": 2,
+      "dest_map": "90040004",
+      "name": "in00",
+      "x": 2368,
+      "y": 174,
+      "intra_map": false,
+      "dest_name": "MapleStory Physical Fitness Challenge <Level 4>"
+    }
+  ],
+  "090040004": [
+    {
+      "id": "12",
+      "type": 2,
+      "dest_map": "90050001",
+      "name": "in00",
+      "x": 1713,
+      "y": 387,
+      "intra_map": false,
+      "dest_name": "Receiving the Reward For the Event"
+    }
+  ],
+  "090040010": [
+    {
+      "id": "21",
+      "type": 2,
+      "dest_map": "90040011",
+      "name": "in00",
+      "x": 1707,
+      "y": 882,
+      "intra_map": false,
+      "dest_name": "MapleStory Physical Fitness Challenge <Easy Level 1>"
+    },
+    {
+      "id": "22",
+      "type": 4,
+      "dest_map": "90040010",
+      "name": "join00",
+      "x": 1096,
+      "y": 1245,
+      "intra_map": true,
+      "dest_name": "MapleStory Physical Fitness Test <Easy Waiting Room>"
+    }
+  ],
+  "090040011": [
+    {
+      "id": "2",
+      "type": 2,
+      "dest_map": "90040012",
+      "name": "in00",
+      "x": 1093,
+      "y": 407,
+      "intra_map": false,
+      "dest_name": "MapleStory Physical Fitness Challenge <Easy Level 2>"
+    }
+  ],
+  "090040012": [
+    {
+      "id": "4",
+      "type": 2,
+      "dest_map": "90040013",
+      "name": "in00",
+      "x": 305,
+      "y": 408,
+      "intra_map": false,
+      "dest_name": "MapleStory Physical Fitness Challenge <Easy Level 3>"
+    }
+  ],
+  "090040013": [
+    {
+      "id": "3",
+      "type": 2,
+      "dest_map": "90050001",
+      "name": "in00",
+      "x": 231,
+      "y": 409,
+      "intra_map": false,
+      "dest_name": "Receiving the Reward For the Event"
+    }
+  ]
+}
