@@ -647,6 +647,7 @@ export function renderMaps(data, options = {}) {
                 boxShadow: boxShadow,
                 zIndex: 2,
                 pointerEvents: 'auto',
+                cursor: !isIntra ? 'pointer' : 'default',
               }
             });
             // DEBUG: show dest portal names
