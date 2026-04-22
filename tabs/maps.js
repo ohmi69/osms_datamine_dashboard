@@ -637,19 +637,19 @@ export function renderMaps(data, options = {}) {
             const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
             const mkEnd = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
             mkEnd.setAttribute('id', `pae-${uid}`);
-            mkEnd.setAttribute('markerWidth', '8'); mkEnd.setAttribute('markerHeight', '6');
-            mkEnd.setAttribute('refX', '8'); mkEnd.setAttribute('refY', '3');
+            mkEnd.setAttribute('markerWidth', '5'); mkEnd.setAttribute('markerHeight', '4');
+            mkEnd.setAttribute('refX', '5'); mkEnd.setAttribute('refY', '2');
             mkEnd.setAttribute('orient', 'auto');
             const p1 = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-            p1.setAttribute('points', '0 0, 8 3, 0 6'); p1.setAttribute('fill', '#2ecc40');
+            p1.setAttribute('points', '0 0, 5 2, 0 4'); p1.setAttribute('fill', '#2ecc40');
             mkEnd.appendChild(p1); defs.appendChild(mkEnd);
             const mkStart = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
             mkStart.setAttribute('id', `pas-${uid}`);
-            mkStart.setAttribute('markerWidth', '8'); mkStart.setAttribute('markerHeight', '6');
-            mkStart.setAttribute('refX', '0'); mkStart.setAttribute('refY', '3');
+            mkStart.setAttribute('markerWidth', '5'); mkStart.setAttribute('markerHeight', '4');
+            mkStart.setAttribute('refX', '0'); mkStart.setAttribute('refY', '2');
             mkStart.setAttribute('orient', 'auto');
             const p2 = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-            p2.setAttribute('points', '8 0, 0 3, 8 6'); p2.setAttribute('fill', '#2ecc40');
+            p2.setAttribute('points', '5 0, 0 2, 5 4'); p2.setAttribute('fill', '#2ecc40');
             mkStart.appendChild(p2); defs.appendChild(mkStart);
             svg.appendChild(defs);
             const drawn = new Set();
@@ -664,8 +664,9 @@ export function renderMaps(data, options = {}) {
               const destData = portals.find(p => p.name === portal.dest_portal);
               const isMutual = destData && destData.dest_portal === portal.name;
               const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-              line.setAttribute('x1', src.px); line.setAttribute('y1', src.py);
-              line.setAttribute('x2', dst.px); line.setAttribute('y2', dst.py);
+              { const adx = dst.px - src.px, ady = dst.py - src.py, adist = Math.sqrt(adx*adx+ady*ady)||1, aux = adx/adist, auy = ady/adist;
+              line.setAttribute('x1', src.px + aux * portalR); line.setAttribute('y1', src.py + auy * portalR);
+              line.setAttribute('x2', dst.px - aux * portalR); line.setAttribute('y2', dst.py - auy * portalR); }
               line.setAttribute('stroke', '#2ecc40');
               line.setAttribute('stroke-width', '2');
               line.setAttribute('stroke-dasharray', '6 3');
@@ -736,15 +737,16 @@ export function renderMaps(data, options = {}) {
                   const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
                   const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
                   marker.setAttribute('id', 'portal-arrowhead-hover');
-                  marker.setAttribute('markerWidth', '8'); marker.setAttribute('markerHeight', '6');
-                  marker.setAttribute('refX', '8'); marker.setAttribute('refY', '3');
+                  marker.setAttribute('markerWidth', '5'); marker.setAttribute('markerHeight', '4');
+                  marker.setAttribute('refX', '5'); marker.setAttribute('refY', '2');
                   marker.setAttribute('orient', 'auto');
                   const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-                  poly.setAttribute('points', '0 0, 8 3, 0 6'); poly.setAttribute('fill', '#2ecc40');
+                  poly.setAttribute('points', '0 0, 5 2, 0 4'); poly.setAttribute('fill', '#2ecc40');
                   marker.appendChild(poly); defs.appendChild(marker); svg.appendChild(defs);
                   const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                  line.setAttribute('x1', px); line.setAttribute('y1', py);
-                  line.setAttribute('x2', partner.px); line.setAttribute('y2', partner.py);
+                  { const hdx = partner.px - px, hdy = partner.py - py, hdist = Math.sqrt(hdx*hdx+hdy*hdy)||1, hux = hdx/hdist, huy = hdy/hdist;
+                  line.setAttribute('x1', px + hux * portalR); line.setAttribute('y1', py + huy * portalR);
+                  line.setAttribute('x2', partner.px - hux * portalR); line.setAttribute('y2', partner.py - huy * portalR); }
                   line.setAttribute('stroke', '#2ecc40');
                   line.setAttribute('stroke-width', '2');
                   line.setAttribute('stroke-dasharray', '6 3');
@@ -755,7 +757,7 @@ export function renderMaps(data, options = {}) {
               }
             });
             overlay.addEventListener('mouseleave', () => {
-              if (!showAllIntra) {
+              if (!isIntra || !showAllIntra) {
                 overlay.style.boxShadow = boxShadow;
                 overlay.style.background = bgColor;
               }
