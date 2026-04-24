@@ -1,4 +1,4 @@
-import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makePillGroup, makeDetailPanel } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId } from '../lib/utils.js';
 
 function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
@@ -8,11 +8,9 @@ function matchesClass(item, classFilter) {
 }
 
 function renderEquipRow(item) {
-  const row = el('div', { className: 'item-row', style: { marginBottom: '0', borderBottom: '1px solid var(--border)' } });
+  const row = el('div', { className: 'item-row' });
   const topLine = el('div', { className: 'top-line' });
-  const nameWrap = el('span', {
-    style: { display: 'flex', alignItems: 'center', gap: '8px', minWidth: '0' },
-  });
+  const nameWrap = el('span', { className: 'item-name-wrap' });
   nameWrap.appendChild(
     makeThumbnail(item.thumbnail, `${item.name} thumbnail`, {
       className: 'item-thumb',
@@ -24,9 +22,9 @@ function renderEquipRow(item) {
     nameWrap.appendChild(el('span', { className: 'equip-type-badge', textContent: item.weapon_type }));
   }
   topLine.appendChild(nameWrap);
-  const eqRightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', flexShrink: '0' } });
-  eqRightWrap.appendChild(makeDeepLinkButton('equipment', item.id));
-  eqRightWrap.appendChild(el('span', { className: 'id', textContent: item.id }));
+  const eqRightWrap = el('span', { className: 'item-id-wrap' });
+  eqRightWrap.appendChild(makeDeepLinkButton('equipment', padItemId(item.id)));
+  eqRightWrap.appendChild(makeCopyableId(padItemId(item.id)));
   topLine.appendChild(eqRightWrap);
   row.appendChild(topLine);
 
@@ -63,53 +61,34 @@ export function renderEquipment(data, options = {}) {
   const container = el('div');
   const equipmentMeta = items.equipment_meta || {};
 
-  // Search box
-  const eqSearchBox = makeSearchBox('Search by name or description...', (value) => {
-    searchQuery = value;
+  wireSearch(container, 'Search by name or description...', options, (query) => {
+    searchQuery = query;
     renderData();
   });
-  container.appendChild(eqSearchBox);
 
-  if (options.setNavigate) {
-    options.setNavigate((query) => {
-      searchQuery = query;
-      eqSearchBox._input.value = query;
-      renderData();
-      window.scrollTo(0, 0);
-    });
-  }
-
-  // Class filter pills using makePillGroup
   const classOptions = [
     { label: 'All Classes', value: 0 },
     ...((equipmentMeta.job_filters || []).map((opt) => ({ label: opt.label, value: opt.value }))),
   ];
-  function handleClassPillChange(value) {
+  const classPillGroup = makePillGroup(classOptions, classFilter, (value) => {
     classFilter = value;
-    const newGroup = makePillGroup(classOptions, classFilter, handleClassPillChange, { groupLabel: 'Class:' });
-    container.replaceChild(newGroup, classPillGroup);
-    classPillGroup = newGroup;
+    classPillGroup.setActive(value);
     buildWeaponTypePills();
     renderData();
-  }
-  let classPillGroup = makePillGroup(classOptions, classFilter, handleClassPillChange, { groupLabel: 'Class:' });
+  }, { groupLabel: 'Class:' });
   container.appendChild(classPillGroup);
   container.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
 
-  // Gender filter pills
   const genderOptions = [
     { label: 'All Genders', value: null },
     { label: 'Male', value: 'male' },
     { label: 'Female', value: 'female' },
   ];
-  function handleGenderPillChange(value) {
+  const genderPillGroup = makePillGroup(genderOptions, genderFilter, (value) => {
     genderFilter = value;
-    const newGroup = makePillGroup(genderOptions, genderFilter, handleGenderPillChange, { groupLabel: 'Gender:' });
-    container.replaceChild(newGroup, genderPillGroup);
-    genderPillGroup = newGroup;
+    genderPillGroup.setActive(value);
     renderData();
-  }
-  let genderPillGroup = makePillGroup(genderOptions, genderFilter, handleGenderPillChange, { groupLabel: 'Gender:' });
+  }, { groupLabel: 'Gender:' });
   container.appendChild(genderPillGroup);
   container.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
 
@@ -230,10 +209,7 @@ export function renderEquipment(data, options = {}) {
 
     if (equips.length === 0) {
       dataDiv.appendChild(
-        el('p', {
-          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
-          textContent: 'No equipment matches your filters.',
-        })
+        el('p', { className: 'empty-state', textContent: 'No equipment matches your filters.' })
       );
       return;
     }

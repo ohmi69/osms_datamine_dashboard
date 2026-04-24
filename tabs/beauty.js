@@ -1,4 +1,4 @@
-import { el, normalizeAssetPath } from '../lib/utils.js';
+import { el, normalizeAssetPath, makeCopyableId, padItemId } from '../lib/utils.js';
 
 export function renderBeautyStyles(data) {
   const beauty = data.beauty_coupons;
@@ -91,7 +91,7 @@ export function renderBeautyStyles(data) {
           card.appendChild(el('div', { className: 'beauty-style-placeholder' }));
         }
         card.appendChild(el('div', { className: 'beauty-style-name', textContent: style.name }));
-        card.appendChild(el('div', { className: 'beauty-style-id id', textContent: style.id }));
+        card.appendChild(makeCopyableId(padItemId(style.id), 'beauty-style-id'));
         grid.appendChild(card);
       }
       genderBlock.appendChild(grid);

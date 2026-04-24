@@ -1,3 +1,47 @@
+/* ── Navigate button ───────────────────────────────────────── */
+.map-navigate-btn {
+  float: right;
+  margin: 0 0 10px 10px;
+  padding: 7px 18px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--button-text, #fff);
+  border: 1.5px solid var(--accent);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background .18s, box-shadow .18s;
+  outline: none;
+}
+.map-navigate-btn:hover {
+  background: color-mix(in srgb, var(--accent) 80%, black);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+
+/* ── Navigate modal inputs ─────────────────────────────────── */
+.mapnav-input-wrap { position: relative; width: 100%; }
+
+/* ── Navigate route steps ──────────────────────────────────── */
+.navigate-step-img {
+  max-width: 320px;
+  max-height: 180px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  display: block;
+  background: var(--surface);
+}
+.navigate-step-img-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.navigate-step-destination { color: var(--accent); font-size: 13px; margin-top: 2px; }
+
+/* ── Hide-mobs toggle ──────────────────────────────────────── */
+/* Uses shared .hide-toggle / .hide-toggle-check from base.css */
+.hide-toggle { margin-left: 10px; }
+
 /* Navigation Modal & Steps */
 .navigate-modal {
   /* Overlay tweaks if needed */

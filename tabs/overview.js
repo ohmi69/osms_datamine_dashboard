@@ -147,7 +147,7 @@ export function renderOverview(data, { switchTab }) {
   [
     ['Content Era',        stats.version],
     ['Classes',            stats.classes],
-    ['Max Level',          '51 · Same EXP curve as old school MS'],
+    ['Max Level',          '50 · Same EXP curve as old school MS'],
     ['Craft Disciplines',  stats.disciplines],
     ['Bosses',             stats.bosses],
     ['Mob Level Range',        stats.level_range],

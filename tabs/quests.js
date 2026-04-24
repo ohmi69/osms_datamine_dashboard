@@ -1,10 +1,6 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, toMobThumbPath, makeCopyableId, padQuestId } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
-
-const CHAIN_COLORS = [
-  '#f59e0b', '#3b82f6', '#22c55e', '#a855f7',
-  '#ec4899', '#14b8a6', '#eab308', '#ef4444',
-];
+import { CHAIN_COLORS } from '../lib/constants.js';
 
 
 import state from '../lib/data.js';
@@ -28,58 +24,12 @@ function isQuestCompleted(quest, completionState) {
   return completionState[key] === true;
 }
 
-const rewardChipStyle = {
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: '6px',
-  padding: '4px 10px',
-  borderRadius: '999px',
-  border: '1px solid var(--border)',
-  background: 'rgba(255,255,255,0.04)',
-  color: 'var(--text)',
-  fontSize: '12px',
-  lineHeight: '1.4',
-};
 
 
-function getItemThumbPath(itemId) {
-  const numericId = Number(itemId);
-  if (!Number.isFinite(numericId) || numericId <= 0) return '';
-  return `images/items/${String(numericId).padStart(8, '0')}.png`;
-}
-
-function getMobThumbPath(mobId) {
-  const numericId = Number(mobId);
-  if (!Number.isFinite(numericId) || numericId <= 0) return '';
-  return `images/monsters/${String(numericId).padStart(7, '0')}.png`;
-}
-
-      // Move regionFilter and regions definition above their first use
-      let regionFilter = 'All';
-      const regions = typeof quests !== 'undefined' && quests && Array.isArray(quests.regions)
-        ? ['All', ...quests.regions]
-        : ['All'];
-      function handleRegionPillChange(value) {
-        regionFilter = value;
-        renderData();
-      }
-      let regionPillGroup = makePillGroup(
-        regions.map(r => ({ label: r, value: r })),
-        regionFilter,
-        handleRegionPillChange,
-        { groupLabel: 'Region:' }
-      );
-      const filterRow = el('div', {
-        style: {
-          display: 'flex', flexWrap: 'wrap', gap: '6px',
-          marginBottom: '16px', alignItems: 'center',
-        },
-      });
-      filterRow.appendChild(regionPillGroup);
 function getRequirementThumbPath(requirement) {
   if (!requirement || !requirement.type) return '';
-  if (requirement.type === 'item') return getItemThumbPath(requirement.id);
-  if (requirement.type === 'mob') return getMobThumbPath(requirement.id);
+  if (requirement.type === 'item') return toItemThumbPath(requirement.id);
+  if (requirement.type === 'mob') return toMobThumbPath(requirement.id);
   return '';
 }
 
@@ -101,7 +51,7 @@ function formatRequirementLabel(requirement) {
 }
 
 function renderRequirementChips(requirements, itemById, monsterById) {
-  const wrap = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px' } });
+  const wrap = el('div', { className: 'quest-chip-list' });
   requirements.forEach((requirement) => {
     // Only make items clickable
     let chip;
@@ -120,12 +70,7 @@ function renderRequirementChips(requirements, itemById, monsterById) {
       }
       chip = el(
         'span',
-        {
-          style: { ...rewardChipStyle, cursor: 'pointer' },
-          className: 'quest-requirement-chip',
-          tabIndex: 0,
-          role: 'button'
-        },
+        { className: 'quest-chip quest-requirement-chip', tabIndex: 0, role: 'button' },
         makeThumbnail(
           getRequirementThumbPath(requirement),
           `${requirement.name || requirement.label || 'Requirement'} thumbnail`,
@@ -153,12 +98,7 @@ function renderRequirementChips(requirements, itemById, monsterById) {
     } else {
       chip = el(
         'span',
-        {
-          style: { ...rewardChipStyle, cursor: 'pointer' },
-          className: 'quest-requirement-chip',
-          tabIndex: 0,
-          role: 'button'
-        },
+        { className: 'quest-chip quest-requirement-chip', tabIndex: 0, role: 'button' },
         makeThumbnail(
           getRequirementThumbPath(requirement),
           `${requirement.name || requirement.label || 'Requirement'} thumbnail`,
@@ -203,7 +143,7 @@ function formatRewardItemLabel(item) {
 }
 
 function renderRewardItemChips(itemList, itemById) {
-  const wrap = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px' } });
+  const wrap = el('div', { className: 'quest-chip-list' });
   itemList.forEach((item) => {
     // Determine tab: equipment if category is Equipment, else items. If category is missing, infer from item ID.
     let tabId = 'items';
@@ -218,13 +158,8 @@ function renderRewardItemChips(itemList, itemById) {
     }
     const chip = el(
       'span',
-      {
-        style: { ...rewardChipStyle, cursor: 'pointer' },
-        className: 'quest-reward-chip',
-        tabIndex: 0,
-        role: 'button'
-      },
-      makeThumbnail(getItemThumbPath(item.id), `${item.name || item.label || 'Reward'} thumbnail`, {
+      { className: 'quest-chip quest-reward-chip', tabIndex: 0, role: 'button' },
+      makeThumbnail(toItemThumbPath(item.id), `${item.name || item.label || 'Reward'} thumbnail`, {
         className: 'item-thumb',
         fallbackText: 'ITEM',
       }),
@@ -286,36 +221,22 @@ function renderRewardContent(quest, itemById) {
     return fallback;
   }
 
-  const content = el('div', {
-    className: 'value',
-    style: { display: 'flex', flexDirection: 'column', gap: '8px' },
-  });
+  const content = el('div', { className: 'value quest-reward-content' });
 
   if (guaranteedItems.length) {
     if (rewardChoices.length || weightedBlocks.length) {
       content.appendChild(
-        el('div', {
-          style: {
-            fontSize: '11px',
-            fontWeight: '700',
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            color: 'var(--secondary)',
-          },
-          textContent: 'Guaranteed',
-        })
+        el('div', { className: 'quest-reward-section-label', textContent: 'Guaranteed' })
       );
     }
     content.appendChild(renderRewardItemChips(guaranteedItems, itemById));
   }
 
   weightedBlocks.forEach((weighted) => {
-    const weightedBlock = el('div', {
-      style: { display: 'flex', flexDirection: 'column', gap: '6px' },
-    });
+    const weightedBlock = el('div', { className: 'quest-reward-block' });
     weightedBlock.appendChild(
       el('div', {
-        style: { fontWeight: '700', color: 'var(--text)' },
+        className: 'quest-reward-heading',
         textContent: weighted.class_specific
           ? 'Weighted random (class-specific):'
           : 'Weighted random:',
@@ -325,13 +246,10 @@ function renderRewardContent(quest, itemById) {
     const groups = Array.isArray(weighted.groups) ? weighted.groups : [];
     groups.forEach((group) => {
       if (!group || !Array.isArray(group.items) || !group.items.length) return;
-      const groupBlock = el('div', { style: { display: 'flex', flexDirection: 'column', gap: '4px' } });
+      const groupBlock = el('div', { className: 'quest-reward-group' });
       if (weighted.class_specific || group.job_name !== 'Any Class') {
         groupBlock.appendChild(
-          el('div', {
-            style: { fontSize: '12px', fontWeight: '700', color: 'var(--secondary)' },
-            textContent: group.job_name,
-          })
+          el('div', { className: 'quest-reward-group-label', textContent: group.job_name })
         );
       }
       const itemsWithChance = group.items.map((item) => ({
@@ -346,12 +264,10 @@ function renderRewardContent(quest, itemById) {
   });
 
   rewardChoices.forEach((choice) => {
-    const choiceBlock = el('div', {
-      style: { display: 'flex', flexDirection: 'column', gap: '6px' },
-    });
+    const choiceBlock = el('div', { className: 'quest-reward-block' });
     choiceBlock.appendChild(
       el('div', {
-        style: { fontWeight: '700', color: 'var(--text)' },
+        className: 'quest-reward-heading',
         textContent: choice.class_specific ? 'Pick one (class-specific):' : 'Pick one:',
       })
     );
@@ -359,13 +275,10 @@ function renderRewardContent(quest, itemById) {
     const groups = Array.isArray(choice.groups) ? choice.groups : [];
     groups.forEach((group) => {
       if (!group || !Array.isArray(group.items) || !group.items.length) return;
-      const groupBlock = el('div', { style: { display: 'flex', flexDirection: 'column', gap: '4px' } });
+      const groupBlock = el('div', { className: 'quest-reward-group' });
       if (choice.class_specific || group.job_name !== 'Any Class') {
         groupBlock.appendChild(
-          el('div', {
-            style: { fontSize: '12px', fontWeight: '700', color: 'var(--secondary)' },
-            textContent: group.job_name,
-          })
+          el('div', { className: 'quest-reward-group-label', textContent: group.job_name })
         );
       }
       groupBlock.appendChild(renderRewardItemChips(group.items, itemById));
@@ -414,9 +327,9 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
     );
   }
   if (quest.id != null) {
-    const qIdWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', marginLeft: 'auto' } });
-    qIdWrap.appendChild(makeDeepLinkButton('quests', quest.id));
-    qIdWrap.appendChild(el('span', { className: 'id', textContent: quest.id }));
+    const qIdWrap = el('span', { className: 'quest-id-wrap' });
+    qIdWrap.appendChild(makeDeepLinkButton('quests', padQuestId(quest.id)));
+    qIdWrap.appendChild(makeCopyableId(padQuestId(quest.id)));
     nameRow.appendChild(qIdWrap);
   }
   card.appendChild(nameRow);
@@ -501,50 +414,20 @@ export function renderQuests(data, options = {}) {
       : []
   );
 
-  const qSearchBox = makeSearchBox('Search by name, NPC, or reward...', (value) => {
-    searchQuery = value;
+  wireSearch(container, 'Search by name, NPC, or reward...', options, (query) => {
+    searchQuery = query;
     renderData();
   });
-  container.appendChild(qSearchBox);
-
-  if (options.setNavigate) {
-    options.setNavigate((query) => {
-      searchQuery = query;
-      qSearchBox._input.value = query;
-      renderData();
-      window.scrollTo(0, 0);
-    });
-  }
 
   const regions = ['All', ...(quests.regions || [])];
-  const filterRow = el('div', {
-    style: {
-      display: 'flex', flexWrap: 'wrap', gap: '6px',
-      marginBottom: '16px', alignItems: 'center',
-    },
-  });
-
-  regions.forEach((region) => {
-    const button = el('button', {
-      className: `pill${region === regionFilter ? ' active' : ''}`,
-      textContent: region,
-    });
-    button.addEventListener('click', () => {
-      regionFilter = region;
-      filterRow.querySelectorAll('.pill:not(.sort-pill)').forEach((pill) =>
-        pill.classList.remove('active')
-      );
-      button.classList.add('active');
-      renderData();
-    });
-    filterRow.appendChild(button);
-  });
-
-  filterRow.appendChild(
-    el('div', {
-      style: { width: '1px', height: '24px', background: '#555', margin: '0 4px' },
-    })
+  const filterRow = el('div', { className: 'filter-row' });
+  const regionPills = makePillGroup(
+    regions.map((r) => ({ label: r, value: r })),
+    regionFilter,
+    (value) => { regionFilter = value; regionPills.setActive(value); renderData(); }
   );
+  filterRow.appendChild(regionPills);
+  filterRow.appendChild(el('div', { className: 'filter-divider' }));
 
   const sortBtn = el('button', {
     className: 'pill sort-pill active',
@@ -657,10 +540,7 @@ export function renderQuests(data, options = {}) {
 
     if (allQuests.length === 0) {
       dataDiv.appendChild(
-        el('p', {
-          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
-          textContent: 'No quests match your filters.',
-        })
+        el('p', { className: 'empty-state', textContent: 'No quests match your filters.' })
       );
     }
   }

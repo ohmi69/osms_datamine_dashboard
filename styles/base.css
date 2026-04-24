@@ -559,6 +559,43 @@ body {
 /* ── Count text ─────────────────────────────────────────────── */
 .count-text { font-size: 13px; color: var(--dim); margin-bottom: 12px; }
 
+/* ── Shared layout helpers ──────────────────────────────────── */
+.empty-state { color: var(--dim); padding: 20px; text-align: center; }
+.filter-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; align-items: center; }
+.filter-divider { width: 1px; height: 24px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
+.table-scroll { overflow-x: auto; }
+.item-name-wrap { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.item-id-wrap { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+
+/* ── Hide toggle button (shared across tabs) ────────────────── */
+.hide-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--dim);
+  transition: all .2s;
+}
+.hide-toggle.active { color: #ef4444; border-color: #ef444466; background: #ef444411; }
+.hide-toggle-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  border: 1.5px solid currentColor;
+  flex-shrink: 0;
+  font-size: 10px;
+  line-height: 1;
+}
+
 /* ── Collapsible sections ───────────────────────────────────── */
 .collapsible {
   border: 1px solid var(--border);
@@ -665,7 +702,28 @@ body {
 }
 
 /* ── ID display ─────────────────────────────────────────────── */
-.id { font-size: 11px; color: var(--dim); font-family: monospace; }
+.id { font-size: 11px; color: var(--dim); font-family: monospace; cursor: pointer; }
+.id:hover { text-decoration: underline; }
+.id--copied { color: var(--accent, #7aa2f7) !important; }
+.copy-tip {
+  position: fixed;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent, #7aa2f7);
+  font-size: 11px;
+  font-family: monospace;
+  padding: 2px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 10000;
+  animation: copy-tip-anim 1s ease forwards;
+}
+@keyframes copy-tip-anim {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(0); }
+  15%  { opacity: 1; transform: translateX(-50%) translateY(-6px); }
+  70%  { opacity: 1; transform: translateX(-50%) translateY(-6px); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+}
 body.hide-ids .id { display: none !important; }
 body.hide-ids .id-col { display: none !important; }
 

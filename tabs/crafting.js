@@ -1,10 +1,29 @@
-import { el, fmt, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, padItemId } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 
-function toItemThumbPath(itemId) {
-  const n = Number(itemId);
-  if (!Number.isFinite(n) || n <= 0) return '';
-  return `images/items/${String(n).padStart(8, '0')}.png`;
+function filterDisciplines(disciplines, exactId, sq) {
+  return disciplines
+    .map((discipline) => ({
+      ...discipline,
+      output_types: discipline.output_types
+        .map((outputType) => ({
+          ...outputType,
+          levels: outputType.levels
+            .map((level) => ({
+              ...level,
+              recipes: level.recipes.filter((recipe) =>
+                exactId != null
+                  ? recipe.output_id != null && Number(recipe.output_id) === exactId
+                  : !sq ||
+                    recipe.result_item_name.toLowerCase().includes(sq) ||
+                    recipe.ingredients.some((ing) => ing.item_name.toLowerCase().includes(sq))
+              ),
+            }))
+            .filter((level) => level.recipes.length > 0),
+        }))
+        .filter((outputType) => outputType.levels.length > 0),
+    }))
+    .filter((discipline) => discipline.output_types.length > 0);
 }
 
 export function renderCrafting(data, options = {}) {
@@ -27,101 +46,33 @@ export function renderCrafting(data, options = {}) {
   });
 
 
-  const craftSearchBox = makeSearchBox('Search by result or ingredient...', (value) => {
-    searchQuery = value;
+  wireSearch(container, 'Search by result or ingredient...', options, (query) => {
+    searchQuery = query;
     renderData();
   });
-  container.appendChild(craftSearchBox);
 
-  if (options.setNavigate) {
-    options.setNavigate((query) => {
-      searchQuery = query;
-      craftSearchBox._input.value = query;
-      renderData();
-      window.scrollTo(0, 0);
-    });
-  }
-
-  // Pills for discipline filtering using reusable utility
   const DISCIPLINE_PILLS = [
     { label: 'All', value: null },
     ...recipes.disciplines.map((discipline) => ({ label: discipline.discipline, value: discipline.discipline }))
   ];
-  function handleDisciplinePillChange(value) {
+  const pillGroup = makePillGroup(DISCIPLINE_PILLS, selectedDiscipline, (value) => {
     selectedDiscipline = value;
     renderData();
-  }
-  let pillGroup = makePillGroup(DISCIPLINE_PILLS, selectedDiscipline, handleDisciplinePillChange);
+  });
   container.appendChild(pillGroup);
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);
 
-  // let selectedDiscipline = null; // (moved above)
-
   function renderData() {
-    // Rebuild pills to update active state
-    const newPillGroup = makePillGroup(DISCIPLINE_PILLS, selectedDiscipline, handleDisciplinePillChange);
-    container.replaceChild(newPillGroup, pillGroup);
-    pillGroup = newPillGroup;
+    pillGroup.setActive(selectedDiscipline);
     dataDiv.innerHTML = '';
     const exactId = parseIdFilter(searchQuery);
     const sq = searchQuery.toLowerCase();
-    let filtered;
-    if (!selectedDiscipline) {
-      filtered = recipes.disciplines
-        .map((discipline) => ({
-          ...discipline,
-          output_types: discipline.output_types
-            .map((outputType) => ({
-              ...outputType,
-              levels: outputType.levels
-                .map((level) => ({
-                  ...level,
-                  recipes: level.recipes.filter(
-                    (recipe) =>
-                      exactId != null
-                        ? recipe.output_id != null && Number(recipe.output_id) === exactId
-                        : !sq ||
-                          recipe.result_item_name.toLowerCase().includes(sq) ||
-                          recipe.ingredients.some((ingredient) =>
-                            ingredient.item_name.toLowerCase().includes(sq)
-                          )
-                  ),
-                }))
-                .filter((level) => level.recipes.length > 0),
-            }))
-            .filter((outputType) => outputType.levels.length > 0),
-        }))
-        .filter((discipline) => discipline.output_types.length > 0);
-    } else {
-      filtered = recipes.disciplines
-        .filter((discipline) => discipline.discipline === selectedDiscipline)
-        .map((discipline) => ({
-          ...discipline,
-          output_types: discipline.output_types
-            .map((outputType) => ({
-              ...outputType,
-              levels: outputType.levels
-                .map((level) => ({
-                  ...level,
-                  recipes: level.recipes.filter(
-                    (recipe) =>
-                      exactId != null
-                        ? recipe.output_id != null && Number(recipe.output_id) === exactId
-                        : !sq ||
-                          recipe.result_item_name.toLowerCase().includes(sq) ||
-                          recipe.ingredients.some((ingredient) =>
-                            ingredient.item_name.toLowerCase().includes(sq)
-                          )
-                  ),
-                }))
-                .filter((level) => level.recipes.length > 0),
-            }))
-            .filter((outputType) => outputType.levels.length > 0),
-        }))
-        .filter((discipline) => discipline.output_types.length > 0);
-    }
+    const source = selectedDiscipline
+      ? recipes.disciplines.filter((d) => d.discipline === selectedDiscipline)
+      : recipes.disciplines;
+    const filtered = filterDisciplines(source, exactId, sq);
 
     const totalRecipes = filtered.reduce(
       (sum, discipline) =>
@@ -142,7 +93,7 @@ export function renderCrafting(data, options = {}) {
     if (totalRecipes === 0) {
       dataDiv.appendChild(
         el('p', {
-          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
+          className: 'empty-state',
           textContent: 'No recipes match your filters.',
         })
       );
@@ -163,7 +114,7 @@ export function renderCrafting(data, options = {}) {
           0
         );
 
-        const tableWrap = el('div', { style: { overflowX: 'auto' } });
+        const tableWrap = el('div', { className: 'table-scroll' });
         const table = el('table', { className: 'craft-table' });
         const colgroup = el('colgroup');
         ['result', 'qty', 'ingredients', 'cost', 'xp'].forEach((cls) => {
@@ -190,7 +141,7 @@ export function renderCrafting(data, options = {}) {
           level.recipes.forEach((recipe) => {
             const row = el('tr');
             const resultCell = el('td');
-            const resultWrap = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' } });
+            const resultWrap = el('div', { className: 'craft-result-wrap' });
             const resultLeft = el('div', { className: 'craft-item' });
             resultLeft.appendChild(
               makeThumbnail(toItemThumbPath(recipe.output_id), `${recipe.result_item_name} thumbnail`, {
@@ -198,7 +149,7 @@ export function renderCrafting(data, options = {}) {
                 fallbackText: 'ITEM',
               })
             );
-            resultLeft.appendChild(el('span', { style: { fontWeight: '500' }, textContent: recipe.result_item_name }));
+            resultLeft.appendChild(el('span', { className: 'craft-result-name', textContent: recipe.result_item_name }));
             attachTooltip(resultLeft, () => recipe.output_id != null ? itemById.get(String(recipe.output_id)) : itemByName.get(recipe.result_item_name));
             if (onItemClick) {
               resultLeft.style.cursor = 'pointer';
@@ -209,19 +160,15 @@ export function renderCrafting(data, options = {}) {
             }
             resultWrap.appendChild(resultLeft);
             if (recipe.output_id != null) {
-              const craftIdWrap = el('span', { style: { display: 'inline-flex', alignItems: 'center', gap: '4px' } });
-              craftIdWrap.appendChild(makeDeepLinkButton('crafting', recipe.output_id));
-              craftIdWrap.appendChild(el('span', { className: 'id', textContent: recipe.output_id }));
+              const craftIdWrap = el('span', { className: 'item-id-wrap' });
+              craftIdWrap.appendChild(makeDeepLinkButton('crafting', padItemId(recipe.output_id)));
+              craftIdWrap.appendChild(makeCopyableId(padItemId(recipe.output_id)));
               resultWrap.appendChild(craftIdWrap);
             }
             resultCell.appendChild(resultWrap);
             row.appendChild(resultCell);
             row.appendChild(
-              el('td', {
-                className: 'num',
-                style: { color: 'var(--secondary)' },
-                textContent: recipe.result_count,
-              })
+              el('td', { className: 'num craft-qty', textContent: recipe.result_count })
             );
 
             const ingCell = el('td', { className: 'craft-ingredients' });
@@ -256,18 +203,10 @@ export function renderCrafting(data, options = {}) {
             row.appendChild(ingCell);
 
             row.appendChild(
-              el('td', {
-                className: 'num hide-mobile',
-                style: { fontSize: '13px', color: 'var(--dim)' },
-                textContent: recipe.meso_cost > 0 ? fmt(recipe.meso_cost) : '—',
-              })
+              el('td', { className: 'num hide-mobile craft-num', textContent: recipe.meso_cost > 0 ? fmt(recipe.meso_cost) : '—' })
             );
             row.appendChild(
-              el('td', {
-                className: 'num hide-mobile',
-                style: { fontSize: '13px', color: 'var(--dim)' },
-                textContent: recipe.craft_exp,
-              })
+              el('td', { className: 'num hide-mobile craft-num', textContent: recipe.craft_exp })
             );
 
             tbody.appendChild(row);
@@ -290,8 +229,6 @@ export function renderCrafting(data, options = {}) {
       );
     });
   }
-
-
 
   renderData();
   return container;

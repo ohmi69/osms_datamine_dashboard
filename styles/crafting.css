@@ -43,6 +43,11 @@
 }
 .output-type-header .count { font-size: 11px; color: var(--dim); margin-left: 8px; }
 
+.craft-result-wrap { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.craft-result-name { font-weight: 500; }
+.craft-num { font-size: 13px; color: var(--dim); }
+.craft-qty { color: var(--secondary); }
+
 .craft-item {
   display: inline-flex;
   align-items: center;

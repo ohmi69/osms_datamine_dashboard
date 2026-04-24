@@ -1,5 +1,4 @@
-import { el, matchSearch, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter } from '../lib/utils.js';
-import { makePillGroup } from '../lib/utils.js';
+import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeHideToggle, makeCopyableId, padItemId } from '../lib/utils.js';
 import state from '../lib/data.js';
 
 export function renderCashShop(data, options = {}) {
@@ -8,20 +7,10 @@ export function renderCashShop(data, options = {}) {
   let selectedCategory = null; // null = all, '__unnamed__' = unnamed section
   let selectedSubCategory = null;
   const container = el('div');
-  const csSearchBox = makeSearchBox('Search by name or description...', (value) => {
-    searchQuery = value;
+  wireSearch(container, 'Search by name or description...', options, (query) => {
+    searchQuery = query;
     renderData();
   });
-  container.appendChild(csSearchBox);
-
-  if (options.setNavigate) {
-    options.setNavigate((query) => {
-      searchQuery = query;
-      csSearchBox._input.value = query;
-      renderData();
-      window.scrollTo(0, 0);
-    });
-  }
 
   // Separate out items that have an image but no name into their own virtual category
   const unnamedItems = [];
@@ -43,12 +32,10 @@ export function renderCashShop(data, options = {}) {
     ...namedCategories.map((cat) => ({ label: cat.category, value: cat.category })),
     ...(unnamedItems.length > 0 ? [{ label: 'Unnamed Unavailable Items', value: '__unnamed__' }] : [])
   ];
-  // let selectedCategory = null; // (moved above)
-  function handleCategoryPillChange(value) {
+  const pillGroup = makePillGroup(CATEGORY_PILLS, selectedCategory, (value) => {
     selectedCategory = value;
     renderData();
-  }
-  let pillGroup = makePillGroup(CATEGORY_PILLS, selectedCategory, handleCategoryPillChange);
+  });
   container.appendChild(pillGroup);
 
   // Sub-category filter row (shown only when Equipment is selected)
@@ -59,70 +46,17 @@ export function renderCashShop(data, options = {}) {
   // Use StateManager for hideUnavailable
   let hideUnavailable = state.get('cashshop_hide_unavailable', false);
 
-  // Internal flag to show price (default: false)
   const SHOW_PRICE = true;
   const toggleRow = el('div', { style: { display: 'flex', alignItems: 'center', gap: '8px', margin: '0 0 8px 0' } });
-
-
-  const checkBox = el('span', {
-    style: {
-      display: 'inline-block',
-      width: '13px',
-      height: '13px',
-      borderRadius: '3px',
-      border: '1.5px solid currentColor',
-      flexShrink: '0',
-      position: 'relative',
-      top: '1px',
-    },
-  });
-  const toggleBtn = el('button', {
-    style: {
-      display: 'inline-flex',
-      alignItems: 'center',
-      gap: '6px',
-      padding: '3px 9px',
-      borderRadius: '4px',
-      fontSize: '12px',
-      fontWeight: '500',
-      cursor: 'pointer',
-      border: '1px solid var(--border)',
-      background: 'transparent',
-      color: 'var(--dim)',
-      transition: 'all .2s',
-    },
-  });
-  toggleBtn.appendChild(checkBox);
-  toggleBtn.appendChild(document.createTextNode('Hide Unavailable'));
-
-  function updateToggleStyle() {
-    if (hideUnavailable) {
-      toggleBtn.style.color = '#ef4444';
-      toggleBtn.style.borderColor = '#ef444466';
-      toggleBtn.style.background = '#ef444411';
-      checkBox.textContent = '✓';
-    } else {
-      toggleBtn.style.color = 'var(--dim)';
-      toggleBtn.style.borderColor = 'var(--border)';
-      toggleBtn.style.background = 'transparent';
-      checkBox.textContent = '';
-    }
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    hideUnavailable = !hideUnavailable;
+  toggleRow.appendChild(makeHideToggle('Hide Unavailable', hideUnavailable, (active) => {
+    hideUnavailable = active;
     state.set('cashshop_hide_unavailable', hideUnavailable);
-    updateToggleStyle();
     renderData();
-  });
-  toggleRow.appendChild(toggleBtn);
+  }));
   container.appendChild(toggleRow);
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);
-
-  // let selectedCategory = null; // (moved above)
-  // let selectedSubCategory = null; // (moved above)
 
   function buildSubCategoryPills() {
     subPillRow.innerHTML = '';
@@ -165,7 +99,7 @@ export function renderCashShop(data, options = {}) {
       style: { display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' },
     });
     nameWrap.appendChild(
-      makeThumbnail(item.thumbnail || `images/items/${String(item.id).padStart(8, '0')}.png`, `${fallbackLabel || item.name} thumbnail`, {
+      makeThumbnail(item.thumbnail || `images/items/${padItemId(item.id)}.png`, `${fallbackLabel || item.name} thumbnail`, {
         className: 'item-thumb',
         fallbackText: 'ITEM',
       })
@@ -243,8 +177,8 @@ export function renderCashShop(data, options = {}) {
     }
     topLine.appendChild(nameWrap);
     const csRightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', flexShrink: '0' } });
-    csRightWrap.appendChild(makeDeepLinkButton('cashshop', item.id));
-    csRightWrap.appendChild(el('span', { className: 'id', textContent: item.id }));
+    csRightWrap.appendChild(makeDeepLinkButton('cashshop', padItemId(item.id)));
+    csRightWrap.appendChild(makeCopyableId(padItemId(item.id)));
     topLine.appendChild(csRightWrap);
     row.appendChild(topLine);
     if (item.description) {
@@ -286,11 +220,7 @@ export function renderCashShop(data, options = {}) {
 
   function renderData() {
     dataDiv.innerHTML = '';
-
-    // Rebuild pills to update active state
-    const newPillGroup = makePillGroup(CATEGORY_PILLS, selectedCategory, handleCategoryPillChange);
-    container.replaceChild(newPillGroup, pillGroup);
-    pillGroup = newPillGroup;
+    pillGroup.setActive(selectedCategory);
 
     if (selectedCategory === '__unnamed__') {
       dataDiv.appendChild(el('div', { className: 'count-text', textContent: `${unnamedItems.length} items` }));
@@ -343,10 +273,7 @@ export function renderCashShop(data, options = {}) {
 
     if (total === 0) {
       dataDiv.appendChild(
-        el('p', {
-          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
-          textContent: 'No cash shop items match your filters.',
-        })
+        el('p', { className: 'empty-state', textContent: 'No cash shop items match your filters.' })
       );
     }
 
@@ -365,15 +292,5 @@ export function renderCashShop(data, options = {}) {
 
 
   renderData();
-  // Set initial toggle style on load
-  updateToggleStyle();
-  // Subscribe to state changes (if toggled elsewhere)
-  state.subscribe('cashshop_hide_unavailable', (val) => {
-    if (hideUnavailable !== val) {
-      hideUnavailable = val;
-      updateToggleStyle();
-      renderData();
-    }
-  });
   return container;
 }

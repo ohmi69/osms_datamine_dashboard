@@ -1,23 +1,9 @@
 
 
-import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeHideToggle, makeCopyableId, padMapId, padMobId } from '../lib/utils.js';
 import { attachTooltip, hideItemTooltip } from '../lib/tooltip.js';
-import state from '../lib/data.js';
+import state, { getNpcLookup } from '../lib/data.js';
 
-// Load NPCs data for lookup
-
-// NPC lookup cache
-let npcLookup = null;
-async function getNpcLookup() {
-  if (npcLookup) return npcLookup;
-  const res = await fetch('data/npcs.json');
-  const npcsData = await res.json();
-  npcLookup = new Map();
-  for (const npc of npcsData) {
-    npcLookup.set(Number(npc.id), npc);
-  }
-  return npcLookup;
-}
 
 function formatSpawnTime(seconds) {
   // If input is a string, handle min-max [avg] or single value
@@ -67,319 +53,237 @@ function getAvgSpawnTime(mobTime) {
   return DEFAULT;
 }
 
-function parseMapIdFilter(query) {
-  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
-  if (!match) return null;
-  return Number(match[1]);
+
+function getAllMapsFlat(data) {
+  return data.maps.regions.flatMap(r => r.maps);
+}
+
+function findMapInData(data, query) {
+  if (!query) return null;
+  const all = getAllMapsFlat(data);
+  if (/^\d+$/.test(query)) return all.find(m => String(m.id) === String(query));
+  return all.find(m => (m.name || '').toLowerCase() === query.toLowerCase());
+}
+
+function buildMapGraph(data) {
+  const graph = {};
+  for (const m of getAllMapsFlat(data)) {
+    graph[m.id] = Array.isArray(m.exits) ? m.exits.slice() : [];
+  }
+  return graph;
+}
+
+function findShortestPath(graph, fromId, toId) {
+  const queue = [[fromId]];
+  const visited = new Set([fromId]);
+  while (queue.length) {
+    const path = queue.shift();
+    const last = path[path.length - 1];
+    if (last === toId) return path;
+    for (const n of graph[last] || []) {
+      if (!visited.has(n)) {
+        visited.add(n);
+        queue.push([...path, n]);
+      }
+    }
+  }
+  return null;
+}
+
+function makeMapAutocomplete(input, allMaps, mapNames) {
+  let listDiv = null;
+  let activeIdx = -1;
+  input.setAttribute('autocomplete', 'off');
+  input.addEventListener('input', showList);
+  input.addEventListener('keydown', onKey);
+  input.addEventListener('blur', () => setTimeout(hideList, 120));
+  input.addEventListener('focus', showList);
+
+  function showList() {
+    const val = input.value.trim();
+    const valLower = val.toLowerCase();
+    let matches = !valLower
+      ? mapNames.slice(0, 20)
+      : mapNames.filter(n => n.toLowerCase().includes(valLower)).slice(0, 20);
+    if (/^\d+$/.test(val)) {
+      const map = allMaps.find(m => m.id === Number(val));
+      if (map && !matches.includes(map.name)) {
+        matches = [map.name, ...matches.filter(n => n !== map.name)];
+      }
+    }
+    if (!listDiv) {
+      listDiv = el('div', { className: 'mapnav-autocomplete-list' });
+      input.parentNode.insertBefore(listDiv, input.nextSibling);
+    }
+    listDiv.innerHTML = '';
+    activeIdx = -1;
+    matches.forEach((name) => {
+      const item = el('div', { className: 'mapnav-autocomplete-item', textContent: name });
+      item.addEventListener('mousedown', e => {
+        e.preventDefault();
+        input.value = name;
+        hideList();
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      listDiv.appendChild(item);
+    });
+    listDiv.style.display = matches.length ? '' : 'none';
+  }
+  function hideList() {
+    if (listDiv) listDiv.style.display = 'none';
+  }
+  function onKey(e) {
+    if (!listDiv || listDiv.style.display === 'none') return;
+    const items = listDiv.querySelectorAll('.mapnav-autocomplete-item');
+    if (!items.length) return;
+    if (e.key === 'ArrowDown') {
+      activeIdx = (activeIdx + 1) % items.length;
+      updateActive();
+      e.preventDefault();
+    } else if (e.key === 'ArrowUp') {
+      activeIdx = (activeIdx - 1 + items.length) % items.length;
+      updateActive();
+      e.preventDefault();
+    } else if (e.key === 'Enter' && activeIdx >= 0) {
+      items[activeIdx].dispatchEvent(new MouseEvent('mousedown'));
+      e.preventDefault();
+    }
+  }
+  function updateActive() {
+    const items = listDiv.querySelectorAll('.mapnav-autocomplete-item');
+    items.forEach((item, i) => item.classList.toggle('active', i === activeIdx));
+    if (activeIdx >= 0 && items[activeIdx]) {
+      items[activeIdx].scrollIntoView({ block: 'nearest' });
+    }
+  }
+}
+
+function showNavigateModal(data, defaultToId) {
+  const allMaps = getAllMapsFlat(data);
+  const mapNames = allMaps.map(m => m.name);
+
+  const modal = el('div', { className: 'mapnav-modal-overlay' });
+  modal.addEventListener('mousedown', (e) => { if (e.target === modal) modal.remove(); });
+
+  const box = el('div', { className: 'mapnav-modal-box' });
+  const xBtn = el('button', { textContent: '×', title: 'Close', className: 'mapnav-modal-close' });
+  xBtn.onclick = () => modal.remove();
+  box.appendChild(xBtn);
+  box.appendChild(el('h2', { textContent: 'Navigate Maps', className: 'mapnav-modal-title' }));
+
+  const fromWrap = el('div', { className: 'mapnav-input-wrap' });
+  const toWrap = el('div', { className: 'mapnav-input-wrap' });
+  const fromInput = el('input', { type: 'text', placeholder: 'From map name or ID', className: 'mapnav-modal-input' });
+  const toInput = el('input', { type: 'text', placeholder: 'To map name or ID', className: 'mapnav-modal-input' });
+  fromWrap.appendChild(fromInput);
+  toWrap.appendChild(toInput);
+  box.appendChild(fromWrap);
+  box.appendChild(toWrap);
+  makeMapAutocomplete(fromInput, allMaps, mapNames);
+  makeMapAutocomplete(toInput, allMaps, mapNames);
+  if (defaultToId) {
+    const m = allMaps.find(m => m.id === defaultToId);
+    if (m) toInput.value = m.name;
+  }
+
+  const btnRow = el('div', { className: 'mapnav-modal-btnrow' });
+  const goBtn = el('button', { textContent: 'Find Route', className: 'mapnav-modal-find' });
+  const closeBtn = el('button', { textContent: 'Close', className: 'mapnav-modal-closebtn' });
+  btnRow.appendChild(goBtn);
+  btnRow.appendChild(closeBtn);
+  box.appendChild(btnRow);
+
+  const resultDiv = el('div', { className: 'mapnav-modal-result' });
+  box.appendChild(resultDiv);
+  modal.appendChild(box);
+  document.body.appendChild(modal);
+
+  closeBtn.onclick = () => modal.remove();
+  fromInput.addEventListener('keydown', e => { if (e.key === 'Enter') goBtn.click(); });
+  toInput.addEventListener('keydown', e => { if (e.key === 'Enter') goBtn.click(); });
+
+  goBtn.onclick = async () => {
+    const from = findMapInData(data, fromInput.value.trim());
+    const to = findMapInData(data, toInput.value.trim());
+    if (!from || !to) {
+      resultDiv.textContent = 'Please enter valid map names or IDs.';
+      return;
+    }
+    const graph = buildMapGraph(data);
+    const path = findShortestPath(graph, from.id, to.id);
+    if (!path) {
+      resultDiv.textContent = 'No route found.';
+      return;
+    }
+    if (!window._allPortalsCache) {
+      try {
+        const res = await fetch('data/maps/portals.json');
+        window._allPortalsCache = res.ok ? await res.json() : {};
+      } catch {
+        window._allPortalsCache = {};
+      }
+    }
+    const allPortals = window._allPortalsCache || {};
+    resultDiv.innerHTML = '';
+
+    for (let i = 0; i < path.length; ++i) {
+      const map = allMaps.find(m => m.id === path[i]);
+      if (!map) continue;
+
+      const stepDiv = el('div', { className: 'navigate-step' });
+      stepDiv.appendChild(el('div', { className: 'navigate-step-header', textContent: `Step ${i + 1}: ${map.name}` }));
+
+      const imgPath = `data/maps/${padMapId(map.id)}.img.png`;
+      const img = el('img', { src: imgPath, alt: map.name, className: 'navigate-step-img' });
+      img.addEventListener('load', () => {
+        stepDiv.querySelectorAll('.portal-highlight').forEach(o => o.remove());
+        if (i < path.length - 1) {
+          const portals = allPortals[padMapId(map.id)] || [];
+          const portal = portals.find(p => String(p.dest_map) === String(path[i + 1]));
+          if (portal) {
+            const scaleX = img.width / img.naturalWidth;
+            const scaleY = img.height / img.naturalHeight;
+            const navR = Math.max(7, Math.min(16, Math.round(8 + 14 * Math.min(scaleX, scaleY))));
+            const overlay = el('div', {
+              className: 'portal-highlight',
+              style: {
+                position: 'absolute',
+                left: `${img.offsetLeft + portal.x * scaleX - navR}px`,
+                top: `${img.offsetTop + portal.y * scaleY - navR}px`,
+                width: `${navR * 2}px`,
+                height: `${navR * 2}px`,
+                borderRadius: '50%',
+                border: `${Math.max(1, Math.round(3 * Math.min(scaleX, scaleY)))}px solid #00e0ff`,
+                background: 'rgba(0,224,255,0.18)',
+                boxShadow: '0 0 16px 4px #00e0ff88',
+                zIndex: 2,
+                pointerEvents: 'none',
+              },
+            });
+            img.parentElement.style.position = 'relative';
+            img.parentElement.appendChild(overlay);
+          }
+        }
+      });
+
+      const imgWrap = el('div', { className: 'navigate-step-img-wrap' });
+      imgWrap.appendChild(img);
+      stepDiv.appendChild(imgWrap);
+
+      if (i === path.length - 1) {
+        stepDiv.appendChild(el('div', { className: 'navigate-step-destination', textContent: 'Destination reached.' }));
+      }
+      resultDiv.appendChild(stepDiv);
+    }
+  };
 }
 
 export function renderMaps(data, options = {}) {
-  // Container setup (create local container for tab panel)
   const container = el('div', { className: 'maps-panel' });
 
-  // --- NAVIGATE BUTTON & MODAL ---
   let currentMapId = null;
-  // Helper: get all maps flat
-  function getAllMaps() {
-    return data.maps.regions.flatMap(r => r.maps);
-  }
-  // Helper: get map by name or id
-  function findMap(query) {
-    if (!query) return null;
-    const all = getAllMaps();
-    if (/^\d+$/.test(query)) return all.find(m => String(m.id) === String(query));
-    return all.find(m => (m.name || '').toLowerCase() === query.toLowerCase());
-  }
-  // Helper: build graph {id: [neighborIds]}
-  function buildMapGraph() {
-    const graph = {};
-    for (const m of getAllMaps()) {
-      graph[m.id] = Array.isArray(m.exits) ? m.exits.slice() : [];
-    }
-    return graph;
-  }
-  // BFS shortest path
-  function findShortestPath(graph, fromId, toId) {
-    const queue = [[fromId]];
-    const visited = new Set([fromId]);
-    while (queue.length) {
-      const path = queue.shift();
-      const last = path[path.length - 1];
-      if (last === toId) return path;
-      for (const n of graph[last] || []) {
-        if (!visited.has(n)) {
-          visited.add(n);
-          queue.push([...path, n]);
-        }
-      }
-    }
-    return null;
-  }
-  // Modal UI
-  function showNavigateModal(defaultToId) {
-    const allMaps = getAllMaps();
-    const mapNames = allMaps.map(m => m.name);
-    const modal = el('div', {
-      className: 'mapnav-modal-overlay',
-    });
-    // Close modal when clicking outside the box
-    modal.addEventListener('mousedown', (e) => {
-      if (e.target === modal) {
-        modal.remove();
-      }
-    });
-
-    const box = el('div', {
-      className: 'mapnav-modal-box',
-    });
-    // Add X button
-    const xBtn = el('button', {
-      textContent: '×',
-      title: 'Close',
-      className: 'mapnav-modal-close',
-    });
-    xBtn.onclick = () => modal.remove();
-    box.appendChild(xBtn);
-    box.appendChild(el('h2', { textContent: 'Navigate Maps', className: 'mapnav-modal-title' }));
-    // Custom autocomplete for both inputs
-    function makeAutocomplete(input, options) {
-      let listDiv = null;
-      let activeIdx = -1;
-      input.setAttribute('autocomplete', 'off');
-      input.addEventListener('input', showList);
-      input.addEventListener('keydown', onKey);
-      input.addEventListener('blur', () => setTimeout(hideList, 120));
-      input.addEventListener('focus', showList);
-
-      // Helper: get all maps
-      function getAllMaps() {
-        return allMaps;
-      }
-
-      function showList() {
-        const val = input.value.trim();
-        const valLower = val.toLowerCase();
-        let matches = !valLower
-          ? options.slice(0, 20)
-          : options.filter(n => n.toLowerCase().includes(valLower)).slice(0, 20);
-
-        // If input is a valid map ID, ensure its name is in the dropdown
-        if (/^\d+$/.test(val)) {
-          const mapId = Number(val);
-          const map = getAllMaps().find(m => m.id === mapId);
-          if (map && !matches.includes(map.name)) {
-            matches = [map.name, ...matches.filter(n => n !== map.name)];
-          }
-        }
-
-        if (!listDiv) {
-          listDiv = el('div', { className: 'mapnav-autocomplete-list' });
-          input.parentNode.insertBefore(listDiv, input.nextSibling);
-        }
-        listDiv.innerHTML = '';
-        activeIdx = -1;
-        matches.forEach((name, i) => {
-          const item = el('div', { className: 'mapnav-autocomplete-item', textContent: name });
-          item.addEventListener('mousedown', e => {
-            e.preventDefault();
-            input.value = name;
-            hideList();
-            input.dispatchEvent(new Event('change', { bubbles: true }));
-          });
-          listDiv.appendChild(item);
-        });
-        listDiv.style.display = matches.length ? '' : 'none';
-      }
-      function hideList() {
-        if (listDiv) listDiv.style.display = 'none';
-      }
-      function onKey(e) {
-        if (!listDiv || listDiv.style.display === 'none') return;
-        const items = listDiv.querySelectorAll('.mapnav-autocomplete-item');
-        if (!items.length) return;
-        if (e.key === 'ArrowDown') {
-          activeIdx = (activeIdx + 1) % items.length;
-          updateActive();
-          e.preventDefault();
-        } else if (e.key === 'ArrowUp') {
-          activeIdx = (activeIdx - 1 + items.length) % items.length;
-          updateActive();
-          e.preventDefault();
-        } else if (e.key === 'Enter') {
-          if (activeIdx >= 0) {
-            items[activeIdx].dispatchEvent(new MouseEvent('mousedown'));
-            e.preventDefault();
-          }
-        }
-      }
-      function updateActive() {
-        const items = listDiv.querySelectorAll('.mapnav-autocomplete-item');
-        items.forEach((item, i) => item.classList.toggle('active', i === activeIdx));
-        if (activeIdx >= 0 && items[activeIdx]) {
-          items[activeIdx].scrollIntoView({ block: 'nearest' });
-        }
-      }
-    }
-
-    // Wrap inputs for relative positioning
-    const fromWrap = el('div', { style: { position: 'relative', width: '100%' } });
-    const toWrap = el('div', { style: { position: 'relative', width: '100%' } });
-    const fromInput = el('input', { type: 'text', placeholder: 'From map name or ID', className: 'mapnav-modal-input' });
-    const toInput = el('input', { type: 'text', placeholder: 'To map name or ID', className: 'mapnav-modal-input' });
-    fromWrap.appendChild(fromInput);
-    toWrap.appendChild(toInput);
-    box.appendChild(fromWrap);
-    box.appendChild(toWrap);
-    makeAutocomplete(fromInput, mapNames);
-    makeAutocomplete(toInput, mapNames);
-    if (defaultToId) {
-      const m = allMaps.find(m => m.id === defaultToId);
-      if (m) toInput.value = m.name;
-    }
-    // Buttons row directly below inputs
-    const btnRow = el('div', { className: 'mapnav-modal-btnrow' });
-    const goBtn = el('button', { textContent: 'Find Route', className: 'mapnav-modal-find' });
-    const closeBtn = el('button', { textContent: 'Close', className: 'mapnav-modal-closebtn' });
-    btnRow.appendChild(goBtn);
-    btnRow.appendChild(closeBtn);
-    box.appendChild(btnRow);
-    const resultDiv = el('div', { className: 'mapnav-modal-result' });
-    box.appendChild(resultDiv);
-    modal.appendChild(box);
-    document.body.appendChild(modal);
-    closeBtn.onclick = () => modal.remove();
-    goBtn.onclick = async () => {
-      const from = findMap(fromInput.value.trim());
-      const to = findMap(toInput.value.trim());
-      if (!from || !to) {
-        resultDiv.textContent = 'Please enter valid map names or IDs.';
-        return;
-      }
-      const graph = buildMapGraph();
-      const path = findShortestPath(graph, from.id, to.id);
-      if (!path) {
-        resultDiv.textContent = 'No route found.';
-        return;
-      }
-      // Load portals.json if not already loaded
-      if (!window._allPortalsCache) {
-        try {
-          const res = await fetch('data/maps/portals.json');
-          if (res.ok) {
-            window._allPortalsCache = await res.json();
-          } else {
-            window._allPortalsCache = {};
-          }
-        } catch {
-          window._allPortalsCache = {};
-        }
-      }
-      const allPortals = window._allPortalsCache || {};
-      // Clear previous
-      resultDiv.innerHTML = '';
-      // For each step, show map image and highlight portal
-      for (let i = 0; i < path.length; ++i) {
-        const mapId = path[i];
-        const map = allMaps.find(m => m.id === mapId);
-        if (!map) continue;
-        // Container for this step
-        const stepDiv = el('div', { style: { margin: '18px 0', border: '1px solid var(--border)', borderRadius: '8px', padding: '10px', background: 'var(--surface-2)' } });
-        // Step header
-        stepDiv.appendChild(el('div', { style: { fontWeight: 'bold', fontSize: '15px', marginBottom: '6px', color: 'var(--accent)' }, textContent: `Step ${i+1}: ${map.name}` }));
-        // Always use full map image
-        const imgPath = `data/maps/${String(map.id).padStart(9, '0')}.img.png`;
-        const img = el('img', { src: imgPath, alt: map.name, style: { maxWidth: '320px', maxHeight: '180px', borderRadius: '6px', border: '1px solid var(--border)', display: 'block', background: 'var(--surface)' } });
-        // Overlay highlight after image loads
-        img.addEventListener('load', () => {
-          // Remove old overlays
-          const overlays = stepDiv.querySelectorAll('.portal-highlight');
-          overlays.forEach(o => o.remove());
-          // Only highlight if not last step
-          if (i < path.length - 1) {
-            const nextId = path[i+1];
-            const portals = allPortals[String(map.id).padStart(9, '0')] || [];
-            const portal = portals.find(p => String(p.dest_map) === String(nextId));
-            if (portal) {
-              // Compute scale
-              const scaleX = img.width / img.naturalWidth;
-              const scaleY = img.height / img.naturalHeight;
-              const px = portal.x * scaleX;
-              const py = portal.y * scaleY;
-              const navR = Math.max(7, Math.min(16, Math.round(8 + 14 * Math.min(scaleX, scaleY))));
-              // Overlay with high-contrast cyan
-              const overlay = el('div', {
-                className: 'portal-highlight',
-                style: {
-                  position: 'absolute',
-                  left: `${img.offsetLeft + px - navR}px`,
-                  top: `${img.offsetTop + py - navR}px`,
-                  width: `${navR * 2}px`,
-                  height: `${navR * 2}px`,
-                  borderRadius: '50%',
-                  border: `${Math.max(1, Math.round(3 * Math.min(scaleX, scaleY)))}px solid #00e0ff`,
-                  background: 'rgba(0,224,255,0.18)',
-                  boxShadow: '0 0 16px 4px #00e0ff88',
-                  zIndex: 2,
-                  pointerEvents: 'none',
-                }
-              });
-              // Position overlay absolutely in a relative container
-              img.parentElement.style.position = 'relative';
-              img.parentElement.appendChild(overlay);
-            }
-          }
-        });
-        // Wrap image in a relative div for overlay
-        const imgWrap = el('div', { style: { position: 'relative', display: 'inline-block', marginBottom: '6px' } });
-        imgWrap.appendChild(img);
-        stepDiv.appendChild(imgWrap);
-        // Portal info
-        if (i < path.length - 1) {
-          const nextId = path[i+1];
-          const portals = allPortals[String(map.id).padStart(9, '0')] || [];
-          const portal = portals.find(p => String(p.dest_map) === String(nextId));
-      
-        } else {
-          stepDiv.appendChild(el('div', { style: { color: 'var(--accent)', fontSize: '13px', marginTop: '2px' }, textContent: `Destination reached.` }));
-        }
-        resultDiv.appendChild(stepDiv);
-      }
-    };
-    // Enter key triggers search
-    fromInput.addEventListener('keydown', e => { if (e.key === 'Enter') goBtn.click(); });
-    toInput.addEventListener('keydown', e => { if (e.key === 'Enter') goBtn.click(); });
-  }
-
-  // Add Navigate button to top right, styled to match site accent/button style
-  const navBtn = el('button', {
-    textContent: 'Navigate',
-    style: {
-      float: 'right',
-      margin: '0 0 10px 10px',
-      padding: '7px 18px',
-      borderRadius: '6px',
-      background: 'var(--accent)',
-      color: 'var(--button-text, #fff)',
-      border: '1.5px solid var(--accent)',
-      fontWeight: '600',
-      fontSize: '15px',
-      cursor: 'pointer',
-      boxShadow: '0 2px 8px #0001',
-      transition: 'background .18s, color .18s, box-shadow .18s',
-      outline: 'none',
-    }
-  });
-  navBtn.onmouseenter = () => {
-    navBtn.style.background = 'var(--accent-hover, #2a8fd6)';
-    navBtn.style.color = 'var(--button-text-hover, #fff)';
-    navBtn.style.boxShadow = '0 4px 16px #0002';
-  };
-  navBtn.onmouseleave = () => {
-    navBtn.style.background = 'var(--accent)';
-    navBtn.style.color = 'var(--button-text, #fff)';
-    navBtn.style.boxShadow = '0 2px 8px #0001';
-  };
-  navBtn.onclick = () => showNavigateModal(currentMapId);
+  const navBtn = el('button', { textContent: 'Navigate', className: 'map-navigate-btn' });
+  navBtn.onclick = () => showNavigateModal(data, currentMapId);
   container.appendChild(navBtn);
   // Column config (customizable)
   const allCols = [
@@ -416,60 +320,11 @@ export function renderMaps(data, options = {}) {
       });
       toggles.appendChild(button);
     });
-    // Add hide maps without mobs toggle (same style as cash shop)
-    const checkBox = el('span', {
-      style: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '13px',
-        height: '13px',
-        borderRadius: '3px',
-        border: '1.5px solid currentColor',
-        flexShrink: '0',
-        fontSize: '10px',
-        lineHeight: '1',
-      },
-    });
-    const toggleBtn = el('button', {
-      style: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '6px',
-        padding: '3px 9px',
-        borderRadius: '4px',
-        fontSize: '12px',
-        fontWeight: '500',
-        cursor: 'pointer',
-        border: '1px solid var(--border)',
-        background: 'transparent',
-        color: 'var(--dim)',
-        transition: 'all .2s',
-        marginLeft: '10px',
-      },
-    });
-    toggleBtn.appendChild(checkBox);
-    toggleBtn.appendChild(document.createTextNode('Hide maps without mobs'));
-    function updateToggleStyle() {
-      if (hideNoMobs) {
-        toggleBtn.style.color = '#ef4444';
-        toggleBtn.style.borderColor = '#ef444466';
-        toggleBtn.style.background = '#ef444411';
-        checkBox.textContent = '✓';
-      } else {
-        toggleBtn.style.color = 'var(--dim)';
-        toggleBtn.style.borderColor = 'var(--border)';
-        toggleBtn.style.background = 'transparent';
-        checkBox.textContent = '';
-      }
-    }
-    toggleBtn.addEventListener('click', () => {
-      hideNoMobs = !hideNoMobs;
+    const toggleBtn = makeHideToggle('Hide maps without mobs', hideNoMobs, (active) => {
+      hideNoMobs = active;
       state.set('maps', { cols: { ...colState }, hideNoMobs });
-      updateToggleStyle();
       renderData();
     });
-    updateToggleStyle();
     toggles.appendChild(toggleBtn);
   }
   rebuildToggles();
@@ -546,7 +401,7 @@ export function renderMaps(data, options = {}) {
         : String(target || '');
       autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand)
         ? target.id
-        : parseMapIdFilter(nextFilter);
+        : parseIdFilter(nextFilter);
       searchQuery = nextFilter;
       searchBox._input.value = nextFilter;
       selectedRegion = null;
@@ -578,7 +433,7 @@ export function renderMaps(data, options = {}) {
       // --- Full map image preview with portal overlays ---
       let imgContainer = null;
       if (mapEntry.id) {
-        const mapImgPath = `data/maps/${String(mapEntry.id).padStart(9, '0')}.img.png`;
+        const mapImgPath = `data/maps/${padMapId(mapEntry.id)}.img.png`;
         imgContainer = el('div', { className: 'full-map-image-container', style: { position: 'relative', display: 'inline-block' } });
         const img = el('img', {
           className: 'full-map-image',
@@ -614,7 +469,7 @@ export function renderMaps(data, options = {}) {
             }
           }
           const allPortals = window._allPortalsCache || {};
-          const portals = allPortals[String(mapEntry.id).padStart(9, '0')] || [];
+          const portals = allPortals[padMapId(mapEntry.id)] || [];
           if (!Array.isArray(portals) || portals.length === 0) return;
           // Get image display size and scale
           const naturalW = img.naturalWidth, naturalH = img.naturalHeight;
@@ -875,7 +730,7 @@ export function renderMaps(data, options = {}) {
           navBtn.style.color = 'var(--button-text, #fff)';
           navBtn.style.boxShadow = '0 2px 8px #0001';
         };
-        navBtn.onclick = () => showNavigateModal(mapEntry.id);
+        navBtn.onclick = () => showNavigateModal(data, mapEntry.id);
         metaRight.appendChild(navBtn);
 
         metaRow.appendChild(metaLeft);
@@ -898,8 +753,8 @@ export function renderMaps(data, options = {}) {
             title: `Go to map: ${exit.name}`,
           });
           chip.appendChild(el('span', { style: { color: 'var(--dim)', fontSize: '11px' }, textContent: '→' }));
-          chip.appendChild(el('span', { textContent: exit.name || `Map #${exit.id}` }));
-          chip.appendChild(el('span', { style: { color: 'var(--dim)', fontSize: '11px', marginLeft: '2px' }, textContent: `#${exit.id}` }));
+          chip.appendChild(el('span', { textContent: exit.name || `Map #${padMapId(exit.id)}` }));
+          chip.appendChild(el('span', { style: { color: 'var(--dim)', fontSize: '11px', marginLeft: '2px' }, textContent: `#${padMapId(exit.id)}` }));
           chip.addEventListener('click', (e) => {
             e.stopPropagation();
             if (selfNavigate) selfNavigate({ id: exit.id, autoExpand: true });
@@ -928,7 +783,7 @@ export function renderMaps(data, options = {}) {
             },
           });
           chip.appendChild(makeThumbnail(mob.thumbnail, mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
-          chip.appendChild(el('span', { textContent: mob.name || `#${mob.id}` }));
+          chip.appendChild(el('span', { textContent: mob.name || `#${padMobId(mob.id)}` }));
           chip.appendChild(el('span', { style: { color: 'var(--dim)', marginLeft: '2px' }, textContent: `×${mob.count}` }));
           const DEFAULT_SPAWN = 7.56;
           const timerColor = mob.mobTime == null ? 'var(--dim)'
@@ -1144,7 +999,7 @@ export function renderMaps(data, options = {}) {
           );
         }
         nameWrap.appendChild(nameLeft);
-        nameWrap.appendChild(makeDeepLinkButton('maps', mapEntry.id));
+        nameWrap.appendChild(makeDeepLinkButton('maps', padMapId(mapEntry.id)));
         nameTd.appendChild(nameWrap);
         tr.appendChild(nameTd);
 
@@ -1202,7 +1057,7 @@ export function renderMaps(data, options = {}) {
 
         // Always show ID at the end, like monsters tab
         const idTd = el('td', { className: 'num id-col', style: { fontSize: '13px', fontWeight: '400', color: 'var(--fg)' } });
-        idTd.appendChild(el('span', { className: 'id', textContent: mapEntry.id }));
+        idTd.appendChild(makeCopyableId(padMapId(mapEntry.id)));
         tr.appendChild(idTd);
 
         // Expand detail on click
@@ -1301,7 +1156,7 @@ export function renderMaps(data, options = {}) {
       const gen = ++renderGen;
       dataDiv.innerHTML = '';
       const sq = searchQuery.toLowerCase();
-      const exactId = parseMapIdFilter(searchQuery);
+      const exactId = parseIdFilter(searchQuery);
       const npcLookup = await getNpcLookup();
       if (gen !== renderGen) return;
       let regions = selectedRegion
@@ -1351,10 +1206,7 @@ export function renderMaps(data, options = {}) {
 
       if (!dataDiv.children.length) {
         dataDiv.appendChild(
-          el('p', {
-            style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
-            textContent: 'No maps match your filters.',
-          })
+          el('p', { className: 'empty-state', textContent: 'No maps match your filters.' })
         );
       }
 

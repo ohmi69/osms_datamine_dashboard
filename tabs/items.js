@@ -1,10 +1,4 @@
-import { el, makeSearchBox, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel } from '../lib/utils.js';
-
-function parseIdFilter(query) {
-  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
-  if (!match) return null;
-  return Number(match[1]);
-}
+import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, wireSearch, makeCopyableId, padItemId } from '../lib/utils.js';
 
 const STAT_LABELS = {
   price:       ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
@@ -36,9 +30,7 @@ function buildDetailPanel(item) {
 function renderItemRow(item) {
   const row = el('div', { className: 'item-row' });
   const topLine = el('div', { className: 'top-line' });
-  const nameWrap = el('span', {
-    style: { display: 'flex', alignItems: 'center', gap: '8px', minWidth: '0' },
-  });
+  const nameWrap = el('span', { className: 'item-name-wrap' });
   nameWrap.appendChild(
     makeThumbnail(item.thumbnail, `${item.name} thumbnail`, {
       className: 'item-thumb',
@@ -48,9 +40,9 @@ function renderItemRow(item) {
   nameWrap.appendChild(el('span', { className: 'name', textContent: item.name }));
   topLine.appendChild(nameWrap);
 
-  const rightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', flexShrink: '0' } });
-  rightWrap.appendChild(makeDeepLinkButton('items', item.id));
-  rightWrap.appendChild(el('span', { className: 'id', textContent: item.id }));
+  const rightWrap = el('span', { className: 'item-id-wrap' });
+  rightWrap.appendChild(makeDeepLinkButton('items', padItemId(item.id)));
+  rightWrap.appendChild(makeCopyableId(padItemId(item.id)));
 
   topLine.appendChild(rightWrap);
   row.appendChild(topLine);
@@ -72,23 +64,13 @@ export function renderItems(data, options = {}) {
   const container = el('div');
   const scrollIdSet = new Set(items.scrolls.map((scroll) => String(scroll.id)));
 
-  const searchBox = makeSearchBox('Search by name or description...', (value) => {
-    searchQuery = value;
+  wireSearch(container, 'Search by name or description...', options, (query) => {
+    searchQuery = query;
     renderData();
   });
-  container.appendChild(searchBox);
-
-  if (options.setNavigate) {
-    options.setNavigate((query) => {
-      searchQuery = query;
-      searchBox._input.value = query;
-      renderData();
-      window.scrollTo(0, 0);
-    });
-  }
 
   // Pills (quest-style toggles)
-  const pillRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', margin: '16px 0 8px 0', alignItems: 'center' } });
+  const pillRow = el('div', { className: 'filter-row' });
   const allTab = el('button', { className: 'pill active', textContent: 'All' });
   pillRow.appendChild(allTab);
   const categories = ['Scrolls', 'Consumables', 'Etc', 'Setup'];
@@ -199,10 +181,7 @@ export function renderItems(data, options = {}) {
 
     if (dataDiv.children.length === 0) {
       dataDiv.appendChild(
-        el('p', {
-          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
-          textContent: 'No items match your filters.',
-        })
+        el('p', { className: 'empty-state', textContent: 'No items match your filters.' })
       );
     }
   }

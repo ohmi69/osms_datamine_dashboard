@@ -149,6 +149,37 @@
 
 .quest-next { font-size: 12px; color: var(--secondary); margin-top: 6px; }
 
+.quest-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.quest-chip-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.quest-id-wrap { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+
+.quest-reward-content { display: flex; flex-direction: column; gap: 8px; }
+.quest-reward-block { display: flex; flex-direction: column; gap: 6px; }
+.quest-reward-group { display: flex; flex-direction: column; gap: 4px; }
+.quest-reward-heading { font-weight: 700; color: var(--text); }
+.quest-reward-group-label { font-size: 12px; font-weight: 700; color: var(--secondary); }
+.quest-reward-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
 .level-badge {
   font-size: 10px;
   padding: 2px 6px;

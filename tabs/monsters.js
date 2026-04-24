@@ -1,10 +1,7 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMobId } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import state from '../lib/data.js';
-
-const _savedState = {
-  monsters: state.get('monsters', { cols: null })
-};
+import { MOB_STATE_ORDER, MOB_STATE_LABEL } from '../lib/constants.js';
 
 const ELEMENT_CLASSES = {
   Immune: 'immune',
@@ -32,11 +29,9 @@ function buildDetailRow(monster, colSpan, onMapClick) {
 
   // ── Header ──────────────────────────────────────────────────
   const header = el('div', { className: 'monster-detail-header' });
-  const STATE_ORDER = ['stand', 'move', 'fly', 'jump', 'attack1', 'attack2', 'attack3', 'skill1', 'hit1', 'die1'];
-  const STATE_LABEL = { stand: 'Stand', move: 'Move', fly: 'Fly', jump: 'Jump', attack1: 'Atk 1', attack2: 'Atk 2', attack3: 'Atk 3', skill1: 'Skill', hit1: 'Hit', die1: 'Die' };
 
   const gifs = monster.gifs || {};
-  const availableStates = STATE_ORDER.filter(s => gifs[s]);
+  const availableStates = MOB_STATE_ORDER.filter(s => gifs[s]);
   const defaultSrc = normalizeAssetPath(
     gifs['move'] || (availableStates.length > 0 ? gifs[availableStates[0]] : null) || monster.gif || monster.thumbnail
   );
@@ -61,7 +56,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
     availableStates.forEach(state => {
       const tab = el('button', {
         className: `monster-anim-tab${state === activeState ? ' active' : ''}`,
-        textContent: STATE_LABEL[state] || state,
+        textContent: MOB_STATE_LABEL[state] || state,
       });
       tab.addEventListener('click', () => {
         activeState = state;
@@ -80,7 +75,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
 
   const headerRight = el('div', { className: 'monster-detail-header-right' });
   if (monster.id != null) {
-    headerRight.appendChild(el('span', { className: 'id', textContent: `#${monster.id}` }));
+    headerRight.appendChild(makeCopyableId(`#${padMobId(monster.id)}`));
   }
   if (monster.is_boss) {
     headerRight.appendChild(el('span', { className: 'badge badge-boss', textContent: 'BOSS' }));
@@ -181,11 +176,6 @@ function buildDetailRow(monster, colSpan, onMapClick) {
   return detailTr;
 }
 
-function parseMonsterIdFilter(query) {
-  const match = /^id\s*:\s*(\d+)\s*$/i.exec((query || '').trim());
-  if (!match) return null;
-  return Number(match[1]);
-}
 
 export function renderMonsters(data, options = {}) {
   const { monsters } = data;
@@ -209,7 +199,7 @@ export function renderMonsters(data, options = {}) {
   ];
 
   const colState = {};
-  const monsterState = _savedState.monsters || {};
+  const monsterState = state.get('monsters', { cols: null });
   allCols.forEach((col) => {
     colState[col.id] = monsterState.cols
       ? monsterState.cols[col.id] !== undefined
@@ -246,7 +236,7 @@ export function renderMonsters(data, options = {}) {
         : String(target || '');
       autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand)
         ? target.id
-        : parseMonsterIdFilter(nextFilter);
+        : parseIdFilter(nextFilter);
       filter = nextFilter;
       searchBox._input.value = nextFilter;
       renderData();
@@ -254,54 +244,33 @@ export function renderMonsters(data, options = {}) {
     });
   }
 
-  const pills = el('div', { className: 'pill-group' });
-  function rebuildPills() {
-    pills.innerHTML = '';
-    pills.appendChild(el('span', { className: 'pill-group-label', textContent: 'Mob Type:' }));
-    [
-      ['All',      ''],
-      ['Non-Boss', 'nonboss'],
-      ['Bosses',   'boss'],
-    ].forEach(([label, value]) => {
-      const pill = el('button', {
-        className: `pill${typeFilter === value ? ' active' : ''}`,
-        textContent: label,
-      });
-      pill.addEventListener('click', () => {
-        typeFilter = value;
-        state.set('monsters', { cols: { ...colState } });
-        rebuildPills();
-        renderData();
-      });
-      pills.appendChild(pill);
-    });
-  }
-  rebuildPills();
+  const typePills = makePillGroup(
+    [{ label: 'All', value: '' }, { label: 'Non-Boss', value: 'nonboss' }, { label: 'Bosses', value: 'boss' }],
+    typeFilter,
+    (value) => {
+      typeFilter = value;
+      typePills.setActive(value);
+      state.set('monsters', { cols: { ...colState } });
+      renderData();
+    },
+    { groupLabel: 'Mob Type:' }
+  );
 
-  const elemPills = el('div', { className: 'pill-group' });
-  function rebuildElemPills() {
-    elemPills.innerHTML = '';
-    const weakLabel = el('span', { className: 'pill-group-label', textContent: 'Weak to:' });
-    elemPills.appendChild(weakLabel);
-    [['Any', ''], ['Fire', 'Fire'], ['Ice', 'Ice'], ['Lightning', 'Lightning'], ['Holy', 'Holy']].forEach(([label, value]) => {
-      const pill = el('button', {
-        className: `pill${elemWeakFilter === value ? ' active' : ''}`,
-        textContent: label,
-      });
-      pill.addEventListener('click', () => {
-        elemWeakFilter = value;
-        rebuildElemPills();
-        renderData();
-      });
-      elemPills.appendChild(pill);
-    });
-  }
-  rebuildElemPills();
+  const elemPills = makePillGroup(
+    [{ label: 'Any', value: '' }, { label: 'Fire', value: 'Fire' }, { label: 'Ice', value: 'Ice' }, { label: 'Lightning', value: 'Lightning' }, { label: 'Holy', value: 'Holy' }],
+    elemWeakFilter,
+    (value) => {
+      elemWeakFilter = value;
+      elemPills.setActive(value);
+      renderData();
+    },
+    { groupLabel: 'Weak to:' }
+  );
 
   container.appendChild(topRow);
 
   const filterRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' } });
-  filterRow.appendChild(pills);
+  filterRow.appendChild(typePills);
   filterRow.appendChild(elemPills);
   container.appendChild(filterRow);
 
@@ -333,7 +302,7 @@ export function renderMonsters(data, options = {}) {
     const visibleCols = allCols.filter((col) => colState[col.id]);
     // +3 for Name col, Tags col, and ID col
     const totalCols = visibleCols.length + 3;
-    const exactId = parseMonsterIdFilter(filter);
+    const exactId = parseIdFilter(filter);
 
     const filtered = monsters.monsters.filter((monster) => {
       if (exactId != null) {
@@ -352,15 +321,12 @@ export function renderMonsters(data, options = {}) {
 
     if (filtered.length === 0) {
       dataContainer.appendChild(
-        el('p', {
-          style: { color: 'var(--dim)', padding: '20px', textAlign: 'center' },
-          textContent: 'No monsters match your filters.',
-        })
+        el('p', { className: 'empty-state', textContent: 'No monsters match your filters.' })
       );
       return;
     }
 
-    const wrapper = el('div', { style: { overflowX: 'auto' } });
+    const wrapper = el('div', { className: 'table-scroll' });
     const table = el('table', { className: 'data-table' });
     const thead = el('thead');
     const headRow = el('tr');
@@ -458,7 +424,7 @@ export function renderMonsters(data, options = {}) {
         nameLeft.appendChild(q);
       }
       nameWrap.appendChild(nameLeft);
-      if (monster.id != null) nameWrap.appendChild(makeDeepLinkButton('monsters', monster.id));
+      if (monster.id != null) nameWrap.appendChild(makeDeepLinkButton('monsters', padMobId(monster.id)));
       nameCell.appendChild(nameWrap);
       row.appendChild(nameCell);
 
@@ -530,7 +496,7 @@ export function renderMonsters(data, options = {}) {
 
       const idTd = el('td', { className: 'num id-col', style: tdBase });
       if (monster.id != null) {
-        idTd.appendChild(el('span', { className: 'id', textContent: monster.id }));
+        idTd.appendChild(makeCopyableId(padMobId(monster.id)));
       }
       row.appendChild(idTd);
 
