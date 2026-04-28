@@ -1,8 +1,21 @@
 .beauty-container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
   padding: 0;
+}
+
+.beauty-hidden {
+  display: none !important;
+}
+
+/* ── Filter bar ─────────────────────────────────────────────── */
+
+.beauty-filter-bar {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 /* ── Type sections ──────────────────────────────────────────── */
@@ -108,7 +121,7 @@
 
 .beauty-style-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 12px;
 }
 
@@ -123,7 +136,8 @@
   cursor: default;
   text-align: center;
   transition: background 0.15s;
-  overflow: hidden;
+  min-height: 200px;
+  justify-content: flex-end;
 }
 
 .beauty-style-card:hover {
@@ -132,15 +146,13 @@
 }
 
 .beauty-style-thumb {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  image-rendering: pixelated;
+  display: block;
+  zoom: 0.5;
 }
 
 .beauty-style-placeholder {
-  width: 90px;
-  height: 90px;
+  width: 123px;
+  height: 134px;
   background: var(--surface-2);
   border-radius: 4px;
 }

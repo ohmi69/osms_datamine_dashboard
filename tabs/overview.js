@@ -5,6 +5,38 @@ export function renderOverview(data, { switchTab }) {
   const stats = overview.stats;
   const frag = document.createDocumentFragment();
 
+  // CBT over banner
+  const cbtBanner = el('div', {
+    style: {
+      background: 'linear-gradient(135deg, rgba(251,146,60,.18) 0%, rgba(251,146,60,.08) 100%)',
+      border: '2px solid rgba(251,146,60,.55)',
+      borderRadius: '12px',
+      padding: '28px 32px',
+      marginBottom: '28px',
+      textAlign: 'center',
+      boxShadow: '0 4px 24px rgba(251,146,60,.12)',
+    },
+  });
+  cbtBanner.appendChild(el('div', {
+    style: {
+      fontSize: '22px',
+      fontWeight: '800',
+      color: '#fb923c',
+      letterSpacing: '.5px',
+      marginBottom: '8px',
+    },
+    textContent: 'Closed Beta Test has ended',
+  }));
+  cbtBanner.appendChild(el('div', {
+    style: {
+      fontSize: '15px',
+      color: 'var(--dim)',
+      opacity: '.85',
+    },
+    textContent: 'This site will be updated again once the game launches, or if theres an open beta. Thanks for visiting — see you soon! 👋',
+  }));
+  frag.appendChild(cbtBanner);
+
   // Hero banner (compact, since site header now carries the branding)
   const heroBanner = el('div', {
     style: {

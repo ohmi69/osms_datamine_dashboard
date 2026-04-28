@@ -2,84 +2,79 @@ import { el, normalizeAssetPath, makeCopyableId, padItemId } from '../lib/utils.
 
 export function renderBeautyStyles(data) {
   const beauty = data.beauty_coupons;
-  if (!beauty || !beauty.pools) {
-    return el('div', { textContent: 'No beauty coupon/style data found.' });
-  }
-
-  // Group pools: type -> coupon_id -> { meta, genders: { male: [], female: [] } }
-  const byType = {};
-  for (const pool of beauty.pools) {
-    const t = pool.style_type;
-    const g = pool.gender;
-    if (!byType[t]) byType[t] = {};
-    if (!byType[t][pool.coupon_id]) {
-      byType[t][pool.coupon_id] = {
-        coupon_id: pool.coupon_id,
-        coupon_name: pool.coupon_name,
-        coupon_desc: pool.coupon_desc,
-        coupon_thumbnail: pool.coupon_thumbnail,
-        genders: {},
-      };
-    }
-    byType[t][pool.coupon_id].genders[g] = pool.styles;
+  if (!beauty || (!beauty.hair?.length && !beauty.face?.length)) {
+    return el('div', { textContent: 'No hair/face style data found.' });
   }
 
   const container = el('div', { className: 'beauty-container' });
-  const bodyDiv = el('div', { className: 'beauty-body' });
-  container.appendChild(el('div', {
-    className: 'beauty-warning',
-    textContent: 'These coupons show the full pool of possible styles tied to each coupon. Nexon may rotate which styles are actually available at any given time.',
-  }));
-  container.appendChild(bodyDiv);
 
-  const TYPE_LABELS = { hair: 'Hair Styles', face: 'Face Styles' };
-  const TYPE_ORDER = ['hair', 'face'];
-  const GENDER_ORDER = ['male', 'female'];
+  // --- Filter bar ---
+  let activeType = 'all';
+  let activeGender = 'all';
 
-  for (const t of TYPE_ORDER) {
-    if (!byType[t]) continue;
+  const filterBar = el('div', { className: 'beauty-filter-bar' });
 
-    const typeSection = el('div', { className: 'beauty-type-section' });
-    typeSection.appendChild(el('h2', { className: 'beauty-type-heading', textContent: TYPE_LABELS[t] || t }));
-
-    const couponsDiv = el('div', { className: 'beauty-coupons' });
-    for (const coupon of Object.values(byType[t])) {
-      couponsDiv.appendChild(makeCouponSection(coupon));
-    }
-    typeSection.appendChild(couponsDiv);
-    bodyDiv.appendChild(typeSection);
+  function makeGroup(options, getValue, setValue) {
+    const group = el('div', { className: 'pill-group' });
+    const buttons = options.map(([value, label]) => {
+      const btn = el('button', { className: 'pill', textContent: label });
+      if (value === getValue()) btn.classList.add('active');
+      btn.addEventListener('click', () => {
+        setValue(value);
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilters();
+      });
+      return btn;
+    });
+    buttons.forEach(b => group.appendChild(b));
+    return group;
   }
 
-  function makeCouponSection(coupon) {
-    const section = el('div', { className: 'beauty-coupon-section' });
+  filterBar.appendChild(makeGroup(
+    [['all', 'All'], ['hair', 'Hair'], ['face', 'Face']],
+    () => activeType,
+    v => { activeType = v; }
+  ));
+  filterBar.appendChild(makeGroup(
+    [['all', 'All'], ['male', 'Male'], ['female', 'Female']],
+    () => activeGender,
+    v => { activeGender = v; }
+  ));
 
-    // Header
-    const header = el('div', { className: 'beauty-coupon-header' });
-    if (coupon.coupon_thumbnail) {
-      header.appendChild(el('img', {
-        className: 'beauty-coupon-thumb',
-        src: normalizeAssetPath(coupon.coupon_thumbnail),
-        alt: coupon.coupon_name,
-      }));
+  container.appendChild(filterBar);
+
+  // --- Sections ---
+  const bodyDiv = el('div', { className: 'beauty-body' });
+  container.appendChild(bodyDiv);
+
+  const typeSections = [];
+
+  for (const [type, label] of [['hair', 'Hair Styles'], ['face', 'Face Styles']]) {
+    const styles = beauty[type];
+    if (!styles || !styles.length) continue;
+
+    const typeSection = el('div', { className: 'beauty-type-section' });
+    typeSection.dataset.type = type;
+    typeSection.appendChild(el('h2', { className: 'beauty-type-heading', textContent: label }));
+
+    const byGender = { male: [], female: [] };
+    for (const style of styles) {
+      byGender[style.gender === 'female' ? 'female' : 'male'].push(style);
     }
-    const headerText = el('div', { className: 'beauty-coupon-header-text' });
-    headerText.appendChild(el('span', { className: 'beauty-coupon-name', textContent: coupon.coupon_name }));
-    if (coupon.coupon_desc) {
-      headerText.appendChild(el('span', { className: 'beauty-coupon-desc', textContent: coupon.coupon_desc }));
-    }
-    header.appendChild(headerText);
-    section.appendChild(header);
 
-    // One gender block per available gender
-    for (const g of GENDER_ORDER) {
-      const styles = coupon.genders[g];
-      if (!styles || !styles.length) continue;
+    const genderBlocks = [];
 
-      const genderBlock = el('div', { className: 'beauty-gender-block' });
-      genderBlock.appendChild(el('div', { className: 'beauty-gender-label', textContent: g.charAt(0).toUpperCase() + g.slice(1) }));
+    for (const [gender, genderLabel] of [['male', 'Male'], ['female', 'Female']]) {
+      const gStyles = byGender[gender];
+      if (!gStyles.length) continue;
+
+      const block = el('div', { className: 'beauty-gender-block' });
+      block.dataset.gender = gender;
+      block.appendChild(el('div', { className: 'beauty-gender-label', textContent: genderLabel }));
 
       const grid = el('div', { className: 'beauty-style-grid' });
-      for (const style of styles) {
+      for (const style of gStyles) {
         const card = el('div', { className: 'beauty-style-card' });
         if (style.thumbnail) {
           card.appendChild(el('img', {
@@ -94,11 +89,26 @@ export function renderBeautyStyles(data) {
         card.appendChild(makeCopyableId(padItemId(style.id), 'beauty-style-id'));
         grid.appendChild(card);
       }
-      genderBlock.appendChild(grid);
-      section.appendChild(genderBlock);
+      block.appendChild(grid);
+      typeSection.appendChild(block);
+      genderBlocks.push(block);
     }
 
-    return section;
+    bodyDiv.appendChild(typeSection);
+    typeSections.push({ el: typeSection, genderBlocks });
+  }
+
+  function applyFilters() {
+    for (const { el: section, genderBlocks } of typeSections) {
+      const typeMatch = activeType === 'all' || section.dataset.type === activeType;
+      let anyGenderVisible = false;
+      for (const block of genderBlocks) {
+        const genderMatch = activeGender === 'all' || block.dataset.gender === activeGender;
+        block.classList.toggle('beauty-hidden', !genderMatch);
+        if (genderMatch) anyGenderVisible = true;
+      }
+      section.classList.toggle('beauty-hidden', !typeMatch || !anyGenderVisible);
+    }
   }
 
   return container;
