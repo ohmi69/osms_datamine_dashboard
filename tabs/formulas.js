@@ -82,11 +82,11 @@ function buildExpTable() {
 }
 
 const WEAPON_MULTS = [
-  ['1H Sword',       1.5, 1.5],
+  ['1H Sword',       1.8, 1.8],
   ['2H Sword',       2.5, 2.5],
-  ['1H Blunt Weapon', 2,  1  ],
+  ['1H Blunt Weapon', 2.4,  1.2  ],
   ['2H Blunt Weapon', 3,  2  ],
-  ['1H Axe',          2,  1  ],
+  ['1H Axe',          2.4,  1.2  ],
   ['2H Axe',          3,  2  ],
   ['Spear',          1.5, 3.5],
   ['Polearm',        3.5, 1.5],
