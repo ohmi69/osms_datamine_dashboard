@@ -63,6 +63,10 @@ export function renderSkills(data, options = {}) {
         return cls.main_class && cls.main_class.toLowerCase() === classFilter.toLowerCase();
       });
     }
+    const JOB_TIER_ORDER = { Beginner: 0, '1st Job': 1, '2nd Job': 2, '3rd Job': 3, '4th Job': 4 };
+    filteredClasses = [...filteredClasses].sort(
+      (a, b) => (JOB_TIER_ORDER[a.job] ?? 99) - (JOB_TIER_ORDER[b.job] ?? 99)
+    );
     const filtered = filteredClasses
       .map((cls) => ({
         ...cls,

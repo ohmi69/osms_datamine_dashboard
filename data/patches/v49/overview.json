@@ -21,7 +21,7 @@
     "num_new_monsters": 0,
     "num_new_maps": 5,
     "version": "~v0.26-0.28 (Victoria Island only)",
-    "classes": "35 (Adv. Fire & Poison, Adv. Holy Magic, Adv. Ice & Lightning, Archer, Assassin, Bandit, Beginner, Bow master, Chief Bandit's Tricks, Cleric, Crossbow master., Crossbowman, Crusader's Guide, Dark Knight of Darkenss, Dragon Knight's Path, F/P Wizard, Fighter, Highest class of Holy Magic, Highest class of Magic (F,P), Highest class of Magic (I,L), Hunter, I/L Wizard, Intro. to Magic, Page, Paladin of Light, Path of the Ranger, Secret Skills of Nights Lord, Secret Skills of Shadower, Sniper's Scope, Spearman, The Way of Hermit, Thief Skills, Ultimate Hero, Warrior, White Knight's Code) — 2nd Job cap",
+    "classes": "35 (Archer, Archmage F/P, Archmage I/L, Assassin, Bandit, Beginner, Berserker, Bishop, Bowmaster, Chief Bandit, Cleric, Crossbowman, Crusader, Dark Knight, F/P Mage, F/P Wizard, Fighter, Hermit, Hero, Hunter, I/L Mage, I/L Wizard, Magician, Marksman, Night Lord, Page, Paladin, Priest, Ranger, Rogue, Shadower, Sniper, Spearman, Warrior, White Knight) — 2nd Job cap",
     "cbt_start": "April 14, 2026",
     "cbt_end": "April 23, 2026",
     "disciplines": "6 (Smithing, Weaponcrafting, Tailoring, Woodcrafting, Leatherworking, Arcforge)",
