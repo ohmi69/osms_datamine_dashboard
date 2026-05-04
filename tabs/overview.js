@@ -1,12 +1,8 @@
 import { el } from '../lib/utils.js';
+import { getDataBase } from '../lib/data.js';
 
-export function renderOverview(data, { switchTab }) {
-  const { overview } = data;
-  const stats = overview.stats;
-  const frag = document.createDocumentFragment();
-
-  // CBT over banner
-  const cbtBanner = el('div', {
+function buildBanner(title, subtitle) {
+  const banner = el('div', {
     style: {
       background: 'linear-gradient(135deg, rgba(251,146,60,.18) 0%, rgba(251,146,60,.08) 100%)',
       border: '2px solid rgba(251,146,60,.55)',
@@ -17,27 +13,69 @@ export function renderOverview(data, { switchTab }) {
       boxShadow: '0 4px 24px rgba(251,146,60,.12)',
     },
   });
-  cbtBanner.appendChild(el('div', {
-    style: {
-      fontSize: '22px',
-      fontWeight: '800',
-      color: '#fb923c',
-      letterSpacing: '.5px',
-      marginBottom: '8px',
-    },
-    textContent: 'Closed Beta Test has ended',
+  banner.appendChild(el('div', {
+    style: { fontSize: '22px', fontWeight: '800', color: '#fb923c', letterSpacing: '.5px', marginBottom: '8px' },
+    textContent: title,
   }));
-  cbtBanner.appendChild(el('div', {
-    style: {
-      fontSize: '15px',
-      color: 'var(--dim)',
-      opacity: '.85',
-    },
-    textContent: 'This site will be updated again once the game launches, or if theres an open beta. Thanks for visiting — see you soon! 👋',
+  banner.appendChild(el('div', {
+    style: { fontSize: '15px', color: 'var(--dim)', opacity: '.85' },
+    textContent: subtitle,
   }));
-  frag.appendChild(cbtBanner);
+  return banner;
+}
 
-  // Hero banner (compact, since site header now carries the branding)
+function buildNavSection(stats, switchTab, isTimeTravelMode = false) {
+  const section = el('div');
+  section.appendChild(el('div', { className: 'section-heading', textContent: 'Explore' }));
+  const grid = el('div', { className: 'nav-grid' });
+  [
+    ['monsters',  'Monsters',   stats.monsters,   ''],
+    ['maps',      'Maps',       stats.maps,        `${stats.num_regions} regions`],
+    ['skills',    'Skills',     stats.skills,      `${stats.num_classes} classes`],
+   !isTimeTravelMode ?  ['crafting',  'Crafting',   stats.recipes,     `${stats.num_disciplines} disciplines, all recipes`]: null,
+    ['items',     'Items',      stats.scrolls + stats.consumables + stats.etc + stats.setup, 'Scrolls, consumables, etc'],
+    ['equipment', 'Equipment',  stats.equipment,   'Weapons, armor, accessories'],
+    ['cashshop',  'Cash Shop',  stats.cash_shop_items, 'NX items, pets, coupons'],
+    ['quests',    'Quests',     stats.quests,      'Full quest chains, rewards'],
+  ].filter(Boolean)
+  .forEach(([tabId, label, count, desc]) => {
+    const card = el('div', { className: 'nav-card' });
+    card.appendChild(el('div', { className: 'nav-count', textContent: count }));
+    card.appendChild(el('div', { className: 'nav-label', textContent: label }));
+    card.appendChild(el('div', { className: 'nav-desc', textContent: desc }));
+    card.addEventListener('click', () => switchTab(tabId));
+    grid.appendChild(card);
+  });
+  section.appendChild(grid);
+  return section;
+}
+
+export function renderOverview(data, { switchTab }) {
+  const { overview } = data;
+  const stats = overview.stats;
+  const frag = document.createDocumentFragment();
+  const isTimeTravelMode = getDataBase() !== './data/current';
+
+  if (isTimeTravelMode) {
+    const meta = data.patchMeta;
+    const version = meta?.label || meta?.version || new URLSearchParams(window.location.search).get('patch') || 'unknown';
+    const dateStr = meta?.date
+      ? new Date(meta.date + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+      : '';
+    frag.appendChild(buildBanner(
+      `Welcome back to ${dateStr} (${version})`,
+      dateStr ? `Enjoy the walk down memory lane` : 'Historical datamine snapshot',
+    ));
+    frag.appendChild(buildNavSection(stats, switchTab, true));
+    return frag;
+  }
+
+  frag.appendChild(buildBanner(
+    'Closed Open Test has ended',
+    'This site will be updated again once the game launches, or if theres an open beta. In the meantime, check out previous old school patches by clicking the dropdown on the top right! Thanks for visiting — see you soon! 👋',
+  ));
+
+  // Hero banner
   const heroBanner = el('div', {
     style: {
       background: 'var(--surface)',
@@ -70,39 +108,24 @@ export function renderOverview(data, { switchTab }) {
     },
     textContent: 'Closed Beta Test (CBT) Patch 2',
   });
-  const heroPatchHash = el('div', {
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '5px',
-    },
-    title: 'c80c0a8a',
-  });
+  const heroPatchHash = el('div', { style: { display: 'flex', alignItems: 'center', gap: '5px' }, title: 'c80c0a8a' });
   heroPatchHash.appendChild(el('span', {
     style: { fontSize: '9px', color: 'var(--dim)', opacity: '.5', letterSpacing: '.4px', fontWeight: '600', textTransform: 'uppercase' },
     textContent: 'hash',
   }));
   heroPatchHash.appendChild(el('code', {
     style: {
-      fontSize: '10px',
-      color: 'var(--dim)',
-      opacity: '.65',
-      background: 'rgba(255,255,255,.04)',
-      border: '1px solid var(--border)',
-      borderRadius: '3px',
-      padding: '0 4px',
+      fontSize: '10px', color: 'var(--dim)', opacity: '.65',
+      background: 'rgba(255,255,255,.04)', border: '1px solid var(--border)', borderRadius: '3px', padding: '0 4px',
     },
     textContent: 'c80c0a8a',
   }));
   heroBadgeMeta.appendChild(heroBadge);
   heroBadgeMeta.appendChild(heroPatchHash);
   heroBanner.appendChild(heroBadgeMeta);
-
-  const heroDivider = el('div', {
+  heroBanner.appendChild(el('div', {
     style: { width: '1px', alignSelf: 'stretch', background: 'var(--border)', flexShrink: '0', margin: '0 4px' },
-  });
-  heroBanner.appendChild(heroDivider);
-
+  }));
   const heroInfo = el('div', { style: { display: 'flex', flexDirection: 'column', gap: '4px' } });
   heroInfo.appendChild(el('p', {
     style: { fontSize: '12px', color: 'var(--dim)', lineHeight: '1.5', margin: '0' },
@@ -119,7 +142,6 @@ export function renderOverview(data, { switchTab }) {
   }));
   heroInfo.appendChild(heroTimeLine);
   heroBanner.appendChild(heroInfo);
-
   frag.appendChild(heroBanner);
 
   // Disclaimer
@@ -145,54 +167,28 @@ export function renderOverview(data, { switchTab }) {
   );
   frag.appendChild(disclaimer);
 
-  const navSection = el('div');
-  navSection.appendChild(el('div', { className: 'section-heading', textContent: 'Explore' }));
-
-  const navGrid = el('div', { className: 'nav-grid' });
-  const navItems = [
-    ['monsters',  'Monsters',   stats.monsters,   'Sortable stats, elements'],
-    ['maps',      'Maps',       stats.maps,        `${stats.num_regions} regions, all zones`],
-    ['skills',    'Skills',     stats.skills,      `${stats.num_classes} classes, full stats`],
-    ['crafting',  'Crafting',   stats.recipes,     `${stats.num_disciplines} disciplines, all recipes`],
-    ['items',     'Items',      stats.scrolls + stats.consumables + stats.etc + stats.setup, 'Scrolls, consumables, etc'],
-    ['equipment', 'Equipment',  stats.equipment,   'Weapons, armor, accessories'],
-    ['cashshop',  'Cash Shop',  stats.cash_shop_items, 'NX items, pets, coupons'],
-    ['quests',    'Quests',     stats.quests,      'Full chains, rewards, repeats'],
-  ];
-
-  navItems.forEach(([tabId, label, count, desc]) => {
-    const card = el('div', { className: 'nav-card' });
-    card.appendChild(el('div', { className: 'nav-count', textContent: count }));
-    card.appendChild(el('div', { className: 'nav-label', textContent: label }));
-    card.appendChild(el('div', { className: 'nav-desc', textContent: desc }));
-    card.addEventListener('click', () => switchTab(tabId));
-    navGrid.appendChild(card);
-  });
-
-  navSection.appendChild(navGrid);
-  frag.appendChild(navSection);
+  frag.appendChild(buildNavSection(stats, switchTab));
 
   const findingsSection = el('div', { style: { marginBottom: '24px' } });
   findingsSection.appendChild(el('div', { className: 'section-heading', textContent: 'Key Findings' }));
-
   const findingsGrid = el('div', { className: 'findings-grid' });
   [
-    ['Content Era',        stats.version],
-    ['Classes',            stats.classes],
-    ['Max Level',          '50 · Same EXP curve as old school MS'],
-    ['Craft Disciplines',  stats.disciplines],
-    ['Bosses',             stats.bosses],
-    ['Mob Level Range',        stats.level_range],
-    ['Scroll System',      stats.scroll_system],
-    ['Repeatable Quests',  stats.repeatable_quests],
+    ['Content Era',       stats.version],
+    ['Classes',           stats.classes],
+    ['Max Level',         '50 · Same EXP curve as old school MS'],
+    ['Craft Disciplines', stats.disciplines],
+    ['Bosses',            stats.bosses],
+    ['Mob Level Range',   stats.level_range],
+    ['Scroll System',     stats.scroll_system],
+    ['Repeatable Quests', stats.repeatable_quests],
   ].forEach(([title, text]) => {
     const card = el('div', { className: 'info-card' });
     card.appendChild(el('div', { className: 'title', textContent: title }));
     card.appendChild(el('div', { className: 'text', textContent: text }));
     findingsGrid.appendChild(card);
   });
-
   findingsSection.appendChild(findingsGrid);
   frag.appendChild(findingsSection);
+
   return frag;
 }

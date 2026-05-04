@@ -1,5 +1,6 @@
 
 import { el, padMapId } from '../../lib/utils.js';
+import { getDataBase } from '../../lib/data.js';
 
 export function getAllMapsFlat(data) {
   return data.maps.regions.flatMap(r => r.maps);
@@ -164,7 +165,7 @@ export function showNavigateModal(data, defaultToId) {
     }
     if (!window._allPortalsCache) {
       try {
-        const res = await fetch('data/maps/portals.json');
+        const res = await fetch(`${getDataBase()}/maps/portals.json`);
         window._allPortalsCache = res.ok ? await res.json() : {};
       } catch {
         window._allPortalsCache = {};
@@ -180,7 +181,7 @@ export function showNavigateModal(data, defaultToId) {
       const stepDiv = el('div', { className: 'navigate-step' });
       stepDiv.appendChild(el('div', { className: 'navigate-step-header', textContent: `Step ${i + 1}: ${map.name}` }));
 
-      const imgPath = `data/maps/${padMapId(map.id)}.img.png`;
+      const imgPath = `${getDataBase()}/maps/${padMapId(map.id)}.img.png`;
       const img = el('img', { src: imgPath, alt: map.name, className: 'navigate-step-img' });
       img.addEventListener('load', () => {
         stepDiv.querySelectorAll('.portal-highlight').forEach(o => o.remove());

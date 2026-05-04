@@ -28,7 +28,7 @@ function showZoomTipModal() {
 }
 import { TABS, ICONS } from './lib/config.js';
 import { el, $, $$ } from './lib/utils.js';
-import state, { loadData } from './lib/data.js';
+import state, { loadData, getDataBase } from './lib/data.js';
 import { TabManager } from './lib/TabManager.js';
 import { ThemeManager } from './lib/ThemeManager.js';
 import { Router } from './lib/Router.js';
@@ -57,8 +57,8 @@ let tabManager = null;
 // Use Router for deep link parsing
 
 // Tab renderers as a config array for TabManager
-function getTabConfigs(appData) {
-  return [
+function getTabConfigs(appData, isTimeTravelMode = false) {
+  const tabs = [
     {
       id: 'overview',
       label: 'Overview',
@@ -95,7 +95,7 @@ function getTabConfigs(appData) {
       icon: ICONS.swords,
       render: ({ setNavigate }) => renderSkills(appData, { setNavigate })
     },
-    {
+    ...(appData.recipes?.disciplines?.length > 0 ? [{
       id: 'crafting',
       label: 'Crafting',
       icon: ICONS.hammer,
@@ -108,7 +108,7 @@ function getTabConfigs(appData) {
           if (navigators[tab]) navigators[tab](id != null ? `id:${id}` : (item?.name || ''));
         },
       })
-    },
+    }] : []),
     {
       id: 'items',
       label: 'Items',
@@ -147,6 +147,7 @@ function getTabConfigs(appData) {
     //   render: () => renderBeautyStyles(appData)
     // },
   ];
+  return isTimeTravelMode ? tabs.filter(t => t.id !== 'formulas') : tabs;
 }
 
 
@@ -187,7 +188,104 @@ async function showMapleTip() {
   } catch {}
 }
 
+async function buildPatchSelector() {
+  try {
+    const res = await fetch('./data/patches/index.json');
+    if (!res.ok) return null;
+    const index = await res.json();
+    if (!Array.isArray(index.patches) || !index.patches.length) return null;
+
+    const params = new URLSearchParams(window.location.search);
+    const currentPatch = params.get('patch') || '';
+
+    const wrapper = el('div', { className: 'patch-selector-wrap' });
+    const label = el('label', { className: 'patch-selector-label', textContent: 'Patch:' });
+    const select = el('select', { className: 'patch-selector' });
+
+    const currentOpt = el('option', { value: '', textContent: 'Current' });
+    if (!currentPatch) currentOpt.selected = true;
+    select.appendChild(currentOpt);
+
+    for (const p of index.patches) {
+      const opt = el('option', { value: p.version, textContent: p.label || `v${p.version}` });
+      if (currentPatch === p.version) opt.selected = true;
+      select.appendChild(opt);
+    }
+
+    select.addEventListener('change', () => {
+      const v = select.value;
+      const hash = window.location.hash;
+      if (v) {
+        window.location.href = `${window.location.pathname}?patch=${encodeURIComponent(v)}${hash}`;
+      } else {
+        sessionStorage.setItem('tt_returning', '1');
+        window.location.href = window.location.pathname + hash;
+      }
+    });
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(select);
+    return wrapper;
+  } catch {
+    return null;
+  }
+}
+
 async function init() {
+  const isTimeTravelMode = getDataBase() !== './data/current';
+
+  if (isTimeTravelMode) {
+    document.body.classList.add('time-travel');
+    const params = new URLSearchParams(window.location.search);
+    const patchVersion = params.get('patch') || 'unknown';
+
+    const overlay = el('div', { className: 'tt-overlay' });
+    const monster = el('img', { className: 'tt-monster', src: './data/patches/v43/images/monsters/4230113.move.webp', alt: '' });
+    const ttText = el('div', { className: 'tt-text', textContent: `Timetravelling back to ${patchVersion}` });
+    overlay.appendChild(monster);
+    overlay.appendChild(ttText);
+    document.body.appendChild(overlay);
+    setTimeout(() => {
+      overlay.classList.add('tt-out');
+      overlay.addEventListener('animationend', () => overlay.remove(), { once: true });
+    }, 1000);
+
+    const strip = el('div', { className: 'time-travel-strip' });
+    const backHref = window.location.pathname + window.location.hash;
+    strip.innerHTML = `
+      <span class="time-travel-strip__label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Currently time travelling in <strong>${patchVersion}</strong>
+      </span>
+      <a class="time-travel-strip__back" href="${backHref}">← Back to current</a>
+    `;
+    document.querySelector('.site-header').appendChild(strip);
+    strip.querySelector('.time-travel-strip__back').addEventListener('click', () => {
+      sessionStorage.setItem('tt_returning', '1');
+    });
+  }
+
+  if (!isTimeTravelMode && sessionStorage.getItem('tt_returning')) {
+    sessionStorage.removeItem('tt_returning');
+    const overlay = el('div', { className: 'tt-overlay' });
+    const monster = el('img', { className: 'tt-monster tt-monster--flipped', src: './data/patches/v43/images/monsters/4230113.move.webp', alt: '' });
+    const ttText = el('div', { className: 'tt-text', textContent: 'Time travelling back to the present' });
+    overlay.appendChild(monster);
+    overlay.appendChild(ttText);
+    document.body.appendChild(overlay);
+    setTimeout(() => {
+      overlay.classList.add('tt-out');
+      overlay.addEventListener('animationend', () => overlay.remove(), { once: true });
+    }, 1000);
+  }
+
+  // Inject patch selector into header (doesn't need appData)
+  buildPatchSelector().then((selector) => {
+    if (!selector) return;
+    const extras = document.querySelector('.site-header-extras');
+    if (extras) extras.prepend(selector);
+  });
+
   const panels = $('#tabPanels');
   panels.innerHTML = '';
   panels.appendChild(
@@ -203,10 +301,22 @@ async function init() {
       el('div', {
         className: 'warning-banner',
         innerHTML:
-          '<h3>Failed to load parsed data</h3><p>Serve this folder over HTTP and make sure ./data/*.json exists.</p>',
+          '<h3>Failed to load</h3><p>Contact @ohmi if the issue persists.</p>',
       })
     );
     return;
+  }
+
+  if (isTimeTravelMode) {
+    try {
+      const pv = new URLSearchParams(window.location.search).get('patch');
+      const res = await fetch('./data/patches/index.json');
+      if (res.ok) {
+        const index = await res.json();
+        const found = index.patches?.find(p => p.version === pv);
+        if (found) appData.patchMeta = found;
+      }
+    } catch {}
   }
 
   panels.innerHTML = '';
@@ -219,10 +329,11 @@ async function init() {
 
   const route = Router.getCurrentRoute();
   const query = Router.getCurrentQuery();
-  const validTab = route && getTabConfigs(appData).some(t => t.id === route) ? route : 'overview';
+  const tabConfigs = getTabConfigs(appData, isTimeTravelMode);
+  const validTab = route && tabConfigs.some(t => t.id === route) ? route : 'overview';
 
   tabManager = new TabManager({
-    tabs: getTabConfigs(appData),
+    tabs: tabConfigs,
     panelContainer: panels,
     navContainer: nav,
     initialTab: validTab,

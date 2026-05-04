@@ -1,0 +1,19 @@
+{
+  "patches": [
+    {
+      "version": "v49",
+      "label": "v49",
+      "date": "2011-01-28"
+    },
+    {
+      "version": "v43",
+      "label": "v43",
+      "date": "2007-09-19"
+    },
+    {
+      "version": "v22",
+      "label": "v22",
+      "date": "2006-04-17"
+    }
+  ]
+}

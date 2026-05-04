@@ -1,5 +1,6 @@
 
 import { el, padMapId } from '../../lib/utils.js';
+import { getDataBase } from '../../lib/data.js';
 import { attachTooltip, hideItemTooltip } from '../../lib/tooltip.js';
 
 // Attaches portal circle overlays + intra-map arrows to imgContainer once img loads.
@@ -10,7 +11,7 @@ export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate
 
     if (!window._allPortalsCache) {
       try {
-        const res = await fetch('data/maps/portals.json');
+        const res = await fetch(`${getDataBase()}/maps/portals.json`);
         window._allPortalsCache = res.ok ? await res.json() : {};
       } catch {
         window._allPortalsCache = {};

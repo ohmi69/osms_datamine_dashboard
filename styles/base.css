@@ -123,6 +123,9 @@
   --accent-bg: rgba(245,158,11,.07);
   --scrollbar-thumb: #3d4a63;
   --scrollbar-track: #242b3d;
+  --tt-overlay-bg: rgba(0, 0, 0, 0.88);
+  --tt-text-color: #fbbf24;
+  --tt-text-shadow: rgba(251, 191, 36, 0.7);
 }
 
 /* ── Theme: MapleTip — warm parchment, 2007 nostalgia ───────── */
@@ -226,6 +229,11 @@
 
 /* Footer warmth */
 [data-theme="mapletip"] .footer { border-top-color: #D4C4A8; }
+[data-theme="mapletip"] {
+  --tt-overlay-bg: rgba(240, 232, 214, 0.95);
+  --tt-text-color: #7a3a00;
+  --tt-text-shadow: rgba(122, 58, 0, 0.35);
+}
 
 /* ID toggle on light */
 [data-theme="mapletip"] .id-toggle { border-color: #D4C4A8; color: #8B7355; }
@@ -935,6 +943,121 @@ body.hide-ids .id-col { display: none !important; }
   letter-spacing: .5px;
 }
 
+/* ── Time travel mode ───────────────────────────────────────── */
+body.time-travel::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.20;
+  mix-blend-mode: multiply;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='w'><feTurbulence type='fractalNoise' baseFrequency='0.025 0.045' numOctaves='5' seed='7' result='n'/><feDiffuseLighting in='n' lighting-color='white' surfaceScale='4'><feDistantLight azimuth='45' elevation='55'/></feDiffuseLighting></filter><rect width='600' height='600' filter='url(%23w)'/></svg>") center / cover;
+}
+body.time-travel .site-header {
+  border-bottom-color: #b87c0a;
+}
+.time-travel-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 6px 24px;
+  background: rgba(184, 124, 10, 0.20);
+  border-top: 1px solid rgba(184, 124, 10, 0.40);
+  font-size: 12px;
+  color: #c8900e;
+  font-weight: 500;
+}
+.time-travel-strip__label strong { font-weight: 700; }
+.time-travel-strip__back {
+  color: #c8900e;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 2px 8px;
+  border: 1px solid rgba(184, 124, 10, 0.4);
+  border-radius: 5px;
+  transition: background .15s;
+}
+.time-travel-strip__back:hover { background: rgba(184, 124, 10, 0.18); }
+
+.tt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: var(--tt-overlay-bg);
+  animation: tt-fadein 0.4s ease forwards;
+  pointer-events: none;
+}
+.tt-overlay.tt-out { animation: tt-fadeout 0.6s ease forwards; }
+.tt-monster {
+  image-rendering: pixelated;
+  width: 160px;
+  height: auto;
+  animation: tt-float 0.9s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 18px rgba(255, 190, 30, 0.55));
+}
+.tt-text {
+  color: var(--tt-text-color);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 24px var(--tt-text-shadow);
+  animation: tt-slidein 0.5s 0.25s ease both;
+}
+@keyframes tt-fadein { from { opacity: 0; } to { opacity: 1; } }
+@keyframes tt-fadeout { from { opacity: 1; } to { opacity: 0; } }
+@keyframes tt-float {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-14px); }
+}
+@keyframes tt-float-flipped {
+  from { transform: scaleX(-1) translateY(0px); }
+  to   { transform: scaleX(-1) translateY(-14px); }
+}
+.tt-monster--flipped { animation-name: tt-float-flipped; }
+@keyframes tt-slidein {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Patch selector ─────────────────────────────────────────── */
+.patch-selector-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.patch-selector-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+.patch-selector {
+  background: var(--surface-2, var(--surface));
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-family: monospace;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: border-color .15s;
+}
+.patch-selector:hover, .patch-selector:focus { border-color: var(--accent); }
+.patch-selector option { background: var(--surface); color: var(--text); }
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 640px) {
   .tab-btn { padding: 7px 9px; font-size: 12px; }
@@ -942,6 +1065,7 @@ body.hide-ids .id-col { display: none !important; }
   .brand-title { font-size: 17px; }
   .brand-sub { display: none; }
   .site-header-badge { display: none; }
+  .patch-selector-wrap { margin-bottom: 4px; }
 }
 
 /* ── Map Navigation Modal ─────────────────────────────── */

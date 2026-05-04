@@ -404,7 +404,7 @@ export function renderQuests(data, options = {}) {
   );
   let searchQuery = '';
   let regionFilter = 'All';
-  let sortByLevel = true;
+  const sortByLevel = true;
   const completionState = loadCompletionState();
   const container = el('div');
 
@@ -419,28 +419,18 @@ export function renderQuests(data, options = {}) {
     renderData();
   });
 
+  const hasRegions = Array.isArray(quests.regions) && quests.regions.length > 0;
   const regions = ['All', ...(quests.regions || [])];
-  const filterRow = el('div', { className: 'filter-row' });
-  const regionPills = makePillGroup(
-    regions.map((r) => ({ label: r, value: r })),
-    regionFilter,
-    (value) => { regionFilter = value; regionPills.setActive(value); renderData(); }
-  );
-  filterRow.appendChild(regionPills);
-  filterRow.appendChild(el('div', { className: 'filter-divider' }));
-
-  const sortBtn = el('button', {
-    className: 'pill sort-pill active',
-    textContent: 'Level ▲',
-  });
-  sortBtn.addEventListener('click', () => {
-    sortByLevel = !sortByLevel;
-    sortBtn.classList.toggle('active', sortByLevel);
-    sortBtn.textContent = sortByLevel ? 'Level ▲' : 'Sort by Level';
-    renderData();
-  });
-  filterRow.appendChild(sortBtn);
-  container.appendChild(filterRow);
+  if (hasRegions) {
+    const filterRow = el('div', { className: 'filter-row' });
+    const regionPills = makePillGroup(
+      regions.map((r) => ({ label: r, value: r })),
+      regionFilter,
+      (value) => { regionFilter = value; regionPills.setActive(value); renderData(); }
+    );
+    filterRow.appendChild(regionPills);
+    container.appendChild(filterRow);
+  }
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);
