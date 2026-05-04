@@ -1,38 +1,8 @@
 {
   "regions": [
     {
-      "region": "",
-      "count": 1,
-      "maps": [
-        {
-          "id": 106000003,
-          "name": "",
-          "street_name": "",
-          "region": "",
-          "minimap": "images/maps/106000003.png",
-          "is_town": false,
-          "return_map_id": 102000000,
-          "bgm": "Bgm01/HighlandStar",
-          "mob_rate": 0.6,
-          "map_mark": "Perion",
-          "npcs": [],
-          "exits": [
-            106000001
-          ],
-          "thumbnail": "images/maps/106000003.png",
-          "return_map_name": "Perion",
-          "exit_names": [
-            {
-              "id": 106000001,
-              "name": "Dangerous Valley"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "region": "etc",
-      "count": 53,
+      "count": 54,
       "maps": [
         {
           "id": 900000000,
@@ -1445,6 +1415,30 @@
           "exits": [],
           "thumbnail": "images/maps/922011100.png",
           "return_map_name": "Abandoned Tower<End of Journey>"
+        },
+        {
+          "id": 106000003,
+          "name": "",
+          "street_name": "",
+          "region": "etc",
+          "minimap": "images/maps/106000003.png",
+          "is_town": false,
+          "return_map_id": 102000000,
+          "bgm": "Bgm01/HighlandStar",
+          "mob_rate": 0.6,
+          "map_mark": "Perion",
+          "npcs": [],
+          "exits": [
+            106000001
+          ],
+          "thumbnail": "images/maps/106000003.png",
+          "return_map_name": "Perion",
+          "exit_names": [
+            {
+              "id": 106000001,
+              "name": "Dangerous Valley"
+            }
+          ]
         }
       ]
     },

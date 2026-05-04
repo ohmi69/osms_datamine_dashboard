@@ -1,86 +1,6 @@
 {
   "regions": [
     {
-      "region": "",
-      "count": 4,
-      "maps": [
-        {
-          "id": 109060003,
-          "name": "",
-          "street_name": "",
-          "region": "",
-          "minimap": null,
-          "is_town": false,
-          "return_map_id": 109050001,
-          "bgm": "Bgm03/SnowyVillage",
-          "mob_rate": null,
-          "map_mark": "None",
-          "npcs": [],
-          "exits": [],
-          "thumbnail": null,
-          "return_map_name": "Leaving the Event"
-        },
-        {
-          "id": 109060004,
-          "name": "",
-          "street_name": "",
-          "region": "",
-          "minimap": "images/maps/109060004.png",
-          "is_town": false,
-          "return_map_id": 109050001,
-          "bgm": "Bgm03/SnowyVillage",
-          "mob_rate": null,
-          "map_mark": "None",
-          "npcs": [],
-          "exits": [],
-          "thumbnail": "images/maps/109060004.png",
-          "return_map_name": "Leaving the Event"
-        },
-        {
-          "id": 109060005,
-          "name": "",
-          "street_name": "",
-          "region": "",
-          "minimap": null,
-          "is_town": false,
-          "return_map_id": 109050001,
-          "bgm": "Bgm03/SnowyVillage",
-          "mob_rate": null,
-          "map_mark": "None",
-          "npcs": [],
-          "exits": [],
-          "thumbnail": null,
-          "return_map_name": "Leaving the Event"
-        },
-        {
-          "id": 209080100,
-          "name": "",
-          "street_name": "",
-          "region": "",
-          "minimap": null,
-          "is_town": true,
-          "return_map_id": 209000000,
-          "bgm": "Bgm04/WhiteChristmas",
-          "mob_rate": null,
-          "map_mark": "HappyVillage",
-          "npcs": [
-            9220004
-          ],
-          "exits": [
-            209080000
-          ],
-          "thumbnail": null,
-          "return_map_name": "Happyville",
-          "exit_names": [
-            {
-              "id": 209080000,
-              "name": "Extra Frosty Snow Zone"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "region": "HalloweenGL",
       "count": 35,
       "maps": [
@@ -1817,7 +1737,7 @@
     },
     {
       "region": "etc",
-      "count": 151,
+      "count": 155,
       "maps": [
         {
           "id": 900000000,
@@ -5449,6 +5369,80 @@
             {
               "id": 990001000,
               "name": "Sharen III's Treasure Wearhouse"
+            }
+          ]
+        },
+        {
+          "id": 109060003,
+          "name": "",
+          "street_name": "",
+          "region": "etc",
+          "minimap": null,
+          "is_town": false,
+          "return_map_id": 109050001,
+          "bgm": "Bgm03/SnowyVillage",
+          "mob_rate": null,
+          "map_mark": "None",
+          "npcs": [],
+          "exits": [],
+          "thumbnail": null,
+          "return_map_name": "Leaving the Event"
+        },
+        {
+          "id": 109060004,
+          "name": "",
+          "street_name": "",
+          "region": "etc",
+          "minimap": "images/maps/109060004.png",
+          "is_town": false,
+          "return_map_id": 109050001,
+          "bgm": "Bgm03/SnowyVillage",
+          "mob_rate": null,
+          "map_mark": "None",
+          "npcs": [],
+          "exits": [],
+          "thumbnail": "images/maps/109060004.png",
+          "return_map_name": "Leaving the Event"
+        },
+        {
+          "id": 109060005,
+          "name": "",
+          "street_name": "",
+          "region": "etc",
+          "minimap": null,
+          "is_town": false,
+          "return_map_id": 109050001,
+          "bgm": "Bgm03/SnowyVillage",
+          "mob_rate": null,
+          "map_mark": "None",
+          "npcs": [],
+          "exits": [],
+          "thumbnail": null,
+          "return_map_name": "Leaving the Event"
+        },
+        {
+          "id": 209080100,
+          "name": "",
+          "street_name": "",
+          "region": "etc",
+          "minimap": null,
+          "is_town": true,
+          "return_map_id": 209000000,
+          "bgm": "Bgm04/WhiteChristmas",
+          "mob_rate": null,
+          "map_mark": "HappyVillage",
+          "npcs": [
+            9220004
+          ],
+          "exits": [
+            209080000
+          ],
+          "thumbnail": null,
+          "return_map_name": "Happyville",
+          "exit_names": [
+            {
+              "id": 209080000,
+              "name": "Extra Frosty Snow Zone"
             }
           ]
         }

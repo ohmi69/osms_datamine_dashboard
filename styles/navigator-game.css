@@ -170,6 +170,70 @@
   font-size: 1rem;
 }
 
+/* ── Daily completed status ────────────────────────────────── */
+
+.navgame-daily-status {
+  width: 100%;
+}
+
+.navgame-daily-completed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+}
+
+.navgame-daily-check {
+  color: #4caf50;
+  font-weight: 700;
+}
+
+.navgame-daily-grade {
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 4px;
+  background: var(--surface-2);
+}
+
+.navgame-daily-grade--perfect { color: #ffd700; }
+.navgame-daily-grade--godly   { color: #c0c0c0; }
+.navgame-daily-grade--pro     { color: #4fc3f7; }
+.navgame-daily-grade--decent  { color: #81c784; }
+.navgame-daily-grade--grind   { color: var(--dim); }
+
+.navgame-daily-stats-inline {
+  color: var(--dim);
+  font-size: 0.82rem;
+}
+
+.navgame-daily-streak {
+  width: 100%;
+}
+
+.navgame-daily-stats-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.navgame-streak-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ff8c00;
+  background: rgba(255, 140, 0, 0.12);
+  border: 1px solid rgba(255, 140, 0, 0.35);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+
+.navgame-streak-badge--total {
+  color: var(--dim);
+  background: var(--surface-2);
+  border-color: var(--border, rgba(128, 128, 128, 0.3));
+}
+
 /* ── Divider ───────────────────────────────────────────────── */
 
 .navgame-divider {

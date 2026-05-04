@@ -24595,14 +24595,11 @@
       "is_boss": false,
       "is_new": false,
       "maps": [],
-      "thumbnail": "images/monsters/9400562.png",
+      "thumbnail": null,
       "gifs": {
-        "stand": "images/monsters/9400562.stand.webp",
-        "attack1": "images/monsters/9400562.attack1.webp",
-        "hit1": "images/monsters/9400562.hit1.webp",
-        "die1": "images/monsters/9400562.die1.webp"
+        "attack1": "images/monsters/9400562.attack1.webp"
       },
-      "gif": "images/monsters/9400562.stand.webp"
+      "gif": "images/monsters/9400562.attack1.webp"
     },
     {
       "id": 9409000,

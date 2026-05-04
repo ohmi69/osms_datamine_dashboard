@@ -1,7 +1,7 @@
 {
   "copied": {
-    "monsters": 657,
-    "items": 5732,
+    "monsters": 656,
+    "items": 5728,
     "skills": 181,
     "maps": 833,
     "npcs": 692
@@ -9,11 +9,32 @@
   "missing": {
     "monsters": [
       {
+        "id": "9400562",
+        "reason": "no_prioritized_state_found"
+      },
+      {
         "id": "9999999",
         "reason": "asset_dir_missing"
       }
     ],
-    "items": [],
+    "items": [
+      {
+        "id": "04001036",
+        "reason": "asset_dir_missing"
+      },
+      {
+        "id": "04001074",
+        "reason": "asset_dir_missing"
+      },
+      {
+        "id": "04001123",
+        "reason": "asset_dir_missing"
+      },
+      {
+        "id": "03995000",
+        "reason": "asset_dir_missing"
+      }
+    ],
     "skills": [],
     "maps": [
       {
@@ -426,5 +447,5 @@
       }
     ]
   },
-  "missing_total": 103
+  "missing_total": 108
 }

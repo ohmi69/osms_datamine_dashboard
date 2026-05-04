@@ -16,7 +16,7 @@ function mulberry32(seed) {
   };
 }
 
-const DAILY_EPOCH = Date.UTC(2026, 0, 1);
+const DAILY_EPOCH = Date.UTC(2026, 4, 4);
 
 function getDailyInfo() {
   const now = new Date();
@@ -34,7 +34,9 @@ function getDailyInfo() {
 /* ── helpers ─────────────────────────────────────────────────── */
 
 function getAllMapsFlat(data) {
-  return data.maps.regions.flatMap(r => r.maps);
+  return data.maps.regions
+    .filter(r => r.region !== 'Other' && r.region !== 'etc' && r.region !== 'Event')
+    .flatMap(r => r.maps);
 }
 
 function buildMapGraph(allMaps) {
@@ -84,6 +86,51 @@ function formatTime(ms) {
   return min > 0
     ? `${min}:${String(sec).padStart(2, '0')}.${frac}`
     : `${sec}.${frac}s`;
+}
+
+/* ── daily result persistence ────────────────────────────────── */
+
+const STREAK_KEY = 'portalrunner-streak';
+
+function loadStreak() {
+  try {
+    const raw = localStorage.getItem(STREAK_KEY);
+    return raw ? JSON.parse(raw) : { lastPuzzleNum: 0, streak: 0, completed: [] };
+  } catch { return { lastPuzzleNum: 0, streak: 0, completed: [] }; }
+}
+
+function saveStreak(s) {
+  try { localStorage.setItem(STREAK_KEY, JSON.stringify(s)); } catch {}
+}
+
+function loadDailyResult(puzzleNum) {
+  const s = loadStreak();
+  return s.lastResult?.puzzleNum === puzzleNum ? s.lastResult : null;
+}
+
+function loadCompleted() {
+  return loadStreak().completed ?? [];
+}
+
+function saveDailyResult(puzzleNum, result) {
+  const s = loadStreak();
+  s.lastResult = { puzzleNum, ...result };
+  saveStreak(s);
+}
+
+function markCompleted(puzzleNum) {
+  const s = loadStreak();
+  s.completed = s.completed ?? [];
+  if (!s.completed.includes(puzzleNum)) s.completed.push(puzzleNum);
+  saveStreak(s);
+}
+
+function updateStreak(puzzleNum) {
+  const s = loadStreak();
+  if (s.lastPuzzleNum === puzzleNum) return;
+  s.streak = s.lastPuzzleNum === puzzleNum - 1 ? s.streak + 1 : 1;
+  s.lastPuzzleNum = puzzleNum;
+  saveStreak(s);
 }
 
 /* ── challenge generation ────────────────────────────────────── */
@@ -344,9 +391,46 @@ export function renderNavigatorGame(data, options = {}) {
   dailyMeta.appendChild(el('span', { className: 'navgame-daily-date', textContent: di.dateStr }));
   dailyCardTop.appendChild(dailyMeta);
   dailyCard.appendChild(dailyCardTop);
+  const dailyStreakEl = el('div', { className: 'navgame-daily-streak' });
+  dailyCard.appendChild(dailyStreakEl);
+  const dailyStatus = el('div', { className: 'navgame-daily-status' });
+  dailyCard.appendChild(dailyStatus);
   const dailyBtn = el('button', { className: 'navgame-start-btn navgame-daily-btn', textContent: "▶ Play Today's Puzzle" });
   dailyCard.appendChild(dailyBtn);
   startScreen.appendChild(dailyCard);
+
+  function renderDailyCard() {
+    const saved = loadDailyResult(di.puzzleNum);
+    const streak = loadStreak();
+    const streakCount = (streak.lastPuzzleNum === di.puzzleNum || streak.lastPuzzleNum === di.puzzleNum - 1)
+      ? streak.streak : 0;
+
+    dailyStreakEl.innerHTML = '';
+    const totalPlayed = loadCompleted().length;
+    if (streakCount > 0 || totalPlayed > 0) {
+      const statsRow = el('div', { className: 'navgame-daily-stats-row' });
+      if (streakCount > 0) {
+        statsRow.appendChild(el('span', { className: 'navgame-streak-badge', textContent: `🔥 ${streakCount}-day streak` }));
+      }
+      if (totalPlayed > 0) {
+        statsRow.appendChild(el('span', { className: 'navgame-streak-badge navgame-streak-badge--total', textContent: `📅 ${totalPlayed} day${totalPlayed !== 1 ? 's' : ''} played` }));
+      }
+      dailyStreakEl.appendChild(statsRow);
+    }
+
+    dailyStatus.innerHTML = '';
+    if (saved) {
+      dailyBtn.textContent = '▶ Play Again';
+      const row = el('div', { className: 'navgame-daily-completed' });
+      row.appendChild(el('span', { className: 'navgame-daily-check', textContent: '✓ Completed!' }));
+      row.appendChild(el('span', { className: `navgame-daily-grade navgame-daily-grade--${saved.gradeCls}`, textContent: `${saved.grade} (${saved.score}/1000)` }));
+      row.appendChild(el('span', { className: 'navgame-daily-stats-inline', textContent: `${saved.moves} move${saved.moves !== 1 ? 's' : ''} · ${formatTime(saved.elapsed)}` }));
+      dailyStatus.appendChild(row);
+    } else {
+      dailyBtn.textContent = "▶ Play Today's Puzzle";
+    }
+  }
+  renderDailyCard();
 
   startScreen.appendChild(el('div', { className: 'navgame-divider', textContent: 'or practice' }));
 
@@ -612,6 +696,13 @@ export function renderNavigatorGame(data, options = {}) {
     const score = Math.max(0, 1000 - detourMaps * detourPenalty - hintsUsed * 100);
     const { label: grade, cls: gradeClass } = scoreGrade(score);
 
+    if (isDailyMode && activeDailyInfo) {
+      saveDailyResult(activeDailyInfo.puzzleNum, { score, grade, gradeCls: gradeClass, moves, elapsed, optimal });
+      markCompleted(activeDailyInfo.puzzleNum);
+      updateStreak(activeDailyInfo.puzzleNum);
+      renderDailyCard();
+    }
+
     const rating = `${grade} (${score}/1000)`;
 
     const startName = mapLookup[challenge.startId]?.name || `Map ${challenge.startId}`;
@@ -621,6 +712,11 @@ export function renderNavigatorGame(data, options = {}) {
       const dailyHeader = el('div', { className: 'navgame-result-daily-header' });
       dailyHeader.appendChild(el('span', { className: 'navgame-daily-num', textContent: `#${activeDailyInfo.puzzleNum}` }));
       dailyHeader.appendChild(el('span', { className: 'navgame-daily-date', textContent: activeDailyInfo.dateStr }));
+      const s = loadStreak();
+      const streakCount = s.lastPuzzleNum === activeDailyInfo.puzzleNum ? s.streak : 0;
+      if (streakCount > 0) {
+        dailyHeader.appendChild(el('span', { className: 'navgame-streak-badge', textContent: `🔥 ${streakCount}-day streak` }));
+      }
       resultContent.appendChild(dailyHeader);
     }
 
