@@ -235,6 +235,19 @@ function decodeChallenge(encoded) {
   return null;
 }
 
+function encodeDailyPerf(elapsed, moves) {
+  return btoa(`${Math.round(elapsed)},${moves}`).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+}
+
+function decodeDailyPerf(encoded) {
+  try {
+    const padded = encoded.replace(/-/g, '+').replace(/_/g, '/') + '=='.slice(0, (4 - encoded.length % 4) % 4);
+    const [elapsed, moves] = atob(padded).split(',').map(Number);
+    if (Number.isFinite(elapsed) && Number.isFinite(moves)) return { elapsed, moves };
+  } catch {}
+  return null;
+}
+
 /* ── portal overlay rendering ────────────────────────────────── */
 
 async function ensurePortals() {
@@ -395,6 +408,8 @@ export function renderNavigatorGame(data, options = {}) {
   dailyCard.appendChild(dailyStreakEl);
   const dailyStatus = el('div', { className: 'navgame-daily-status' });
   dailyCard.appendChild(dailyStatus);
+  const dailyChallengeBeat = el('span', { className: 'navgame-challenge-beat' });
+  dailyCard.appendChild(dailyChallengeBeat);
   const dailyBtn = el('button', { className: 'navgame-start-btn navgame-daily-btn', textContent: "▶ Play Today's Puzzle" });
   dailyCard.appendChild(dailyBtn);
   startScreen.appendChild(dailyCard);
@@ -786,7 +801,9 @@ export function renderNavigatorGame(data, options = {}) {
     const shareBtn = el('button', { className: 'navgame-share-btn', textContent: '📋 Share Result' });
     shareBtn.addEventListener('click', () => {
       const base = window.location.href.split('#')[0];
-      const challengeUrl = `${base}#portal-runner?q=${encodeChallenge(challenge.startId, challenge.endId, elapsed, moves)}`;
+      const challengeUrl = isDailyMode && activeDailyInfo
+        ? `${base}#portal-runner?q=daily:${encodeDailyPerf(elapsed, moves)}`
+        : `${base}#portal-runner?q=${encodeChallenge(challenge.startId, challenge.endId, elapsed, moves)}`;
       const efficiency = moves <= optimal ? '100%' : `${Math.round((optimal / moves) * 100)}%`;
       const header = isDailyMode && activeDailyInfo
         ? `Portal Runner Daily #${activeDailyInfo.puzzleNum} (${activeDailyInfo.dateStr})`
@@ -874,6 +891,7 @@ export function renderNavigatorGame(data, options = {}) {
   }
 
   async function startDailyGame() {
+    dailyChallengeBeat.textContent = '';
     await ensurePortals();
     isDailyMode = true;
     activeDailyInfo = getDailyInfo();
@@ -936,6 +954,18 @@ export function renderNavigatorGame(data, options = {}) {
   // Deep-link: #portal-runner?q=<base64url encoded startId,endId>
   if (options.setNavigate) {
     options.setNavigate((query) => {
+      if (query.startsWith('daily:')) {
+        const perf = decodeDailyPerf(query.slice('daily:'.length));
+        dailyChallengeBeat.textContent = (perf?.elapsed && perf?.moves)
+          ? `Can you beat your friend's time of ${formatTime(perf.elapsed)} in ${perf.moves} move${perf.moves !== 1 ? 's' : ''}?`
+          : '';
+        clearInterval(timerInterval);
+        gameActive = false;
+        gameScreen.style.display = 'none';
+        resultScreen.style.display = 'none';
+        startScreen.style.display = '';
+        return;
+      }
       const ids = decodeChallenge(query || '');
       if (!ids) return;
       const { startId, endId } = ids;
