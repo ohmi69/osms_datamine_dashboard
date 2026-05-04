@@ -249,15 +249,8 @@ function renderPortals(imgContainer, img, mapId, onPortalClick, entryPortalName)
       }
     });
 
-    // tooltip with dest name
     const destId = Number(portal.dest_map);
     overlay.dataset.destMap = String(destId);
-    if (window._navGameMapLookup) {
-      const destMap = window._navGameMapLookup[destId];
-      overlay.title = isEntry
-        ? `← You came from here (${destMap?.name || `Map ${destId}`})`
-        : (destMap?.name || `Map ${destId}`);
-    }
 
     const hoverShadow = isEntry ? '0 0 12px 4px rgba(80,80,80,0.6)'  : '0 0 20px 6px rgba(255,255,255,0.6)';
     const hoverBg    = isEntry ? 'rgba(200,200,200,0.7)'             : 'rgba(0,120,255,0.4)';
@@ -457,6 +450,13 @@ export function renderNavigatorGame(data, options = {}) {
     });
   }
 
+  function buildDestPreview(endId, endName) {
+    const wrap = el('div', { className: 'navgame-result-dest-preview' });
+    wrap.appendChild(el('div', { className: 'navgame-result-dest-label', textContent: `🎯 Destination: ${endName}` }));
+    wrap.appendChild(el('img', { src: `${getDataBase()}/maps/${padMapId(endId)}.img.png`, alt: endName, className: 'navgame-result-dest-img' }));
+    return wrap;
+  }
+
   function calcScore() {
     return Math.max(0, 1000 - hintsUsed * 100);
   }
@@ -608,7 +608,7 @@ export function renderNavigatorGame(data, options = {}) {
     const bfsPath = findShortestPath(graph, challenge.startId, challenge.endId);
     const optimalSet = new Set(bfsPath || []);
     const detourMaps = bfsPath ? visitedPath.filter(id => !optimalSet.has(id)).length : 0;
-    const detourPenalty = Math.round(1000 / optimal);
+    const detourPenalty = Math.round((1000 / optimal)/2);
     const score = Math.max(0, 1000 - detourMaps * detourPenalty - hintsUsed * 100);
     const { label: grade, cls: gradeClass } = scoreGrade(score);
 
@@ -625,6 +625,7 @@ export function renderNavigatorGame(data, options = {}) {
     }
 
     resultContent.appendChild(el('h2', { className: 'navgame-result-title', textContent: '🎉 Destination Reached!' }));
+    resultContent.appendChild(buildDestPreview(challenge.endId, endName));
 
     const scoreBadge = el('div', { className: `navgame-score-badge navgame-score-badge--${gradeClass}` });
     scoreBadge.appendChild(el('span', { className: 'navgame-score-grade', textContent: grade }));
@@ -699,7 +700,7 @@ export function renderNavigatorGame(data, options = {}) {
         `${startName} → ${endName}`,
         `${rating} — ${moves} move${moves !== 1 ? 's' : ''} (optimal: ${optimal}, efficiency: ${efficiency})`,
         `⏱ ${formatTime(elapsed)}`,
-        `\n🔗 ${challengeUrl}`,
+        `\n${challengeUrl}`,
       ].join('\n');
       navigator.clipboard?.writeText(shareText).catch(() => {});
       shareBtn.textContent = '✓ Copied!';
@@ -723,6 +724,7 @@ export function renderNavigatorGame(data, options = {}) {
     const endName = mapLookup[challenge.endId]?.name || `Map ${challenge.endId}`;
 
     resultContent.appendChild(el('h2', { className: 'navgame-result-title', textContent: '🏳️ You gave up!' }));
+    resultContent.appendChild(buildDestPreview(challenge.endId, endName));
     resultContent.appendChild(el('div', { className: 'navgame-rating navgame-rating--grind', textContent: 'Better luck next time! 💪' }));
 
     const statsGrid = el('div', { className: 'navgame-stats' });

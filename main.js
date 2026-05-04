@@ -172,7 +172,7 @@ Router.onRouteChange((tab, query) => {
 
 async function showMapleTip() {
   try {
-    const tips = await fetch('./data/tips.json').then(r => r.json());
+    const tips = await fetch('./data/current/tips.json').then(r => r.json());
     if (!Array.isArray(tips) || !tips.length) return;
     const tip = tips[Math.floor(Math.random() * tips.length)];
 
