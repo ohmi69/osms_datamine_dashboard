@@ -1,0 +1,887 @@
+/* ── Portal Runner — Navigator Game ─────────────────────────── */
+
+.navgame {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 12px 16px;
+}
+
+/* ── Start Screen ──────────────────────────────────────────── */
+
+.navgame-start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 20px;
+}
+
+.navgame-title-wrap {
+  text-align: center;
+}
+
+.navgame-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+}
+
+.navgame-subtitle {
+  font-size: 1.05rem;
+  color: var(--dim);
+  margin: 0;
+  max-width: 480px;
+}
+
+.navgame-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 28px;
+  max-width: 480px;
+  width: 100%;
+}
+
+.navgame-rule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.navgame-rule-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ── Friend's Challenge Card ───────────────────────────────── */
+
+.navgame-challenge-card {
+  width: 100%;
+  max-width: 480px;
+  background: color-mix(in srgb, var(--secondary) 8%, var(--surface));
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 0 24px 4px rgba(96, 165, 250, 0.18), 0 2px 12px rgba(0,0,0,0.12);
+  animation: navgame-challenge-glow 3s ease-in-out infinite;
+}
+
+@keyframes navgame-challenge-glow {
+  0%, 100% { box-shadow: 0 0 24px 4px rgba(96, 165, 250, 0.18), 0 2px 12px rgba(0,0,0,0.12); }
+  50%       { box-shadow: 0 0 36px 8px rgba(96, 165, 250, 0.32), 0 2px 12px rgba(0,0,0,0.12); }
+}
+
+.navgame-challenge-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.navgame-challenge-label {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navgame-challenge-route {
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 700;
+  text-align: center;
+}
+
+.navgame-challenge-beat {
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ── Daily Puzzle Card ─────────────────────────────────────── */
+
+.navgame-daily-card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.navgame-daily-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navgame-daily-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.navgame-daily-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navgame-daily-num {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface-2);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.navgame-daily-date {
+  font-size: 0.85rem;
+  color: var(--dim);
+}
+
+.navgame-daily-btn {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+/* ── Divider ───────────────────────────────────────────────── */
+
+.navgame-divider {
+  font-size: 0.8rem;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.navgame-divider::before,
+.navgame-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Result daily header ───────────────────────────────────── */
+
+.navgame-result-daily-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* ── Share Button ──────────────────────────────────────────── */
+
+.navgame-share-btn {
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.navgame-share-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ── Difficulty Selector ───────────────────────────────────── */
+
+.navgame-diff-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navgame-diff-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.navgame-diff-btn {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--dim);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.navgame-diff-btn:hover {
+  color: var(--text);
+  border-color: var(--dim);
+}
+
+.navgame-diff-btn.active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* ── Start / Play Again Button ─────────────────────────────── */
+
+.navgame-start-btn {
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--bg);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.15s;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+}
+
+.navgame-start-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.35);
+}
+
+.navgame-start-btn:active {
+  transform: translateY(0);
+}
+
+/* ── HUD ───────────────────────────────────────────────────── */
+
+.navgame-hud {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.navgame-hud-from {
+  font-weight: 700;
+  color: var(--secondary);
+  font-size: 0.95rem;
+}
+
+.navgame-hud-arrow {
+  color: var(--dim);
+  font-size: 1.1rem;
+}
+
+.navgame-hud-to {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.navgame-hud-spacer {
+  flex: 1;
+  min-width: 8px;
+}
+
+.navgame-hud-timer {
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  background: var(--surface-2);
+  padding: 4px 12px;
+  border-radius: 6px;
+  min-width: 64px;
+  text-align: center;
+}
+
+.navgame-hud-moves {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dim);
+  background: var(--surface-2);
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+/* ── Hint Row & Panel ──────────────────────────────────────── */
+
+.navgame-hint-row {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 4px;
+  flex-wrap: wrap;
+}
+
+.navgame-hint-btn {
+  flex: 1;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--dim);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+
+.navgame-hint-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.navgame-hint-btn--used {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.navgame-hint-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.navgame-hint-panel {
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface);
+  margin-bottom: 8px;
+}
+
+.navgame-hint-panel-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  padding: 6px 10px;
+  background: rgba(245,158,11,0.08);
+  border-bottom: 1px solid var(--border);
+}
+
+.navgame-hint-dest-img {
+  display: block;
+  max-width: 100%;
+  max-height: 200px;
+  width: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+/* ── Peek Destination Modal ────────────────────────────────── */
+
+.navgame-peek-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.55);
+  animation: navgame-peek-in 0.2s ease-out;
+  cursor: pointer;
+}
+
+.navgame-peek-modal--fade {
+  animation: navgame-peek-out 0.25s ease-in forwards;
+}
+
+@keyframes navgame-peek-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes navgame-peek-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.navgame-peek-modal-inner {
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 540px;
+  width: 90%;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.navgame-peek-modal-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+  padding: 10px 14px;
+  background: rgba(245, 158, 11, 0.08);
+  border-bottom: 1px solid var(--border);
+}
+
+.navgame-peek-modal-img {
+  display: block;
+  max-width: 100%;
+  max-height: 320px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.navgame-peek-modal-bar {
+  height: 3px;
+  background: var(--accent);
+  width: 100%;
+}
+
+/* ── Current Map Label ─────────────────────────────────────── */
+
+.navgame-current-label {
+  font-size: 0.9rem;
+  color: var(--dim);
+  margin-bottom: 6px;
+  padding: 0 2px;
+}
+
+.navgame-current-label strong {
+  color: var(--text);
+}
+
+.navgame-dest-badge {
+  color: var(--accent);
+  font-weight: 700;
+  animation: navgame-pulse-text 0.8s ease-in-out 3;
+}
+
+@keyframes navgame-pulse-text {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ── Map Area ──────────────────────────────────────────────── */
+
+.navgame-map-area {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 120px;
+  text-align: center;
+}
+
+.navgame-img-wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  max-width: 100%;
+}
+
+.navgame-map-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 420px;
+  display: block;
+}
+
+.navgame-map-area.navgame-transition .navgame-img-wrap {
+  animation: navgame-map-fade 0.25s ease-out;
+}
+
+@keyframes navgame-map-fade {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.navgame-no-img {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--dim);
+  font-size: 1rem;
+}
+
+/* ── Portal Overlays ───────────────────────────────────────── */
+
+.navgame-portal {
+  animation: navgame-portal-pulse 2s ease-in-out infinite;
+  transition: box-shadow 0.15s, background 0.15s;
+}
+
+@keyframes navgame-portal-pulse {
+  0%, 100% {
+    box-shadow: 0 0 12px 3px rgba(51, 170, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px 6px rgba(51, 170, 255, 0.8);
+  }
+}
+
+.navgame-portal--entry {
+  animation: navgame-portal-entry-pulse 2s ease-in-out infinite;
+}
+
+@keyframes navgame-portal-entry-pulse {
+  0%, 100% { box-shadow: 0 0 8px 2px rgba(80, 80, 80, 0.4); }
+  50%       { box-shadow: 0 0 12px 4px rgba(80, 80, 80, 0.6); }
+}
+
+.navgame-portal--hint {
+  animation: navgame-portal-hint-pulse 1.2s ease-in-out infinite !important;
+  border-color: #4ade80 !important;
+  background: rgba(74, 222, 128, 0.35) !important;
+}
+
+@keyframes navgame-portal-hint-pulse {
+  0%, 100% { box-shadow: 0 0 14px 4px rgba(74, 222, 128, 0.6); }
+  50%       { box-shadow: 0 0 24px 8px rgba(74, 222, 128, 0.9); }
+}
+
+.navgame-portal:hover {
+  animation: none;
+}
+
+/* ── Breadcrumb ────────────────────────────────────────────── */
+
+.navgame-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 8px 4px;
+  font-size: 0.82rem;
+  color: var(--dim);
+  max-height: 64px;
+  overflow-y: auto;
+}
+
+.navgame-breadcrumb-label {
+  font-weight: 600;
+  color: var(--dim);
+  margin-right: 4px;
+}
+
+.navgame-breadcrumb-dot {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--dim);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.navgame-breadcrumb-dot.current {
+  background: var(--secondary);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.navgame-breadcrumb-dot.destination {
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.navgame-breadcrumb-dot--detour {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  font-weight: 600;
+}
+
+.navgame-breadcrumb-sep {
+  color: var(--dim);
+  font-size: 0.75rem;
+}
+
+/* ── Give Up Button ────────────────────────────────────────── */
+
+.navgame-giveup-btn {
+  display: block;
+  margin: 8px auto 0;
+  padding: 6px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--dim);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.navgame-giveup-btn:hover {
+  color: var(--boss-badge);
+  border-color: var(--boss-badge);
+}
+
+/* ── Result Screen ─────────────────────────────────────────── */
+
+.navgame-result {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.navgame-result-content {
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+}
+
+.navgame-result-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+/* ── Rating ────────────────────────────────────────────────── */
+
+.navgame-rating {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.navgame-rating--godly {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  border: 2px solid rgba(251, 191, 36, 0.3);
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+}
+
+.navgame-rating--pro {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.1);
+  border: 2px solid rgba(96, 165, 250, 0.3);
+}
+
+.navgame-rating--decent {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+  border: 2px solid rgba(52, 211, 153, 0.3);
+}
+
+.navgame-rating--grind {
+  color: var(--dim);
+  background: var(--surface);
+  border: 2px solid var(--border);
+}
+
+/* ── Score Badge ───────────────────────────────────────────── */
+
+.navgame-score-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 32px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.navgame-score-badge--perfect {
+  background: rgba(251, 191, 36, 0.12);
+  border: 2px solid rgba(251, 191, 36, 0.6);
+  box-shadow: 0 0 28px 8px rgba(251, 191, 36, 0.3), 0 0 8px 2px rgba(251, 191, 36, 0.5);
+  filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.45));
+  animation: navgame-perfect-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes navgame-perfect-pulse {
+  0%, 100% { box-shadow: 0 0 28px 8px rgba(251, 191, 36, 0.3), 0 0 8px 2px rgba(251, 191, 36, 0.5); }
+  50%       { box-shadow: 0 0 40px 14px rgba(251, 191, 36, 0.45), 0 0 12px 4px rgba(251, 191, 36, 0.7); }
+}
+
+.navgame-score-badge--perfect .navgame-score-grade {
+  color: #fde68a;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 1), 0 0 32px rgba(251, 191, 36, 0.7), 0 0 60px rgba(251, 191, 36, 0.4);
+}
+
+.navgame-score-badge--godly {
+  background: rgba(251, 191, 36, 0.1);
+  border: 2px solid rgba(251, 191, 36, 0.4);
+}
+
+.navgame-score-badge--pro {
+  background: rgba(96, 165, 250, 0.1);
+  border: 2px solid rgba(96, 165, 250, 0.4);
+}
+
+.navgame-score-badge--decent {
+  background: rgba(52, 211, 153, 0.1);
+  border: 2px solid rgba(52, 211, 153, 0.4);
+}
+
+.navgame-score-badge--grind {
+  background: var(--surface);
+  border: 2px solid var(--border);
+}
+
+.navgame-score-grade {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.navgame-score-badge--godly .navgame-score-grade {
+  color: #fbbf24;
+  text-shadow: 0 0 24px rgba(251, 191, 36, 0.6);
+}
+
+.navgame-score-badge--pro .navgame-score-grade {
+  color: #60a5fa;
+}
+
+.navgame-score-badge--decent .navgame-score-grade {
+  color: #34d399;
+}
+
+.navgame-score-badge--grind .navgame-score-grade {
+  color: var(--dim);
+}
+
+.navgame-score-num {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+
+/* ── Stats Grid ────────────────────────────────────────────── */
+
+.navgame-stats {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.navgame-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.navgame-stat-row:last-child {
+  border-bottom: none;
+}
+
+.navgame-stat-label {
+  font-size: 0.9rem;
+  color: var(--dim);
+  font-weight: 600;
+}
+
+.navgame-stat-value {
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ── Optimal Path ──────────────────────────────────────────── */
+
+.navgame-optimal-path {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.navgame-optimal-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dim);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.navgame-optimal-steps {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  font-size: 0.82rem;
+}
+
+/* ── Result Buttons ────────────────────────────────────────── */
+
+.navgame-result-btns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .navgame-title {
+    font-size: 1.8rem;
+  }
+
+  .navgame-hud {
+    font-size: 0.85rem;
+    padding: 10px 12px;
+    gap: 6px;
+  }
+
+  .navgame-hud-from,
+  .navgame-hud-to {
+    font-size: 0.85rem;
+  }
+
+  .navgame-hud-timer {
+    font-size: 1rem;
+  }
+
+  .navgame-start {
+    padding: 24px 12px;
+  }
+
+  .navgame-rules {
+    padding: 14px 18px;
+  }
+}

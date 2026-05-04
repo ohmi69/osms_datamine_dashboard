@@ -109,15 +109,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     })
   );
 
-  const regionOrder = ['Victoria Island', 'Maple Island', 'Other', 'Event'];
-  maps.regions.sort((a, b) => {
-    const ai = regionOrder.indexOf(a.region);
-    const bi = regionOrder.indexOf(b.region);
-    if (ai === -1 && bi === -1) return a.region.localeCompare(b.region);
-    if (ai === -1) return 1;
-    if (bi === -1) return -1;
-    return ai - bi;
-  });
+  maps.regions.sort((a, b) => b.maps.length - a.maps.length || a.region.localeCompare(b.region));
 
   let searchQuery = '';
   let autoExpandAfterId = null;

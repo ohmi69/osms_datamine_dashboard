@@ -44,6 +44,7 @@ import { renderCashShop }  from './tabs/cashshop.js';
 import { renderBeautyStyles } from './tabs/beauty.js';
 import { renderQuests }    from './tabs/quests.js';
 import { renderFormulas }  from './tabs/formulas.js';
+import { renderNavigatorGame } from './tabs/navigator-game.js';
 
 
 // Apply theme immediately
@@ -139,6 +140,13 @@ function getTabConfigs(appData, isTimeTravelMode = false) {
       icon: ICONS.flaskConical,
       render: () => renderFormulas()
     },
+    {
+      id: 'portal-runner',
+      label: '🗺️ Portal Runner',
+      icon: ICONS.map,
+      hidden: true,
+      render: ({ setNavigate }) => renderNavigatorGame(appData, { setNavigate })
+    },
     // Uncomment if beauty tab is enabled
     // {
     //   id: 'beauty',
@@ -216,6 +224,7 @@ async function buildPatchSelector() {
       const v = select.value;
       const hash = window.location.hash;
       if (v) {
+        sessionStorage.setItem('tt_intentional', '1');
         window.location.href = `${window.location.pathname}?patch=${encodeURIComponent(v)}${hash}`;
       } else {
         sessionStorage.setItem('tt_returning', '1');
@@ -239,16 +248,19 @@ async function init() {
     const params = new URLSearchParams(window.location.search);
     const patchVersion = params.get('patch') || 'unknown';
 
-    const overlay = el('div', { className: 'tt-overlay' });
-    const monster = el('img', { className: 'tt-monster', src: './data/patches/v43/images/monsters/4230113.move.webp', alt: '' });
-    const ttText = el('div', { className: 'tt-text', textContent: `Timetravelling back to ${patchVersion}` });
-    overlay.appendChild(monster);
-    overlay.appendChild(ttText);
-    document.body.appendChild(overlay);
-    setTimeout(() => {
-      overlay.classList.add('tt-out');
-      overlay.addEventListener('animationend', () => overlay.remove(), { once: true });
-    }, 1000);
+    if (sessionStorage.getItem('tt_intentional')) {
+      sessionStorage.removeItem('tt_intentional');
+      const overlay = el('div', { className: 'tt-overlay' });
+      const monster = el('img', { className: 'tt-monster', src: './data/patches/v43/images/monsters/4230113.move.webp', alt: '' });
+      const ttText = el('div', { className: 'tt-text', textContent: `Timetravelling back to ${patchVersion}` });
+      overlay.appendChild(monster);
+      overlay.appendChild(ttText);
+      document.body.appendChild(overlay);
+      setTimeout(() => {
+        overlay.classList.add('tt-out');
+        overlay.addEventListener('animationend', () => overlay.remove(), { once: true });
+      }, 1000);
+    }
 
     const strip = el('div', { className: 'time-travel-strip' });
     const backHref = window.location.pathname + window.location.hash;
