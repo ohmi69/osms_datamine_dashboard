@@ -329,6 +329,7 @@ function renderPortals(imgContainer, img, mapId, onPortalClick, entryPortalName)
       e.stopPropagation();
       onPortalClick(destId, portal.dest_portal || null);
     });
+
     imgContainer.appendChild(overlay);
   });
 }
@@ -352,6 +353,7 @@ export function renderNavigatorGame(data, options = {}) {
   let timerStart = 0;
   let timerInterval = null;
   let visitedPath = [];
+  let navStack = [];
   let gameActive = false;
   let selectedDifficulty = DIFFICULTIES[1]; // default medium
   let isDailyMode = false;
@@ -517,8 +519,12 @@ export function renderNavigatorGame(data, options = {}) {
   const breadcrumb = el('div', { className: 'navgame-breadcrumb' });
   gameScreen.appendChild(breadcrumb);
 
+  const gameFooter = el('div', { className: 'navgame-game-footer' });
+  const backBtn = el('button', { className: 'navgame-back-btn', textContent: '← Back', disabled: true });
   const giveUpBtn = el('button', { className: 'navgame-giveup-btn', textContent: '🏳️ Give Up' });
-  gameScreen.appendChild(giveUpBtn);
+  gameFooter.appendChild(backBtn);
+  gameFooter.appendChild(giveUpBtn);
+  gameScreen.appendChild(gameFooter);
 
   /* ── result screen ─── */
   const resultContent = el('div', { className: 'navgame-result-content' });
@@ -675,6 +681,7 @@ export function renderNavigatorGame(data, options = {}) {
       renderPortals(imgWrap, img, mapId, onPortalClick, entryPortalName);
     }
     updateBreadcrumb();
+    backBtn.disabled = navStack.length <= 1;
   }
 
   function onPortalClick(destMapId, entryPortalName) {
@@ -685,6 +692,7 @@ export function renderNavigatorGame(data, options = {}) {
     hudMoves.textContent = `${moves} move${moves !== 1 ? 's' : ''}`;
     updateScoreDisplay();
     visitedPath.push(destMapId);
+    navStack.push(destMapId);
 
     if (destMapId === challenge.endId) {
       // Win!
@@ -914,6 +922,7 @@ export function renderNavigatorGame(data, options = {}) {
     hintsUsed = 0;
     destPeeked = false;
     visitedPath = [challenge.startId];
+    navStack = [challenge.startId];
     gameActive = true;
     // Reset hint UI
     peekBtn.textContent = '🗺️ Peek Destination (−100pts)';
@@ -950,6 +959,16 @@ export function renderNavigatorGame(data, options = {}) {
   giveUpBtn.addEventListener('click', showGiveUpResult);
   peekBtn.addEventListener('click', hintPeekDestination);
   revealBtn.addEventListener('click', hintRevealNextPortal);
+  backBtn.addEventListener('click', () => {
+    if (!gameActive || navStack.length < 2) return;
+    navStack.pop();
+    const prevMapId = navStack[navStack.length - 1];
+    moves++;
+    hudMoves.textContent = `${moves} move${moves !== 1 ? 's' : ''}`;
+    updateScoreDisplay();
+    visitedPath.push(prevMapId);
+    showMap(prevMapId, null);
+  });
 
   // Deep-link: #portal-runner?q=<base64url encoded startId,endId>
   if (options.setNavigate) {

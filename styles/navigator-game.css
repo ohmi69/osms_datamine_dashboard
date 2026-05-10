@@ -690,25 +690,39 @@
   font-size: 0.75rem;
 }
 
-/* ── Give Up Button ────────────────────────────────────────── */
+/* ── Game Footer ───────────────────────────────────────────── */
 
+.navgame-game-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.navgame-back-btn,
 .navgame-giveup-btn {
-  display: block;
-  margin: 8px auto 0;
-  padding: 6px 20px;
-  font-size: 0.85rem;
+  padding: 6px 14px;
+  font-size: 0.82rem;
   font-weight: 600;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 6px;
   background: var(--surface);
   color: var(--dim);
   cursor: pointer;
-  transition: all 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, opacity 0.15s;
+  white-space: nowrap;
 }
 
+.navgame-back-btn:hover:not(:disabled),
 .navgame-giveup-btn:hover {
-  color: var(--boss-badge);
-  border-color: var(--boss-badge);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.navgame-back-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 /* ── Result Screen ─────────────────────────────────────────── */

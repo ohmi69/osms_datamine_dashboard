@@ -106,7 +106,7 @@ export function renderOverview(data, { switchTab }) {
       whiteSpace: 'nowrap',
       alignSelf: 'flex-start',
     },
-    textContent: 'Closed Beta Test (CBT) Patch 2',
+    textContent: 'Closed Online Test (COT) Patch 2',
   });
   const heroPatchHash = el('div', { style: { display: 'flex', alignItems: 'center', gap: '5px' }, title: 'c80c0a8a' });
   heroPatchHash.appendChild(el('span', {
