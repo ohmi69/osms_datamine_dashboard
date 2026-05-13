@@ -14,6 +14,7 @@
       "acc": 20,
       "eva": 0,
       "speed": -65,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -277,6 +278,7 @@
       "acc": 20,
       "eva": 0,
       "speed": -50,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -552,6 +554,7 @@
       "acc": 30,
       "eva": 0,
       "speed": -30,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -695,6 +698,7 @@
       "acc": 30,
       "eva": 0,
       "speed": -70,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -930,6 +934,7 @@
       "acc": 35,
       "eva": 0,
       "speed": -50,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -1259,6 +1264,7 @@
       "acc": 35,
       "eva": 1,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Lightning": "Weak"
@@ -1627,6 +1633,7 @@
       "acc": 45,
       "eva": 5,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Immune"
@@ -1874,6 +1881,7 @@
       "acc": 42,
       "eva": 0,
       "speed": -70,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -2037,6 +2045,7 @@
       "acc": 40,
       "eva": 4,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Lightning": "Weak"
@@ -2109,6 +2118,7 @@
       "acc": 50,
       "eva": 5,
       "speed": -50,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -2288,6 +2298,7 @@
       "acc": 55,
       "eva": 10,
       "speed": -45,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -2329,6 +2340,7 @@
       "acc": 40,
       "eva": 0,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -2461,6 +2473,7 @@
       "acc": 40,
       "eva": 2,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -2593,6 +2606,7 @@
       "acc": 42,
       "eva": 1,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -2797,6 +2811,7 @@
       "acc": 80,
       "eva": 10,
       "speed": 10,
+      "pushed": 30,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -2839,6 +2854,7 @@
       "acc": 55,
       "eva": 8,
       "speed": -40,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -2867,6 +2883,7 @@
       "acc": 70,
       "eva": 9,
       "speed": -40,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -2895,6 +2912,7 @@
       "acc": 55,
       "eva": 7,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -3068,6 +3086,7 @@
       "acc": 45,
       "eva": 7,
       "speed": -50,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -3291,6 +3310,7 @@
       "acc": 120,
       "eva": 25,
       "speed": 10,
+      "pushed": 50,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -3434,6 +3454,7 @@
       "acc": 55,
       "eva": 7,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -3560,6 +3581,7 @@
       "acc": 60,
       "eva": 10,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -3632,6 +3654,7 @@
       "acc": 50,
       "eva": 8,
       "speed": 0,
+      "pushed": 1,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -3730,6 +3753,7 @@
       "acc": 50,
       "eva": 8,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -3820,6 +3844,7 @@
       "acc": 93,
       "eva": 10,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Holy": "Strong",
@@ -3905,6 +3930,7 @@
       "acc": 115,
       "eva": 12,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Poison": "Immune"
@@ -3947,6 +3973,7 @@
       "acc": 55,
       "eva": 9,
       "speed": -30,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -3997,6 +4024,7 @@
       "acc": 50,
       "eva": 8,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -4041,6 +4069,7 @@
       "acc": 50,
       "eva": 8,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -4084,6 +4113,7 @@
       "acc": 55,
       "eva": 7,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Fire": "Strong"
@@ -4127,6 +4157,7 @@
       "acc": 55,
       "eva": 10,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Lightning": "Weak",
@@ -4171,6 +4202,7 @@
       "acc": 55,
       "eva": 10,
       "speed": -30,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -4218,6 +4250,7 @@
       "acc": 55,
       "eva": 10,
       "speed": -30,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -4259,6 +4292,7 @@
       "acc": 75,
       "eva": 10,
       "speed": -60,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Ice": "Weak",
@@ -4310,6 +4344,7 @@
       "acc": 80,
       "eva": 10,
       "speed": 0,
+      "pushed": 30,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -4368,6 +4403,7 @@
       "acc": 75,
       "eva": 12,
       "speed": -20,
+      "pushed": 10,
       "undead": 0,
       "elements": {
         "Holy": "Strong",
@@ -4426,6 +4462,7 @@
       "acc": 145,
       "eva": 25,
       "speed": 10,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -4480,6 +4517,7 @@
       "acc": 145,
       "eva": 25,
       "speed": 10,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -4522,6 +4560,7 @@
       "acc": 145,
       "eva": 25,
       "speed": 10,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -4564,6 +4603,7 @@
       "acc": 145,
       "eva": 25,
       "speed": 10,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -4630,6 +4670,7 @@
       "acc": 65,
       "eva": 12,
       "speed": -15,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -4702,6 +4743,7 @@
       "acc": 65,
       "eva": 12,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -4746,6 +4788,7 @@
       "acc": 70,
       "eva": 12,
       "speed": -40,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -4802,6 +4845,7 @@
       "acc": 80,
       "eva": 14,
       "speed": -10,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -4886,6 +4930,7 @@
       "acc": 90,
       "eva": 13,
       "speed": -5,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -4951,6 +4996,7 @@
       "acc": 60,
       "eva": 10,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -5068,6 +5114,7 @@
       "acc": 95,
       "eva": 15,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -5119,6 +5166,7 @@
       "acc": 95,
       "eva": 15,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Lightning": "Strong",
@@ -5170,6 +5218,7 @@
       "acc": 95,
       "eva": 15,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -5215,6 +5264,7 @@
       "acc": 100,
       "eva": 16,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -5299,6 +5349,7 @@
       "acc": 100,
       "eva": 16,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -5352,6 +5403,7 @@
       "acc": 105,
       "eva": 14,
       "speed": 5,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -5441,6 +5493,7 @@
       "acc": 130,
       "eva": 17,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -5505,6 +5558,7 @@
       "acc": 90,
       "eva": 14,
       "speed": -70,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -5540,6 +5594,7 @@
       "acc": 100,
       "eva": 18,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -5587,6 +5642,7 @@
       "acc": 100,
       "eva": 18,
       "speed": 25,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -5637,6 +5693,7 @@
       "acc": 100,
       "eva": 20,
       "speed": 25,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -5800,6 +5857,7 @@
       "acc": 60,
       "eva": 10,
       "speed": -15,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -5916,6 +5974,7 @@
       "acc": 100,
       "eva": 17,
       "speed": 0,
+      "pushed": 50,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -5979,6 +6038,7 @@
       "acc": 85,
       "eva": 18,
       "speed": 20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Lightning": "Weak"
@@ -6041,6 +6101,7 @@
       "acc": 140,
       "eva": 18,
       "speed": 5,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6084,6 +6145,7 @@
       "acc": 70,
       "eva": 14,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Fire": "Strong"
@@ -6126,6 +6188,7 @@
       "acc": 145,
       "eva": 21,
       "speed": 0,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Holy": "Strong"
@@ -6195,6 +6258,7 @@
       "acc": 150,
       "eva": 27,
       "speed": -15,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6267,6 +6331,7 @@
       "acc": 150,
       "eva": 27,
       "speed": -15,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6363,6 +6428,7 @@
       "acc": 125,
       "eva": 15,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6441,6 +6507,7 @@
       "acc": 140,
       "eva": 18,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6487,6 +6554,7 @@
       "acc": 150,
       "eva": 19,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6539,6 +6607,7 @@
       "acc": 135,
       "eva": 18,
       "speed": 20,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6599,6 +6668,7 @@
       "acc": 135,
       "eva": 20,
       "speed": -20,
+      "pushed": 0,
       "undead": 1,
       "elements": null,
       "is_boss": false,
@@ -6640,6 +6710,7 @@
       "acc": 70,
       "eva": 10,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6686,6 +6757,7 @@
       "acc": 135,
       "eva": 17,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6732,6 +6804,7 @@
       "acc": 65,
       "eva": 12,
       "speed": -45,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6821,6 +6894,7 @@
       "acc": 130,
       "eva": 18,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Strong"
@@ -6864,6 +6938,7 @@
       "acc": 70,
       "eva": 18,
       "speed": 10,
+      "pushed": 200,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6911,6 +6986,7 @@
       "acc": 130,
       "eva": 15,
       "speed": -50,
+      "pushed": 2000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -6953,6 +7029,7 @@
       "acc": 165,
       "eva": 15,
       "speed": 0,
+      "pushed": 300,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -6990,6 +7067,7 @@
       "acc": 135,
       "eva": 16,
       "speed": -50,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -7027,6 +7105,7 @@
       "acc": 65,
       "eva": 15,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -7126,6 +7205,7 @@
       "acc": 110,
       "eva": 25,
       "speed": 30,
+      "pushed": 100,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -7207,6 +7287,7 @@
       "acc": 130,
       "eva": 20,
       "speed": 15,
+      "pushed": 300,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -7269,6 +7350,7 @@
       "acc": 100,
       "eva": 18,
       "speed": 20,
+      "pushed": 100,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -7342,6 +7424,7 @@
       "acc": 150,
       "eva": 20,
       "speed": 30,
+      "pushed": 400,
       "undead": 0,
       "elements": {
         "Lightning": "Weak"
@@ -7392,6 +7475,7 @@
       "acc": 150,
       "eva": 10,
       "speed": 0,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -7441,6 +7525,7 @@
       "acc": 165,
       "eva": 24,
       "speed": 5,
+      "pushed": 200,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -7509,6 +7594,7 @@
       "acc": 160,
       "eva": 28,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -7573,6 +7659,7 @@
       "acc": 155,
       "eva": 25,
       "speed": 0,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -7626,6 +7713,7 @@
       "acc": 95,
       "eva": 12,
       "speed": -60,
+      "pushed": 300,
       "undead": 0,
       "elements": {
         "Lightning": "Strong",
@@ -7695,6 +7783,7 @@
       "acc": 105,
       "eva": 14,
       "speed": -40,
+      "pushed": 400,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -7742,6 +7831,7 @@
       "acc": 105,
       "eva": 15,
       "speed": -40,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -7816,6 +7906,7 @@
       "acc": 115,
       "eva": 18,
       "speed": -30,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -7869,6 +7960,7 @@
       "acc": 115,
       "eva": 20,
       "speed": -60,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -7910,6 +8002,7 @@
       "acc": 145,
       "eva": 22,
       "speed": -15,
+      "pushed": 0,
       "undead": 1,
       "elements": null,
       "is_boss": false,
@@ -7952,6 +8045,7 @@
       "acc": 155,
       "eva": 24,
       "speed": -10,
+      "pushed": 300,
       "undead": 1,
       "elements": null,
       "is_boss": false,
@@ -7994,6 +8088,7 @@
       "acc": 170,
       "eva": 18,
       "speed": -10,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8049,6 +8144,7 @@
       "acc": 190,
       "eva": 20,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8108,6 +8204,7 @@
       "acc": 210,
       "eva": 21,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Lightning": "Strong"
@@ -8159,6 +8256,7 @@
       "acc": 160,
       "eva": 16,
       "speed": -40,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8220,6 +8318,7 @@
       "acc": 170,
       "eva": 18,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8298,6 +8397,7 @@
       "acc": 180,
       "eva": 20,
       "speed": -50,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8365,6 +8465,7 @@
       "acc": 160,
       "eva": 15,
       "speed": -20,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Lightning": "Strong",
@@ -8410,6 +8511,7 @@
       "acc": 170,
       "eva": 20,
       "speed": -20,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -8455,6 +8557,7 @@
       "acc": 120,
       "eva": 18,
       "speed": 20,
+      "pushed": 100,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -8505,6 +8608,7 @@
       "acc": 130,
       "eva": 18,
       "speed": 20,
+      "pushed": 100,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -8561,6 +8665,7 @@
       "acc": 150,
       "eva": 18,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -8605,6 +8710,7 @@
       "acc": 150,
       "eva": 18,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Poison": "Strong",
@@ -8655,6 +8761,7 @@
       "acc": 190,
       "eva": 20,
       "speed": 0,
+      "pushed": 150,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -8706,6 +8813,7 @@
       "acc": 195,
       "eva": 20,
       "speed": 20,
+      "pushed": 1700,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8742,6 +8850,7 @@
       "acc": 150,
       "eva": 15,
       "speed": -20,
+      "pushed": 150,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8783,6 +8892,7 @@
       "acc": 150,
       "eva": 15,
       "speed": -20,
+      "pushed": 150,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8830,6 +8940,7 @@
       "acc": 150,
       "eva": 15,
       "speed": -20,
+      "pushed": 150,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8883,6 +8994,7 @@
       "acc": 200,
       "eva": 20,
       "speed": -20,
+      "pushed": 250,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8924,6 +9036,7 @@
       "acc": 200,
       "eva": 20,
       "speed": "-20",
+      "pushed": 250,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -8965,6 +9078,7 @@
       "acc": 130,
       "eva": 18,
       "speed": -30,
+      "pushed": 250,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -9006,6 +9120,7 @@
       "acc": 140,
       "eva": 20,
       "speed": -30,
+      "pushed": 250,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -9059,6 +9174,7 @@
       "acc": 140,
       "eva": 25,
       "speed": -60,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -9114,6 +9230,7 @@
       "acc": 120,
       "eva": 25,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -9201,6 +9318,7 @@
       "acc": 120,
       "eva": 25,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -9276,6 +9394,7 @@
       "acc": 155,
       "eva": 28,
       "speed": -10,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -9334,6 +9453,7 @@
       "acc": 100,
       "eva": 40,
       "speed": 10,
+      "pushed": 650,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -9399,6 +9519,7 @@
       "acc": 135,
       "eva": 28,
       "speed": -20,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -9451,6 +9572,7 @@
       "acc": 140,
       "eva": 25,
       "speed": -70,
+      "pushed": 450,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -9515,6 +9637,7 @@
       "acc": 130,
       "eva": 22,
       "speed": -15,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -9564,6 +9687,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 5,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -9610,6 +9734,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 5,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Lightning": "Strong",
@@ -9656,6 +9781,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 5,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -9702,6 +9828,7 @@
       "acc": 140,
       "eva": 20,
       "speed": -50,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -9738,6 +9865,7 @@
       "acc": 135,
       "eva": 18,
       "speed": -30,
+      "pushed": 400,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -9786,6 +9914,7 @@
       "acc": 150,
       "eva": 16,
       "speed": -20,
+      "pushed": 400,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -9839,6 +9968,7 @@
       "acc": 150,
       "eva": 18,
       "speed": -40,
+      "pushed": 400,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -9880,6 +10010,7 @@
       "acc": 80,
       "eva": 15,
       "speed": -50,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -9927,6 +10058,7 @@
       "acc": 85,
       "eva": 18,
       "speed": -50,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -9974,6 +10106,7 @@
       "acc": 155,
       "eva": 20,
       "speed": -30,
+      "pushed": 600,
       "undead": 0,
       "elements": {
         "Poison": "Weak"
@@ -10038,6 +10171,7 @@
       "acc": 150,
       "eva": 20,
       "speed": -40,
+      "pushed": 400,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -10086,6 +10220,7 @@
       "acc": 75,
       "eva": 18,
       "speed": -10,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -10145,6 +10280,7 @@
       "acc": 80,
       "eva": 15,
       "speed": -70,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -10205,6 +10341,7 @@
       "acc": 70,
       "eva": 18,
       "speed": -50,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -10273,6 +10410,7 @@
       "acc": 80,
       "eva": 20,
       "speed": -30,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -10314,6 +10452,7 @@
       "acc": 100,
       "eva": 20,
       "speed": -10,
+      "pushed": 800,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -10375,6 +10514,7 @@
       "acc": 130,
       "eva": 27,
       "speed": -10,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -10425,6 +10565,7 @@
       "acc": 130,
       "eva": 27,
       "speed": -10,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -10475,6 +10616,7 @@
       "acc": 135,
       "eva": 25,
       "speed": -50,
+      "pushed": 800,
       "undead": 1,
       "elements": {
         "Poison": "Immune",
@@ -10539,6 +10681,7 @@
       "acc": 135,
       "eva": 25,
       "speed": -30,
+      "pushed": 600,
       "undead": 1,
       "elements": {
         "Poison": "Immune",
@@ -10597,6 +10740,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 0,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -10685,6 +10829,7 @@
       "acc": 100,
       "eva": 20,
       "speed": -70,
+      "pushed": 1100,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -10733,6 +10878,7 @@
       "acc": 135,
       "eva": 25,
       "speed": -45,
+      "pushed": 500,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -10795,6 +10941,7 @@
       "acc": 55,
       "eva": 8,
       "speed": -10,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -10866,6 +11013,7 @@
       "acc": 75,
       "eva": 12,
       "speed": -20,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -10923,6 +11071,7 @@
       "acc": 75,
       "eva": 12,
       "speed": -20,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -10980,6 +11129,7 @@
       "acc": 65,
       "eva": 13,
       "speed": -40,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -11036,6 +11186,7 @@
       "acc": 65,
       "eva": 15,
       "speed": -40,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -11091,6 +11242,7 @@
       "acc": 150,
       "eva": 20,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -11133,6 +11285,7 @@
       "acc": 105,
       "eva": 18,
       "speed": 10,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -11183,6 +11336,7 @@
       "acc": 150,
       "eva": 22,
       "speed": 0,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -11222,6 +11376,7 @@
       "acc": 150,
       "eva": 27,
       "speed": 5,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -11259,6 +11414,7 @@
       "acc": 200,
       "eva": 30,
       "speed": 60,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -11290,6 +11446,7 @@
       "acc": 200,
       "eva": 30,
       "speed": 60,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -11334,6 +11491,7 @@
       "acc": 250,
       "eva": 35,
       "speed": 0,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Holy": "Strong"
@@ -11365,6 +11523,7 @@
       "acc": 130,
       "eva": 23,
       "speed": -30,
+      "pushed": 1300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -11401,6 +11560,7 @@
       "acc": 150,
       "eva": 38,
       "speed": -20,
+      "pushed": 400,
       "undead": 0,
       "elements": {
         "Holy": "Weak",
@@ -11445,6 +11605,7 @@
       "acc": 200,
       "eva": 25,
       "speed": -40,
+      "pushed": 900,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -11478,6 +11639,7 @@
       "acc": 150,
       "eva": 22,
       "speed": -30,
+      "pushed": 700,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -11526,6 +11688,7 @@
       "acc": 140,
       "eva": 25,
       "speed": -30,
+      "pushed": 800,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -11575,6 +11738,7 @@
       "acc": 200,
       "eva": 25,
       "speed": 20,
+      "pushed": 700,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -11630,6 +11794,7 @@
       "acc": 130,
       "eva": 26,
       "speed": 0,
+      "pushed": 1300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -11684,6 +11849,7 @@
       "acc": 120,
       "eva": 24,
       "speed": -30,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -11733,6 +11899,7 @@
       "acc": 100,
       "eva": 20,
       "speed": 30,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -11781,6 +11948,7 @@
       "acc": 145,
       "eva": 36,
       "speed": 0,
+      "pushed": 100,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -11808,6 +11976,7 @@
       "acc": 210,
       "eva": 31,
       "speed": 60,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -11845,6 +12014,7 @@
       "acc": 210,
       "eva": 31,
       "speed": 60,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -11875,6 +12045,7 @@
       "acc": 140,
       "eva": 26,
       "speed": -30,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -11911,6 +12082,7 @@
       "acc": 140,
       "eva": 25,
       "speed": -40,
+      "pushed": 1500,
       "undead": 1,
       "elements": {
         "Lightning": "Strong",
@@ -11951,6 +12123,7 @@
       "acc": 140,
       "eva": 27,
       "speed": -40,
+      "pushed": 1500,
       "undead": 1,
       "elements": {
         "Lightning": "Strong",
@@ -11991,6 +12164,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 0,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -12042,6 +12216,7 @@
       "acc": 170,
       "eva": 27,
       "speed": 0,
+      "pushed": 2000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -12084,6 +12259,7 @@
       "acc": 150,
       "eva": 25,
       "speed": -45,
+      "pushed": 800,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -12146,6 +12322,7 @@
       "acc": 110,
       "eva": 24,
       "speed": -50,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -12192,6 +12369,7 @@
       "acc": 110,
       "eva": 24,
       "speed": -50,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -12225,6 +12403,7 @@
       "acc": 110,
       "eva": 24,
       "speed": -50,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -12258,6 +12437,7 @@
       "acc": 165,
       "eva": 37,
       "speed": 0,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Holy": "Strong"
@@ -12287,6 +12467,7 @@
       "acc": 150,
       "eva": 35,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Fire": "Immune",
@@ -12321,6 +12502,7 @@
       "acc": 155,
       "eva": 30,
       "speed": 5,
+      "pushed": 1500,
       "undead": 1,
       "elements": null,
       "is_boss": true,
@@ -12358,6 +12540,7 @@
       "acc": 165,
       "eva": 27,
       "speed": -40,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Ice": "Weak",
@@ -12403,6 +12586,7 @@
       "acc": 130,
       "eva": 26,
       "speed": -30,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -12454,6 +12638,7 @@
       "acc": 130,
       "eva": 26,
       "speed": -30,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -12486,6 +12671,7 @@
       "acc": 130,
       "eva": 26,
       "speed": -30,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -12518,6 +12704,7 @@
       "acc": 170,
       "eva": 40,
       "speed": 0,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Holy": "Strong"
@@ -12547,6 +12734,7 @@
       "acc": 180,
       "eva": 50,
       "speed": 0,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Lightning": "Strong",
@@ -12581,6 +12769,7 @@
       "acc": 170,
       "eva": 28,
       "speed": -40,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Ice": "Weak",
@@ -12620,6 +12809,7 @@
       "acc": 160,
       "eva": 28,
       "speed": 5,
+      "pushed": 1200,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -12678,6 +12868,7 @@
       "acc": 175,
       "eva": 30,
       "speed": -20,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -12726,6 +12917,7 @@
       "acc": 175,
       "eva": 30,
       "speed": -20,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Lightning": "Strong"
@@ -12758,6 +12950,7 @@
       "acc": 140,
       "eva": 27,
       "speed": -20,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Lightning": "Strong"
@@ -12790,6 +12983,7 @@
       "acc": 145,
       "eva": 30,
       "speed": -10,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -12824,6 +13018,7 @@
       "acc": 160,
       "eva": 27,
       "speed": -30,
+      "pushed": 3500,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -12863,6 +13058,7 @@
       "acc": 160,
       "eva": 29,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Fire": "Strong"
@@ -12892,6 +13088,7 @@
       "acc": 120,
       "eva": 15,
       "speed": 30,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Poison": "Immune"
@@ -12948,6 +13145,7 @@
       "acc": 130,
       "eva": 30,
       "speed": 35,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -12995,6 +13193,7 @@
       "acc": 145,
       "eva": 30,
       "speed": -20,
+      "pushed": 2500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -13034,6 +13233,7 @@
       "acc": 190,
       "eva": 32,
       "speed": -20,
+      "pushed": 1500,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -13080,6 +13280,7 @@
       "acc": 165,
       "eva": 26,
       "speed": 0,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -13128,6 +13329,7 @@
       "acc": 160,
       "eva": 25,
       "speed": -10,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -13171,6 +13373,7 @@
       "acc": 180,
       "eva": 28,
       "speed": -30,
+      "pushed": 4000,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -13211,6 +13414,7 @@
       "acc": 120,
       "eva": 15,
       "speed": -25,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -13243,6 +13447,7 @@
       "acc": 120,
       "eva": 15,
       "speed": -25,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -13275,6 +13480,7 @@
       "acc": 120,
       "eva": 15,
       "speed": -25,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Poison": "Immune"
@@ -13307,6 +13513,7 @@
       "acc": 130,
       "eva": 25,
       "speed": -20,
+      "pushed": 1450,
       "undead": 0,
       "elements": {
         "Poison": "Weak"
@@ -13339,6 +13546,7 @@
       "acc": 160,
       "eva": 27,
       "speed": -20,
+      "pushed": 1550,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -13371,6 +13579,7 @@
       "acc": 160,
       "eva": 25,
       "speed": -30,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Poison": "Weak"
@@ -13402,6 +13611,7 @@
       "acc": 170,
       "eva": 28,
       "speed": -30,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -13434,6 +13644,7 @@
       "acc": 220,
       "eva": 20,
       "speed": 0,
+      "pushed": 10000,
       "undead": 0,
       "elements": {
         "Poison": "Strong",
@@ -13464,6 +13675,7 @@
       "acc": 150,
       "eva": 27,
       "speed": -30,
+      "pushed": 3200,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -13503,6 +13715,7 @@
       "acc": 160,
       "eva": 28,
       "speed": -30,
+      "pushed": 3700,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -13542,6 +13755,7 @@
       "acc": 150,
       "eva": 30,
       "speed": -20,
+      "pushed": 3000,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -13583,6 +13797,7 @@
       "acc": 140,
       "eva": 28,
       "speed": -30,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -13635,6 +13850,7 @@
       "acc": 140,
       "eva": 28,
       "speed": -10,
+      "pushed": 2800,
       "undead": 0,
       "elements": {
         "Poison": "Weak"
@@ -13666,6 +13882,7 @@
       "acc": 150,
       "eva": 27,
       "speed": -10,
+      "pushed": 3000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -13699,6 +13916,7 @@
       "acc": 160,
       "eva": 30,
       "speed": -15,
+      "pushed": 3000,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -13737,6 +13955,7 @@
       "acc": 170,
       "eva": 28,
       "speed": -20,
+      "pushed": 3000,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -13769,6 +13988,7 @@
       "acc": 170,
       "eva": 28,
       "speed": 0,
+      "pushed": 3000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -13802,6 +14022,7 @@
       "acc": 170,
       "eva": 28,
       "speed": 0,
+      "pushed": 3000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -13835,6 +14056,7 @@
       "acc": 160,
       "eva": 27,
       "speed": -30,
+      "pushed": 3200,
       "undead": 0,
       "elements": {
         "Holy": "Strong",
@@ -13868,6 +14090,7 @@
       "acc": 170,
       "eva": 28,
       "speed": -30,
+      "pushed": 3700,
       "undead": 0,
       "elements": {
         "Holy": "Strong",
@@ -13902,6 +14125,7 @@
       "acc": 130,
       "eva": 26,
       "speed": -40,
+      "pushed": 1000,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -13941,6 +14165,7 @@
       "acc": 140,
       "eva": 27,
       "speed": -40,
+      "pushed": 1500,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -13979,6 +14204,7 @@
       "acc": 195,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -14024,6 +14250,7 @@
       "acc": 196,
       "eva": 35,
       "speed": 0,
+      "pushed": 4000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -14083,6 +14310,7 @@
       "acc": 197,
       "eva": 38,
       "speed": -30,
+      "pushed": 4200,
       "undead": 1,
       "elements": {
         "Fire": "Strong",
@@ -14129,6 +14357,7 @@
       "acc": 195,
       "eva": 37,
       "speed": -40,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -14162,6 +14391,7 @@
       "acc": 200,
       "eva": 37,
       "speed": -40,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -14195,6 +14425,7 @@
       "acc": 200,
       "eva": 37,
       "speed": -50,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Lightning": "Weak",
@@ -14228,6 +14459,7 @@
       "acc": 200,
       "eva": 37,
       "speed": -50,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -14261,6 +14493,7 @@
       "acc": 200,
       "eva": 37,
       "speed": -40,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -14300,6 +14533,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -50,
+      "pushed": 5300,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -14339,6 +14573,7 @@
       "acc": 200,
       "eva": 37,
       "speed": -70,
+      "pushed": 4200,
       "undead": 0,
       "elements": {
         "Poison": "Strong",
@@ -14385,6 +14620,7 @@
       "acc": 200,
       "eva": 37,
       "speed": -30,
+      "pushed": 5000,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -14425,6 +14661,7 @@
       "acc": 203,
       "eva": 37,
       "speed": -70,
+      "pushed": 4300,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -14471,6 +14708,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -10,
+      "pushed": 6000,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -14511,6 +14749,7 @@
       "acc": 180,
       "eva": 40,
       "speed": 0,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -14544,6 +14783,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -40,
+      "pushed": 5500,
       "undead": 0,
       "elements": {
         "Fire": "Strong"
@@ -14583,6 +14823,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -40,
+      "pushed": 5500,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -14623,6 +14864,7 @@
       "acc": 205,
       "eva": 45,
       "speed": -10,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -14655,6 +14897,7 @@
       "acc": 205,
       "eva": 45,
       "speed": -10,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -14688,6 +14931,7 @@
       "acc": 203,
       "eva": 37,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -14721,6 +14965,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -14754,6 +14999,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -14784,6 +15030,7 @@
       "acc": 210,
       "eva": 37,
       "speed": -50,
+      "pushed": 5500,
       "undead": 0,
       "elements": {
         "Lightning": "Strong"
@@ -14823,6 +15070,7 @@
       "acc": 210,
       "eva": 38,
       "speed": -50,
+      "pushed": 5500,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -14863,6 +15111,7 @@
       "acc": 200,
       "eva": 39,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -14897,6 +15146,7 @@
       "acc": 200,
       "eva": 39,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Lightning": "Strong",
@@ -14931,6 +15181,7 @@
       "acc": 205,
       "eva": 38,
       "speed": 0,
+      "pushed": 5000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -14960,6 +15211,7 @@
       "acc": 205,
       "eva": 38,
       "speed": 0,
+      "pushed": 5000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -14989,6 +15241,7 @@
       "acc": 210,
       "eva": 38,
       "speed": -50,
+      "pushed": 5000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -15019,6 +15272,7 @@
       "acc": 210,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -15051,6 +15305,7 @@
       "acc": 210,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -15083,6 +15338,7 @@
       "acc": 250,
       "eva": 12,
       "speed": 0,
+      "pushed": 10000,
       "undead": 1,
       "elements": null,
       "is_boss": true,
@@ -15109,6 +15365,7 @@
       "acc": 250,
       "eva": 12,
       "speed": -40,
+      "pushed": 10000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15139,6 +15396,7 @@
       "acc": 230,
       "eva": 40,
       "speed": 60,
+      "pushed": 12000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15167,6 +15425,7 @@
       "acc": 999,
       "eva": 23,
       "speed": 0,
+      "pushed": 10000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -15198,6 +15457,7 @@
       "acc": 999,
       "eva": 15,
       "speed": 0,
+      "pushed": 10000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -15231,6 +15491,7 @@
       "acc": 245,
       "eva": 14,
       "speed": 0,
+      "pushed": 10000,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -15269,6 +15530,7 @@
       "acc": 220,
       "eva": 20,
       "speed": 0,
+      "pushed": 10000,
       "undead": 0,
       "elements": {
         "Fire": "Immune",
@@ -15300,6 +15562,7 @@
       "acc": 245,
       "eva": 14,
       "speed": 0,
+      "pushed": 10000,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -15338,6 +15601,7 @@
       "acc": 250,
       "eva": 12,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15369,6 +15633,7 @@
       "acc": 250,
       "eva": 14,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15400,6 +15665,7 @@
       "acc": 250,
       "eva": 16,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15431,6 +15697,7 @@
       "acc": 200,
       "eva": 14,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15460,6 +15727,7 @@
       "acc": 200,
       "eva": 14,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15489,6 +15757,7 @@
       "acc": 200,
       "eva": 14,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -15522,6 +15791,7 @@
       "acc": 200,
       "eva": 14,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -15555,6 +15825,7 @@
       "acc": 200,
       "eva": 14,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15583,6 +15854,7 @@
       "acc": 200,
       "eva": 14,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15611,6 +15883,7 @@
       "acc": 200,
       "eva": 14,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15640,6 +15913,7 @@
       "acc": 200,
       "eva": 14,
       "speed": 0,
+      "pushed": 50000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -15669,6 +15943,7 @@
       "acc": 50,
       "eva": 10,
       "speed": -15,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -15719,6 +15994,7 @@
       "acc": 50,
       "eva": 10,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -15766,6 +16042,7 @@
       "acc": 50,
       "eva": 10,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -15817,6 +16094,7 @@
       "acc": 90,
       "eva": 10,
       "speed": 35,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -15866,6 +16144,7 @@
       "acc": 50,
       "eva": 18,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -15914,6 +16193,7 @@
       "acc": 50,
       "eva": 15,
       "speed": 0,
+      "pushed": 1,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -15964,6 +16244,7 @@
       "acc": 50,
       "eva": 15,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -16015,6 +16296,7 @@
       "acc": 60,
       "eva": 15,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16063,6 +16345,7 @@
       "acc": 150,
       "eva": 15,
       "speed": 0,
+      "pushed": 2000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -16101,6 +16384,7 @@
       "acc": 100,
       "eva": 10,
       "speed": -50,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -16139,6 +16423,7 @@
       "acc": 210,
       "eva": 25,
       "speed": 10,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -16177,6 +16462,7 @@
       "acc": 180,
       "eva": 32,
       "speed": 10,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -16215,6 +16501,7 @@
       "acc": 999,
       "eva": 999,
       "speed": -20,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16251,6 +16538,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16334,6 +16622,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16374,6 +16663,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16409,6 +16699,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16444,6 +16735,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": {
         "Holy": "Strong",
@@ -16493,6 +16785,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": {
         "Holy": "Strong",
@@ -16542,6 +16835,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 5,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16578,6 +16872,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16606,6 +16901,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16634,6 +16930,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16663,6 +16960,7 @@
       "acc": 50,
       "eva": 8,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16692,6 +16990,7 @@
       "acc": 60,
       "eva": 10,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -16724,6 +17023,7 @@
       "acc": 42,
       "eva": 0,
       "speed": -70,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -16754,6 +17054,7 @@
       "acc": 55,
       "eva": 7,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16782,6 +17083,7 @@
       "acc": 45,
       "eva": 5,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Immune"
@@ -16812,6 +17114,7 @@
       "acc": 35,
       "eva": 1,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Lightning": "Weak"
@@ -16843,6 +17146,7 @@
       "acc": 100,
       "eva": 20,
       "speed": 25,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16873,6 +17177,7 @@
       "acc": 110,
       "eva": 25,
       "speed": 30,
+      "pushed": 100,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -16905,6 +17210,7 @@
       "acc": 55,
       "eva": 7,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16934,6 +17240,7 @@
       "acc": 80,
       "eva": 15,
       "speed": -70,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -16963,6 +17270,7 @@
       "acc": 50,
       "eva": 8,
       "speed": 0,
+      "pushed": 1,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -16994,6 +17302,7 @@
       "acc": 60,
       "eva": 10,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17023,6 +17332,7 @@
       "acc": 75,
       "eva": 18,
       "speed": -10,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17051,6 +17361,7 @@
       "acc": 65,
       "eva": 15,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -17083,6 +17394,7 @@
       "acc": 100,
       "eva": 20,
       "speed": 30,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17112,6 +17424,7 @@
       "acc": 65,
       "eva": 12,
       "speed": -15,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17141,6 +17454,7 @@
       "acc": 80,
       "eva": 14,
       "speed": -10,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17170,6 +17484,7 @@
       "acc": 120,
       "eva": 25,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -17202,6 +17517,7 @@
       "acc": 145,
       "eva": 30,
       "speed": -20,
+      "pushed": 2500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -17234,6 +17550,7 @@
       "acc": 110,
       "eva": 24,
       "speed": -50,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -17267,6 +17584,7 @@
       "acc": 240,
       "eva": 15,
       "speed": 10,
+      "pushed": 50,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17301,6 +17619,7 @@
       "acc": 140,
       "eva": 10,
       "speed": -40,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -17339,6 +17658,7 @@
       "acc": 120,
       "eva": 8,
       "speed": -15,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -17376,6 +17696,7 @@
       "acc": 140,
       "eva": 10,
       "speed": -20,
+      "pushed": 300,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -17418,6 +17739,7 @@
       "acc": 175,
       "eva": 25,
       "speed": 0,
+      "pushed": 600,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17448,6 +17770,7 @@
       "acc": 80,
       "eva": 13,
       "speed": -10,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17487,6 +17810,7 @@
       "acc": 90,
       "eva": 14,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17531,6 +17855,7 @@
       "acc": 100,
       "eva": 15,
       "speed": -10,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17571,6 +17896,7 @@
       "acc": 120,
       "eva": 18,
       "speed": -40,
+      "pushed": 200,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17615,6 +17941,7 @@
       "acc": 150,
       "eva": 12,
       "speed": -60,
+      "pushed": 300,
       "undead": 0,
       "elements": {
         "Lightning": "Strong",
@@ -17647,6 +17974,7 @@
       "acc": 150,
       "eva": 18,
       "speed": -50,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -17677,6 +18005,7 @@
       "acc": 160,
       "eva": 26,
       "speed": -30,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -17714,6 +18043,7 @@
       "acc": 999,
       "eva": 999,
       "speed": -40,
+      "pushed": 99999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17753,6 +18083,7 @@
       "acc": 120,
       "eva": 18,
       "speed": -30,
+      "pushed": 200,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -17797,6 +18128,7 @@
       "acc": 135,
       "eva": 22,
       "speed": -20,
+      "pushed": 0,
       "undead": 1,
       "elements": null,
       "is_boss": false,
@@ -17825,6 +18157,7 @@
       "acc": 145,
       "eva": 24,
       "speed": -15,
+      "pushed": 0,
       "undead": 1,
       "elements": null,
       "is_boss": false,
@@ -17854,6 +18187,7 @@
       "acc": 155,
       "eva": 26,
       "speed": -10,
+      "pushed": 300,
       "undead": 1,
       "elements": null,
       "is_boss": false,
@@ -17883,6 +18217,7 @@
       "acc": 30,
       "eva": 0,
       "speed": -60,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -17917,6 +18252,7 @@
       "acc": 145,
       "eva": 23,
       "speed": -60,
+      "pushed": 2500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -17957,6 +18293,7 @@
       "acc": 140,
       "eva": 23,
       "speed": -60,
+      "pushed": 2500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -17997,6 +18334,7 @@
       "acc": 999,
       "eva": 999,
       "speed": -60,
+      "pushed": 99999,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -18037,6 +18375,7 @@
       "acc": 145,
       "eva": 25,
       "speed": -20,
+      "pushed": 2700,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -18075,6 +18414,7 @@
       "acc": 145,
       "eva": 25,
       "speed": -10,
+      "pushed": 2700,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -18113,6 +18453,7 @@
       "acc": 145,
       "eva": 21,
       "speed": -50,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -18154,6 +18495,7 @@
       "acc": 140,
       "eva": 20,
       "speed": 0,
+      "pushed": 1600,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -18195,6 +18537,7 @@
       "acc": 130,
       "eva": 26,
       "speed": 5,
+      "pushed": 1200,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -18223,6 +18566,7 @@
       "acc": 55,
       "eva": 8,
       "speed": -20,
+      "pushed": 100,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -18258,6 +18602,7 @@
       "acc": 230,
       "eva": 18,
       "speed": 0,
+      "pushed": 9999,
       "undead": 1,
       "elements": {
         "Ice": "Strong",
@@ -18295,6 +18640,7 @@
       "acc": 210,
       "eva": 13,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -18330,6 +18676,7 @@
       "acc": 210,
       "eva": 13,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -18365,6 +18712,7 @@
       "acc": 210,
       "eva": 14,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -18400,6 +18748,7 @@
       "acc": 210,
       "eva": 14,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -18435,6 +18784,7 @@
       "acc": 145,
       "eva": 25,
       "speed": -10,
+      "pushed": 2700,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -18467,6 +18817,7 @@
       "acc": 145,
       "eva": 25,
       "speed": -20,
+      "pushed": 2700,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -18499,6 +18850,7 @@
       "acc": 145,
       "eva": 25,
       "speed": -10,
+      "pushed": 2700,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -18531,6 +18883,7 @@
       "acc": 160,
       "eva": 30,
       "speed": 0,
+      "pushed": 500,
       "undead": 1,
       "elements": {
         "Holy": "Strong"
@@ -18561,6 +18914,7 @@
       "acc": 190,
       "eva": 18,
       "speed": -20,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -18597,6 +18951,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 5,
+      "pushed": 99999,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -18636,6 +18991,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 5,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -18676,6 +19032,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 5,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -18716,6 +19073,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 5,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Lightning": "Strong",
@@ -18753,6 +19111,7 @@
       "acc": 160,
       "eva": 999,
       "speed": 5,
+      "pushed": 50,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -18801,6 +19160,7 @@
       "acc": 165,
       "eva": 24,
       "speed": 5,
+      "pushed": 400,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -18838,6 +19198,7 @@
       "acc": 145,
       "eva": 21,
       "speed": 0,
+      "pushed": 350,
       "undead": 0,
       "elements": {
         "Holy": "Strong"
@@ -18876,6 +19237,7 @@
       "acc": 130,
       "eva": 22,
       "speed": -15,
+      "pushed": 450,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -18918,6 +19280,7 @@
       "acc": 150,
       "eva": 15,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -18954,6 +19317,7 @@
       "acc": 150,
       "eva": 15,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -18984,6 +19348,7 @@
       "acc": 130,
       "eva": 40,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -19017,6 +19382,7 @@
       "acc": 140,
       "eva": 23,
       "speed": 0,
+      "pushed": 300,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -19055,6 +19421,7 @@
       "acc": 140,
       "eva": 23,
       "speed": 0,
+      "pushed": 300,
       "undead": 0,
       "elements": {
         "Lightning": "Strong",
@@ -19093,6 +19460,7 @@
       "acc": 140,
       "eva": 23,
       "speed": 0,
+      "pushed": 300,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -19131,6 +19499,7 @@
       "acc": 165,
       "eva": 24,
       "speed": 5,
+      "pushed": 400,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -19162,6 +19531,7 @@
       "acc": 145,
       "eva": 21,
       "speed": 0,
+      "pushed": 350,
       "undead": 0,
       "elements": {
         "Holy": "Strong"
@@ -19194,6 +19564,7 @@
       "acc": 130,
       "eva": 22,
       "speed": -15,
+      "pushed": 450,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -19230,6 +19601,7 @@
       "acc": 100,
       "eva": 5,
       "speed": 20,
+      "pushed": 100,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -19267,6 +19639,7 @@
       "acc": 0,
       "eva": 0,
       "speed": 5,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -19294,6 +19667,7 @@
       "acc": 40,
       "eva": 1,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -19328,6 +19702,7 @@
       "acc": 40,
       "eva": 3,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -19362,6 +19737,7 @@
       "acc": 40,
       "eva": 3,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -19396,6 +19772,7 @@
       "acc": 205,
       "eva": 45,
       "speed": -10,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -19428,6 +19805,7 @@
       "acc": 205,
       "eva": 45,
       "speed": -10,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -19460,6 +19838,7 @@
       "acc": 205,
       "eva": 45,
       "speed": -10,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -19493,6 +19872,7 @@
       "acc": 205,
       "eva": 45,
       "speed": -10,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -19526,6 +19906,7 @@
       "acc": 203,
       "eva": 37,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -19559,6 +19940,7 @@
       "acc": 203,
       "eva": 37,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -19592,6 +19974,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -19625,6 +20008,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -19658,6 +20042,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -19691,6 +20076,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -19724,6 +20110,7 @@
       "acc": 210,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -19756,6 +20143,7 @@
       "acc": 210,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -19788,6 +20176,7 @@
       "acc": 210,
       "eva": 38,
       "speed": -20,
+      "pushed": 5000,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -19820,6 +20209,7 @@
       "acc": 205,
       "eva": 38,
       "speed": 0,
+      "pushed": 100,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -19849,6 +20239,7 @@
       "acc": 210,
       "eva": 38,
       "speed": -50,
+      "pushed": 5000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -19879,6 +20270,7 @@
       "acc": 130,
       "eva": 26,
       "speed": 0,
+      "pushed": 2000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -19908,6 +20300,7 @@
       "acc": 120,
       "eva": 18,
       "speed": -30,
+      "pushed": 200,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -19940,6 +20333,7 @@
       "acc": 150,
       "eva": 30,
       "speed": -20,
+      "pushed": 3000,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -19974,6 +20368,7 @@
       "acc": 210,
       "eva": 38,
       "speed": -50,
+      "pushed": 5500,
       "undead": 1,
       "elements": {
         "Fire": "Weak",
@@ -20010,6 +20405,7 @@
       "acc": 130,
       "eva": 30,
       "speed": 35,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -20044,6 +20440,7 @@
       "acc": 180,
       "eva": 32,
       "speed": 10,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -20076,6 +20473,7 @@
       "acc": 200,
       "eva": 39,
       "speed": 0,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -20108,6 +20506,7 @@
       "acc": 200,
       "eva": 39,
       "speed": 0,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -20140,6 +20539,7 @@
       "acc": 999,
       "eva": 999,
       "speed": -60,
+      "pushed": 99999,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -20174,6 +20574,7 @@
       "acc": 150,
       "eva": 30,
       "speed": -20,
+      "pushed": 3000,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -20208,6 +20609,7 @@
       "acc": 0,
       "eva": 0,
       "speed": 5,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20235,6 +20637,7 @@
       "acc": 180,
       "eva": 40,
       "speed": 0,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -20268,6 +20671,7 @@
       "acc": 140,
       "eva": 28,
       "speed": -30,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -20301,6 +20705,7 @@
       "acc": 160,
       "eva": 29,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Fire": "Strong"
@@ -20330,6 +20735,7 @@
       "acc": 197,
       "eva": 38,
       "speed": -30,
+      "pushed": 4200,
       "undead": 1,
       "elements": {
         "Fire": "Strong",
@@ -20363,6 +20769,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -40,
+      "pushed": 5500,
       "undead": 0,
       "elements": {
         "Fire": "Strong"
@@ -20395,6 +20802,7 @@
       "acc": 0,
       "eva": 999,
       "speed": 0,
+      "pushed": 5000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20423,6 +20831,7 @@
       "acc": 0,
       "eva": 0,
       "speed": 30,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20451,6 +20860,7 @@
       "acc": 170,
       "eva": 18,
       "speed": -10,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20480,6 +20890,7 @@
       "acc": 170,
       "eva": 18,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20508,6 +20919,7 @@
       "acc": 160,
       "eva": 29,
       "speed": -60,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -20544,6 +20956,7 @@
       "acc": 170,
       "eva": 30,
       "speed": -60,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -20580,6 +20993,7 @@
       "acc": 140,
       "eva": 28,
       "speed": -60,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -20616,6 +21030,7 @@
       "acc": 135,
       "eva": 18,
       "speed": -30,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20644,6 +21059,7 @@
       "acc": 135,
       "eva": 19,
       "speed": -30,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20672,6 +21088,7 @@
       "acc": 150,
       "eva": 18,
       "speed": -20,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20700,6 +21117,7 @@
       "acc": 150,
       "eva": 20,
       "speed": -40,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20728,6 +21146,7 @@
       "acc": 150,
       "eva": 22,
       "speed": -20,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20756,6 +21175,7 @@
       "acc": 150,
       "eva": 24,
       "speed": -40,
+      "pushed": 2000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20784,6 +21204,7 @@
       "acc": 140,
       "eva": 18,
       "speed": -30,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Lightning": "Strong"
@@ -20816,6 +21237,7 @@
       "acc": 130,
       "eva": 23,
       "speed": 0,
+      "pushed": 600,
       "undead": 0,
       "elements": {
         "Lightning": "Strong"
@@ -20848,6 +21270,7 @@
       "acc": 165,
       "eva": 22,
       "speed": 0,
+      "pushed": 600,
       "undead": 0,
       "elements": {
         "Lightning": "Strong"
@@ -20880,6 +21303,7 @@
       "acc": 130,
       "eva": 24,
       "speed": 0,
+      "pushed": 5000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20909,6 +21333,7 @@
       "acc": 165,
       "eva": 26,
       "speed": 0,
+      "pushed": 5000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -20938,6 +21363,7 @@
       "acc": 140,
       "eva": 28,
       "speed": -60,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -20974,6 +21400,7 @@
       "acc": 140,
       "eva": 23,
       "speed": -30,
+      "pushed": 2500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -21004,6 +21431,7 @@
       "acc": 130,
       "eva": 24,
       "speed": 0,
+      "pushed": 2500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -21034,6 +21462,7 @@
       "acc": 165,
       "eva": 26,
       "speed": 0,
+      "pushed": 3000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -21064,6 +21493,7 @@
       "acc": 140,
       "eva": 20,
       "speed": -30,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -21094,6 +21524,7 @@
       "acc": 130,
       "eva": 23,
       "speed": 0,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -21123,6 +21554,7 @@
       "acc": 165,
       "eva": 23,
       "speed": 0,
+      "pushed": 2000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -21152,6 +21584,7 @@
       "acc": 150,
       "eva": 19,
       "speed": -30,
+      "pushed": 2000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -21180,6 +21613,7 @@
       "acc": 50,
       "eva": 10,
       "speed": 0,
+      "pushed": 30,
       "undead": 0,
       "elements": {
         "Lightning": "Weak"
@@ -21228,6 +21662,7 @@
       "acc": 65,
       "eva": 12,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Weak"
@@ -21265,6 +21700,7 @@
       "acc": 60,
       "eva": 12,
       "speed": 20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -21309,6 +21745,7 @@
       "acc": 160,
       "eva": 25,
       "speed": 0,
+      "pushed": 500,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -21353,6 +21790,7 @@
       "acc": 180,
       "eva": 20,
       "speed": 10,
+      "pushed": 200,
       "undead": 0,
       "elements": {
         "Lightning": "Weak"
@@ -21397,6 +21835,7 @@
       "acc": 50,
       "eva": 9,
       "speed": 15,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -21429,6 +21868,7 @@
       "acc": 82,
       "eva": 17,
       "speed": 15,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Lightning": "Weak",
@@ -21461,6 +21901,7 @@
       "acc": 100,
       "eva": 28,
       "speed": 20,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -21493,6 +21934,7 @@
       "acc": 145,
       "eva": 32,
       "speed": 30,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Ice": "Weak",
@@ -21525,6 +21967,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 30,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -21552,6 +21995,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -21580,6 +22024,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 0,
+      "pushed": 1,
       "undead": 1,
       "elements": {
         "Fire": "Strong",
@@ -21620,6 +22065,7 @@
       "acc": 190,
       "eva": 22,
       "speed": 5,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -21660,6 +22106,7 @@
       "acc": 210,
       "eva": 34,
       "speed": 45,
+      "pushed": 300,
       "undead": 1,
       "elements": {
         "Poison": "Immune",
@@ -21700,6 +22147,7 @@
       "acc": 250,
       "eva": 39,
       "speed": 60,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Lightning": "Weak"
@@ -21739,6 +22187,7 @@
       "acc": 140,
       "eva": 22,
       "speed": 15,
+      "pushed": 250,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -21773,6 +22222,7 @@
       "acc": 143,
       "eva": 18,
       "speed": 10,
+      "pushed": 250,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -21806,6 +22256,7 @@
       "acc": 148,
       "eva": 20,
       "speed": 0,
+      "pushed": 250,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -21840,6 +22291,7 @@
       "acc": 170,
       "eva": 18,
       "speed": 10,
+      "pushed": 250,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -21874,6 +22326,7 @@
       "acc": 165,
       "eva": 26,
       "speed": 10,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -21908,6 +22361,7 @@
       "acc": 150,
       "eva": 24,
       "speed": 5,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Poison": "Weak",
@@ -21942,6 +22396,7 @@
       "acc": 300,
       "eva": 40,
       "speed": 30,
+      "pushed": 250,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -21975,6 +22430,7 @@
       "acc": 310,
       "eva": 50,
       "speed": 0,
+      "pushed": 250,
       "undead": 0,
       "elements": {
         "Ice": "Weak"
@@ -22007,6 +22463,7 @@
       "acc": 350,
       "eva": 5,
       "speed": 0,
+      "pushed": 10,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -22036,6 +22493,7 @@
       "acc": 175,
       "eva": 35,
       "speed": 15,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -22071,6 +22529,7 @@
       "acc": 280,
       "eva": 43,
       "speed": 60,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Lightning": "Weak",
@@ -22104,6 +22563,7 @@
       "acc": 175,
       "eva": 35,
       "speed": 15,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -22139,6 +22599,7 @@
       "acc": 150,
       "eva": 20,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -22168,6 +22629,7 @@
       "acc": 100,
       "eva": 20,
       "speed": 30,
+      "pushed": 1500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -22197,6 +22659,7 @@
       "acc": 35,
       "eva": 1,
       "speed": 45,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -22226,6 +22689,7 @@
       "acc": 75,
       "eva": 18,
       "speed": 55,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -22255,6 +22719,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 35,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Weak"
@@ -22286,6 +22751,7 @@
       "acc": 220,
       "eva": 64,
       "speed": -20,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -22325,6 +22791,7 @@
       "acc": 135,
       "eva": 25,
       "speed": -30,
+      "pushed": 600,
       "undead": 1,
       "elements": {
         "Poison": "Immune",
@@ -22358,6 +22825,7 @@
       "acc": 135,
       "eva": 23,
       "speed": -50,
+      "pushed": 800,
       "undead": 1,
       "elements": {
         "Poison": "Immune",
@@ -22391,6 +22859,7 @@
       "acc": 100,
       "eva": 18,
       "speed": -50,
+      "pushed": 1500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -22422,6 +22891,7 @@
       "acc": 85,
       "eva": 15,
       "speed": -70,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -22451,6 +22921,7 @@
       "acc": 130,
       "eva": 27,
       "speed": -10,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -22482,6 +22953,7 @@
       "acc": 155,
       "eva": 24,
       "speed": -10,
+      "pushed": 300,
       "undead": 1,
       "elements": null,
       "is_boss": false,
@@ -22511,6 +22983,7 @@
       "acc": 210,
       "eva": 21,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Lightning": "Strong"
@@ -22543,6 +23016,7 @@
       "acc": 190,
       "eva": 20,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -22571,6 +23045,7 @@
       "acc": 160,
       "eva": 28,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -22598,6 +23073,7 @@
       "acc": 125,
       "eva": 20,
       "speed": 30,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Poison": "Immune"
@@ -22629,6 +23105,7 @@
       "acc": 300,
       "eva": 120,
       "speed": -20,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -22661,6 +23138,7 @@
       "acc": 1,
       "eva": 1,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -22690,6 +23168,7 @@
       "acc": 1,
       "eva": 1,
       "speed": 0,
+      "pushed": 50,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -22722,6 +23201,7 @@
       "acc": 1,
       "eva": 1,
       "speed": 15,
+      "pushed": 300,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -22753,6 +23233,7 @@
       "acc": 1,
       "eva": 1,
       "speed": 0,
+      "pushed": 30,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -22780,6 +23261,7 @@
       "acc": 1,
       "eva": 1,
       "speed": -50,
+      "pushed": 800,
       "undead": 1,
       "elements": {
         "Poison": "Immune",
@@ -22811,6 +23293,7 @@
       "acc": 35,
       "eva": 1,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Lightning": "Weak"
@@ -22842,6 +23325,7 @@
       "acc": 45,
       "eva": 7,
       "speed": -50,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -22879,6 +23363,7 @@
       "acc": 60,
       "eva": 5,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -22914,6 +23399,7 @@
       "acc": 60,
       "eva": 10,
       "speed": 30,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -22943,6 +23429,7 @@
       "acc": 95,
       "eva": 15,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -23000,6 +23487,7 @@
       "acc": 65,
       "eva": 10,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23029,6 +23517,7 @@
       "acc": 42,
       "eva": 8,
       "speed": -15,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23058,6 +23547,7 @@
       "acc": 70,
       "eva": 13,
       "speed": 7,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -23089,6 +23579,7 @@
       "acc": 45,
       "eva": 0,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -23120,6 +23611,7 @@
       "acc": 175,
       "eva": 35,
       "speed": 0,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -23156,6 +23648,7 @@
       "acc": 70,
       "eva": 15,
       "speed": -5,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -23200,6 +23693,7 @@
       "acc": 65,
       "eva": 15,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -23245,6 +23739,7 @@
       "acc": 155,
       "eva": 32,
       "speed": 15,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23274,6 +23769,7 @@
       "acc": 145,
       "eva": 25,
       "speed": 0,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23302,6 +23798,7 @@
       "acc": 125,
       "eva": 15,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23331,6 +23828,7 @@
       "acc": 125,
       "eva": 15,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23360,6 +23858,7 @@
       "acc": 140,
       "eva": 18,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23389,6 +23888,7 @@
       "acc": 140,
       "eva": 18,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23418,6 +23918,7 @@
       "acc": 60,
       "eva": 10,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23447,6 +23948,7 @@
       "acc": 60,
       "eva": 10,
       "speed": -15,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -23485,6 +23987,7 @@
       "acc": 65,
       "eva": 15,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -23517,6 +24020,7 @@
       "acc": 145,
       "eva": 25,
       "speed": 10,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23546,6 +24050,7 @@
       "acc": 60,
       "eva": 10,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -23578,6 +24083,7 @@
       "acc": 75,
       "eva": 12,
       "speed": -20,
+      "pushed": 10,
       "undead": 0,
       "elements": {
         "Holy": "Strong",
@@ -23611,6 +24117,7 @@
       "acc": 75,
       "eva": 12,
       "speed": -20,
+      "pushed": 0,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -23643,6 +24150,7 @@
       "acc": 110,
       "eva": 25,
       "speed": 30,
+      "pushed": 100,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -23682,6 +24190,7 @@
       "acc": 135,
       "eva": 18,
       "speed": 20,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23718,6 +24227,7 @@
       "acc": 140,
       "eva": 10,
       "speed": -20,
+      "pushed": 300,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -23754,6 +24264,7 @@
       "acc": 70,
       "eva": 15,
       "speed": -5,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Poison": "Strong"
@@ -23792,6 +24303,7 @@
       "acc": 65,
       "eva": 15,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -23831,6 +24343,7 @@
       "acc": 155,
       "eva": 32,
       "speed": 15,
+      "pushed": 300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23867,6 +24380,7 @@
       "acc": 150,
       "eva": 30,
       "speed": -20,
+      "pushed": 3000,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -23902,6 +24416,7 @@
       "acc": 180,
       "eva": 40,
       "speed": 0,
+      "pushed": 5000,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -23935,6 +24450,7 @@
       "acc": 80,
       "eva": 15,
       "speed": 20,
+      "pushed": 30,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -23983,6 +24499,7 @@
       "acc": 55,
       "eva": 7,
       "speed": 15,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24031,6 +24548,7 @@
       "acc": 65,
       "eva": 5,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24071,6 +24589,7 @@
       "acc": 130,
       "eva": 10,
       "speed": -10,
+      "pushed": 300,
       "undead": 0,
       "elements": {
         "Poison": "Strong",
@@ -24117,6 +24636,7 @@
       "acc": 160,
       "eva": 28,
       "speed": -10,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Ice": "Immune",
@@ -24169,6 +24689,7 @@
       "acc": 175,
       "eva": 23,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24209,6 +24730,7 @@
       "acc": 175,
       "eva": 30,
       "speed": -5,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24245,6 +24767,7 @@
       "acc": 180,
       "eva": 30,
       "speed": 10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24282,6 +24805,7 @@
       "acc": 75,
       "eva": 10,
       "speed": -20,
+      "pushed": 100,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -24328,6 +24852,7 @@
       "acc": 100,
       "eva": 10,
       "speed": 0,
+      "pushed": 300,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -24383,6 +24908,7 @@
       "acc": 20,
       "eva": 0,
       "speed": -45,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24425,6 +24951,7 @@
       "acc": 20,
       "eva": 0,
       "speed": -60,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24453,6 +24980,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24480,6 +25008,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24507,6 +25036,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 9999,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24534,6 +25064,7 @@
       "acc": 210,
       "eva": 22,
       "speed": -25,
+      "pushed": 1300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24562,6 +25093,7 @@
       "acc": 210,
       "eva": 22,
       "speed": -25,
+      "pushed": 1300,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24590,6 +25122,7 @@
       "acc": 999,
       "eva": 999,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24615,6 +25148,7 @@
       "acc": 30,
       "eva": 0,
       "speed": -60,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24650,6 +25184,7 @@
       "acc": 30,
       "eva": 0,
       "speed": -60,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24685,6 +25220,7 @@
       "acc": 115,
       "eva": 12,
       "speed": -40,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24714,6 +25250,7 @@
       "acc": 42,
       "eva": 1,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24743,6 +25280,7 @@
       "acc": 150,
       "eva": 22,
       "speed": -70,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24773,6 +25311,7 @@
       "acc": 65,
       "eva": 15,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24802,6 +25341,7 @@
       "acc": 50,
       "eva": 8,
       "speed": -15,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24830,6 +25370,7 @@
       "acc": 45,
       "eva": 5,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24858,6 +25399,7 @@
       "acc": 250,
       "eva": 12,
       "speed": 0,
+      "pushed": 20000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -24884,6 +25426,7 @@
       "acc": 250,
       "eva": 12,
       "speed": 0,
+      "pushed": 20000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -24910,6 +25453,7 @@
       "acc": 140,
       "eva": 18,
       "speed": 5,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24940,6 +25484,7 @@
       "acc": 100,
       "eva": 20,
       "speed": -70,
+      "pushed": 1100,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -24969,6 +25514,7 @@
       "acc": 120,
       "eva": 15,
       "speed": 30,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Poison": "Immune"
@@ -25000,6 +25546,7 @@
       "acc": 160,
       "eva": 28,
       "speed": 5,
+      "pushed": 1200,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -25033,6 +25580,7 @@
       "acc": 205,
       "eva": 38,
       "speed": -50,
+      "pushed": 5300,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -25065,6 +25613,7 @@
       "acc": 200,
       "eva": 37,
       "speed": -10,
+      "pushed": 5500,
       "undead": 1,
       "elements": {
         "Holy": "Weak",
@@ -25098,6 +25647,7 @@
       "acc": 110,
       "eva": 16,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -25127,6 +25677,7 @@
       "acc": 30,
       "eva": 2,
       "speed": -50,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -25155,6 +25706,7 @@
       "acc": 130,
       "eva": 18,
       "speed": 0,
+      "pushed": 50,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -25184,6 +25736,7 @@
       "acc": 150,
       "eva": 18,
       "speed": -50,
+      "pushed": 50,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -25213,6 +25766,7 @@
       "acc": 125,
       "eva": 18,
       "speed": -20,
+      "pushed": 2500,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -25245,6 +25799,7 @@
       "acc": 110,
       "eva": 18,
       "speed": -50,
+      "pushed": 250,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -25277,6 +25832,7 @@
       "acc": 120,
       "eva": 24,
       "speed": -60,
+      "pushed": 400,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -25306,6 +25862,7 @@
       "acc": 150,
       "eva": 24,
       "speed": -50,
+      "pushed": 800,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -25338,6 +25895,7 @@
       "acc": 80,
       "eva": 10,
       "speed": 10,
+      "pushed": 30,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -25367,6 +25925,7 @@
       "acc": 55,
       "eva": 7,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -25396,6 +25955,7 @@
       "acc": 55,
       "eva": 8,
       "speed": -40,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -25424,6 +25984,7 @@
       "acc": 65,
       "eva": 12,
       "speed": -40,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -25452,6 +26013,7 @@
       "acc": 135,
       "eva": 28,
       "speed": -20,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Fire": "Weak",
@@ -25485,6 +26047,7 @@
       "acc": 140,
       "eva": 28,
       "speed": -10,
+      "pushed": 2800,
       "undead": 0,
       "elements": {
         "Poison": "Weak"
@@ -25518,6 +26081,7 @@
       "acc": 140,
       "eva": 28,
       "speed": -10,
+      "pushed": 2800,
       "undead": 0,
       "elements": {
         "Poison": "Weak"
@@ -25549,6 +26113,7 @@
       "acc": 150,
       "eva": 27,
       "speed": -10,
+      "pushed": 3000,
       "undead": 0,
       "elements": {
         "Fire": "Strong",
@@ -25582,6 +26147,7 @@
       "acc": 170,
       "eva": 28,
       "speed": -20,
+      "pushed": 3000,
       "undead": 1,
       "elements": {
         "Holy": "Weak"
@@ -25614,6 +26180,7 @@
       "acc": 140,
       "eva": 0,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -25645,6 +26212,7 @@
       "acc": 150,
       "eva": 0,
       "speed": -20,
+      "pushed": 1,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -25679,6 +26247,7 @@
       "acc": 160,
       "eva": 0,
       "speed": -20,
+      "pushed": 200,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -25708,6 +26277,7 @@
       "acc": 180,
       "eva": 0,
       "speed": 0,
+      "pushed": 500,
       "undead": 0,
       "elements": {
         "Holy": "Weak"
@@ -25740,6 +26310,7 @@
       "acc": 160,
       "eva": 0,
       "speed": -30,
+      "pushed": 500,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -25770,6 +26341,7 @@
       "acc": 160,
       "eva": 0,
       "speed": -20,
+      "pushed": 220,
       "undead": 0,
       "elements": {
         "Fire": "Weak"
@@ -25802,6 +26374,7 @@
       "acc": 180,
       "eva": 0,
       "speed": -40,
+      "pushed": 5000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -25831,6 +26404,7 @@
       "acc": 180,
       "eva": 0,
       "speed": 60,
+      "pushed": 5000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -25859,6 +26433,7 @@
       "acc": 150,
       "eva": 30,
       "speed": -20,
+      "pushed": 3000,
       "undead": 0,
       "elements": {
         "Poison": "Immune",
@@ -25897,6 +26472,7 @@
       "acc": 110,
       "eva": 24,
       "speed": -50,
+      "pushed": 2000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -25935,6 +26511,7 @@
       "acc": 150,
       "eva": 25,
       "speed": 0,
+      "pushed": 1000,
       "undead": 0,
       "elements": {
         "Ice": "Strong",
@@ -25973,6 +26550,7 @@
       "acc": 40,
       "eva": 0,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -26008,6 +26586,7 @@
       "acc": 40,
       "eva": 2,
       "speed": 5,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -26043,6 +26622,7 @@
       "acc": 1,
       "eva": 1,
       "speed": 0,
+      "pushed": 100000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -26070,6 +26650,7 @@
       "acc": 55,
       "eva": 7,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -26098,6 +26679,7 @@
       "acc": 55,
       "eva": 7,
       "speed": -5,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -26126,6 +26708,7 @@
       "acc": 50,
       "eva": 8,
       "speed": -5,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -26154,6 +26737,7 @@
       "acc": 65,
       "eva": 12,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -26182,6 +26766,7 @@
       "acc": 65,
       "eva": 12,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -26211,6 +26796,7 @@
       "acc": 60,
       "eva": 12,
       "speed": -40,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -26239,6 +26825,7 @@
       "acc": 100,
       "eva": 20,
       "speed": -10,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -26268,6 +26855,7 @@
       "acc": 90,
       "eva": 18,
       "speed": 0,
+      "pushed": 1,
       "undead": 0,
       "elements": null,
       "is_boss": false,
@@ -26297,6 +26885,7 @@
       "acc": 150,
       "eva": 27,
       "speed": -20,
+      "pushed": 1000,
       "undead": 0,
       "elements": null,
       "is_boss": true,
@@ -26328,6 +26917,7 @@
       "acc": 0,
       "eva": 0,
       "speed": 0,
+      "pushed": 0,
       "undead": 0,
       "elements": null,
       "is_boss": false,

@@ -121,6 +121,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
         { label: 'ACC',   value: monster.acc },
         { label: 'AVOID', value: monster.eva },
         { label: 'Speed', value: monster.speed },
+        { label: 'KB',    value: monster.pushed },
       ],
     },
   ];
@@ -194,6 +195,7 @@ export function renderMonsters(data, options = {}) {
     { id: 'acc',      label: 'ACC',     on: false },
     { id: 'eva',      label: 'AVOID',   on: true  },
     { id: 'speed',    label: 'SPD',     on: false },
+    { id: 'pushed',   label: 'KB',      on: false },
     { id: 'elements', label: 'Element', on: true  },
     { id: 'undead',   label: 'Undead',  on: false },
   ];

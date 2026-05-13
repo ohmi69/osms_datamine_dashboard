@@ -181,7 +181,7 @@ export function showNavigateModal(data, defaultToId) {
       const stepDiv = el('div', { className: 'navigate-step' });
       stepDiv.appendChild(el('div', { className: 'navigate-step-header', textContent: `Step ${i + 1}: ${map.name}` }));
 
-      const imgPath = `${getDataBase()}/maps/${padMapId(map.id)}.img.png`;
+      const imgPath = `${getDataBase()}/maps/${padMapId(map.id)}.img.webp`;
       const img = el('img', { src: imgPath, alt: map.name, className: 'navigate-step-img' });
       img.addEventListener('load', () => {
         stepDiv.querySelectorAll('.portal-highlight').forEach(o => o.remove());

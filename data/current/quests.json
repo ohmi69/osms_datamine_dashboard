@@ -10671,8 +10671,17 @@
       "region": "Crafting",
       "description": "It looks like Silas Irons, the master blacksmith of Perion, is finally ready to acknowledge my skills.\nSilas Irons, the master blacksmith of Perion, was impressed by how much I’ve grown and suggested I show off my abilities. I need to defeat Dark Axe Stumps and Zombie Mushrooms, then create an Orihalcon Ingot and a Gold Ingot, and bring them back to him.\nSilas Irons, the master craftsman of Perion, was amazed by my work and handed me a Equipment Crafting Stimulator. It seems to be a special item that can alter the stats of equipment when used during crafting. Maybe I should give it a try.",
       "npc_name": "Silas Irons",
-      "requirements": "Defeat Dark Axe Stump x 30, Defeat Zombie Mushroom x 30, Orihalcon Ingot x 1, Gold Ingot x 1",
+      "requirements": "Smithing Lv. 5 or Higher, Defeat Dark Axe Stump x 30, Defeat Zombie Mushroom x 30, Orihalcon Ingot x 1, Gold Ingot x 1",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92000000,
+          "name": "Smithing",
+          "level": 5,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Smithing Lv. 5 or Higher"
+        },
         {
           "type": "mob",
           "id": 20,
@@ -10739,8 +10748,17 @@
       "region": "Crafting",
       "description": "It looks like Silas Irons, the master blacksmith of Perion, needs some help. Maybe I should go check in on him.\nSilas Irons, the master blacksmith of Perion, received an important request but is struggling because he’s short on materials. To help him, I need to defeat Bubblings and bring back Mithril Ingot.\nI delivered the items Silas Irons requested without any issues. At this rate, I might really be considered a fine apprentice.",
       "npc_name": "Silas Irons",
-      "requirements": "Defeat Bubbling x 25, Mithril Ingot x 1",
+      "requirements": "Smithing Lv. 2 or Higher, Defeat Bubbling x 25, Mithril Ingot x 1",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92000000,
+          "name": "Smithing",
+          "level": 2,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Smithing Lv. 2 or Higher"
+        },
         {
           "type": "mob",
           "id": 14,
@@ -10840,8 +10858,17 @@
       "region": "Crafting",
       "description": "It seems Mr. Thunder, the master weaponcrafter of Perion, is finally ready to acknowledge my weaponcrafting skills.\nMr. Thunder, the master weaponcrafter of Perion, was amazed by my growth and suggested that I show off my skills. I need to defeat Iron Hogs and craft one Monkey Wrench to bring back to him.\nMr. Thunder, the master weaponcrafter of Perion, was impressed by my craftsmanship and handed me a Equipment Crafting Stimulator. It looks like a special item that can change an equipment’s stats when used during crafting. Maybe I should try it out.",
       "npc_name": "Mr. Thunder",
-      "requirements": "Defeat Iron Hog x 30, Monkey Wrench x 1",
+      "requirements": "Weaponcrafting Lv. 5 or Higher, Defeat Iron Hog x 30, Monkey Wrench x 1",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92010000,
+          "name": "Weaponcrafting",
+          "level": 5,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Weaponcrafting Lv. 5 or Higher"
+        },
         {
           "type": "mob",
           "id": 24,
@@ -10894,8 +10921,17 @@
       "region": "Crafting",
       "description": "It looks like Mr. Thunder, the master weaponcrafter of Perion, could use some help. Maybe I should go check in on him.\nMr. Thunder, the master weaponcrafter of Perion, received an important request but is having trouble because he’s short on materials. To help him, I’ll need to defeat some Axe Stumps and craft 10 Screws.\nI was able to deliver the item Mr. Thunder asked for without any issues. At this rate, I might really be considered a fine apprentice.",
       "npc_name": "Mr. Thunder",
-      "requirements": "Defeat Axe Stump x 25, Screw x 10",
+      "requirements": "Weaponcrafting Lv. 2 or Higher, Defeat Axe Stump x 25, Screw x 10",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92010000,
+          "name": "Weaponcrafting",
+          "level": 2,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Weaponcrafting Lv. 2 or Higher"
+        },
         {
           "type": "mob",
           "id": 15,
@@ -10995,8 +11031,17 @@
       "region": "Crafting",
       "description": "It seems Francois, the tailor of Ellinia, is finally ready to acknowledge my tailoring skills.\nFrancois, the tailor of Ellinia, was impressed by how much I’ve grown and suggested I show off my abilities. I need to defeat Wild Boars and craft a Red Starry Bandana to bring back.\nFrancois, the tailor of Ellinia, admired my craftsmanship and handed me a Equipment Crafting Stimulator. It seems to be a special item that can alter an equipment’s stats when used during crafting. Maybe I should give it a try.",
       "npc_name": "Francois",
-      "requirements": "Defeat Wild Boar x 30, Red Starry Bandana x 1",
+      "requirements": "Tailoring Lv. 5 or Higher, Defeat Wild Boar x 30, Red Starry Bandana x 1",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92020000,
+          "name": "Tailoring",
+          "level": 5,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Tailoring Lv. 5 or Higher"
+        },
         {
           "type": "mob",
           "id": 22,
@@ -11049,8 +11094,17 @@
       "region": "Crafting",
       "description": "It looks like Francois, the tailor of Ellinia, could use some help. Maybe I should stop by after a while.\nFrancois, the tailor of Ellinia, received an important request but is struggling due to a lack of materials. To help him out, I need to defeat Green Mushrooms and craft 10 Spool of Thread to bring back.\nI was able to safely deliver the item Francois asked for. At this point, I’d say I’ve proven myself to be a pretty solid apprentice.",
       "npc_name": "Francois",
-      "requirements": "Defeat Green Mushroom x 25, Spool of Thread x 10",
+      "requirements": "Tailoring Lv. 2 or Higher, Defeat Green Mushroom x 25, Spool of Thread x 10",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92020000,
+          "name": "Tailoring",
+          "level": 2,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Tailoring Lv. 2 or Higher"
+        },
         {
           "type": "mob",
           "id": 13,
@@ -11150,8 +11204,17 @@
       "region": "Crafting",
       "description": "It seems Vicious, the carpenter of Henesys, is finally ready to acknowledge my woodworking skills.\nVicious, the carpenter of Henesys, was impressed by how much I’ve grown and suggested I show off my abilities. I need to defeat Dark Axe Stumps and craft The Red Relaxer to bring back.\nVicious, the carpenter of Henesys, admired my craftsmanship and handed me a Equipment Crafting Stimulator. It seems to be a special item that can alter an equipment’s stats when used during crafting. Maybe I should give it a try.",
       "npc_name": "Vicious",
-      "requirements": "Defeat Dark Axe Stump x 30, The Red Relaxer x 1",
+      "requirements": "Woodcrafting Lv. 5 or Higher, Defeat Dark Axe Stump x 30, The Red Relaxer x 1",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92030000,
+          "name": "Woodcrafting",
+          "level": 5,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Woodcrafting Lv. 5 or Higher"
+        },
         {
           "type": "mob",
           "id": 20,
@@ -11204,8 +11267,17 @@
       "region": "Crafting",
       "description": "It looks like Vicious, the carpenter of Henesys, could use some help. Maybe I should pay him a visit after a while.\nVicious, the carpenter of Henesys, received an important request but is struggling due to a lack of materials. To help him out, I need to defeat Axe Stumps and craft one Processed Wood.\nI was able to safely deliver the item Vicious asked for. At this point, I’d say I’ve proven myself to be a worthy apprentice.",
       "npc_name": "Vicious",
-      "requirements": "Defeat Axe Stump x 25, Processed Wood x 1",
+      "requirements": "Woodcrafting Lv. 2 or Higher, Defeat Axe Stump x 25, Processed Wood x 1",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92030000,
+          "name": "Woodcrafting",
+          "level": 2,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Woodcrafting Lv. 2 or Higher"
+        },
         {
           "type": "mob",
           "id": 15,
@@ -11305,8 +11377,17 @@
       "region": "Crafting",
       "description": "It seems the leatherworking master JM From tha Streetz of Kerning City is finally ready to acknowledge my leatherworking skills.\nImpressed by my growth, the leatherworking master JM From tha Streetz of Kerning City suggested that I show what I’m capable of. I must defeat Wild Boars and craft 1 Red Chair, then bring it back.\nAmazed by my craftsmanship, the leatherworking master JM From tha Streetz of Kerning City handed me a Equipment Crafting Stimulator. It seems to be a special item that can alter equipment stats when used during crafting. Should I try using it",
       "npc_name": "JM From tha Streetz",
-      "requirements": "Defeat Wild Boar x 30, Red Chair x 1",
+      "requirements": "Leatherworking Lv. 5 or Higher, Defeat Wild Boar x 30, Red Chair x 1",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92040000,
+          "name": "Leatherworking",
+          "level": 5,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Leatherworking Lv. 5 or Higher"
+        },
         {
           "type": "mob",
           "id": 22,
@@ -11359,8 +11440,17 @@
       "region": "Crafting",
       "description": "It looks like the leatherworking master JM From tha Streetz of Kerning City needs help again. It's been a while, perhaps I should pay him a visit.\nThe leatherworking master JM From tha Streetz of Kerning City has received an important request but is struggling due to a lack of materials. To help him, I’ll need to defeat Jr. Neckis and gather Jr. Necki Skins.\nI was able to safely deliver the items requested by the leatherworking master JM From tha Streetz of Kerning City. At this point, wouldn’t I qualify as a reliable partner",
       "npc_name": "JM From tha Streetz",
-      "requirements": "Defeat Jr. Necki x 25, Jr. Necki Skin x 10",
+      "requirements": "Leatherworking Lv. 2 or Higher, Defeat Jr. Necki x 25, Jr. Necki Skin x 10",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92040000,
+          "name": "Leatherworking",
+          "level": 2,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Leatherworking Lv. 2 or Higher"
+        },
         {
           "type": "mob",
           "id": 18,
@@ -11460,8 +11550,17 @@
       "region": "Crafting",
       "description": "It seems the Arcforger master Chrishrama of Sleepywood is finally ready to recognize my Arcforging skills.\nThe Arcforger master Chrishrama of Sleepywood was impressed with my growth and challenged me to prove my skill. I must defeat Horny Mushrooms and craft 1 Topaz to bring back.\nAmazed by my craftsmanship, the Arcforger master Chrishrama of Sleepywood handed me a Scroll Crafting Stimulator. It appears to be a special item that can create even stronger scrolls when used during crafting. Should I give it a try",
       "npc_name": "Chrishrama",
-      "requirements": "Defeat Horny Mushroom x 30, Topaz x 1",
+      "requirements": "Arcforge Lv. 5 or Higher, Defeat Horny Mushroom x 30, Topaz x 1",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92050000,
+          "name": "Arcforge",
+          "level": 5,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Arcforge Lv. 5 or Higher"
+        },
         {
           "type": "mob",
           "id": 19,
@@ -11514,8 +11613,17 @@
       "region": "Crafting",
       "description": "The Arcforger master Chrishrama of Sleepywood seems to need help. Perhaps I should visit him again.\nThe Arcforger master Chrishrama of Sleepywood has received an important research request, but he is struggling due to a lack of materials. To help him, I’ll need to defeat Green Mushrooms and gather 10 Fragment of Magic.\nI was able to safely deliver the item requested by the Arcforger master Chrishrama of Sleepywood. Does this mean I can now be called his apprentice",
       "npc_name": "Chrishrama",
-      "requirements": "Defeat Green Mushroom x 25, Fragment of Magic x 10",
+      "requirements": "Arcforge Lv. 2 or Higher, Defeat Green Mushroom x 25, Fragment of Magic x 10",
       "requirements_list": [
+        {
+          "type": "skill",
+          "id": 92050000,
+          "name": "Arcforge",
+          "level": 2,
+          "level_condition": "or Higher",
+          "is_crafting": true,
+          "label": "Arcforge Lv. 2 or Higher"
+        },
         {
           "type": "mob",
           "id": 13,

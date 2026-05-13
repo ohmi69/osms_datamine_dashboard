@@ -558,7 +558,7 @@ export function renderNavigatorGame(data, options = {}) {
   function buildDestPreview(endId, endName) {
     const wrap = el('div', { className: 'navgame-result-dest-preview' });
     wrap.appendChild(el('div', { className: 'navgame-result-dest-label', textContent: `🎯 Destination: ${endName}` }));
-    wrap.appendChild(el('img', { src: `${getDataBase()}/maps/${padMapId(endId)}.img.png`, alt: endName, className: 'navgame-result-dest-img' }));
+    wrap.appendChild(el('img', { src: `${getDataBase()}/maps/${padMapId(endId)}.img.webp`, alt: endName, className: 'navgame-result-dest-img' }));
     return wrap;
   }
 
@@ -587,7 +587,7 @@ export function renderNavigatorGame(data, options = {}) {
     }
     const destMap = mapLookup[challenge.endId];
     const name = destMap?.name || `Map ${challenge.endId}`;
-    const imgPath = `${getDataBase()}/maps/${padMapId(challenge.endId)}.img.png`;
+    const imgPath = `${getDataBase()}/maps/${padMapId(challenge.endId)}.img.webp`;
 
     const modal = document.createElement('div');
     modal.id = 'navgame-peek-modal';
@@ -661,7 +661,7 @@ export function renderNavigatorGame(data, options = {}) {
       currentLabel.appendChild(el('span', { className: 'navgame-dest-badge', textContent: ' — DESTINATION!' }));
     }
 
-    const imgPath = `${getDataBase()}/maps/${padMapId(mapId)}.img.png`;
+    const imgPath = `${getDataBase()}/maps/${padMapId(mapId)}.img.webp`;
     const imgWrap = el('div', { className: 'navgame-img-wrap' });
     const img = el('img', { src: imgPath, alt: name, className: 'navgame-map-img' });
 

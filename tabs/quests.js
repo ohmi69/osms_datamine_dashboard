@@ -33,6 +33,7 @@ function getRequirementThumbPath(requirement) {
   return '';
 }
 
+
 function formatRequirementLabel(requirement) {
   if (!requirement) return '';
   const count = Number(requirement.count) || 1;
@@ -44,6 +45,13 @@ function formatRequirementLabel(requirement) {
 
   if (requirement.type === 'item') {
     return `${count}x ${name}`;
+  }
+
+  if (requirement.type === 'skill') {
+    const level = requirement.level;
+    const cond = requirement.level_condition || '';
+    if (level && level > 0) return cond ? `${name} Lv. ${level} ${cond}` : `${name} Lv. ${level}`;
+    return name;
   }
 
   if (requirement.label) return requirement.label;
@@ -315,6 +323,14 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
       el('span', { className: 'level-badge', textContent: `Lv.${quest.level_min}+` })
     );
   }
+  if (Array.isArray(quest.requirements_list)) {
+    quest.requirements_list.filter(r => r.type === 'skill').forEach(r => {
+      const cond = r.level_condition ? ` ${r.level_condition}` : '';
+      nameRow.appendChild(
+        el('span', { className: 'badge badge-crafting', textContent: `${r.name} Lv.${r.level}${cond}` })
+      );
+    });
+  }
   if (quest.is_daily) {
     nameRow.appendChild(el('span', { className: 'badge badge-daily', textContent: 'DAILY' }));
   }
@@ -340,10 +356,13 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
   if (quest.description) {
     card.appendChild(el('p', { className: 'quest-desc', textContent: quest.description }));
   }
-  if (Array.isArray(quest.requirements_list) && quest.requirements_list.length) {
+  const nonSkillReqs = Array.isArray(quest.requirements_list)
+    ? quest.requirements_list.filter(r => r.type !== 'skill')
+    : [];
+  if (nonSkillReqs.length) {
     const reqBox = el('div', { className: 'quest-meta-box', style: { marginTop: '8px' } });
     reqBox.appendChild(el('span', { className: 'label', textContent: 'Requirements: ' }));
-    reqBox.appendChild(renderRequirementChips(quest.requirements_list, itemById, monsterById));
+    reqBox.appendChild(renderRequirementChips(nonSkillReqs, itemById, monsterById));
     card.appendChild(reqBox);
   } else if (quest.requirements) {
     const reqBox = el('div', { className: 'quest-meta-box', style: { marginTop: '8px' } });
