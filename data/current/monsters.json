@@ -27,6 +27,8 @@
           "mob_time": "1.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000001.png",
       "gifs": {
         "move": "images/monsters/0000001.move.webp",
@@ -278,6 +280,8 @@
           "mob_time": "300.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000002.png",
       "gifs": {
         "move": "images/monsters/0000002.move.webp",
@@ -554,6 +558,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000003.png",
       "gifs": {
         "move": "images/monsters/0000003.move.webp",
@@ -691,6 +697,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000004.png",
       "gifs": {
         "move": "images/monsters/0000004.move.webp",
@@ -1009,6 +1017,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000005.png",
       "gifs": {
         "move": "images/monsters/0000005.move.webp",
@@ -1244,6 +1254,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000006.png",
       "gifs": {
         "move": "images/monsters/0000006.move.webp",
@@ -1587,6 +1599,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000007.png",
       "gifs": {
         "move": "images/monsters/0000007.move.webp",
@@ -1713,6 +1727,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000008.png",
       "gifs": {
         "move": "images/monsters/0000008.move.webp",
@@ -1930,6 +1946,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000009.png",
       "gifs": {
         "move": "images/monsters/0000009.move.webp",
@@ -2050,6 +2068,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000010.png",
       "gifs": {
         "move": "images/monsters/0000010.move.webp",
@@ -2244,6 +2264,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000011.png",
       "gifs": {
         "move": "images/monsters/0000011.move.webp",
@@ -2329,6 +2351,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000012.png",
       "gifs": {
         "stand": "images/monsters/0000012.stand.webp",
@@ -2564,6 +2588,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000013.png",
       "gifs": {
         "move": "images/monsters/0000013.move.webp",
@@ -2606,6 +2632,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000014.png",
       "gifs": {
         "move": "images/monsters/0000014.move.webp",
@@ -2750,6 +2778,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000015.png",
       "gifs": {
         "move": "images/monsters/0000015.move.webp",
@@ -2875,6 +2905,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000016.png",
       "gifs": {
         "move": "images/monsters/0000016.move.webp",
@@ -2935,6 +2967,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000017.png",
       "gifs": {
         "fly": "images/monsters/0000017.fly.webp",
@@ -3078,6 +3112,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000018.png",
       "gifs": {
         "move": "images/monsters/0000018.move.webp",
@@ -3252,6 +3288,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000019.png",
       "gifs": {
         "move": "images/monsters/0000019.move.webp",
@@ -3428,6 +3466,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000020.png",
       "gifs": {
         "move": "images/monsters/0000020.move.webp",
@@ -3555,6 +3595,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000021.png",
       "gifs": {
         "move": "images/monsters/0000021.move.webp",
@@ -3639,6 +3681,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000022.png",
       "gifs": {
         "move": "images/monsters/0000022.move.webp",
@@ -3717,6 +3761,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000023.png",
       "gifs": {
         "move": "images/monsters/0000023.move.webp",
@@ -3789,6 +3835,18 @@
           "mob_time": "600.00"
         }
       ],
+      "self_buffs": [
+        {
+          "id": 100,
+          "level": 1,
+          "name": "Attack Buff",
+          "icon": "images/mob_skills/100.png",
+          "x": 115,
+          "time": 30,
+          "interval": 40
+        }
+      ],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000024.png",
       "gifs": {
         "move": "images/monsters/0000024.move.webp",
@@ -3819,6 +3877,28 @@
       "is_boss": false,
       "is_new": false,
       "maps": [],
+      "self_buffs": [
+        {
+          "id": 110,
+          "level": 1,
+          "name": "Attack Buff (AOE)",
+          "icon": "images/mob_skills/110.png",
+          "x": 115,
+          "time": 15,
+          "interval": 10
+        }
+      ],
+      "debuffs": [
+        {
+          "id": 123,
+          "level": 1,
+          "name": "Stun",
+          "icon": "images/mob_skills/123.png",
+          "time": 1,
+          "interval": 60,
+          "prop": 50
+        }
+      ],
       "thumbnail": "images/monsters/0000025.png",
       "gifs": {
         "move": "images/monsters/0000025.move.webp",
@@ -3853,6 +3933,28 @@
           "name": "Someone Else's House",
           "count": 2,
           "mob_time": "180.00"
+        }
+      ],
+      "self_buffs": [
+        {
+          "id": 111,
+          "level": 1,
+          "name": "Evasion/Accuracy Buff (?)",
+          "icon": "images/mob_skills/111.png",
+          "x": 115,
+          "time": 30,
+          "interval": 10
+        }
+      ],
+      "debuffs": [
+        {
+          "id": 120,
+          "level": 1,
+          "name": "Seal",
+          "icon": "images/mob_skills/120.png",
+          "time": 3,
+          "interval": 120,
+          "prop": 50
         }
       ],
       "thumbnail": "images/monsters/0000026.png",
@@ -3901,6 +4003,28 @@
           "name": "Someone Else's Grave",
           "count": 1,
           "mob_time": "7.56"
+        }
+      ],
+      "self_buffs": [
+        {
+          "id": 112,
+          "level": 1,
+          "name": "Attack + Defense Buff",
+          "icon": "images/mob_skills/112.png",
+          "x": 85,
+          "time": 30,
+          "interval": 10
+        }
+      ],
+      "debuffs": [
+        {
+          "id": 121,
+          "level": 1,
+          "name": "Darkness",
+          "icon": "images/mob_skills/121.png",
+          "time": 6,
+          "interval": 60,
+          "prop": 50
         }
       ],
       "thumbnail": "images/monsters/0000027.png",
@@ -3969,6 +4093,28 @@
           "mob_time": "180.00"
         }
       ],
+      "self_buffs": [
+        {
+          "id": 113,
+          "level": 1,
+          "name": "Evasion/Accuracy Buff (?)",
+          "icon": "images/mob_skills/113.png",
+          "x": 85,
+          "time": 30,
+          "interval": 10
+        }
+      ],
+      "debuffs": [
+        {
+          "id": 122,
+          "level": 1,
+          "name": "Weakness",
+          "icon": "images/mob_skills/122.png",
+          "time": 4,
+          "interval": 60,
+          "prop": 50
+        }
+      ],
       "thumbnail": "images/monsters/0000028.png",
       "gifs": {
         "move": "images/monsters/0000028.move.webp",
@@ -4026,6 +4172,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000029.png",
       "gifs": {
         "move": "images/monsters/0000029.move.webp",
@@ -4143,6 +4291,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000030.png",
       "gifs": {
         "move": "images/monsters/0000030.move.webp",
@@ -4265,6 +4415,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000031.png",
       "gifs": {
         "move": "images/monsters/0000031.move.webp",
@@ -4328,6 +4480,8 @@
           "mob_time": "1.00-7.56 [7.01]"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000032.png",
       "gifs": {
         "move": "images/monsters/0000032.move.webp",
@@ -4398,6 +4552,27 @@
           "name": "Sleepy Dungeon V",
           "count": 5,
           "mob_time": "300.00"
+        }
+      ],
+      "self_buffs": [],
+      "debuffs": [
+        {
+          "id": 120,
+          "level": 1,
+          "name": "Seal",
+          "icon": "images/mob_skills/120.png",
+          "time": 3,
+          "interval": 120,
+          "prop": 50
+        },
+        {
+          "id": 124,
+          "level": 1,
+          "name": "EXP Reduction",
+          "icon": "images/mob_skills/124.png",
+          "time": 60,
+          "interval": 10,
+          "prop": 50
         }
       ],
       "thumbnail": "images/monsters/0000033.png",
@@ -4495,6 +4670,27 @@
           "name": "The Grave of Mushmom",
           "count": 2,
           "mob_time": "7.56"
+        }
+      ],
+      "self_buffs": [],
+      "debuffs": [
+        {
+          "id": 121,
+          "level": 1,
+          "name": "Darkness",
+          "icon": "images/mob_skills/121.png",
+          "time": 6,
+          "interval": 60,
+          "prop": 50
+        },
+        {
+          "id": 122,
+          "level": 1,
+          "name": "Weakness",
+          "icon": "images/mob_skills/122.png",
+          "time": 4,
+          "interval": 60,
+          "prop": 50
         }
       ],
       "thumbnail": "images/monsters/0000034.png",
@@ -4666,6 +4862,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000035.png",
       "gifs": {
         "move": "images/monsters/0000035.move.webp",
@@ -4728,6 +4926,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000036.png",
       "gifs": {
         "move": "images/monsters/0000036.move.webp",
@@ -4822,6 +5022,8 @@
           "mob_time": "10.00-20.00 [14.00]"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000037.png",
       "gifs": {
         "move": "images/monsters/0000037.move.webp",
@@ -4909,6 +5111,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000038.png",
       "gifs": {
         "move": "images/monsters/0000038.move.webp",
@@ -4958,6 +5162,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000040.png",
       "gifs": {
         "move": "images/monsters/0000040.move.webp",
@@ -5000,6 +5206,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000041.png",
       "gifs": {
         "move": "images/monsters/0000041.move.webp",
@@ -5062,6 +5270,8 @@
           "mob_time": "1.00-7.56 [6.90]"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000043.png",
       "gifs": {
         "move": "images/monsters/0000043.move.webp",
@@ -5112,6 +5322,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000044.png",
       "gifs": {
         "move": "images/monsters/0000044.move.webp",
@@ -5167,6 +5379,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000045.png",
       "gifs": {
         "move": "images/monsters/0000045.move.webp",
@@ -5209,6 +5423,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000046.png",
       "gifs": {
         "move": "images/monsters/0000046.move.webp",
@@ -5253,6 +5469,8 @@
           "mob_time": "7.56-60.00 [41.76]"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000047.png",
       "gifs": {
         "fly": "images/monsters/0000047.fly.webp",
@@ -5324,6 +5542,27 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [
+        {
+          "id": 100,
+          "level": 1,
+          "name": "Attack Buff",
+          "icon": "images/mob_skills/100.png",
+          "x": 115,
+          "time": 30,
+          "interval": 40
+        },
+        {
+          "id": 102,
+          "level": 1,
+          "name": "Defense Buff",
+          "icon": "images/mob_skills/102.png",
+          "x": 85,
+          "time": 30,
+          "interval": 40
+        }
+      ],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000048.png",
       "gifs": {
         "move": "images/monsters/0000048.move.webp",
@@ -5375,6 +5614,27 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [
+        {
+          "id": 100,
+          "level": 2,
+          "name": "Attack Buff",
+          "icon": "images/mob_skills/100.png",
+          "x": 130,
+          "time": 30,
+          "interval": 40
+        },
+        {
+          "id": 102,
+          "level": 2,
+          "name": "Defense Buff",
+          "icon": "images/mob_skills/102.png",
+          "x": 60,
+          "time": 10,
+          "interval": 120
+        }
+      ],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000049.png",
       "gifs": {
         "move": "images/monsters/0000049.move.webp",
@@ -5415,6 +5675,8 @@
           "mob_time": "20.00-60.00 [41.76]"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000050.png",
       "gifs": {
         "move": "images/monsters/0000050.move.webp",
@@ -5464,6 +5726,8 @@
           "mob_time": "120.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000051.png",
       "gifs": {
         "move": "images/monsters/0000051.move.webp",
@@ -5521,6 +5785,8 @@
           "mob_time": "60.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000052.png",
       "gifs": {
         "move": "images/monsters/0000052.move.webp",
@@ -5568,6 +5834,8 @@
           "mob_time": "30.00-120.00 [72.00]"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000053.png",
       "gifs": {
         "move": "images/monsters/0000053.move.webp",
@@ -5618,6 +5886,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000054.png",
       "gifs": {
         "move": "images/monsters/0000054.move.webp",
@@ -5674,6 +5944,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000055.png",
       "gifs": {
         "move": "images/monsters/0000055.move.webp",
@@ -5722,6 +5994,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000056.png",
       "gifs": {
         "fly": "images/monsters/0000056.fly.webp",
@@ -5772,6 +6046,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000057.png",
       "gifs": {
         "move": "images/monsters/0000057.move.webp",
@@ -5840,6 +6116,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000058.png",
       "gifs": {
         "stand": "images/monsters/0000058.stand.webp",
@@ -5914,6 +6192,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000059.png",
       "gifs": {
         "move": "images/monsters/0000059.move.webp",
@@ -5965,6 +6245,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000060.png",
       "gifs": {
         "move": "images/monsters/0000060.move.webp",
@@ -6016,6 +6298,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000061.png",
       "gifs": {
         "move": "images/monsters/0000061.move.webp",
@@ -6055,6 +6339,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000062.png",
       "gifs": {
         "move": "images/monsters/0000062.move.webp",
@@ -6095,6 +6381,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0000063.png",
       "gifs": {
         "move": "images/monsters/0000063.move.webp",
@@ -6156,6 +6444,8 @@
           "mob_time": "1.00-30.00 [27.93]"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Jump Quest",
       "thumbnail": "images/monsters/0000090.png",
       "gifs": {
@@ -6193,6 +6483,8 @@
           "mob_time": "1.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Jump Quest",
       "thumbnail": "images/monsters/0000091.png",
       "gifs": {
@@ -6230,6 +6522,8 @@
           "mob_time": "1.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Jump Quest",
       "thumbnail": "images/monsters/0000092.png",
       "gifs": {
@@ -6273,6 +6567,8 @@
           "mob_time": "1.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Jump Quest",
       "thumbnail": "images/monsters/0000093.png",
       "gifs": {
@@ -6309,6 +6605,8 @@
           "mob_time": "1800.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0700000.png",
       "gifs": {
         "move": "images/monsters/0700000.move.webp",
@@ -6348,6 +6646,8 @@
           "mob_time": "10800.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0700001.png",
       "gifs": {
         "move": "images/monsters/0700001.move.webp",
@@ -6390,6 +6690,8 @@
           "mob_time": "1800.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0700002.png",
       "gifs": {
         "move": "images/monsters/0700002.move.webp",
@@ -6432,6 +6734,8 @@
           "mob_time": "1800.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0700003.png",
       "gifs": {
         "move": "images/monsters/0700003.move.webp",
@@ -6468,6 +6772,38 @@
           "name": "Thicket Around the Beach III",
           "count": 1,
           "mob_time": "1800.00"
+        }
+      ],
+      "self_buffs": [
+        {
+          "id": 112,
+          "level": 1,
+          "name": "Attack + Defense Buff",
+          "icon": "images/mob_skills/112.png",
+          "x": 85,
+          "time": 30,
+          "interval": 10
+        },
+        {
+          "id": 113,
+          "level": 1,
+          "name": "Evasion/Accuracy Buff (?)",
+          "icon": "images/mob_skills/113.png",
+          "x": 85,
+          "time": 30,
+          "interval": 10
+        }
+      ],
+      "debuffs": [
+        {
+          "id": 126,
+          "level": 1,
+          "name": "Slow",
+          "icon": "images/mob_skills/126.png",
+          "x": 80,
+          "time": 5,
+          "interval": 60,
+          "prop": 100
         }
       ],
       "thumbnail": "images/monsters/0700004.png",
@@ -6510,6 +6846,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/0800000.png",
       "gifs": {
         "move": "images/monsters/0800000.move.webp",
@@ -6546,6 +6884,8 @@
           "mob_time": "180.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "KPQ",
       "thumbnail": "images/monsters/0800001.png",
       "gifs": {
@@ -6585,6 +6925,8 @@
           "mob_time": "180.00"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Job Advancement",
       "thumbnail": "images/monsters/0800002.png",
       "gifs": {
@@ -6626,6 +6968,8 @@
           "count": 1
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "KPQ",
       "thumbnail": "images/monsters/0800003.png",
       "gifs": {
@@ -6664,6 +7008,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Job Advancement",
       "thumbnail": "images/monsters/0800010.png",
       "gifs": {
@@ -6703,6 +7049,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Job Advancement",
       "thumbnail": "images/monsters/0800011.png",
       "gifs": {
@@ -6742,6 +7090,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Job Advancement",
       "thumbnail": "images/monsters/0800012.png",
       "gifs": {
@@ -6779,6 +7129,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Job Advancement",
       "thumbnail": "images/monsters/0800013.png",
       "gifs": {
@@ -6819,6 +7171,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Job Advancement",
       "thumbnail": "images/monsters/0800014.png",
       "gifs": {
@@ -6857,6 +7211,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Job Advancement",
       "thumbnail": "images/monsters/0800015.png",
       "gifs": {
@@ -6897,6 +7253,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Job Advancement",
       "thumbnail": "images/monsters/0800016.png",
       "gifs": {
@@ -6934,6 +7292,8 @@
           "mob_time": "7.56"
         }
       ],
+      "self_buffs": [],
+      "debuffs": [],
       "special": "Job Advancement",
       "thumbnail": "images/monsters/0800017.png",
       "gifs": {
@@ -6964,6 +7324,8 @@
       "is_boss": false,
       "is_new": false,
       "maps": [],
+      "self_buffs": [],
+      "debuffs": [],
       "thumbnail": "images/monsters/9990000.png",
       "gifs": {
         "stand": "images/monsters/9990000.stand.webp",

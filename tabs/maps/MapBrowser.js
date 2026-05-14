@@ -1,7 +1,7 @@
 
 import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeHideToggle, makeCopyableId, padMapId, padMobId } from '../../lib/utils.js';
 import { attachTooltip } from '../../lib/tooltip.js';
-import state, { getNpcLookup, getDataBase } from '../../lib/data.js';
+import state, { getNpcLookup, getDataBase, getMapUrl } from '../../lib/data.js';
 import { showNavigateModal } from './MapNavigator.js';
 import { attachPortalOverlay } from './MapPortalOverlay.js';
 
@@ -155,7 +155,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     // Full map image with portal overlays
     let imgContainer = null;
     if (mapEntry.id) {
-      const mapImgPath = `${getDataBase()}/maps/${padMapId(mapEntry.id)}.img.webp`;
+      const mapImgPath = getMapUrl(mapEntry.id);
       imgContainer = el('div', { className: 'full-map-image-container', style: { position: 'relative', display: 'inline-block' } });
       const img = el('img', {
         className: 'full-map-image',

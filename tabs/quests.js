@@ -320,7 +320,7 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
   nameRow.appendChild(document.createTextNode(quest.name));
   if (quest.level_min > 0) {
     nameRow.appendChild(
-      el('span', { className: 'level-badge', textContent: `Lv.${quest.level_min}+` })
+      el('span', { className: 'badge level-badge', textContent: `Lv.${quest.level_min}+` })
     );
   }
   if (Array.isArray(quest.requirements_list)) {

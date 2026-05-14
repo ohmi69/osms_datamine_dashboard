@@ -2,7 +2,7 @@
 // Navigate from start to end map by clicking portal overlays.
 
 import { el, padMapId } from '../lib/utils.js';
-import { getDataBase } from '../lib/data.js';
+import { getDataBase, getMapUrl } from '../lib/data.js';
 
 /* ── seeded PRNG ─────────────────────────────────────────────── */
 
@@ -253,7 +253,7 @@ function decodeDailyPerf(encoded) {
 async function ensurePortals() {
   if (!window._allPortalsCache) {
     try {
-      const res = await fetch(`${getDataBase()}/maps/portals.json`);
+      const res = await fetch(`${getDataBase()}/portals.json`);
       window._allPortalsCache = res.ok ? await res.json() : {};
     } catch {
       window._allPortalsCache = {};
@@ -558,7 +558,7 @@ export function renderNavigatorGame(data, options = {}) {
   function buildDestPreview(endId, endName) {
     const wrap = el('div', { className: 'navgame-result-dest-preview' });
     wrap.appendChild(el('div', { className: 'navgame-result-dest-label', textContent: `🎯 Destination: ${endName}` }));
-    wrap.appendChild(el('img', { src: `${getDataBase()}/maps/${padMapId(endId)}.img.webp`, alt: endName, className: 'navgame-result-dest-img' }));
+    wrap.appendChild(el('img', { src: getMapUrl(endId), alt: endName, className: 'navgame-result-dest-img' }));
     return wrap;
   }
 
@@ -587,7 +587,7 @@ export function renderNavigatorGame(data, options = {}) {
     }
     const destMap = mapLookup[challenge.endId];
     const name = destMap?.name || `Map ${challenge.endId}`;
-    const imgPath = `${getDataBase()}/maps/${padMapId(challenge.endId)}.img.webp`;
+    const imgPath = getMapUrl(challenge.endId);
 
     const modal = document.createElement('div');
     modal.id = 'navgame-peek-modal';
@@ -661,7 +661,7 @@ export function renderNavigatorGame(data, options = {}) {
       currentLabel.appendChild(el('span', { className: 'navgame-dest-badge', textContent: ' — DESTINATION!' }));
     }
 
-    const imgPath = `${getDataBase()}/maps/${padMapId(mapId)}.img.webp`;
+    const imgPath = getMapUrl(mapId);
     const imgWrap = el('div', { className: 'navgame-img-wrap' });
     const img = el('img', { src: imgPath, alt: name, className: 'navgame-map-img' });
 

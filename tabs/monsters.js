@@ -171,6 +171,58 @@ function buildDetailRow(monster, colSpan, onMapClick) {
     body.appendChild(mapsCol);
   }
 
+  // ── Skills ───────────────────────────────────────────────────
+  function renderMobSkillCards(skillList) {
+    const wrap = el('div', { className: 'monster-self-buffs' });
+    skillList.forEach((buff) => {
+      const card = el('div', { className: 'mob-skill-card' });
+      if (buff.icon) {
+        const img = el('img', { src: normalizeAssetPath(buff.icon), className: 'mob-skill-icon', alt: buff.name });
+        img.onerror = () => {
+          const fallback = el('div', { className: 'mob-skill-icon-fallback', textContent: '?' });
+          img.replaceWith(fallback);
+        };
+        card.appendChild(img);
+      } else {
+        card.appendChild(el('div', { className: 'mob-skill-icon-fallback', textContent: '?' }));
+      }
+      const info = el('div', { className: 'mob-skill-info' });
+      const nameRow = el('span', { className: 'mob-skill-name', textContent: `${buff.name} Lv.${buff.level}` });
+      if (buff.id != null) {
+        const idEl = makeCopyableId(String(buff.id));
+        idEl.style.paddingLeft = '6px';
+        nameRow.appendChild(idEl);
+      }
+      info.appendChild(nameRow);
+      const parts = [];
+      if (buff.x != null) parts.push(`+${buff.x}%`);
+      if (buff.prop != null) parts.push(`${buff.prop}% chance`);
+      if (buff.time != null) parts.push(`${buff.time}s`);
+      if (buff.interval != null) parts.push(`every ${buff.interval}s`);
+      if (parts.length) {
+        info.appendChild(el('span', { className: 'mob-skill-stats', textContent: parts.join(' · ') }));
+      }
+      card.appendChild(info);
+      wrap.appendChild(card);
+    });
+    return wrap;
+  }
+
+  const selfBuffs = monster.self_buffs;
+  const debuffs = monster.debuffs;
+  if ((selfBuffs && selfBuffs.length) || (debuffs && debuffs.length)) {
+    const skillsCol = el('div', { className: 'monster-detail-col monster-detail-col-skills' });
+    if (selfBuffs && selfBuffs.length) {
+      skillsCol.appendChild(el('div', { className: 'monster-stat-group-label', textContent: 'Self Buffs' }));
+      skillsCol.appendChild(renderMobSkillCards(selfBuffs));
+    }
+    if (debuffs && debuffs.length) {
+      skillsCol.appendChild(el('div', { className: 'monster-stat-group-label', textContent: 'Debuffs' }));
+      skillsCol.appendChild(renderMobSkillCards(debuffs));
+    }
+    body.appendChild(skillsCol);
+  }
+
   panel.appendChild(body);
   detailTd.appendChild(panel);
   detailTr.appendChild(detailTd);
