@@ -71,7 +71,7 @@ export function renderOverview(data, { switchTab }) {
   }
 
   frag.appendChild(buildBanner(
-    'Closed Online Test has ended',
+    'Closed Open Test has ended',
     'This site will be updated again once the game launches, or if theres an open beta. In the meantime, check out previous old school patches by clicking the dropdown on the top right! Thanks for visiting — see you soon! 👋',
   ));
 

@@ -1,0 +1,33 @@
+{
+  "stats": {
+    "monsters": 590,
+    "equipment": 1978,
+    "consumables": 367,
+    "scrolls": 298,
+    "etc": 1120,
+    "setup": 159,
+    "skills": 181,
+    "maps": 935,
+    "quests": 517,
+    "recipes": 0,
+    "cash_shop_items": 1696,
+    "npcs": 740,
+    "num_classes": 25,
+    "num_regions": 7,
+    "num_disciplines": 6,
+    "discipline_names": "Smithing, Weaponcrafting, Tailoring, Woodcrafting, Leatherworking, Arcforge",
+    "num_bosses": 76,
+    "boss_names": "Rombot, MT-09, Mushmom, Pachu, Zombie Mushmom, Opachu, Yellow King Goblin, Blue King Goblin, Green King Goblin, Thornbush, Jr. Balrog, Crimson Balrog, Manon, Griffey, Time Sphere, Papulatus Clock, Papulatus, High Darkstar, Low Darkstar, Pianus, Bloody Boom, Zakum1, Zakum2, Zakum3, Zakum's Arm 1, Zakum's Arm 2, Zakum's Arm 3, Zakum's Arm 4, Zakum's Arm 5, Zakum's Arm 6, Zakum's Arm 7, Zakum's Arm 8, Dances with Balrog's Clone, Grendel the Really Old's Clone, Athena Pierce's Clone, Dark Lord's Clone, Rombad from Another Dimension, Alishar, Ergoth, Lion Statue A, Lion Statue B, Knight Statue A, Knight Statue B, Papa Pixie, Jr. Balrog in Another World, The Elemental Thanatos, Dark Lord's Disciple, Phoenix, Freezer, Jr. Balrog in Forgotten Shrine, Crimson Balrog the Kidnapper, Angry Lord Pirate, Enraged Lord Pirate, Peeking Lord Pirate, Lord Pirate, Black Crow, Japanese Monster, 일본몹, Male Boss, Blue Mushmom, Malady, Wraith, Stirge, Geist Balrog Phase 3, Geist Balrog Phase 1, Geist Balrog Phase 2, Making a wish to full moon, Making a wish to the full moon, King Slime, Zoo Balrog, Zoo Yeti, Zoo White Fang, Zoo Pig, Zoo Ribbon Pig, Gourd, Giant Centipede",
+    "num_new_monsters": 0,
+    "num_new_maps": 5,
+    "version": "~v0.26-0.28 (Victoria Island only)",
+    "classes": "25 (Archer, Assassin, Bandit, Beginner, Berserker, Chief Bandit, Cleric, Crossbowman, Crusader, F/P Mage, F/P Wizard, Fighter, Hermit, Hunter, I/L Mage, I/L Wizard, Magician, Page, Priest, Ranger, Rogue, Sniper, Spearman, Warrior, White Knight) — 2nd Job cap",
+    "cbt_start": "April 14, 2026",
+    "cbt_end": "April 23, 2026",
+    "disciplines": "6 (Smithing, Weaponcrafting, Tailoring, Woodcrafting, Leatherworking, Arcforge)",
+    "bosses": "76 (Rombot, MT-09, Mushmom, Pachu, Zombie Mushmom, Opachu, Yellow King Goblin, Blue King Goblin, Green King Goblin, Thornbush, Jr. Balrog, Crimson Balrog, Manon, Griffey, Time Sphere, Papulatus Clock, Papulatus, High Darkstar, Low Darkstar, Pianus, Bloody Boom, Zakum1, Zakum2, Zakum3, Zakum's Arm 1, Zakum's Arm 2, Zakum's Arm 3, Zakum's Arm 4, Zakum's Arm 5, Zakum's Arm 6, Zakum's Arm 7, Zakum's Arm 8, Dances with Balrog's Clone, Grendel the Really Old's Clone, Athena Pierce's Clone, Dark Lord's Clone, Rombad from Another Dimension, Alishar, Ergoth, Lion Statue A, Lion Statue B, Knight Statue A, Knight Statue B, Papa Pixie, Jr. Balrog in Another World, The Elemental Thanatos, Dark Lord's Disciple, Phoenix, Freezer, Jr. Balrog in Forgotten Shrine, Crimson Balrog the Kidnapper, Angry Lord Pirate, Enraged Lord Pirate, Peeking Lord Pirate, Lord Pirate, Black Crow, Japanese Monster, 일본몹, Male Boss, Blue Mushmom, Malady, Wraith, Stirge, Geist Balrog Phase 3, Geist Balrog Phase 1, Geist Balrog Phase 2, Making a wish to full moon, Making a wish to the full moon, King Slime, Zoo Balrog, Zoo Yeti, Zoo White Fang, Zoo Pig, Zoo Ribbon Pig, Gourd, Giant Centipede)",
+    "level_range": "1–80 (Jr. Balrog highest)",
+    "scroll_system": "4 tiers — Lesser (100%, +1 stat), Intermediate (60%, +2 stat), Greater (10%, +3 stat), Chaos (10%, +5 stat, destroys on fail)",
+    "repeatable_quests": "0 daily, 0 weekly, 77 infinite"
+  }
+}

@@ -109,11 +109,6 @@
   margin: 0;
 }
 
-/* ── Formula token colors ────────────────────────────────────── */
-.formula-var { color: var(--secondary); }
-.formula-num { color: var(--accent); opacity: 0.85; }
-.formula-fn  { color: var(--secondary); font-style: italic; }
-
 /* ── Variable legend ─────────────────────────────────────────── */
 .formulas-var-heading {
   font-size: 10px;

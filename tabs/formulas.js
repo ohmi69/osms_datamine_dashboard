@@ -76,8 +76,11 @@ const BASE_DAMAGE_STEPS = [
       'MAX = SkillMult × ((100 + PrimaryStat × MaxWepMult + SecondaryStat + AttackPower) / 100) × WeaponAttack',
     ],
     notes: [
+      'MasteryMult = (0.1 + MasteryLevel / 10) × 0.8',
       'L7 (Lucky Seven): MinWepMult = MaxWepMult = 2.6, MasteryLevel ≈ 5.25',
       'Claws appear to use 2.6 for all attacks — Drain should use the 2.5 claw multiplier (likely a bug)',
+      'SecondaryStat for Thieves: STR + DEX',
+      'WeaponAttack includes attack provided by Stars and Arrows',
     ],
   },
   {
@@ -87,7 +90,14 @@ const BASE_DAMAGE_STEPS = [
       'MIN = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 × MasteryMult + Int) / 100 + 1)',
       'MAX = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 + Int) / 100 + 1)',
     ],
-    notes: [],
+    notes: [
+      'BasicAttack is the Basic Attack damage value listed on the skill',
+      'MasteryMult = (0.1 + MasteryLevel / 10) × 0.8',
+      'Int is BASE Int from AP only — equipment/scroll bonuses not included (likely a bug)',
+      'MagicAttack = TotalInt / 2 + EquipmentMagicAttack',
+      '  TotalInt = INT shown in stats UI (includes equipment)',
+      '  EquipmentMagicAttack = sum of Magic Attack on all gear (including above/below average and scrolled stats)',
+    ],
   },
   {
     label: 'Heal',
@@ -97,7 +107,11 @@ const BASE_DAMAGE_STEPS = [
       'MAX = ((Int × 1.0 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
     ],
     notes: [
+      'Int is BASE Int from AP only — equipment/scroll bonuses not included (likely a bug)',
       'Luk is assumed to be BASE Luk from AP — difficult to verify as mages have very low Luk on gear',
+      'MagicAttack = TotalInt / 2 + EquipmentMagicAttack (same derivation as Magical Damage)',
+      'TargetsHit includes enemies, the caster, and all allies in range',
+      'RecoveryRate is the recovery rate % shown on the Heal skill',
       'Data is limited — verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
     ],
   },
@@ -113,8 +127,7 @@ const BASE_DAMAGE_VARS = [
   { name: 'MaxWepMult',    desc: 'Weapon max multiplier (Swing or Stab) — see Weapon Multipliers table' },
   { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8  |  L7: MasteryLevel ≈ 5.25' },
   { name: 'BasicAttack',   desc: 'Basic Attack damage value listed on the skill (magic skills)' },
-  { name: 'MagicAttack',        desc: 'TotalInt / 2 + EquipmentMagicAttack (MAGIC value shown in UI)' },
-  { name: 'EquipmentMagicAttack', desc: 'Sum of Magic Attack on all gear (including above/below average and scrolled stats)' },
+  { name: 'MagicAttack',   desc: 'TotalInt / 2 + EquipmentMagicAttack (MAGIC value shown in UI)' },
   { name: 'Int',           desc: 'BASE Int from AP only — equipment stats not included (likely a bug)' },
   { name: 'Luk',           desc: 'BASE Luk from AP (assumed — see Heal notes)' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
@@ -134,6 +147,8 @@ const MOD_PIPELINE_STEPS = [
     ],
     notes: [
       'trunc() rounds toward zero (down for positive, up for negative)',
+      'PercentEffects: sum of percent-based buffs/debuffs on enemy weapon defense — see Enemy Defense Modifiers',
+      'FlatEffects: flat modifiers to enemy weapon defense — no known sources currently',
       'Applies to Physical damage only',
     ],
   },
@@ -168,7 +183,9 @@ const MOD_PIPELINE_STEPS = [
       '  enemy < 10 levels above:  Damage / (LevelDiff² × 0.005 + 1)',
       '  enemy ≥ 10 levels above:  Damage / (LevelDiff × 0.05 + 1)',
     ],
-    notes: [],
+    notes: [
+      'LevelDiff = enemy level − player level',
+    ],
   },
   {
     label: 'Critical Hit',
@@ -186,7 +203,9 @@ const MOD_PIPELINE_STEPS = [
       'Damage = Damage × (1 − ConsecutiveHits × 0.2)',
       '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.6 …',
     ],
-    notes: [],
+    notes: [
+      'ConsecutiveHits is 0 for the first mob hit, 1 for the second, etc.',
+    ],
   },
   {
     label: 'Clamp',
@@ -210,30 +229,6 @@ const MOD_VARS = [
   { name: 'ConsecutiveHits', desc: 'Iron Arrow: 0 for first mob hit, 1 for second, etc.' },
 ];
 
-
-// ─── Formula tokenizer ───────────────────────────────────────
-
-const FORMULA_FNS = new Set(['exp', 'rand', 'trunc', 'floor', 'clamp']);
-const FORMULA_TOKEN_RE = /([A-Za-z][A-Za-z0-9]*)|(\d+(?:\.\d+)?)/g;
-
-function tokenizeLine(line) {
-  let out = '';
-  let last = 0;
-  let m;
-  FORMULA_TOKEN_RE.lastIndex = 0;
-  while ((m = FORMULA_TOKEN_RE.exec(line)) !== null) {
-    out += line.slice(last, m.index);
-    if (m[1]) {
-      const cls = FORMULA_FNS.has(m[1]) ? 'formula-fn' : 'formula-var';
-      out += `<span class="${cls}">${m[1]}</span>`;
-    } else {
-      out += `<span class="formula-num">${m[0]}</span>`;
-    }
-    last = FORMULA_TOKEN_RE.lastIndex;
-  }
-  out += line.slice(last);
-  return out;
-}
 
 // ─── Shared helpers ───────────────────────────────────────────
 
@@ -270,9 +265,7 @@ function buildPipeline(steps) {
 
     const codeLines = lines.filter(l => l !== '');
     if (codeLines.length) {
-      const pre = el('pre', { className: 'formulas-code' });
-      pre.innerHTML = lines.map(l => l === '' ? '' : tokenizeLine(l)).join('\n');
-      step.appendChild(pre);
+      step.appendChild(el('pre', { className: 'formulas-code', textContent: lines.join('\n') }));
     }
 
     if (notes?.length) {
