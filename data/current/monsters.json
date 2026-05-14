@@ -3939,7 +3939,7 @@
         {
           "id": 111,
           "level": 1,
-          "name": "Evasion/Accuracy Buff (?)",
+          "name": "Magic Attack Buff (AOE)",
           "icon": "images/mob_skills/111.png",
           "x": 115,
           "time": 30,
@@ -4009,7 +4009,7 @@
         {
           "id": 112,
           "level": 1,
-          "name": "Attack + Defense Buff",
+          "name": "Defense Buff (AOE)",
           "icon": "images/mob_skills/112.png",
           "x": 85,
           "time": 30,
@@ -4097,7 +4097,7 @@
         {
           "id": 113,
           "level": 1,
-          "name": "Evasion/Accuracy Buff (?)",
+          "name": "Magic Defense Buff (AOE)",
           "icon": "images/mob_skills/113.png",
           "x": 85,
           "time": 30,
@@ -4568,7 +4568,7 @@
         {
           "id": 124,
           "level": 1,
-          "name": "EXP Reduction",
+          "name": "Curse",
           "icon": "images/mob_skills/124.png",
           "time": 60,
           "interval": 10,
@@ -6778,7 +6778,7 @@
         {
           "id": 112,
           "level": 1,
-          "name": "Attack + Defense Buff",
+          "name": "Defense Buff (AOE)",
           "icon": "images/mob_skills/112.png",
           "x": 85,
           "time": 30,
@@ -6787,7 +6787,7 @@
         {
           "id": 113,
           "level": 1,
-          "name": "Evasion/Accuracy Buff (?)",
+          "name": "Magic Defense Buff (AOE)",
           "icon": "images/mob_skills/113.png",
           "x": 85,
           "time": 30,

@@ -3985,7 +3985,7 @@
         {
           "id": 111,
           "level": 1,
-          "name": "Evasion/Accuracy Buff (?)",
+          "name": "Magic Attack Buff (AOE)",
           "icon": "images/mob_skills/111.png",
           "x": 115,
           "time": 30,
@@ -4050,7 +4050,7 @@
         {
           "id": 112,
           "level": 1,
-          "name": "Attack + Defense Buff",
+          "name": "Defense Buff (AOE)",
           "icon": "images/mob_skills/112.png",
           "x": 85,
           "time": 30,
@@ -4139,7 +4139,7 @@
         {
           "id": 113,
           "level": 1,
-          "name": "Evasion/Accuracy Buff (?)",
+          "name": "Magic Defense Buff (AOE)",
           "icon": "images/mob_skills/113.png",
           "x": 85,
           "time": 30,
@@ -5730,7 +5730,7 @@
         {
           "id": 124,
           "level": 1,
-          "name": "EXP Reduction",
+          "name": "Curse",
           "icon": "images/mob_skills/124.png",
           "time": 60,
           "interval": 10,
@@ -7069,7 +7069,7 @@
         {
           "id": 101,
           "level": 1,
-          "name": "Skill 101",
+          "name": "Magic Attack Buff",
           "icon": "images/mob_skills/101.png",
           "x": 115,
           "time": 30,
@@ -7078,7 +7078,7 @@
         {
           "id": 103,
           "level": 1,
-          "name": "Skill 103",
+          "name": "Magic Defense Buff",
           "icon": "images/mob_skills/103.png",
           "x": 85,
           "time": 30,
@@ -8504,7 +8504,7 @@
         {
           "id": 101,
           "level": 2,
-          "name": "Skill 101",
+          "name": "Magic Attack Buff",
           "icon": "images/mob_skills/101.png",
           "x": 130,
           "time": 30,
@@ -8513,7 +8513,7 @@
         {
           "id": 103,
           "level": 2,
-          "name": "Skill 103",
+          "name": "Magic Defense Buff",
           "icon": "images/mob_skills/103.png",
           "x": 60,
           "time": 30,
@@ -11407,7 +11407,7 @@
         {
           "id": 101,
           "level": 2,
-          "name": "Skill 101",
+          "name": "Magic Attack Buff",
           "icon": "images/mob_skills/101.png",
           "x": 130,
           "time": 30,
@@ -11416,7 +11416,7 @@
         {
           "id": 103,
           "level": 2,
-          "name": "Skill 103",
+          "name": "Magic Defense Buff",
           "icon": "images/mob_skills/103.png",
           "x": 60,
           "time": 30,
@@ -11903,7 +11903,7 @@
         {
           "id": 124,
           "level": 1,
-          "name": "EXP Reduction",
+          "name": "Curse",
           "icon": "images/mob_skills/124.png",
           "time": 60,
           "interval": 10,
@@ -11992,7 +11992,7 @@
         {
           "id": 114,
           "level": 4,
-          "name": "Skill 114",
+          "name": "Heal",
           "icon": "images/mob_skills/114.png",
           "x": 30000,
           "time": 1,
@@ -12003,7 +12003,7 @@
         {
           "id": 127,
           "level": 1,
-          "name": "Skill 127",
+          "name": "Dispel",
           "icon": "images/mob_skills/127.png",
           "interval": 1,
           "prop": 100
@@ -12682,7 +12682,7 @@
         {
           "id": 101,
           "level": 1,
-          "name": "Skill 101",
+          "name": "Magic Attack Buff",
           "icon": "images/mob_skills/101.png",
           "x": 115,
           "time": 30,
@@ -12691,7 +12691,7 @@
         {
           "id": 103,
           "level": 1,
-          "name": "Skill 103",
+          "name": "Magic Defense Buff",
           "icon": "images/mob_skills/103.png",
           "x": 85,
           "time": 30,
