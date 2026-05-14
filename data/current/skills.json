@@ -576,7 +576,7 @@
         {
           "id": "1200001",
           "name": "Blunt Weapon Mastery",
-          "description": "[Master Level : 20]\nIncreases Blunt Weapon Mastery and Attack Power, with a chance to stun the target when attacking. This skill only applies when�a one-handed or two-handed blunt weapon is equipped.",
+          "description": "[Master Level : 20]\nIncreases Blunt Weapon Mastery and Attack Power, with a chance to stun the target when attacking. This skill only applies when a one-handed or two-handed blunt weapon is equipped.",
           "class_name": "Page",
           "job": "2nd Job",
           "max_level": 20,
@@ -2917,7 +2917,7 @@
         {
           "id": "4101000",
           "name": "Claw Booster",
-          "description": "[Master Level: 20]\nUses HP and MP to temporarily increase�the Attack Speed of the equipped claw. It only applies when the character is equipped with a claw and throwing stars.\nRequired Skill : At least Level 5 on Claw Mastery",
+          "description": "[Master Level: 20]\nUses HP and MP to temporarily increase the Attack Speed of the equipped claw. It only applies when the character is equipped with a claw and throwing stars.\nRequired Skill : At least Level 5 on Claw Mastery",
           "class_name": "Assassin",
           "job": "2nd Job",
           "max_level": 20,

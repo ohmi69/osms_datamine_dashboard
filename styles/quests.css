@@ -199,3 +199,8 @@
   border-color: rgba(234,179,8,0.35);
   font-family: monospace;
 }
+[data-theme="mapletip"] .badge-crafting {
+  background: rgba(161,100,0,0.10);
+  color: #7a4700;
+  border-color: rgba(161,100,0,0.30);
+}

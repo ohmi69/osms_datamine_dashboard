@@ -442,7 +442,7 @@
       "parent": "Jane the Alchemist",
       "area": 11,
       "region": "Victoria Island",
-      "description": "I hear Jane's got herself a new life ambition...\nLast time, I got�Jane some mushroom caps and boar's teeth to convince her dad to let her travel. That didn't work. Now she has a new dream: she wants to be an alchemist! A bit fickle, but whatever. Now, she needs materials... I can guess where this is going. She wants me to collect 1 Pure Water, 25 Drake Skull, and 25 Medicine With Weird Vibes by defeating several monsters so she can make some Elixirs.\nI got the materials Jane needed to make some Elixirs. If she fails... is the whole place going to blow up",
+      "description": "I hear Jane's got herself a new life ambition...\nLast time, I got Jane some mushroom caps and boar's teeth to convince her dad to let her travel. That didn't work. Now she has a new dream: she wants to be an alchemist! A bit fickle, but whatever. Now, she needs materials... I can guess where this is going. She wants me to collect 1 Pure Water, 25 Drake Skull, and 25 Medicine With Weird Vibes by defeating several monsters so she can make some Elixirs.\nI got the materials Jane needed to make some Elixirs. If she fails... is the whole place going to blow up",
       "npc_name": "Jane",
       "requirements": "Defeat Copper Drake x 50, Defeat Wraith x 50, Pure Water x 1, Drake Skull x 25, Medicine With Weird Vibes x 25",
       "requirements_list": [
@@ -1567,7 +1567,7 @@
       "parent": "Mai's Training",
       "area": 1,
       "region": "Maple Island",
-      "description": "Mai at A Split Road seems like a martial arts specialist who can train beginners.\nYou're under the tutelage of the famous swordmaster, Mai, in A Split Road.�She wants you to hunt Blue Snails, Shrooms, and Red Snails. Ah, Mai also said to meet with Biggs in Southperry to get another quest.\nMai trained you, and you feel stronger.",
+      "description": "Mai at A Split Road seems like a martial arts specialist who can train beginners.\nYou're under the tutelage of the famous swordmaster, Mai, in A Split Road. She wants you to hunt Blue Snails, Shrooms, and Red Snails. Ah, Mai also said to meet with Biggs in Southperry to get another quest.\nMai trained you, and you feel stronger.",
       "npc_name": "Mai",
       "requirements": "Defeat Blue Snail x 10, Defeat Shroom x 10, Defeat Red Snail x 5",
       "requirements_list": [
@@ -1632,7 +1632,7 @@
       "parent": "Mai's Training",
       "area": 1,
       "region": "Maple Island",
-      "description": "Mai’s training is just about defeating monsters, but it seems really useful for learning how to hunt. Let’s continue with Mai’s training.\nMai believes that while knowing your abilities is important, defeating stronger monsters is also great training to improve them. They asked you to defeat Orange Mushroom.� Orange Mushroom... It sounds really strong. Do you think you can defeat it\nAfter Mai's training, you feel much, much stronger. Time to get off Maple Island! Go to Southperry and take the boat to Victoria Island.",
+      "description": "Mai’s training is just about defeating monsters, but it seems really useful for learning how to hunt. Let’s continue with Mai’s training.\nMai believes that while knowing your abilities is important, defeating stronger monsters is also great training to improve them. They asked you to defeat Orange Mushroom. Orange Mushroom... It sounds really strong. Do you think you can defeat it\nAfter Mai's training, you feel much, much stronger. Time to get off Maple Island! Go to Southperry and take the boat to Victoria Island.",
       "npc_name": "Mai",
       "requirements": "Defeat Orange Mushroom x 1",
       "requirements_list": [
@@ -1887,7 +1887,7 @@
       "parent": "",
       "area": 12,
       "region": "Henesys",
-      "description": "Find Pia in Henesys Park.\nUnder the watchtower in Henesys Park, you see Pia, wearing a teddy bear costume. How cute! She tells you that she ran into a bully Blue Mushroom on her way to Ellinia, and now she wants you to show the rude mushroom who's boss! Collect 20 Green Mushroom Caps and 20 Blue Mushroom Caps as proof.�You contemplate telling Pia she's asking to be teased, walking around the forest in a bear costume, but you decide against it.\nYou delivered 20 Green Mushroom Caps and 20 Blue Mushroom Caps to Pia in Henesys Park. She was thrilled that she got vengeance on the mushrooms and gave you a Scroll for hat.�All you have to do is click on it in the Use tab of your Item Inventory and drag it to your helmet in the Equipment window...�Oh, and you'll have to cross your fingers and hope the Scroll doesn't fail.",
+      "description": "Find Pia in Henesys Park.\nUnder the watchtower in Henesys Park, you see Pia, wearing a teddy bear costume. How cute! She tells you that she ran into a bully Blue Mushroom on her way to Ellinia, and now she wants you to show the rude mushroom who's boss! Collect 20 Green Mushroom Caps and 20 Blue Mushroom Caps as proof. You contemplate telling Pia she's asking to be teased, walking around the forest in a bear costume, but you decide against it.\nYou delivered 20 Green Mushroom Caps and 20 Blue Mushroom Caps to Pia in Henesys Park. She was thrilled that she got vengeance on the mushrooms and gave you a Scroll for hat. All you have to do is click on it in the Use tab of your Item Inventory and drag it to your helmet in the Equipment window... Oh, and you'll have to cross your fingers and hope the Scroll doesn't fail.",
       "npc_name": "Pia",
       "requirements": "Green Mushroom Cap x 20, Blue Mushroom Cap x 20",
       "requirements_list": [
@@ -2265,7 +2265,7 @@
       "parent": "",
       "area": 1,
       "region": "Maple Island",
-      "description": "Biggs in Southperry has a task for you.\nYou meet Biggs in Southperry. He wants you to get him 1 Orange Mushroom Cap and 10 Blue Snail Shells.�He doesn't look too convinced that you can do it, but it sounds like a piece of cake.\nYou gathered 1 Orange Mushroom Cap and 10 Blue Snail Shells for Biggs in Southperry. The weapon he gave you as a reward was pretty decent.",
+      "description": "Biggs in Southperry has a task for you.\nYou meet Biggs in Southperry. He wants you to get him 1 Orange Mushroom Cap and 10 Blue Snail Shells. He doesn't look too convinced that you can do it, but it sounds like a piece of cake.\nYou gathered 1 Orange Mushroom Cap and 10 Blue Snail Shells for Biggs in Southperry. The weapon he gave you as a reward was pretty decent.",
       "npc_name": "Biggs",
       "requirements": "Blue Snail Shell x 10, Orange Mushroom Cap x 1",
       "requirements_list": [
@@ -3058,7 +3058,7 @@
       "parent": "Maya’s Another Collection",
       "area": 12,
       "region": "Henesys",
-      "description": "Go see Maya in Henesys.\nMaya asked me to gather some items: 1 Diamond, and 50 each of Stone Golem Rubble and Dark Stone Golem Rubble. Apparently, I can get them by defeating monsters at the Golem’s Temple on the way from Henesys to the Dungeon... but this is way too tough!\nI got all the items Maya requested for the last time... or is it As a sign of appreciation, she gave me a cape her grandma made for Athena Pierce, the chief of this town. It may be really old, but it still looks�like it's brand new!",
+      "description": "Go see Maya in Henesys.\nMaya asked me to gather some items: 1 Diamond, and 50 each of Stone Golem Rubble and Dark Stone Golem Rubble. Apparently, I can get them by defeating monsters at the Golem’s Temple on the way from Henesys to the Dungeon... but this is way too tough!\nI got all the items Maya requested for the last time... or is it As a sign of appreciation, she gave me a cape her grandma made for Athena Pierce, the chief of this town. It may be really old, but it still looks like it's brand new!",
       "npc_name": "Maya",
       "requirements": "Stone Golem Rubble x 50, Dark Stone Golem Rubble x 50, Diamond x 1",
       "requirements_list": [
@@ -3185,7 +3185,7 @@
       "parent": "",
       "area": 1,
       "region": "Maple Island",
-      "description": "Pio in Amherst wants you to help collect recycled goods.\nYou ran into Pio, who is famous in Amherst for fixing broken goods.�He asks you to break down scrap boxes from around town and bring back Rusty Screws and Old Wooden Boards.�\nYou broke the boxes and collected supplies for Pio. It was fun because you found other useful items in the boxes as well.",
+      "description": "Pio in Amherst wants you to help collect recycled goods.\nYou ran into Pio, who is famous in Amherst for fixing broken goods. He asks you to break down scrap boxes from around town and bring back Rusty Screws and Old Wooden Boards.\nYou broke the boxes and collected supplies for Pio. It was fun because you found other useful items in the boxes as well.",
       "npc_name": "Pio",
       "requirements": "Rusty Screw x 3, Old Wooden Board x 3",
       "requirements_list": [
@@ -3546,7 +3546,7 @@
       "parent": "I Need to Find My Daughter",
       "area": 12,
       "region": "Henesys",
-      "description": "I wonder how Bruce is doing in Henesys these days...\nI met up with Bruce in Henesys, and he had great news: He finally found his daughter!!! There was one problem, however... She seems to be suffering from amnesia. Bruce gave me a toy that his daughter played with while growing up, and asked me to give it to her.�\nI found Ayan and gave her Ayan's Toy Sword.",
+      "description": "I wonder how Bruce is doing in Henesys these days...\nI met up with Bruce in Henesys, and he had great news: He finally found his daughter!!! There was one problem, however... She seems to be suffering from amnesia. Bruce gave me a toy that his daughter played with while growing up, and asked me to give it to her.\nI found Ayan and gave her Ayan's Toy Sword.",
       "npc_name": "Bruce",
       "requirements": "Ayan's Toy Sword x 1",
       "requirements_list": [
@@ -5976,7 +5976,7 @@
       "parent": "First Time Together",
       "area": 14,
       "region": "Kerning City",
-      "description": "It seems that�Lakelis in Kerning City is looking for a party to take on a party quest that requires multiple adventurers to work together.\nLakelis in Kerning City asked me to challenge the party quest \"First Time Together” and defeat the King Slime inside. The party quest must be attempted by a party of four adventurers, all level 21 or higher. Once the party is ready, the party leader should speak to Lakelis. Better start looking for some friends to join me.\nAs requested by Lakelis, my friends and I challenged the party quest \"First Time Together” and defeated King Slime. When everyone works together, there’s nothing that can’t be done!",
+      "description": "It seems that Lakelis in Kerning City is looking for a party to take on a party quest that requires multiple adventurers to work together.\nLakelis in Kerning City asked me to challenge the party quest \"First Time Together” and defeat the King Slime inside. The party quest must be attempted by a party of four adventurers, all level 21 or higher. Once the party is ready, the party leader should speak to Lakelis. Better start looking for some friends to join me.\nAs requested by Lakelis, my friends and I challenged the party quest \"First Time Together” and defeated King Slime. When everyone works together, there’s nothing that can’t be done!",
       "npc_name": "Lakelis",
       "requirements": "Defeat King Slime x 1",
       "requirements_list": [
@@ -6191,7 +6191,7 @@
       "parent": "[Construction Site B1] What Shumi Lost",
       "area": 14,
       "region": "Kerning City",
-      "description": "Let's go look for Shumi in Kerning City.\nI ran into Shumi again in Kerning City. She seemed really worried about how she lost her rent money because a Stirge flew over and snatched a bundle of money away from her. Man... do I have to walk back in there again... can I just pay the rent for her Anyway like last time, I need to go back in there, this time to Construction Site B2 and find the bundle of money she lost. Aye, better go in there now...�\nI got Shumi from Kerning City the lost bundle of money. Guess she can pay her rent now... and as a reward, she got me 30 Blue Potions... She also said I can find other items at the Construction Site B2... I should go check it out sometime...",
+      "description": "Let's go look for Shumi in Kerning City.\nI ran into Shumi again in Kerning City. She seemed really worried about how she lost her rent money because a Stirge flew over and snatched a bundle of money away from her. Man... do I have to walk back in there again... can I just pay the rent for her Anyway like last time, I need to go back in there, this time to Construction Site B2 and find the bundle of money she lost. Aye, better go in there now...\nI got Shumi from Kerning City the lost bundle of money. Guess she can pay her rent now... and as a reward, she got me 30 Blue Potions... She also said I can find other items at the Construction Site B2... I should go check it out sometime...",
       "npc_name": "Shumi",
       "requirements": "Shumi's Roll of Cash x 1",
       "requirements_list": [
@@ -6242,7 +6242,7 @@
       "parent": "[Construction Site B1] What Shumi Lost",
       "area": 14,
       "region": "Kerning City",
-      "description": "Let's go look for Shumi in Kerning City.\nI ran into Shumi again at Kerning City. A while ago, she got a favor from JM From tha Streetz to get�some Screws for him, only to have the sack of money fall down and lose everything in the process. I guess I can find the sack of money in the deep part of the subway station, the Construction Site B3, again.\nI found Shumi's lost Money Sack in the Kerning City subway. Shumi can now buy what JM From tha Streetz asked for. I received mesos and some potions as a gift. I should go to Construction Site B3 in the subway to look for more stuff.",
+      "description": "Let's go look for Shumi in Kerning City.\nI ran into Shumi again at Kerning City. A while ago, she got a favor from JM From tha Streetz to get some Screws for him, only to have the sack of money fall down and lose everything in the process. I guess I can find the sack of money in the deep part of the subway station, the Construction Site B3, again.\nI found Shumi's lost Money Sack in the Kerning City subway. Shumi can now buy what JM From tha Streetz asked for. I received mesos and some potions as a gift. I should go to Construction Site B3 in the subway to look for more stuff.",
       "npc_name": "Shumi",
       "requirements": "Shumi's Sack of Cash x 1",
       "requirements_list": [
@@ -6815,7 +6815,7 @@
       "parent": "",
       "area": 15,
       "region": "Perion",
-      "description": "I heard that \"Blackbull\" in Perion is building a new house...\nI ran into \"Blackbull\" again, the guy whose house I helped fix. He was surprised at how strong I looked and asked me for a much harder favor. His cousins from Henesys are all trying to move to Perion, so he needs to build a new house! To build a new house, he said he needed 100 Stone Golem Rubbles, 30 Screws, 30 Processed Wood, and \"Blackbull's\" deed to the land. His son had the deed to the land, but it was stolen by Curse Eyes near Sleepywood... hmmm... I should be looking for those wandering around the deep forest...\nSo that all of \"Blackbull's\" cousins could move to Perion, I got him the items he requested. It was really tough, and I hope he doesn't ask me to BUILD a house for him next time...�",
+      "description": "I heard that \"Blackbull\" in Perion is building a new house...\nI ran into \"Blackbull\" again, the guy whose house I helped fix. He was surprised at how strong I looked and asked me for a much harder favor. His cousins from Henesys are all trying to move to Perion, so he needs to build a new house! To build a new house, he said he needed 100 Stone Golem Rubbles, 30 Screws, 30 Processed Wood, and \"Blackbull's\" deed to the land. His son had the deed to the land, but it was stolen by Curse Eyes near Sleepywood... hmmm... I should be looking for those wandering around the deep forest...\nSo that all of \"Blackbull's\" cousins could move to Perion, I got him the items he requested. It was really tough, and I hope he doesn't ask me to BUILD a house for him next time...",
       "npc_name": "Blackbull",
       "requirements": "Stone Golem Rubble x 100, Screw x 30, Processed Wood x 30, \"Blackbull's\" deed to the land x 1",
       "requirements_list": [
@@ -7406,7 +7406,7 @@
       "parent": "Winston's Fossil Dig-up",
       "area": 15,
       "region": "Perion",
-      "description": "It seems the archaeologist Winston in the Rocky Mountains on the East side of Perion has another request.\nWinston the Archeologist said that it is not safe to leave the valuable fossils in the tent. He asked me to take the fossils and deliver them to Dr. Betty in Ellinia. He also wrote a letter of introduction for me to show her.�\nWinston the Archeologist in Perion said that it is not safe to leave the valuable fossils in his tent. He asked me to deliver them to Dr. Betty in Ellinia. Dr. Betty said she's going to be really busy from now, and she asked me to stop by again and give her a hand afterwards. Fossils huh... Should I give it a try",
+      "description": "It seems the archaeologist Winston in the Rocky Mountains on the East side of Perion has another request.\nWinston the Archeologist said that it is not safe to leave the valuable fossils in the tent. He asked me to take the fossils and deliver them to Dr. Betty in Ellinia. He also wrote a letter of introduction for me to show her.\nWinston the Archeologist in Perion said that it is not safe to leave the valuable fossils in his tent. He asked me to deliver them to Dr. Betty in Ellinia. Dr. Betty said she's going to be really busy from now, and she asked me to stop by again and give her a hand afterwards. Fossils huh... Should I give it a try",
       "npc_name": "Winston",
       "requirements": "Winston's Recommendation x 1, Fossil Box x 1",
       "requirements_list": [
@@ -7600,7 +7600,7 @@
       "parent": "Dr. Betty's Research on Plants",
       "area": 15,
       "region": "Perion",
-      "description": "I heard Dr. Betty has finished her fossil research. Maybe I should go and see the results.\nI met Dr. Betty again. She told me the research was finished and explained it to me, then asked me to take the research report and deliver it to Dr. Winston in Perion. Dr. Betty also informed me that if I take 20 Leafs, 15 Firewoods, 1 Stump's Teardrop, and 1 pair of Weighted Earrings, Dr. Winston would be really happy.�\nI delivered Dr. Betty's Fossil Report to Dr. Winston in Perion. Along with the report, I also gave him the Leafs, Firewoods, Stump's Teardrop, and Weighted Earrings. In return, Dr. Winston gave me the Leaf Earrings.",
+      "description": "I heard Dr. Betty has finished her fossil research. Maybe I should go and see the results.\nI met Dr. Betty again. She told me the research was finished and explained it to me, then asked me to take the research report and deliver it to Dr. Winston in Perion. Dr. Betty also informed me that if I take 20 Leafs, 15 Firewoods, 1 Stump's Teardrop, and 1 pair of Weighted Earrings, Dr. Winston would be really happy.\nI delivered Dr. Betty's Fossil Report to Dr. Winston in Perion. Along with the report, I also gave him the Leafs, Firewoods, Stump's Teardrop, and Weighted Earrings. In return, Dr. Winston gave me the Leaf Earrings.",
       "npc_name": "Betty",
       "requirements": "Leaf x 20, Firewood x 15, Fossil Report x 1, Stump's Teardrop x 1, Weighted Earrings x 1",
       "requirements_list": [
@@ -7679,7 +7679,7 @@
       "parent": "The Stump Horror Story",
       "area": 15,
       "region": "Perion",
-      "description": "Ayan of Perion says she can't take one step out of town. I wonder why...\nI met Ayan in Perion. Apparently, she cannot remember anything about her childhood, and she lives everyday in fear of Stumps. She's so scared that she can't even dare to look at them. Due to�this paralyzing fear of Stumps, she cannot take one step out of Perion, and asks me to take them out for her sake. Are they really THAT scary\nI took out Stumps for Ayan's sake in Perion. She can finally venture outside without having to worry about them!",
+      "description": "Ayan of Perion says she can't take one step out of town. I wonder why...\nI met Ayan in Perion. Apparently, she cannot remember anything about her childhood, and she lives everyday in fear of Stumps. She's so scared that she can't even dare to look at them. Due to this paralyzing fear of Stumps, she cannot take one step out of Perion, and asks me to take them out for her sake. Are they really THAT scary\nI took out Stumps for Ayan's sake in Perion. She can finally venture outside without having to worry about them!",
       "npc_name": "Ayan",
       "requirements": "Defeat Stump x 30",
       "requirements_list": [
@@ -8597,7 +8597,7 @@
       "parent": "[Forest of Patience] Sabitrama and the Mysterious Medicine",
       "area": 16,
       "region": "Sleepywood",
-      "description": "Let's go look for Sabitrama in Sleepywood.\nIn front of the Sleepywood Hotel, I met Sabitrama, a medicinal herb trader who seems to be the younger brother of Chrishrama. He said he found a place where he can finally find the herb that he needed for this medicine he's working on... and he asked if I could go in that forest and grab an herb called Pink Anthurium. It consists of green grass and a small pink flower... I should remember this well and get him the exact same one. I heard the place is near Ellinia... I should go there and talk to this guy Shane...\nThankfully I got the flower that Sabitrama wanted from the Forest of Patience, and as a sign of appreciation, he gave me a scroll for overall armor. Oh, and he also said that from here on out, I can enter the Forest of Patience without having to pay�Shane of Ellinia. From what I've heard, the diet medicine�Sabitrama's working on is for Shane's fiance... I better get back in the Forest of Patience when I have some time...",
+      "description": "Let's go look for Sabitrama in Sleepywood.\nIn front of the Sleepywood Hotel, I met Sabitrama, a medicinal herb trader who seems to be the younger brother of Chrishrama. He said he found a place where he can finally find the herb that he needed for this medicine he's working on... and he asked if I could go in that forest and grab an herb called Pink Anthurium. It consists of green grass and a small pink flower... I should remember this well and get him the exact same one. I heard the place is near Ellinia... I should go there and talk to this guy Shane...\nThankfully I got the flower that Sabitrama wanted from the Forest of Patience, and as a sign of appreciation, he gave me a scroll for overall armor. Oh, and he also said that from here on out, I can enter the Forest of Patience without having to pay Shane of Ellinia. From what I've heard, the diet medicine Sabitrama's working on is for Shane's fiance... I better get back in the Forest of Patience when I have some time...",
       "npc_name": "Sabitrama",
       "requirements": "Pink Anthurium x 1",
       "requirements_list": [
@@ -8974,7 +8974,7 @@
       "parent": "Myra’s Wish",
       "area": 17,
       "region": "Forgotten Hollow",
-      "description": "Myra in Perilous Descent I seems to be overcome with grief.\nMyra in Perilous Descent I wants her changed companions to rest in peace. At her request, I must put down the nearby Myewood, as well as the Sporewood deeper in the cave.�\nFollowing Myra’s plea, I had no choice but to fell the creatures that were once her companions. How did they end up like this...",
+      "description": "Myra in Perilous Descent I seems to be overcome with grief.\nMyra in Perilous Descent I wants her changed companions to rest in peace. At her request, I must put down the nearby Myewood, as well as the Sporewood deeper in the cave.\nFollowing Myra’s plea, I had no choice but to fell the creatures that were once her companions. How did they end up like this...",
       "npc_name": "Myra",
       "requirements": "Defeat Myewood x 50, Defeat Sporewood x 30",
       "requirements_list": [
