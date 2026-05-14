@@ -13,8 +13,224 @@ const EXP_TABLE = [
   [39, 40, 266682], [40, 41, 294216], [41, 42, 324240], [42, 43, 356916],
   [43, 44, 391160], [44, 45, 428280], [45, 46, 468450], [46, 47, 510420],
   [47, 48, 555680], [48, 49, 604416], [49, 50, 655200],
-  [50, 51, 709716], [51, 52, 748608],
+  [50, 51, 709716], 
 ];
+
+const WEAPON_MULTS = [
+  ['1H Sword',        1.8, 1.8],
+  ['2H Sword',        2.5, 2.5],
+  ['1H Blunt Weapon', 2.4, 1.2],
+  ['2H Blunt Weapon', 3,   2  ],
+  ['1H Axe',          2.4, 1.2],
+  ['2H Axe',          3,   2  ],
+  ['Spear',           1.5, 3.5],
+  ['Polearm',         3.5, 1.5],
+  ['Bow',             2.5, 2.5],
+  ['Crossbow',        2.5, 2.5],
+  ['Claw',            2.5, 2.5],
+  ['Dagger*',         1,   2  ],
+];
+
+// ─── Accuracy ────────────────────────────────────────────────
+
+const ACCURACY_STEPS = [
+  {
+    label: 'Physical Accuracy',
+    wip: false,
+    lines: [
+      'BaseChance = Acc × 100 / ((LevelDiff + 51) × 5)',
+      '',
+      'MIN = 0.95 − 0.3 / (1 + exp(BaseChance / 12))',
+      'MAX = 1.05 + 0.3 / (1 + exp(BaseChance / 12))',
+      '',
+      'Roll = rand(0, 1) × (MAX − MIN) + MIN',
+      '',
+      'DidHit = Roll × BaseChance ≥ Avoid',
+    ],
+    notes: [],
+  },
+  {
+    label: 'Magical Accuracy',
+    wip: false,
+    lines: [
+      'Magical skills always hit — there is no accuracy check for magic.',
+    ],
+    notes: [],
+  },
+];
+
+const ACCURACY_VARS = [
+  { name: 'Acc',       desc: "Player's Accuracy stat value" },
+  { name: 'Avoid',     desc: "Enemy's Avoid stat value" },
+  { name: 'LevelDiff', desc: 'Enemy level minus player level, or 0 if player level ≥ enemy level' },
+];
+
+// ─── Base Damage ──────────────────────────────────────────────
+
+const BASE_DAMAGE_STEPS = [
+  {
+    label: 'Physical Damage',
+    wip: false,
+    lines: [
+      'MIN = SkillMult × ((80 + PrimaryStat × MinWepMult × MasteryMult + SecondaryStat + AttackPower) / 100) × WeaponAttack',
+      'MAX = SkillMult × ((100 + PrimaryStat × MaxWepMult + SecondaryStat + AttackPower) / 100) × WeaponAttack',
+    ],
+    notes: [
+      'MasteryMult = (0.1 + MasteryLevel / 10) × 0.8',
+      'L7 (Lucky Seven): MinWepMult = MaxWepMult = 2.6, MasteryLevel ≈ 5.25',
+      'Claws appear to use 2.6 for all attacks — Drain should use the 2.5 claw multiplier (likely a bug)',
+      'SecondaryStat for Thieves: STR + DEX',
+      'WeaponAttack includes attack provided by Stars and Arrows',
+    ],
+  },
+  {
+    label: 'Magical Damage',
+    wip: false,
+    lines: [
+      'MIN = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 × MasteryMult + Int) / 100 + 1)',
+      'MAX = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 + Int) / 100 + 1)',
+    ],
+    notes: [
+      'BasicAttack is the Basic Attack damage value listed on the skill',
+      'MasteryMult = (0.1 + MasteryLevel / 10) × 0.8',
+      'Int is BASE Int from AP only — equipment/scroll bonuses not included (likely a bug)',
+      'MagicAttack = TotalInt / 2 + EquipmentMagicAttack',
+      '  TotalInt = INT shown in stats UI (includes equipment)',
+      '  EquipmentMagicAttack = sum of Magic Attack on all gear (including above/below average and scrolled stats)',
+    ],
+  },
+  {
+    label: 'Heal',
+    wip: false,
+    lines: [
+      'MIN = ((Int × 0.8 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
+      'MAX = ((Int × 1.0 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
+    ],
+    notes: [
+      'Int is BASE Int from AP only — equipment/scroll bonuses not included (likely a bug)',
+      'Luk is assumed to be BASE Luk from AP — difficult to verify as mages have very low Luk on gear',
+      'MagicAttack = TotalInt / 2 + EquipmentMagicAttack (same derivation as Magical Damage)',
+      'TargetsHit includes enemies, the caster, and all allies in range',
+      'RecoveryRate is the recovery rate % shown on the Heal skill',
+      'Data is limited — verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
+    ],
+  },
+];
+
+const BASE_DAMAGE_VARS = [
+  { name: 'SkillMult',     desc: 'Skill Damage % as a decimal (e.g. 120% → 1.2)' },
+  { name: 'PrimaryStat',   desc: 'Main stat for your class (STR, DEX, INT, or LUK)' },
+  { name: 'SecondaryStat', desc: 'Secondary stat — for Thieves: STR + DEX' },
+  { name: 'AttackPower',   desc: 'Total weapon attack power from gear and buffs' },
+  { name: 'WeaponAttack',  desc: 'Base weapon attack, including Stars and Arrows' },
+  { name: 'MinWepMult',    desc: 'Weapon min multiplier (Swing or Stab) — see Weapon Multipliers table' },
+  { name: 'MaxWepMult',    desc: 'Weapon max multiplier (Swing or Stab) — see Weapon Multipliers table' },
+  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8  |  L7: MasteryLevel ≈ 5.25' },
+  { name: 'BasicAttack',   desc: 'Basic Attack damage value listed on the skill (magic skills)' },
+  { name: 'MagicAttack',   desc: 'TotalInt / 2 + EquipmentMagicAttack (MAGIC value shown in UI)' },
+  { name: 'Int',           desc: 'BASE Int from AP only — equipment stats not included (likely a bug)' },
+  { name: 'Luk',           desc: 'BASE Luk from AP (assumed — see Heal notes)' },
+  { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
+  { name: 'TargetsHit',    desc: 'Total targets hit: enemies + caster + allies in range' },
+];
+
+// ─── Damage Modifications ─────────────────────────────────────
+
+const MOD_PIPELINE_STEPS = [
+  {
+    label: 'Weapon Defense',
+    wip: false,
+    lines: [
+      'Damage = Damage × 100 / (trunc(WeaponDefense × (PercentEffects / 100 + 1) + FlatEffects) + 100)',
+      '',
+      'If Crossbow Mastery Ignore Defense procs: treat WeaponDefense as 0',
+    ],
+    notes: [
+      'trunc() rounds toward zero (down for positive, up for negative)',
+      'PercentEffects: sum of percent-based buffs/debuffs on enemy weapon defense — see Enemy Defense Modifiers',
+      'FlatEffects: flat modifiers to enemy weapon defense — no known sources currently',
+      'Applies to Physical damage only',
+    ],
+  },
+  {
+    label: 'Magic Defense',
+    wip: false,
+    lines: [
+      'Damage = Damage × 100 / (MagicDefense + 100)',
+    ],
+    notes: [
+      'No other variables — this is the complete formula',
+      'Applies to Magical damage only',
+    ],
+  },
+  {
+    label: 'Elemental Modifier',
+    wip: false,
+    lines: [
+      'Damage = Damage × ElementalMult',
+      '  0.0  — immune',
+      '  0.75 — resistant (strong against element)',
+      '  1.0  — neutral',
+      '  1.25 — weak against element',
+    ],
+    notes: [],
+  },
+  {
+    label: 'Level Difference Penalty',
+    wip: false,
+    lines: [
+      'No penalty if player level ≥ enemy level',
+      '  enemy < 10 levels above:  Damage / (LevelDiff² × 0.005 + 1)',
+      '  enemy ≥ 10 levels above:  Damage / (LevelDiff × 0.05 + 1)',
+    ],
+    notes: [
+      'LevelDiff = enemy level − player level',
+    ],
+  },
+  {
+    label: 'Critical Hit',
+    wip: false,
+    lines: [
+      'Damage = Damage × CritDamage',
+      '  CritDamage from Stats Panel (e.g. 120% Crit Damage → 1.2)',
+    ],
+    notes: [],
+  },
+  {
+    label: 'Iron Arrow Falloff (Crossbow only)',
+    wip: false,
+    lines: [
+      'Damage = Damage × (1 − ConsecutiveHits × 0.2)',
+      '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.6 …',
+    ],
+    notes: [
+      'ConsecutiveHits is 0 for the first mob hit, 1 for the second, etc.',
+    ],
+  },
+  {
+    label: 'Clamp',
+    wip: false,
+    lines: [
+      'Damage = floor(Damage)',
+      'Damage = clamp(Damage, 1, 700,000,000,000)',
+    ],
+    notes: [],
+  },
+];
+
+const MOD_VARS = [
+  { name: 'WeaponDefense',   desc: "Enemy's weapon defense stat" },
+  { name: 'PercentEffects',  desc: 'Sum of percent-based buffs/debuffs on enemy weapon defense' },
+  { name: 'FlatEffects',     desc: 'Flat modifiers to enemy weapon defense — no known sources' },
+  { name: 'MagicDefense',    desc: "Enemy's magic defense stat" },
+  { name: 'ElementalMult',   desc: 'Elemental modifier: 0.0, 0.75, 1.0, or 1.25' },
+  { name: 'LevelDiff',       desc: 'Enemy level minus player level (when enemy is higher)' },
+  { name: 'CritDamage',      desc: 'Crit damage from Stats Panel (e.g. 120% → 1.2)' },
+  { name: 'ConsecutiveHits', desc: 'Iron Arrow: 0 for first mob hit, 1 for second, etc.' },
+];
+
+
+// ─── Shared helpers ───────────────────────────────────────────
 
 function makeCollapsibleSection(title, countLabel, bodyFn) {
   const wrap = el('div', { className: 'collapsible open' });
@@ -36,9 +252,51 @@ function makeCollapsibleSection(title, countLabel, bodyFn) {
   return wrap;
 }
 
+function buildPipeline(steps) {
+  const frag = document.createDocumentFragment();
+  steps.forEach(({ label, wip, lines, notes }, i) => {
+    const step = el('div', { className: 'formulas-pipeline-step' });
+
+    const stepHeader = el('div', { className: 'formulas-pipeline-header' });
+    stepHeader.appendChild(el('span', { className: 'formulas-pipeline-badge', textContent: i + 1 }));
+    stepHeader.appendChild(el('span', { className: 'formulas-pipeline-title', textContent: label }));
+    if (wip) stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
+    step.appendChild(stepHeader);
+
+    const codeLines = lines.filter(l => l !== '');
+    if (codeLines.length) {
+      step.appendChild(el('pre', { className: 'formulas-code', textContent: lines.join('\n') }));
+    }
+
+    if (notes?.length) {
+      const noteWrap = el('div', { className: 'formulas-pipeline-notes' });
+      notes.forEach(n => noteWrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
+      step.appendChild(noteWrap);
+    }
+
+    frag.appendChild(step);
+  });
+  return frag;
+}
+
+function buildVarLegend(vars) {
+  const wrap = el('div', { className: 'formulas-var-section' });
+  wrap.appendChild(el('div', { className: 'formulas-var-heading', textContent: 'Variables' }));
+  const grid = el('div', { className: 'formulas-var-grid' });
+  vars.forEach(({ name, desc }) => {
+    const row = el('div', { className: 'formulas-var-row' });
+    row.appendChild(el('span', { className: 'formulas-var-name', textContent: name }));
+    row.appendChild(el('span', { className: 'formulas-var-desc', textContent: desc }));
+    grid.appendChild(row);
+  });
+  wrap.appendChild(grid);
+  return wrap;
+}
+
+// ─── Section builders ─────────────────────────────────────────
+
 function buildExpTable() {
   const container = el('div', { className: 'formulas-table-wrap' });
-
   const table = el('table', { className: 'data-table', style: 'border-collapse:collapse;' });
 
   const thead = el('thead');
@@ -81,21 +339,6 @@ function buildExpTable() {
   return container;
 }
 
-const WEAPON_MULTS = [
-  ['1H Sword',       1.8, 1.8],
-  ['2H Sword',       2.5, 2.5],
-  ['1H Blunt Weapon', 2.4,  1.2  ],
-  ['2H Blunt Weapon', 3,  2  ],
-  ['1H Axe',          2.4,  1.2  ],
-  ['2H Axe',          3,  2  ],
-  ['Spear',          1.5, 3.5],
-  ['Polearm',        3.5, 1.5],
-  ['Bow',            2.5, 2.5],
-  ['Crossbow',           2.5, 2.5],
-  ['Claw',           2.5, 2.5],
-  ['Dagger*',         1,  2  ],
-];
-
 function buildWeaponMultTable() {
   const container = el('div', { className: 'formulas-table-wrap' });
   const table = el('table', { className: 'data-table' });
@@ -119,8 +362,7 @@ function buildWeaponMultTable() {
   table.appendChild(tbody);
   container.appendChild(table);
 
-
-  const note = el('div', { className: 'formulas-note', textContent: '* Dagger uses Stab multiplier for both MinMult and MaxMult when stabbing. Savage Blow and Double Stab always Stab. Steal uses both.' });
+  const note = el('div', { className: 'formulas-note', textContent: '* Dagger uses Stab multiplier for both MinWepMult and MaxWepMult when stabbing. Savage Blow and Double Stab always Stab. Steal uses both.' });
   note.style.marginTop = '0.5em';
   note.style.padding = '0.5em 1em';
   container.appendChild(note);
@@ -128,132 +370,30 @@ function buildWeaponMultTable() {
   return container;
 }
 
-const DAMAGE_VARS = [
-  { name: 'SkillMult',      desc: 'Skill damage % expressed as a decimal (e.g. 150% → 1.5)' },
-  { name: 'PrimaryStat',    desc: 'Main stat for your class (STR, DEX, INT, or LUK)' },
-  { name: 'SecondaryStat',  desc: 'Secondary stat for your class. For Thieves: STR + DEX' },
-  { name: 'AttackPower',    desc: 'Total weapon attack from gear and buffs' },
-  { name: 'WeaponAttack',   desc: 'Base attack of the equipped weapon, including Stars/Arrows' },
-  { name: 'MinMult',        desc: 'Weapon min multiplier (Swing or Stab) — see table below' },
-  { name: 'MaxMult',        desc: 'Weapon max multiplier (Swing or Stab) — see table below' },
-  { name: 'MasteryMult',    desc: '(0.1 + MasteryLvl / 10) × 0.8 — 0 if not applicable. L7 is ~50–60% (WIP)' },
-  { name: 'ElementalMult',  desc: 'Elemental modifier: 0.0 (immune), 0.75 (resistant), 1.0 (neutral), 1.25 (weak). Base elemental damage bonus is 25%' },
-  { name: 'LevelDiff',      desc: 'Enemy level minus player level (only applied when enemy is above player level)' },
-  { name: 'CritDamage',     desc: 'Crit damage stat (base: 20)' },
-  { name: 'ConsecutiveHits', desc: 'Iron Arrow (Crossbow) only: 0 for first mob, 1 for second, etc.' },
-];
-
-const DAMAGE_PIPELINE = [
-  {
-    label: 'Base Range',
-    wip: false,
-    lines: [
-      'Physical Damage:',
-      'MIN = SkillMult × ((80 + PrimaryStat × MinMult × MasteryMult + SecondaryStat + AttackPower) / 100) × WeaponAttack × 100',
-      'MAX = SkillMult × ((100 + PrimaryStat × MaxMult + SecondaryStat + AttackPower) / 100) × WeaponAttack × 100',
-      '────────────────────────────────────────────',
-      'Magic Damage:',
-      'MAX = (SkillDamage + MagicAttack / 7) * ((MagicAttack * 2 + Int) / 100 + 1)',
-      'MIN = (SkillDamage + MagicAttack / 7) * ((MagicAttack * 2 * Mastery + Int) / 100 + 1)',
-      '',
-      'Roll a value between MIN and MAX',
-    ],
-  },
-  {
-    label: 'Defense Reduction',
-    wip: true,
-    lines: [
-      `// Where iVar9 and iVar10 can be ignored (set to 0) for normal mobs
-DefenseMulti = (iVar9 × (iVar10 / 100.0 + 1.0)) + WeaponDefense
-Damage × 100 / (DefenseMulti + 100)`,
-      'Currently unknown for Magic Defense',
-    ],
-  },
-  {
-    label: 'Elemental Modifier',
-    wip: false,
-    lines: [
-      'Damage × ElementalMult',
-      '  0.0  — immune',
-      '  0.75 — resistant',
-      '  1.0  — neutral',
-      '  1.25 — weak',
-    ],
-  },
-  {
-    label: 'Level Difference Penalty',
-    wip: false,
-    lines: [
-      'Only applied when enemy level > player level:',
-      '  < 10 levels above:  Damage / (LevelDiff² × 0.005 + 1)',
-      '  ≥ 10 levels above:  Damage / (LevelDiff × 0.05 + 1)',
-    ],
-  },
-  {
-    label: 'Critical Hit',
-    wip: false,
-    lines: [
-      'Base crit rate: 5%',
-      'If crit: Damage × ((CritDamage + 100) / 100)',
-      '  e.g. CritDamage = 20 → Damage × 1.20',
-    ],
-  },
-  {
-    label: 'Iron Arrow Falloff (Crossbow only)',
-    wip: false,
-    lines: [
-      'Damage × (1.0 − ConsecutiveHits × 0.2)',
-      '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.6 …',
-    ],
-  },
-  {
-    label: 'Clamp',
-    wip: false,
-    lines: [
-      'Damage = max(1, min(700,000,000,000, Damage))',
-    ],
-  },
-];
-
-function buildDamageFormula() {
+function buildAccuracySection() {
   const container = el('div', { className: 'formulas-formula-wrap' });
-
-  // Pipeline steps
-  DAMAGE_PIPELINE.forEach(({ label, wip, lines }, i) => {
-    const step = el('div', { className: 'formulas-pipeline-step' });
-
-    const stepHeader = el('div', { className: 'formulas-pipeline-header' });
-    const badge = el('span', { className: 'formulas-pipeline-badge', textContent: i + 1 });
-    const title = el('span', { className: 'formulas-pipeline-title', textContent: label });
-    stepHeader.appendChild(badge);
-    stepHeader.appendChild(title);
-    if (wip) {
-      stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
-    }
-    step.appendChild(stepHeader);
-
-    const codeLines = lines.filter(l => l !== '');
-    if (codeLines.length) {
-      const pre = el('pre', { className: 'formulas-code', textContent: lines.join('\n') });
-      step.appendChild(pre);
-    }
-
-    container.appendChild(step);
-  });
-
-  // Variable legend
-  container.appendChild(el('div', { className: 'formulas-var-heading', textContent: 'Variables' }));
-  const grid = el('div', { className: 'formulas-var-grid' });
-  DAMAGE_VARS.forEach(({ name, desc }) => {
-    const row = el('div', { className: 'formulas-var-row' });
-    row.appendChild(el('span', { className: 'formulas-var-name', textContent: name }));
-    row.appendChild(el('span', { className: 'formulas-var-desc', textContent: desc }));
-    grid.appendChild(row);
-  });
-  container.appendChild(grid);
-
+  container.appendChild(buildPipeline(ACCURACY_STEPS));
+  container.appendChild(buildVarLegend(ACCURACY_VARS));
   return container;
 }
+
+function buildBaseDamageSection() {
+  const container = el('div', { className: 'formulas-formula-wrap' });
+  container.appendChild(buildPipeline(BASE_DAMAGE_STEPS));
+  container.appendChild(buildVarLegend(BASE_DAMAGE_VARS));
+  return container;
+}
+
+function buildModsSection() {
+  const container = el('div', { className: 'formulas-formula-wrap' });
+  container.appendChild(buildPipeline(MOD_PIPELINE_STEPS));
+  container.appendChild(buildVarLegend(MOD_VARS));
+  return container;
+}
+
+
+
+// ─── Page render ──────────────────────────────────────────────
 
 export function renderFormulas() {
   const frag = document.createDocumentFragment();
@@ -261,74 +401,38 @@ export function renderFormulas() {
 
   wrapper.appendChild(el('div', { className: 'section-heading', textContent: 'Formulas & Tables' }));
 
-  const expSection = makeCollapsibleSection(
-    'Experience Table',
-    '',
-    buildExpTable,
-  );
+  // Full-width formula sections
+  const fullWidth = el('div', { className: 'formulas-full' });
 
-  const credit = el('span', { className: 'formulas-credit' });
-  credit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> on Discord';
-  expSection.querySelector('.left').appendChild(credit);
+  const accuracySection = makeCollapsibleSection('Accuracy', '', buildAccuracySection);
 
-  const dmgSection = makeCollapsibleSection(
-    'Physical Range Formula',
-    '',
-    buildDamageFormula,
-  );
-
+  const baseDmgSection = makeCollapsibleSection('Base Damage Formulas', '', buildBaseDamageSection);
   const dmgCredit = el('span', { className: 'formulas-credit' });
   dmgCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist, @jimmybald</strong> on Discord';
-  dmgSection.querySelector('.left').appendChild(dmgCredit);
+  baseDmgSection.querySelector('.left').appendChild(dmgCredit);
 
+  const modsSection = makeCollapsibleSection('Damage Modifications', '', buildModsSection);
 
-  const weaponMultSection = makeCollapsibleSection(
-    'Weapon Min/Max Multipliers',
-    '',
-    buildWeaponMultTable,
-  );
+  fullWidth.appendChild(accuracySection);
+  fullWidth.appendChild(baseDmgSection);
+  fullWidth.appendChild(modsSection);
+  wrapper.appendChild(fullWidth);
 
-  const changesSection = makeCollapsibleSection(
-    'Recent Changes & Base Stats',
-    '',
-    () => {
-      const container = el('div', { className: 'formulas-table-wrap' });
-      const table = el('table', { className: 'data-table' });
+  // Appendix
+  wrapper.appendChild(el('div', { className: 'section-heading', textContent: 'Appendix' }));
 
-      const thead = el('thead');
-      const headerRow = el('tr');
-      for (const [text, cls] of [['Stat', ''], ['Value', 'num']]) {
-        headerRow.appendChild(el('th', { className: cls, textContent: text }));
-      }
-      thead.appendChild(headerRow);
-      table.appendChild(thead);
+  const appendix = el('div', { className: 'formulas-full' });
 
-      const tbody = el('tbody');
-      for (const [stat, value] of [
-        ['Elemental Damage', '50% → 25%'],
-        ['Base Crit Rate', '5%'],
-        ['Base Crit Damage', '20%'],
-      ]) {
-        const row = el('tr');
-        row.appendChild(el('td', { textContent: stat }));
-        row.appendChild(el('td', { className: 'num', textContent: value }));
-        tbody.appendChild(row);
-      }
-      table.appendChild(tbody);
-      container.appendChild(table);
-      return container;
-    },
-  );
+  const expSection = makeCollapsibleSection('Experience Table', '', buildExpTable);
+  const expCredit = el('span', { className: 'formulas-credit' });
+  expCredit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> on Discord';
+  expSection.querySelector('.left').appendChild(expCredit);
 
-  const rightCol = el('div', { className: 'formulas-col' });
-  rightCol.appendChild(changesSection);
-  rightCol.appendChild(dmgSection);
-  rightCol.appendChild(weaponMultSection);
+  const weaponMultSection = makeCollapsibleSection('Weapon Min/Max Multipliers', '', buildWeaponMultTable);
 
-  const row = el('div', { className: 'formulas-row' });
-  row.appendChild(expSection);
-  row.appendChild(rightCol);
-  wrapper.appendChild(row);
+  appendix.appendChild(weaponMultSection);
+  appendix.appendChild(expSection);
+  wrapper.appendChild(appendix);
 
   frag.appendChild(wrapper);
   return frag;

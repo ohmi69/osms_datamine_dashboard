@@ -248,6 +248,33 @@
   padding: 2px 6px;
 }
 
+/* ── Full-width section stack ────────────────────────────────── */
+.formulas-full {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* ── Pipeline step notes ─────────────────────────────────────── */
+.formulas-pipeline-notes {
+  padding: 6px 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.formulas-pipeline-notes .formulas-note {
+  margin-top: 0;
+}
+
+/* ── Variable legend ─────────────────────────────────────────── */
+.formulas-var-section {
+  padding: 0 16px 16px;
+}
+
 /* ── MapleTip theme overrides ────────────────────────────────── */
 [data-theme="mapletip"] .lvl-chip {
   background: #EDE4D0;
@@ -257,5 +284,9 @@
 
 [data-theme="mapletip"] .formulas-exp-val {
   color: var(--accent);
+}
+
+[data-theme="mapletip"] .formulas-pipeline-notes {
+  background: #EDE4D0;
 }
 
