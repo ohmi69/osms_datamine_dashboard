@@ -88,6 +88,7 @@
   text-align: center;
 }
 .full-map-image-container {
+  position: relative;
   display: inline-block;
   margin: 28px auto 18px auto;
   background: var(--surface-2);
@@ -197,7 +198,168 @@
   color: var(--accent, #7aa2f7);
 }
 
+.mob-chip-clickable { cursor: pointer; }
 .mob-chip-clickable:hover {
   border-color: var(--accent, #7aa2f7);
   background: var(--accent-bg, rgba(122,162,247,0.12)) !important;
+}
+
+/* ── Map detail panel ────────────────────────────────────────── */
+.map-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  margin: 8px 0;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.map-meta-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.map-meta-chip {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface3, rgba(255,255,255,0.04));
+}
+.map-meta-chip-label { color: var(--dim); }
+.map-meta-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.map-detail-nav-btn {
+  margin: 0 0 0 12px;
+  padding: 6px 16px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  border: 1.5px solid var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0001;
+  transition: background .18s, color .18s, box-shadow .18s;
+  outline: none;
+}
+.map-detail-nav-btn:hover {
+  background: #ea580c;
+  box-shadow: 0 4px 16px #0002;
+}
+.map-exits-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.map-exit-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: var(--surface3, rgba(255,255,255,0.05));
+  border: 1px solid var(--border);
+  font-size: 13px;
+  cursor: pointer;
+}
+.map-exit-chip-arrow { color: var(--dim); font-size: 11px; }
+.map-exit-chip-id { color: var(--dim); font-size: 11px; margin-left: 2px; }
+.map-exit-chip--hover { outline: 1.5px solid #3af; outline-offset: -1px; }
+.portal-overlay--exit-hover { box-shadow: 0 0 20px 6px #3afb !important; background: rgba(0,0,0,0.45) !important; }
+.map-detail-label { font-weight: bold; font-size: 13px; margin: 0 0 4px 0; }
+.map-detail-label--npc { margin: 10px 0 2px 0; }
+.map-no-spawns { font-size: 13px; color: var(--dim); }
+.map-mob-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.map-mob-chip,
+.map-npc-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 4px;
+  border-radius: 6px;
+  background: var(--surface3, rgba(255,255,255,0.05));
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+.map-mob-chip-count { color: var(--dim); margin-left: 2px; }
+.map-mob-chip-timer { margin-left: 4px; font-size: 11px; }
+.map-npc-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.map-npc-chip { cursor: default; }
+.map-npc-chip-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+.map-npc-chip-id { color: var(--dim); margin-left: 2px; font-size: 11px; }
+.map-npc-chip--hover { outline: 1.5px solid #f7b731; outline-offset: -1px; }
+.npc-highlight-overlay {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #f7b731;
+  background: rgba(247,183,49,0.25);
+  box-shadow: 0 0 14px 5px rgba(247,183,49,0.65);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ── Map table ───────────────────────────────────────────────── */
+.map-th-sortable { cursor: pointer; user-select: none; white-space: nowrap; }
+.map-tr-clickable { cursor: pointer; }
+.map-name-wrap { display: flex; align-items: center; justify-content: space-between; }
+.map-name-left { display: flex; align-items: center; min-width: 0; }
+.map-name-text { font-size: 14px; }
+.map-town-badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent, #7aa2f7);
+  background: rgba(122,162,247,0.12);
+  border: 1px solid rgba(122,162,247,0.3);
+  border-radius: 4px;
+  padding: 1px 5px;
+  margin-left: 7px;
+  vertical-align: middle;
+}
+.map-street-name { font-size: 12px; color: var(--dim); margin-left: 8px; }
+.map-mobs-total { color: var(--dim); font-size: 12px; }
+/* ── Portal overlays (shared: MapBrowser + MapPortalOverlay + MapNavigator) ── */
+.portal-overlay {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.portal-arrow-svg-all,
+.portal-arrow-svg-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9;
+  overflow: visible;
+}
+
+/* ── Navigate portal highlight ───────────────────────────────── */
+.portal-highlight {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 224, 255, 0.18);
+  box-shadow: 0 0 16px 4px #00e0ff88;
+  z-index: 2;
+  pointer-events: none;
 }

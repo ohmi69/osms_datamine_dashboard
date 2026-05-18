@@ -308,11 +308,37 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
+  cursor: pointer;
 }
 .brand-icon {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+  vertical-align: middle;
   font-size: 38px;
   line-height: 1;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.4));
+}
+.site-header-extras {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: auto;
+}
+.discord-link {
+  margin-top: 4px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.discord-icon {
+  vertical-align: middle;
+  color: #7289da;
+}
+.discord-link-anchor {
+  color: #7289da;
+  text-decoration: none;
 }
 .brand-text {
   display: flex;
@@ -490,7 +516,8 @@ body {
 /* ── Pills ──────────────────────────────────────────────────── */
 .pill-group { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
 .pill-group-label { font-size: 11px; font-weight: 600; color: var(--dim); text-transform: uppercase; letter-spacing: .5px; margin-right: 2px; }
-.pill {
+.pill,
+.col-toggle {
   padding: 5px 14px;
   border-radius: 6px;
   font-size: 11px;
@@ -503,8 +530,10 @@ body {
   color: var(--dim);
   transition: all .15s;
 }
-.pill:hover { color: var(--text); border-color: var(--dim); }
-.pill.active {
+.pill:hover,
+.col-toggle:hover { color: var(--text); border-color: var(--dim); }
+.pill.active,
+.col-toggle.active {
   background: var(--accent);
   color: var(--bg);
   border-color: var(--accent);
@@ -928,7 +957,7 @@ body.hide-ids .id-col { display: none !important; }
 /* ── Footer ─────────────────────────────────────────────────── */
 .footer {
   text-align: center;
-  padding: 28px 16px;
+  padding: 16px 0;
   margin-top: 48px;
   border-top: 3px solid var(--border);
   color: var(--dim);
@@ -941,6 +970,7 @@ body.hide-ids .id-col { display: none !important; }
   color: var(--accent);
   font-weight: 700;
   letter-spacing: .5px;
+  font-size: 13px;
 }
 
 /* ── Time travel mode ───────────────────────────────────────── */
@@ -980,6 +1010,27 @@ body.time-travel .site-header {
   transition: background .15s;
 }
 .time-travel-strip__back:hover { background: rgba(184, 124, 10, 0.18); }
+.time-travel-strip__label svg { vertical-align: -2px; margin-right: 5px; }
+
+/* ── Zoom tip modal ─────────────────────────────────────────── */
+.zoom-tip-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(30,30,40,0.98);
+  color: #fff;
+  padding: 28px 38px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  z-index: 20001;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.zoom-tip-modal--fadeout { opacity: 0; }
 
 .tt-overlay {
   position: fixed;
@@ -1057,6 +1108,44 @@ body.time-travel .site-header {
 }
 .patch-selector:hover, .patch-selector:focus { border-color: var(--accent); }
 .patch-selector option { background: var(--surface); color: var(--text); }
+
+/* ── Utility: hidden ─────────────────────────────────────────── */
+.hidden { display: none !important; }
+
+/* ── Dim text ────────────────────────────────────────────────── */
+.text-dim { color: var(--dim); }
+
+/* ── Sub-pill filter row (shared across tabs) ────────────────── */
+.sub-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 8px 0;
+  align-items: center;
+}
+.sub-pill-label {
+  font-size: 0.78rem;
+  color: var(--dim);
+  margin-right: 2px;
+}
+
+/* ── Portal tooltip content ──────────────────────────────────── */
+.tooltip-name-wrap { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.portal-tooltip-dest-header { display: flex; align-items: center; gap: 8px; margin: 6px 0 2px; }
+.portal-tooltip-dest-thumb { width: 48px; height: 48px; object-fit: contain; border-radius: 6px; border: 1px solid var(--border); }
+.portal-tooltip-dest-name { font-weight: bold; font-size: 14px; }
+.portal-tooltip-mobs-label { font-weight: bold; margin: 6px 0 2px; font-size: 13px; }
+.portal-tooltip-mob-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.portal-tooltip-mob-chip {
+  display: flex; align-items: center; gap: 4px;
+  padding: 2px 6px; border-radius: 4px;
+  background: var(--surface3, rgba(255,255,255,0.05));
+  border: 1px solid var(--border); font-size: 12px;
+}
+.portal-tooltip-mob-img { width: 24px; height: 24px; object-fit: contain; border-radius: 4px; }
+.portal-tooltip-unavailable { color: var(--dim); font-size: 12px; margin: 6px 0 2px; }
+.portal-tooltip-dest-label { margin: 6px 0 2px; font-size: 13px; }
+.portal-tooltip-intra-hint { font-size: 11px; color: #aaa; padding: 4px 2px; }
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 640px) {

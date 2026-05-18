@@ -1,0 +1,66 @@
+/* ── Cash Shop ───────────────────────────────────────────────── */
+
+.cashshop-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.cashshop-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px 0;
+}
+
+.cashshop-badge--unavailable,
+.cashshop-badge--period,
+.cashshop-badge--pet {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.cashshop-badge--unavailable {
+  background: #ef444422;
+  color: #ef4444;
+  border: 1px solid #ef444444;
+}
+
+.cashshop-badge--period {
+  background: #f59e0b22;
+  color: #f59e0b;
+  border: 1px solid #f59e0b44;
+}
+
+.cashshop-badge--pet {
+  background: #6366f122;
+  color: #818cf8;
+  border: 1px solid #6366f144;
+}
+
+.cashshop-badge--price {
+  font-size: 12px;
+  padding: 1px 8px;
+  border-radius: 3px;
+  background: #e0e7ff;
+  color: #3730a3;
+  border: 1px solid #a5b4fc;
+  margin-left: 4px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.cashshop-disclaimer {
+  font-size: 12px;
+  color: #ef4444;
+  font-style: italic;
+  margin: 0 0 10px 0;
+  padding: 8px 12px;
+  background: #ef444411;
+  border-radius: 6px;
+  border: 1px solid #ef444444;
+  line-height: 1.5;
+}

@@ -1,11 +1,10 @@
-.badge {
-  font-size: 11px;
+.badge-daily,
+.badge-weekly,
+.badge-repeatable {
+  border-radius: 0;
   font-weight: 600;
   padding: 2px 7px;
-  border-radius: 0;
   border: 1px solid transparent;
-  display: inline-flex;
-  align-items: center;
   white-space: nowrap;
   line-height: 1.4;
 }
@@ -132,6 +131,7 @@
 }
 .quest-meta-box .label { color: var(--dim); }
 .quest-meta-box .value { color: var(--text); font-weight: 600; }
+.value--pre { white-space: pre-line; }
 
 .quest-stat-chip {
   display: inline-flex;
