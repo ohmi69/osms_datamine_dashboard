@@ -223,7 +223,8 @@ function renderRewardContent(quest, itemById) {
 
   if (!rewardChoices.length && !weightedBlocks.length && !guaranteedItems.length) {
     if (!quest.rewards_items) return null;
-    const fallback = el('span', { className: 'value value--pre' });
+    const fallback = el('span', { className: 'value' });
+    fallback.style.whiteSpace = 'pre-line';
     fallback.textContent = quest.rewards_items;
     return fallback;
   }

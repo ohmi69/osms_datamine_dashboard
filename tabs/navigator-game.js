@@ -294,17 +294,37 @@ function renderPortals(imgContainer, img, mapId, onPortalClick, entryPortalName)
     const overlay = el('div', {
       className: `navgame-portal${isEntry ? ' navgame-portal--entry' : ''}`,
       style: {
+        position: 'absolute',
         left: `${px - portalR}px`,
         top: `${py - portalR}px`,
         width: `${portalR * 2}px`,
         height: `${portalR * 2}px`,
+        borderRadius: '50%',
         border: `${portalBorder}px solid ${isEntry ? '#555' : '#3af'}`,
+        background: isEntry ? 'rgba(200,200,200,0.5)' : 'rgba(0,120,255,0.22)',
+        boxShadow: isEntry ? '0 0 8px 2px rgba(80,80,80,0.4)' : '0 0 12px 3px rgba(51,170,255,0.5)',
+        zIndex: 10,
+        cursor: 'pointer',
+        pointerEvents: 'auto',
       }
     });
 
     const destId = Number(portal.dest_map);
     overlay.dataset.destMap = String(destId);
 
+    const hoverShadow = isEntry ? '0 0 12px 4px rgba(80,80,80,0.6)'  : '0 0 20px 6px rgba(255,255,255,0.6)';
+    const hoverBg    = isEntry ? 'rgba(200,200,200,0.7)'             : 'rgba(0,120,255,0.4)';
+    const idleShadow = isEntry ? '0 0 8px 2px rgba(80,80,80,0.4)'   : '0 0 12px 3px rgba(51,170,255,0.5)';
+    const idleBg     = isEntry ? 'rgba(200,200,200,0.5)'            : 'rgba(0,120,255,0.22)';
+
+    overlay.addEventListener('mouseenter', () => {
+      overlay.style.boxShadow = hoverShadow;
+      overlay.style.background = hoverBg;
+    });
+    overlay.addEventListener('mouseleave', () => {
+      overlay.style.boxShadow = idleShadow;
+      overlay.style.background = idleBg;
+    });
     overlay.addEventListener('click', (e) => {
       e.stopPropagation();
       onPortalClick(destId, portal.dest_portal || null);
@@ -344,8 +364,8 @@ export function renderNavigatorGame(data, options = {}) {
 
   /* ── DOM refs ─── */
   const startScreen = el('div', { className: 'navgame-start' });
-  const gameScreen = el('div', { className: 'navgame-play hidden' });
-  const resultScreen = el('div', { className: 'navgame-result hidden' });
+  const gameScreen = el('div', { className: 'navgame-play', style: { display: 'none' } });
+  const resultScreen = el('div', { className: 'navgame-result', style: { display: 'none' } });
   root.appendChild(startScreen);
   root.appendChild(gameScreen);
   root.appendChild(resultScreen);
@@ -357,7 +377,7 @@ export function renderNavigatorGame(data, options = {}) {
   startScreen.appendChild(titleWrap);
 
   // Linked challenge card (hidden until a challenge link is opened)
-  const challengeCard = el('div', { className: 'navgame-challenge-card hidden' });
+  const challengeCard = el('div', { className: 'navgame-challenge-card', style: { display: 'none' } });
   const challengeRouteEl = el('span', { className: 'navgame-challenge-route' });
   const challengeBeatEl = el('span', { className: 'navgame-challenge-beat' });
   const challengeCardTop = el('div', { className: 'navgame-challenge-card-top' });
@@ -370,7 +390,7 @@ export function renderNavigatorGame(data, options = {}) {
     if (!pendingLinkedChallenge) return;
     const { startId, endId } = pendingLinkedChallenge;
     pendingLinkedChallenge = null;
-    challengeCard.classList.add('hidden');
+    challengeCard.style.display = 'none';
     startLinkedGame(startId, endId);
   });
   challengeCard.appendChild(acceptBtn);
@@ -484,7 +504,7 @@ export function renderNavigatorGame(data, options = {}) {
   gameScreen.appendChild(mapArea);
 
   // hint panel (destination preview — hidden until peeked)
-  const hintPanel = el('div', { className: 'navgame-hint-panel hidden' });
+  const hintPanel = el('div', { className: 'navgame-hint-panel', style: { display: 'none' } });
   gameScreen.appendChild(hintPanel);
 
   // hint buttons
@@ -687,8 +707,8 @@ export function renderNavigatorGame(data, options = {}) {
   }
 
   function showResult(elapsed) {
-    gameScreen.classList.add('hidden');
-    resultScreen.classList.remove('hidden');
+    gameScreen.style.display = 'none';
+    resultScreen.style.display = '';
     resultContent.innerHTML = '';
 
     const optimal = challenge.optimalLength;
@@ -781,8 +801,8 @@ export function renderNavigatorGame(data, options = {}) {
     const btnRow = el('div', { className: 'navgame-result-btns' });
     const playAgain = el('button', { className: 'navgame-start-btn', textContent: '▶ Play Again' });
     playAgain.addEventListener('click', () => {
-      resultScreen.classList.add('hidden');
-      startScreen.classList.remove('hidden');
+      resultScreen.style.display = 'none';
+      startScreen.style.display = '';
     });
     btnRow.appendChild(playAgain);
 
@@ -816,8 +836,8 @@ export function renderNavigatorGame(data, options = {}) {
     clearInterval(timerInterval);
     const elapsed = Date.now() - timerStart;
 
-    gameScreen.classList.add('hidden');
-    resultScreen.classList.remove('hidden');
+    gameScreen.style.display = 'none';
+    resultScreen.style.display = '';
     resultContent.innerHTML = '';
 
     const optimal = challenge.optimalLength;
@@ -861,8 +881,8 @@ export function renderNavigatorGame(data, options = {}) {
     const btnRow = el('div', { className: 'navgame-result-btns' });
     const playAgain = el('button', { className: 'navgame-start-btn', textContent: '▶ Try Again' });
     playAgain.addEventListener('click', () => {
-      resultScreen.classList.add('hidden');
-      startScreen.classList.remove('hidden');
+      resultScreen.style.display = 'none';
+      startScreen.style.display = '';
     });
     btnRow.appendChild(playAgain);
     resultContent.appendChild(btnRow);
@@ -910,7 +930,7 @@ export function renderNavigatorGame(data, options = {}) {
     revealBtn.textContent = '💡 Reveal Next Portal (−100pts)';
     revealBtn.disabled = false;
     revealBtn.classList.remove('navgame-hint-btn--used');
-    hintPanel.classList.add('hidden');
+    hintPanel.style.display = 'none';
     hintPanel.innerHTML = '';
 
     const startName = mapLookup[challenge.startId]?.name || `Map ${challenge.startId}`;
@@ -922,9 +942,9 @@ export function renderNavigatorGame(data, options = {}) {
     hudMoves.textContent = '0 moves';
     hudScore.textContent = '1000';
 
-    startScreen.classList.add('hidden');
-    resultScreen.classList.add('hidden');
-    gameScreen.classList.remove('hidden');
+    startScreen.style.display = 'none';
+    resultScreen.style.display = 'none';
+    gameScreen.style.display = '';
 
     timerStart = Date.now();
     clearInterval(timerInterval);
@@ -960,9 +980,9 @@ export function renderNavigatorGame(data, options = {}) {
           : '';
         clearInterval(timerInterval);
         gameActive = false;
-        gameScreen.classList.add('hidden');
-        resultScreen.classList.add('hidden');
-        startScreen.classList.remove('hidden');
+        gameScreen.style.display = 'none';
+        resultScreen.style.display = 'none';
+        startScreen.style.display = '';
         return;
       }
       const ids = decodeChallenge(query || '');
@@ -977,14 +997,14 @@ export function renderNavigatorGame(data, options = {}) {
       challengeBeatEl.textContent = (ids.elapsed && ids.moves)
         ? `Can you beat their time of ${formatTime(ids.elapsed)} in ${ids.moves} move${ids.moves !== 1 ? 's' : ''}?`
         : '';
-      challengeCard.classList.remove('hidden');
+      challengeCard.style.display = '';
 
       // Always bring user back to the start screen to see the card
       clearInterval(timerInterval);
       gameActive = false;
-      gameScreen.classList.add('hidden');
-      resultScreen.classList.add('hidden');
-      startScreen.classList.remove('hidden');
+      gameScreen.style.display = 'none';
+      resultScreen.style.display = 'none';
+      startScreen.style.display = '';
     });
   }
 

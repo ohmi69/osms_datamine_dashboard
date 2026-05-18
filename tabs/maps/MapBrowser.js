@@ -1,8 +1,7 @@
 
 import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeHideToggle, makeCopyableId, padMapId, padMobId } from '../../lib/utils.js';
 import { attachTooltip } from '../../lib/tooltip.js';
-import state, { getNpcLookup, getMapUrl } from '../../lib/data.js';
-
+import state, { getNpcLookup, getDataBase, getMapUrl } from '../../lib/data.js';
 import { showNavigateModal } from './MapNavigator.js';
 import { attachPortalOverlay } from './MapPortalOverlay.js';
 
@@ -157,12 +156,13 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     let imgContainer = null;
     if (mapEntry.id) {
       const mapImgPath = getMapUrl(mapEntry.id);
-      imgContainer = el('div', { className: 'full-map-image-container' });
+      imgContainer = el('div', { className: 'full-map-image-container', style: { position: 'relative', display: 'inline-block' } });
       const img = el('img', {
         className: 'full-map-image',
         src: mapImgPath,
         alt: `${mapEntry.name || 'Map'} full image`,
         loading: 'lazy',
+        style: { maxWidth: '100%', maxHeight: '600px', display: 'block' },
       });
       img.title = 'Click to view fullscreen';
       img.addEventListener('click', () => {
@@ -176,11 +176,24 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     // Metadata chips + navigate button
     const hasMeta = mapEntry.bgm || mapEntry.mob_rate != null || mapEntry.return_map_name;
     if (hasMeta) {
-      const metaRow = el('div', { className: 'map-meta-row' });
-      const metaLeft = el('div', { className: 'map-meta-left' });
+      const metaRow = el('div', {
+        style: {
+          display: 'flex', flexWrap: 'wrap', gap: '6px', fontSize: '12px',
+          margin: '8px 0 8px 0', alignItems: 'center',
+          justifyContent: 'space-between', width: '100%',
+        }
+      });
+      const metaLeft = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', alignItems: 'center' } });
       const tag = (label, value) => {
-        const chip = el('div', { className: 'map-meta-chip' });
-        chip.appendChild(el('span', { className: 'map-meta-chip-label', textContent: label }));
+        const chip = el('div', {
+          style: {
+            display: 'flex', gap: '4px', alignItems: 'center',
+            padding: '2px 7px', borderRadius: '4px',
+            border: '1px solid var(--border)',
+            background: 'var(--surface3, rgba(255,255,255,0.04))',
+          },
+        });
+        chip.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: label }));
         chip.appendChild(el('span', { textContent: value }));
         return chip;
       };
@@ -188,8 +201,27 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       if (mapEntry.mob_rate != null) metaLeft.appendChild(tag('Mob Rate', `×${mapEntry.mob_rate}`));
       if (mapEntry.return_map_name) metaLeft.appendChild(tag('Return', mapEntry.return_map_name));
 
-      const metaRight = el('div', { className: 'map-meta-right' });
-      const detailNavBtn = el('button', { textContent: 'Navigate', className: 'map-detail-nav-btn' });
+      const metaRight = el('div', { style: { display: 'flex', alignItems: 'center', marginLeft: 'auto' } });
+      const detailNavBtn = el('button', {
+        textContent: 'Navigate',
+        style: {
+          margin: '0 0 0 12px', padding: '6px 16px', borderRadius: '6px',
+          background: 'var(--accent)', color: 'var(--button-text, #fff)',
+          border: '1.5px solid var(--accent)', fontWeight: '600', fontSize: '14px',
+          cursor: 'pointer', boxShadow: '0 2px 8px #0001',
+          transition: 'background .18s, color .18s, box-shadow .18s', outline: 'none',
+        }
+      });
+      detailNavBtn.onmouseenter = () => {
+        detailNavBtn.style.background = '#ea580c';
+        detailNavBtn.style.color = '#fff';
+        detailNavBtn.style.boxShadow = '0 4px 16px #0002';
+      };
+      detailNavBtn.onmouseleave = () => {
+        detailNavBtn.style.background = 'var(--accent)';
+        detailNavBtn.style.color = 'var(--button-text, #fff)';
+        detailNavBtn.style.boxShadow = '0 2px 8px #0001';
+      };
       detailNavBtn.onclick = () => showNavigateModal(data, mapEntry.id);
       metaRight.appendChild(detailNavBtn);
       metaRow.appendChild(metaLeft);
@@ -199,33 +231,27 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
 
     // Exit chips (connected maps)
     if (Array.isArray(mapEntry.exit_names) && mapEntry.exit_names.length > 0) {
-      const exitsGrid = el('div', { className: 'map-exits-grid' });
+      const exitsGrid = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '10px' } });
       for (const exit of mapEntry.exit_names) {
-        const chip = el('div', { className: 'map-exit-chip', title: `Go to map: ${exit.name}` });
-        chip.appendChild(el('span', { className: 'map-exit-chip-arrow', textContent: '→' }));
+        const chip = el('div', {
+          style: {
+            display: 'flex', alignItems: 'center', gap: '5px',
+            padding: '3px 9px', borderRadius: '6px',
+            background: 'var(--surface3, rgba(255,255,255,0.05))',
+            border: '1px solid var(--border)', fontSize: '13px', cursor: 'pointer',
+          },
+          title: `Go to map: ${exit.name}`,
+        });
+        chip.appendChild(el('span', { style: { color: 'var(--dim)', fontSize: '11px' }, textContent: '→' }));
         chip.appendChild(el('span', { textContent: exit.name || `Map #${padMapId(exit.id)}` }));
-        chip.appendChild(el('span', { className: 'map-exit-chip-id', textContent: `#${padMapId(exit.id)}` }));
+        chip.appendChild(el('span', { style: { color: 'var(--dim)', fontSize: '11px', marginLeft: '2px' }, textContent: `#${padMapId(exit.id)}` }));
         chip.addEventListener('click', (e) => {
           e.stopPropagation();
           if (selfNavigate) selfNavigate({ id: exit.id, autoExpand: true });
         });
-        chip.addEventListener('mouseenter', () => {
-          chip.classList.add('map-exit-chip--hover');
-          if (!imgContainer) return;
-          imgContainer.querySelectorAll(`.portal-overlay[data-dest-map="${exit.id}"]`).forEach(o => {
-            o.classList.add('portal-overlay--exit-hover');
-          });
-        });
-        chip.addEventListener('mouseleave', () => {
-          chip.classList.remove('map-exit-chip--hover');
-          if (!imgContainer) return;
-          imgContainer.querySelectorAll(`.portal-overlay[data-dest-map="${exit.id}"]`).forEach(o => {
-            o.classList.remove('portal-overlay--exit-hover');
-          });
-        });
         exitsGrid.appendChild(chip);
       }
-      panel.appendChild(el('div', { className: 'map-detail-label', textContent: 'Leads to:' }));
+      panel.appendChild(el('div', { style: { fontWeight: 'bold', margin: '0 0 4px 0', fontSize: '13px' }, textContent: 'Leads to:' }));
       panel.appendChild(exitsGrid);
     }
 
@@ -233,27 +259,33 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     const mobs = mapMobs.get(mapEntry.id);
     const monsterById = new Map((monsters?.monsters || []).map(mob => [String(mob.id), mob]));
     if (!mobs || mobs.length === 0) {
-      panel.appendChild(el('span', { className: 'map-no-spawns', textContent: 'No mob spawns' }));
+      panel.appendChild(el('span', { style: { fontSize: '13px', color: 'var(--dim)' }, textContent: 'No mob spawns' }));
     } else {
-      const grid = el('div', { className: 'map-mob-grid' });
+      const grid = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px' } });
       for (const mob of mobs) {
-        const chip = el('div', { className: 'map-mob-chip' });
+        const chip = el('div', {
+          style: {
+            display: 'flex', alignItems: 'center', gap: '6px',
+            padding: '4px 8px 4px 4px', borderRadius: '6px',
+            background: 'var(--surface3, rgba(255,255,255,0.05))',
+            border: '1px solid var(--border)', fontSize: '13px',
+          },
+        });
         chip.appendChild(makeThumbnail(mob.thumbnail, mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
         chip.appendChild(el('span', { textContent: mob.name || `#${padMobId(mob.id)}` }));
-        chip.appendChild(el('span', { className: 'map-mob-chip-count', textContent: `×${mob.count}` }));
+        chip.appendChild(el('span', { style: { color: 'var(--dim)', marginLeft: '2px' }, textContent: `×${mob.count}` }));
         const DEFAULT_SPAWN = 7.56;
         const timerColor = mob.mobTime == null ? 'var(--dim)'
           : mob.mobTime < DEFAULT_SPAWN ? '#9ece6a'
           : mob.mobTime > DEFAULT_SPAWN ? '#f7768e'
           : 'var(--dim)';
-        const timerSpan = el('span', {
-          className: 'map-mob-chip-timer',
+        chip.appendChild(el('span', {
+          style: { color: timerColor, marginLeft: '4px', fontSize: '11px' },
           textContent: `⏱ ${mob.mobTime != null ? formatSpawnTime(mob.mobTime) : '—'}`,
-        });
-        timerSpan.style.color = timerColor;
-        chip.appendChild(timerSpan);
+        }));
         attachTooltip(chip, () => monsterById.get(String(mob.id)) || mob, 'mob');
         if (onMobClick) {
+          chip.style.cursor = 'pointer';
           chip.classList.add('mob-chip-clickable');
           chip.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -267,53 +299,30 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
 
     // NPCs
     if (Array.isArray(mapEntry.npcs) && mapEntry.npcs.length > 0) {
-      const npcGrid = el('div', { className: 'map-npc-grid' });
+      const npcGrid = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '10px' } });
       const lookup = await getNpcLookup();
       for (const npcId of mapEntry.npcs) {
         const npc = lookup.get(Number(npcId));
-        const chip = el('div', { className: 'map-npc-chip' });
+        const chip = el('div', {
+          style: {
+            display: 'flex', alignItems: 'center', gap: '6px',
+            padding: '4px 8px 4px 4px', borderRadius: '6px',
+            background: 'var(--surface3, rgba(255,255,255,0.05))',
+            border: '1px solid var(--border)', fontSize: '13px',
+          },
+        });
         if (npc?.thumbnail) {
           chip.appendChild(el('img', {
             src: normalizeAssetPath(npc.thumbnail),
-            className: 'map-npc-chip-img',
+            style: { width: '32px', height: '32px', objectFit: 'contain', borderRadius: '4px', marginRight: '4px' },
             loading: 'lazy',
           }));
         }
         chip.appendChild(el('span', { textContent: npc?.name || `NPC #${npcId}` }));
-        chip.appendChild(el('span', { className: 'map-npc-chip-id', textContent: `#${npcId}` }));
-
-        // Hover highlight: glow dot on map image at NPC's canvas position
-        let highlightDots = [];
-        chip.addEventListener('mouseenter', async () => {
-          if (!imgContainer) return;
-          const img = imgContainer.querySelector('img.full-map-image');
-          if (!img || !img.naturalWidth) return;
-          const positions = (mapEntry.npc_positions || []).filter(p => Number(p.id) === Number(npcId));
-          if (!positions.length) return;
-          const scaleX = img.width / img.naturalWidth;
-          const scaleY = img.height / img.naturalHeight;
-          const imgScale = Math.min(scaleX, scaleY);
-          const r = Math.max(10, Math.min(22, Math.round(10 + 18 * imgScale)));
-          for (const pos of positions) {
-            const dot = el('div', { className: 'npc-highlight-overlay' });
-            dot.style.left = `${pos.x * scaleX - r}px`;
-            dot.style.top = `${pos.y * scaleY - r}px`;
-            dot.style.width = `${r * 2}px`;
-            dot.style.height = `${r * 2}px`;
-            imgContainer.appendChild(dot);
-            highlightDots.push(dot);
-          }
-          chip.classList.add('map-npc-chip--hover');
-        });
-        chip.addEventListener('mouseleave', () => {
-          highlightDots.forEach(d => d.remove());
-          highlightDots = [];
-          chip.classList.remove('map-npc-chip--hover');
-        });
-
+        chip.appendChild(el('span', { style: { color: 'var(--dim)', marginLeft: '2px', fontSize: '11px' }, textContent: `#${npcId}` }));
         npcGrid.appendChild(chip);
       }
-      panel.appendChild(el('div', { className: 'map-detail-label map-detail-label--npc', textContent: 'NPCs on this map:' }));
+      panel.appendChild(el('div', { style: { fontWeight: 'bold', margin: '10px 0 2px 0', fontSize: '13px' }, textContent: 'NPCs on this map:' }));
       panel.appendChild(npcGrid);
     }
 
@@ -327,7 +336,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
 
   function renderRegionTable(mapsList) {
     const COL_SPAN = 7;
-    const wrapper = el('div', { className: 'table-scroll' });
+    const wrapper = el('div', { style: { overflowX: 'auto' } });
     const table = el('table', { className: 'data-table' });
 
     const mobStats = new Map();
@@ -374,7 +383,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     headRow.appendChild(el('th', { className: 'thumb-col' }));
     COLS.forEach((col) => {
       const active = sortCol === col.id;
-      const th = el('th', { className: `${col.cls} map-th-sortable`.trim() });
+      const th = el('th', { className: col.cls, style: { cursor: 'pointer', userSelect: 'none', whiteSpace: 'nowrap' } });
       const labelSpan = el('span', { textContent: active ? `${col.label} ${sortDir === 1 ? '▲' : '▼'}` : col.label });
       th.appendChild(labelSpan);
       if (col.tooltip) {
@@ -416,10 +425,9 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         const stats = mobStats.get(mapEntry.id);
         const hasDetail = !!stats || mapEntry.bgm || mapEntry.mob_rate != null || mapEntry.return_map_name;
 
-        const tr = el('tr');
-        if (hasDetail) tr.classList.add('map-tr-clickable');
+        const tr = el('tr', { style: { cursor: hasDetail ? 'pointer' : 'default' } });
 
-        const thumbTd = el('td', { className: 'thumb-col' });
+        const thumbTd = el('td', { className: 'thumb-col', style: { fontSize: '13px', fontWeight: '400', color: 'var(--fg)' } });
         thumbTd.appendChild(
           makeThumbnail(mapEntry.thumbnail || mapEntry.minimap, `${mapEntry.name} thumbnail`, {
             className: 'map-thumb', fallbackText: 'MAP',
@@ -427,15 +435,28 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         );
         tr.appendChild(thumbTd);
 
-        const nameTd = el('td');
-        const nameWrap = el('div', { className: 'map-name-wrap' });
-        const nameLeft = el('span', { className: 'map-name-left' });
-        nameLeft.appendChild(el('span', { className: 'map-name-text', textContent: mapEntry.name || '(unnamed)' }));
+        const nameTd = el('td', { style: { fontSize: '13px', fontWeight: '400', color: 'var(--fg)' } });
+        const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } });
+        const nameLeft = el('span', { style: { display: 'flex', alignItems: 'center', minWidth: '0' } });
+        nameLeft.appendChild(el('span', { style: { fontSize: '14px' }, textContent: mapEntry.name || '(unnamed)' }));
         if (mapEntry.is_town) {
-          nameLeft.appendChild(el('span', { className: 'map-town-badge', textContent: 'TOWN' }));
+          nameLeft.appendChild(el('span', {
+            style: {
+              fontSize: '11px', fontWeight: '600', letterSpacing: '0.04em',
+              color: 'var(--accent, #7aa2f7)', background: 'rgba(122,162,247,0.12)',
+              border: '1px solid rgba(122,162,247,0.3)', borderRadius: '4px',
+              padding: '1px 5px', marginLeft: '7px', verticalAlign: 'middle',
+            },
+            textContent: 'TOWN',
+          }));
         }
         if (mapEntry.street_name) {
-          nameLeft.appendChild(el('span', { className: 'map-street-name', textContent: `— ${mapEntry.street_name}` }));
+          nameLeft.appendChild(
+            el('span', {
+              style: { fontSize: '12px', color: 'var(--dim)', marginLeft: '8px' },
+              textContent: `— ${mapEntry.street_name}`,
+            })
+          );
         }
         nameWrap.appendChild(nameLeft);
         nameWrap.appendChild(makeDeepLinkButton('maps', padMapId(mapEntry.id)));
@@ -444,22 +465,24 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
 
         for (const col of COLS.slice(1)) {
           let td;
+          const baseStyle = { fontSize: '13px', fontWeight: '400', color: 'var(--fg)' };
+          if (col.cls && col.cls.includes('num')) baseStyle.textAlign = 'right';
           switch (col.id) {
             case 'mobs':
-              td = el('td', { className: 'num' });
+              td = el('td', { className: 'num', style: baseStyle });
               if (stats) {
                 td.appendChild(el('div', { textContent: `${stats.unique} unique` }));
-                td.appendChild(el('div', { className: 'map-mobs-total', textContent: `${stats.total} total` }));
+                td.appendChild(el('div', { style: { color: 'var(--dim)', fontSize: '12px' }, textContent: `${stats.total} total` }));
               } else {
-                td.appendChild(el('span', { className: 'text-dim', textContent: '—' }));
+                td.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '—' }));
               }
               break;
             case 'weighted_level':
-              td = el('td', { className: 'num' });
+              td = el('td', { className: 'num', style: baseStyle });
               td.textContent = stats && stats.weightedLevel != null ? Math.round(stats.weightedLevel) : '—';
               break;
             case 'common_mob':
-              td = el('td');
+              td = el('td', { style: baseStyle });
               if (stats && stats.mostCommonMobLevel != null && stats.mostCommonMobName) {
                 td.appendChild(document.createTextNode(stats.mostCommonMobName + ' '));
                 td.appendChild(el('span', { className: 'level-badge', textContent: `Lv. ${stats.mostCommonMobLevel}` }));
@@ -470,27 +493,27 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
               }
               break;
             case 'exp_per_mob':
-              td = el('td', { className: 'num' });
+              td = el('td', { className: 'num', style: baseStyle });
               td.textContent = stats ? stats.expPerMob.toLocaleString() : '';
-              if (!stats) td.appendChild(el('span', { className: 'text-dim', textContent: '—' }));
+              if (!stats) td.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '—' }));
               break;
             case 'total_exp':
-              td = el('td', { className: 'num' });
+              td = el('td', { className: 'num', style: baseStyle });
               td.textContent = stats ? stats.totalExp.toLocaleString() : '';
-              if (!stats) td.appendChild(el('span', { className: 'text-dim', textContent: '—' }));
+              if (!stats) td.appendChild(el('span', { style: { color: 'var(--dim)' }, textContent: '—' }));
               break;
             case 'weighted_exp_hour':
-              td = el('td', { className: 'num' });
+              td = el('td', { className: 'num', style: baseStyle });
               td.textContent = stats ? stats.weightedExpPerHour.toLocaleString() : '—';
               break;
             default:
-              td = el('td');
+              td = el('td', { style: baseStyle });
               td.textContent = '—';
           }
           tr.appendChild(td);
         }
 
-        const idTd = el('td', { className: 'num id-col' });
+        const idTd = el('td', { className: 'num id-col', style: { fontSize: '13px', fontWeight: '400', color: 'var(--fg)' } });
         idTd.appendChild(makeCopyableId(padMapId(mapEntry.id)));
         tr.appendChild(idTd);
 

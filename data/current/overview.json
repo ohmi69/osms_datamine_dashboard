@@ -1,0 +1,33 @@
+{
+  "stats": {
+    "monsters": 83,
+    "equipment": 969,
+    "consumables": 98,
+    "scrolls": 208,
+    "etc": 217,
+    "setup": 19,
+    "skills": 93,
+    "maps": 304,
+    "quests": 174,
+    "recipes": 342,
+    "cash_shop_items": 1522,
+    "npcs": 188,
+    "num_classes": 15,
+    "num_regions": 4,
+    "num_disciplines": 6,
+    "discipline_names": "Smithing, Weaponcrafting, Tailoring, Woodcrafting, Leatherworking, Arcforge",
+    "num_bosses": 6,
+    "boss_names": "Mushmom, Jr. Balrog, Zombie Mushmom, Rotten Mushmom, Mano, King Slime",
+    "num_new_monsters": 0,
+    "num_new_maps": 5,
+    "version": "~v0.26-0.28 (Victoria Island only)",
+    "classes": "15 (Archer, Assassin, Bandit, Beginner, Cleric, Crossbowman, F/P Wizard, Fighter, Hunter, I/L Wizard, Magician, Page, Rogue, Spearman, Warrior) — 2nd Job cap",
+    "cbt_start": "April 14, 2026",
+    "cbt_end": "April 23, 2026",
+    "disciplines": "6 (Smithing, Weaponcrafting, Tailoring, Woodcrafting, Leatherworking, Arcforge)",
+    "bosses": "6 (Mushmom, Jr. Balrog, Zombie Mushmom, Rotten Mushmom, Mano, King Slime)",
+    "level_range": "1–80 (Jr. Balrog highest)",
+    "scroll_system": "4 tiers — Lesser (100%, +1 stat), Intermediate (60%, +2 stat), Greater (10%, +3 stat), Chaos (10%, +5 stat, destroys on fail)",
+    "repeatable_quests": "1 daily, 6 weekly, 1 infinite"
+  }
+}

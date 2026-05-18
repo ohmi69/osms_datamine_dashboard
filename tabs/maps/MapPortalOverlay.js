@@ -37,6 +37,7 @@ export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate
       const uid = Math.random().toString(36).slice(2);
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       svg.setAttribute('class', 'portal-arrow-svg-all');
+      svg.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:9;overflow:visible';
       const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
       const mkEnd = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
       mkEnd.setAttribute('id', `pae-${uid}`);
@@ -92,15 +93,23 @@ export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate
       const bgColor = isIntra ? 'rgba(46,204,64,0.18)' : 'rgba(0,120,255,0.18)';
       const boxShadow = isIntra ? '0 0 8px 2px #2ecc4066' : '0 0 8px 2px #3af6';
       const hoverShadow = isIntra ? '0 0 16px 4px #2ecc40bb' : '0 0 16px 4px #fff8';
-      const overlay = el('div', { className: 'portal-overlay' });
-      overlay.dataset.destMap = String(Number(portal.dest_map));
-      overlay.style.left = `${px - portalR}px`;
-      overlay.style.top = `${py - portalR}px`;
-      overlay.style.width = `${portalR * 2}px`;
-      overlay.style.height = `${portalR * 2}px`;
-      overlay.style.border = `${portalBorder}px solid ${borderColor}`;
-      overlay.style.background = bgColor;
-      overlay.style.boxShadow = boxShadow;
+      const overlay = el('div', {
+        className: 'portal-overlay',
+        style: {
+          position: 'absolute',
+          left: `${px - portalR}px`,
+          top: `${py - portalR}px`,
+          width: `${portalR * 2}px`,
+          height: `${portalR * 2}px`,
+          borderRadius: '50%',
+          border: `${portalBorder}px solid ${borderColor}`,
+          background: bgColor,
+          boxShadow: boxShadow,
+          zIndex: 2,
+          pointerEvents: 'auto',
+          cursor: 'pointer',
+        }
+      });
       if (portal.name) portalOverlayMap.set(portal.name, { overlay, boxShadow, hoverShadow, bgColor, isIntra, px, py });
       overlay.addEventListener('mouseenter', () => {
         overlay.style.boxShadow = hoverShadow;
@@ -114,6 +123,7 @@ export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate
           if (!showAllIntra && partner) {
             const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
             svg.setAttribute('class', 'portal-arrow-svg-hover');
+            svg.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:9;overflow:visible';
             const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
             const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
             marker.setAttribute('id', 'portal-arrowhead-hover');

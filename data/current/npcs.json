@@ -1,0 +1,1559 @@
+[
+  {
+    "id": 1,
+    "name": "Heena",
+    "functions": [
+      "Beautiful day today!",
+      "Press left Alt key and you'll be able to jump.",
+      "Press the arrow keys to move around here and there."
+    ],
+    "thumbnail": "images/npcs/0000001.png"
+  },
+  {
+    "id": 10,
+    "name": "Maria",
+    "functions": [
+      "Ahh...I need to get this letter sent..."
+    ],
+    "thumbnail": "images/npcs/0000010.png"
+  },
+  {
+    "id": 100,
+    "name": "John",
+    "functions": [
+      "How about buying one of these fishes",
+      "I used to be an adventurer myself...but now I don't mind living a normal life...",
+      "You don't need to be that scared of it. I've walked away from that lifestyle long ago."
+    ],
+    "thumbnail": "images/npcs/0000100.png"
+  },
+  {
+    "id": 101,
+    "name": "Phil",
+    "functions": [
+      "Open your item inventory and you'll find equip., use, set-up, and etc. and cash tabs.",
+      "The item you pick up is automatically stored in an appropriate item category. What do you think Isn't it cool",
+      "Double-click on an item in the item inventory and you'll be able to use it"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 102,
+    "name": "Teo",
+    "functions": [
+      "Hey, have you seen a whale around here Hmmm... where did it go ...",
+      "Haven't been able to shave in months ... now my chin is starting to itch like crazy",
+      "The incredible feeling of sailing along the beautiful coast ... that's what life is all about!"
+    ],
+    "thumbnail": "images/npcs/0000102.png"
+  },
+  {
+    "id": 103,
+    "name": "Jane",
+    "functions": [
+      "I wanna travel too...",
+      "Why does my dad not want me to travel around"
+    ],
+    "thumbnail": "images/npcs/0000103.png"
+  },
+  {
+    "id": 104,
+    "name": "VIP Cab",
+    "functions": [],
+    "thumbnail": "images/npcs/0000104.png"
+  },
+  {
+    "id": 105,
+    "name": "Mr. Kim",
+    "functions": [
+      "You need a place to store your items and mesos This is just the place for you!",
+      "My storage is safe and secure, so no worries!"
+    ],
+    "thumbnail": "images/npcs/0000105.png"
+  },
+  {
+    "id": 106,
+    "name": "Chef",
+    "functions": [
+      "Who am I Well...who AM I",
+      "If you have a secret scroll by any chance, would you mind showing that to me"
+    ],
+    "thumbnail": "images/npcs/0000106.png"
+  },
+  {
+    "id": 107,
+    "name": "Olaf",
+    "functions": [
+      "Huh Hey you come here!",
+      "Look at me~ Do you want to be strong like me"
+    ],
+    "thumbnail": "images/npcs/0000107.png"
+  },
+  {
+    "id": 108,
+    "name": "Natasha",
+    "functions": [
+      "Let's see...I'm ready to start doing some business here...",
+      "Welcome everyone! I've got some goods you will definitely be interested in...!",
+      "Anyone that steals will feel my wrath!!!"
+    ],
+    "thumbnail": "images/npcs/0000108.png"
+  },
+  {
+    "id": 109,
+    "name": "Mina",
+    "functions": [
+      "Low price! Really loooow!",
+      "Whoa there, no stealing around here!!!",
+      "It's a must that you get some potions if you want to go on a journey."
+    ],
+    "thumbnail": "images/npcs/0000109.png"
+  },
+  {
+    "id": 11,
+    "name": "Mai",
+    "functions": [
+      "Do you know me by any chance You don't What's wrong with you",
+      "If you are thinking of challenging me, I suggest you keep dreaming...",
+      "Is there anyone that can satisfy my desire to fight..."
+    ],
+    "thumbnail": "images/npcs/0000011.png"
+  },
+  {
+    "id": 110,
+    "name": "Silver",
+    "functions": [
+      "On Sale!! Crazy Prices!!!",
+      "Come check it out!! Hahahahah!"
+    ],
+    "thumbnail": "images/npcs/0000110.png"
+  },
+  {
+    "id": 111,
+    "name": "Mr. Goldstein",
+    "functions": [
+      "Hey, there! Is your buddy list full by any chance",
+      "If you need to expand your buddy list, how about doing some business with me Harharhar..."
+    ],
+    "thumbnail": "images/npcs/0000111.png"
+  },
+  {
+    "id": 112,
+    "name": "Pason",
+    "functions": [
+      "Do you want to head over to Florina Beach",
+      "There's a gorgeous beach called Florina Beach near Victoria Island..."
+    ],
+    "thumbnail": "images/npcs/0000112.png"
+  },
+  {
+    "id": 12,
+    "name": "Biggs",
+    "functions": [
+      "Hmm...looks like I'm still the best looking man in this town.",
+      "Hey you! What are you looking at! If you're admiring at my good looks, might as well say it!!",
+      "One of these days, I'll be the one operating that huge ship, and take off to a far bigger land..."
+    ],
+    "thumbnail": "images/npcs/0000012.png"
+  },
+  {
+    "id": 13,
+    "name": "Yoona",
+    "functions": [
+      "Whoa, what are you looking at ! !"
+    ],
+    "thumbnail": "images/npcs/0000013.png"
+  },
+  {
+    "id": 14,
+    "name": "Bari",
+    "functions": [
+      "Working hard there~"
+    ],
+    "thumbnail": "images/npcs/0000014.png"
+  },
+  {
+    "id": 15,
+    "name": "Shanks",
+    "functions": [
+      "I am the captain, dang it!! Don't be looking down on me!",
+      "I'll take you anywhere you want"
+    ],
+    "thumbnail": "images/npcs/0000015.png"
+  },
+  {
+    "id": 16,
+    "name": "Pan",
+    "functions": [
+      "Let's see...I'm ready to make some money...",
+      "Hello everyone! I've got some goods here for sale!!",
+      "Anyone that steals will not go unpunished!!"
+    ],
+    "thumbnail": "images/npcs/0000016.png"
+  },
+  {
+    "id": 17,
+    "name": "Lucas",
+    "functions": [
+      "Stranger...what are you doing here",
+      "I'm not too fond of the strangers. I'm only worried about the peace of this town.",
+      "You...if you're strong and powerful, can you take care of the monsters around town"
+    ],
+    "thumbnail": "images/npcs/0000017.png"
+  },
+  {
+    "id": 18,
+    "name": "Pio",
+    "functions": [
+      "Do you need my help by any chance I can handle machinery really well...",
+      "I just ate a little bit ago...and yet I'm hungry already...!!",
+      "Phew...work is hard. I need to take a break."
+    ],
+    "thumbnail": "images/npcs/0000018.png"
+  },
+  {
+    "id": 19,
+    "name": "Rain",
+    "functions": [
+      "Isn't it nice out here today",
+      "To jump, press the left Alt key.",
+      "Press the arrow keys to move around here and there."
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 2,
+    "name": "Sera",
+    "functions": [
+      "It's a neverending pile of laundry I'll be hanging around here.",
+      "Have you met my sister Heena before",
+      "Just press the up arrow, and you can climb the ladder or rope.",
+      "Click on us to start a chat!"
+    ],
+    "thumbnail": "images/npcs/0000002.png"
+  },
+  {
+    "id": 20,
+    "name": "Sid",
+    "functions": [
+      "On sale! Really CHEAP!",
+      "Welcome!! Hahahaha!"
+    ],
+    "thumbnail": "images/npcs/0000020.png"
+  },
+  {
+    "id": 200,
+    "name": "Regular Cab",
+    "functions": [],
+    "thumbnail": "images/npcs/0000200.png"
+  },
+  {
+    "id": 201,
+    "name": "Rina",
+    "functions": [
+      "Have you met up with Athena Pierce, the one that watches over and takes care of our town",
+      "If you want to become a bowman, please go see Athena Pierce, who resides in the inner part of the park.",
+      "Hmm...is Ronnie doing well I can't find him...I was thinking of fixing him a nice plate of Unagi."
+    ],
+    "thumbnail": "images/npcs/0000201.png"
+  },
+  {
+    "id": 202,
+    "name": "Chief Stan",
+    "functions": [
+      "Where did my son go...",
+      "Hey, you! I strongly suggest you don't do anything stupid around this town..."
+    ],
+    "thumbnail": "images/npcs/0000202.png"
+  },
+  {
+    "id": 203,
+    "name": "Mrs. Ming Ming",
+    "functions": [],
+    "thumbnail": "images/npcs/0000203.png"
+  },
+  {
+    "id": 204,
+    "name": "Camila",
+    "functions": [],
+    "thumbnail": "images/npcs/0000204.png"
+  },
+  {
+    "id": 205,
+    "name": "Jay",
+    "functions": [],
+    "thumbnail": "images/npcs/0000205.png"
+  },
+  {
+    "id": 206,
+    "name": "Bruce",
+    "functions": [],
+    "thumbnail": "images/npcs/0000206.png"
+  },
+  {
+    "id": 207,
+    "name": "Maya",
+    "functions": [
+      "Cough, cough..."
+    ],
+    "thumbnail": "images/npcs/0000207.png"
+  },
+  {
+    "id": 208,
+    "name": "Vicious",
+    "functions": [
+      "You need something"
+    ],
+    "thumbnail": "images/npcs/0000208.png"
+  },
+  {
+    "id": 209,
+    "name": "Doofus",
+    "functions": [
+      "Pet food for your precious pet!! On Sale!!",
+      "Do you need to get some food for your pet"
+    ],
+    "thumbnail": "images/npcs/0000209.png"
+  },
+  {
+    "id": 21,
+    "name": "Lucy",
+    "functions": [
+      "Ok, cheap goods! Really cheap!!",
+      "Hey you!! Don't even think about stealing in here...",
+      "You definitely need potions to travel"
+    ],
+    "thumbnail": "images/npcs/0000021.png"
+  },
+  {
+    "id": 210,
+    "name": "Karl",
+    "functions": [
+      "Really cheap around here!!!",
+      "Come check it out! Ahahahah!!"
+    ],
+    "thumbnail": "images/npcs/0000210.png"
+  },
+  {
+    "id": 211,
+    "name": "Sam",
+    "functions": [
+      "Hmm...I'm ready for business now...",
+      "Ahem, I only deal with the finest of all items..."
+    ],
+    "thumbnail": "images/npcs/0000211.png"
+  },
+  {
+    "id": 212,
+    "name": "Luna",
+    "functions": [
+      "Yawn, I'm tired... just go choose an item you want ..."
+    ],
+    "thumbnail": "images/npcs/0000212.png"
+  },
+  {
+    "id": 213,
+    "name": "Denma the Owner",
+    "functions": [
+      "Do you want to have plastic surgery Let me take care of you then...",
+      "It's not a bad idea to change your face up every once in a while"
+    ],
+    "thumbnail": "images/npcs/0000213.png"
+  },
+  {
+    "id": 214,
+    "name": "Dr. Feeble",
+    "functions": [
+      "I've been wearing these for so long, I can barely see what's in front of me now...",
+      "Ah ... you want a plastic surgery Cough cough ...",
+      "Plastic surgery ... allow me to handle it ... haha ... by the way, where is the face ..."
+    ],
+    "thumbnail": "images/npcs/0000214.png"
+  },
+  {
+    "id": 215,
+    "name": "Natalie",
+    "functions": [
+      "You like my hairstyle We hairdressers are supposed to keep up with the latest trends, you know",
+      "Are you tired of your hairdo Here, let me make it look nice and pretty for you..."
+    ],
+    "thumbnail": "images/npcs/0000215.png"
+  },
+  {
+    "id": 216,
+    "name": "Brittany",
+    "functions": [
+      "I'm Brittany the assistant, in charge of dying hair...",
+      "Natalie is my mother and the owner of this place."
+    ],
+    "thumbnail": "images/npcs/0000216.png"
+  },
+  {
+    "id": 217,
+    "name": "Ms. Tan",
+    "functions": [
+      "These days, everyone wants to tan their skin...",
+      "There's nothing as healthy-looking as a well-tanned skin. What do you think Do you want to tan it like me",
+      "Every once in a while, someone comes along that wants a clean, white skin. That's ok, too."
+    ],
+    "thumbnail": "images/npcs/0000217.png"
+  },
+  {
+    "id": 218,
+    "name": "Pia",
+    "functions": [
+      "I wanna do something...",
+      "Ahhhh...it's trying to eat me!!",
+      "Ahh...I like it...sooo comfortable..."
+    ],
+    "thumbnail": "images/npcs/0000218.png"
+  },
+  {
+    "id": 219,
+    "name": "Cloy",
+    "functions": [
+      "Do you have any questions about pets Ask me anything about them...",
+      "Are you raising a pet If you have any questions, feel free to ask"
+    ],
+    "thumbnail": "images/npcs/0000219.png"
+  },
+  {
+    "id": 220,
+    "name": "Mr. Lee",
+    "functions": [
+      "You need a place to store your items and mesos This is just the place for you!",
+      "My storage is safe and secure, so no worries!"
+    ],
+    "thumbnail": "images/npcs/0000220.png"
+  },
+  {
+    "id": 221,
+    "name": "Athena Pierce",
+    "functions": [
+      "Do you want to become a bowman"
+    ],
+    "thumbnail": "images/npcs/0000221.png"
+  },
+  {
+    "id": 222,
+    "name": "Trainer Bartos",
+    "functions": [
+      "What Your pet turned into a doll Of course... it's originally a doll that came to life through a special magic.",
+      "Hehehe ... if you need to train your pet, I'll take care of it..."
+    ],
+    "thumbnail": "images/npcs/0000222.png"
+  },
+  {
+    "id": 223,
+    "name": "Trainer Frod",
+    "functions": [
+      "Hmmm ... my brother keeps making me do these dumb assignments ...",
+      "Taking a walk around town with your pet...isn't that the best feeling in the world"
+    ],
+    "thumbnail": "images/npcs/0000223.png"
+  },
+  {
+    "id": 224,
+    "name": "Anne",
+    "functions": [
+      "When's Mom coming She must be busy...",
+      "I can only do this by myself for so long..."
+    ],
+    "thumbnail": "images/npcs/0000224.png"
+  },
+  {
+    "id": 225,
+    "name": "Utah",
+    "functions": [],
+    "thumbnail": "images/npcs/0000225.png"
+  },
+  {
+    "id": 226,
+    "name": "Luke",
+    "functions": [
+      "zzz...",
+      "... ... ... zzz...",
+      "This is the way to the ... dun ... geon ... zzzzzzzz ...."
+    ],
+    "thumbnail": "images/npcs/0000226.png"
+  },
+  {
+    "id": 227,
+    "name": "Bowman Job Instructor",
+    "functions": [
+      "Do you want to make the 2nd job advancement as the bowman Go see \"Athena Pierce\" of Henesys first.",
+      "Only the ones that pass my test can make the 2nd job advancement as the bowman."
+    ],
+    "thumbnail": "images/npcs/0000227.png"
+  },
+  {
+    "id": 228,
+    "name": "Casey",
+    "functions": [
+      "You tired of hunting How about playing a minigame",
+      "Still no one to beat me...I'm the master of minigames..."
+    ],
+    "thumbnail": "images/npcs/0000228.png"
+  },
+  {
+    "id": 3,
+    "name": "Roger",
+    "functions": [
+      "Open your item inventory and you'll find equip., use, set-up, etc. and cash tabs.",
+      "The item you pick up is automatically stored in an appropriate item category. What do you think Isn't it cool",
+      "Double-click on an item in the item inventory and you'll be able to use it."
+    ],
+    "thumbnail": "images/npcs/0000003.png"
+  },
+  {
+    "id": 300,
+    "name": "Estelle",
+    "functions": [
+      "It's not easy to make a new sauce.",
+      "No, this is not it! I need a distinctive flavor."
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 301,
+    "name": "Regular Cab",
+    "functions": [],
+    "thumbnail": null
+  },
+  {
+    "id": 302,
+    "name": "VIP Cab",
+    "functions": [],
+    "thumbnail": null
+  },
+  {
+    "id": 303,
+    "name": "Francois",
+    "functions": [
+      "Do you need anything...",
+      "Here...I have some goods here, so come take a look at them!"
+    ],
+    "thumbnail": "images/npcs/0000303.png"
+  },
+  {
+    "id": 304,
+    "name": "Arwen the Fairy",
+    "functions": [
+      "Ah... my precious collection ... where are they",
+      "I don't want to ask humans for a favor ... but ... there's no choice."
+    ],
+    "thumbnail": "images/npcs/0000304.png"
+  },
+  {
+    "id": 305,
+    "name": "Rowen the Fairy",
+    "functions": [
+      "Do you think my friend Ronnie is doing well...",
+      "Deep in the forest, Zombie Lupin's are threatening the safety of our town ...",
+      "A few days ago, my friend Arwen lost her red heart-shaped earrings in the middle of the forrest owned by Shane ..."
+    ],
+    "thumbnail": "images/npcs/0000305.png"
+  },
+  {
+    "id": 306,
+    "name": "Shane",
+    "functions": [
+      "Are you here at the request of Sabitrama",
+      "I heard there's an incredible herb that can be found in here...but I can't just let you easily like that...",
+      "Not everyone can enter this place~"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 307,
+    "name": "Mr. Park",
+    "functions": [
+      "You need a place to store your items and mesos This is just the place for you!",
+      "My storage is safe and secure, so no worries!"
+    ],
+    "thumbnail": "images/npcs/0000307.png"
+  },
+  {
+    "id": 308,
+    "name": "Betty",
+    "functions": [
+      "Hey, if you got some time, can you help me out here"
+    ],
+    "thumbnail": "images/npcs/0000308.png"
+  },
+  {
+    "id": 309,
+    "name": "Wing the Fairy",
+    "functions": [
+      "...",
+      "So much homework ... and so much studying to do ... man I'm swamped ..."
+    ],
+    "thumbnail": "images/npcs/0000309.png"
+  },
+  {
+    "id": 310,
+    "name": "Flora the Fairy",
+    "functions": [
+      "Welcome to Ellinia~",
+      "I have many good available here. Come check them out!"
+    ],
+    "thumbnail": "images/npcs/0000310.png"
+  },
+  {
+    "id": 311,
+    "name": "Serabi the Fairy",
+    "functions": [
+      "We sell various kinds of armors here...",
+      "Come take a look."
+    ],
+    "thumbnail": "images/npcs/0000311.png"
+  },
+  {
+    "id": 312,
+    "name": "Len the Fairy",
+    "functions": [
+      "Do you need potions by any chance I have plenty in store...",
+      "If you want to return to Ellinia at will, then try buying the return scroll to this place."
+    ],
+    "thumbnail": "images/npcs/0000312.png"
+  },
+  {
+    "id": 313,
+    "name": "Grendel the Really Old",
+    "functions": [
+      "To all that desire to become a magician...talk to me..."
+    ],
+    "thumbnail": "images/npcs/0000313.png"
+  },
+  {
+    "id": 314,
+    "name": "Louis",
+    "functions": [
+      "If you want to leave this place, come talk to me."
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 315,
+    "name": "a pile of flowers",
+    "functions": [],
+    "thumbnail": "images/npcs/0000315.png"
+  },
+  {
+    "id": 316,
+    "name": "a pile of herbs",
+    "functions": [],
+    "thumbnail": "images/npcs/0000316.png"
+  },
+  {
+    "id": 317,
+    "name": "Mar the Fairy",
+    "functions": [
+      "Did your pet turned back into a doll by any chance",
+      "If you have an unmoving pet with you, please take it to me."
+    ],
+    "thumbnail": "images/npcs/0000317.png"
+  },
+  {
+    "id": 318,
+    "name": "El Moth",
+    "functions": [
+      "I can make scrolls easily!",
+      "I know exactly what kind of scrolls you want."
+    ],
+    "thumbnail": "images/npcs/0000318.png"
+  },
+  {
+    "id": 319,
+    "name": "Magician Job Instructor",
+    "functions": [
+      "Do you want to make the 2nd job advancement as the magician Go see \"Grendel the Really Old\" of Ellinia first.",
+      "Only the ones that pass my test can make the 2nd job advancement as the magician."
+    ],
+    "thumbnail": "images/npcs/0000319.png"
+  },
+  {
+    "id": 320,
+    "name": "Ronnie",
+    "functions": [
+      "I... actually snuck out with my dad's book.",
+      "I'm still a kid so I don't know much... but what exactly is in this book"
+    ],
+    "thumbnail": "images/npcs/0000320.png"
+  },
+  {
+    "id": 321,
+    "name": "Fully Bloomed Bluebell",
+    "functions": [],
+    "thumbnail": "images/npcs/0000321.png"
+  },
+  {
+    "id": 4,
+    "name": "Nina",
+    "functions": [
+      "What would be good for dinner"
+    ],
+    "thumbnail": "images/npcs/0000004.png"
+  },
+  {
+    "id": 400,
+    "name": "Regular Cab",
+    "functions": [],
+    "thumbnail": null
+  },
+  {
+    "id": 401,
+    "name": "JM From tha Streetz",
+    "functions": [
+      "Hmm... can I see you for a sec ...",
+      "Hmm ... the items you may need ... I have them all."
+    ],
+    "thumbnail": "images/npcs/0000401.png"
+  },
+  {
+    "id": 402,
+    "name": "Alex",
+    "functions": [
+      "Ah... I'm bored..."
+    ],
+    "thumbnail": "images/npcs/0000402.png"
+  },
+  {
+    "id": 403,
+    "name": "Shumi",
+    "functions": [
+      "Oh no... where could it be ...",
+      "Crap~~!! I lost my money!!!!",
+      "I hope someone can help me out ..."
+    ],
+    "thumbnail": "images/npcs/0000403.png"
+  },
+  {
+    "id": 404,
+    "name": "Mong from Kong",
+    "functions": [
+      "Hey...are you logged on at Internet Cafe Then come in...",
+      "It's an Internet Cafe right here, but not everyone can go in..."
+    ],
+    "thumbnail": "images/npcs/0000404.png"
+  },
+  {
+    "id": 405,
+    "name": "Mr. Hong",
+    "functions": [
+      "You need a place to store your items and mesos Here it is!",
+      "My storage is safe and secure, so no worries!"
+    ],
+    "thumbnail": "images/npcs/0000405.png"
+  },
+  {
+    "id": 406,
+    "name": "Nella",
+    "functions": [
+      "Man, I'm soooo busy! Anyone around here willing to help",
+      "Strangers walking around everywhere here today."
+    ],
+    "thumbnail": "images/npcs/0000406.png"
+  },
+  {
+    "id": 407,
+    "name": "Icarus",
+    "functions": [
+      "..."
+    ],
+    "thumbnail": "images/npcs/0000407.png"
+  },
+  {
+    "id": 408,
+    "name": "Cutthroat Manny",
+    "functions": [
+      "You need a weapon Our store specializes in weapons for thieves...",
+      "Alright! Pick and choose!"
+    ],
+    "thumbnail": "images/npcs/0000408.png"
+  },
+  {
+    "id": 409,
+    "name": "Don Hwang",
+    "functions": [
+      "Hello there, do you need something",
+      "There is no way in the world you're going to overpay for an item here~"
+    ],
+    "thumbnail": "images/npcs/0000409.png"
+  },
+  {
+    "id": 410,
+    "name": "Dr. Faymus",
+    "functions": [
+      "You need potions Here you go...I have PLENTY!!",
+      "Here! Pick and choose!!"
+    ],
+    "thumbnail": "images/npcs/0000410.png"
+  },
+  {
+    "id": 411,
+    "name": "Dark Lord",
+    "functions": [
+      "To those that want to be a thief, come..."
+    ],
+    "thumbnail": "images/npcs/0000411.png"
+  },
+  {
+    "id": 412,
+    "name": "Jane Doe",
+    "functions": [],
+    "thumbnail": "images/npcs/0000412.png"
+  },
+  {
+    "id": 413,
+    "name": "Don Giovanni",
+    "functions": [
+      "Hey, you! You seem to be having a bad-hair day...how about letting me take care of it",
+      "Hahahah! Welcome to my hair salon! Have a seat!"
+    ],
+    "thumbnail": "images/npcs/0000413.png"
+  },
+  {
+    "id": 414,
+    "name": "Andre",
+    "functions": [
+      "Oh no no no no no~~!! YOU need a haircut!!",
+      "I may not be as good as the Don, but I'm close enough~"
+    ],
+    "thumbnail": "images/npcs/0000414.png"
+  },
+  {
+    "id": 415,
+    "name": "Chris",
+    "functions": [
+      "Do you have a raw ore of a mineral or a jewel by any chance Allow me to do the rest for you...",
+      "Phew ... I'm tired. I'll rest up a little bit for now."
+    ],
+    "thumbnail": "images/npcs/0000415.png"
+  },
+  {
+    "id": 416,
+    "name": "Tulcus",
+    "functions": [
+      "If you need any scrolls, come talk to me.",
+      "It's a piece of cake for me to make scrolls, you know."
+    ],
+    "thumbnail": "images/npcs/0000416.png"
+  },
+  {
+    "id": 417,
+    "name": "Jake",
+    "functions": [
+      "Do you want in Then please purchase a ticket here.",
+      "No one is allowed in without a ticket."
+    ],
+    "thumbnail": "images/npcs/0000417.png"
+  },
+  {
+    "id": 418,
+    "name": "The Ticket Gate",
+    "functions": [],
+    "thumbnail": "images/npcs/0000418.png"
+  },
+  {
+    "id": 419,
+    "name": "Exit",
+    "functions": [],
+    "thumbnail": "images/npcs/0000419.png"
+  },
+  {
+    "id": 420,
+    "name": "Treasure Chest",
+    "functions": [],
+    "thumbnail": "images/npcs/0000420.png"
+  },
+  {
+    "id": 421,
+    "name": "Treasure Chest",
+    "functions": [],
+    "thumbnail": null
+  },
+  {
+    "id": 422,
+    "name": "Treasure Chest",
+    "functions": [],
+    "thumbnail": null
+  },
+  {
+    "id": 424,
+    "name": "Thief Job Instructor",
+    "functions": [
+      "Do you want to make the 2nd job advancement as the thief Go see \"Dark Lord\" of Kerning City first.",
+      "Only the ones that pass my test can make the 2nd job advancement as the thief."
+    ],
+    "thumbnail": "images/npcs/0000424.png"
+  },
+  {
+    "id": 5,
+    "name": "Sen",
+    "functions": [
+      "I'm... so ... hungry!",
+      "Can... I... eat this ..."
+    ],
+    "thumbnail": "images/npcs/0000005.png"
+  },
+  {
+    "id": 500,
+    "name": "Regular Cab",
+    "functions": [],
+    "thumbnail": null
+  },
+  {
+    "id": 501,
+    "name": "Blackbull",
+    "functions": [
+      "Haven't seen you before...better be careful around here.",
+      "Don't worry, we aren't cannibals here...*gulp*",
+      "Don't you like my hair It's very popular around town."
+    ],
+    "thumbnail": "images/npcs/0000501.png"
+  },
+  {
+    "id": 502,
+    "name": "Manji",
+    "functions": [
+      "...",
+      "Don't talk to me.",
+      "Leave now...or you'll get hurt."
+    ],
+    "thumbnail": "images/npcs/0000502.png"
+  },
+  {
+    "id": 503,
+    "name": "Mr. Thunder",
+    "functions": [
+      "There is nothing in this world that I can't make...hahah!",
+      "Do you have a jewel or a mineral by any chance Show me then!"
+    ],
+    "thumbnail": "images/npcs/0000503.png"
+  },
+  {
+    "id": 504,
+    "name": "Silas Irons",
+    "functions": [
+      "I'm Mr. Thunder's apprentice.",
+      "If you need something made, just come find me."
+    ],
+    "thumbnail": "images/npcs/0000504.png"
+  },
+  {
+    "id": 505,
+    "name": "Mr. Wang",
+    "functions": [
+      "You need a place to store your items and mesos This is just the place for you!",
+      "My storage is safe and secure, so no worries!"
+    ],
+    "thumbnail": "images/npcs/0000505.png"
+  },
+  {
+    "id": 506,
+    "name": "Ayan",
+    "functions": [],
+    "thumbnail": "images/npcs/0000506.png"
+  },
+  {
+    "id": 507,
+    "name": "River",
+    "functions": [
+      "Cheap~! Sooo cheap!!",
+      "Come check it out!! Hahahah"
+    ],
+    "thumbnail": "images/npcs/0000507.png"
+  },
+  {
+    "id": 508,
+    "name": "Harry",
+    "functions": [
+      "Let's see...I'm ready for some work here!",
+      "Hello everyone! I've got some fiiine goods for ya!",
+      "I will never let go of the thieves trying to steal things here."
+    ],
+    "thumbnail": "images/npcs/0000508.png"
+  },
+  {
+    "id": 509,
+    "name": "Arturo",
+    "functions": [
+      "I made this potion myself!!",
+      "Hey, you! No stealing around here..."
+    ],
+    "thumbnail": "images/npcs/0000509.png"
+  },
+  {
+    "id": 510,
+    "name": "Sophia",
+    "functions": [
+      "Ok...I'm ready to do business...",
+      "It's so boring around here...",
+      "Is Maya getting better from her sickness"
+    ],
+    "thumbnail": "images/npcs/0000510.png"
+  },
+  {
+    "id": 511,
+    "name": "Dances with Balrog",
+    "functions": [
+      "Do you want to become a warrior",
+      "For those that want to become a warrior, come see me..."
+    ],
+    "thumbnail": "images/npcs/0000511.png"
+  },
+  {
+    "id": 512,
+    "name": "Winston",
+    "functions": [
+      "Look around the cliff and you may be able to find the fossils."
+    ],
+    "thumbnail": "images/npcs/0000512.png"
+  },
+  {
+    "id": 513,
+    "name": "Mike",
+    "functions": [
+      "zzz...",
+      "... ... ... zzz...",
+      "This is the way to the...dun...geon...zz.zzzzzz...."
+    ],
+    "thumbnail": "images/npcs/0000513.png"
+  },
+  {
+    "id": 514,
+    "name": "Warrior Job Instructor",
+    "functions": [
+      "Do you want to make the 2nd job advancement as the warrior Go see \"Dances with Balrog\" of Perion first.",
+      "Only the ones that pass my test can make the 2nd job advancement as the warrior."
+    ],
+    "thumbnail": "images/npcs/0000514.png"
+  },
+  {
+    "id": 6,
+    "name": "Peter",
+    "functions": [
+      "You should train yourself well before going on the journey.",
+      "Well done getting here!",
+      "This is the exit to the Mushroom Town."
+    ],
+    "thumbnail": "images/npcs/0000006.png"
+  },
+  {
+    "id": 600,
+    "name": "Regular Cab",
+    "functions": [],
+    "thumbnail": null
+  },
+  {
+    "id": 601,
+    "name": "VIP Cab",
+    "functions": [],
+    "thumbnail": null
+  },
+  {
+    "id": 602,
+    "name": "Chrishrama",
+    "functions": [
+      "You need something..."
+    ],
+    "thumbnail": "images/npcs/0000602.png"
+  },
+  {
+    "id": 603,
+    "name": "Sabitrama",
+    "functions": [
+      "I'm collecting herbs..."
+    ],
+    "thumbnail": "images/npcs/0000603.png"
+  },
+  {
+    "id": 604,
+    "name": "Mr. Oh",
+    "functions": [
+      "You need a place to store your items and mesos This is just the place for you!",
+      "My storage is safe and secure, so no worries!"
+    ],
+    "thumbnail": "images/npcs/0000604.png"
+  },
+  {
+    "id": 605,
+    "name": "Eurek the Alchemist",
+    "functions": [],
+    "thumbnail": "images/npcs/0000605.png"
+  },
+  {
+    "id": 606,
+    "name": "Hotel Receptionist",
+    "functions": [
+      "Hello. Welcome to Sleepywood Hotel",
+      "Please use our hotel if you want to regain your health."
+    ],
+    "thumbnail": "images/npcs/0000606.png"
+  },
+  {
+    "id": 607,
+    "name": "Mr. Sweatbottom",
+    "functions": [
+      "A few minutes in sauna, and you'll feel much better. What do you think Already working for you",
+      "If you need an item, I have some available, so go take a look..."
+    ],
+    "thumbnail": "images/npcs/0000607.png"
+  },
+  {
+    "id": 608,
+    "name": "Mr. Wetbottom",
+    "functions": [
+      "Ah... you're using the VIP sauna. What do you think Do you want to make a deal with me"
+    ],
+    "thumbnail": "images/npcs/0000608.png"
+  },
+  {
+    "id": 609,
+    "name": "Mysterious Statue",
+    "functions": [],
+    "thumbnail": "images/npcs/0000609.png"
+  },
+  {
+    "id": 610,
+    "name": "Crumbling Statue",
+    "functions": [],
+    "thumbnail": "images/npcs/0000610.png"
+  },
+  {
+    "id": 611,
+    "name": "a pile of pink flowers",
+    "functions": [],
+    "thumbnail": "images/npcs/0000611.png"
+  },
+  {
+    "id": 612,
+    "name": "a pile of blue flowers",
+    "functions": [],
+    "thumbnail": "images/npcs/0000612.png"
+  },
+  {
+    "id": 613,
+    "name": "a pile of white flowers",
+    "functions": [],
+    "thumbnail": "images/npcs/0000613.png"
+  },
+  {
+    "id": 614,
+    "name": "24 Hr Mobile Store",
+    "functions": [
+      "We have everything except the ones we don't have~",
+      "Alright, everyone come check it out!"
+    ],
+    "thumbnail": "images/npcs/0000614.png"
+  },
+  {
+    "id": 615,
+    "name": "Door of Dimension",
+    "functions": [],
+    "thumbnail": "images/npcs/0000615.png"
+  },
+  {
+    "id": 616,
+    "name": "Bluebell Bud",
+    "functions": [],
+    "thumbnail": "images/npcs/0000616.png"
+  },
+  {
+    "id": 7,
+    "name": "Todd",
+    "functions": [
+      "Watch out for the monsters",
+      "You can attack the monsters, if you press \"Ctrl\".",
+      "You can pick up the items, if you press \"z\".",
+      "If the monsters are strong, how about making a party with other players"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 700,
+    "name": "Luma",
+    "functions": [],
+    "thumbnail": "images/npcs/0000700.png"
+  },
+  {
+    "id": 701,
+    "name": "Zelya",
+    "functions": [],
+    "thumbnail": "images/npcs/0000701.png"
+  },
+  {
+    "id": 702,
+    "name": "Myen",
+    "functions": [],
+    "thumbnail": "images/npcs/0000702.png"
+  },
+  {
+    "id": 703,
+    "name": "Myra",
+    "functions": [],
+    "thumbnail": "images/npcs/0000703.png"
+  },
+  {
+    "id": 704,
+    "name": "Cave Fairy’s Storage",
+    "functions": [],
+    "thumbnail": "images/npcs/0000704.png"
+  },
+  {
+    "id": 705,
+    "name": "Fully Bloomed Bluebell",
+    "functions": [],
+    "thumbnail": "images/npcs/0000705.png"
+  },
+  {
+    "id": 706,
+    "name": "Bluebell Bud",
+    "functions": [],
+    "thumbnail": "images/npcs/0000706.png"
+  },
+  {
+    "id": 707,
+    "name": "Nyroth",
+    "functions": [],
+    "thumbnail": "images/npcs/0000707.png"
+  },
+  {
+    "id": 8,
+    "name": "Robin",
+    "functions": [
+      "Be careful! You'll see monsters around here.",
+      "Press 'Ctrl' to attack the monster.",
+      "Press Z and you'll be able to pick up the item the monster drops.",
+      "If it's a powerful monster, how about teaming up with someone else"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 800,
+    "name": "Valen",
+    "functions": [
+      "Here you go! Delicious food fresh and homemade!",
+      "On a hot day like this, Ice with Red-Beans is the way to go!"
+    ],
+    "thumbnail": "images/npcs/0000800.png"
+  },
+  {
+    "id": 800000,
+    "name": "Lakelis",
+    "functions": [
+      "Do you want to combine powers of your party members to solve this quest",
+      "There are lots of obstacles here where the only way you'll pass is by joining forces with your party members."
+    ],
+    "thumbnail": "images/npcs/0800000.png"
+  },
+  {
+    "id": 800001,
+    "name": "Cloto",
+    "functions": [
+      "You need to answer my question in order to move on to the next level.",
+      "The difficulty of this problem depends on how you relate to one another."
+    ],
+    "thumbnail": "images/npcs/0800001.png"
+  },
+  {
+    "id": 800002,
+    "name": "Nella",
+    "functions": [
+      "If you want to leave this place, come talk to me.",
+      "You can always get out of here through me."
+    ],
+    "thumbnail": "images/npcs/0800002.png"
+  },
+  {
+    "id": 800003,
+    "name": "Bowman Job Instructor",
+    "functions": [
+      "Do you want to make the 2nd job advancement as the bowman Go see \"Athena Pierce\" of Henesys first.",
+      "Only the ones that pass my test can make the 2nd job advancement as the bowman."
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 800004,
+    "name": "Magician Job Instructor",
+    "functions": [
+      "Do you want to make the 2nd job advancement as the magician Go see \"Grendel the Really Old\" of Ellinia first.",
+      "Only the ones that pass my test can make the 2nd job advancement as the magician."
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 800005,
+    "name": "Thief Job Instructor",
+    "functions": [
+      "Do you want to make the 2nd job advancement as the thief Go see \"Dark Lord\" of Kerning City first.",
+      "Only the ones that pass my test can make the 2nd job advancement as the thief"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 800006,
+    "name": "Warrior Job Instructor",
+    "functions": [
+      "Do you want to make the 2nd job advancement as the warrior Go see \"Dances with Balrog\" of Perion first.",
+      "Only the ones that pass my test can make the 2nd job advancement as the warrior."
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 800007,
+    "name": "Free Market Maple TV",
+    "functions": [],
+    "thumbnail": "images/npcs/0800007.png"
+  },
+  {
+    "id": 800008,
+    "name": "Fredrick",
+    "functions": [],
+    "thumbnail": "images/npcs/0800008.png"
+  },
+  {
+    "id": 800009,
+    "name": "Scrooge",
+    "functions": [],
+    "thumbnail": "images/npcs/0800009.png"
+  },
+  {
+    "id": 800010,
+    "name": "Anvil",
+    "functions": [],
+    "thumbnail": "images/npcs/0800010.png"
+  },
+  {
+    "id": 800011,
+    "name": "Weaponcrafting Station",
+    "functions": [],
+    "thumbnail": "images/npcs/0800011.png"
+  },
+  {
+    "id": 800012,
+    "name": "Sewing Machine",
+    "functions": [],
+    "thumbnail": "images/npcs/0800012.png"
+  },
+  {
+    "id": 800013,
+    "name": "Woodworking Station",
+    "functions": [],
+    "thumbnail": "images/npcs/0800013.png"
+  },
+  {
+    "id": 800014,
+    "name": "Leatherworking Station",
+    "functions": [],
+    "thumbnail": "images/npcs/0800014.png"
+  },
+  {
+    "id": 800015,
+    "name": "Arcane Station",
+    "functions": [],
+    "thumbnail": "images/npcs/0800015.png"
+  },
+  {
+    "id": 800016,
+    "name": "Maple Administrator",
+    "functions": [
+      "I can tell you more about the Truth Booth if you want.",
+      "Be careful not to end up in the Truth Booth."
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 801,
+    "name": "Pison",
+    "functions": [
+      "This is Florina Beach!",
+      "If you want to head back to where you were before, feel free to talk to me."
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 802,
+    "name": "Riel",
+    "functions": [
+      "Welcome to Florina Beach~!",
+      "Aren't we hot"
+    ],
+    "thumbnail": "images/npcs/0000802.png"
+  },
+  {
+    "id": 803,
+    "name": "Roel",
+    "functions": [
+      "Welcome to Florina Beach~!",
+      "Aren't we hot"
+    ],
+    "thumbnail": "images/npcs/0000803.png"
+  },
+  {
+    "id": 804,
+    "name": "Rael",
+    "functions": [
+      "Welcome to Florina Beach~!",
+      "Aren't we hot"
+    ],
+    "thumbnail": "images/npcs/0000804.png"
+  },
+  {
+    "id": 9,
+    "name": "Sam",
+    "functions": [
+      "You can be even stronger, if you get a lesson from Mai.",
+      "Go to the right and then you can meet bunch of other people.",
+      "Press \"w\" to see the current position.",
+      "How about partying with other players"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 900000,
+    "name": "Maple Administrator",
+    "functions": [
+      "Hello, there! How's the traveling",
+      "Would you like to change your job"
+    ],
+    "thumbnail": "images/npcs/0900000.png"
+  },
+  {
+    "id": 900001,
+    "name": "Maple Administrator",
+    "functions": [
+      "Hello, there! How's the traveling",
+      "Would you like to change your job"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 900002,
+    "name": "VIP Cab",
+    "functions": [],
+    "thumbnail": null
+  },
+  {
+    "id": 900003,
+    "name": "Maya",
+    "functions": [
+      "Cough, cough... Welcome to MapleCon…",
+      "There’s said to be a place called Someone Else’s House in Henesys. Have you heard of it"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 900004,
+    "name": "Sabitrama",
+    "functions": [
+      "I'm collecting herbs...",
+      "Do you have any desire to challenge the Forest of Patience, hidden deep within Ellinia"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 900005,
+    "name": "Grendel the Really Old",
+    "functions": [
+      "It seems a massive underground cave, long forgotten, has been discovered…"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 900006,
+    "name": "Arwen the Fairy",
+    "functions": [
+      "It seems the entrance to the Forgotten Hollow has been discovered near Sleepywood.",
+      "I don't want to ask humans for a favor... but... there's no choice."
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 900007,
+    "name": "Natalie",
+    "functions": [
+      "You like my hairstyle We hairdressers are supposed to keep up with the latest trends, you know",
+      "Want to customize your character to your heart’s content Then come talk to me!"
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 900008,
+    "name": "Lakelis",
+    "functions": [
+      "Do you want to combine powers of your party members to solve this quest",
+      "There are lots of obstacles here where the only way you'll pass is by joining forces with your party members."
+    ],
+    "thumbnail": null
+  },
+  {
+    "id": 900009,
+    "name": "MapleCon TV",
+    "functions": [],
+    "thumbnail": "images/npcs/0900009.png"
+  },
+  {
+    "id": 900010,
+    "name": "Paul",
+    "functions": [
+      "Where's my brother...",
+      "I need to get to where the event takes place..."
+    ],
+    "thumbnail": "images/npcs/0900010.png"
+  },
+  {
+    "id": 900011,
+    "name": "Vikoon",
+    "functions": [
+      "We're the descendants of Viking, the king of the sea."
+    ],
+    "thumbnail": "images/npcs/0900011.png"
+  },
+  {
+    "id": 900012,
+    "name": "Pietro",
+    "functions": [
+      "Come talk to me, if you're one of those that won the prizes."
+    ],
+    "thumbnail": "images/npcs/0900012.png"
+  },
+  {
+    "id": 900013,
+    "name": "Pietra",
+    "functions": [
+      "Click me and you'll go back to where you were.",
+      "Come back for another event."
+    ],
+    "thumbnail": "images/npcs/0900013.png"
+  },
+  {
+    "id": 900014,
+    "name": "Chun Ji",
+    "functions": [
+      "Don't talk to me...",
+      "Leave now...before you get hurt",
+      "Are you telling me I'm worse than Man Ji"
+    ],
+    "thumbnail": "images/npcs/0900014.png"
+  },
+  {
+    "id": 900015,
+    "name": "Mr. Pickall",
+    "functions": [
+      "There is no lock in the world that I can't pick...!"
+    ],
+    "thumbnail": "images/npcs/0900015.png"
+  },
+  {
+    "id": 9010000,
+    "name": "Maple Administrator",
+    "functions": [
+      "Are you enjoying the sights of Maple World",
+      "Feel free to talk to me anytime if you need my help."
+    ],
+    "thumbnail": "images/npcs/9010000.png"
+  }
+]

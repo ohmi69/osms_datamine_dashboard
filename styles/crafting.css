@@ -53,7 +53,6 @@
   align-items: center;
   gap: 8px;
 }
-.craft-item--clickable { cursor: pointer; }
 
 .craft-ingredients {
   font-size: 13px;
@@ -65,7 +64,6 @@
   align-items: center;
   gap: 6px;
 }
-.craft-ing--clickable { cursor: pointer; }
 
 .craft-ing-text {
   color: var(--text);

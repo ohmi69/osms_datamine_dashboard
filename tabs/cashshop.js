@@ -39,7 +39,7 @@ export function renderCashShop(data, options = {}) {
   container.appendChild(pillGroup);
 
   // Sub-category filter row (shown only when Equipment is selected)
-  const subPillRow = el('div', { className: 'sub-pill-row hidden' });
+  const subPillRow = el('div', { style: { display: 'none', flexWrap: 'wrap', gap: '6px', margin: '0 0 8px 0', alignItems: 'center' } });
   container.appendChild(subPillRow);
 
   // Hide unavailable toggle
@@ -47,7 +47,7 @@ export function renderCashShop(data, options = {}) {
   let hideUnavailable = state.get('cashshop_hide_unavailable', false);
 
   const SHOW_PRICE = true;
-  const toggleRow = el('div', { className: 'cashshop-toggle-row' });
+  const toggleRow = el('div', { style: { display: 'flex', alignItems: 'center', gap: '8px', margin: '0 0 8px 0' } });
   toggleRow.appendChild(makeHideToggle('Hide Unavailable', hideUnavailable, (active) => {
     hideUnavailable = active;
     state.set('cashshop_hide_unavailable', hideUnavailable);
@@ -61,7 +61,7 @@ export function renderCashShop(data, options = {}) {
   function buildSubCategoryPills() {
     subPillRow.innerHTML = '';
     if (selectedCategory !== 'Equipment') {
-      subPillRow.classList.add('hidden');
+      subPillRow.style.display = 'none';
       selectedSubCategory = null;
       return;
     }
@@ -70,7 +70,7 @@ export function renderCashShop(data, options = {}) {
     const subCats = [...new Set(eqpCat.items.map((i) => i.sub_category).filter(Boolean))].sort();
     if (subCats.length === 0) return;
 
-    subPillRow.classList.remove('hidden');
+    subPillRow.style.display = 'flex';
     const allSub = el('button', { className: 'pill pill--sub active', textContent: 'All' });
     allSub.addEventListener('click', () => {
       selectedSubCategory = null;
@@ -95,7 +95,9 @@ export function renderCashShop(data, options = {}) {
   function renderItemRow(item, fallbackLabel) {
     const row = el('div', { className: 'item-row' });
     const topLine = el('div', { className: 'top-line' });
-    const nameWrap = el('span', { className: 'cashshop-name-wrap' });
+    const nameWrap = el('span', {
+      style: { display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' },
+    });
     nameWrap.appendChild(
       makeThumbnail(item.thumbnail || `images/items/${padItemId(item.id)}.png`, `${fallbackLabel || item.name} thumbnail`, {
         className: 'item-thumb',
@@ -104,25 +106,77 @@ export function renderCashShop(data, options = {}) {
     );
     nameWrap.appendChild(el('span', { className: 'name', textContent: item.name || fallbackLabel || '' }));
     if (item.on_sale === false) {
-      nameWrap.appendChild(el('span', { className: 'cashshop-badge--unavailable', textContent: 'Unavailable' }));
+      nameWrap.appendChild(
+        el('span', {
+          style: {
+            fontSize: '11px',
+            padding: '1px 6px',
+            borderRadius: '3px',
+            background: '#ef444422',
+            color: '#ef4444',
+            border: '1px solid #ef444444',
+            whiteSpace: 'nowrap',
+          },
+          textContent: 'Unavailable',
+        })
+      );
     }
     if (item.period && item.period > 0) {
-      nameWrap.appendChild(el('span', { className: 'cashshop-badge--period', textContent: `${item.period}d` }));
+      nameWrap.appendChild(
+        el('span', {
+          style: {
+            fontSize: '11px',
+            padding: '1px 6px',
+            borderRadius: '3px',
+            background: '#f59e0b22',
+            color: '#f59e0b',
+            border: '1px solid #f59e0b44',
+            whiteSpace: 'nowrap',
+          },
+          textContent: `${item.period}d`,
+        })
+      );
     }
     // Show price only if available and internal flag is true
     if (SHOW_PRICE && item.price != null && item.on_sale !== false) {
-      const priceLabel = el('span', { className: 'cashshop-badge--price', textContent: `${item.price} NX` });
+      const priceLabel = el('span', {
+        style: {
+          fontSize: '12px',
+          padding: '1px 8px',
+          borderRadius: '3px',
+          background: '#e0e7ff',
+          color: '#3730a3',
+          border: '1px solid #a5b4fc',
+          marginLeft: '4px',
+          fontWeight: 'bold',
+          whiteSpace: 'nowrap',
+        },
+        textContent: `${item.price} NX`,
+      });
       nameWrap.appendChild(priceLabel);
     }
+    const petBadgeStyle = {
+      fontSize: '11px',
+      padding: '1px 6px',
+      borderRadius: '3px',
+      background: '#6366f122',
+      color: '#818cf8',
+      border: '1px solid #6366f144',
+      whiteSpace: 'nowrap',
+    };
     if (item.limited_life != null) {
       const lifeHours = Math.round(item.limited_life / 3600);
-      nameWrap.appendChild(el('span', { className: 'cashshop-badge--pet', title: 'Only counts down while the pet is actively being used', textContent: `${lifeHours}h Active Life` }));
+      nameWrap.appendChild(
+        el('span', { title: 'Only counts down while the pet is actively being used', style: petBadgeStyle, textContent: `${lifeHours}h Active Life` })
+      );
     }
     if (item.life != null) {
-      nameWrap.appendChild(el('span', { className: 'cashshop-badge--pet', title: 'Time until the pet needs to be revived', textContent: `${item.life}d Lifespan` }));
+      nameWrap.appendChild(
+        el('span', { title: 'Time until the pet needs to be revived', style: petBadgeStyle, textContent: `${item.life}d Lifespan` })
+      );
     }
     topLine.appendChild(nameWrap);
-    const csRightWrap = el('span', { className: 'item-id-wrap' });
+    const csRightWrap = el('span', { style: { display: 'flex', alignItems: 'center', gap: '4px', flexShrink: '0' } });
     csRightWrap.appendChild(makeDeepLinkButton('cashshop', padItemId(item.id)));
     csRightWrap.appendChild(makeCopyableId(padItemId(item.id)));
     topLine.appendChild(csRightWrap);
@@ -139,8 +193,19 @@ export function renderCashShop(data, options = {}) {
     const content = el('div');
 
     const disclaimer = el('p', {
-      className: 'cashshop-disclaimer',
-      textContent: 'These items were found in the game files but have no name or description (not intended for use). They might never be made available in the cash shop, but they are provided here for speculation',
+      style: {
+        fontSize: '12px',
+        color: '#ef4444',
+        fontStyle: 'italic',
+        margin: '0 0 10px 0',
+        padding: '8px 12px',
+        background: '#ef444411',
+        borderRadius: '6px',
+        border: '1px solid #ef444444',
+        lineHeight: '1.5',
+      },
+      textContent:
+        'These items were found in the game files but have no name or description (not intended for use). They might never be made available in the cash shop, but they are provided here for speculation',
     });
     content.appendChild(disclaimer);
 

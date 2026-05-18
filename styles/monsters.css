@@ -37,6 +37,26 @@
   margin-bottom: 12px;
 }
 .col-toggles .label { font-size: 11px; color: var(--dim); margin-right: 4px; }
+.col-toggle {
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--dim);
+  transition: all .15s;
+}
+.col-toggle:hover { color: var(--text); border-color: var(--dim); }
+.col-toggle.active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
 
 .elem-badge {
   display: inline-flex;
@@ -268,7 +288,6 @@
   border-color: var(--accent);
   color: var(--accent);
 }
-.monster-map-chip--clickable { cursor: pointer; }
 .monster-map-chip-count {
   font-size: 11px;
   font-weight: 700;
@@ -319,7 +338,6 @@
   gap: 2px;
   min-width: 0;
 }
-.mob-skill-id { padding-left: 6px; }
 .mob-skill-name {
   font-size: 11px;
   font-weight: 700;

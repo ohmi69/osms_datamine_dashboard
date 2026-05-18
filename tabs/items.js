@@ -83,8 +83,8 @@ export function renderItems(data, options = {}) {
 
   // Scroll slot subfilters
   const allScrollSlots = [...new Set(items.scrolls.map((s) => s.equip_slot).filter(Boolean))].sort();
-  const scrollSubRow = el('div', { className: 'sub-pill-row hidden' });
-  const scrollSubLabel = el('span', { className: 'sub-pill-label', textContent: 'Slot:' });
+  const scrollSubRow = el('div', { style: { display: 'none', flexWrap: 'wrap', gap: '6px', margin: '0 0 8px 0', alignItems: 'center' } });
+  const scrollSubLabel = el('span', { textContent: 'Slot:', style: { fontSize: '0.78rem', color: 'var(--text-muted, #888)', marginRight: '2px' } });
   scrollSubRow.appendChild(scrollSubLabel);
   const scrollAllSlotBtn = el('button', { className: 'pill pill--sub active', textContent: 'All' });
   scrollSubRow.appendChild(scrollAllSlotBtn);
@@ -102,7 +102,7 @@ export function renderItems(data, options = {}) {
   let selectedScrollSlot = null; // null = all slots
 
   function updateScrollSubRowVisibility() {
-    scrollSubRow.classList.toggle('hidden', selectedCategory !== 'Scrolls');
+    scrollSubRow.style.display = selectedCategory === 'Scrolls' ? 'flex' : 'none';
   }
 
   function renderData() {

@@ -134,6 +134,7 @@ export function renderSkills(data, options = {}) {
             statLevels.appendChild(levelsList);
             statLevels.appendChild(makeLevelRow('lvmax', `Lv.${lastIdx + 1}: `, skill.all_level_stats[lastIdx]));
 
+            statLevels.style.cursor = 'pointer';
             statLevels.title = 'Show intermediate levels';
             statLevels.addEventListener('click', () => {
               levelsList.hidden = !levelsList.hidden;

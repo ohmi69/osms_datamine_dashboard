@@ -152,7 +152,7 @@ export function renderCrafting(data, options = {}) {
             resultLeft.appendChild(el('span', { className: 'craft-result-name', textContent: recipe.result_item_name }));
             attachTooltip(resultLeft, () => recipe.output_id != null ? itemById.get(String(recipe.output_id)) : itemByName.get(recipe.result_item_name));
             if (onItemClick) {
-              resultLeft.classList.add('craft-item--clickable');
+              resultLeft.style.cursor = 'pointer';
               resultLeft.addEventListener('click', () => {
                 const item = recipe.output_id != null ? itemById.get(String(recipe.output_id)) : itemByName.get(recipe.result_item_name);
                 onItemClick(item, recipe.output_id);
@@ -189,7 +189,7 @@ export function renderCrafting(data, options = {}) {
               );
               attachTooltip(ingWrap, () => itemByName.get(ingredient.item_name));
               if (onItemClick) {
-                ingWrap.classList.add('craft-ing--clickable');
+                ingWrap.style.cursor = 'pointer';
                 ingWrap.addEventListener('click', () => {
                   const item = itemByName.get(ingredient.item_name);
                   onItemClick(item, ingredientId);
