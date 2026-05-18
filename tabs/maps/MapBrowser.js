@@ -326,7 +326,6 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
   let sortDir = 1;
 
   function renderRegionTable(mapsList) {
-    const COL_SPAN = 7;
     const wrapper = el('div', { className: 'table-scroll' });
     const table = el('table', { className: 'data-table' });
 
@@ -368,6 +367,8 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         return col;
       })
     ];
+    // thumb col + COLS + id col
+    const COL_SPAN = COLS.length + 2;
 
     const thead = el('thead');
     const headRow = el('tr');

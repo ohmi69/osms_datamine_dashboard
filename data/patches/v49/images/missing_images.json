@@ -1,7 +1,7 @@
 {
   "copied": {
     "monsters": 777,
-    "items": 6494,
+    "items": 6514,
     "skills": 278,
     "maps": 950,
     "npcs": 802
@@ -50,86 +50,6 @@
       }
     ],
     "items": [
-      {
-        "id": "01062038",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062039",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062040",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062041",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062042",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062043",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062044",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062045",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062046",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062047",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062048",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062049",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062050",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062051",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062052",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062053",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062054",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062055",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062056",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "01062057",
-        "reason": "asset_dir_missing"
-      },
       {
         "id": "04000417",
         "reason": "asset_dir_missing"
@@ -747,5 +667,5 @@
       }
     ]
   },
-  "missing_total": 183
+  "missing_total": 163
 }
