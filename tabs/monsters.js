@@ -158,7 +158,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
       chip.appendChild(el('span', { textContent: m.name || String(m.id) }));
       chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${m.count}` }));
       if (onMapClick) {
-        chip.style.cursor = 'pointer';
+        chip.classList.add('monster-map-chip--clickable');
         chip.title = `View ${m.name || `#${m.id}`} in Maps tab`;
         chip.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -190,7 +190,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
       const nameRow = el('span', { className: 'mob-skill-name', textContent: `${buff.name} Lv.${buff.level}` });
       if (buff.id != null) {
         const idEl = makeCopyableId(String(buff.id));
-        idEl.style.paddingLeft = '6px';
+        idEl.classList.add('mob-skill-id');
         nameRow.appendChild(idEl);
       }
       info.appendChild(nameRow);

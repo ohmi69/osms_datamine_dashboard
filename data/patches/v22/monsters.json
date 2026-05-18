@@ -263,14 +263,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/0100100.png",
       "gifs": {
         "move": "images/monsters/0100100.move.webp",
         "stand": "images/monsters/0100100.stand.webp",
         "hit1": "images/monsters/0100100.hit1.webp",
         "die1": "images/monsters/0100100.die1.webp"
       },
-      "gif": "images/monsters/0100100.move.webp"
+      "gif": "images/monsters/0100100.move.webp",
+      "thumbnail": "images/monsters/0100100.png"
     },
     {
       "id": 100101,
@@ -529,14 +529,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/0100101.png",
       "gifs": {
         "move": "images/monsters/0100101.move.webp",
         "stand": "images/monsters/0100101.stand.webp",
         "hit1": "images/monsters/0100101.hit1.webp",
         "die1": "images/monsters/0100101.die1.webp"
       },
-      "gif": "images/monsters/0100101.move.webp"
+      "gif": "images/monsters/0100101.move.webp",
+      "thumbnail": "images/monsters/0100101.png"
     },
     {
       "id": 120100,
@@ -663,14 +663,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/0120100.png",
       "gifs": {
         "move": "images/monsters/0120100.move.webp",
         "stand": "images/monsters/0120100.stand.webp",
         "hit1": "images/monsters/0120100.hit1.webp",
         "die1": "images/monsters/0120100.die1.webp"
       },
-      "gif": "images/monsters/0120100.move.webp"
+      "gif": "images/monsters/0120100.move.webp",
+      "thumbnail": "images/monsters/0120100.png"
     },
     {
       "id": 130100,
@@ -901,14 +901,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/0130100.png",
       "gifs": {
         "move": "images/monsters/0130100.move.webp",
         "stand": "images/monsters/0130100.stand.webp",
         "hit1": "images/monsters/0130100.hit1.webp",
         "die1": "images/monsters/0130100.die1.webp"
       },
-      "gif": "images/monsters/0130100.move.webp"
+      "gif": "images/monsters/0130100.move.webp",
+      "thumbnail": "images/monsters/0130100.png"
     },
     {
       "id": 130101,
@@ -1215,14 +1215,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/0130101.png",
       "gifs": {
         "move": "images/monsters/0130101.move.webp",
         "stand": "images/monsters/0130101.stand.webp",
         "hit1": "images/monsters/0130101.hit1.webp",
         "die1": "images/monsters/0130101.die1.webp"
       },
-      "gif": "images/monsters/0130101.move.webp"
+      "gif": "images/monsters/0130101.move.webp",
+      "thumbnail": "images/monsters/0130101.png"
     },
     {
       "id": 210100,
@@ -1573,7 +1573,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/0210100.png",
       "gifs": {
         "move": "images/monsters/0210100.move.webp",
         "jump": "images/monsters/0210100.jump.webp",
@@ -1581,7 +1580,8 @@
         "hit1": "images/monsters/0210100.hit1.webp",
         "die1": "images/monsters/0210100.die1.webp"
       },
-      "gif": "images/monsters/0210100.move.webp"
+      "gif": "images/monsters/0210100.move.webp",
+      "thumbnail": "images/monsters/0210100.png"
     },
     {
       "id": 1110100,
@@ -1812,14 +1812,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/1110100.png",
       "gifs": {
         "move": "images/monsters/1110100.move.webp",
         "stand": "images/monsters/1110100.stand.webp",
         "hit1": "images/monsters/1110100.hit1.webp",
         "die1": "images/monsters/1110100.die1.webp"
       },
-      "gif": "images/monsters/1110100.move.webp"
+      "gif": "images/monsters/1110100.move.webp",
+      "thumbnail": "images/monsters/1110100.png"
     },
     {
       "id": 1110101,
@@ -1972,14 +1972,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/1110101.png",
       "gifs": {
         "move": "images/monsters/1110101.move.webp",
         "stand": "images/monsters/1110101.stand.webp",
         "hit1": "images/monsters/1110101.hit1.webp",
         "die1": "images/monsters/1110101.die1.webp"
       },
-      "gif": "images/monsters/1110101.move.webp"
+      "gif": "images/monsters/1110101.move.webp",
+      "thumbnail": "images/monsters/1110101.png"
     },
     {
       "id": 1120100,
@@ -2048,13 +2048,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/1120100.png",
       "gifs": {
         "stand": "images/monsters/1120100.stand.webp",
         "hit1": "images/monsters/1120100.hit1.webp",
         "die1": "images/monsters/1120100.die1.webp"
       },
-      "gif": "images/monsters/1120100.stand.webp"
+      "gif": "images/monsters/1120100.stand.webp",
+      "thumbnail": "images/monsters/1120100.png"
     },
     {
       "id": 1130100,
@@ -2229,14 +2229,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/1130100.png",
       "gifs": {
         "move": "images/monsters/1130100.move.webp",
         "stand": "images/monsters/1130100.stand.webp",
         "hit1": "images/monsters/1130100.hit1.webp",
         "die1": "images/monsters/1130100.die1.webp"
       },
-      "gif": "images/monsters/1130100.move.webp"
+      "gif": "images/monsters/1130100.move.webp",
+      "thumbnail": "images/monsters/1130100.png"
     },
     {
       "id": 1210100,
@@ -2357,7 +2357,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/1210100.png",
       "gifs": {
         "move": "images/monsters/1210100.move.webp",
         "jump": "images/monsters/1210100.jump.webp",
@@ -2365,7 +2364,8 @@
         "hit1": "images/monsters/1210100.hit1.webp",
         "die1": "images/monsters/1210100.die1.webp"
       },
-      "gif": "images/monsters/1210100.move.webp"
+      "gif": "images/monsters/1210100.move.webp",
+      "thumbnail": "images/monsters/1210100.png"
     },
     {
       "id": 1210101,
@@ -2486,7 +2486,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/1210101.png",
       "gifs": {
         "move": "images/monsters/1210101.move.webp",
         "jump": "images/monsters/1210101.jump.webp",
@@ -2494,7 +2493,8 @@
         "hit1": "images/monsters/1210101.hit1.webp",
         "die1": "images/monsters/1210101.die1.webp"
       },
-      "gif": "images/monsters/1210101.move.webp"
+      "gif": "images/monsters/1210101.move.webp",
+      "thumbnail": "images/monsters/1210101.png"
     },
     {
       "id": 1210102,
@@ -2675,7 +2675,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/1210102.png",
       "gifs": {
         "move": "images/monsters/1210102.move.webp",
         "jump": "images/monsters/1210102.jump.webp",
@@ -2683,7 +2682,8 @@
         "hit1": "images/monsters/1210102.hit1.webp",
         "die1": "images/monsters/1210102.die1.webp"
       },
-      "gif": "images/monsters/1210102.move.webp"
+      "gif": "images/monsters/1210102.move.webp",
+      "thumbnail": "images/monsters/1210102.png"
     },
     {
       "id": 1210103,
@@ -2720,7 +2720,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/1210103.png",
       "gifs": {
         "move": "images/monsters/1210103.move.webp",
         "jump": "images/monsters/1210103.jump.webp",
@@ -2728,7 +2727,8 @@
         "hit1": "images/monsters/1210103.hit1.webp",
         "die1": "images/monsters/1210103.die1.webp"
       },
-      "gif": "images/monsters/1210103.move.webp"
+      "gif": "images/monsters/1210103.move.webp",
+      "thumbnail": "images/monsters/1210103.png"
     },
     {
       "id": 2110200,
@@ -2897,14 +2897,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/2110200.png",
       "gifs": {
         "move": "images/monsters/2110200.move.webp",
         "stand": "images/monsters/2110200.stand.webp",
         "hit1": "images/monsters/2110200.hit1.webp",
         "die1": "images/monsters/2110200.die1.webp"
       },
-      "gif": "images/monsters/2110200.move.webp"
+      "gif": "images/monsters/2110200.move.webp",
+      "thumbnail": "images/monsters/2110200.png"
     },
     {
       "id": 2130100,
@@ -3087,14 +3087,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/2130100.png",
       "gifs": {
         "move": "images/monsters/2130100.move.webp",
         "stand": "images/monsters/2130100.stand.webp",
         "hit1": "images/monsters/2130100.hit1.webp",
         "die1": "images/monsters/2130100.die1.webp"
       },
-      "gif": "images/monsters/2130100.move.webp"
+      "gif": "images/monsters/2130100.move.webp",
+      "thumbnail": "images/monsters/2130100.png"
     },
     {
       "id": 2130103,
@@ -3233,14 +3233,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/2130103.png",
       "gifs": {
         "move": "images/monsters/2130103.move.webp",
         "stand": "images/monsters/2130103.stand.webp",
         "hit1": "images/monsters/2130103.hit1.webp",
         "die1": "images/monsters/2130103.die1.webp"
       },
-      "gif": "images/monsters/2130103.move.webp"
+      "gif": "images/monsters/2130103.move.webp",
+      "thumbnail": "images/monsters/2130103.png"
     },
     {
       "id": 2220100,
@@ -3355,7 +3355,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/2220100.png",
       "gifs": {
         "move": "images/monsters/2220100.move.webp",
         "jump": "images/monsters/2220100.jump.webp",
@@ -3363,7 +3362,8 @@
         "hit1": "images/monsters/2220100.hit1.webp",
         "die1": "images/monsters/2220100.die1.webp"
       },
-      "gif": "images/monsters/2220100.move.webp"
+      "gif": "images/monsters/2220100.move.webp",
+      "thumbnail": "images/monsters/2220100.png"
     },
     {
       "id": 2230100,
@@ -3430,7 +3430,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/2230100.png",
       "gifs": {
         "move": "images/monsters/2230100.move.webp",
         "jump": "images/monsters/2230100.jump.webp",
@@ -3438,7 +3437,8 @@
         "hit1": "images/monsters/2230100.hit1.webp",
         "die1": "images/monsters/2230100.die1.webp"
       },
-      "gif": "images/monsters/2230100.move.webp"
+      "gif": "images/monsters/2230100.move.webp",
+      "thumbnail": "images/monsters/2230100.png"
     },
     {
       "id": 2230101,
@@ -3519,7 +3519,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/2230101.png",
       "gifs": {
         "move": "images/monsters/2230101.move.webp",
         "jump": "images/monsters/2230101.jump.webp",
@@ -3527,7 +3526,8 @@
         "hit1": "images/monsters/2230101.hit1.webp",
         "die1": "images/monsters/2230101.die1.webp"
       },
-      "gif": "images/monsters/2230101.move.webp"
+      "gif": "images/monsters/2230101.move.webp",
+      "thumbnail": "images/monsters/2230101.png"
     },
     {
       "id": 2230102,
@@ -3606,7 +3606,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/2230102.png",
       "gifs": {
         "move": "images/monsters/2230102.move.webp",
         "jump": "images/monsters/2230102.jump.webp",
@@ -3614,7 +3613,8 @@
         "hit1": "images/monsters/2230102.hit1.webp",
         "die1": "images/monsters/2230102.die1.webp"
       },
-      "gif": "images/monsters/2230102.move.webp"
+      "gif": "images/monsters/2230102.move.webp",
+      "thumbnail": "images/monsters/2230102.png"
     },
     {
       "id": 2230103,
@@ -3696,13 +3696,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/2230103.png",
       "gifs": {
         "stand": "images/monsters/2230103.stand.webp",
         "hit1": "images/monsters/2230103.hit1.webp",
         "die1": "images/monsters/2230103.die1.webp"
       },
-      "gif": "images/monsters/2230103.stand.webp"
+      "gif": "images/monsters/2230103.stand.webp",
+      "thumbnail": "images/monsters/2230103.png"
     },
     {
       "id": 2230104,
@@ -3741,13 +3741,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/2230104.png",
       "gifs": {
         "stand": "images/monsters/2230104.stand.webp",
         "hit1": "images/monsters/2230104.hit1.webp",
         "die1": "images/monsters/2230104.die1.webp"
       },
-      "gif": "images/monsters/2230104.stand.webp"
+      "gif": "images/monsters/2230104.stand.webp",
+      "thumbnail": "images/monsters/2230104.png"
     },
     {
       "id": 2300100,
@@ -3802,13 +3802,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/2300100.png",
       "gifs": {
         "fly": "images/monsters/2300100.fly.webp",
         "hit1": "images/monsters/2300100.hit1.webp",
         "die1": "images/monsters/2300100.die1.webp"
       },
-      "gif": "images/monsters/2300100.fly.webp"
+      "gif": "images/monsters/2300100.fly.webp",
+      "thumbnail": "images/monsters/2300100.png"
     },
     {
       "id": 3000000,
@@ -3861,7 +3861,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3000000.png",
       "gifs": {
         "move": "images/monsters/3000000.move.webp",
         "stand": "images/monsters/3000000.stand.webp",
@@ -3869,7 +3868,8 @@
         "hit1": "images/monsters/3000000.hit1.webp",
         "die1": "images/monsters/3000000.die1.webp"
       },
-      "gif": "images/monsters/3000000.move.webp"
+      "gif": "images/monsters/3000000.move.webp",
+      "thumbnail": "images/monsters/3000000.png"
     },
     {
       "id": 3000001,
@@ -3938,7 +3938,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/3000001.png",
       "gifs": {
         "move": "images/monsters/3000001.move.webp",
         "stand": "images/monsters/3000001.stand.webp",
@@ -3946,7 +3945,8 @@
         "hit1": "images/monsters/3000001.hit1.webp",
         "die1": "images/monsters/3000001.die1.webp"
       },
-      "gif": "images/monsters/3000001.move.webp"
+      "gif": "images/monsters/3000001.move.webp",
+      "thumbnail": "images/monsters/3000001.png"
     },
     {
       "id": 3000002,
@@ -4003,7 +4003,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/3000002.png",
       "gifs": {
         "move": "images/monsters/3000002.move.webp",
         "stand": "images/monsters/3000002.stand.webp",
@@ -4011,7 +4010,8 @@
         "hit1": "images/monsters/3000002.hit1.webp",
         "die1": "images/monsters/3000002.die1.webp"
       },
-      "gif": "images/monsters/3000002.move.webp"
+      "gif": "images/monsters/3000002.move.webp",
+      "thumbnail": "images/monsters/3000002.png"
     },
     {
       "id": 3000003,
@@ -4068,7 +4068,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/3000003.png",
       "gifs": {
         "move": "images/monsters/3000003.move.webp",
         "stand": "images/monsters/3000003.stand.webp",
@@ -4076,7 +4075,8 @@
         "hit1": "images/monsters/3000003.hit1.webp",
         "die1": "images/monsters/3000003.die1.webp"
       },
-      "gif": "images/monsters/3000003.move.webp"
+      "gif": "images/monsters/3000003.move.webp",
+      "thumbnail": "images/monsters/3000003.png"
     },
     {
       "id": 3000004,
@@ -4157,7 +4157,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/3000004.png",
       "gifs": {
         "move": "images/monsters/3000004.move.webp",
         "stand": "images/monsters/3000004.stand.webp",
@@ -4165,7 +4164,8 @@
         "hit1": "images/monsters/3000004.hit1.webp",
         "die1": "images/monsters/3000004.die1.webp"
       },
-      "gif": "images/monsters/3000004.move.webp"
+      "gif": "images/monsters/3000004.move.webp",
+      "thumbnail": "images/monsters/3000004.png"
     },
     {
       "id": 3000005,
@@ -4232,7 +4232,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3000005.png",
       "gifs": {
         "move": "images/monsters/3000005.move.webp",
         "jump": "images/monsters/3000005.jump.webp",
@@ -4240,7 +4239,8 @@
         "hit1": "images/monsters/3000005.hit1.webp",
         "die1": "images/monsters/3000005.die1.webp"
       },
-      "gif": "images/monsters/3000005.move.webp"
+      "gif": "images/monsters/3000005.move.webp",
+      "thumbnail": "images/monsters/3000005.png"
     },
     {
       "id": 3110100,
@@ -4292,14 +4292,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3110100.png",
       "gifs": {
         "move": "images/monsters/3110100.move.webp",
         "stand": "images/monsters/3110100.stand.webp",
         "hit1": "images/monsters/3110100.hit1.webp",
         "die1": "images/monsters/3110100.die1.webp"
       },
-      "gif": "images/monsters/3110100.move.webp"
+      "gif": "images/monsters/3110100.move.webp",
+      "thumbnail": "images/monsters/3110100.png"
     },
     {
       "id": 3110101,
@@ -4378,7 +4378,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3110101.png",
       "gifs": {
         "move": "images/monsters/3110101.move.webp",
         "jump": "images/monsters/3110101.jump.webp",
@@ -4386,7 +4385,8 @@
         "hit1": "images/monsters/3110101.hit1.webp",
         "die1": "images/monsters/3110101.die1.webp"
       },
-      "gif": "images/monsters/3110101.move.webp"
+      "gif": "images/monsters/3110101.move.webp",
+      "thumbnail": "images/monsters/3110101.png"
     },
     {
       "id": 3110102,
@@ -4447,14 +4447,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3110102.png",
       "gifs": {
         "move": "images/monsters/3110102.move.webp",
         "stand": "images/monsters/3110102.stand.webp",
         "hit1": "images/monsters/3110102.hit1.webp",
         "die1": "images/monsters/3110102.die1.webp"
       },
-      "gif": "images/monsters/3110102.move.webp"
+      "gif": "images/monsters/3110102.move.webp",
+      "thumbnail": "images/monsters/3110102.png"
     },
     {
       "id": 3210100,
@@ -4566,7 +4566,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210100.png",
       "gifs": {
         "move": "images/monsters/3210100.move.webp",
         "jump": "images/monsters/3210100.jump.webp",
@@ -4574,7 +4573,8 @@
         "hit1": "images/monsters/3210100.hit1.webp",
         "die1": "images/monsters/3210100.die1.webp"
       },
-      "gif": "images/monsters/3210100.move.webp"
+      "gif": "images/monsters/3210100.move.webp",
+      "thumbnail": "images/monsters/3210100.png"
     },
     {
       "id": 3210200,
@@ -4620,7 +4620,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210200.png",
       "gifs": {
         "move": "images/monsters/3210200.move.webp",
         "jump": "images/monsters/3210200.jump.webp",
@@ -4628,7 +4627,8 @@
         "hit1": "images/monsters/3210200.hit1.webp",
         "die1": "images/monsters/3210200.die1.webp"
       },
-      "gif": "images/monsters/3210200.move.webp"
+      "gif": "images/monsters/3210200.move.webp",
+      "thumbnail": "images/monsters/3210200.png"
     },
     {
       "id": 3210201,
@@ -4674,7 +4674,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210201.png",
       "gifs": {
         "move": "images/monsters/3210201.move.webp",
         "jump": "images/monsters/3210201.jump.webp",
@@ -4682,7 +4681,8 @@
         "hit1": "images/monsters/3210201.hit1.webp",
         "die1": "images/monsters/3210201.die1.webp"
       },
-      "gif": "images/monsters/3210201.move.webp"
+      "gif": "images/monsters/3210201.move.webp",
+      "thumbnail": "images/monsters/3210201.png"
     },
     {
       "id": 3210202,
@@ -4722,7 +4722,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210202.png",
       "gifs": {
         "move": "images/monsters/3210202.move.webp",
         "jump": "images/monsters/3210202.jump.webp",
@@ -4730,7 +4729,8 @@
         "hit1": "images/monsters/3210202.hit1.webp",
         "die1": "images/monsters/3210202.die1.webp"
       },
-      "gif": "images/monsters/3210202.move.webp"
+      "gif": "images/monsters/3210202.move.webp",
+      "thumbnail": "images/monsters/3210202.png"
     },
     {
       "id": 3210203,
@@ -4809,7 +4809,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210203.png",
       "gifs": {
         "move": "images/monsters/3210203.move.webp",
         "jump": "images/monsters/3210203.jump.webp",
@@ -4817,7 +4816,8 @@
         "hit1": "images/monsters/3210203.hit1.webp",
         "die1": "images/monsters/3210203.die1.webp"
       },
-      "gif": "images/monsters/3210203.move.webp"
+      "gif": "images/monsters/3210203.move.webp",
+      "thumbnail": "images/monsters/3210203.png"
     },
     {
       "id": 3210204,
@@ -4866,14 +4866,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210204.png",
       "gifs": {
         "move": "images/monsters/3210204.move.webp",
         "stand": "images/monsters/3210204.stand.webp",
         "hit1": "images/monsters/3210204.hit1.webp",
         "die1": "images/monsters/3210204.die1.webp"
       },
-      "gif": "images/monsters/3210204.move.webp"
+      "gif": "images/monsters/3210204.move.webp",
+      "thumbnail": "images/monsters/3210204.png"
     },
     {
       "id": 3210205,
@@ -4958,14 +4958,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210205.png",
       "gifs": {
         "move": "images/monsters/3210205.move.webp",
         "stand": "images/monsters/3210205.stand.webp",
         "hit1": "images/monsters/3210205.hit1.webp",
         "die1": "images/monsters/3210205.die1.webp"
       },
-      "gif": "images/monsters/3210205.move.webp"
+      "gif": "images/monsters/3210205.move.webp",
+      "thumbnail": "images/monsters/3210205.png"
     },
     {
       "id": 3210206,
@@ -5026,13 +5026,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210206.png",
       "gifs": {
         "fly": "images/monsters/3210206.fly.webp",
         "hit1": "images/monsters/3210206.hit1.webp",
         "die1": "images/monsters/3210206.die1.webp"
       },
-      "gif": "images/monsters/3210206.fly.webp"
+      "gif": "images/monsters/3210206.fly.webp",
+      "thumbnail": "images/monsters/3210206.png"
     },
     {
       "id": 3210207,
@@ -5063,14 +5063,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210207.png",
       "gifs": {
         "move": "images/monsters/3210207.move.webp",
         "stand": "images/monsters/3210207.stand.webp",
         "hit1": "images/monsters/3210207.hit1.webp",
         "die1": "images/monsters/3210207.die1.webp"
       },
-      "gif": "images/monsters/3210207.move.webp"
+      "gif": "images/monsters/3210207.move.webp",
+      "thumbnail": "images/monsters/3210207.png"
     },
     {
       "id": 3210450,
@@ -5116,14 +5116,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210450.png",
       "gifs": {
         "move": "images/monsters/3210450.move.webp",
         "stand": "images/monsters/3210450.stand.webp",
         "hit1": "images/monsters/3210450.hit1.webp",
         "die1": "images/monsters/3210450.die1.webp"
       },
-      "gif": "images/monsters/3210450.move.webp"
+      "gif": "images/monsters/3210450.move.webp",
+      "thumbnail": "images/monsters/3210450.png"
     },
     {
       "id": 3210800,
@@ -5280,7 +5280,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3210800.png",
       "gifs": {
         "move": "images/monsters/3210800.move.webp",
         "jump": "images/monsters/3210800.jump.webp",
@@ -5289,7 +5288,8 @@
         "hit1": "images/monsters/3210800.hit1.webp",
         "die1": "images/monsters/3210800.die1.webp"
       },
-      "gif": "images/monsters/3210800.move.webp"
+      "gif": "images/monsters/3210800.move.webp",
+      "thumbnail": "images/monsters/3210800.png"
     },
     {
       "id": 3230100,
@@ -5394,7 +5394,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230100.png",
       "gifs": {
         "move": "images/monsters/3230100.move.webp",
         "jump": "images/monsters/3230100.jump.webp",
@@ -5402,7 +5401,8 @@
         "hit1": "images/monsters/3230100.hit1.webp",
         "die1": "images/monsters/3230100.die1.webp"
       },
-      "gif": "images/monsters/3230100.move.webp"
+      "gif": "images/monsters/3230100.move.webp",
+      "thumbnail": "images/monsters/3230100.png"
     },
     {
       "id": 3230101,
@@ -5460,7 +5460,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230101.png",
       "gifs": {
         "move": "images/monsters/3230101.move.webp",
         "jump": "images/monsters/3230101.jump.webp",
@@ -5468,7 +5467,8 @@
         "hit1": "images/monsters/3230101.hit1.webp",
         "die1": "images/monsters/3230101.die1.webp"
       },
-      "gif": "images/monsters/3230101.move.webp"
+      "gif": "images/monsters/3230101.move.webp",
+      "thumbnail": "images/monsters/3230101.png"
     },
     {
       "id": 3230102,
@@ -5525,7 +5525,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230102.png",
       "gifs": {
         "move": "images/monsters/3230102.move.webp",
         "jump": "images/monsters/3230102.jump.webp",
@@ -5533,7 +5532,8 @@
         "hit1": "images/monsters/3230102.hit1.webp",
         "die1": "images/monsters/3230102.die1.webp"
       },
-      "gif": "images/monsters/3230102.move.webp"
+      "gif": "images/monsters/3230102.move.webp",
+      "thumbnail": "images/monsters/3230102.png"
     },
     {
       "id": 3230103,
@@ -5570,7 +5570,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230103.png",
       "gifs": {
         "move": "images/monsters/3230103.move.webp",
         "jump": "images/monsters/3230103.jump.webp",
@@ -5579,7 +5578,8 @@
         "hit1": "images/monsters/3230103.hit1.webp",
         "die1": "images/monsters/3230103.die1.webp"
       },
-      "gif": "images/monsters/3230103.move.webp"
+      "gif": "images/monsters/3230103.move.webp",
+      "thumbnail": "images/monsters/3230103.png"
     },
     {
       "id": 3230200,
@@ -5642,7 +5642,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230200.png",
       "gifs": {
         "move": "images/monsters/3230200.move.webp",
         "jump": "images/monsters/3230200.jump.webp",
@@ -5651,7 +5650,8 @@
         "hit1": "images/monsters/3230200.hit1.webp",
         "die1": "images/monsters/3230200.die1.webp"
       },
-      "gif": "images/monsters/3230200.move.webp"
+      "gif": "images/monsters/3230200.move.webp",
+      "thumbnail": "images/monsters/3230200.png"
     },
     {
       "id": 3230300,
@@ -5737,7 +5737,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/3230300.png",
       "gifs": {
         "move": "images/monsters/3230300.move.webp",
         "stand": "images/monsters/3230300.stand.webp",
@@ -5745,7 +5744,8 @@
         "hit1": "images/monsters/3230300.hit1.webp",
         "die1": "images/monsters/3230300.die1.webp"
       },
-      "gif": "images/monsters/3230300.move.webp"
+      "gif": "images/monsters/3230300.move.webp",
+      "thumbnail": "images/monsters/3230300.png"
     },
     {
       "id": 3230301,
@@ -5849,7 +5849,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/3230301.png",
       "gifs": {
         "move": "images/monsters/3230301.move.webp",
         "stand": "images/monsters/3230301.stand.webp",
@@ -5857,7 +5856,8 @@
         "hit1": "images/monsters/3230301.hit1.webp",
         "die1": "images/monsters/3230301.die1.webp"
       },
-      "gif": "images/monsters/3230301.move.webp"
+      "gif": "images/monsters/3230301.move.webp",
+      "thumbnail": "images/monsters/3230301.png"
     },
     {
       "id": 3230302,
@@ -5930,7 +5930,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230302.png",
       "gifs": {
         "move": "images/monsters/3230302.move.webp",
         "jump": "images/monsters/3230302.jump.webp",
@@ -5938,7 +5937,8 @@
         "hit1": "images/monsters/3230302.hit1.webp",
         "die1": "images/monsters/3230302.die1.webp"
       },
-      "gif": "images/monsters/3230302.move.webp"
+      "gif": "images/monsters/3230302.move.webp",
+      "thumbnail": "images/monsters/3230302.png"
     },
     {
       "id": 3230303,
@@ -5993,13 +5993,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230303.png",
       "gifs": {
         "fly": "images/monsters/3230303.fly.webp",
         "hit1": "images/monsters/3230303.hit1.webp",
         "die1": "images/monsters/3230303.die1.webp"
       },
-      "gif": "images/monsters/3230303.fly.webp"
+      "gif": "images/monsters/3230303.fly.webp",
+      "thumbnail": "images/monsters/3230303.png"
     },
     {
       "id": 3230304,
@@ -6054,13 +6054,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230304.png",
       "gifs": {
         "fly": "images/monsters/3230304.fly.webp",
         "hit1": "images/monsters/3230304.hit1.webp",
         "die1": "images/monsters/3230304.die1.webp"
       },
-      "gif": "images/monsters/3230304.fly.webp"
+      "gif": "images/monsters/3230304.fly.webp",
+      "thumbnail": "images/monsters/3230304.png"
     },
     {
       "id": 3230305,
@@ -6125,7 +6125,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230305.png",
       "gifs": {
         "move": "images/monsters/3230305.move.webp",
         "stand": "images/monsters/3230305.stand.webp",
@@ -6133,7 +6132,8 @@
         "hit1": "images/monsters/3230305.hit1.webp",
         "die1": "images/monsters/3230305.die1.webp"
       },
-      "gif": "images/monsters/3230305.move.webp"
+      "gif": "images/monsters/3230305.move.webp",
+      "thumbnail": "images/monsters/3230305.png"
     },
     {
       "id": 3230306,
@@ -6170,14 +6170,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230306.png",
       "gifs": {
         "move": "images/monsters/3230306.move.webp",
         "stand": "images/monsters/3230306.stand.webp",
         "hit1": "images/monsters/3230306.hit1.webp",
         "die1": "images/monsters/3230306.die1.webp"
       },
-      "gif": "images/monsters/3230306.move.webp"
+      "gif": "images/monsters/3230306.move.webp",
+      "thumbnail": "images/monsters/3230306.png"
     },
     {
       "id": 3230307,
@@ -6226,13 +6226,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230307.png",
       "gifs": {
         "fly": "images/monsters/3230307.fly.webp",
         "hit1": "images/monsters/3230307.hit1.webp",
         "die1": "images/monsters/3230307.die1.webp"
       },
-      "gif": "images/monsters/3230307.fly.webp"
+      "gif": "images/monsters/3230307.fly.webp",
+      "thumbnail": "images/monsters/3230307.png"
     },
     {
       "id": 3230308,
@@ -6275,13 +6275,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230308.png",
       "gifs": {
         "fly": "images/monsters/3230308.fly.webp",
         "hit1": "images/monsters/3230308.hit1.webp",
         "die1": "images/monsters/3230308.die1.webp"
       },
-      "gif": "images/monsters/3230308.fly.webp"
+      "gif": "images/monsters/3230308.fly.webp",
+      "thumbnail": "images/monsters/3230308.png"
     },
     {
       "id": 3230400,
@@ -6342,14 +6342,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230400.png",
       "gifs": {
         "move": "images/monsters/3230400.move.webp",
         "stand": "images/monsters/3230400.stand.webp",
         "hit1": "images/monsters/3230400.hit1.webp",
         "die1": "images/monsters/3230400.die1.webp"
       },
-      "gif": "images/monsters/3230400.move.webp"
+      "gif": "images/monsters/3230400.move.webp",
+      "thumbnail": "images/monsters/3230400.png"
     },
     {
       "id": 3230405,
@@ -6388,14 +6388,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/3230405.png",
       "gifs": {
         "move": "images/monsters/3230405.move.webp",
         "stand": "images/monsters/3230405.stand.webp",
         "hit1": "images/monsters/3230405.hit1.webp",
         "die1": "images/monsters/3230405.die1.webp"
       },
-      "gif": "images/monsters/3230405.move.webp"
+      "gif": "images/monsters/3230405.move.webp",
+      "thumbnail": "images/monsters/3230405.png"
     },
     {
       "id": 4130100,
@@ -6438,14 +6438,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4130100.png",
       "gifs": {
         "move": "images/monsters/4130100.move.webp",
         "stand": "images/monsters/4130100.stand.webp",
         "hit1": "images/monsters/4130100.hit1.webp",
         "die1": "images/monsters/4130100.die1.webp"
       },
-      "gif": "images/monsters/4130100.move.webp"
+      "gif": "images/monsters/4130100.move.webp",
+      "thumbnail": "images/monsters/4130100.png"
     },
     {
       "id": 4130101,
@@ -6482,7 +6482,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4130101.png",
       "gifs": {
         "move": "images/monsters/4130101.move.webp",
         "stand": "images/monsters/4130101.stand.webp",
@@ -6490,7 +6489,8 @@
         "hit1": "images/monsters/4130101.hit1.webp",
         "die1": "images/monsters/4130101.die1.webp"
       },
-      "gif": "images/monsters/4130101.move.webp"
+      "gif": "images/monsters/4130101.move.webp",
+      "thumbnail": "images/monsters/4130101.png"
     },
     {
       "id": 4130102,
@@ -6523,14 +6523,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4130102.png",
       "gifs": {
         "stand": "images/monsters/4130102.stand.webp",
         "attack1": "images/monsters/4130102.attack1.webp",
         "hit1": "images/monsters/4130102.hit1.webp",
         "die1": "images/monsters/4130102.die1.webp"
       },
-      "gif": "images/monsters/4130102.stand.webp"
+      "gif": "images/monsters/4130102.stand.webp",
+      "thumbnail": "images/monsters/4130102.png"
     },
     {
       "id": 4130103,
@@ -6561,7 +6561,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4130103.png",
       "gifs": {
         "move": "images/monsters/4130103.move.webp",
         "stand": "images/monsters/4130103.stand.webp",
@@ -6570,7 +6569,8 @@
         "hit1": "images/monsters/4130103.hit1.webp",
         "die1": "images/monsters/4130103.die1.webp"
       },
-      "gif": "images/monsters/4130103.move.webp"
+      "gif": "images/monsters/4130103.move.webp",
+      "thumbnail": "images/monsters/4130103.png"
     },
     {
       "id": 4230100,
@@ -6658,7 +6658,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230100.png",
       "gifs": {
         "move": "images/monsters/4230100.move.webp",
         "jump": "images/monsters/4230100.jump.webp",
@@ -6666,7 +6665,8 @@
         "hit1": "images/monsters/4230100.hit1.webp",
         "die1": "images/monsters/4230100.die1.webp"
       },
-      "gif": "images/monsters/4230100.move.webp"
+      "gif": "images/monsters/4230100.move.webp",
+      "thumbnail": "images/monsters/4230100.png"
     },
     {
       "id": 4230101,
@@ -6741,7 +6741,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230101.png",
       "gifs": {
         "move": "images/monsters/4230101.move.webp",
         "jump": "images/monsters/4230101.jump.webp",
@@ -6750,7 +6749,8 @@
         "hit1": "images/monsters/4230101.hit1.webp",
         "die1": "images/monsters/4230101.die1.webp"
       },
-      "gif": "images/monsters/4230101.move.webp"
+      "gif": "images/monsters/4230101.move.webp",
+      "thumbnail": "images/monsters/4230101.png"
     },
     {
       "id": 4230102,
@@ -6807,7 +6807,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230102.png",
       "gifs": {
         "move": "images/monsters/4230102.move.webp",
         "jump": "images/monsters/4230102.jump.webp",
@@ -6815,7 +6814,8 @@
         "hit1": "images/monsters/4230102.hit1.webp",
         "die1": "images/monsters/4230102.die1.webp"
       },
-      "gif": "images/monsters/4230102.move.webp"
+      "gif": "images/monsters/4230102.move.webp",
+      "thumbnail": "images/monsters/4230102.png"
     },
     {
       "id": 4230103,
@@ -6892,7 +6892,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230103.png",
       "gifs": {
         "move": "images/monsters/4230103.move.webp",
         "jump": "images/monsters/4230103.jump.webp",
@@ -6901,7 +6900,8 @@
         "hit1": "images/monsters/4230103.hit1.webp",
         "die1": "images/monsters/4230103.die1.webp"
       },
-      "gif": "images/monsters/4230103.move.webp"
+      "gif": "images/monsters/4230103.move.webp",
+      "thumbnail": "images/monsters/4230103.png"
     },
     {
       "id": 4230104,
@@ -6946,7 +6946,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230104.png",
       "gifs": {
         "move": "images/monsters/4230104.move.webp",
         "jump": "images/monsters/4230104.jump.webp",
@@ -6954,7 +6953,8 @@
         "hit1": "images/monsters/4230104.hit1.webp",
         "die1": "images/monsters/4230104.die1.webp"
       },
-      "gif": "images/monsters/4230104.move.webp"
+      "gif": "images/monsters/4230104.move.webp",
+      "thumbnail": "images/monsters/4230104.png"
     },
     {
       "id": 4230105,
@@ -6999,14 +6999,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230105.png",
       "gifs": {
         "stand": "images/monsters/4230105.stand.webp",
         "attack1": "images/monsters/4230105.attack1.webp",
         "hit1": "images/monsters/4230105.hit1.webp",
         "die1": "images/monsters/4230105.die1.webp"
       },
-      "gif": "images/monsters/4230105.stand.webp"
+      "gif": "images/monsters/4230105.stand.webp",
+      "thumbnail": "images/monsters/4230105.png"
     },
     {
       "id": 4230106,
@@ -7086,7 +7086,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230106.png",
       "gifs": {
         "move": "images/monsters/4230106.move.webp",
         "jump": "images/monsters/4230106.jump.webp",
@@ -7096,7 +7095,8 @@
         "hit1": "images/monsters/4230106.hit1.webp",
         "die1": "images/monsters/4230106.die1.webp"
       },
-      "gif": "images/monsters/4230106.move.webp"
+      "gif": "images/monsters/4230106.move.webp",
+      "thumbnail": "images/monsters/4230106.png"
     },
     {
       "id": 4230107,
@@ -7151,13 +7151,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230107.png",
       "gifs": {
         "fly": "images/monsters/4230107.fly.webp",
         "hit1": "images/monsters/4230107.hit1.webp",
         "die1": "images/monsters/4230107.die1.webp"
       },
-      "gif": "images/monsters/4230107.fly.webp"
+      "gif": "images/monsters/4230107.fly.webp",
+      "thumbnail": "images/monsters/4230107.png"
     },
     {
       "id": 4230108,
@@ -7206,14 +7206,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230108.png",
       "gifs": {
         "move": "images/monsters/4230108.move.webp",
         "stand": "images/monsters/4230108.stand.webp",
         "hit1": "images/monsters/4230108.hit1.webp",
         "die1": "images/monsters/4230108.die1.webp"
       },
-      "gif": "images/monsters/4230108.move.webp"
+      "gif": "images/monsters/4230108.move.webp",
+      "thumbnail": "images/monsters/4230108.png"
     },
     {
       "id": 4230109,
@@ -7278,14 +7278,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230109.png",
       "gifs": {
         "move": "images/monsters/4230109.move.webp",
         "stand": "images/monsters/4230109.stand.webp",
         "hit1": "images/monsters/4230109.hit1.webp",
         "die1": "images/monsters/4230109.die1.webp"
       },
-      "gif": "images/monsters/4230109.move.webp"
+      "gif": "images/monsters/4230109.move.webp",
+      "thumbnail": "images/monsters/4230109.png"
     },
     {
       "id": 4230110,
@@ -7328,14 +7328,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230110.png",
       "gifs": {
         "move": "images/monsters/4230110.move.webp",
         "stand": "images/monsters/4230110.stand.webp",
         "hit1": "images/monsters/4230110.hit1.webp",
         "die1": "images/monsters/4230110.die1.webp"
       },
-      "gif": "images/monsters/4230110.move.webp"
+      "gif": "images/monsters/4230110.move.webp",
+      "thumbnail": "images/monsters/4230110.png"
     },
     {
       "id": 4230111,
@@ -7405,14 +7405,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230111.png",
       "gifs": {
         "move": "images/monsters/4230111.move.webp",
         "stand": "images/monsters/4230111.stand.webp",
         "hit1": "images/monsters/4230111.hit1.webp",
         "die1": "images/monsters/4230111.die1.webp"
       },
-      "gif": "images/monsters/4230111.move.webp"
+      "gif": "images/monsters/4230111.move.webp",
+      "thumbnail": "images/monsters/4230111.png"
     },
     {
       "id": 4230112,
@@ -7461,14 +7461,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230112.png",
       "gifs": {
         "move": "images/monsters/4230112.move.webp",
         "stand": "images/monsters/4230112.stand.webp",
         "hit1": "images/monsters/4230112.hit1.webp",
         "die1": "images/monsters/4230112.die1.webp"
       },
-      "gif": "images/monsters/4230112.move.webp"
+      "gif": "images/monsters/4230112.move.webp",
+      "thumbnail": "images/monsters/4230112.png"
     },
     {
       "id": 4230113,
@@ -7505,14 +7505,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230113.png",
       "gifs": {
         "move": "images/monsters/4230113.move.webp",
         "stand": "images/monsters/4230113.stand.webp",
         "hit1": "images/monsters/4230113.hit1.webp",
         "die1": "images/monsters/4230113.die1.webp"
       },
-      "gif": "images/monsters/4230113.move.webp"
+      "gif": "images/monsters/4230113.move.webp",
+      "thumbnail": "images/monsters/4230113.png"
     },
     {
       "id": 4230114,
@@ -7549,7 +7549,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230114.png",
       "gifs": {
         "move": "images/monsters/4230114.move.webp",
         "stand": "images/monsters/4230114.stand.webp",
@@ -7557,7 +7556,8 @@
         "hit1": "images/monsters/4230114.hit1.webp",
         "die1": "images/monsters/4230114.die1.webp"
       },
-      "gif": "images/monsters/4230114.move.webp"
+      "gif": "images/monsters/4230114.move.webp",
+      "thumbnail": "images/monsters/4230114.png"
     },
     {
       "id": 4230115,
@@ -7594,7 +7594,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230115.png",
       "gifs": {
         "move": "images/monsters/4230115.move.webp",
         "stand": "images/monsters/4230115.stand.webp",
@@ -7602,7 +7601,8 @@
         "hit1": "images/monsters/4230115.hit1.webp",
         "die1": "images/monsters/4230115.die1.webp"
       },
-      "gif": "images/monsters/4230115.move.webp"
+      "gif": "images/monsters/4230115.move.webp",
+      "thumbnail": "images/monsters/4230115.png"
     },
     {
       "id": 4230116,
@@ -7651,7 +7651,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230116.png",
       "gifs": {
         "move": "images/monsters/4230116.move.webp",
         "jump": "images/monsters/4230116.jump.webp",
@@ -7660,7 +7659,8 @@
         "hit1": "images/monsters/4230116.hit1.webp",
         "die1": "images/monsters/4230116.die1.webp"
       },
-      "gif": "images/monsters/4230116.move.webp"
+      "gif": "images/monsters/4230116.move.webp",
+      "thumbnail": "images/monsters/4230116.png"
     },
     {
       "id": 4230117,
@@ -7715,14 +7715,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230117.png",
       "gifs": {
         "fly": "images/monsters/4230117.fly.webp",
         "attack1": "images/monsters/4230117.attack1.webp",
         "hit1": "images/monsters/4230117.hit1.webp",
         "die1": "images/monsters/4230117.die1.webp"
       },
-      "gif": "images/monsters/4230117.fly.webp"
+      "gif": "images/monsters/4230117.fly.webp",
+      "thumbnail": "images/monsters/4230117.png"
     },
     {
       "id": 4230118,
@@ -7767,7 +7767,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230118.png",
       "gifs": {
         "move": "images/monsters/4230118.move.webp",
         "jump": "images/monsters/4230118.jump.webp",
@@ -7776,7 +7775,8 @@
         "hit1": "images/monsters/4230118.hit1.webp",
         "die1": "images/monsters/4230118.die1.webp"
       },
-      "gif": "images/monsters/4230118.move.webp"
+      "gif": "images/monsters/4230118.move.webp",
+      "thumbnail": "images/monsters/4230118.png"
     },
     {
       "id": 4230119,
@@ -7831,7 +7831,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230119.png",
       "gifs": {
         "move": "images/monsters/4230119.move.webp",
         "jump": "images/monsters/4230119.jump.webp",
@@ -7840,7 +7839,8 @@
         "hit1": "images/monsters/4230119.hit1.webp",
         "die1": "images/monsters/4230119.die1.webp"
       },
-      "gif": "images/monsters/4230119.move.webp"
+      "gif": "images/monsters/4230119.move.webp",
+      "thumbnail": "images/monsters/4230119.png"
     },
     {
       "id": 4230120,
@@ -7913,7 +7913,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230120.png",
       "gifs": {
         "move": "images/monsters/4230120.move.webp",
         "jump": "images/monsters/4230120.jump.webp",
@@ -7921,7 +7920,8 @@
         "hit1": "images/monsters/4230120.hit1.webp",
         "die1": "images/monsters/4230120.die1.webp"
       },
-      "gif": "images/monsters/4230120.move.webp"
+      "gif": "images/monsters/4230120.move.webp",
+      "thumbnail": "images/monsters/4230120.png"
     },
     {
       "id": 4230121,
@@ -7982,7 +7982,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230121.png",
       "gifs": {
         "move": "images/monsters/4230121.move.webp",
         "jump": "images/monsters/4230121.jump.webp",
@@ -7991,7 +7990,8 @@
         "hit1": "images/monsters/4230121.hit1.webp",
         "die1": "images/monsters/4230121.die1.webp"
       },
-      "gif": "images/monsters/4230121.move.webp"
+      "gif": "images/monsters/4230121.move.webp",
+      "thumbnail": "images/monsters/4230121.png"
     },
     {
       "id": 4230123,
@@ -8025,7 +8025,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230123.png",
       "gifs": {
         "move": "images/monsters/4230123.move.webp",
         "stand": "images/monsters/4230123.stand.webp",
@@ -8033,7 +8032,8 @@
         "hit1": "images/monsters/4230123.hit1.webp",
         "die1": "images/monsters/4230123.die1.webp"
       },
-      "gif": "images/monsters/4230123.move.webp"
+      "gif": "images/monsters/4230123.move.webp",
+      "thumbnail": "images/monsters/4230123.png"
     },
     {
       "id": 4230124,
@@ -8067,7 +8067,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230124.png",
       "gifs": {
         "move": "images/monsters/4230124.move.webp",
         "stand": "images/monsters/4230124.stand.webp",
@@ -8075,7 +8074,8 @@
         "hit1": "images/monsters/4230124.hit1.webp",
         "die1": "images/monsters/4230124.die1.webp"
       },
-      "gif": "images/monsters/4230124.move.webp"
+      "gif": "images/monsters/4230124.move.webp",
+      "thumbnail": "images/monsters/4230124.png"
     },
     {
       "id": 4230200,
@@ -8121,14 +8121,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230200.png",
       "gifs": {
         "fly": "images/monsters/4230200.fly.webp",
         "attack1": "images/monsters/4230200.attack1.webp",
         "hit1": "images/monsters/4230200.hit1.webp",
         "die1": "images/monsters/4230200.die1.webp"
       },
-      "gif": "images/monsters/4230200.fly.webp"
+      "gif": "images/monsters/4230200.fly.webp",
+      "thumbnail": "images/monsters/4230200.png"
     },
     {
       "id": 4230201,
@@ -8174,14 +8174,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4230201.png",
       "gifs": {
         "fly": "images/monsters/4230201.fly.webp",
         "attack1": "images/monsters/4230201.attack1.webp",
         "hit1": "images/monsters/4230201.hit1.webp",
         "die1": "images/monsters/4230201.die1.webp"
       },
-      "gif": "images/monsters/4230201.fly.webp"
+      "gif": "images/monsters/4230201.fly.webp",
+      "thumbnail": "images/monsters/4230201.png"
     },
     {
       "id": 4240000,
@@ -8229,7 +8229,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/4240000.png",
       "gifs": {
         "move": "images/monsters/4240000.move.webp",
         "jump": "images/monsters/4240000.jump.webp",
@@ -8239,7 +8238,8 @@
         "hit1": "images/monsters/4240000.hit1.webp",
         "die1": "images/monsters/4240000.die1.webp"
       },
-      "gif": "images/monsters/4240000.move.webp"
+      "gif": "images/monsters/4240000.move.webp",
+      "thumbnail": "images/monsters/4240000.png"
     },
     {
       "id": 5100000,
@@ -8315,7 +8315,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5100000.png",
       "gifs": {
         "move": "images/monsters/5100000.move.webp",
         "jump": "images/monsters/5100000.jump.webp",
@@ -8323,7 +8322,8 @@
         "hit1": "images/monsters/5100000.hit1.webp",
         "die1": "images/monsters/5100000.die1.webp"
       },
-      "gif": "images/monsters/5100000.move.webp"
+      "gif": "images/monsters/5100000.move.webp",
+      "thumbnail": "images/monsters/5100000.png"
     },
     {
       "id": 5100001,
@@ -8387,7 +8387,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5100001.png",
       "gifs": {
         "move": "images/monsters/5100001.move.webp",
         "jump": "images/monsters/5100001.jump.webp",
@@ -8395,7 +8394,8 @@
         "hit1": "images/monsters/5100001.hit1.webp",
         "die1": "images/monsters/5100001.die1.webp"
       },
-      "gif": "images/monsters/5100001.move.webp"
+      "gif": "images/monsters/5100001.move.webp",
+      "thumbnail": "images/monsters/5100001.png"
     },
     {
       "id": 5100002,
@@ -8451,7 +8451,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/5100002.png",
       "gifs": {
         "move": "images/monsters/5100002.move.webp",
         "stand": "images/monsters/5100002.stand.webp",
@@ -8460,7 +8459,8 @@
         "hit1": "images/monsters/5100002.hit1.webp",
         "die1": "images/monsters/5100002.die1.webp"
       },
-      "gif": "images/monsters/5100002.move.webp"
+      "gif": "images/monsters/5100002.move.webp",
+      "thumbnail": "images/monsters/5100002.png"
     },
     {
       "id": 5120000,
@@ -8521,7 +8521,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/5120000.png",
       "gifs": {
         "move": "images/monsters/5120000.move.webp",
         "jump": "images/monsters/5120000.jump.webp",
@@ -8531,7 +8530,8 @@
         "hit1": "images/monsters/5120000.hit1.webp",
         "die1": "images/monsters/5120000.die1.webp"
       },
-      "gif": "images/monsters/5120000.move.webp"
+      "gif": "images/monsters/5120000.move.webp",
+      "thumbnail": "images/monsters/5120000.png"
     },
     {
       "id": 5120001,
@@ -8571,7 +8571,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5120001.png",
       "gifs": {
         "move": "images/monsters/5120001.move.webp",
         "jump": "images/monsters/5120001.jump.webp",
@@ -8580,7 +8579,8 @@
         "hit1": "images/monsters/5120001.hit1.webp",
         "die1": "images/monsters/5120001.die1.webp"
       },
-      "gif": "images/monsters/5120001.move.webp"
+      "gif": "images/monsters/5120001.move.webp",
+      "thumbnail": "images/monsters/5120001.png"
     },
     {
       "id": 5120002,
@@ -8620,7 +8620,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5120002.png",
       "gifs": {
         "move": "images/monsters/5120002.move.webp",
         "jump": "images/monsters/5120002.jump.webp",
@@ -8629,7 +8628,8 @@
         "hit1": "images/monsters/5120002.hit1.webp",
         "die1": "images/monsters/5120002.die1.webp"
       },
-      "gif": "images/monsters/5120002.move.webp"
+      "gif": "images/monsters/5120002.move.webp",
+      "thumbnail": "images/monsters/5120002.png"
     },
     {
       "id": 5120003,
@@ -8669,7 +8669,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5120003.png",
       "gifs": {
         "move": "images/monsters/5120003.move.webp",
         "jump": "images/monsters/5120003.jump.webp",
@@ -8678,7 +8677,8 @@
         "hit1": "images/monsters/5120003.hit1.webp",
         "die1": "images/monsters/5120003.die1.webp"
       },
-      "gif": "images/monsters/5120003.move.webp"
+      "gif": "images/monsters/5120003.move.webp",
+      "thumbnail": "images/monsters/5120003.png"
     },
     {
       "id": 5120100,
@@ -8709,7 +8709,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5120100.png",
       "gifs": {
         "move": "images/monsters/5120100.move.webp",
         "stand": "images/monsters/5120100.stand.webp",
@@ -8717,7 +8716,8 @@
         "hit1": "images/monsters/5120100.hit1.webp",
         "die1": "images/monsters/5120100.die1.webp"
       },
-      "gif": "images/monsters/5120100.move.webp"
+      "gif": "images/monsters/5120100.move.webp",
+      "thumbnail": "images/monsters/5120100.png"
     },
     {
       "id": 5130100,
@@ -8766,14 +8766,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5130100.png",
       "gifs": {
         "move": "images/monsters/5130100.move.webp",
         "stand": "images/monsters/5130100.stand.webp",
         "hit1": "images/monsters/5130100.hit1.webp",
         "die1": "images/monsters/5130100.die1.webp"
       },
-      "gif": "images/monsters/5130100.move.webp"
+      "gif": "images/monsters/5130100.move.webp",
+      "thumbnail": "images/monsters/5130100.png"
     },
     {
       "id": 5130101,
@@ -8859,7 +8859,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/5130101.png",
       "gifs": {
         "move": "images/monsters/5130101.move.webp",
         "stand": "images/monsters/5130101.stand.webp",
@@ -8867,7 +8866,8 @@
         "hit1": "images/monsters/5130101.hit1.webp",
         "die1": "images/monsters/5130101.die1.webp"
       },
-      "gif": "images/monsters/5130101.move.webp"
+      "gif": "images/monsters/5130101.move.webp",
+      "thumbnail": "images/monsters/5130101.png"
     },
     {
       "id": 5130102,
@@ -8931,7 +8931,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/5130102.png",
       "gifs": {
         "move": "images/monsters/5130102.move.webp",
         "stand": "images/monsters/5130102.stand.webp",
@@ -8939,7 +8938,8 @@
         "hit1": "images/monsters/5130102.hit1.webp",
         "die1": "images/monsters/5130102.die1.webp"
       },
-      "gif": "images/monsters/5130102.move.webp"
+      "gif": "images/monsters/5130102.move.webp",
+      "thumbnail": "images/monsters/5130102.png"
     },
     {
       "id": 5130103,
@@ -8976,14 +8976,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5130103.png",
       "gifs": {
         "move": "images/monsters/5130103.move.webp",
         "stand": "images/monsters/5130103.stand.webp",
         "hit1": "images/monsters/5130103.hit1.webp",
         "die1": "images/monsters/5130103.die1.webp"
       },
-      "gif": "images/monsters/5130103.move.webp"
+      "gif": "images/monsters/5130103.move.webp",
+      "thumbnail": "images/monsters/5130103.png"
     },
     {
       "id": 5130104,
@@ -9038,7 +9038,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5130104.png",
       "gifs": {
         "move": "images/monsters/5130104.move.webp",
         "jump": "images/monsters/5130104.jump.webp",
@@ -9047,7 +9046,8 @@
         "hit1": "images/monsters/5130104.hit1.webp",
         "die1": "images/monsters/5130104.die1.webp"
       },
-      "gif": "images/monsters/5130104.move.webp"
+      "gif": "images/monsters/5130104.move.webp",
+      "thumbnail": "images/monsters/5130104.png"
     },
     {
       "id": 5130105,
@@ -9092,7 +9092,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5130105.png",
       "gifs": {
         "move": "images/monsters/5130105.move.webp",
         "jump": "images/monsters/5130105.jump.webp",
@@ -9100,7 +9099,8 @@
         "hit1": "images/monsters/5130105.hit1.webp",
         "die1": "images/monsters/5130105.die1.webp"
       },
-      "gif": "images/monsters/5130105.move.webp"
+      "gif": "images/monsters/5130105.move.webp",
+      "thumbnail": "images/monsters/5130105.png"
     },
     {
       "id": 5130106,
@@ -9145,7 +9145,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5130106.png",
       "gifs": {
         "move": "images/monsters/5130106.move.webp",
         "jump": "images/monsters/5130106.jump.webp",
@@ -9153,7 +9152,8 @@
         "hit1": "images/monsters/5130106.hit1.webp",
         "die1": "images/monsters/5130106.die1.webp"
       },
-      "gif": "images/monsters/5130106.move.webp"
+      "gif": "images/monsters/5130106.move.webp",
+      "thumbnail": "images/monsters/5130106.png"
     },
     {
       "id": 5130107,
@@ -9205,7 +9205,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5130107.png",
       "gifs": {
         "move": "images/monsters/5130107.move.webp",
         "stand": "images/monsters/5130107.stand.webp",
@@ -9214,7 +9213,8 @@
         "hit1": "images/monsters/5130107.hit1.webp",
         "die1": "images/monsters/5130107.die1.webp"
       },
-      "gif": "images/monsters/5130107.move.webp"
+      "gif": "images/monsters/5130107.move.webp",
+      "thumbnail": "images/monsters/5130107.png"
     },
     {
       "id": 5130108,
@@ -9266,7 +9266,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5130108.png",
       "gifs": {
         "move": "images/monsters/5130108.move.webp",
         "stand": "images/monsters/5130108.stand.webp",
@@ -9275,7 +9274,8 @@
         "hit1": "images/monsters/5130108.hit1.webp",
         "die1": "images/monsters/5130108.die1.webp"
       },
-      "gif": "images/monsters/5130108.move.webp"
+      "gif": "images/monsters/5130108.move.webp",
+      "thumbnail": "images/monsters/5130108.png"
     },
     {
       "id": 5140000,
@@ -9369,7 +9369,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5140000.png",
       "gifs": {
         "move": "images/monsters/5140000.move.webp",
         "jump": "images/monsters/5140000.jump.webp",
@@ -9378,7 +9377,8 @@
         "hit1": "images/monsters/5140000.hit1.webp",
         "die1": "images/monsters/5140000.die1.webp"
       },
-      "gif": "images/monsters/5140000.move.webp"
+      "gif": "images/monsters/5140000.move.webp",
+      "thumbnail": "images/monsters/5140000.png"
     },
     {
       "id": 5200000,
@@ -9445,14 +9445,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5200000.png",
       "gifs": {
         "move": "images/monsters/5200000.move.webp",
         "stand": "images/monsters/5200000.stand.webp",
         "hit1": "images/monsters/5200000.hit1.webp",
         "die1": "images/monsters/5200000.die1.webp"
       },
-      "gif": "images/monsters/5200000.move.webp"
+      "gif": "images/monsters/5200000.move.webp",
+      "thumbnail": "images/monsters/5200000.png"
     },
     {
       "id": 5200001,
@@ -9504,7 +9504,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5200001.png",
       "gifs": {
         "move": "images/monsters/5200001.move.webp",
         "stand": "images/monsters/5200001.stand.webp",
@@ -9512,7 +9511,8 @@
         "hit1": "images/monsters/5200001.hit1.webp",
         "die1": "images/monsters/5200001.die1.webp"
       },
-      "gif": "images/monsters/5200001.move.webp"
+      "gif": "images/monsters/5200001.move.webp",
+      "thumbnail": "images/monsters/5200001.png"
     },
     {
       "id": 5200002,
@@ -9564,7 +9564,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5200002.png",
       "gifs": {
         "move": "images/monsters/5200002.move.webp",
         "stand": "images/monsters/5200002.stand.webp",
@@ -9572,7 +9571,8 @@
         "hit1": "images/monsters/5200002.hit1.webp",
         "die1": "images/monsters/5200002.die1.webp"
       },
-      "gif": "images/monsters/5200002.move.webp"
+      "gif": "images/monsters/5200002.move.webp",
+      "thumbnail": "images/monsters/5200002.png"
     },
     {
       "id": 5300000,
@@ -9624,14 +9624,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5300000.png",
       "gifs": {
         "move": "images/monsters/5300000.move.webp",
         "stand": "images/monsters/5300000.stand.webp",
         "hit1": "images/monsters/5300000.hit1.webp",
         "die1": "images/monsters/5300000.die1.webp"
       },
-      "gif": "images/monsters/5300000.move.webp"
+      "gif": "images/monsters/5300000.move.webp",
+      "thumbnail": "images/monsters/5300000.png"
     },
     {
       "id": 5300001,
@@ -9682,14 +9682,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5300001.png",
       "gifs": {
         "move": "images/monsters/5300001.move.webp",
         "stand": "images/monsters/5300001.stand.webp",
         "hit1": "images/monsters/5300001.hit1.webp",
         "die1": "images/monsters/5300001.die1.webp"
       },
-      "gif": "images/monsters/5300001.move.webp"
+      "gif": "images/monsters/5300001.move.webp",
+      "thumbnail": "images/monsters/5300001.png"
     },
     {
       "id": 5300100,
@@ -9728,13 +9728,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5300100.png",
       "gifs": {
         "fly": "images/monsters/5300100.fly.webp",
         "hit1": "images/monsters/5300100.hit1.webp",
         "die1": "images/monsters/5300100.die1.webp"
       },
-      "gif": "images/monsters/5300100.fly.webp"
+      "gif": "images/monsters/5300100.fly.webp",
+      "thumbnail": "images/monsters/5300100.png"
     },
     {
       "id": 5400000,
@@ -9780,14 +9780,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/5400000.png",
       "gifs": {
         "move": "images/monsters/5400000.move.webp",
         "stand": "images/monsters/5400000.stand.webp",
         "hit1": "images/monsters/5400000.hit1.webp",
         "die1": "images/monsters/5400000.die1.webp"
       },
-      "gif": "images/monsters/5400000.move.webp"
+      "gif": "images/monsters/5400000.move.webp",
+      "thumbnail": "images/monsters/5400000.png"
     },
     {
       "id": 6130100,
@@ -9821,7 +9821,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6130100.png",
       "gifs": {
         "move": "images/monsters/6130100.move.webp",
         "stand": "images/monsters/6130100.stand.webp",
@@ -9829,7 +9828,8 @@
         "hit1": "images/monsters/6130100.hit1.webp",
         "die1": "images/monsters/6130100.die1.webp"
       },
-      "gif": "images/monsters/6130100.move.webp"
+      "gif": "images/monsters/6130100.move.webp",
+      "thumbnail": "images/monsters/6130100.png"
     },
     {
       "id": 6130101,
@@ -9860,7 +9860,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6130101.png",
       "gifs": {
         "move": "images/monsters/6130101.move.webp",
         "jump": "images/monsters/6130101.jump.webp",
@@ -9869,7 +9868,8 @@
         "hit1": "images/monsters/6130101.hit1.webp",
         "die1": "images/monsters/6130101.die1.webp"
       },
-      "gif": "images/monsters/6130101.move.webp"
+      "gif": "images/monsters/6130101.move.webp",
+      "thumbnail": "images/monsters/6130101.png"
     },
     {
       "id": 6130102,
@@ -9896,14 +9896,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6130102.png",
       "gifs": {
         "move": "images/monsters/6130102.move.webp",
         "stand": "images/monsters/6130102.stand.webp",
         "hit1": "images/monsters/6130102.hit1.webp",
         "die1": "images/monsters/6130102.die1.webp"
       },
-      "gif": "images/monsters/6130102.move.webp"
+      "gif": "images/monsters/6130102.move.webp",
+      "thumbnail": "images/monsters/6130102.png"
     },
     {
       "id": 6130103,
@@ -9943,14 +9943,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6130103.png",
       "gifs": {
         "move": "images/monsters/6130103.move.webp",
         "stand": "images/monsters/6130103.stand.webp",
         "hit1": "images/monsters/6130103.hit1.webp",
         "die1": "images/monsters/6130103.die1.webp"
       },
-      "gif": "images/monsters/6130103.move.webp"
+      "gif": "images/monsters/6130103.move.webp",
+      "thumbnail": "images/monsters/6130103.png"
     },
     {
       "id": 6130104,
@@ -9996,7 +9996,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/6130104.png",
       "gifs": {
         "move": "images/monsters/6130104.move.webp",
         "stand": "images/monsters/6130104.stand.webp",
@@ -10004,7 +10003,8 @@
         "hit1": "images/monsters/6130104.hit1.webp",
         "die1": "images/monsters/6130104.die1.webp"
       },
-      "gif": "images/monsters/6130104.move.webp"
+      "gif": "images/monsters/6130104.move.webp",
+      "thumbnail": "images/monsters/6130104.png"
     },
     {
       "id": 6130200,
@@ -10035,7 +10035,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6130200.png",
       "gifs": {
         "move": "images/monsters/6130200.move.webp",
         "stand": "images/monsters/6130200.stand.webp",
@@ -10043,7 +10042,8 @@
         "hit1": "images/monsters/6130200.hit1.webp",
         "die1": "images/monsters/6130200.die1.webp"
       },
-      "gif": "images/monsters/6130200.move.webp"
+      "gif": "images/monsters/6130200.move.webp",
+      "thumbnail": "images/monsters/6130200.png"
     },
     {
       "id": 6230100,
@@ -10086,7 +10086,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6230100.png",
       "gifs": {
         "move": "images/monsters/6230100.move.webp",
         "jump": "images/monsters/6230100.jump.webp",
@@ -10094,7 +10093,8 @@
         "hit1": "images/monsters/6230100.hit1.webp",
         "die1": "images/monsters/6230100.die1.webp"
       },
-      "gif": "images/monsters/6230100.move.webp"
+      "gif": "images/monsters/6230100.move.webp",
+      "thumbnail": "images/monsters/6230100.png"
     },
     {
       "id": 6230101,
@@ -10118,13 +10118,13 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6230101.png",
       "gifs": {
         "fly": "images/monsters/6230101.fly.webp",
         "hit1": "images/monsters/6230101.hit1.webp",
         "die1": "images/monsters/6230101.die1.webp"
       },
-      "gif": "images/monsters/6230101.fly.webp"
+      "gif": "images/monsters/6230101.fly.webp",
+      "thumbnail": "images/monsters/6230101.png"
     },
     {
       "id": 6230200,
@@ -10157,14 +10157,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6230200.png",
       "gifs": {
         "move": "images/monsters/6230200.move.webp",
         "stand": "images/monsters/6230200.stand.webp",
         "hit1": "images/monsters/6230200.hit1.webp",
         "die1": "images/monsters/6230200.die1.webp"
       },
-      "gif": "images/monsters/6230200.move.webp"
+      "gif": "images/monsters/6230200.move.webp",
+      "thumbnail": "images/monsters/6230200.png"
     },
     {
       "id": 6230201,
@@ -10190,14 +10190,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6230201.png",
       "gifs": {
         "move": "images/monsters/6230201.move.webp",
         "stand": "images/monsters/6230201.stand.webp",
         "hit1": "images/monsters/6230201.hit1.webp",
         "die1": "images/monsters/6230201.die1.webp"
       },
-      "gif": "images/monsters/6230201.move.webp"
+      "gif": "images/monsters/6230201.move.webp",
+      "thumbnail": "images/monsters/6230201.png"
     },
     {
       "id": 6230300,
@@ -10228,7 +10228,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6230300.png",
       "gifs": {
         "move": "images/monsters/6230300.move.webp",
         "stand": "images/monsters/6230300.stand.webp",
@@ -10236,7 +10235,8 @@
         "hit1": "images/monsters/6230300.hit1.webp",
         "die1": "images/monsters/6230300.die1.webp"
       },
-      "gif": "images/monsters/6230300.move.webp"
+      "gif": "images/monsters/6230300.move.webp",
+      "thumbnail": "images/monsters/6230300.png"
     },
     {
       "id": 6230400,
@@ -10271,7 +10271,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6230400.png",
       "gifs": {
         "move": "images/monsters/6230400.move.webp",
         "stand": "images/monsters/6230400.stand.webp",
@@ -10279,7 +10278,8 @@
         "hit1": "images/monsters/6230400.hit1.webp",
         "die1": "images/monsters/6230400.die1.webp"
       },
-      "gif": "images/monsters/6230400.move.webp"
+      "gif": "images/monsters/6230400.move.webp",
+      "thumbnail": "images/monsters/6230400.png"
     },
     {
       "id": 6230500,
@@ -10314,7 +10314,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6230500.png",
       "gifs": {
         "move": "images/monsters/6230500.move.webp",
         "stand": "images/monsters/6230500.stand.webp",
@@ -10322,7 +10321,8 @@
         "hit1": "images/monsters/6230500.hit1.webp",
         "die1": "images/monsters/6230500.die1.webp"
       },
-      "gif": "images/monsters/6230500.move.webp"
+      "gif": "images/monsters/6230500.move.webp",
+      "thumbnail": "images/monsters/6230500.png"
     },
     {
       "id": 6300000,
@@ -10381,7 +10381,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/6300000.png",
       "gifs": {
         "move": "images/monsters/6300000.move.webp",
         "stand": "images/monsters/6300000.stand.webp",
@@ -10390,7 +10389,8 @@
         "hit1": "images/monsters/6300000.hit1.webp",
         "die1": "images/monsters/6300000.die1.webp"
       },
-      "gif": "images/monsters/6300000.move.webp"
+      "gif": "images/monsters/6300000.move.webp",
+      "thumbnail": "images/monsters/6300000.png"
     },
     {
       "id": 6300001,
@@ -10417,7 +10417,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6300001.png",
       "gifs": {
         "move": "images/monsters/6300001.move.webp",
         "stand": "images/monsters/6300001.stand.webp",
@@ -10426,7 +10425,8 @@
         "hit1": "images/monsters/6300001.hit1.webp",
         "die1": "images/monsters/6300001.die1.webp"
       },
-      "gif": "images/monsters/6300001.move.webp"
+      "gif": "images/monsters/6300001.move.webp",
+      "thumbnail": "images/monsters/6300001.png"
     },
     {
       "id": 6300002,
@@ -10453,7 +10453,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6300002.png",
       "gifs": {
         "move": "images/monsters/6300002.move.webp",
         "stand": "images/monsters/6300002.stand.webp",
@@ -10462,7 +10461,8 @@
         "hit1": "images/monsters/6300002.hit1.webp",
         "die1": "images/monsters/6300002.die1.webp"
       },
-      "gif": "images/monsters/6300002.move.webp"
+      "gif": "images/monsters/6300002.move.webp",
+      "thumbnail": "images/monsters/6300002.png"
     },
     {
       "id": 6300003,
@@ -10488,13 +10488,13 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6300003.png",
       "gifs": {
         "fly": "images/monsters/6300003.fly.webp",
         "hit1": "images/monsters/6300003.hit1.webp",
         "die1": "images/monsters/6300003.die1.webp"
       },
-      "gif": "images/monsters/6300003.fly.webp"
+      "gif": "images/monsters/6300003.fly.webp",
+      "thumbnail": "images/monsters/6300003.png"
     },
     {
       "id": 6300004,
@@ -10524,14 +10524,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6300004.png",
       "gifs": {
         "fly": "images/monsters/6300004.fly.webp",
         "stand": "images/monsters/6300004.stand.webp",
         "attack1": "images/monsters/6300004.attack1.webp",
         "hit1": "images/monsters/6300004.hit1.webp"
       },
-      "gif": "images/monsters/6300004.fly.webp"
+      "gif": "images/monsters/6300004.fly.webp",
+      "thumbnail": "images/monsters/6300004.png"
     },
     {
       "id": 6300100,
@@ -10571,7 +10571,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6300100.png",
       "gifs": {
         "move": "images/monsters/6300100.move.webp",
         "stand": "images/monsters/6300100.stand.webp",
@@ -10579,7 +10578,8 @@
         "hit1": "images/monsters/6300100.hit1.webp",
         "die1": "images/monsters/6300100.die1.webp"
       },
-      "gif": "images/monsters/6300100.move.webp"
+      "gif": "images/monsters/6300100.move.webp",
+      "thumbnail": "images/monsters/6300100.png"
     },
     {
       "id": 6400000,
@@ -10643,7 +10643,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/6400000.png",
       "gifs": {
         "move": "images/monsters/6400000.move.webp",
         "stand": "images/monsters/6400000.stand.webp",
@@ -10652,7 +10651,8 @@
         "hit1": "images/monsters/6400000.hit1.webp",
         "die1": "images/monsters/6400000.die1.webp"
       },
-      "gif": "images/monsters/6400000.move.webp"
+      "gif": "images/monsters/6400000.move.webp",
+      "thumbnail": "images/monsters/6400000.png"
     },
     {
       "id": 6400001,
@@ -10678,7 +10678,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6400001.png",
       "gifs": {
         "move": "images/monsters/6400001.move.webp",
         "stand": "images/monsters/6400001.stand.webp",
@@ -10687,7 +10686,8 @@
         "hit1": "images/monsters/6400001.hit1.webp",
         "die1": "images/monsters/6400001.die1.webp"
       },
-      "gif": "images/monsters/6400001.move.webp"
+      "gif": "images/monsters/6400001.move.webp",
+      "thumbnail": "images/monsters/6400001.png"
     },
     {
       "id": 6400002,
@@ -10713,7 +10713,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6400002.png",
       "gifs": {
         "move": "images/monsters/6400002.move.webp",
         "stand": "images/monsters/6400002.stand.webp",
@@ -10722,7 +10721,8 @@
         "hit1": "images/monsters/6400002.hit1.webp",
         "die1": "images/monsters/6400002.die1.webp"
       },
-      "gif": "images/monsters/6400002.move.webp"
+      "gif": "images/monsters/6400002.move.webp",
+      "thumbnail": "images/monsters/6400002.png"
     },
     {
       "id": 6400003,
@@ -10748,13 +10748,13 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6400003.png",
       "gifs": {
         "fly": "images/monsters/6400003.fly.webp",
         "hit1": "images/monsters/6400003.hit1.webp",
         "die1": "images/monsters/6400003.die1.webp"
       },
-      "gif": "images/monsters/6400003.fly.webp"
+      "gif": "images/monsters/6400003.fly.webp",
+      "thumbnail": "images/monsters/6400003.png"
     },
     {
       "id": 6400004,
@@ -10784,14 +10784,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6400004.png",
       "gifs": {
         "fly": "images/monsters/6400004.fly.webp",
         "attack1": "images/monsters/6400004.attack1.webp",
         "hit1": "images/monsters/6400004.hit1.webp",
         "die1": "images/monsters/6400004.die1.webp"
       },
-      "gif": "images/monsters/6400004.fly.webp"
+      "gif": "images/monsters/6400004.fly.webp",
+      "thumbnail": "images/monsters/6400004.png"
     },
     {
       "id": 6400100,
@@ -10825,7 +10825,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/6400100.png",
       "gifs": {
         "move": "images/monsters/6400100.move.webp",
         "stand": "images/monsters/6400100.stand.webp",
@@ -10833,7 +10832,8 @@
         "hit1": "images/monsters/6400100.hit1.webp",
         "die1": "images/monsters/6400100.die1.webp"
       },
-      "gif": "images/monsters/6400100.move.webp"
+      "gif": "images/monsters/6400100.move.webp",
+      "thumbnail": "images/monsters/6400100.png"
     },
     {
       "id": 7130000,
@@ -10879,7 +10879,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/7130000.png",
       "gifs": {
         "move": "images/monsters/7130000.move.webp",
         "jump": "images/monsters/7130000.jump.webp",
@@ -10888,7 +10887,8 @@
         "hit1": "images/monsters/7130000.hit1.webp",
         "die1": "images/monsters/7130000.die1.webp"
       },
-      "gif": "images/monsters/7130000.move.webp"
+      "gif": "images/monsters/7130000.move.webp",
+      "thumbnail": "images/monsters/7130000.png"
     },
     {
       "id": 7130001,
@@ -10931,7 +10931,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/7130001.png",
       "gifs": {
         "move": "images/monsters/7130001.move.webp",
         "stand": "images/monsters/7130001.stand.webp",
@@ -10939,7 +10938,8 @@
         "hit1": "images/monsters/7130001.hit1.webp",
         "die1": "images/monsters/7130001.die1.webp"
       },
-      "gif": "images/monsters/7130001.move.webp"
+      "gif": "images/monsters/7130001.move.webp",
+      "thumbnail": "images/monsters/7130001.png"
     },
     {
       "id": 7130010,
@@ -10973,7 +10973,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/7130010.png",
       "gifs": {
         "move": "images/monsters/7130010.move.webp",
         "stand": "images/monsters/7130010.stand.webp",
@@ -10981,7 +10980,8 @@
         "hit1": "images/monsters/7130010.hit1.webp",
         "die1": "images/monsters/7130010.die1.webp"
       },
-      "gif": "images/monsters/7130010.move.webp"
+      "gif": "images/monsters/7130010.move.webp",
+      "thumbnail": "images/monsters/7130010.png"
     },
     {
       "id": 7130100,
@@ -11032,7 +11032,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/7130100.png",
       "gifs": {
         "move": "images/monsters/7130100.move.webp",
         "stand": "images/monsters/7130100.stand.webp",
@@ -11040,7 +11039,8 @@
         "hit1": "images/monsters/7130100.hit1.webp",
         "die1": "images/monsters/7130100.die1.webp"
       },
-      "gif": "images/monsters/7130100.move.webp"
+      "gif": "images/monsters/7130100.move.webp",
+      "thumbnail": "images/monsters/7130100.png"
     },
     {
       "id": 7130101,
@@ -11081,7 +11081,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/7130101.png",
       "gifs": {
         "move": "images/monsters/7130101.move.webp",
         "stand": "images/monsters/7130101.stand.webp",
@@ -11090,7 +11089,8 @@
         "hit1": "images/monsters/7130101.hit1.webp",
         "die1": "images/monsters/7130101.die1.webp"
       },
-      "gif": "images/monsters/7130101.move.webp"
+      "gif": "images/monsters/7130101.move.webp",
+      "thumbnail": "images/monsters/7130101.png"
     },
     {
       "id": 7130102,
@@ -11124,7 +11124,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/7130102.png",
       "gifs": {
         "move": "images/monsters/7130102.move.webp",
         "stand": "images/monsters/7130102.stand.webp",
@@ -11132,7 +11131,8 @@
         "hit1": "images/monsters/7130102.hit1.webp",
         "die1": "images/monsters/7130102.die1.webp"
       },
-      "gif": "images/monsters/7130102.move.webp"
+      "gif": "images/monsters/7130102.move.webp",
+      "thumbnail": "images/monsters/7130102.png"
     },
     {
       "id": 7130200,
@@ -11179,7 +11179,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/7130200.png",
       "gifs": {
         "move": "images/monsters/7130200.move.webp",
         "stand": "images/monsters/7130200.stand.webp",
@@ -11188,7 +11187,8 @@
         "hit1": "images/monsters/7130200.hit1.webp",
         "die1": "images/monsters/7130200.die1.webp"
       },
-      "gif": "images/monsters/7130200.move.webp"
+      "gif": "images/monsters/7130200.move.webp",
+      "thumbnail": "images/monsters/7130200.png"
     },
     {
       "id": 7130300,
@@ -11223,7 +11223,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/7130300.png",
       "gifs": {
         "move": "images/monsters/7130300.move.webp",
         "stand": "images/monsters/7130300.stand.webp",
@@ -11231,7 +11230,8 @@
         "hit1": "images/monsters/7130300.hit1.webp",
         "die1": "images/monsters/7130300.die1.webp"
       },
-      "gif": "images/monsters/7130300.move.webp"
+      "gif": "images/monsters/7130300.move.webp",
+      "thumbnail": "images/monsters/7130300.png"
     },
     {
       "id": 7140000,
@@ -11265,7 +11265,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/7140000.png",
       "gifs": {
         "move": "images/monsters/7140000.move.webp",
         "stand": "images/monsters/7140000.stand.webp",
@@ -11273,7 +11272,8 @@
         "hit1": "images/monsters/7140000.hit1.webp",
         "die1": "images/monsters/7140000.die1.webp"
       },
-      "gif": "images/monsters/7140000.move.webp"
+      "gif": "images/monsters/7140000.move.webp",
+      "thumbnail": "images/monsters/7140000.png"
     },
     {
       "id": 7160000,
@@ -11307,7 +11307,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/7160000.png",
       "gifs": {
         "move": "images/monsters/7160000.move.webp",
         "stand": "images/monsters/7160000.stand.webp",
@@ -11315,7 +11314,8 @@
         "hit1": "images/monsters/7160000.hit1.webp",
         "die1": "images/monsters/7160000.die1.webp"
       },
-      "gif": "images/monsters/7160000.move.webp"
+      "gif": "images/monsters/7160000.move.webp",
+      "thumbnail": "images/monsters/7160000.png"
     },
     {
       "id": 8130100,
@@ -11349,7 +11349,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8130100.png",
       "gifs": {
         "move": "images/monsters/8130100.move.webp",
         "stand": "images/monsters/8130100.stand.webp",
@@ -11359,7 +11358,8 @@
         "hit1": "images/monsters/8130100.hit1.webp",
         "die1": "images/monsters/8130100.die1.webp"
       },
-      "gif": "images/monsters/8130100.move.webp"
+      "gif": "images/monsters/8130100.move.webp",
+      "thumbnail": "images/monsters/8130100.png"
     },
     {
       "id": 8140000,
@@ -11424,7 +11424,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/8140000.png",
       "gifs": {
         "move": "images/monsters/8140000.move.webp",
         "stand": "images/monsters/8140000.stand.webp",
@@ -11433,7 +11432,8 @@
         "hit1": "images/monsters/8140000.hit1.webp",
         "die1": "images/monsters/8140000.die1.webp"
       },
-      "gif": "images/monsters/8140000.move.webp"
+      "gif": "images/monsters/8140000.move.webp",
+      "thumbnail": "images/monsters/8140000.png"
     },
     {
       "id": 8140100,
@@ -11466,7 +11466,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8140100.png",
       "gifs": {
         "move": "images/monsters/8140100.move.webp",
         "stand": "images/monsters/8140100.stand.webp",
@@ -11474,7 +11473,8 @@
         "hit1": "images/monsters/8140100.hit1.webp",
         "die1": "images/monsters/8140100.die1.webp"
       },
-      "gif": "images/monsters/8140100.move.webp"
+      "gif": "images/monsters/8140100.move.webp",
+      "thumbnail": "images/monsters/8140100.png"
     },
     {
       "id": 8140200,
@@ -11508,7 +11508,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8140200.png",
       "gifs": {
         "move": "images/monsters/8140200.move.webp",
         "stand": "images/monsters/8140200.stand.webp",
@@ -11516,7 +11515,8 @@
         "hit1": "images/monsters/8140200.hit1.webp",
         "die1": "images/monsters/8140200.die1.webp"
       },
-      "gif": "images/monsters/8140200.move.webp"
+      "gif": "images/monsters/8140200.move.webp",
+      "thumbnail": "images/monsters/8140200.png"
     },
     {
       "id": 8140300,
@@ -11549,7 +11549,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8140300.png",
       "gifs": {
         "move": "images/monsters/8140300.move.webp",
         "stand": "images/monsters/8140300.stand.webp",
@@ -11557,7 +11556,8 @@
         "hit1": "images/monsters/8140300.hit1.webp",
         "die1": "images/monsters/8140300.die1.webp"
       },
-      "gif": "images/monsters/8140300.move.webp"
+      "gif": "images/monsters/8140300.move.webp",
+      "thumbnail": "images/monsters/8140300.png"
     },
     {
       "id": 8140500,
@@ -11591,7 +11591,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8140500.png",
       "gifs": {
         "move": "images/monsters/8140500.move.webp",
         "stand": "images/monsters/8140500.stand.webp",
@@ -11599,7 +11598,8 @@
         "hit1": "images/monsters/8140500.hit1.webp",
         "die1": "images/monsters/8140500.die1.webp"
       },
-      "gif": "images/monsters/8140500.move.webp"
+      "gif": "images/monsters/8140500.move.webp",
+      "thumbnail": "images/monsters/8140500.png"
     },
     {
       "id": 8141000,
@@ -11633,7 +11633,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8141000.png",
       "gifs": {
         "move": "images/monsters/8141000.move.webp",
         "stand": "images/monsters/8141000.stand.webp",
@@ -11641,7 +11640,8 @@
         "hit1": "images/monsters/8141000.hit1.webp",
         "die1": "images/monsters/8141000.die1.webp"
       },
-      "gif": "images/monsters/8141000.move.webp"
+      "gif": "images/monsters/8141000.move.webp",
+      "thumbnail": "images/monsters/8141000.png"
     },
     {
       "id": 8141100,
@@ -11675,7 +11675,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8141100.png",
       "gifs": {
         "move": "images/monsters/8141100.move.webp",
         "stand": "images/monsters/8141100.stand.webp",
@@ -11683,7 +11682,8 @@
         "hit1": "images/monsters/8141100.hit1.webp",
         "die1": "images/monsters/8141100.die1.webp"
       },
-      "gif": "images/monsters/8141100.move.webp"
+      "gif": "images/monsters/8141100.move.webp",
+      "thumbnail": "images/monsters/8141100.png"
     },
     {
       "id": 8142000,
@@ -11718,7 +11718,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8142000.png",
       "gifs": {
         "move": "images/monsters/8142000.move.webp",
         "stand": "images/monsters/8142000.stand.webp",
@@ -11726,7 +11725,8 @@
         "hit1": "images/monsters/8142000.hit1.webp",
         "die1": "images/monsters/8142000.die1.webp"
       },
-      "gif": "images/monsters/8142000.move.webp"
+      "gif": "images/monsters/8142000.move.webp",
+      "thumbnail": "images/monsters/8142000.png"
     },
     {
       "id": 8143000,
@@ -11761,7 +11761,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8143000.png",
       "gifs": {
         "move": "images/monsters/8143000.move.webp",
         "stand": "images/monsters/8143000.stand.webp",
@@ -11769,7 +11768,8 @@
         "hit1": "images/monsters/8143000.hit1.webp",
         "die1": "images/monsters/8143000.die1.webp"
       },
-      "gif": "images/monsters/8143000.move.webp"
+      "gif": "images/monsters/8143000.move.webp",
+      "thumbnail": "images/monsters/8143000.png"
     },
     {
       "id": 8150000,
@@ -11796,7 +11796,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8150000.png",
       "gifs": {
         "fly": "images/monsters/8150000.fly.webp",
         "attack1": "images/monsters/8150000.attack1.webp",
@@ -11804,7 +11803,8 @@
         "hit1": "images/monsters/8150000.hit1.webp",
         "die1": "images/monsters/8150000.die1.webp"
       },
-      "gif": "images/monsters/8150000.fly.webp"
+      "gif": "images/monsters/8150000.fly.webp",
+      "thumbnail": "images/monsters/8150000.png"
     },
     {
       "id": 8160000,
@@ -11847,7 +11847,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/8160000.png",
       "gifs": {
         "move": "images/monsters/8160000.move.webp",
         "stand": "images/monsters/8160000.stand.webp",
@@ -11856,7 +11855,8 @@
         "hit1": "images/monsters/8160000.hit1.webp",
         "die1": "images/monsters/8160000.die1.webp"
       },
-      "gif": "images/monsters/8160000.move.webp"
+      "gif": "images/monsters/8160000.move.webp",
+      "thumbnail": "images/monsters/8160000.png"
     },
     {
       "id": 8170000,
@@ -11928,7 +11928,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/8170000.png",
       "gifs": {
         "move": "images/monsters/8170000.move.webp",
         "stand": "images/monsters/8170000.stand.webp",
@@ -11937,7 +11936,8 @@
         "hit1": "images/monsters/8170000.hit1.webp",
         "die1": "images/monsters/8170000.die1.webp"
       },
-      "gif": "images/monsters/8170000.move.webp"
+      "gif": "images/monsters/8170000.move.webp",
+      "thumbnail": "images/monsters/8170000.png"
     },
     {
       "id": 8500000,
@@ -11961,12 +11961,12 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8500000.png",
       "gifs": {
         "stand": "images/monsters/8500000.stand.webp",
         "die1": "images/monsters/8500000.die1.webp"
       },
-      "gif": "images/monsters/8500000.stand.webp"
+      "gif": "images/monsters/8500000.stand.webp",
+      "thumbnail": "images/monsters/8500000.png"
     },
     {
       "id": 8500001,
@@ -12042,7 +12042,6 @@
           "prop": 100
         }
       ],
-      "thumbnail": "images/monsters/8500001.png",
       "gifs": {
         "move": "images/monsters/8500001.move.webp",
         "stand": "images/monsters/8500001.stand.webp",
@@ -12051,7 +12050,8 @@
         "hit1": "images/monsters/8500001.hit1.webp",
         "die1": "images/monsters/8500001.die1.webp"
       },
-      "gif": "images/monsters/8500001.move.webp"
+      "gif": "images/monsters/8500001.move.webp",
+      "thumbnail": "images/monsters/8500001.png"
     },
     {
       "id": 8500002,
@@ -12075,14 +12075,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8500002.png",
       "gifs": {
         "fly": "images/monsters/8500002.fly.webp",
         "stand": "images/monsters/8500002.stand.webp",
         "hit1": "images/monsters/8500002.hit1.webp",
         "die1": "images/monsters/8500002.die1.webp"
       },
-      "gif": "images/monsters/8500002.fly.webp"
+      "gif": "images/monsters/8500002.fly.webp",
+      "thumbnail": "images/monsters/8500002.png"
     },
     {
       "id": 8500003,
@@ -12109,14 +12109,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/8500003.png",
       "gifs": {
         "stand": "images/monsters/8500003.stand.webp",
         "attack1": "images/monsters/8500003.attack1.webp",
         "hit1": "images/monsters/8500003.hit1.webp",
         "die1": "images/monsters/8500003.die1.webp"
       },
-      "gif": "images/monsters/8500003.stand.webp"
+      "gif": "images/monsters/8500003.stand.webp",
+      "thumbnail": "images/monsters/8500003.png"
     },
     {
       "id": 8500004,
@@ -12153,7 +12153,6 @@
         }
       ],
       "debuffs": [],
-      "thumbnail": "images/monsters/8500004.png",
       "gifs": {
         "move": "images/monsters/8500004.move.webp",
         "jump": "images/monsters/8500004.jump.webp",
@@ -12162,7 +12161,8 @@
         "hit1": "images/monsters/8500004.hit1.webp",
         "die1": "images/monsters/8500004.die1.webp"
       },
-      "gif": "images/monsters/8500004.move.webp"
+      "gif": "images/monsters/8500004.move.webp",
+      "thumbnail": "images/monsters/8500004.png"
     },
     {
       "id": 9000001,
@@ -12207,7 +12207,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9000001.png",
       "gifs": {
         "move": "images/monsters/9000001.move.webp",
         "jump": "images/monsters/9000001.jump.webp",
@@ -12215,7 +12214,8 @@
         "hit1": "images/monsters/9000001.hit1.webp",
         "die1": "images/monsters/9000001.die1.webp"
       },
-      "gif": "images/monsters/9000001.move.webp"
+      "gif": "images/monsters/9000001.move.webp",
+      "thumbnail": "images/monsters/9000001.png"
     },
     {
       "id": 9000002,
@@ -12258,14 +12258,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9000002.png",
       "gifs": {
         "move": "images/monsters/9000002.move.webp",
         "stand": "images/monsters/9000002.stand.webp",
         "hit1": "images/monsters/9000002.hit1.webp",
         "die1": "images/monsters/9000002.die1.webp"
       },
-      "gif": "images/monsters/9000002.move.webp"
+      "gif": "images/monsters/9000002.move.webp",
+      "thumbnail": "images/monsters/9000002.png"
     },
     {
       "id": 9000100,
@@ -12311,7 +12311,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9000100.png",
       "gifs": {
         "move": "images/monsters/9000100.move.webp",
         "jump": "images/monsters/9000100.jump.webp",
@@ -12319,7 +12318,8 @@
         "hit1": "images/monsters/9000100.hit1.webp",
         "die1": "images/monsters/9000100.die1.webp"
       },
-      "gif": "images/monsters/9000100.move.webp"
+      "gif": "images/monsters/9000100.move.webp",
+      "thumbnail": "images/monsters/9000100.png"
     },
     {
       "id": 9000101,
@@ -12362,7 +12362,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9000101.png",
       "gifs": {
         "move": "images/monsters/9000101.move.webp",
         "jump": "images/monsters/9000101.jump.webp",
@@ -12371,7 +12370,8 @@
         "hit1": "images/monsters/9000101.hit1.webp",
         "die1": "images/monsters/9000101.die1.webp"
       },
-      "gif": "images/monsters/9000101.move.webp"
+      "gif": "images/monsters/9000101.move.webp",
+      "thumbnail": "images/monsters/9000101.png"
     },
     {
       "id": 9000200,
@@ -12414,7 +12414,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9000200.png",
       "gifs": {
         "move": "images/monsters/9000200.move.webp",
         "jump": "images/monsters/9000200.jump.webp",
@@ -12422,7 +12421,8 @@
         "hit1": "images/monsters/9000200.hit1.webp",
         "die1": "images/monsters/9000200.die1.webp"
       },
-      "gif": "images/monsters/9000200.move.webp"
+      "gif": "images/monsters/9000200.move.webp",
+      "thumbnail": "images/monsters/9000200.png"
     },
     {
       "id": 9000201,
@@ -12467,7 +12467,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9000201.png",
       "gifs": {
         "move": "images/monsters/9000201.move.webp",
         "jump": "images/monsters/9000201.jump.webp",
@@ -12475,7 +12474,8 @@
         "hit1": "images/monsters/9000201.hit1.webp",
         "die1": "images/monsters/9000201.die1.webp"
       },
-      "gif": "images/monsters/9000201.move.webp"
+      "gif": "images/monsters/9000201.move.webp",
+      "thumbnail": "images/monsters/9000201.png"
     },
     {
       "id": 9000300,
@@ -12521,7 +12521,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9000300.png",
       "gifs": {
         "move": "images/monsters/9000300.move.webp",
         "jump": "images/monsters/9000300.jump.webp",
@@ -12529,7 +12528,8 @@
         "hit1": "images/monsters/9000300.hit1.webp",
         "die1": "images/monsters/9000300.die1.webp"
       },
-      "gif": "images/monsters/9000300.move.webp"
+      "gif": "images/monsters/9000300.move.webp",
+      "thumbnail": "images/monsters/9000300.png"
     },
     {
       "id": 9000301,
@@ -12572,7 +12572,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9000301.png",
       "gifs": {
         "move": "images/monsters/9000301.move.webp",
         "jump": "images/monsters/9000301.jump.webp",
@@ -12580,7 +12579,8 @@
         "hit1": "images/monsters/9000301.hit1.webp",
         "die1": "images/monsters/9000301.die1.webp"
       },
-      "gif": "images/monsters/9000301.move.webp"
+      "gif": "images/monsters/9000301.move.webp",
+      "thumbnail": "images/monsters/9000301.png"
     },
     {
       "id": 9001000,
@@ -12639,7 +12639,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/9001000.png",
       "gifs": {
         "move": "images/monsters/9001000.move.webp",
         "jump": "images/monsters/9001000.jump.webp",
@@ -12650,7 +12649,8 @@
         "hit1": "images/monsters/9001000.hit1.webp",
         "die1": "images/monsters/9001000.die1.webp"
       },
-      "gif": "images/monsters/9001000.move.webp"
+      "gif": "images/monsters/9001000.move.webp",
+      "thumbnail": "images/monsters/9001000.png"
     },
     {
       "id": 9001001,
@@ -12709,7 +12709,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/9001001.png",
       "gifs": {
         "move": "images/monsters/9001001.move.webp",
         "stand": "images/monsters/9001001.stand.webp",
@@ -12720,7 +12719,8 @@
         "hit1": "images/monsters/9001001.hit1.webp",
         "die1": "images/monsters/9001001.die1.webp"
       },
-      "gif": "images/monsters/9001001.move.webp"
+      "gif": "images/monsters/9001001.move.webp",
+      "thumbnail": "images/monsters/9001001.png"
     },
     {
       "id": 9001002,
@@ -12779,7 +12779,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/9001002.png",
       "gifs": {
         "move": "images/monsters/9001002.move.webp",
         "jump": "images/monsters/9001002.jump.webp",
@@ -12790,7 +12789,8 @@
         "hit1": "images/monsters/9001002.hit1.webp",
         "die1": "images/monsters/9001002.die1.webp"
       },
-      "gif": "images/monsters/9001002.move.webp"
+      "gif": "images/monsters/9001002.move.webp",
+      "thumbnail": "images/monsters/9001002.png"
     },
     {
       "id": 9001003,
@@ -12849,7 +12849,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/9001003.png",
       "gifs": {
         "move": "images/monsters/9001003.move.webp",
         "jump": "images/monsters/9001003.jump.webp",
@@ -12860,7 +12859,8 @@
         "hit1": "images/monsters/9001003.hit1.webp",
         "die1": "images/monsters/9001003.die1.webp"
       },
-      "gif": "images/monsters/9001003.move.webp"
+      "gif": "images/monsters/9001003.move.webp",
+      "thumbnail": "images/monsters/9001003.png"
     },
     {
       "id": 9100000,
@@ -12891,7 +12891,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9100000.png",
       "gifs": {
         "move": "images/monsters/9100000.move.webp",
         "jump": "images/monsters/9100000.jump.webp",
@@ -12899,7 +12898,8 @@
         "hit1": "images/monsters/9100000.hit1.webp",
         "die1": "images/monsters/9100000.die1.webp"
       },
-      "gif": "images/monsters/9100000.move.webp"
+      "gif": "images/monsters/9100000.move.webp",
+      "thumbnail": "images/monsters/9100000.png"
     },
     {
       "id": 9100001,
@@ -12978,14 +12978,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9100001.png",
       "gifs": {
         "move": "images/monsters/9100001.move.webp",
         "stand": "images/monsters/9100001.stand.webp",
         "hit1": "images/monsters/9100001.hit1.webp",
         "die1": "images/monsters/9100001.die1.webp"
       },
-      "gif": "images/monsters/9100001.move.webp"
+      "gif": "images/monsters/9100001.move.webp",
+      "thumbnail": "images/monsters/9100001.png"
     },
     {
       "id": 9100002,
@@ -13022,13 +13022,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9100002.png",
       "gifs": {
         "fly": "images/monsters/9100002.fly.webp",
         "hit1": "images/monsters/9100002.hit1.webp",
         "die1": "images/monsters/9100002.die1.webp"
       },
-      "gif": "images/monsters/9100002.fly.webp"
+      "gif": "images/monsters/9100002.fly.webp",
+      "thumbnail": "images/monsters/9100002.png"
     },
     {
       "id": 9100003,
@@ -13059,14 +13059,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9100003.png",
       "gifs": {
         "move": "images/monsters/9100003.move.webp",
         "stand": "images/monsters/9100003.stand.webp",
         "hit1": "images/monsters/9100003.hit1.webp",
         "die1": "images/monsters/9100003.die1.webp"
       },
-      "gif": "images/monsters/9100003.move.webp"
+      "gif": "images/monsters/9100003.move.webp",
+      "thumbnail": "images/monsters/9100003.png"
     },
     {
       "id": 9100004,
@@ -13097,14 +13097,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9100004.png",
       "gifs": {
         "move": "images/monsters/9100004.move.webp",
         "stand": "images/monsters/9100004.stand.webp",
         "hit1": "images/monsters/9100004.hit1.webp",
         "die1": "images/monsters/9100004.die1.webp"
       },
-      "gif": "images/monsters/9100004.move.webp"
+      "gif": "images/monsters/9100004.move.webp",
+      "thumbnail": "images/monsters/9100004.png"
     },
     {
       "id": 9100005,
@@ -13150,13 +13150,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9100005.png",
       "gifs": {
         "stand": "images/monsters/9100005.stand.webp",
         "hit1": "images/monsters/9100005.hit1.webp",
         "die1": "images/monsters/9100005.die1.webp"
       },
-      "gif": "images/monsters/9100005.stand.webp"
+      "gif": "images/monsters/9100005.stand.webp",
+      "thumbnail": "images/monsters/9100005.png"
     },
     {
       "id": 9100006,
@@ -13202,13 +13202,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9100006.png",
       "gifs": {
         "stand": "images/monsters/9100006.stand.webp",
         "hit1": "images/monsters/9100006.hit1.webp",
         "die1": "images/monsters/9100006.die1.webp"
       },
-      "gif": "images/monsters/9100006.stand.webp"
+      "gif": "images/monsters/9100006.stand.webp",
+      "thumbnail": "images/monsters/9100006.png"
     },
     {
       "id": 9100007,
@@ -13239,7 +13239,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9100007.png",
       "gifs": {
         "move": "images/monsters/9100007.move.webp",
         "jump": "images/monsters/9100007.jump.webp",
@@ -13247,7 +13246,8 @@
         "hit1": "images/monsters/9100007.hit1.webp",
         "die1": "images/monsters/9100007.die1.webp"
       },
-      "gif": "images/monsters/9100007.move.webp"
+      "gif": "images/monsters/9100007.move.webp",
+      "thumbnail": "images/monsters/9100007.png"
     },
     {
       "id": 9200000,
@@ -13284,7 +13284,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200000.png",
       "gifs": {
         "move": "images/monsters/9200000.move.webp",
         "jump": "images/monsters/9200000.jump.webp",
@@ -13292,7 +13291,8 @@
         "hit1": "images/monsters/9200000.hit1.webp",
         "die1": "images/monsters/9200000.die1.webp"
       },
-      "gif": "images/monsters/9200000.move.webp"
+      "gif": "images/monsters/9200000.move.webp",
+      "thumbnail": "images/monsters/9200000.png"
     },
     {
       "id": 9200001,
@@ -13326,7 +13326,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200001.png",
       "gifs": {
         "move": "images/monsters/9200001.move.webp",
         "jump": "images/monsters/9200001.jump.webp",
@@ -13334,7 +13333,8 @@
         "hit1": "images/monsters/9200001.hit1.webp",
         "die1": "images/monsters/9200001.die1.webp"
       },
-      "gif": "images/monsters/9200001.move.webp"
+      "gif": "images/monsters/9200001.move.webp",
+      "thumbnail": "images/monsters/9200001.png"
     },
     {
       "id": 9200002,
@@ -13373,14 +13373,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200002.png",
       "gifs": {
         "move": "images/monsters/9200002.move.webp",
         "stand": "images/monsters/9200002.stand.webp",
         "hit1": "images/monsters/9200002.hit1.webp",
         "die1": "images/monsters/9200002.die1.webp"
       },
-      "gif": "images/monsters/9200002.move.webp"
+      "gif": "images/monsters/9200002.move.webp",
+      "thumbnail": "images/monsters/9200002.png"
     },
     {
       "id": 9200003,
@@ -13417,14 +13417,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200003.png",
       "gifs": {
         "move": "images/monsters/9200003.move.webp",
         "stand": "images/monsters/9200003.stand.webp",
         "hit1": "images/monsters/9200003.hit1.webp",
         "die1": "images/monsters/9200003.die1.webp"
       },
-      "gif": "images/monsters/9200003.move.webp"
+      "gif": "images/monsters/9200003.move.webp",
+      "thumbnail": "images/monsters/9200003.png"
     },
     {
       "id": 9200004,
@@ -13457,14 +13457,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200004.png",
       "gifs": {
         "move": "images/monsters/9200004.move.webp",
         "stand": "images/monsters/9200004.stand.webp",
         "hit1": "images/monsters/9200004.hit1.webp",
         "die1": "images/monsters/9200004.die1.webp"
       },
-      "gif": "images/monsters/9200004.move.webp"
+      "gif": "images/monsters/9200004.move.webp",
+      "thumbnail": "images/monsters/9200004.png"
     },
     {
       "id": 9200005,
@@ -13503,7 +13503,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200005.png",
       "gifs": {
         "move": "images/monsters/9200005.move.webp",
         "jump": "images/monsters/9200005.jump.webp",
@@ -13511,7 +13510,8 @@
         "hit1": "images/monsters/9200005.hit1.webp",
         "die1": "images/monsters/9200005.die1.webp"
       },
-      "gif": "images/monsters/9200005.move.webp"
+      "gif": "images/monsters/9200005.move.webp",
+      "thumbnail": "images/monsters/9200005.png"
     },
     {
       "id": 9200006,
@@ -13542,7 +13542,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200006.png",
       "gifs": {
         "move": "images/monsters/9200006.move.webp",
         "jump": "images/monsters/9200006.jump.webp",
@@ -13551,7 +13550,8 @@
         "hit1": "images/monsters/9200006.hit1.webp",
         "die1": "images/monsters/9200006.die1.webp"
       },
-      "gif": "images/monsters/9200006.move.webp"
+      "gif": "images/monsters/9200006.move.webp",
+      "thumbnail": "images/monsters/9200006.png"
     },
     {
       "id": 9200007,
@@ -13584,7 +13584,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200007.png",
       "gifs": {
         "move": "images/monsters/9200007.move.webp",
         "jump": "images/monsters/9200007.jump.webp",
@@ -13593,7 +13592,8 @@
         "hit1": "images/monsters/9200007.hit1.webp",
         "die1": "images/monsters/9200007.die1.webp"
       },
-      "gif": "images/monsters/9200007.move.webp"
+      "gif": "images/monsters/9200007.move.webp",
+      "thumbnail": "images/monsters/9200007.png"
     },
     {
       "id": 9200008,
@@ -13636,7 +13636,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200008.png",
       "gifs": {
         "move": "images/monsters/9200008.move.webp",
         "jump": "images/monsters/9200008.jump.webp",
@@ -13644,7 +13643,8 @@
         "hit1": "images/monsters/9200008.hit1.webp",
         "die1": "images/monsters/9200008.die1.webp"
       },
-      "gif": "images/monsters/9200008.move.webp"
+      "gif": "images/monsters/9200008.move.webp",
+      "thumbnail": "images/monsters/9200008.png"
     },
     {
       "id": 9200009,
@@ -13681,7 +13681,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200009.png",
       "gifs": {
         "move": "images/monsters/9200009.move.webp",
         "stand": "images/monsters/9200009.stand.webp",
@@ -13689,7 +13688,8 @@
         "hit1": "images/monsters/9200009.hit1.webp",
         "die1": "images/monsters/9200009.die1.webp"
       },
-      "gif": "images/monsters/9200009.move.webp"
+      "gif": "images/monsters/9200009.move.webp",
+      "thumbnail": "images/monsters/9200009.png"
     },
     {
       "id": 9200010,
@@ -13722,7 +13722,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200010.png",
       "gifs": {
         "move": "images/monsters/9200010.move.webp",
         "jump": "images/monsters/9200010.jump.webp",
@@ -13730,7 +13729,8 @@
         "hit1": "images/monsters/9200010.hit1.webp",
         "die1": "images/monsters/9200010.die1.webp"
       },
-      "gif": "images/monsters/9200010.move.webp"
+      "gif": "images/monsters/9200010.move.webp",
+      "thumbnail": "images/monsters/9200010.png"
     },
     {
       "id": 9200011,
@@ -13761,7 +13761,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200011.png",
       "gifs": {
         "move": "images/monsters/9200011.move.webp",
         "jump": "images/monsters/9200011.jump.webp",
@@ -13769,7 +13768,8 @@
         "hit1": "images/monsters/9200011.hit1.webp",
         "die1": "images/monsters/9200011.die1.webp"
       },
-      "gif": "images/monsters/9200011.move.webp"
+      "gif": "images/monsters/9200011.move.webp",
+      "thumbnail": "images/monsters/9200011.png"
     },
     {
       "id": 9200012,
@@ -13800,14 +13800,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200012.png",
       "gifs": {
         "move": "images/monsters/9200012.move.webp",
         "stand": "images/monsters/9200012.stand.webp",
         "hit1": "images/monsters/9200012.hit1.webp",
         "die1": "images/monsters/9200012.die1.webp"
       },
-      "gif": "images/monsters/9200012.move.webp"
+      "gif": "images/monsters/9200012.move.webp",
+      "thumbnail": "images/monsters/9200012.png"
     },
     {
       "id": 9200013,
@@ -13847,7 +13847,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200013.png",
       "gifs": {
         "move": "images/monsters/9200013.move.webp",
         "jump": "images/monsters/9200013.jump.webp",
@@ -13855,7 +13854,8 @@
         "hit1": "images/monsters/9200013.hit1.webp",
         "die1": "images/monsters/9200013.die1.webp"
       },
-      "gif": "images/monsters/9200013.move.webp"
+      "gif": "images/monsters/9200013.move.webp",
+      "thumbnail": "images/monsters/9200013.png"
     },
     {
       "id": 9200014,
@@ -13886,7 +13886,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200014.png",
       "gifs": {
         "move": "images/monsters/9200014.move.webp",
         "jump": "images/monsters/9200014.jump.webp",
@@ -13894,7 +13893,8 @@
         "hit1": "images/monsters/9200014.hit1.webp",
         "die1": "images/monsters/9200014.die1.webp"
       },
-      "gif": "images/monsters/9200014.move.webp"
+      "gif": "images/monsters/9200014.move.webp",
+      "thumbnail": "images/monsters/9200014.png"
     },
     {
       "id": 9200015,
@@ -13931,7 +13931,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200015.png",
       "gifs": {
         "move": "images/monsters/9200015.move.webp",
         "jump": "images/monsters/9200015.jump.webp",
@@ -13939,7 +13938,8 @@
         "hit1": "images/monsters/9200015.hit1.webp",
         "die1": "images/monsters/9200015.die1.webp"
       },
-      "gif": "images/monsters/9200015.move.webp"
+      "gif": "images/monsters/9200015.move.webp",
+      "thumbnail": "images/monsters/9200015.png"
     },
     {
       "id": 9200016,
@@ -13970,14 +13970,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200016.png",
       "gifs": {
         "move": "images/monsters/9200016.move.webp",
         "stand": "images/monsters/9200016.stand.webp",
         "hit1": "images/monsters/9200016.hit1.webp",
         "die1": "images/monsters/9200016.die1.webp"
       },
-      "gif": "images/monsters/9200016.move.webp"
+      "gif": "images/monsters/9200016.move.webp",
+      "thumbnail": "images/monsters/9200016.png"
     },
     {
       "id": 9200017,
@@ -14008,7 +14008,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200017.png",
       "gifs": {
         "move": "images/monsters/9200017.move.webp",
         "jump": "images/monsters/9200017.jump.webp",
@@ -14016,7 +14015,8 @@
         "hit1": "images/monsters/9200017.hit1.webp",
         "die1": "images/monsters/9200017.die1.webp"
       },
-      "gif": "images/monsters/9200017.move.webp"
+      "gif": "images/monsters/9200017.move.webp",
+      "thumbnail": "images/monsters/9200017.png"
     },
     {
       "id": 9200018,
@@ -14056,7 +14056,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200018.png",
       "gifs": {
         "move": "images/monsters/9200018.move.webp",
         "jump": "images/monsters/9200018.jump.webp",
@@ -14064,7 +14063,8 @@
         "hit1": "images/monsters/9200018.hit1.webp",
         "die1": "images/monsters/9200018.die1.webp"
       },
-      "gif": "images/monsters/9200018.move.webp"
+      "gif": "images/monsters/9200018.move.webp",
+      "thumbnail": "images/monsters/9200018.png"
     },
     {
       "id": 9200020,
@@ -14098,7 +14098,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200020.png",
       "gifs": {
         "move": "images/monsters/9200020.move.webp",
         "stand": "images/monsters/9200020.stand.webp",
@@ -14106,7 +14105,8 @@
         "hit1": "images/monsters/9200020.hit1.webp",
         "die1": "images/monsters/9200020.die1.webp"
       },
-      "gif": "images/monsters/9200020.move.webp"
+      "gif": "images/monsters/9200020.move.webp",
+      "thumbnail": "images/monsters/9200020.png"
     },
     {
       "id": 9200021,
@@ -14133,7 +14133,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9200021.png",
       "gifs": {
         "move": "images/monsters/9200021.move.webp",
         "stand": "images/monsters/9200021.stand.webp",
@@ -14142,7 +14141,8 @@
         "hit1": "images/monsters/9200021.hit1.webp",
         "die1": "images/monsters/9200021.die1.webp"
       },
-      "gif": "images/monsters/9200021.move.webp"
+      "gif": "images/monsters/9200021.move.webp",
+      "thumbnail": "images/monsters/9200021.png"
     },
     {
       "id": 9300000,
@@ -14172,14 +14172,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300000.png",
       "gifs": {
         "move": "images/monsters/9300000.move.webp",
         "stand": "images/monsters/9300000.stand.webp",
         "hit1": "images/monsters/9300000.hit1.webp",
         "die1": "images/monsters/9300000.die1.webp"
       },
-      "gif": "images/monsters/9300000.move.webp"
+      "gif": "images/monsters/9300000.move.webp",
+      "thumbnail": "images/monsters/9300000.png"
     },
     {
       "id": 9300001,
@@ -14213,14 +14213,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300001.png",
       "gifs": {
         "move": "images/monsters/9300001.move.webp",
         "stand": "images/monsters/9300001.stand.webp",
         "hit1": "images/monsters/9300001.hit1.webp",
         "die1": "images/monsters/9300001.die1.webp"
       },
-      "gif": "images/monsters/9300001.move.webp"
+      "gif": "images/monsters/9300001.move.webp",
+      "thumbnail": "images/monsters/9300001.png"
     },
     {
       "id": 9300002,
@@ -14252,7 +14252,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300002.png",
       "gifs": {
         "move": "images/monsters/9300002.move.webp",
         "jump": "images/monsters/9300002.jump.webp",
@@ -14260,7 +14259,8 @@
         "hit1": "images/monsters/9300002.hit1.webp",
         "die1": "images/monsters/9300002.die1.webp"
       },
-      "gif": "images/monsters/9300002.move.webp"
+      "gif": "images/monsters/9300002.move.webp",
+      "thumbnail": "images/monsters/9300002.png"
     },
     {
       "id": 9300003,
@@ -14295,7 +14295,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300003.png",
       "gifs": {
         "move": "images/monsters/9300003.move.webp",
         "jump": "images/monsters/9300003.jump.webp",
@@ -14305,7 +14304,8 @@
         "hit1": "images/monsters/9300003.hit1.webp",
         "die1": "images/monsters/9300003.die1.webp"
       },
-      "gif": "images/monsters/9300003.move.webp"
+      "gif": "images/monsters/9300003.move.webp",
+      "thumbnail": "images/monsters/9300003.png"
     },
     {
       "id": 9300004,
@@ -14329,7 +14329,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300004.png",
       "gifs": {
         "move": "images/monsters/9300004.move.webp",
         "jump": "images/monsters/9300004.jump.webp",
@@ -14338,7 +14337,8 @@
         "hit1": "images/monsters/9300004.hit1.webp",
         "die1": "images/monsters/9300004.die1.webp"
       },
-      "gif": "images/monsters/9300004.move.webp"
+      "gif": "images/monsters/9300004.move.webp",
+      "thumbnail": "images/monsters/9300004.png"
     },
     {
       "id": 9300005,
@@ -14373,14 +14373,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300005.png",
       "gifs": {
         "move": "images/monsters/9300005.move.webp",
         "stand": "images/monsters/9300005.stand.webp",
         "hit1": "images/monsters/9300005.hit1.webp",
         "die1": "images/monsters/9300005.die1.webp"
       },
-      "gif": "images/monsters/9300005.move.webp"
+      "gif": "images/monsters/9300005.move.webp",
+      "thumbnail": "images/monsters/9300005.png"
     },
     {
       "id": 9300006,
@@ -14420,14 +14420,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300006.png",
       "gifs": {
         "move": "images/monsters/9300006.move.webp",
         "stand": "images/monsters/9300006.stand.webp",
         "hit1": "images/monsters/9300006.hit1.webp",
         "die1": "images/monsters/9300006.die1.webp"
       },
-      "gif": "images/monsters/9300006.move.webp"
+      "gif": "images/monsters/9300006.move.webp",
+      "thumbnail": "images/monsters/9300006.png"
     },
     {
       "id": 9300007,
@@ -14462,7 +14462,6 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300007.png",
       "gifs": {
         "move": "images/monsters/9300007.move.webp",
         "jump": "images/monsters/9300007.jump.webp",
@@ -14470,7 +14469,8 @@
         "hit1": "images/monsters/9300007.hit1.webp",
         "die1": "images/monsters/9300007.die1.webp"
       },
-      "gif": "images/monsters/9300007.move.webp"
+      "gif": "images/monsters/9300007.move.webp",
+      "thumbnail": "images/monsters/9300007.png"
     },
     {
       "id": 9300008,
@@ -14510,14 +14510,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300008.png",
       "gifs": {
         "move": "images/monsters/9300008.move.webp",
         "stand": "images/monsters/9300008.stand.webp",
         "hit1": "images/monsters/9300008.hit1.webp",
         "die1": "images/monsters/9300008.die1.webp"
       },
-      "gif": "images/monsters/9300008.move.webp"
+      "gif": "images/monsters/9300008.move.webp",
+      "thumbnail": "images/monsters/9300008.png"
     },
     {
       "id": 9300009,
@@ -14545,14 +14545,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300009.png",
       "gifs": {
         "move": "images/monsters/9300009.move.webp",
         "stand": "images/monsters/9300009.stand.webp",
         "hit1": "images/monsters/9300009.hit1.webp",
         "die1": "images/monsters/9300009.die1.webp"
       },
-      "gif": "images/monsters/9300009.move.webp"
+      "gif": "images/monsters/9300009.move.webp",
+      "thumbnail": "images/monsters/9300009.png"
     },
     {
       "id": 9300010,
@@ -14576,7 +14576,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300010.png",
       "gifs": {
         "move": "images/monsters/9300010.move.webp",
         "stand": "images/monsters/9300010.stand.webp",
@@ -14585,7 +14584,8 @@
         "hit1": "images/monsters/9300010.hit1.webp",
         "die1": "images/monsters/9300010.die1.webp"
       },
-      "gif": "images/monsters/9300010.move.webp"
+      "gif": "images/monsters/9300010.move.webp",
+      "thumbnail": "images/monsters/9300010.png"
     },
     {
       "id": 9300012,
@@ -14634,7 +14634,6 @@
           "prop": 50
         }
       ],
-      "thumbnail": "images/monsters/9300012.png",
       "gifs": {
         "move": "images/monsters/9300012.move.webp",
         "jump": "images/monsters/9300012.jump.webp",
@@ -14644,7 +14643,8 @@
         "hit1": "images/monsters/9300012.hit1.webp",
         "die1": "images/monsters/9300012.die1.webp"
       },
-      "gif": "images/monsters/9300012.move.webp"
+      "gif": "images/monsters/9300012.move.webp",
+      "thumbnail": "images/monsters/9300012.png"
     },
     {
       "id": 9300013,
@@ -14679,14 +14679,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300013.png",
       "gifs": {
         "move": "images/monsters/9300013.move.webp",
         "stand": "images/monsters/9300013.stand.webp",
         "hit1": "images/monsters/9300013.hit1.webp",
         "die1": "images/monsters/9300013.die1.webp"
       },
-      "gif": "images/monsters/9300013.move.webp"
+      "gif": "images/monsters/9300013.move.webp",
+      "thumbnail": "images/monsters/9300013.png"
     },
     {
       "id": 9300014,
@@ -14726,14 +14726,14 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300014.png",
       "gifs": {
         "move": "images/monsters/9300014.move.webp",
         "stand": "images/monsters/9300014.stand.webp",
         "hit1": "images/monsters/9300014.hit1.webp",
         "die1": "images/monsters/9300014.die1.webp"
       },
-      "gif": "images/monsters/9300014.move.webp"
+      "gif": "images/monsters/9300014.move.webp",
+      "thumbnail": "images/monsters/9300014.png"
     },
     {
       "id": 9300015,
@@ -14757,14 +14757,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300015.png",
       "gifs": {
         "move": "images/monsters/9300015.move.webp",
         "stand": "images/monsters/9300015.stand.webp",
         "hit1": "images/monsters/9300015.hit1.webp",
         "die1": "images/monsters/9300015.die1.webp"
       },
-      "gif": "images/monsters/9300015.move.webp"
+      "gif": "images/monsters/9300015.move.webp",
+      "thumbnail": "images/monsters/9300015.png"
     },
     {
       "id": 9300016,
@@ -14788,7 +14788,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300016.png",
       "gifs": {
         "move": "images/monsters/9300016.move.webp",
         "stand": "images/monsters/9300016.stand.webp",
@@ -14796,7 +14795,8 @@
         "hit1": "images/monsters/9300016.hit1.webp",
         "die1": "images/monsters/9300016.die1.webp"
       },
-      "gif": "images/monsters/9300016.move.webp"
+      "gif": "images/monsters/9300016.move.webp",
+      "thumbnail": "images/monsters/9300016.png"
     },
     {
       "id": 9300017,
@@ -14820,7 +14820,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300017.png",
       "gifs": {
         "move": "images/monsters/9300017.move.webp",
         "stand": "images/monsters/9300017.stand.webp",
@@ -14828,7 +14827,8 @@
         "hit1": "images/monsters/9300017.hit1.webp",
         "die1": "images/monsters/9300017.die1.webp"
       },
-      "gif": "images/monsters/9300017.move.webp"
+      "gif": "images/monsters/9300017.move.webp",
+      "thumbnail": "images/monsters/9300017.png"
     },
     {
       "id": 9300018,
@@ -14859,13 +14859,13 @@
       ],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9300018.png",
       "gifs": {
         "move": "images/monsters/9300018.move.webp",
         "hit1": "images/monsters/9300018.hit1.webp",
         "die1": "images/monsters/9300018.die1.webp"
       },
-      "gif": "images/monsters/9300018.move.webp"
+      "gif": "images/monsters/9300018.move.webp",
+      "thumbnail": "images/monsters/9300018.png"
     },
     {
       "id": 9400000,
@@ -14889,13 +14889,13 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400000.png",
       "gifs": {
         "fly": "images/monsters/9400000.fly.webp",
         "hit1": "images/monsters/9400000.hit1.webp",
         "die1": "images/monsters/9400000.die1.webp"
       },
-      "gif": "images/monsters/9400000.fly.webp"
+      "gif": "images/monsters/9400000.fly.webp",
+      "thumbnail": "images/monsters/9400000.png"
     },
     {
       "id": 9400001,
@@ -14919,14 +14919,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400001.png",
       "gifs": {
         "move": "images/monsters/9400001.move.webp",
         "stand": "images/monsters/9400001.stand.webp",
         "hit1": "images/monsters/9400001.hit1.webp",
         "die1": "images/monsters/9400001.die1.webp"
       },
-      "gif": "images/monsters/9400001.move.webp"
+      "gif": "images/monsters/9400001.move.webp",
+      "thumbnail": "images/monsters/9400001.png"
     },
     {
       "id": 9400002,
@@ -14950,7 +14950,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400002.png",
       "gifs": {
         "move": "images/monsters/9400002.move.webp",
         "jump": "images/monsters/9400002.jump.webp",
@@ -14958,7 +14957,8 @@
         "hit1": "images/monsters/9400002.hit1.webp",
         "die1": "images/monsters/9400002.die1.webp"
       },
-      "gif": "images/monsters/9400002.move.webp"
+      "gif": "images/monsters/9400002.move.webp",
+      "thumbnail": "images/monsters/9400002.png"
     },
     {
       "id": 9400003,
@@ -14985,13 +14985,13 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400003.png",
       "gifs": {
         "fly": "images/monsters/9400003.fly.webp",
         "hit1": "images/monsters/9400003.hit1.webp",
         "die1": "images/monsters/9400003.die1.webp"
       },
-      "gif": "images/monsters/9400003.fly.webp"
+      "gif": "images/monsters/9400003.fly.webp",
+      "thumbnail": "images/monsters/9400003.png"
     },
     {
       "id": 9400004,
@@ -15015,7 +15015,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400004.png",
       "gifs": {
         "move": "images/monsters/9400004.move.webp",
         "jump": "images/monsters/9400004.jump.webp",
@@ -15023,7 +15022,8 @@
         "hit1": "images/monsters/9400004.hit1.webp",
         "die1": "images/monsters/9400004.die1.webp"
       },
-      "gif": "images/monsters/9400004.move.webp"
+      "gif": "images/monsters/9400004.move.webp",
+      "thumbnail": "images/monsters/9400004.png"
     },
     {
       "id": 9400500,
@@ -15049,13 +15049,13 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400500.png",
       "gifs": {
         "fly": "images/monsters/9400500.fly.webp",
         "hit1": "images/monsters/9400500.hit1.webp",
         "die1": "images/monsters/9400500.die1.webp"
       },
-      "gif": "images/monsters/9400500.fly.webp"
+      "gif": "images/monsters/9400500.fly.webp",
+      "thumbnail": "images/monsters/9400500.png"
     },
     {
       "id": 9400501,
@@ -15082,7 +15082,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400501.png",
       "gifs": {
         "move": "images/monsters/9400501.move.webp",
         "jump": "images/monsters/9400501.jump.webp",
@@ -15090,7 +15089,8 @@
         "hit1": "images/monsters/9400501.hit1.webp",
         "die1": "images/monsters/9400501.die1.webp"
       },
-      "gif": "images/monsters/9400501.move.webp"
+      "gif": "images/monsters/9400501.move.webp",
+      "thumbnail": "images/monsters/9400501.png"
     },
     {
       "id": 9400502,
@@ -15116,7 +15116,6 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400502.png",
       "gifs": {
         "move": "images/monsters/9400502.move.webp",
         "jump": "images/monsters/9400502.jump.webp",
@@ -15124,7 +15123,8 @@
         "hit1": "images/monsters/9400502.hit1.webp",
         "die1": "images/monsters/9400502.die1.webp"
       },
-      "gif": "images/monsters/9400502.move.webp"
+      "gif": "images/monsters/9400502.move.webp",
+      "thumbnail": "images/monsters/9400502.png"
     },
     {
       "id": 9400503,
@@ -15148,13 +15148,13 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400503.png",
       "gifs": {
         "fly": "images/monsters/9400503.fly.webp",
         "hit1": "images/monsters/9400503.hit1.webp",
         "die1": "images/monsters/9400503.die1.webp"
       },
-      "gif": "images/monsters/9400503.fly.webp"
+      "gif": "images/monsters/9400503.fly.webp",
+      "thumbnail": "images/monsters/9400503.png"
     },
     {
       "id": 9400504,
@@ -15181,14 +15181,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400504.png",
       "gifs": {
         "move": "images/monsters/9400504.move.webp",
         "stand": "images/monsters/9400504.stand.webp",
         "hit1": "images/monsters/9400504.hit1.webp",
         "die1": "images/monsters/9400504.die1.webp"
       },
-      "gif": "images/monsters/9400504.move.webp"
+      "gif": "images/monsters/9400504.move.webp",
+      "thumbnail": "images/monsters/9400504.png"
     },
     {
       "id": 9400505,
@@ -15212,14 +15212,14 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9400505.png",
       "gifs": {
         "move": "images/monsters/9400505.move.webp",
         "stand": "images/monsters/9400505.stand.webp",
         "hit1": "images/monsters/9400505.hit1.webp",
         "die1": "images/monsters/9400505.die1.webp"
       },
-      "gif": "images/monsters/9400505.move.webp"
+      "gif": "images/monsters/9400505.move.webp",
+      "thumbnail": "images/monsters/9400505.png"
     },
     {
       "id": 9500000,
@@ -15243,12 +15243,12 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9500000.png",
       "gifs": {
         "stand": "images/monsters/9500000.stand.webp",
         "die1": "images/monsters/9500000.die1.webp"
       },
-      "gif": "images/monsters/9500000.stand.webp"
+      "gif": "images/monsters/9500000.stand.webp",
+      "thumbnail": "images/monsters/9500000.png"
     },
     {
       "id": 9500001,
@@ -15272,12 +15272,12 @@
       "maps": [],
       "self_buffs": [],
       "debuffs": [],
-      "thumbnail": "images/monsters/9500001.png",
       "gifs": {
         "stand": "images/monsters/9500001.stand.webp",
         "die1": "images/monsters/9500001.die1.webp"
       },
-      "gif": "images/monsters/9500001.stand.webp"
+      "gif": "images/monsters/9500001.stand.webp",
+      "thumbnail": "images/monsters/9500001.png"
     }
   ],
   "total": 241

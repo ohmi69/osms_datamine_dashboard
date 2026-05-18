@@ -5,24 +5,11 @@ function showZoomTipModal() {
   zoomTipShownThisSession = true;
   const tip = document.createElement('div');
   tip.id = 'zoomTipModal';
-  tip.style.position = 'fixed';
-  tip.style.left = '50%';
-  tip.style.top = '50%';
-  tip.style.transform = 'translate(-50%, -50%)';
-  tip.style.background = 'rgba(30,30,40,0.98)';
-  tip.style.color = '#fff';
-  tip.style.padding = '28px 38px';
-  tip.style.borderRadius = '12px';
-  tip.style.fontSize = '1.25rem';
-  tip.style.fontWeight = 'bold';
-  tip.style.boxShadow = '0 8px 32px rgba(0,0,0,0.45)';
-  tip.style.zIndex = '20001';
-  tip.style.textAlign = 'center';
+  tip.className = 'zoom-tip-modal';
   tip.textContent = 'Scroll/pinch to zoom';
   document.body.appendChild(tip);
   setTimeout(() => {
-    tip.style.transition = 'opacity 0.5s';
-    tip.style.opacity = '0';
+    tip.classList.add('zoom-tip-modal--fadeout');
     setTimeout(() => tip.remove(), 600);
   }, 1800);
 }
@@ -266,7 +253,7 @@ async function init() {
     const backHref = window.location.pathname + window.location.hash;
     strip.innerHTML = `
       <span class="time-travel-strip__label">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:5px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         Currently time travelling in <strong>${patchVersion}</strong>
       </span>
       <a class="time-travel-strip__back" href="${backHref}">← Back to current</a>

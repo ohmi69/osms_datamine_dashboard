@@ -454,13 +454,18 @@
   margin-bottom: 8px;
 }
 
-.navgame-hint-panel-label {
-  font-size: 0.82rem;
+.navgame-hint-panel-label,
+.navgame-peek-modal-label,
+.navgame-result-dest-label {
   font-weight: 700;
   color: var(--accent);
-  padding: 6px 10px;
-  background: rgba(245,158,11,0.08);
+  background: rgba(245, 158, 11, 0.08);
   border-bottom: 1px solid var(--border);
+}
+
+.navgame-hint-panel-label {
+  font-size: 0.82rem;
+  padding: 6px 10px;
 }
 
 .navgame-hint-dest-img {
@@ -512,11 +517,7 @@
 
 .navgame-peek-modal-label {
   font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--accent);
   padding: 10px 14px;
-  background: rgba(245, 158, 11, 0.08);
-  border-bottom: 1px solid var(--border);
 }
 
 .navgame-peek-modal-img {
@@ -600,6 +601,12 @@
 /* ── Portal Overlays ───────────────────────────────────────── */
 
 .navgame-portal {
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  background: rgba(0, 120, 255, 0.22);
   animation: navgame-portal-pulse 2s ease-in-out infinite;
   transition: box-shadow 0.15s, background 0.15s;
 }
@@ -614,6 +621,7 @@
 }
 
 .navgame-portal--entry {
+  background: rgba(200, 200, 200, 0.5);
   animation: navgame-portal-entry-pulse 2s ease-in-out infinite;
 }
 
@@ -635,6 +643,16 @@
 
 .navgame-portal:hover {
   animation: none;
+}
+
+.navgame-portal:not(.navgame-portal--entry):hover {
+  background: rgba(0, 120, 255, 0.4);
+  box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.6);
+}
+
+.navgame-portal--entry:hover {
+  background: rgba(200, 200, 200, 0.7);
+  box-shadow: 0 0 12px 4px rgba(80, 80, 80, 0.6);
 }
 
 /* ── Breadcrumb ────────────────────────────────────────────── */
@@ -937,11 +955,7 @@
 
 .navgame-result-dest-label {
   font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--accent);
   padding: 8px 14px;
-  background: rgba(245, 158, 11, 0.08);
-  border-bottom: 1px solid var(--border);
   text-align: left;
 }
 

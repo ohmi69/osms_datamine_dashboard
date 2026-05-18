@@ -75,13 +75,13 @@ function makeMapAutocomplete(input, allMaps, mapNames) {
       });
       listDiv.appendChild(item);
     });
-    listDiv.style.display = matches.length ? '' : 'none';
+    listDiv.classList.toggle('hidden', !matches.length);
   }
   function hideList() {
-    if (listDiv) listDiv.style.display = 'none';
+    if (listDiv) listDiv.classList.add('hidden');
   }
   function onKey(e) {
-    if (!listDiv || listDiv.style.display === 'none') return;
+    if (!listDiv || listDiv.classList.contains('hidden')) return;
     const items = listDiv.querySelectorAll('.mapnav-autocomplete-item');
     if (!items.length) return;
     if (e.key === 'ArrowDown') {
@@ -192,23 +192,12 @@ export function showNavigateModal(data, defaultToId) {
             const scaleX = img.width / img.naturalWidth;
             const scaleY = img.height / img.naturalHeight;
             const navR = Math.max(7, Math.min(16, Math.round(8 + 14 * Math.min(scaleX, scaleY))));
-            const overlay = el('div', {
-              className: 'portal-highlight',
-              style: {
-                position: 'absolute',
-                left: `${img.offsetLeft + portal.x * scaleX - navR}px`,
-                top: `${img.offsetTop + portal.y * scaleY - navR}px`,
-                width: `${navR * 2}px`,
-                height: `${navR * 2}px`,
-                borderRadius: '50%',
-                border: `${Math.max(1, Math.round(3 * Math.min(scaleX, scaleY)))}px solid #00e0ff`,
-                background: 'rgba(0,224,255,0.18)',
-                boxShadow: '0 0 16px 4px #00e0ff88',
-                zIndex: 2,
-                pointerEvents: 'none',
-              },
-            });
-            img.parentElement.style.position = 'relative';
+            const overlay = el('div', { className: 'portal-highlight' });
+            overlay.style.left = `${img.offsetLeft + portal.x * scaleX - navR}px`;
+            overlay.style.top = `${img.offsetTop + portal.y * scaleY - navR}px`;
+            overlay.style.width = `${navR * 2}px`;
+            overlay.style.height = `${navR * 2}px`;
+            overlay.style.border = `${Math.max(1, Math.round(3 * Math.min(scaleX, scaleY)))}px solid #00e0ff`;
             img.parentElement.appendChild(overlay);
           }
         }
