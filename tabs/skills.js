@@ -111,12 +111,22 @@ export function renderSkills(data, options = {}) {
           card.addEventListener('click', (e) => {
             if (e.target.closest('button, input')) return;
             history.replaceState(null, '', `#skills?q=${encodeURIComponent('id:' + padSkillId(skill.id))}`);
-            scrollToDetailRow(card, card);
             const levelsList = card.querySelector('.all-levels-list');
             const arrow = card.querySelector('.all-levels-arrow');
             if (levelsList) {
               levelsList.hidden = !levelsList.hidden;
               if (arrow) arrow.textContent = levelsList.hidden ? '▼' : '▲';
+              if (!levelsList.hidden) {
+                document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
+                card.classList.add('row-hotlink');
+                scrollToDetailRow(card, card);
+              } else {
+                card.classList.remove('row-hotlink');
+              }
+            } else {
+              document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
+              card.classList.add('row-hotlink');
+              scrollToDetailRow(card, card);
             }
           });
         }

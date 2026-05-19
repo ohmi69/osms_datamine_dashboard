@@ -1236,18 +1236,18 @@ body.time-travel .site-header {
 .mapnav-modal-find {
   padding: 8px 22px;
   border-radius: 6px;
-  background: linear-gradient(180deg, #E07000 0%, var(--accent) 100%);
-  color: #fff;
+  background: var(--accent);
+  color: var(--bg);
   border: none;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 15px;
   cursor: pointer;
-  box-shadow: 0 2px 8px #cc550022;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
   transition: background 0.18s, box-shadow 0.18s;
 }
 .mapnav-modal-find:hover {
-  background: linear-gradient(180deg, #FF8C1A 0%, #CC5500 100%);
-  box-shadow: 0 4px 16px #cc550044;
+  background: color-mix(in srgb, var(--accent) 80%, black);
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
 }
 
 .mapnav-modal-closebtn {
@@ -1261,7 +1261,7 @@ body.time-travel .site-header {
   transition: background 0.18s, color 0.18s;
 }
 .mapnav-modal-closebtn:hover {
-  background: #EDE4D0;
+  background: var(--surface-2);
   color: var(--accent);
 }
 

@@ -20341,7 +20341,8 @@
       "gifs": {
         "die1": "images/monsters/8810018.die1.webp"
       },
-      "gif": "images/monsters/8810018.die1.webp"
+      "gif": "images/monsters/8810018.die1.webp",
+      "thumbnail": "images/monsters/8810018.png"
     },
     {
       "id": 8810021,
@@ -20414,7 +20415,8 @@
       "gifs": {
         "die1": "images/monsters/8810024.die1.webp"
       },
-      "gif": "images/monsters/8810024.die1.webp"
+      "gif": "images/monsters/8810024.die1.webp",
+      "thumbnail": "images/monsters/8810024.png"
     },
     {
       "id": 8810025,
@@ -20441,7 +20443,8 @@
       "gifs": {
         "die1": "images/monsters/8810025.die1.webp"
       },
-      "gif": "images/monsters/8810025.die1.webp"
+      "gif": "images/monsters/8810025.die1.webp",
+      "thumbnail": "images/monsters/8810025.png"
     },
     {
       "id": 8810026,
@@ -20468,7 +20471,8 @@
       "gifs": {
         "die1": "images/monsters/8810026.die1.webp"
       },
-      "gif": "images/monsters/8810026.die1.webp"
+      "gif": "images/monsters/8810026.die1.webp",
+      "thumbnail": "images/monsters/8810026.png"
     },
     {
       "id": 9000001,
@@ -32895,7 +32899,8 @@
       "gifs": {
         "attack1": "images/monsters/9400564.attack1.webp"
       },
-      "gif": "images/monsters/9400564.attack1.webp"
+      "gif": "images/monsters/9400564.attack1.webp",
+      "thumbnail": "images/monsters/9400564.png"
     },
     {
       "id": 9400566,

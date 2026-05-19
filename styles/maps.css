@@ -5,18 +5,17 @@
   padding: 7px 18px;
   border-radius: 6px;
   background: var(--accent);
-  color: var(--button-text, #fff);
-  border: 1.5px solid var(--accent);
-  font-weight: 600;
+  color: var(--bg);
+  border: none;
+  font-weight: 700;
   font-size: 15px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
   transition: background .18s, box-shadow .18s;
-  outline: none;
 }
 .map-navigate-btn:hover {
   background: color-mix(in srgb, var(--accent) 80%, black);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
 }
 
 /* ── Navigate modal inputs ─────────────────────────────────── */
@@ -241,18 +240,17 @@
   padding: 6px 16px;
   border-radius: 6px;
   background: var(--accent);
-  color: #fff;
-  border: 1.5px solid var(--accent);
-  font-weight: 600;
+  color: var(--bg);
+  border: none;
+  font-weight: 700;
   font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 2px 8px #0001;
-  transition: background .18s, color .18s, box-shadow .18s;
-  outline: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  transition: background .18s, box-shadow .18s;
 }
 .map-detail-nav-btn:hover {
-  background: #ea580c;
-  box-shadow: 0 4px 16px #0002;
+  background: color-mix(in srgb, var(--accent) 80%, black);
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
 }
 .map-exits-grid {
   display: flex;

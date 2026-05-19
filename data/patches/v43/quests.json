@@ -29,6 +29,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Bringing a Mirror to Heena",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -38,7 +39,7 @@
       "parent": "Sera's Mirror",
       "area": 20,
       "region": "Maple Island",
-      "description": "",
+      "description": "I borrowed a mirror from Sarah who was doing her laundry. I have to take this mirror to Heena.\nI borrowed a mirror from Sarah, who was doing her laundry, and brought it back to Heena.",
       "npc_name": "Sera",
       "requirements": "Sera's Mirror x 1",
       "requirements_list": [
@@ -69,6 +70,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031003,
+          "name": "Sera's Mirror",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -101,6 +110,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Returning to Nina",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -110,7 +120,7 @@
       "parent": "Nina and Sen's Dinner Menu",
       "area": 20,
       "region": "Maple Island",
-      "description": "",
+      "description": "Sen wants to have Mushroom Soup for Dinner. Let's get back to Nina now.\nI told Nina what Sen wants for dinner.",
       "npc_name": "Sen",
       "requirements": "",
       "requirements_list": [],
@@ -133,6 +143,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -173,6 +184,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Lucas' Reply",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031000,
+          "name": "Maria's Letter",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -182,7 +201,7 @@
       "parent": "Please bring this letter to Lucas",
       "area": 20,
       "region": "Maple Island",
-      "description": "",
+      "description": "I delivered Maria's letter to Lucas who was in Amherst. He wrote a reply, which I think I should bring back to Maria.\nMaria looked relieved after reading the reply from Lucas. I wanted to read it too, but I think I did what I was supposed to do.",
       "npc_name": "Lucas",
       "requirements": "Lucas' Letter x 1",
       "requirements_list": [
@@ -339,6 +358,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031001,
+          "name": "Lucas' Letter",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -432,6 +459,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -483,6 +511,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -519,6 +548,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Rain's Maple Quiz 2",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 0
     },
@@ -555,6 +585,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Rain's Maple Quiz 3",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 0
     },
@@ -591,6 +622,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Rain's Maple Quiz 4",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 0
     },
@@ -600,7 +632,7 @@
       "parent": "Rain's Maple Quiz",
       "area": 20,
       "region": "Maple Island",
-      "description": "",
+      "description": "You can solve Rain's Quizzes if you carefully think about it.\nRain's 4th Quiz was finding the hot-key for picking up the items on the ground. That's easy~ it's \" Z\" of course~ But I found out I can also pick up items with the number key \"0\"...",
       "npc_name": "Rain",
       "requirements": "",
       "requirements_list": [],
@@ -627,6 +659,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Rain's Maple Quiz 5",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 0
     },
@@ -636,7 +669,7 @@
       "parent": "Rain's Maple Quiz",
       "area": 20,
       "region": "Maple Island",
-      "description": "",
+      "description": "What would be the 5th Quiz\nRain gave me a Quiz about Job Advancements. For Warriors, Thieves, and Bowmen, you need to be at least level 10, while for Magicians, you can advance at Level 8.",
       "npc_name": "Rain",
       "requirements": "",
       "requirements_list": [],
@@ -663,6 +696,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Rain's Maple Quiz 6",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 0
     },
@@ -672,7 +706,7 @@
       "parent": "Rain's Maple Quiz",
       "area": 20,
       "region": "Maple Island",
-      "description": "",
+      "description": "Finally, it's the 6th Quiz. I'm happy that my Maple knowledge can be used here like this. Why don't I go for the 6th Quiz\nI learned that every time my level goes up, I get 5 Ability Points(AP) that I can upgrade my abilities. I can see the detail with the hot-key \"S\".",
       "npc_name": "Rain",
       "requirements": "",
       "requirements_list": [],
@@ -699,6 +733,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Rain's Maple Quiz 7",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 0
     },
@@ -708,7 +743,7 @@
       "parent": "Rain's Maple Quiz",
       "area": 20,
       "region": "Maple Island",
-      "description": "",
+      "description": "Finally the last Quiz. Now I think I'm not a beginner~\nRain advised me to leave Maple Island and go for a greater journey. In Victoria Island, you can choose your job, and face a whole lot of new adventures. Ok...let's go to Maple Island's South Ferry...",
       "npc_name": "Rain",
       "requirements": "",
       "requirements_list": [],
@@ -731,6 +766,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 0
     },
@@ -789,6 +825,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Mai's Final Training",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -833,6 +870,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -880,6 +918,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -920,6 +959,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -956,6 +996,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -1049,6 +1090,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 15
     },
@@ -1375,6 +1417,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -1407,6 +1450,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Finding Sophia",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 15
     },
@@ -1416,7 +1460,7 @@
       "parent": "Maya and the Weird Medicine",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Around \"The Victoria\" in Lith Harbor, I met this heavily-bearded crewmember called Teo. He said he has the Weird Medicine but he wasn't willing to give it up for free. Instead he said he'll trade with me for a sparkling rock. I mean, he does look like he knows Maya pretty well, but he still wants to make a deal with me, knowing how sick she is ... That's strange... anyway, to get that sparkling rock, I need to head over to Perion and talk to the Sophia, the daughter of the owner of the department store there.\nI finally met Sophia, who's working at the department store in Perion. To make the sparkling rock, she said she needs Arcon's blood.",
       "npc_name": "Teo",
       "requirements": "",
       "requirements_list": [],
@@ -1439,6 +1483,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Making a Sparkling Rock",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 15
     },
@@ -1448,7 +1493,7 @@
       "parent": "Maya and the Weird Medicine",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I finally met Sophia, who's working on her dream as an alchemist inside the department store in Perion. To make the sparkling rock, she said she needs 50 squishy liquid's, 50 leaves, 20 octopus legs and 1 Arcon's blood. Everything else looks reasonable enough except ... Arcon's blood ... Fortunately, Sophia knew where to get it. She told me to look for this man named Manji somewhere around Perion. Manji, huh ... where must he be ...\nSophia told me that Manji has the Arcon's Blood, which is what the sparkling rock is made of.",
       "npc_name": "Sophia",
       "requirements": "",
       "requirements_list": [],
@@ -1471,6 +1516,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Arcon's Blood?",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 15
     },
@@ -1480,7 +1526,7 @@
       "parent": "Maya and the Weird Medicine",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I found Manji at Perion. Just as I thought, he was unwilling to give away Arcon's blood for free. He wants me to go to the underground tunnel in the middle of the island and gather up 40 Charms of the Undead for him ... by the way, who does he think he is, treating me like that I'm starting to regret saying yes to Maya in the first place ...\nManji asked for the Charms of the Undead in return to Arcon's Blood.",
       "npc_name": "Manji",
       "requirements": "Charm of the Undead x 40",
       "requirements_list": [
@@ -1511,6 +1557,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Getting Arcon's Blood",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 15
     },
@@ -1520,7 +1567,7 @@
       "parent": "Maya and the Weird Medicine",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I gathered up 40 Charms of the Undead from the underground tunnel and got them to Manji of Perion. Still cocky, still arrogant, but following through his promise, he hands over Arcon's blood to me. Maybe he isn't so horrible a guy afterall. Anyway, now I need to gather up 50 squishy liquids, 50 leaves, 20 octopus legs, and 1 Arcon's blood for Sophia.\nI brought the Charms of the Undead to Manji and I finally got Arcon's Blood. I should hurry back to Sophia...",
       "npc_name": "Manji",
       "requirements": "Octopus Leg x 20, Arcon's Blood x 1, Squishy Liquid x 50, Leaf x 50",
       "requirements_list": [
@@ -1572,6 +1619,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Making Sparkling Rock",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031005,
+          "name": "Arcon's Blood",
+          "count": 1
+        }
+      ],
       "chain_length": 7,
       "chain_level_min": 15
     },
@@ -1581,7 +1636,7 @@
       "parent": "Maya and the Weird Medicine",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Sophia looks genuinely surprised that I gathered up every single material needed for that sparkling rock. Well, it wasn't easy at all ... anyway, she handed me the piece of sparkling rock made out of all the materials I got for her. Hmmm ... this sparkling rock ... it gives off a strange light, and then ... it starts glittering, and ... now I can understand why people want this ...!! Well, now that I have it, all I got left is trading it with Teo in Lith Harbor.\nSophia looks genuinely surprised that I gathered up every single material needed for that sparkling rock. Well, it wasn't easy at all ... anyway, she handed me the piece of sparkling rock made out of all the materials I got for her. Hmmm ... this sparkling rock ... it gives off a strange light, and then ... it starts glittering, and ... now I can understand why people want this ...!! Well, now that I have it, all I got left is trading it with Teo in Lith Harbor.",
       "npc_name": "Sophia",
       "requirements": "Sparkling Rock x 1",
       "requirements_list": [
@@ -1612,6 +1667,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Delivering the Weird Medicine",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031004,
+          "name": "Sparkling Rock",
+          "count": 1
+        }
+      ],
       "chain_length": 7,
       "chain_level_min": 15
     },
@@ -1621,7 +1684,7 @@
       "parent": "Maya and the Weird Medicine",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I traded the sparkling rock with Teo of Lith Harbor for the weird medicine. Now, all I need to do is get this to Maya, and I'm done, but the more I think about it, the more I regret saying yes. Anyway, this medicine looks quite tasty. If I ever find myself thirsty and without any water, maybe I should just drink it myself. Hahaha...\nI went back to Henesys and handed Maya the weird medicine. Hopefully she'll get better after taking this. As a sign of thanks, Maya got me 5,000 mesos and a brown bamboo hat. This hat ... I mean, it looks like it's going to help when I'm walking under a blazing sun, but it looks so old and raggedy ... and if I put it on, it makes this weird noise that feels as if some insect is walking around and stuff ... am I going to be alright ...",
       "npc_name": "Teo",
       "requirements": "Weird Medicine x 1",
       "requirements_list": [
@@ -1663,6 +1726,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031006,
+          "name": "Weird Medicine",
+          "count": 1
+        }
+      ],
       "chain_length": 7,
       "chain_level_min": 15
     },
@@ -1772,6 +1843,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -2057,6 +2129,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -2118,6 +2191,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 40
     },
@@ -2127,7 +2201,7 @@
       "parent": "Jane the Alchemist",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "This time, Jane promised she'll make a better item, and wants me to get 1 Mushmom's spore, 3 of Drake's blood, 100 medicine with weird vibes, and 30 Malady's experimental frogs. She said something about making a Power Elixir, the one that can restore both HP and MP at once...\nI got all the materials needed for Jane to make the elixir. If she does it well, then maybe I can get myself a nice elixir, but what if she fails...then I don't know if really want to take it...blehhh...",
       "npc_name": "Jane",
       "requirements": "Drake's Blood x 3, Mushmom Spore x 1, Malady's Experimental Frog x 30, Medicine With Weird Vibes x 100",
       "requirements_list": [
@@ -2186,6 +2260,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 40
     },
@@ -2195,7 +2270,7 @@
       "parent": "Jane the Alchemist",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "This time, the last time, she promised to make me a mysterious scroll, and that she wanted me to get a moon rock, 20 dragon skins, and 10 saps of ancient tree for her. I guess I should ask the fairies at Ellinia for the moon rock, right\nI got all the materials needed for Jane to make the scroll. Thankfully, the scroll for glove for ATT was made without a hitch, and she readily gave it to me. If the scroll really works, then I may have myself a dandy of a glove! Anyway, Jane expressed a strong desire to keep experimenting and become a good alchemist someday. Maybe next time I come back here, I may be able to buy an item from her that's not sold in store...nice...",
       "npc_name": "Jane",
       "requirements": "Dragon Skin x 20, Moon Rock x 1, Sap of Ancient Tree x 10",
       "requirements_list": [
@@ -2286,6 +2361,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 40
     },
@@ -2318,6 +2394,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Talking to Stan",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 20
     },
@@ -2369,6 +2446,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Mother's Gold Watch",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 20
     },
@@ -2378,7 +2456,7 @@
       "parent": "Alex the Runaway Kid",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "At the entrance of Henesys Park, I met Alex's father Stan, the chief of Henesys. I couldn't even start up a conversation with him at first, but once I got him 50 Evil Eye's tails and 100 pig ribbons he requested to fix this town, that was when he decided to listen. He was even more straight-forward and difficult to talk to than I first thought, but I finally convinced him to accept Alex back with open arms. I also got Alex's late mother's gold watch as the proof. Now, all I need to do is get this watch to Alex in Kerning City, right\nI gave Alex his late mother's gold watch. Hopefully this will get him home ... as a sign of appreciation, he got me an earing he received from friends he met while traveling here and there. Well, Alex is now forgiven by Stan, but based on the look of his face, I don't know if he really is going to head home right now ... I should check it out the next time I head over to Henesys ...",
       "npc_name": "Chief Stan",
       "requirements": "Old Gold Watch x 1",
       "requirements_list": [
@@ -2487,6 +2565,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031007,
+          "name": "Old Gold Watch",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 20
     },
@@ -2573,6 +2659,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 25
     },
@@ -2769,6 +2856,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 15
     },
@@ -2801,6 +2889,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Hungry Ronnie",
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 30
     },
@@ -2810,7 +2899,7 @@
       "parent": "Mr. Wetbottom's Secret Book",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Inside a tree tunnel around Ellinia I found Ronnie, the son of Mr. Wetbottom. He said the red book is off limits, but he seems to be starving. In the end, we made a deal that I get him 50 Lupin bananas, Rina's Unagi Special, and a fresh milk, and he gives me the book. According to Ronnie, I can find Rina at Henesys, and as for the fresh milk, I can get it from Rowen the fairy from Ellinia. I have a lot of traveling to do, but oh well...\nI got Ronnie all the food he needed, and got the Secret Book that Mr. Wetbottom had been desperately looking for. It's a weird-looking book with a red cover... I have a feeling that I should not open this book... Anyway I should hurry up and get this to Mr. Wetbottom at the VIP sauna in Sleepywood before it's too late.",
       "npc_name": "Ronnie",
       "requirements": "Lupin's Banana x 50, Rina's Unagi Special x 1, Fresh Milk x 1",
       "requirements_list": [
@@ -2859,6 +2948,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Returned Secret Book",
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 30
     },
@@ -2868,7 +2958,7 @@
       "parent": "Mr. Wetbottom's Secret Book",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "To get the Unagi special and a fresh milk, I need to gather up the ingredients for those. Rina of Henesys requested 50 Curse Eye tails and 5 pig's heads for the Unagi special. Rowen the fairy of Ellinia asked for a refined piece of glittering diamond for a fresh milk. Diamond, huh... how am I supposed to get that rare, expensive item\nInside the tree tunnel of Ellinia, I found Ronnie, the son of Mr. Wetbottom. He was adamant about not giving away the red book, but he seemed very hungry. I wound up making a deal with him where he would give me the red book after I get him 50 Lupin's Bananas, Rina's Special Unagi, and a fresh milk. According to Ronnie, Rina can be found at Henesys, and the fresh milk can be obtained through a fairy in Ellinia. This looks like quite a task, but oh well... I should get going.",
       "npc_name": "Rina",
       "requirements": "Pig's Head x 5, Curse Eye Tail x 50",
       "requirements_list": [
@@ -2913,6 +3003,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 30
     },
@@ -2922,7 +3013,7 @@
       "parent": "Mr. Wetbottom's Secret Book",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "To get the Unagi special and a fresh milk, I need to gather up the ingredients for those. Rina of Henesys requested 50 Curse Eye tails and 5 pig's heads for the Unagi special. Rowen the fairy of Ellinia asked for a refined piece of glittering diamond for a fresh milk. Diamond, huh... how am I supposed to get that rare, expensive item\nInside the tree tunnel of Ellinia, I found Ronnie, the son of Mr. Wetbottom. He was adamant about not giving away the red book, but he seemed very hungry. I wound up making a deal with him where he would give me the red book after I get him 50 Lupin's Bananas, Rina's Special Unagi, and a fresh milk. According to Ronnie, Rina can be found at Henesys, and the fresh milk can be obtained through a fairy in Ellinia. This looks like quite a task, but oh well... I should get going.",
       "npc_name": "Rowen the Fairy",
       "requirements": "Diamond x 1",
       "requirements_list": [
@@ -2960,6 +3051,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 30
     },
@@ -2969,7 +3061,7 @@
       "parent": "Mr. Wetbottom's Secret Book",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I got Ronnie some yummy food for the Secret Book. I want to peek inside...\nI got Mr. Wetbottom the precious Secret Book that he'd been desperately looking for. I asked him if he's worried about Ronnie at all, only to hear that he'll be in good hands with the fairies... well, it'd be best for Ronnie to be with the fairies, right Anyway, I got the sauna clothes in return for the book... I guess wearing these cumbersome armors around sauna is a ridiculous thing to do. Might as well enjoy it now and chill here at the sauna...",
       "npc_name": "Ronnie",
       "requirements": "Secret Book x 1",
       "requirements_list": [
@@ -3020,6 +3112,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031016,
+          "name": "Secret Book",
+          "count": 1
+        }
+      ],
       "chain_length": 5,
       "chain_level_min": 30
     },
@@ -3170,6 +3270,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 35
     },
@@ -3179,7 +3280,7 @@
       "parent": "Rowen the Fairy and the Cursed Doll",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Rowen asked me again, this time 200 cursed dolls. Well, that's easy...\nI took down a bunch of Zombie Lupin's on a forest near Ellinia, and collected all 200 cursed dolls for Rowen. In return, she gave me 10 ores. Will the forest really return to normal with this",
       "npc_name": "Rowen the Fairy",
       "requirements": "Cursed Doll x 200",
       "requirements_list": [
@@ -3327,6 +3428,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 35
     },
@@ -3336,7 +3438,7 @@
       "parent": "Rowen the Fairy and the Cursed Doll",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Rowen asked me again, this time 400 cursed dolls. 400 Hmmm...it's getting quite serious now...\nI took down a bunch of Zombie Lupin's on a forest near Ellinia, and collected all 400 cursed dolls for Rowen. In return, she gave me 5 very-hard-to-find ores. Will the forest really return to normal with this",
       "npc_name": "Rowen the Fairy",
       "requirements": "Cursed Doll x 400",
       "requirements_list": [
@@ -3413,6 +3515,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 35
     },
@@ -3422,7 +3525,7 @@
       "parent": "Rowen the Fairy and the Cursed Doll",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Rowen asked me again, this time 600 cursed dolls. 600 THAT'S A LOT....\nI took down a bunch of Zombie Lupin's on a forest near Ellinia, and collected all 600 cursed dolls for Rowen. In return, she gave me the scroll for gloves. Will the forest really return to normal with this",
       "npc_name": "Rowen the Fairy",
       "requirements": "Cursed Doll x 600",
       "requirements_list": [
@@ -3499,6 +3602,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 35
     },
@@ -3508,7 +3612,7 @@
       "parent": "Rowen the Fairy and the Cursed Doll",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Rowen asked me one last time, this time 1000 cursed dolls. Why does she need that much Is she trying to sell them all\nI took down a bunch of Zombie Lupin's on a forest near Ellinia, and collected all 1000 cursed dolls for Rowen. In return, she gave me a nice hat. I've collected so many of those for her, but it looks like Zombie Lupin's aren't decreasing in any way shape or form ... what's going on Anyway, at least it seems that the fairies may not have such animosity towards humans now ... and that's fine with me hehe ...",
       "npc_name": "Rowen the Fairy",
       "requirements": "Cursed Doll x 1000",
       "requirements_list": [
@@ -3575,6 +3679,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 35
     },
@@ -3629,6 +3734,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 6,
       "chain_level_min": 15
     },
@@ -3683,6 +3789,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 6,
       "chain_level_min": 15
     },
@@ -3692,7 +3799,7 @@
       "parent": "Nella & Kerning City Citizen's Request",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I got the third request from Nella. Andre from the hair salon wanted some Seafood Soup. I should get 100 Octopus Legs and Pure Water for his Seafood Soup ingredients.\nI gave what Andre asked for and I got the glove for return. I hope he enjoys his hearty bowl of Seafood Soup. I should get back to Nella for more requests.",
       "npc_name": "Nella",
       "requirements": "Octopus Leg x 100, Pure Water x 1",
       "requirements_list": [
@@ -3775,6 +3882,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 6,
       "chain_level_min": 15
     },
@@ -3784,7 +3892,7 @@
       "parent": "Nella & Kerning City Citizen's Request",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Nella said I look much stronger than last time. First request is to get ingredients for Dr. Faymus, the owner of potion shop. He needs 100 Horny Mushroom Caps and 50 Jr. Necki Skins. Taking on Jr. Necki's might be little tough, but I will give it a try.\nI gave what Dr. Faymus asked for and I got bunch of white potions for return. I wonder what kind of potion would Dr. Faymus make by using those materials. I should get back to Nella for more request.",
       "npc_name": "Nella",
       "requirements": "Horny Mushroom Cap x 100, Jr. Necki Skin x 50",
       "requirements_list": [
@@ -3829,6 +3937,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 6,
       "chain_level_min": 15
     },
@@ -3838,7 +3947,7 @@
       "parent": "Nella & Kerning City Citizen's Request",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I got the second request from Nella. Chris got his pillow stolen few days ago and he can't sleep well since then. To make a new pillow, he wants 50 stiff feathers and 20 leathers. I should get them ASAP.\nI got what Chris asked for and I got refined steal and bronze. Chris can finally sleep well in his new pillow. I should get back to Nella for more requests.",
       "npc_name": "Nella",
       "requirements": "Stiff Feather x 50, Leather x 20",
       "requirements_list": [
@@ -3890,6 +3999,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 6,
       "chain_level_min": 15
     },
@@ -3899,7 +4009,7 @@
       "parent": "Nella & Kerning City Citizen's Request",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I got the third request from Nella. Cutthroat Manny wants to get 200 Evil Eye Tails for his dinner. He wanted to make a bowl of Evil Eye Stew. Now that sounds delicious!\nI gave what Cutthroat Manny asked for and I got shoes for return. Now... Cutthroat Manny doesn't have to worry about his dinner menu for a while. I should get back to Nella for more request.",
       "npc_name": "Nella",
       "requirements": "Evil Eye Tail x 200",
       "requirements_list": [
@@ -3975,6 +4085,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 6,
       "chain_level_min": 15
     },
@@ -4050,6 +4161,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 50
     },
@@ -4111,6 +4223,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 55
     },
@@ -4172,6 +4285,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 55
     },
@@ -4181,7 +4295,7 @@
       "parent": "Ronnie & the Fairies Building a New House.",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "This time Ronnie wanted 50 each of Drake's skull, Stone Gollem's pieces of rock, the skin of Croko, and Lupin's banana. I can probably get those from the monsters at the ant hole, prarie, and at swamp...this is getting quite difficult now...\nI got them all for Ronnie. I'm still not getting anything How many more times do I have to do this",
       "npc_name": "Ronnie",
       "requirements": "Lupin's Banana x 50, Drake Skull x 50, Stone Golem Rubble x 50, Croco Skin x 50",
       "requirements_list": [
@@ -4233,6 +4347,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 55
     },
@@ -4242,7 +4357,7 @@
       "parent": "Ronnie & the Fairies Building a New House.",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Ronnie asked for the last time. This time he wanted 50 each of medicine with weird vibe, dark stone gollem's pieces of rock, Wild Kargo's eyes, and Tauromacis's horns, along with 1 diamond. I can sort of get this, but for me to hunt at subway, deep forest, the ant tunnel ... it sucks!!\nI got all the materials Ronnie needed for the last time. Is this it For the reward, he gave me a pair of shoes he got as a gift from the fairies that found it somewhere around the forest. Somehow, he can't put the shoes on, so I'm getting it ... hopefully it works ... haha",
       "npc_name": "Ronnie",
       "requirements": "Diamond x 1, Dark Stone Golem Rubble x 50, Wild Kargo Eye x 50, Medicine With Weird Vibes x 50, Tauromacis Horn x 50",
       "requirements_list": [
@@ -4379,6 +4494,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 55
     },
@@ -4440,6 +4556,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 55
     },
@@ -4449,7 +4566,7 @@
       "parent": "Collecting For Maya",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "This time Maya wanted 50 each of fireboar teeth, Bubbling's huge bubbles, pig ribbons, and tablecloths. Apparently, I can get those by hunting down the monster around the plateau, subway station, and prairies ... well, that's easy!\nI got them all for Maya. Please don't tell me she wanted all these for free...",
       "npc_name": "Maya",
       "requirements": "Fire Boar's Tooth x 50, Pig's Ribbon x 50, Tablecloth x 50, Bubbling's Huge Bubble x 50",
       "requirements_list": [
@@ -4501,6 +4618,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 55
     },
@@ -4510,7 +4628,7 @@
       "parent": "Collecting For Maya",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "This time, Maya requested 10 Lupin Dolls and 50 each of Cold Eye's tail, Tortie's shell, and Iron Hog's Steel Hoof. Apparently I can get those through monsters at the highland, beach, and prarie. This is getting harder now...\nI got them all for Maya. I'm still not getting anything How many more times do I have to do this",
       "npc_name": "Maya",
       "requirements": "Iron Hog's Metal Hoof x 50, Cold Eye Tail x 50, Lupin Doll x 10, Tortie Shell x 50",
       "requirements_list": [
@@ -4562,6 +4680,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 55
     },
@@ -4692,6 +4811,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 55
     },
@@ -4724,6 +4844,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "What Pia has Borrowed",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 55
     },
@@ -4733,7 +4854,7 @@
       "parent": "Pia's Present For a Friend",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I went to see Rina at Henesys, and instead, she tells me she took that red cape because Pia didn't return the items she borrowed from her. She said, if she gets her items back, then the cape is hers again...the borrowed stuff are 1 black crystal, 1 ancient scroll, and 30 horns of Tauromacis.\nI went to Rina to get Pia's cape, but Rina told me that she is keeping the cape until Rina brings back what she borrowed from Rina. She said she will return the cape if she gets back what Pia has borrowed from her.",
       "npc_name": "Rina",
       "requirements": "Black Crystal x 1, Tauromacis Horn x 30, Ancient Scroll x 1",
       "requirements_list": [
@@ -4782,6 +4903,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Pia's Present For a Friend",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 55
     },
@@ -4791,7 +4913,7 @@
       "parent": "Pia's Present For a Friend",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I got Rina 1 black crystal, 1 ancient document, and 30 horns of Tauromacis, and in return, I got Pia's red cape back. With that and 15 silver, 50 dragon skins, and 40 screws, I should go back to Pia...\nI got Pia of Henesys Park all the materials she requested for her friend's claw, and in return, got myself a thief-only clothes...wow...since that was made just for me, I should take good care of these, right Anyway, did that friend of Pia's leave by now Who knows I may see him sometime...",
       "npc_name": "Rina",
       "requirements": "Dragon Skin x 50, Screw x 40, Red Cape x 1, Silver Plate x 15",
       "requirements_list": [
@@ -4875,6 +4997,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031043,
+          "name": "Red Cape",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 55
     },
@@ -4960,6 +5090,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Rewakening the Gladius",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 1302014,
+          "name": "Old Gladius",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 45
     },
@@ -4969,7 +5107,7 @@
       "parent": "Manji's Old Gladius",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I found Chrishrama of Sleepywood, and showed him the Old Gladius that Manji gave me. He claimed to have made it himself, and that he needs a star rock, 1 piece of ice, 1 ancient scroll, and 1 flamed feather. I've never heard of any of those, so I don't know how I'm going to even start with this...Chrishrama said they only way I can get is to talk to Mike who's guarding the entrace of the dungeon.\nI got all the materials needed to reawaken the sword to Chrishrama. He couldn't believe his eyes, but went on with it, and reawoke the sword into Hero's Gladius. It gives off a mystic light...and it's a really nice sword! Hmmm...I don't know if I should really give it to him...",
       "npc_name": "Chrishrama",
       "requirements": "Flaming Feather x 1, Old Gladius x 1, Piece of Ice x 1, Star Rock x 1, Ancient Scroll x 1",
       "requirements_list": [
@@ -5036,6 +5174,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 45
     },
@@ -5045,7 +5184,7 @@
       "parent": "",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "At Ellinia, I ran into a fairy that's been busily studying the magic of life. Her name is \"Mar\" and after taking a look at my pet that's been turned into a doll, she told me she can make it come back alive with The Water of Life and The Scroll of Life. I heard that she knows Cloy of Henesys... since it looks like a pet trainer named Trainer Bartos of Henesys knows something about the scroll of life, I should head over there...\nAfter easily passing the test from Trainer Bartos of Henesys, I got a hold of The Water of Life and The Scroll of Lifel, and got that to \"Mar\" the fairy. With her magical power and the items I got her, she turned the doll back into a living pet. I can hang out with him for a while longer now ... sweet ...",
       "npc_name": "",
       "requirements": "",
       "requirements_list": [],
@@ -5063,6 +5202,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -5152,6 +5292,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 25
     },
@@ -5200,6 +5341,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 50
     },
@@ -5248,6 +5390,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 15
     },
@@ -5338,6 +5481,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -5386,6 +5530,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 60
     },
@@ -5560,6 +5705,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -5608,6 +5754,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -5722,6 +5869,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 40
     },
@@ -5766,6 +5914,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -5824,6 +5973,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -5833,7 +5983,7 @@
       "parent": "",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I have to bring recipe for 30 people to Riel in Florina Beach. Coconut 4000136/30 Lorang Claw 4000043/150 Clang Claw 4000044/150 Lupin's Banana 4000029/30\nI worked part-time gathering recipes for cooking meals for the tourists coming to Florina Beach.",
       "npc_name": "Riel",
       "requirements": "Lupin's Banana x 30, Coconut x 30, Lorang Claw x 150, Clang Claw x 150",
       "requirements_list": [
@@ -5889,6 +6039,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -5898,7 +6049,7 @@
       "parent": "",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I need to collect some of the recipes to develop the Special Taste of Florina Beach. I heard that 10 Coconut, 10 Lorang Claw, 10 Clang Claw, and 10 Lupin's Banana are necessary. Will Valen's new recipe succeed~\nI'm familiar with working on Florina Beach. I visited Riel one more time and helped her out. Why is she so desperate to help Valen",
       "npc_name": "Riel",
       "requirements": "Lupin's Banana x 10, Coconut x 10, Lorang Claw x 10, Clang Claw x 10",
       "requirements_list": [
@@ -5954,6 +6105,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -6008,6 +6160,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -6044,6 +6197,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Estelle's Request",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 21
     },
@@ -6053,7 +6207,7 @@
       "parent": "Mrs. Ming Ming's Second Worry",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I ran into Estelle near Ellinia. She was making a necklace for her mother's birthday present. If I can get her 1 Garnet, she was willing to give me the special sauce.\nI got 1 Garnet for Estelle, who I met near Ellinia, for making her mother's birthday present. She gave me Estelle's Special Sauce. I better collect other materials and return to Mrs. Ming Ming.",
       "npc_name": "Estelle",
       "requirements": "Garnet x 1",
       "requirements_list": [
@@ -6088,6 +6242,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Estelle's Special Sauce",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 21
     },
@@ -6139,6 +6294,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Delivering a Box of Fossil",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 20
     },
@@ -6148,7 +6304,7 @@
       "parent": "Winston's Fossil Dig-up",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Winston the Archeologist said that it is not safe to put the valuable fossils in the tent. He asked me to take the fossil and deliver it to Dr. Betty in Ellinia. He also wrote a letter of introduction for me to show him.\nWinston the Archeologist in Perion said that it is not safe to put the valuable fossils in his tent. He asked me to deliver it to Dr. Betty in Ellinia. Dr. Betty said it is going to be really busy from now. He asked me to stop by again and give him a hand afterwards. Fossils huh... Should I give it a try",
       "npc_name": "Winston",
       "requirements": "Winston's Recommendation x 1, Fossil Box x 1",
       "requirements_list": [
@@ -6202,6 +6358,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Delivering a Box of Fossil",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031148,
+          "name": "Winston's Recommendation",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031149,
+          "name": "Fossil Box",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 20
     },
@@ -6246,6 +6416,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Research on Animal Fossils",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 22
     },
@@ -6255,7 +6426,7 @@
       "parent": "Dr. Betty's Research on Fossils",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Dr. Betty in Ellinia told me that she needs 1 Stuffed Drake Skull for her research. She asked me to find her daughter near Henesys, and bring it back to her. Where would Anne be",
       "npc_name": "Betty",
       "requirements": "",
       "requirements_list": [],
@@ -6282,6 +6453,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Transporting Drake's Skull",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 22
     },
@@ -6291,7 +6463,7 @@
       "parent": "Dr. Betty's Research on Fossils",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I received the Stuffed Drake Skull from Anne, Dr. Betty's daughter. Now I have to deliver this carefully to Dr. Betty...\nI collected some plant samples and Drake's Skull to help Dr. Betty's research on fossils. I can't wait to see the results...I'll go and see Dr. Betty, because he said he would tell me when I go back.",
       "npc_name": "Anne",
       "requirements": "Stuffed Drake Skull x 1",
       "requirements_list": [
@@ -6322,6 +6494,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031151,
+          "name": "Stuffed Drake Skull",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 22
     },
@@ -6398,6 +6578,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031152,
+          "name": "Fossil Report",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 22
     },
@@ -6442,6 +6630,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Stranger's Identity",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 25
     },
@@ -6451,7 +6640,7 @@
       "parent": "Mystery of Naora Hospital",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "The Stranger I met in Naora Hospital was shockingly a Ghost! She was waiting for Naora, not knowing that she herself is dead... This Stranger wouldn't believe that she is dead. She told me that she needs 100 Charms of the Undead in order to live again, and asked me to find it. Can she really live again with just these... Charm of the Undead 4000008/100\nJane Doe who I met in Naora Hospital was a Ghost. She was staying in the Hospital, not knowing that she's dead. She couldn't live again with Charm of the Undead. It seems that she already knew she couldn't make it...I really hope she returns to heaven.",
       "npc_name": "Jane Doe",
       "requirements": "Charm of the Undead x 100",
       "requirements_list": [
@@ -6490,6 +6679,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 25
     },
@@ -6579,6 +6769,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031156,
+          "name": "Sparkling Glass Marble",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 23
     },
@@ -6633,6 +6831,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 25
     },
@@ -6642,7 +6841,7 @@
       "parent": "",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I found all 3 Maple History Books, and gave them all to Tigun the Advisor. He gave me Medal of Honor and told me to go see Jay.\nI showed Jay the Medal of Honor that Tigun gave me, and in return, he gave me 1012109:#. As a sign of thanks for finding the history book, Jay gave me 1012109:#.",
       "npc_name": "Tigun the Advisor",
       "requirements": "Medal of Honor x 1",
       "requirements_list": [
@@ -6681,6 +6880,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031160,
+          "name": "Medal of Honor",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 25
     },
@@ -6690,7 +6897,7 @@
       "parent": "Mrs. Ming Ming's Second Worry",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I received the special sauce from Estelle near Ellinia. I guess I have to return to Mrs. Ming Ming with 20 Pig's Head and 60 Octopus' Legs. Pig's Head : 4000017/20 Octopus' Legs : 4000006/60 Estelle's Special Sauce : 4031154/1\nI got all the materials that Mrs. Ming Ming asked me to get, and gave it to her. I can't wait to see the village festival!",
       "npc_name": "Estelle",
       "requirements": "Octopus Leg x 60, Pig's Head x 20, Estelle's Special Sauce x 1",
       "requirements_list": [
@@ -6743,6 +6950,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031154,
+          "name": "Estelle's Special Sauce",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 21
     },
@@ -6775,6 +6990,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -6807,6 +7023,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -6839,6 +7056,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -6871,6 +7089,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -6903,6 +7122,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -6943,6 +7163,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 10
     },
@@ -6997,6 +7218,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 32
     },
@@ -7044,6 +7266,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -7080,6 +7303,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Ingredients for the Flying Pill",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 42
     },
@@ -7089,7 +7313,7 @@
       "parent": "Icarus and the Flying Pill",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "I meet Wing the Fairy at Ellinia, and he doesn't seem to like people in general. How is he best friends with Icarus in the first place Anyway, he says in order to make Flying Medicine, he'll need 50 Medicine With Weird Vibess and 20 Witchgrass Leafs. So that's all it takes Medicine With Weird Vibes 4000036/50 Witchgrass Leaf 4031165/20",
       "npc_name": "Wing the Fairy",
       "requirements": "Witchgrass Leaf x 20, Medicine With Weird Vibes x 50",
       "requirements_list": [
@@ -7131,6 +7355,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Delivering the Flying Pill",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 42
     },
@@ -7140,7 +7365,7 @@
       "parent": "Icarus and the Flying Pill",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Wing the Fairy of Ellinia asked me to take the Flying Pill to Icarus. So this little pill is all it takes to fly I need to get this to Icarus ASAP.\nI got Icarus the Flying Pill that Wing the Fairy of Ellinia made. I hope it works for him.",
       "npc_name": "Wing the Fairy",
       "requirements": "Flying Medicine x 1",
       "requirements_list": [
@@ -7237,6 +7462,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031163,
+          "name": "Flying Medicine",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 42
     },
@@ -7292,6 +7525,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 10
     },
@@ -7354,6 +7588,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 10
     },
@@ -7386,6 +7621,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "I'm Bored 2",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 10
     },
@@ -7449,6 +7685,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 10
     },
@@ -7489,6 +7726,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "I Need to Find My Daughter 2",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031174,
+          "name": "Ayan's Toy Sword",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 10
     },
@@ -7498,7 +7743,7 @@
       "parent": "I Need to Find My Daughter",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "Amazingly, Ayan recovered from amnesia with the help of the toy sword. That's just amazing!!! The only thing left now is for Ayan and Bruce to finally meet up, but first, I got to get this letter from Ayan to Bruce.\nI'm so glad that Ayan got her memory back. I'm even gladder that Bruce got to finally see his daughter again! What a moment...",
       "npc_name": "Ayan",
       "requirements": "Ayan's Letter x 1",
       "requirements_list": [
@@ -7533,6 +7778,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031173,
+          "name": "Ayan's Letter",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -7860,6 +8113,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 52
     },
@@ -7981,6 +8235,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 52
     },
@@ -8029,6 +8284,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -8091,6 +8347,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -8135,6 +8392,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Two Ways to Get to Korean Folk Town",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -8144,7 +8402,7 @@
       "parent": "Looking for the Korean Folk Town…",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "The letter that was sent to Camila was written by her pen pal, and it said she might not be able to write her again. Camila sensed something wrong might have happened to her friend, and asked me if I could visit her at Korean Folk Town, where she lived, and check on her.\nAt Korean Folk Town, I was able to meet Camila's pen pal, Kong Ji. She looked ecstatic after I gave her Camila's reply letter.",
       "npc_name": "Camila",
       "requirements": "Camila's Reply x 1",
       "requirements_list": [
@@ -8175,6 +8433,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031240,
+          "name": "Camila's Reply",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -8223,6 +8489,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -8279,6 +8546,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -8311,6 +8579,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Fanzy's Red Furball",
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 10
     },
@@ -8320,7 +8589,7 @@
       "parent": "Fanzy the Amusing Cat",
       "area": 30,
       "region": "Victoria Island",
-      "description": "",
+      "description": "The mysterious cat that I ran into in the middle of Ellinia forest introduced엘리니아itself as Fanzy, and it's a cat that is raised by a fairy living in Ellinia Forest. A few days ago, while hanging out in the forest, it lost the Red Ball of Yarn that's been given by its master. Fanzy really wanted me to find it for it, so in the middle of the forest, I better find Slime, fight to get Red Ball of Yarn back, then bring them back to Fanzy with my pet by my side for a handsome reward... Red Ball of Yarn 4031273 / 1\nI brought the Red Ball of Yarn back from Slime to Fanzy, and to my delight, Fanzy increased the closeness level between my pet and me.",
       "npc_name": "Fanzy",
       "requirements": "Red Ball of Yarn x 1",
       "requirements_list": [
@@ -8351,6 +8620,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -8399,6 +8669,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 15
     },
@@ -8447,6 +8718,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -8495,6 +8767,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 22
     },
@@ -8543,6 +8816,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 25
     },
@@ -8966,6 +9240,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -9157,6 +9432,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 33
     },
@@ -9205,6 +9481,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -9253,6 +9530,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -9301,6 +9579,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -9349,6 +9628,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -10104,6 +10384,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -10152,6 +10433,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -10199,6 +10481,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 25
     },
@@ -10363,6 +10646,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -10711,6 +10995,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 60
     },
@@ -10747,6 +11032,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "A Request from Staff Sergeant Charlie",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 40
     },
@@ -10783,6 +11069,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "A Request from Sergeant Bravo",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031049,
+          "name": "A Piece of an Ancient Scroll",
+          "count": 1
+        }
+      ],
       "chain_length": 7,
       "chain_level_min": 40
     },
@@ -10819,6 +11113,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "A Request from Corporal Easy",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031049,
+          "name": "A Piece of an Ancient Scroll",
+          "count": 2
+        }
+      ],
       "chain_length": 7,
       "chain_level_min": 40
     },
@@ -10937,6 +11239,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031049,
+          "name": "A Piece of an Ancient Scroll",
+          "count": 3
+        }
+      ],
       "chain_length": 7,
       "chain_level_min": 40
     },
@@ -10969,6 +11279,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Hella's Missing",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -10978,7 +11289,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Alcaster told me to go to Hella's house in Orbis, to no avail. She wasn't anywhere to be found, as I had to resort to talking to her housekeeper, Elma. According to her, Hella hadn't been home in months, and no one knows where she went or why. She did tell me to go see her best friend, Jade of El Nath, so I should go there immediately.",
       "npc_name": "Elma the Housekeeper",
       "requirements": "",
       "requirements_list": [],
@@ -11005,6 +11316,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Where's Hella?",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11041,6 +11353,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "One Clue",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11077,6 +11390,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Looking For the Old Lady",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11086,7 +11400,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Jade said the \"old lady\" may be Spriuna, who lives in a small house around where the Orbis park monsters walk around, and recommends that I go see her immediately.",
       "npc_name": "Jade",
       "requirements": "",
       "requirements_list": [],
@@ -11113,6 +11427,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Spiruna's Black Crystal",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11122,7 +11437,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Spiruna promised to tell me everything that she knows, as long as I find the Black Crystal that she lost in the snowfield while on a search for some materials for spells. Now where in the snowfield must that be...",
       "npc_name": "Spiruna",
       "requirements": "",
       "requirements_list": [],
@@ -11149,6 +11464,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Cracked Black Crystal",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11158,7 +11474,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Spiruna's Black Crystal underneath a rock at the snowfield, but it has some serious cracks on it. Anyway I should give this back to Spiruna immediately.",
       "npc_name": "Rock Covered in Snow",
       "requirements": "Cracked Black Crystal x 1",
       "requirements_list": [
@@ -11193,6 +11509,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "To Restore the Crystal",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031050,
+          "name": "Cracked Black Crystal",
+          "count": 1
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11202,7 +11526,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Just as I expected...Spiruna went livid over the cracked Black Crystal, and blames it all on me!!! Maybe I should seek some help from that lady standing next to her.",
       "npc_name": "Spiruna",
       "requirements": "",
       "requirements_list": [],
@@ -11229,6 +11553,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "A Word from the Assistant",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11238,7 +11563,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Spiruna's assistant quietly tells me that at this point, nothing will bring her back to her senses, unless I bring an item called Fairy Dust, the only item that'll restore the cracked black crystal to its original state. Kriel the Fairy of Orbis Department Store may have it.",
       "npc_name": "",
       "requirements": "",
       "requirements_list": [],
@@ -11265,6 +11590,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "To Acquire the Fairy Dust",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11274,7 +11600,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Kriel the Fairy wanted to make a deal with me, and I complied. For her to give up the Fairy Dust, I'll have to get her 100 Star Pixie Starpieces, 50 Lunar Pixie Moonpieces, and 30 Luster Pixie Sunpieces. I'll have to go on a serious Pixie hunting spree for a while. Luster Pixie's Sunpiece 4000061/30 Star Pixie's Starpiece 4000059/100 Lunar Pixie's Moonpiece 4000060/50",
       "npc_name": "Kriel the Fairy",
       "requirements": "Luster Pixie's Sunpiece x 30, Star Pixie's Starpiece x 100, Lunar Pixie's Moonpiece x 50",
       "requirements_list": [
@@ -11323,6 +11649,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Acquiring the Fairy Dust",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11332,7 +11659,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I got Kriel the Fairy all the items she asked for, and got the Fairy Dust in return. Now all I need to do is get this to Spiruna and see what happens.",
       "npc_name": "Kriel the Fairy",
       "requirements": "Fairy Dust x 1",
       "requirements_list": [
@@ -11450,6 +11777,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Truth Comes Out...",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031051,
+          "name": "Fairy Dust",
+          "count": 1
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11459,7 +11794,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Spiruna was utterly ecstatic over receiving the Fairy Dust, and proceeded to tell me everything she knew about Hella. Oh my goodness ... are you kidding me That assistant there is the Hella I've been looking for all this time",
       "npc_name": "Spiruna",
       "requirements": "",
       "requirements_list": [],
@@ -11486,6 +11821,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Hella is Found!",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11495,7 +11831,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Hella requested that I get this pendant to Jade. She also mentioned something about an old diary that she found at home years ago, and it mentioned the existence of the Book of Ancient, and that the owner lost it somewhere deep in the valley of the snowfield. Jade should fill up the rest for me. I got to go see him right now and inform him of her whereabouts.",
       "npc_name": "",
       "requirements": "Hella's Pendant x 1",
       "requirements_list": [
@@ -11613,6 +11949,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Small Grave That's Hidden",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031052,
+          "name": "Hella's Pendant",
+          "count": 1
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11622,7 +11966,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I gave Jade the pendant from Hella, and I could immediately sense that he was pleased to know that his friend is alright after all. That small grave Jade mentioned should be somewhere in the snowfield.",
       "npc_name": "Jade",
       "requirements": "",
       "requirements_list": [],
@@ -11649,6 +11993,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "An Old Ring",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11658,7 +12003,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found an anonymous grave somewhere deep in the valley of the snowfield. I also removed an old ring from the corpse's finger. Maybe Alcaster knows what to do with it.",
       "npc_name": "Small Tomb",
       "requirements": "",
       "requirements_list": [],
@@ -11685,6 +12030,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Secrets Behind the Ring?",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031053,
+          "name": "Old Ring",
+          "count": 1
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11694,7 +12047,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Alcaster took time observing the ring, and felt an incredible force emanating from it. He recommended that I go see Scadur the Hunter around El Nath.",
       "npc_name": "Alcaster",
       "requirements": "",
       "requirements_list": [],
@@ -11717,6 +12070,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Collecting Wolf Skin",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031053,
+          "name": "Old Ring",
+          "count": 1
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11726,7 +12087,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Scadur mentioned that the price of wolf skin has gone up the roof these days, and wanted to make a deal with me. 100 Hector Tails and 100 White Fang Tails will be enough for him to return the ring to me, along with telling me everything he knows regarding the situation. . Hector Tail 4000051/100 White Pang Tail 4000052/100",
       "npc_name": "Scadur",
       "requirements": "Hector Tail x 100, White Pang Tail x 100",
       "requirements_list": [
@@ -11776,6 +12137,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Looking for the Wiseman in Perion",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11785,7 +12147,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I handed Scadur the wolf skins he asked for, and he gave me back the old ring. He reminisced the old days where heard about the ring through the four wisemen he had met as a young man. He recommended me to go visit Victoria Island and meet up with all four of the wisemen, starting with the one in Perion.",
       "npc_name": "Scadur",
       "requirements": "",
       "requirements_list": [],
@@ -11812,6 +12174,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Dances with Balrog and His Recovery",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031053,
+          "name": "Old Ring",
+          "count": 1
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11821,7 +12191,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I went to Perion and met up with Dances with Balrog. After I showed him the ring, he conceded that he may have an item that'll provide enough clues to help me ultimately find the Book of Ancient. Of course, he also didn't want to just give it away like that. Since he's spent too much energy trying to help other warriors, he wanted 2 Power Crystals to recover his strength, in return for handing me the item that holds the clue.",
       "npc_name": "Dances with Balrog",
       "requirements": "Power Crystal x 2",
       "requirements_list": [
@@ -11856,6 +12226,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Looking for the Wiseman in Ellinia",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11892,6 +12263,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Grendel the Really Old and His Recovery",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031054,
+          "name": "Old Piece of Map",
+          "count": 1
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11901,7 +12280,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "The wiseman of Ellinia, Grendel the Really Old, promised to give me the map piece in exchange for 2 Wisdom Crystals.",
       "npc_name": "Grendel the Really Old",
       "requirements": "Wisdom Crystal x 2",
       "requirements_list": [
@@ -11936,6 +12315,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Looking for the Wiseman in Henesys",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -11972,6 +12352,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Athena Pierce and Her Recovery",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031054,
+          "name": "Old Piece of Map",
+          "count": 2
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -12016,6 +12404,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Looking for the Wiseman in Kerning City",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -12025,7 +12414,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I met my end of the bargain by handing Athena Pierce the 2 DEX Crystals, and she met her end of the bargain by handing me the 3rd old piece of map. Last up: The wiseman at Kerning City.",
       "npc_name": "Athena Pierce",
       "requirements": "",
       "requirements_list": [],
@@ -12052,6 +12441,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Dark Lord and His Recovery",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031054,
+          "name": "Old Piece of Map",
+          "count": 3
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -12096,6 +12493,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "All the Map Pieces in One Place",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -12132,6 +12530,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Restoring the Map",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031054,
+          "name": "Old Piece of Map",
+          "count": 4
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -12168,6 +12574,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Acquiring the Memory Powder",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -12177,7 +12584,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Corporal Easy promised me to hand me the Memory Powder in exchange for 3 Toenails of Werewolf. Apparently those Werewolves reside deep in the snowfield... Werewolf Toenail 4000053/3",
       "npc_name": "Corporal Easy",
       "requirements": "Werewolf Toenail x 3",
       "requirements_list": [
@@ -12212,6 +12619,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Map is in One Piece",
+      "start_items": [],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -12221,7 +12629,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I got the Memory Powder from Corporal Easy. Now I need to get this to Alcaster.",
       "npc_name": "Corporal Easy",
       "requirements": "Memory Powder x 1",
       "requirements_list": [
@@ -12256,6 +12664,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Secrets Behind the Statue",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031055,
+          "name": "Memory Powder",
+          "count": 1
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -12265,7 +12681,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "With the Memory Powder, Alcaster was able to attach the four map pieces and turn it into a map. According to the map, the Book of Ancient lies somewhere around Orbis Tower at some statue.",
       "npc_name": "Alcaster",
       "requirements": "",
       "requirements_list": [],
@@ -12292,6 +12708,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Book of Ancient is Back!",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031053,
+          "name": "Old Ring",
+          "count": 1
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -12301,7 +12725,7 @@
       "parent": "In Search of the Book of Ancient",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I can't believe I finally have a hold of the Book of Ancient. Now I need to turn this over to Alcaster...\nA lot of time and effort were put into this, but the Book of Ancient is finally back in Alcaster's hands as he will begin working on the process of sealing up the book for good. As a sign of appreciation, he rewarded me with a special cape. I really hope he finds a way to seal up the book for good.",
       "npc_name": "Statue",
       "requirements": "The Book of Ancient x 1",
       "requirements_list": [
@@ -12410,6 +12834,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031056,
+          "name": "The Book of Ancient",
+          "count": 1
+        }
+      ],
       "chain_length": 31,
       "chain_level_min": 55
     },
@@ -12535,6 +12967,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 60
     },
@@ -12571,6 +13004,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Nick's Ring",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 65
     },
@@ -12580,7 +13014,7 @@
       "parent": "Nick, the Son of Scadur the Hunter",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "At the bottom of a chipped part of the statue was what appeared to be Nick's ring. A name is engraved on it, and I suppose Scadur can read out the name for me. Cerebes Tooth 4000079/100 Nick's Ring 4031060/1\nI found Nick's ring at the lava cave, and I also collected a number of Cerebes's teeth, getting them all to Scadur. Hopefully Nick will be satisfied with this. I got a cape from Scadur that's been passed down from generation to generation ... this ain't bad at all!",
       "npc_name": "Piece of Statue",
       "requirements": "Nick's Ring x 1, Cerebes Tooth x 100",
       "requirements_list": [
@@ -12696,6 +13130,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031060,
+          "name": "Nick's Ring",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 65
     },
@@ -12757,6 +13199,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -12766,7 +13209,7 @@
       "parent": "Alpha Platoon's Network of Communication ",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Staff Sergeant Charlie at Orbis, and he asked me to get him 2 refined Orihalcon Plates while giving me an item which is to be given to Master Sergeant Fox.",
       "npc_name": "Staff Sergeant Charlie",
       "requirements": "Orihalcon Plate x 2",
       "requirements_list": [
@@ -12801,6 +13244,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Missing Sergeant Bravo",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 40
     },
@@ -12810,7 +13254,7 @@
       "parent": "Alpha Platoon's Network of Communication ",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Sergeant Bravo at the snowfield, and he asked me to get him 2 refined Adamantium Plates while giving me an item which is to be given to Master Sergeant Fox.",
       "npc_name": "Sergeant Bravo",
       "requirements": "Adamantium Plate x 2",
       "requirements_list": [
@@ -12845,6 +13289,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Missing Corporal Easy",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 40
     },
@@ -12854,7 +13299,7 @@
       "parent": "Alpha Platoon's Network of Communication ",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Corporal Easy somewhere around the Orbis Tower, and he asked me to get him 2 refined Sapphires while giving me an item which is to be given to Master Sergeant Fox.",
       "npc_name": "Corporal Easy",
       "requirements": "Sapphire x 2",
       "requirements_list": [
@@ -12889,6 +13334,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Returning to Master Sergeant Fox",
+      "start_items": [],
       "chain_length": 7,
       "chain_level_min": 40
     },
@@ -12933,6 +13379,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Helping Kriel Out",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031197,
+          "name": "Tears of Kelvelos",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -13206,6 +13660,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -13242,6 +13697,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Ericsson Loves Cats",
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 0
     },
@@ -13286,6 +13742,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Ericsson's Reward",
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 0
     },
@@ -13345,6 +13802,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -13400,6 +13858,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 0
     },
@@ -13470,6 +13929,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Alfonse's Smile",
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 0
     },
@@ -13532,6 +13992,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -13580,6 +14041,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 0
     },
@@ -13624,6 +14086,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Acquiring Materials for the Fur Coat",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031204,
+          "name": "Lisa's Recommendation",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -13768,6 +14238,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -13800,6 +14271,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -13878,6 +14350,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -13918,6 +14391,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -13950,6 +14424,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -14019,6 +14494,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -14059,6 +14535,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031205,
+          "name": "Lisa's Special Medicine",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -14091,6 +14575,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -14155,6 +14640,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -14223,6 +14709,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -14295,6 +14782,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -14342,6 +14830,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -14452,6 +14941,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -14507,6 +14997,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -14576,6 +15067,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -14624,6 +15116,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 40
     },
@@ -14679,6 +15172,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -14719,6 +15213,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -14755,6 +15250,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Secrets Behind the Contract of Darkness",
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 55
     },
@@ -14908,6 +15404,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -14952,6 +15449,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Robinson's ID",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 35
     },
@@ -14961,7 +15459,7 @@
       "parent": "Lost in the Ocean",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I met Robinson in the middle of the island right at the center of the ocean, and he said that he used be a pilot for the army of Omega Sector, but while in a combat against the aliens, he ran away from the scene, only to be swept by strong currents that led you to where you were. He wishes to get back to the Omega Sector, but currently we have no idea where we are, and he's been covered with scars. As a result, he asked me if I can go to the Omega Sector, notify Kay of his troubles, and ask for some relief. Where is the Omega Sector\nI went to see Kay at the Omega Sector, and handed him a card of Robinson's ID. He said everyone's been wondering of his whereabouts, and wanted me to describe the position of the island in detail.",
       "npc_name": "Robinson",
       "requirements": "Robinson's ID x 1",
       "requirements_list": [
@@ -14996,6 +15494,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Sending Relief",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031210,
+          "name": "Robinson's ID",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 35
     },
@@ -15005,7 +15511,7 @@
       "parent": "Lost in the Ocean",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Kay of the Omega Sector complained of the lack of members available due to the battle against the aliens, and asked me if I could give this warp capsule, specially made in Omega Sector, to Robinson. A warp capsule that takes the person to the Omega Sector regardless of the place of origin That's awesome!! I want to take it myself for a split second, until I found out that only the Omega Sector members can use it. Darn it...\nKay needed help from me, since he couldn't send the rescuers to save Robinson, and so I got the specially-made warp capsule and gave it to Robinson. Now he can go back to the Omega Sector and get himself fixed.",
       "npc_name": "Kay",
       "requirements": "Omega Sector Warp Capsule x 1",
       "requirements_list": [
@@ -15086,6 +15592,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031221,
+          "name": "Omega Sector Warp Capsule",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 35
     },
@@ -15122,6 +15636,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Carta's Demand",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -15180,6 +15695,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Carta's Fortune-Telling",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -15220,6 +15736,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -15357,6 +15874,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 90
     },
@@ -15397,6 +15915,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -15501,6 +16020,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -15563,6 +16083,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -15625,6 +16146,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -15693,6 +16215,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -15740,6 +16263,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 95
     },
@@ -15788,6 +16312,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031281,
+          "name": "Muse's Dish",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -15820,6 +16352,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 30
     },
@@ -15829,7 +16362,7 @@
       "parent": "Orbis in Danger",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I ran into a mysterious girl at Spiruna's house. She mentioned that the reason Orbis is sinking is because there are too many monsters around at the Cloud Terrace these days. She requested that I take out 100 each of Jr. Cellion, Jr. Lioner, and Jr. Grupin. Jr. Cellion 30871# Jr. Lioner 30872# Jr. Grupin 30873#\nJust the way the mysterious girl at Spiruna's house requested, I took out a 100 each of Jr. Cellion, Jr. Lioner, and Jr. Grupin. Doing this may have slowed down Orbis's inevitable crash, but that still means it'll crash later. By the way, who is this girl She must be aware of the danger that's befallen Orbis. I should talk to her again...",
       "npc_name": "",
       "requirements": "Defeat Jr. Cellion x 100, Defeat Jr. Lioner x 100, Defeat Jr. Grupin x 100",
       "requirements_list": [
@@ -16008,6 +16541,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 30
     },
@@ -16017,7 +16551,7 @@
       "parent": "Orbis in Danger",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I talked to the mysterious girl at Spiruna's house again. She mentioned that Spiruna has finally found the main reason Orbis is sinking. Orbis floats in the air thanks to the mythical, magical power that's laden in the clouds, but the Pixie's have been soaking up that magical power from the clouds to their advantage. The Pixies use that power to increase their magical powers, and by doing so, the clouds have been weakened to the point of Orbis making its freefall. To start the fixing, she wanted me to gather up 30 Cloud Pieces from Star Pixie, Lunar Pixie, and Luster Pixie for her. Cloud Piece 4031309 / 30\nJust the way the mysterious girl at Spiruna's house requested, I gathered up 30 Cloud Pieces from the Pixie's and gave them to her.",
       "npc_name": "",
       "requirements": "Cloud Piece x 30",
       "requirements_list": [
@@ -16216,6 +16750,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 30
     },
@@ -16225,7 +16760,7 @@
       "parent": "Orbis in Danger",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "The key tool used to fix the Orbis clouds is the Cloud Sprayer, but ever since Elma the Housekeeper borrowed it some 50 years ago, the sprayer hasn't been seen since. 50 years, and still no return I better go see Elma the Housekeeper.\nI met up with Elma and received the Cloud Sprayer that she borrowed 50 years ago. I should go back to Spiruna's house now.",
       "npc_name": "",
       "requirements": "",
       "requirements_list": [],
@@ -16248,6 +16783,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 30
     },
@@ -16257,7 +16793,7 @@
       "parent": "Orbis in Danger",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I received Cloud Sprayer from Elma the Housekeeper. It looks like a significant amount of time has passed since I came here. I better get back to Spiruna's house immediately. Cloud Sprayer 4031308 / 1\nI received the Cloud Sprayer from Elma the Housewife. The cloud fixing should be a breeze now with this in store. This better stop the freefall of Orbis.",
       "npc_name": "Elma the Housekeeper",
       "requirements": "Cloud Sprayer x 1",
       "requirements_list": [
@@ -16296,6 +16832,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031308,
+          "name": "Cloud Sprayer",
+          "count": 1
+        }
+      ],
       "chain_length": 5,
       "chain_level_min": 30
     },
@@ -16419,6 +16963,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 0
     },
@@ -16451,6 +16996,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 0
     },
@@ -16491,6 +17037,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 0
     },
@@ -16539,6 +17086,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031312,
+          "name": "Snow Crystal Sphere",
+          "count": 1
+        }
+      ],
       "chain_length": 4,
       "chain_level_min": 0
     },
@@ -16587,6 +17142,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -16614,6 +17170,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -16668,6 +17225,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -16729,6 +17287,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -16783,6 +17342,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -17068,6 +17628,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -17154,6 +17715,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 40
     },
@@ -17204,6 +17766,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -17248,6 +17811,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 2020021,
+          "name": "Nemi's Lunch Box",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 28
     },
@@ -17295,6 +17866,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 28
     },
@@ -17342,6 +17914,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 28
     },
@@ -17427,6 +18000,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 28
     },
@@ -17471,6 +18045,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Roly-Poly 1",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -17480,7 +18062,7 @@
       "parent": "Just Another Day at Work",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Manager Karl, who's at the Toy Factory inside the Ludibrium Clocktower, wanted me to check up on his 10 roly-poly's by taking pictures with them. The 10 have to be in the order... I should go to Eos Tower.\nI found Roly-Poly 2 at the 93rd floor of Eos Tower working hard, so I took a picture of him with the camera that Karl gave me.",
       "npc_name": "Roly-Poly 1",
       "requirements": "Photo of Roly-Poly 1 x 1",
       "requirements_list": [
@@ -17515,6 +18097,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Roly-Poly 2",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031079,
+          "name": "Photo of Roly-Poly 1",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -17524,7 +18120,7 @@
       "parent": "Just Another Day at Work",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Roly-Poly 2 working hard, so I took a picture of him with the camera that Karl gave me.\nI found Roly-Poly 3 at the 50th floor of Eos Tower working hard, so I took a picture of him with the camera that Manager Karl gave me.",
       "npc_name": "Roly-Poly 2",
       "requirements": "Photo of Roly-Poly 2 x 1",
       "requirements_list": [
@@ -17559,6 +18155,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Roly-Poly 3",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031080,
+          "name": "Photo of Roly-Poly 2",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -17568,7 +18178,7 @@
       "parent": "Just Another Day at Work",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Roly-Poly 3 working hard, so I took a picture of him with the camera that Manager Karl gave me.\nI found Roly-Poly 4 at the 74th floor of Eos Tower working hard, so I took a picture of him with the camera that Manager Karl gave me.",
       "npc_name": "Roly-Poly 3",
       "requirements": "Photo of Roly-Poly 3 x 1",
       "requirements_list": [
@@ -17603,6 +18213,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Roly-Poly 4",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031081,
+          "name": "Photo of Roly-Poly 3",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -17612,7 +18236,7 @@
       "parent": "Just Another Day at Work",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Roly-Poly 4 working hard, so I took a picture of him with the camera that Manager Karl gave me.\nI found Roly-Poly 5 at the 60th floor of Eos Tower working hard, so I took a picture of him with the camera that Manager Karl gave me.",
       "npc_name": "Roly-Poly 4",
       "requirements": "Photo of Roly-Poly 4 x 1",
       "requirements_list": [
@@ -17647,6 +18271,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Roly-Poly 5",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031082,
+          "name": "Photo of Roly-Poly 4",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -17656,7 +18294,7 @@
       "parent": "Just Another Day at Work",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Roly-Poly 5 working hard, so I took a picture of him with the camera that Manager Karl gave me.\nI found Roly-Poly 6 at the 50th floor of Eos Tower working hard, so I took a picture of him with the camera that Manager Karl gave me.",
       "npc_name": "Roly-Poly 5",
       "requirements": "Photo of Roly-Poly 5 x 1",
       "requirements_list": [
@@ -17691,6 +18329,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Roly-Poly 6",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031083,
+          "name": "Photo of Roly-Poly 5",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -17700,7 +18352,7 @@
       "parent": "Just Another Day at Work",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Roly-Poly 6 working hard, so I took a picture of him with the camera that Manager Karl gave me.\nI found Roly-Poly 6 at the 50th floor of Eos Tower working hard, so I took a picture of him with the camera that Manager Karl gave me.",
       "npc_name": "Roly-Poly 6",
       "requirements": "Photo of Roly-Poly 6 x 1",
       "requirements_list": [
@@ -17735,6 +18387,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Roly-Poly 7",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031084,
+          "name": "Photo of Roly-Poly 6",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -17744,7 +18410,7 @@
       "parent": "Just Another Day at Work",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Roly-Poly 7 working hard, so I took a picture of him with the camera that Manager Karl gave me.\nI found Roly-Poly 8 at the 21st floor of Eos Tower working hard, so I took a picture of him with the camera that Manager Karl gave me.",
       "npc_name": "Roly-Poly 7",
       "requirements": "Photo of Roly-Poly 7 x 1",
       "requirements_list": [
@@ -17779,6 +18445,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Roly-Poly 8",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031085,
+          "name": "Photo of Roly-Poly 7",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -17788,7 +18468,7 @@
       "parent": "Just Another Day at Work",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Roly-Poly 8 working hard, so I took a picture of him with the camera that Manager Karl gave me.\nI found Roly-Poly 9 at the 7th floor of Eos Tower working hard, so I took a picture of him with the camera that Manager Karl gave me.",
       "npc_name": "Roly-Poly 8",
       "requirements": "Photo of Roly-Poly 8 x 1",
       "requirements_list": [
@@ -17823,6 +18503,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Roly-Poly 9",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031086,
+          "name": "Photo of Roly-Poly 8",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -17832,7 +18526,7 @@
       "parent": "Just Another Day at Work",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found Roly-Poly 9 working hard, so I took a picture of him with the camera that Manager Karl gave me.\nI found Roly-Poly 10 at the 3rd floor of Eos Tower working hard, so I took a picture of him with the camera that Manager Karl gave me.",
       "npc_name": "Roly-Poly 9",
       "requirements": "Photo of Roly-Poly 9 x 1",
       "requirements_list": [
@@ -17867,6 +18561,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Roly-Poly 10",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031087,
+          "name": "Photo of Roly-Poly 9",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -17876,7 +18584,7 @@
       "parent": "Just Another Day at Work",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found the last Roly-Poly working hard, so I took a picture of him with the camera that Manager Karl gave me.\nI took the pictures of all 10 roly-polys working at Eos Tower and gave them to Manager Karl of the Toy Factory in Ludibrium. It looks like Roly-Poly 6 is in need of help... I should check him out.",
       "npc_name": "Roly-Poly 10",
       "requirements": "Photo of Roly-Poly 10 x 1",
       "requirements_list": [
@@ -18162,6 +18870,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031088,
+          "name": "Photo of Roly-Poly 10",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031078,
+          "name": "Manager Karl's Camera",
+          "count": 1
+        }
+      ],
       "chain_length": 11,
       "chain_level_min": 0
     },
@@ -18206,6 +18928,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 31
     },
@@ -18291,6 +19014,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 31
     },
@@ -18338,6 +19062,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -18430,6 +19155,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -18571,6 +19297,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 40
     },
@@ -18603,6 +19330,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Man in the Black Suit",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 25
     },
@@ -18612,7 +19340,7 @@
       "parent": "Korin's Memory",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I met Agent Marco at the Omega Sector. I asked him some questions regarding Korin, and I was able to find out that she had been kidnapped by a group of aliens that invaded the Omega Sector. He also said that in order to recover Korin's lost memories, I'll have to defeat the Mateons and collect 5 Memory Pieces that contain her lost memories... I'll have to head over to the Boswell Field quickly. Piece of Memory 4031090/5\nI defeated the aliens that took Korin's memories, gathered up the memory pieces, and gave them to Agent Marco. He then put the pieces together and made it into one whole piece.",
       "npc_name": "Agent Marco",
       "requirements": "Piece of Memory x 5",
       "requirements_list": [
@@ -18651,6 +19379,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Recovered Memory",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 25
     },
@@ -18660,7 +19389,7 @@
       "parent": "Korin's Memory",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "After defeating a bunch of Mateons at the Boswell Field, I went through their stuff and found 5 Memory Pieces that contained Korin's lost memories. I gave them to Agent Marco, and he proceeded to put the 5 together into one whole piece of Korin's Memory. Now all I have left to do is give this piece of memory back to Korin.\nI gave Korin her lost memories through the man in Omega Sector wearing black suits, Agent Marco. She was initially disoriented after recovering her memories, but she promised to fully enjoy life the way she used to before the kidnapping. Hopefully that'll never happen again.",
       "npc_name": "Agent Marco",
       "requirements": "Korin's Memory x 1",
       "requirements_list": [
@@ -18698,6 +19427,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031091,
+          "name": "Korin's Memory",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 25
     },
@@ -18783,6 +19520,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 25
     },
@@ -18810,6 +19548,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 25
     },
@@ -18850,6 +19589,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Grandpa Clock's Crisis",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031094,
+          "name": "Pendulum",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 33
     },
@@ -18859,7 +19606,7 @@
       "parent": "A Delivery to a Lost Time",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "After obtaining the Pendulum by destroying the dollhouse the monster disguised as, I went down to the Lost Time to find Grandpa Clock. But it seemed like instead of him helping me fix the clocktower, he was about to die first, so he wanted me to take down some monsters called Tick-Tock and pick up the All-purpose Clock Spring that they possess. I better get them before Grandpa Clock dies.\nI got the All-purpose Clock Spring from Tick Tock. I need to get this to the Grandpa Clock before it's too late.",
       "npc_name": "Grandpa Clock",
       "requirements": "All-purpose Clock Spring x 1",
       "requirements_list": [
@@ -18894,6 +19641,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Delivering the #t4031094#",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 33
     },
@@ -18903,7 +19651,7 @@
       "parent": "A Delivery to a Lost Time",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "At the Lost Time in the Ludibrium Clocktower, I gave Grandpa Clock the All-purpose Clock Spring from Tick-Tock's. I'm glad I got to give this to him before too late. Now I should wait to hear a word from Olson.\nAt the Lost Time in the Ludibrium Clocktower, I gave Grandpa Clock the Pendulum, an essential part of the clocktower. Now all I have to do is wait for the Grandpa Clock to fix the clocktower. Will this work",
       "npc_name": "Grandpa Clock",
       "requirements": "",
       "requirements_list": [],
@@ -19189,6 +19937,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 33
     },
@@ -19236,6 +19985,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 34
     },
@@ -19376,6 +20126,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 39
     },
@@ -19437,6 +20188,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 36
     },
@@ -19491,6 +20243,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 34
     },
@@ -19538,6 +20291,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 40
     },
@@ -19565,6 +20319,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -19574,7 +20329,7 @@
       "parent": "",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Somewhere around Ludibrium, I saw a small fairy that was glowing all over her body. Her name was Wisp, and is a part of Mar the Fairy. She saw my pet in a state of doll and claimed that she can turn my doll pet back into a real-life pet with water of life and mcdonald's. The Scroll of Life is apparently at Cloy's House in Ludibrium, which should be empty at this point.\nI found the scroll of life at Cloy's house in Ludibrium. I gave this, along with the Water of Life, to Wisp and he helped turn my pet back alive. I need to have some play time with my pet now!",
       "npc_name": "",
       "requirements": "",
       "requirements_list": [],
@@ -19592,6 +20347,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -19640,6 +20396,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -19680,6 +20437,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031099,
+          "name": "Sealed Letter",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -19724,6 +20489,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Dr. Kim's Comments : A Meeting with Chury",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031100,
+          "name": "Blueprint Machine",
+          "count": 1
+        }
+      ],
       "chain_length": 4,
       "chain_level_min": 30
     },
@@ -19733,7 +20506,7 @@
       "parent": "Dr. Kim's Comments",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I met Chury at the Silo of the Omega Sector and showed him the Blueprint Machine, which contains the blueprint of the new robot, that I got from Dr. Kim. Chury wanted to show this to Hoony, so he asked me if I could show the Blueprint Machine to Hoony, as well as provide him with 20 Space Foods, for he had been away at the Field for a while. Space Food, huh... I think I can find them through Barnard Gray the alien. I'll run into on the way to the Field. Space Food 4000117/20\nI met up with Chury somewhere around the Omega Sector Silo. Chury wanted me to show the Blueprint Machine to Hoony, as well as give him some food. In turn, I gave Hoony some Space Food to last him a while, and showed him the Blueprint Machine.",
       "npc_name": "Chury",
       "requirements": "Space Food x 20",
       "requirements_list": [
@@ -19768,6 +20541,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Dr. Kim's Comments : A Meeting with Hoony",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031100,
+          "name": "Blueprint Machine",
+          "count": 1
+        }
+      ],
       "chain_length": 4,
       "chain_level_min": 30
     },
@@ -19777,7 +20558,7 @@
       "parent": "Dr. Kim's Comments",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I met Hoony at a Field around Omega Sector, and showed him the Blueprint Machine, as well as provide him with 20 Space Foods. Hoony said that he fixed Gunny's Laser Gun that he was asked to fix and requested me if I could give him his Laser Gun as well as show him the Blueprint Machine. He should be somewhere around the Field. Where could he be...\nHoony wanted to show the Blueprint to Gunny. He was already on his way to give Gunny a new weapon, so he asked me if I could give him the new gun, as well as show him the Blueprint. After much searching around, I was able to finally find him and gave him the gun.",
       "npc_name": "Hoony",
       "requirements": "Laser Gun x 1",
       "requirements_list": [
@@ -19819,6 +20600,20 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Dr. Kim's Comments : A Meeting with Gunny",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031100,
+          "name": "Blueprint Machine",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031101,
+          "name": "Laser Gun",
+          "count": 1
+        }
+      ],
       "chain_length": 4,
       "chain_level_min": 30
     },
@@ -19828,7 +20623,7 @@
       "parent": "Dr. Kim's Comments",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I met up with Gunny at a field around Omega Sector, handed him his Laser gun, and showed him the Blueprint Machine. Gunny appreciated my effort and requested that I report this all to Dr. Kim. This Command Center warp capsule seems like a useful item.\nAs Dr. Kim requested from the Command Center in the Omega Sector, I showed the blueprint of the new robot to Chury, Hoony, and Gunny, while simultaneously solving their problems. Dr. Kim was very pleased with the results, and wanted me to drop by again sometime, for he could use my help.",
       "npc_name": "Gunny",
       "requirements": "",
       "requirements_list": [],
@@ -19855,6 +20650,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031100,
+          "name": "Blueprint Machine",
+          "count": 1
+        }
+      ],
       "chain_length": 4,
       "chain_level_min": 30
     },
@@ -19887,6 +20690,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Delivering the Robotic Parts",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 30
     },
@@ -19896,7 +20700,7 @@
       "parent": "Supplying the Robotic Parts",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I met with Cheng the Assistant at the Toy Factory in Ludibrium, and he handed me 3 boxes full of robotic parts, which will be used to make the robot. Now I should just hand them over to Dr. Kim at the Command Center in the Omega Sector.\nAt the Toy Factory in Ludibrium, Cheng the Assistant gave me 3 boxes of robotic parts so I could deliver them to Dr. Kim of the Command Center in the Omega Sector. After delivering the goods to Dr. Kim, he gave me a Warp Capsule, which will enable me to transport to Ludibrium in an instant. Hmmm... this looks like something I can use!",
       "npc_name": "Assistant Cheng",
       "requirements": "Box of Parts #1 x 1, Box of Parts #2 x 1, Box of Parts #3 x 1",
       "requirements_list": [
@@ -19948,6 +20752,26 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031095,
+          "name": "Box of Parts #1",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031096,
+          "name": "Box of Parts #2",
+          "count": 1
+        },
+        {
+          "type": "item",
+          "id": 4031097,
+          "name": "Box of Parts #3",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 30
     },
@@ -20016,6 +20840,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -20063,6 +20888,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 40
     },
@@ -20114,6 +20940,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -20161,6 +20988,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 31
     },
@@ -20208,6 +21036,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 47
     },
@@ -20255,6 +21084,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -20299,6 +21129,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 43
     },
@@ -20623,6 +21454,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 45
     },
@@ -20670,6 +21502,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 38
     },
@@ -20731,6 +21564,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 38
     },
@@ -20763,6 +21597,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Completion of the Alarm Clock",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 38
     },
@@ -20772,7 +21607,7 @@
       "parent": "Delivering the Alarm Clock",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I received the Super Alarm Clock from Kevin the Soldier, who was at the Omega Sector, for Pink Mesoranger. Now all I have to do is deliver this to her.\nKevin the Soldier made the super alarm clock for Pink Mesoranger, stationed at a field around Omega Sector, and I delivered it to her. Hopefully this will enable her to wake up on time.",
       "npc_name": "Kevin the Soldier",
       "requirements": "Super Alarm Clock x 1",
       "requirements_list": [
@@ -20817,6 +21652,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031108,
+          "name": "Super Alarm Clock",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 38
     },
@@ -20864,6 +21707,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 44
     },
@@ -20911,6 +21755,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 44
     },
@@ -20958,6 +21803,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 1044
     },
@@ -21005,6 +21851,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 50
     },
@@ -21037,6 +21884,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Porter the Undependable",
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 50
     },
@@ -21046,7 +21894,7 @@
       "parent": "The Control Program for Rombot",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I need 3 of Rombot's Memory Cards so Porter of Omega Sector can decipher them.\nPorter made a colossal mistake and destroyed one of Rombot's Memory Cards. I can't believe I just trusted this man to do this job!",
       "npc_name": "Porter",
       "requirements": "Rombot's Memory Card x 3",
       "requirements_list": [
@@ -21081,6 +21929,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Porter's Mistake",
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 50
     },
@@ -21090,7 +21939,7 @@
       "parent": "The Control Program for Rombot",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I met Porter at the Command Center in the Omega Sector and gave him Rombot's 3 memory cards, but oh my... he was unable to decipher one of the three, and destroyed it. I'll need to find another one of Rombot's Memory Card for Porter.\nI watched over Porter's deciphering with an uneasy feeling, but thankfully he didn't make any mistake this time around.",
       "npc_name": "Porter",
       "requirements": "Rombot's Memory Card x 1",
       "requirements_list": [
@@ -21125,6 +21974,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Brilliant Assistant",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031118,
+          "name": "Deciphered Memory Card",
+          "count": 2
+        }
+      ],
       "chain_length": 4,
       "chain_level_min": 50
     },
@@ -21134,7 +21991,7 @@
       "parent": "The Control Program for Rombot",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Once again, I gave Porter Rombot's Memory Cards. Fortunately, the deciphering worked this time around, and I was able to get a hold of 3 Deciphered Memory Cards for Kay. Now all I have to do is give them to her.\nI gave Kay, who's at the Silo of Omega Sector, the Deciphered Memory Cards that she requested. I'm anxious to see what she makes out of them.",
       "npc_name": "Porter",
       "requirements": "Deciphered Memory Card x 3",
       "requirements_list": [
@@ -21172,6 +22029,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031118,
+          "name": "Deciphered Memory Card",
+          "count": 3
+        }
+      ],
       "chain_length": 4,
       "chain_level_min": 50
     },
@@ -21216,6 +22081,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Where is the Dropship?",
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031126,
+          "name": "Porter's Letter",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 50
     },
@@ -21225,7 +22098,7 @@
       "parent": "The Missing Dropship",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I was able to hand Porter's letter from the Command Center in the Omega Sector to Kay the Engineer, who was at the Omega Sector Silo, on time. I was expecting it to be a love letter, to no avail. Instead, it was about the missing dropship, and its current location. That's boring... anyway, Kay requested that I find the Dropship, which should be somewhere around Boswell Field, and check out the pilot's livelihood.\nI found an empty dropship at the Boswell Field, and it appeared to have mislanded here. The pilot is nowhere to be found; a letter was found instead.",
       "npc_name": "Kay",
       "requirements": "",
       "requirements_list": [],
@@ -21248,6 +22121,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Pilot's Whereabouts...",
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 50
     },
@@ -21257,7 +22131,7 @@
       "parent": "The Missing Dropship",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I found what appeared to be a broken Dropship around Boswell Field, but the pilot is nowhere to be found, and instead, I was able to find a letter inside. I better give that letter to Kay.\nI found a letter inside the broken Dropship, and gave it to Kay the Engineer at the Omega Sector Silo. With a sad look on her eyes, Kay said she was glad to find out the pilot was at least alive. Now, where would that pilot be...",
       "npc_name": "Dropship",
       "requirements": "Pilot's Letter x 1",
       "requirements_list": [
@@ -21295,6 +22169,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031127,
+          "name": "Pilot's Letter",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 50
     },
@@ -21342,6 +22224,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 40
     },
@@ -21389,6 +22272,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 40
     },
@@ -21436,6 +22320,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 40
     },
@@ -21483,6 +22368,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 40
     },
@@ -21568,6 +22454,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 40
     },
@@ -21612,6 +22499,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 41
     },
@@ -21659,6 +22547,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 41
     },
@@ -21751,6 +22640,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 41
     },
@@ -21795,6 +22685,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 31
     },
@@ -21839,6 +22730,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 31
     },
@@ -21996,6 +22888,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 31
     },
@@ -22061,6 +22954,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 30
     },
@@ -22070,7 +22964,7 @@
       "parent": "VIP Ticket to Florina Beach",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Nana said a Ripped VIP pass will not work, nor can it be re-published, but the way to leave may be easier by paying a visit to Shuri, the the Tour Guide at Orbis.\nHmmm ... so something as simple as making a new ticket cannot be done, huh. Alright, since I'm here and all, why don't I just take a crack at it til the very end",
       "npc_name": "Nara",
       "requirements": "",
       "requirements_list": [],
@@ -22093,6 +22987,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 30
     },
@@ -22102,7 +22997,7 @@
       "parent": "VIP Ticket to Florina Beach",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "I visited Shuri, and she mentioned that the VIP ticket cannot be re-issued, but it can be recovered. To recover the ripped VIP ticket, I'll need a few items... Star Pixie's Starpiece 04000059/50 Lunar Pixie's Moonpiece 04000060/30 Diamond 04021007/3\nAfter recovering the ripped VIP Ticket to Florina Beach, I was given the VIP Ticket to Florina Beach, a lifetime pass, as a sign of thanks.nNow it's a matter of taking a vacation whenever I want.",
       "npc_name": "Shuri",
       "requirements": "Ripped Travel Ticket 1 x 1, Diamond x 3, Ripped Travel Ticket 2 x 1, Star Pixie's Starpiece x 50, Lunar Pixie's Moonpiece x 30",
       "requirements_list": [
@@ -22169,6 +23064,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 30
     },
@@ -22209,6 +23105,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 84
     },
@@ -22249,6 +23146,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 62
     },
@@ -22296,6 +23194,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 85
     },
@@ -22336,6 +23235,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 105
     },
@@ -22578,6 +23478,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -22844,6 +23745,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -22888,6 +23790,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -22932,6 +23835,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -22972,6 +23876,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -23012,6 +23917,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031229,
+          "name": "Sack of Rice",
+          "count": 1
+        }
+      ],
       "chain_length": 5,
       "chain_level_min": 0
     },
@@ -23021,7 +23934,7 @@
       "parent": "Brotherly Love",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Chil Nam insisted that his brother, who is the oldest child, should have more food than him, and stuck out a Sack of Rice from his stack. He then requested that I place it on top of Chil Sung's stack of rice in front of his house.\nI received a Sack of Rice from Chil Nam, and placed it on top of a stack of rice in front of Chil Sung's house.",
       "npc_name": "Chil Nam",
       "requirements": "Sack of Rice x 1",
       "requirements_list": [
@@ -23052,6 +23965,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031246,
+          "name": "Sack of Rice",
+          "count": 1
+        }
+      ],
       "chain_length": 5,
       "chain_level_min": 0
     },
@@ -23061,7 +23982,7 @@
       "parent": "Brotherly Love",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Chil Sung was puzzled that his stack didn't seem to decrease, and asked me if I could place another Sack of Rice on his brother's stack.\nI received a Sack of Rice from Chil Sung, and placed it on top of a stack of rice in front of Chil Nam's house.",
       "npc_name": "Chil Sung",
       "requirements": "Sack of Rice x 1",
       "requirements_list": [
@@ -23092,6 +24013,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031247,
+          "name": "Sack of Rice",
+          "count": 1
+        }
+      ],
       "chain_length": 5,
       "chain_level_min": 0
     },
@@ -23101,7 +24030,7 @@
       "parent": "Brotherly Love",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Chil Nam was puzzled that his stack didn't seem to decrease, and asked me if I could place another Sack of Rice on his brother's stack.\nI received a Sack of Rice from Chil Nam, and placed it on top of a stack of rice in front of Chil Sung's house.",
       "npc_name": "Chil Nam",
       "requirements": "Sack of Rice x 1",
       "requirements_list": [
@@ -23132,6 +24061,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031248,
+          "name": "Sack of Rice",
+          "count": 1
+        }
+      ],
       "chain_length": 5,
       "chain_level_min": 0
     },
@@ -23141,7 +24078,7 @@
       "parent": "Brotherly Love",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "While I was busy secretly placing sacks of rice on both Chil Sung's and Chil Nam's stacks back and forth, I was finally caught red-handed by Chil Sung. Chil Sung thanked me for strengthening the love and bond between the brothers even more. He also said that Chil Nam might have noticed it himself, and wanted me to go see him.\nI was busy transfering multiple sacks of rice for Chil Sung and Chil Nam on each other's stacks, but was caught red-handed. The brothers seemed genuinely thankful for helping them strengthening the love and bond between the brothers even more. He also said that Chil Nam might have noticed it himself, and wanted me to go see him.",
       "npc_name": "Chil Sung",
       "requirements": "",
       "requirements_list": [],
@@ -23172,6 +24109,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 5,
       "chain_level_min": 0
     },
@@ -23220,6 +24158,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -23312,6 +24251,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031245,
+          "name": "Nolbu's Seed",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -23404,6 +24351,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031244,
+          "name": "Hongbu's Seed",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -23440,6 +24395,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -23498,6 +24454,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Eliminate Goblins",
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 60
     },
@@ -23507,7 +24464,7 @@
       "parent": "Goblin at Black Mountain",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "Armed with 3 types of food that Goblins cannot resist, the quest to defeat the Goblins has now officially begun. Chumji advised that I drop the baits at various spots near the abandoned house in the Black Mountain to draw the Goblins out, and proceeded to give me the details on exactly where to drop them: roasted pork in front of a stack of rocks; buckwheat paste inside a tree hole; rice wine in a stone lantern Yellow King Goblin 36113# Blue King Goblin 36111# Green King Goblin 36112# Goblin Cap 4031232/1 Goblin Bat 4031233/1 Goblin Cape 4031234/1\nI brought roasted pork, buckwheat paste, and rice wine and made my way up to the very top of the Black Mountain, where the abandoned house is located. I was able to successfully draw the 3 King Goblins out from the house and defeated all of them. When the Goblins were defeated, they dropped a bunch of jewelry, and after bringing them all to Chumji, he decided to give me one as a gift.",
       "npc_name": "Chumji",
       "requirements": "Defeat Blue King Goblin x 1, Defeat Green King Goblin x 1, Defeat Yellow King Goblin x 1, Goblin Cape x 1, Goblin Cap x 1, Goblin Bat x 1",
       "requirements_list": [
@@ -23640,6 +24597,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 60
     },
@@ -23688,6 +24646,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -23736,6 +24695,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -23784,6 +24744,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -23832,6 +24793,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -23880,6 +24842,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -23928,6 +24891,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -23976,6 +24940,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 60
     },
@@ -24016,6 +24981,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -24056,6 +25022,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -24104,6 +25071,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -24151,6 +25119,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 55
     },
@@ -24191,6 +25160,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -24235,6 +25205,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -24279,6 +25250,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -24323,6 +25295,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -24367,6 +25340,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -24411,6 +25385,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -24466,6 +25441,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -24514,6 +25490,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 37
     },
@@ -24558,6 +25535,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -24606,6 +25584,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -24654,6 +25633,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -24698,6 +25678,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -24746,6 +25727,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 57
     },
@@ -24794,6 +25776,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 45
     },
@@ -24803,7 +25786,7 @@
       "parent": "",
       "area": 40,
       "region": "Ossyria",
-      "description": "",
+      "description": "The Mountain God told me if I bring the axe that Dark Axe Stump had, then he'll look into it and see if it's indeed the steel axe of the tree cutter or not. I need to pick up an axe from Dark Stump and bring it back to the Mountain God.\nThe Mountain God carefully looked through the axe that I picked up, and told me what kind of axe that was. If I ever find the tree cutter's steel axe, then I'll have to return it to the tree cutter who lives somewhere around the Black Mountain.",
       "npc_name": "God of Mountains",
       "requirements": "",
       "requirements_list": [],
@@ -24939,6 +25922,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 45
     },
@@ -24987,6 +25971,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 45
     },
@@ -25038,6 +26023,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -25078,6 +26064,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 50
     },
@@ -25118,6 +26105,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 50
     },
@@ -25158,6 +26146,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 50
     },
@@ -25198,6 +26187,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 55
     },
@@ -25245,6 +26235,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 55
     },
@@ -25285,6 +26276,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 60
     },
@@ -25325,6 +26317,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 60
     },
@@ -25365,6 +26358,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 50
     },
@@ -25412,6 +26406,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 50
     },
@@ -25452,6 +26447,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031430,
+          "name": "The Legendary Being's Scroll <Beginner>",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 55
     },
@@ -25492,6 +26495,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 55
     },
@@ -25532,6 +26536,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031431,
+          "name": "The Legendary Being's Scroll <Intermediate>",
+          "count": 1
+        }
+      ],
       "chain_length": 3,
       "chain_level_min": 55
     },
@@ -25587,6 +26599,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 55
     },
@@ -25758,6 +26771,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 55
     },
@@ -25798,6 +26812,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 55
     },
@@ -25853,6 +26868,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 55
     },
@@ -25893,6 +26909,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -25941,6 +26958,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 25
     },
@@ -25981,6 +26999,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 25
     },
@@ -26021,6 +27040,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 25
     },
@@ -26061,6 +27081,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 25
     },
@@ -26109,6 +27130,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 40
     },
@@ -26156,6 +27178,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -26196,6 +27219,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 55
     },
@@ -26243,6 +27267,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 55
     },
@@ -26689,6 +27714,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 85
     },
@@ -26725,6 +27751,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 2",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -26761,6 +27788,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 3",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -26797,6 +27825,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 4",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -26833,6 +27862,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 5",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -26869,6 +27899,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 6",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -26905,6 +27936,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 7",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -26941,6 +27973,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 8",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -26977,6 +28010,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 9",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -27013,6 +28047,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 10",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -27049,6 +28084,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 11",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -27085,6 +28121,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz 12",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -27129,6 +28166,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "Welcome to New Leaf City Quiz - END",
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -27177,6 +28215,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 80
     },
@@ -27239,6 +28278,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 36
     },
@@ -27287,6 +28327,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 36
     },
@@ -27335,6 +28376,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 36
     },
@@ -27383,6 +28425,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 40
     },
@@ -27431,6 +28474,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 40
     },
@@ -27494,6 +28538,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 50
     },
@@ -27591,6 +28636,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 50
     },
@@ -27631,6 +28677,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 50
     },
@@ -27679,6 +28726,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 80
     },
@@ -27726,6 +28774,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 50
     },
@@ -27758,6 +28807,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 13,
       "chain_level_min": 0
     },
@@ -27785,6 +28835,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -27812,6 +28863,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -27839,6 +28891,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -27866,6 +28919,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -27922,6 +28976,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -27962,6 +29017,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -28002,6 +29058,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -28049,6 +29106,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -28089,6 +29147,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -28124,6 +29183,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -28159,6 +29219,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -28194,6 +29255,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -28229,6 +29291,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 35
     },
@@ -28261,6 +29324,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -28305,6 +29369,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -28340,6 +29405,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -28375,6 +29441,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -28423,6 +29490,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": "The Replacement Time Energy",
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 0
     },
@@ -28474,6 +29542,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 0
     },
@@ -28518,6 +29587,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 4,
       "chain_level_min": 0
     },
@@ -28579,6 +29649,14 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031179,
+          "name": "Piece of Cracked Dimension",
+          "count": 1
+        }
+      ],
       "chain_length": 4,
       "chain_level_min": 0
     },
@@ -28647,6 +29725,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -28683,6 +29762,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -28719,6 +29799,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -28755,6 +29836,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -28816,6 +29898,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -28866,6 +29949,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -28901,6 +29985,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -28936,6 +30021,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -28998,6 +30084,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 8
     },
@@ -29053,6 +30140,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 8
     },
@@ -29108,6 +30196,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -29244,6 +30333,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -29288,6 +30378,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -29424,6 +30515,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 31
     },
@@ -29494,6 +30586,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -29542,6 +30635,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -29578,6 +30672,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -29731,6 +30826,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 15
     },
@@ -29884,6 +30980,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -29949,6 +31046,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 15
     },
@@ -29997,6 +31095,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -30041,6 +31140,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -30085,6 +31185,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -30121,6 +31222,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -30249,6 +31351,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 0
     },
@@ -30853,6 +31956,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -30923,6 +32027,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -30993,6 +32098,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31041,6 +32147,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31089,6 +32196,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31137,6 +32245,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31185,6 +32294,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31233,6 +32343,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31369,6 +32480,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31505,6 +32617,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31641,6 +32754,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31777,6 +32891,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31913,6 +33028,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -31961,6 +33077,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -32001,6 +33118,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 10020
     },
@@ -32056,6 +33174,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -32111,6 +33230,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -32166,6 +33286,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -32221,6 +33342,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 20
     },
@@ -32285,6 +33407,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -32341,6 +33464,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 35
     },
@@ -32389,6 +33513,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 2,
       "chain_level_min": 1
     },
@@ -32474,6 +33599,14 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031542,
+          "name": "Mouse",
+          "count": 1
+        }
+      ],
       "chain_length": 2,
       "chain_level_min": 1
     },
@@ -32510,6 +33643,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -32572,6 +33706,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 8
     },
@@ -32627,6 +33762,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 8
     },
@@ -32682,6 +33818,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -32818,6 +33955,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -32954,6 +34092,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 31
     },
@@ -33002,6 +34141,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -33042,6 +34182,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 40
     },
@@ -33112,6 +34253,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 8
     },
@@ -33160,6 +34302,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 8
     },
@@ -33208,6 +34351,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 30
     },
@@ -33256,6 +34400,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 70
     },
@@ -35252,6 +36397,14 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [
+        {
+          "type": "item",
+          "id": 4031017,
+          "name": "Magic Box",
+          "count": 1
+        }
+      ],
       "chain_length": 0,
       "chain_level_min": 0
     },
@@ -35299,6 +36452,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 10
     },
@@ -35354,6 +36508,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -35402,6 +36557,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -35464,6 +36620,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -35519,6 +36676,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -35567,6 +36725,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -35629,6 +36788,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -35684,6 +36844,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -35732,6 +36893,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -35794,6 +36956,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 3,
       "chain_level_min": 0
     },
@@ -36100,6 +37263,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 8
     },
@@ -36173,6 +37337,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 8
     },
@@ -36261,6 +37426,7 @@
       "is_weekly": false,
       "is_repeatable": false,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 8
     },
@@ -36344,6 +37510,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 1010
     },
@@ -36427,6 +37594,7 @@
       "is_weekly": false,
       "is_repeatable": true,
       "next_quest_name": null,
+      "start_items": [],
       "chain_length": 0,
       "chain_level_min": 0
     }

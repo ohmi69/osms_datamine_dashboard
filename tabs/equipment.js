@@ -30,6 +30,8 @@ function renderEquipRow(item) {
   row.addEventListener('click', (e) => {
     if (e.target.closest('button, input')) return;
     history.replaceState(null, '', `#equipment?q=${encodeURIComponent('id:' + padItemId(item.id))}`);
+    document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
+    row.classList.add('row-hotlink');
     scrollToDetailRow(row, row);
   });
 

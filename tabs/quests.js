@@ -88,7 +88,8 @@ function renderRequirementChips(requirements, itemById, monsterById) {
         ),
         el('span', { textContent: formatRequirementLabel(requirement) })
       );
-      chip.addEventListener('click', () => {
+      chip.addEventListener('click', (e) => {
+        e.stopPropagation();
         window.location.hash = `#${tabId}?q=${encodeURIComponent('id:' + requirement.id)}`;
       });
       chip.addEventListener('keydown', (e) => {
@@ -138,7 +139,7 @@ function formatPercent(value) {
 function formatRewardItemLabel(item) {
   const base = (item && item.label)
     ? item.label
-    : `${item && item.count && item.count > 1 ? `${item.count}x ` : ''}${item && item.name ? item.name : ''}`.trim();
+    : `${item && item.count ? `${item.count}x ` : ''}${item && item.name ? item.name : ''}`.trim();
   if (item && typeof item.chance_pct === 'number') {
     return `${base} (${formatPercent(item.chance_pct)}%)`;
   }
@@ -172,7 +173,8 @@ function renderRewardItemChips(itemList, itemById) {
       }),
       el('span', { textContent: formatRewardItemLabel(item) }),
     );
-    chip.addEventListener('click', () => {
+    chip.addEventListener('click', (e) => {
+      e.stopPropagation();
       window.location.hash = `#${tabId}?q=${encodeURIComponent('id:' + item.id)}`;
     });
     chip.addEventListener('keydown', (e) => {
@@ -297,7 +299,7 @@ function renderRewardContent(quest, itemById) {
   return content;
 }
 
-function renderQuestCard(quest, completionState, onToggleCompletion, itemById, monsterById) {
+function renderQuestCard(quest, completionState, onToggleCompletion, itemById, monsterById, expandedIds) {
   const card = el('div', { className: 'quest-card' });
   const nameRow = el('div', { className: 'quest-name' });
 
@@ -347,60 +349,101 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
     nameRow.appendChild(qIdWrap);
   }
   card.appendChild(nameRow);
+
+  const stages = quest.description ? quest.description.split('\n').filter(s => s.trim()) : [];
+  let descEl = null;
+  let detailSection = null;
+
   if (quest.id != null) {
     card.addEventListener('click', (e) => {
-      if (e.target.closest('button, input')) return;
+      if (e.target.closest('button, input, label')) return;
+      if (detailSection) {
+        if (!detailSection.hidden) {
+          detailSection.hidden = true;
+          if (descEl) descEl.hidden = false;
+          card.classList.remove('quest-expanded', 'row-hotlink');
+          if (expandedIds) expandedIds.delete(String(quest.id));
+          history.replaceState(null, '', '#quests');
+          return;
+        }
+        detailSection.hidden = false;
+        if (descEl) descEl.hidden = true;
+        card.classList.add('quest-expanded');
+        if (expandedIds) expandedIds.add(String(quest.id));
+      }
       history.replaceState(null, '', `#quests?q=${encodeURIComponent('id:' + padQuestId(quest.id))}`);
-      scrollToDetailRow(card, card);
+      document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
+      card.classList.add('row-hotlink');
+      scrollToDetailRow(card, detailSection || card);
     });
   }
 
   if (quest.npc_name) {
     card.appendChild(el('div', { className: 'quest-npc', textContent: quest.npc_name }));
   }
-  if (quest.description) {
-    card.appendChild(el('p', { className: 'quest-desc', textContent: quest.description }));
+  if (stages.length > 0) {
+    descEl = el('p', { className: 'quest-desc', textContent: stages[0] });
+    card.appendChild(descEl);
   }
+  if (stages.length > 1) {
+    const isExpanded = expandedIds ? expandedIds.has(String(quest.id)) : false;
+    detailSection = el('div', { className: 'quest-stages' });
+    detailSection.hidden = !isExpanded;
+    if (isExpanded) {
+      if (descEl) descEl.hidden = true;
+      card.classList.add('quest-expanded');
+    }
+    stages.forEach((stage, i) => {
+      detailSection.appendChild(el('p', { className: 'quest-stage', textContent: `${i + 1}) ${stage}` }));
+    });
+    card.appendChild(detailSection);
+  }
+  const startItems = Array.isArray(quest.start_items) ? quest.start_items : [];
+  if (startItems.length) {
+    const startBox = el('div', { className: 'quest-meta-box', style: { marginTop: '8px' } });
+    startBox.appendChild(el('span', { className: 'label', textContent: 'Given on start: ' }));
+    startBox.appendChild(renderRewardItemChips(startItems, itemById));
+    card.appendChild(startBox);
+  }
+
   const nonSkillReqs = Array.isArray(quest.requirements_list)
     ? quest.requirements_list.filter(r => r.type !== 'skill')
     : [];
+  const reqBox = el('div', { className: 'quest-meta-box', style: { marginTop: startItems.length ? '0' : '8px' } });
+  reqBox.appendChild(el('span', { className: 'label', textContent: 'Requirements: ' }));
   if (nonSkillReqs.length) {
-    const reqBox = el('div', { className: 'quest-meta-box', style: { marginTop: '8px' } });
-    reqBox.appendChild(el('span', { className: 'label', textContent: 'Requirements: ' }));
     reqBox.appendChild(renderRequirementChips(nonSkillReqs, itemById, monsterById));
-    card.appendChild(reqBox);
   } else if (quest.requirements) {
-    const reqBox = el('div', { className: 'quest-meta-box', style: { marginTop: '8px' } });
-    reqBox.appendChild(el('span', { className: 'label', textContent: 'Requirements: ' }));
     reqBox.appendChild(el('span', { className: 'value', textContent: quest.requirements }));
-    card.appendChild(reqBox);
+  } else {
+    reqBox.appendChild(el('span', { className: 'value value--none', textContent: 'None' }));
   }
+  card.appendChild(reqBox);
 
-  const meta = el('div', { className: 'quest-meta' });
   const rewardContent = renderRewardContent(quest, itemById);
   const hasRewards = quest.rewards_exp > 0 || quest.rewards_money > 0 || rewardContent;
+  const rewardBox = el('div', { className: 'quest-meta-box' });
+  rewardBox.appendChild(el('span', { className: 'label', textContent: 'Reward: ' }));
   if (hasRewards) {
-    const box = el('div', { className: 'quest-meta-box' });
-    box.appendChild(el('span', { className: 'label', textContent: 'Reward: ' }));
     if (rewardContent) {
-      box.appendChild(rewardContent);
+      rewardBox.appendChild(rewardContent);
     }
     if (quest.rewards_exp > 0) {
       const expBox = el('span', { className: 'quest-stat-chip' });
       expBox.appendChild(el('span', { className: 'label', textContent: 'EXP: ' }));
       expBox.appendChild(el('span', { className: 'value', textContent: fmt(quest.rewards_exp) }));
-      box.appendChild(expBox);
+      rewardBox.appendChild(expBox);
     }
     if (quest.rewards_money > 0) {
       const mesoBox = el('span', { className: 'quest-stat-chip' });
       mesoBox.appendChild(el('span', { className: 'label', textContent: 'Meso: ' }));
       mesoBox.appendChild(el('span', { className: 'value', textContent: fmt(quest.rewards_money) }));
-      box.appendChild(mesoBox);
+      rewardBox.appendChild(mesoBox);
     }
-    meta.appendChild(box);
+  } else {
+    rewardBox.appendChild(el('span', { className: 'value value--none', textContent: 'None' }));
   }
-
-  if (meta.children.length > 0) card.appendChild(meta);
+  card.appendChild(rewardBox);
   if (quest.next_quest) {
     card.appendChild(
       el('div', {
@@ -431,6 +474,7 @@ export function renderQuests(data, options = {}) {
   let regionFilter = 'All';
   const sortByLevel = true;
   const completionState = loadCompletionState();
+  const expandedIds = new Set();
   const container = el('div');
 
   const chainMetaByParent = new Map(
@@ -535,17 +579,21 @@ export function renderQuests(data, options = {}) {
 
     allItems.forEach((item) => {
       if (item.type === 'quest') {
-        dataDiv.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion, itemById, monsterById));
+        const wrapper = el('div', { className: 'quest-standalone' });
+        if (isQuestCompleted(item.quest, completionState)) wrapper.classList.add('quest-group-complete');
+        wrapper.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion, itemById, monsterById, expandedIds));
+        dataDiv.appendChild(wrapper);
       } else {
         const chain = item.chain;
         const chainDiv = el('div', { className: 'quest-chain' });
+        if (chain.quests.every(q => isQuestCompleted(q, completionState))) chainDiv.classList.add('quest-group-complete');
         const header = el('div', {
           className: 'quest-chain-header',
           textContent: `${chain.parent} · ${chain.quests.length} quests`,
         });
         chainDiv.appendChild(header);
         chain.quests.forEach((quest) =>
-          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion, itemById, monsterById))
+          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion, itemById, monsterById, expandedIds))
         );
         dataDiv.appendChild(chainDiv);
       }

@@ -175,6 +175,8 @@ export function renderCrafting(data, options = {}) {
               row.addEventListener('click', (e) => {
                 if (e.target.closest('button, input')) return;
                 history.replaceState(null, '', `#crafting?q=${encodeURIComponent('id:' + padItemId(recipe.output_id))}`);
+                document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
+                row.classList.add('row-hotlink');
                 scrollToDetailRow(row, row);
               });
             }
@@ -207,9 +209,6 @@ export function renderCrafting(data, options = {}) {
                 });
               }
               ingCell.appendChild(ingWrap);
-              if (index < recipe.ingredients.length - 1) {
-                ingCell.appendChild(el('span', { className: 'craft-ing-sep', textContent: '·' }));
-              }
             });
             row.appendChild(ingCell);
 

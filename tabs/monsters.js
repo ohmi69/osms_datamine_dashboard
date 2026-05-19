@@ -362,8 +362,8 @@ export function renderMonsters(data, options = {}) {
   function renderData() {
     dataContainer.innerHTML = '';
     const visibleCols = allCols.filter((col) => colState[col.id]);
-    // +3 for Name col, Tags col, and ID col
-    const totalCols = visibleCols.length + 3;
+    // +2 for Name col and ID col
+    const totalCols = visibleCols.length + 2;
     const exactId = parseIdFilter(filter);
 
     const filtered = monsters.monsters.filter((monster) => {
@@ -432,7 +432,6 @@ export function renderMonsters(data, options = {}) {
       headRow.appendChild(th);
     });
 
-    headRow.appendChild(el('th', { textContent: 'Tags' }));
     headRow.appendChild(el('th', { className: 'num id-col', textContent: 'ID' }));
     thead.appendChild(headRow);
     table.appendChild(thead);
@@ -470,6 +469,9 @@ export function renderMonsters(data, options = {}) {
       // Monster name with (?) tooltip if special
       const nameSpan = el('span', { textContent: monster.name });
       nameLeft.appendChild(nameSpan);
+      if (monster.is_boss) {
+        nameLeft.appendChild(el('span', { className: 'badge badge-boss', textContent: 'BOSS' }));
+      }
       if (monster.special) {
         const SPECIAL_DESCRIPTIONS = {
           'Job Advancement': 'This mob appears only during job advancement trials.',
@@ -548,14 +550,6 @@ export function renderMonsters(data, options = {}) {
         }
       });
 
-      const tagCell = el('td', { style: tdBase });
-      const tagWrap = el('span', { style: { display: 'flex', gap: '6px', flexWrap: 'wrap' } });
-      if (monster.is_boss) {
-        tagWrap.appendChild(el('span', { className: 'badge badge-boss', textContent: 'BOSS' }));
-      }
-      tagCell.appendChild(tagWrap);
-      row.appendChild(tagCell);
-
       const idTd = el('td', { className: 'num id-col', style: tdBase });
       if (monster.id != null) {
         idTd.appendChild(makeCopyableId(`#${padMobId(monster.id)}`));
@@ -569,13 +563,15 @@ export function renderMonsters(data, options = {}) {
         if (detailRow) {
           detailRow.remove();
           detailRow = null;
-          row.classList.remove('expanded');
+          row.classList.remove('expanded', 'row-hotlink');
           history.replaceState(null, '', '#monsters');
         } else {
           detailRow = buildDetailRow(monster, totalCols, onMapClick);
           row.after(detailRow);
           row.classList.add('expanded');
           history.replaceState(null, '', `#monsters?q=${encodeURIComponent('id:' + padMobId(monster.id))}`);
+          document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
+          row.classList.add('row-hotlink');
           scrollToDetailRow(row, detailRow);
         }
       });

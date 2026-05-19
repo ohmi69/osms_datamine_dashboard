@@ -518,10 +518,12 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
             }
             tr.classList.add('expanded');
             history.replaceState(null, '', `#maps?q=${encodeURIComponent('id:' + padMapId(mapEntry.id))}`);
+            document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
+            tr.classList.add('row-hotlink');
             scrollToDetailRow(tr, detailTr);
           } else {
             if (detailTr) detailTr.style.display = 'none';
-            tr.classList.remove('expanded');
+            tr.classList.remove('expanded', 'row-hotlink');
             history.replaceState(null, '', '#maps');
           }
         });

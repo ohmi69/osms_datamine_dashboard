@@ -25,6 +25,12 @@
   border-color: rgba(234,179,8,0.4);
 }
 
+.quest-standalone.quest-group-complete,
+.quest-chain.quest-group-complete {
+  border-color: rgba(34, 197, 94, 0.6);
+}
+
+.quest-standalone,
 .quest-chain {
   border: 1px solid #6b9ac4;
   background: rgba(107,154,196,0.04);
@@ -40,6 +46,7 @@
   color: #6b9ac4;
   background: rgba(107,154,196,0.10);
 }
+[data-theme="mapletip"] .quest-standalone,
 [data-theme="mapletip"] .quest-chain {
   border-color: #3b6ea0;
   background: rgba(59,110,160,0.05);
@@ -51,10 +58,11 @@
 
 .quest-card {
   padding: 12px 16px;
-  border-top: 1px solid var(--border);
   transition: background .2s;
   cursor: pointer;
 }
+.quest-chain .quest-card { border-top: 1px solid var(--border); }
+.quest-chain .quest-card:first-child { border-top: none; }
 .quest-card:hover { background: var(--surface-2); }
 .quest-card.quest-complete {
   background: rgba(34, 197, 94, 0.08);
@@ -124,7 +132,9 @@
 }
 .quest-card .quest-npc  { font-size: 12px; color: var(--secondary); margin-top: 2px; }
 .quest-card .quest-desc { font-size: 13px; color: var(--dim); margin-top: 6px; line-height: 1.6; }
-.quest-card .quest-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; align-items: flex-start; }
+.quest-card .quest-stages { margin-top: 8px; border-top: 1px solid var(--border); padding-top: 8px; }
+.quest-card .quest-stage { font-size: 13px; color: var(--dim); line-height: 1.6; margin: 0 0 6px; }
+.quest-card .quest-stage:last-child { margin-bottom: 0; }
 
 .quest-meta-box {
   font-size: 12px;
@@ -143,6 +153,7 @@
 }
 .quest-meta-box .label { color: var(--dim); }
 .quest-meta-box .value { color: var(--text); font-weight: 600; }
+.quest-meta-box .value--none { color: var(--dim); font-weight: 400; font-style: italic; }
 .value--pre { white-space: pre-line; }
 
 .quest-stat-chip {
@@ -212,6 +223,11 @@
   font-family: monospace;
 }
 [data-theme="mapletip"] .badge-crafting {
+  background: rgba(161,100,0,0.10);
+  color: #7a4700;
+  border-color: rgba(161,100,0,0.30);
+}
+[data-theme="mapletip"] .badge-repeatable {
   background: rgba(161,100,0,0.10);
   color: #7a4700;
   border-color: rgba(161,100,0,0.30);

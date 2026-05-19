@@ -60,6 +60,9 @@
 .craft-ingredients {
   font-size: 13px;
   color: var(--dim);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .craft-ing {
@@ -74,15 +77,9 @@
   white-space: nowrap;
 }
 
-.craft-ing-sep {
-  margin: 0 6px;
-  color: var(--dim);
-}
-
 @media (max-width: 640px) {
   .craft-table .hide-mobile { display: none; }
-  .craft-ingredients { display: flex; flex-direction: column; gap: 4px; }
-  .craft-ing-sep { display: none; }
+  .craft-ingredients { flex-direction: column; gap: 4px; }
 }
 
 /* Item hover tooltip */

@@ -321,6 +321,11 @@
 .formulas-disclaimer::before {
   content: '⚠  ';
 }
+[data-theme="mapletip"] .formulas-disclaimer {
+  color: #7a4700;
+  background: rgba(161, 100, 0, 0.08);
+  border-color: rgba(161, 100, 0, 0.30);
+}
 
 /* ── Full-width section stack ────────────────────────────────── */
 .formulas-full {
@@ -372,5 +377,23 @@
 
 [data-theme="mapletip"] .formulas-pipeline-notes {
   background: #EDE4D0;
+}
+
+[data-theme="mapletip"] .formulas-status-partial {
+  color: #b07800;
+  background: rgba(180, 120, 0, 0.1);
+  border-color: rgba(180, 120, 0, 0.3);
+}
+
+[data-theme="mapletip"] .formulas-status-ok {
+  color: #1a8a3a;
+  background: rgba(26, 138, 58, 0.1);
+  border-color: rgba(26, 138, 58, 0.3);
+}
+
+[data-theme="mapletip"] .formulas-status-warn {
+  color: #c04a10;
+  background: rgba(192, 74, 16, 0.1);
+  border-color: rgba(192, 74, 16, 0.3);
 }
 
