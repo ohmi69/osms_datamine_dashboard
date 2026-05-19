@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMobId } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMobId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import state from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL } from '../lib/constants.js';
@@ -288,11 +288,19 @@ export function renderMonsters(data, options = {}) {
       const nextFilter = typeof target === 'object' && target && target.id != null
         ? `id:${target.id}`
         : String(target || '');
-      autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand)
-        ? target.id
-        : parseIdFilter(nextFilter);
-      filter = nextFilter;
-      searchBox._input.value = nextFilter;
+      const exactId = parseIdFilter(nextFilter);
+      const isDeeplink = typeof target === 'string' && exactId != null;
+      if (isDeeplink) {
+        autoExpandAfterId = exactId;
+        filter = '';
+        searchBox._input.value = '';
+      } else {
+        autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand)
+          ? target.id
+          : exactId;
+        filter = nextFilter;
+        searchBox._input.value = nextFilter;
+      }
       renderData();
       window.scrollTo(0, 0);
     });
@@ -562,10 +570,13 @@ export function renderMonsters(data, options = {}) {
           detailRow.remove();
           detailRow = null;
           row.classList.remove('expanded');
+          history.replaceState(null, '', '#monsters');
         } else {
           detailRow = buildDetailRow(monster, totalCols, onMapClick);
           row.after(detailRow);
           row.classList.add('expanded');
+          history.replaceState(null, '', `#monsters?q=${encodeURIComponent('id:' + padMobId(monster.id))}`);
+          scrollToDetailRow(row, detailRow);
         }
       });
 
@@ -577,18 +588,8 @@ export function renderMonsters(data, options = {}) {
     dataContainer.appendChild(wrapper);
 
     if (autoExpandAfterId != null) {
-      const expandId = autoExpandAfterId;
+      autoExpandById(dataContainer, autoExpandAfterId);
       autoExpandAfterId = null;
-      setTimeout(() => {
-        const rows = dataContainer.querySelectorAll('tr.monster-row');
-        for (const row of rows) {
-          const idCell = row.querySelector('.id-col .id');
-          if (idCell && Number(idCell.textContent) === expandId) {
-            row.click();
-            break;
-          }
-        }
-      }, 0);
     }
   }
 

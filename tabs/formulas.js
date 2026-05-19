@@ -339,7 +339,7 @@ function buildPipeline(steps) {
     stepHeader.appendChild(el('span', { className: 'formulas-pipeline-title', textContent: label }));
     if (wip) stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
     if (status) {
-      const statusLabels = { ok: 'Verified', partial: 'Partial', warn: 'Unverified' };
+      const statusLabels = { ok: 'Verified', partial: 'Partially Verified', warn: 'Unverified' };
       const statusTag = el('span', { className: `formulas-status-tag formulas-status-${status}`, textContent: statusLabels[status] });
       const tooltipText = statusNote ?? (status === 'ok' ? 'Formula has been validated across multiple datapoints and edge cases' : null);
       if (tooltipText) {

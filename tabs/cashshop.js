@@ -1,14 +1,18 @@
-import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeHideToggle, makeCopyableId, padItemId } from '../lib/utils.js';
+import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeHideToggle, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
 import state from '../lib/data.js';
 
 export function renderCashShop(data, options = {}) {
   const { cashShop } = data;
   let searchQuery = '';
+  let autoExpandAfterId = null;
   let selectedCategory = null; // null = all, '__unnamed__' = unnamed section
   let selectedSubCategory = null;
   const container = el('div');
   wireSearch(container, 'Search by name or description...', options, (query) => {
     searchQuery = query;
+    renderData();
+  }, (id) => {
+    autoExpandAfterId = id;
     renderData();
   });
 
@@ -127,6 +131,11 @@ export function renderCashShop(data, options = {}) {
     csRightWrap.appendChild(makeCopyableId(`#${padItemId(item.id)}`));
     topLine.appendChild(csRightWrap);
     row.appendChild(topLine);
+    row.addEventListener('click', (e) => {
+      if (e.target.closest('button, input')) return;
+      history.replaceState(null, '', `#cashshop?q=${encodeURIComponent('id:' + padItemId(item.id))}`);
+      scrollToDetailRow(row, row);
+    });
     if (item.description) {
       row.appendChild(
         el('p', { className: 'desc', textContent: item.description.replace(/\n/g, '\n') })
@@ -222,9 +231,12 @@ export function renderCashShop(data, options = {}) {
     if (filteredUnnamed.length > 0) {
       renderUnnamedSection(filteredUnnamed);
     }
+
+    if (autoExpandAfterId != null) {
+      autoExpandById(dataDiv, autoExpandAfterId, '.item-row');
+      autoExpandAfterId = null;
+    }
   }
-
-
 
   renderData();
   return container;

@@ -1,4 +1,4 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, padItemId } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 
 function filterDisciplines(disciplines, exactId, sq) {
@@ -30,6 +30,7 @@ export function renderCrafting(data, options = {}) {
   const { recipes, items } = data;
   const { onItemClick } = options;
   let searchQuery = '';
+  let autoExpandAfterId = null;
   let selectedDiscipline = null; // null = all
   const container = el('div');
 
@@ -48,6 +49,9 @@ export function renderCrafting(data, options = {}) {
 
   wireSearch(container, 'Search by result or ingredient...', options, (query) => {
     searchQuery = query;
+    renderData();
+  }, (id) => {
+    autoExpandAfterId = id;
     renderData();
   });
 
@@ -167,6 +171,13 @@ export function renderCrafting(data, options = {}) {
             }
             resultCell.appendChild(resultWrap);
             row.appendChild(resultCell);
+            if (recipe.output_id != null) {
+              row.addEventListener('click', (e) => {
+                if (e.target.closest('button, input')) return;
+                history.replaceState(null, '', `#crafting?q=${encodeURIComponent('id:' + padItemId(recipe.output_id))}`);
+                scrollToDetailRow(row, row);
+              });
+            }
             row.appendChild(
               el('td', { className: 'num craft-qty', textContent: recipe.result_count })
             );
@@ -228,6 +239,11 @@ export function renderCrafting(data, options = {}) {
         )
       );
     });
+
+    if (autoExpandAfterId != null) {
+      autoExpandById(dataDiv, autoExpandAfterId, 'tr');
+      autoExpandAfterId = null;
+    }
   }
 
   renderData();

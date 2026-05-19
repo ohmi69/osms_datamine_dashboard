@@ -1,5 +1,5 @@
 
-import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeHideToggle, makeCopyableId, padMapId, padMobId } from '../../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeHideToggle, makeCopyableId, padMapId, padMobId, scrollToDetailRow, autoExpandById } from '../../lib/utils.js';
 import { attachTooltip } from '../../lib/tooltip.js';
 import state, { getNpcLookup, getMapUrl } from '../../lib/data.js';
 
@@ -72,7 +72,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
   allCols.forEach((col) => {
     colState[col.id] = mapState.cols && mapState.cols[col.id] !== undefined ? mapState.cols[col.id] : col.on;
   });
-  let hideNoMobs = mapState.hideNoMobs || false;
+  let hideNoMobs = false;
 
   const toggles = el('div', { className: 'col-toggles' });
   function rebuildToggles() {
@@ -85,7 +85,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       });
       button.addEventListener('click', () => {
         colState[col.id] = !colState[col.id];
-        state.set('maps', { cols: { ...colState }, hideNoMobs });
+        state.set('maps', { cols: { ...colState } });
         rebuildToggles();
         renderData();
       });
@@ -93,7 +93,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     });
     const toggleBtn = makeHideToggle('Hide maps without mobs', hideNoMobs, (active) => {
       hideNoMobs = active;
-      state.set('maps', { cols: { ...colState }, hideNoMobs });
+      state.set('maps', { cols: { ...colState } });
       renderData();
     });
     toggles.appendChild(toggleBtn);
@@ -129,11 +129,19 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       const nextFilter = typeof target === 'object' && target && target.id != null
         ? `id:${target.id}`
         : String(target || '');
-      autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand)
-        ? target.id
-        : parseIdFilter(nextFilter);
-      searchQuery = nextFilter;
-      searchBox._input.value = nextFilter;
+      const exactId = parseIdFilter(nextFilter);
+      const isDeeplink = typeof target === 'string' && exactId != null;
+      if (isDeeplink) {
+        autoExpandAfterId = exactId;
+        searchQuery = '';
+        searchBox._input.value = '';
+      } else {
+        autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand)
+          ? target.id
+          : exactId;
+        searchQuery = nextFilter;
+        searchBox._input.value = nextFilter;
+      }
       selectedRegion = null;
       renderData();
       window.scrollTo(0, 0);
@@ -509,40 +517,12 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
               detailTr.style.display = '';
             }
             tr.classList.add('expanded');
-            const scrollToRow = () => {
-              requestAnimationFrame(() => {
-                const header = document.querySelector('.site-header');
-                const headerHeight = header ? header.offsetHeight : 64;
-                const trRect = tr.getBoundingClientRect();
-                const scrollY = window.scrollY + trRect.top - headerHeight;
-                window.scrollTo({ top: scrollY, behavior: 'smooth' });
-              });
-            };
-            const imgs = detailTr.querySelectorAll('img');
-            if (imgs.length > 0) {
-              let loaded = 0;
-              let fired = false;
-              imgs.forEach(img => {
-                if (img.complete) {
-                  loaded++;
-                } else {
-                  img.addEventListener('load', () => {
-                    loaded++;
-                    if (loaded === imgs.length && !fired) { fired = true; scrollToRow(); }
-                  }, { once: true });
-                  img.addEventListener('error', () => {
-                    loaded++;
-                    if (loaded === imgs.length && !fired) { fired = true; scrollToRow(); }
-                  }, { once: true });
-                }
-              });
-              if (loaded === imgs.length && !fired) { fired = true; scrollToRow(); }
-            } else {
-              scrollToRow();
-            }
+            history.replaceState(null, '', `#maps?q=${encodeURIComponent('id:' + padMapId(mapEntry.id))}`);
+            scrollToDetailRow(tr, detailTr);
           } else {
             if (detailTr) detailTr.style.display = 'none';
             tr.classList.remove('expanded');
+            history.replaceState(null, '', '#maps');
           }
         });
 
@@ -617,23 +597,8 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     }
 
     if (autoExpandAfterId != null) {
-      setTimeout(() => {
-        const rows = dataDiv.querySelectorAll('tr');
-        for (const row of rows) {
-          const idCell = row.querySelector('.id-col .id');
-          if (idCell && Number(idCell.textContent) === autoExpandAfterId) {
-            row.click();
-            setTimeout(() => {
-              const detailRow = row.nextElementSibling;
-              if (detailRow && detailRow.classList.contains('map-detail-row')) {
-                detailRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              }
-            }, 100);
-            autoExpandAfterId = null;
-            break;
-          }
-        }
-      }, 300);
+      autoExpandById(dataDiv, autoExpandAfterId);
+      autoExpandAfterId = null;
     }
   }
 

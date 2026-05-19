@@ -1,6 +1,5 @@
-import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, toMobThumbPath, makeCopyableId, padQuestId } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, toMobThumbPath, makeCopyableId, padQuestId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
-import { CHAIN_COLORS } from '../lib/constants.js';
 
 
 import state from '../lib/data.js';
@@ -348,6 +347,13 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
     nameRow.appendChild(qIdWrap);
   }
   card.appendChild(nameRow);
+  if (quest.id != null) {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('button, input')) return;
+      history.replaceState(null, '', `#quests?q=${encodeURIComponent('id:' + padQuestId(quest.id))}`);
+      scrollToDetailRow(card, card);
+    });
+  }
 
   if (quest.npc_name) {
     card.appendChild(el('div', { className: 'quest-npc', textContent: quest.npc_name }));
@@ -421,6 +427,7 @@ export function renderQuests(data, options = {}) {
     (data.monsters?.monsters || []).map(mob => [String(mob.id), mob])
   );
   let searchQuery = '';
+  let autoExpandAfterId = null;
   let regionFilter = 'All';
   const sortByLevel = true;
   const completionState = loadCompletionState();
@@ -434,6 +441,9 @@ export function renderQuests(data, options = {}) {
 
   wireSearch(container, 'Search by name, NPC, or reward...', options, (query) => {
     searchQuery = query;
+    renderData();
+  }, (id) => {
+    autoExpandAfterId = id;
     renderData();
   });
 
@@ -528,14 +538,9 @@ export function renderQuests(data, options = {}) {
         dataDiv.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion, itemById, monsterById));
       } else {
         const chain = item.chain;
-        const color = CHAIN_COLORS[item.idx % CHAIN_COLORS.length];
-        const chainDiv = el('div', {
-          className: 'quest-chain',
-          style: { borderColor: color, background: `${color}08` },
-        });
+        const chainDiv = el('div', { className: 'quest-chain' });
         const header = el('div', {
           className: 'quest-chain-header',
-          style: { color, background: `${color}15` },
           textContent: `${chain.parent} · ${chain.quests.length} quests`,
         });
         chainDiv.appendChild(header);
@@ -550,6 +555,11 @@ export function renderQuests(data, options = {}) {
       dataDiv.appendChild(
         el('p', { className: 'empty-state', textContent: 'No quests match your filters.' })
       );
+    }
+
+    if (autoExpandAfterId != null) {
+      autoExpandById(dataDiv, autoExpandAfterId, '.quest-card');
+      autoExpandAfterId = null;
     }
   }
 

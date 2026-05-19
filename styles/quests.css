@@ -26,7 +26,8 @@
 }
 
 .quest-chain {
-  border: 1px solid var(--border);
+  border: 1px solid #6b9ac4;
+  background: rgba(107,154,196,0.04);
   border-radius: 0;
   padding: 0;
   margin-bottom: 16px;
@@ -36,12 +37,23 @@
   padding: 11px 16px;
   font-weight: 700;
   font-size: 13px;
+  color: #6b9ac4;
+  background: rgba(107,154,196,0.10);
+}
+[data-theme="mapletip"] .quest-chain {
+  border-color: #3b6ea0;
+  background: rgba(59,110,160,0.05);
+}
+[data-theme="mapletip"] .quest-chain-header {
+  color: #3b6ea0;
+  background: rgba(59,110,160,0.10);
 }
 
 .quest-card {
   padding: 12px 16px;
   border-top: 1px solid var(--border);
   transition: background .2s;
+  cursor: pointer;
 }
 .quest-card:hover { background: var(--surface-2); }
 .quest-card.quest-complete {

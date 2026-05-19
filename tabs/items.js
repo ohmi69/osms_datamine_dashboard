@@ -1,4 +1,4 @@
-import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, wireSearch, makeCopyableId, padItemId } from '../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
 
 const STAT_LABELS = {
   price:       ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
@@ -46,6 +46,11 @@ function renderItemRow(item) {
 
   topLine.appendChild(rightWrap);
   row.appendChild(topLine);
+  row.addEventListener('click', (e) => {
+    if (e.target.closest('button, input')) return;
+    history.replaceState(null, '', `#items?q=${encodeURIComponent('id:' + padItemId(item.id))}`);
+    scrollToDetailRow(row, row);
+  });
 
   if (item.description) {
     row.appendChild(
@@ -61,11 +66,15 @@ function renderItemRow(item) {
 export function renderItems(data, options = {}) {
   const { items } = data;
   let searchQuery = '';
+  let autoExpandAfterId = null;
   const container = el('div');
   const scrollIdSet = new Set(items.scrolls.map((scroll) => String(scroll.id)));
 
   wireSearch(container, 'Search by name or description...', options, (query) => {
     searchQuery = query;
+    renderData();
+  }, (id) => {
+    autoExpandAfterId = id;
     renderData();
   });
 
@@ -183,6 +192,11 @@ export function renderItems(data, options = {}) {
       dataDiv.appendChild(
         el('p', { className: 'empty-state', textContent: 'No items match your filters.' })
       );
+    }
+
+    if (autoExpandAfterId != null) {
+      autoExpandById(dataDiv, autoExpandAfterId, '.item-row');
+      autoExpandAfterId = null;
     }
   }
 

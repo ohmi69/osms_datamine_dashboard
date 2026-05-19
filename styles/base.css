@@ -1,3 +1,8 @@
+.row-hotlink {
+  background: var(--accent-bg) !important;
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
 /* Special mob info icon */
 .special-tooltip-icon {
   display: inline-flex;
@@ -373,7 +378,7 @@ body {
 
 /* ── App container ───────────────────────────────────────────── */
 .app {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px 16px 16px;
 }
@@ -796,6 +801,7 @@ body.hide-ids .id-col { display: none !important; }
   padding: 10px 16px;
   transition: background .2s;
   border-bottom: 1px solid var(--border);
+  cursor: pointer;
 }
 .item-row:last-child {
   border-bottom: none;

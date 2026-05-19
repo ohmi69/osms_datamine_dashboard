@@ -1,4 +1,4 @@
-import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeCopyableId, padSkillId } from '../lib/utils.js';
+import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeCopyableId, padSkillId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
 
 function makeLevelRow(className, label, text) {
   const row = el('div', { className });
@@ -23,12 +23,16 @@ export function renderSkills(data, options = {}) {
   const totalSkills = classes.reduce((sum, cls) => sum + (cls.skills?.length || 0), 0);
   let searchQuery = '';
   let classFilter = '';
+  let autoExpandAfterId = null;
   const container = el('div');
 
 
 
   wireSearch(container, 'Search by name or description...', options, (query) => {
     searchQuery = query;
+    renderData();
+  }, (id) => {
+    autoExpandAfterId = id;
     renderData();
   });
 
@@ -103,6 +107,19 @@ export function renderSkills(data, options = {}) {
         skRightWrap.appendChild(makeCopyableId(skill.id != null ? `#${padSkillId(skill.id)}` : ''));
         nameRow.appendChild(skRightWrap);
         card.appendChild(nameRow);
+        if (skill.id != null) {
+          card.addEventListener('click', (e) => {
+            if (e.target.closest('button, input')) return;
+            history.replaceState(null, '', `#skills?q=${encodeURIComponent('id:' + padSkillId(skill.id))}`);
+            scrollToDetailRow(card, card);
+            const levelsList = card.querySelector('.all-levels-list');
+            const arrow = card.querySelector('.all-levels-arrow');
+            if (levelsList) {
+              levelsList.hidden = !levelsList.hidden;
+              if (arrow) arrow.textContent = levelsList.hidden ? '▼' : '▲';
+            }
+          });
+        }
 
         if (skill.description) {
           const desc = skill.description.replace(/^\[Master Level\s*:\s*\d+\]\n?/i, '').trim();
@@ -134,11 +151,6 @@ export function renderSkills(data, options = {}) {
             statLevels.appendChild(levelsList);
             statLevels.appendChild(makeLevelRow('lvmax', `Lv.${lastIdx + 1}: `, skill.all_level_stats[lastIdx]));
 
-            statLevels.title = 'Show intermediate levels';
-            statLevels.addEventListener('click', () => {
-              levelsList.hidden = !levelsList.hidden;
-              arrow.textContent = levelsList.hidden ? '▼' : '▲';
-            });
           } else if (lastIdx > 0) {
             statLevels.appendChild(makeLevelRow('lvmax', `Lv.${lastIdx + 1}: `, skill.all_level_stats[lastIdx]));
           }
@@ -158,6 +170,11 @@ export function renderSkills(data, options = {}) {
       dataDiv.appendChild(
         el('p', { className: 'empty-state', textContent: 'No skills match your filters.' })
       );
+    }
+
+    if (autoExpandAfterId != null) {
+      autoExpandById(dataDiv, autoExpandAfterId, '.skill-card');
+      autoExpandAfterId = null;
     }
   }
 

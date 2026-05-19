@@ -1,4 +1,4 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
 
 function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
@@ -27,7 +27,11 @@ function renderEquipRow(item) {
   eqRightWrap.appendChild(makeCopyableId(`#${padItemId(item.id)}`));
   topLine.appendChild(eqRightWrap);
   row.appendChild(topLine);
-
+  row.addEventListener('click', (e) => {
+    if (e.target.closest('button, input')) return;
+    history.replaceState(null, '', `#equipment?q=${encodeURIComponent('id:' + padItemId(item.id))}`);
+    scrollToDetailRow(row, row);
+  });
 
   if (item.description) {
     row.appendChild(
@@ -53,6 +57,7 @@ function renderEquipRow(item) {
 export function renderEquipment(data, options = {}) {
   const { items } = data;
   let searchQuery = '';
+  let autoExpandAfterId = null;
   let classFilter = 0;
   let genderFilter = null; // null = All genders
   let selectedSubCategory = null; // null = All
@@ -63,6 +68,9 @@ export function renderEquipment(data, options = {}) {
 
   wireSearch(container, 'Search by name or description...', options, (query) => {
     searchQuery = query;
+    renderData();
+  }, (id) => {
+    autoExpandAfterId = id;
     renderData();
   });
 
@@ -241,6 +249,11 @@ export function renderEquipment(data, options = {}) {
       const content = el('div');
       equips.forEach((item) => content.appendChild(renderEquipRow(item)));
       dataDiv.appendChild(makeCollapsible(selectedSubCategory, equips.length, true, null, content));
+    }
+
+    if (autoExpandAfterId != null) {
+      autoExpandById(dataDiv, autoExpandAfterId, '.item-row');
+      autoExpandAfterId = null;
     }
   }
 

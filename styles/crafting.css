@@ -21,6 +21,7 @@
 }
 .craft-table td { padding: 8px 12px; border-top: 1px solid var(--border); }
 .craft-table tr:hover { background: var(--surface-2); }
+.craft-table tr { cursor: pointer; }
 .craft-table .level-header td {
   padding: 6px 16px;
   font-weight: 700;
@@ -28,6 +29,7 @@
   font-size: 13px;
 }
 .craft-table .level-header:hover { background: transparent; }
+.craft-table .level-header { cursor: default; }
 
 .output-type-header {
   padding: 10px 16px;
