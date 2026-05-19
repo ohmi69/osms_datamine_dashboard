@@ -86,7 +86,7 @@ export function renderBeautyStyles(data) {
           card.appendChild(el('div', { className: 'beauty-style-placeholder' }));
         }
         card.appendChild(el('div', { className: 'beauty-style-name', textContent: style.name }));
-        card.appendChild(makeCopyableId(padItemId(style.id), 'beauty-style-id'));
+        card.appendChild(makeCopyableId(`#${padItemId(style.id)}`, 'beauty-style-id'));
         grid.appendChild(card);
       }
       block.appendChild(grid);

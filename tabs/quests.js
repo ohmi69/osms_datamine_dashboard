@@ -344,7 +344,7 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
   if (quest.id != null) {
     const qIdWrap = el('span', { className: 'quest-id-wrap' });
     qIdWrap.appendChild(makeDeepLinkButton('quests', padQuestId(quest.id)));
-    qIdWrap.appendChild(makeCopyableId(padQuestId(quest.id)));
+    qIdWrap.appendChild(makeCopyableId(`#${padQuestId(quest.id)}`));
     nameRow.appendChild(qIdWrap);
   }
   card.appendChild(nameRow);

@@ -42,7 +42,7 @@ function renderItemRow(item) {
 
   const rightWrap = el('span', { className: 'item-id-wrap' });
   rightWrap.appendChild(makeDeepLinkButton('items', padItemId(item.id)));
-  rightWrap.appendChild(makeCopyableId(padItemId(item.id)));
+  rightWrap.appendChild(makeCopyableId(`#${padItemId(item.id)}`));
 
   topLine.appendChild(rightWrap);
   row.appendChild(topLine);

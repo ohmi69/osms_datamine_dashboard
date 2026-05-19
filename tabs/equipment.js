@@ -24,7 +24,7 @@ function renderEquipRow(item) {
   topLine.appendChild(nameWrap);
   const eqRightWrap = el('span', { className: 'item-id-wrap' });
   eqRightWrap.appendChild(makeDeepLinkButton('equipment', padItemId(item.id)));
-  eqRightWrap.appendChild(makeCopyableId(padItemId(item.id)));
+  eqRightWrap.appendChild(makeCopyableId(`#${padItemId(item.id)}`));
   topLine.appendChild(eqRightWrap);
   row.appendChild(topLine);
 

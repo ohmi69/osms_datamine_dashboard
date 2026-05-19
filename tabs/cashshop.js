@@ -124,7 +124,7 @@ export function renderCashShop(data, options = {}) {
     topLine.appendChild(nameWrap);
     const csRightWrap = el('span', { className: 'item-id-wrap' });
     csRightWrap.appendChild(makeDeepLinkButton('cashshop', padItemId(item.id)));
-    csRightWrap.appendChild(makeCopyableId(padItemId(item.id)));
+    csRightWrap.appendChild(makeCopyableId(`#${padItemId(item.id)}`));
     topLine.appendChild(csRightWrap);
     row.appendChild(topLine);
     if (item.description) {

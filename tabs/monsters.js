@@ -155,7 +155,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
     const sortedSpawnMaps = [...spawnMaps].sort((a, b) => b.count - a.count || a.id - b.id);
     sortedSpawnMaps.forEach((m) => {
       const chip = el('span', { className: 'monster-map-chip' });
-      chip.appendChild(el('span', { textContent: m.name || String(m.id) }));
+      chip.appendChild(el('span', { textContent: m.name || `#${m.id}` }));
       chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${m.count}` }));
       if (onMapClick) {
         chip.classList.add('monster-map-chip--clickable');
@@ -189,7 +189,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
       const info = el('div', { className: 'mob-skill-info' });
       const nameRow = el('span', { className: 'mob-skill-name', textContent: `${buff.name} Lv.${buff.level}` });
       if (buff.id != null) {
-        const idEl = makeCopyableId(String(buff.id));
+        const idEl = makeCopyableId(`#${buff.id}`);
         idEl.classList.add('mob-skill-id');
         nameRow.appendChild(idEl);
       }
@@ -550,7 +550,7 @@ export function renderMonsters(data, options = {}) {
 
       const idTd = el('td', { className: 'num id-col', style: tdBase });
       if (monster.id != null) {
-        idTd.appendChild(makeCopyableId(padMobId(monster.id)));
+        idTd.appendChild(makeCopyableId(`#${padMobId(monster.id)}`));
       }
       row.appendChild(idTd);
 

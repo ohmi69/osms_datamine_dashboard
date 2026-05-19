@@ -100,7 +100,7 @@ export function renderSkills(data, options = {}) {
         nameRow.appendChild(nameWrap);
         const skRightWrap = el('span', { className: 'item-id-wrap' });
         if (skill.id != null) skRightWrap.appendChild(makeDeepLinkButton('skills', padSkillId(skill.id)));
-        skRightWrap.appendChild(makeCopyableId(skill.id != null ? padSkillId(skill.id) : ''));
+        skRightWrap.appendChild(makeCopyableId(skill.id != null ? `#${padSkillId(skill.id)}` : ''));
         nameRow.appendChild(skRightWrap);
         card.appendChild(nameRow);
 

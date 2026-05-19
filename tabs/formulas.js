@@ -37,23 +37,25 @@ const ACCURACY_STEPS = [
   {
     label: 'Physical Accuracy',
     wip: false,
+    status: 'ok',
     lines: [
-      'BaseChance = Acc × 100 / ((LevelDiff + 51) × 5)',
+      'BaseChance = Acc × 100 / ((max(0, LevelDiff) + 51) × 5)',
       '',
-      'MIN = 0.95 − 0.3 / (1 + exp(BaseChance / 12))',
-      'MAX = 1.05 + 0.3 / (1 + exp(BaseChance / 12))',
+      'MIN = 0.95 − 0.3 / (1 + exp((BaseChance − Avoid) / 12))',
+      'MAX = 1.05 + 0.3 / (1 + exp((BaseChance − Avoid) / 12))',
       '',
-      'Roll = rand(0, 1) × (MAX − MIN) + MIN',
+      'Roll = rand(MIN, MAX)',
       '',
       'DidHit = Roll × BaseChance ≥ Avoid',
     ],
-    notes: [],
+    notes: ['exp() is the exponential function'],
   },
   {
     label: 'Magical Accuracy',
     wip: false,
+    status: 'ok',
     lines: [
-      'Magical skills always hit — there is no accuracy check for magic.',
+      'Magical skills always hit - there is no accuracy check for magic.',
     ],
     notes: [],
   },
@@ -71,34 +73,57 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Physical Damage',
     wip: false,
+    status: 'partial',
+    statusNote: 'Verified for Assassins and Crossbowmen - no data for Warriors or Archers yet',
     lines: [
       'MIN = SkillMult × ((80 + PrimaryStat × MinWepMult × MasteryMult + SecondaryStat + AttackPower) / 100) × WeaponAttack',
       'MAX = SkillMult × ((100 + PrimaryStat × MaxWepMult + SecondaryStat + AttackPower) / 100) × WeaponAttack',
     ],
     notes: [
-      'L7 (Lucky Seven): MinWepMult = MaxWepMult = 2.6, MasteryLevel ≈ 5.25',
-      'Claws appear to use 2.6 for all attacks — Drain should use the 2.5 claw multiplier (likely a bug)',
+      'Verified for Assassins and Crossbowmen - no data for Warriors or Archers yet',
+      'Lucky Seven uses a 2.6 multi instead of the Claw\'s 2.5',
+      '❗ Drain (and possibly Normal Attack) erroneously use Lucky Seven\'s 2.6 multiplier instead of the Claw\'s intended 2.5. Likely a bug',
     ],
   },
   {
     label: 'Magical Damage',
     wip: false,
+    status: 'ok',
     lines: [
-      'MIN = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 × MasteryMult + Int) / 100 + 1)',
-      'MAX = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 + Int) / 100 + 1)',
+      'MIN = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 × MasteryMult + BaseInt) / 100 + 1)',
+      'MAX = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 + BaseInt) / 100 + 1)',
     ],
-    notes: [],
+    notes: [
+      '❗ Does not account for Int on Equipment or Scrolls. Luk is also assumed to not be accounted for (unconfirmed). Likely a bug',
+    ],
   },
   {
     label: 'Heal',
     wip: false,
+    status: 'partial',
+    statusNote: 'Data is limited - verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
     lines: [
-      'MIN = ((Int × 0.8 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
-      'MAX = ((Int × 1.0 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
+      'MIN = ((BaseInt × 0.8 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
+      'MAX = ((BaseInt × 1.0 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
     ],
     notes: [
-      'Luk is assumed to be BASE Luk from AP — difficult to verify as mages have very low Luk on gear',
-      'Data is limited — verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
+      '❗ Does not account for Int or Luk on Equipment or Scrolls. Likely a bug',
+      'Luk is assumed to be BASE Luk from AP - difficult to verify as mages have very low Luk on gear',
+      'Data is limited - verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
+    ],
+  },
+  {
+    label: 'Damage Over Time (DoT)',
+    wip: false,
+    status: 'ok',
+    lines: [
+      'TotalDamage = (BasicAttack + MagicAttack / 7) × ((MagicAttack + BaseInt) / 100 + 1)',
+      '',
+      'DamagePerTick = TotalDamage / DoTDurationSeconds',
+    ],
+    notes: [
+      '❗ Does not account for Int from Equipment or Scrolls. Likely a bug',
+      'DoT damage ignores all Defense reductions',
     ],
   },
 ];
@@ -106,19 +131,20 @@ const BASE_DAMAGE_STEPS = [
 const BASE_DAMAGE_VARS = [
   { name: 'SkillMult',     desc: 'Skill Damage % as a decimal (e.g. 120% → 1.2)' },
   { name: 'PrimaryStat',   desc: 'Main stat for your class (STR, DEX, INT, or LUK)' },
-  { name: 'SecondaryStat', desc: 'Secondary stat — for Thieves: STR + DEX' },
+  { name: 'SecondaryStat', desc: 'Secondary stat, i.e: for Thieves, STR + DEX' },
   { name: 'AttackPower',   desc: 'Total weapon attack power from gear and buffs' },
   { name: 'WeaponAttack',  desc: 'Base weapon attack, including Stars and Arrows' },
-  { name: 'MinWepMult',    desc: 'Weapon min multiplier (Swing or Stab) — see Weapon Multipliers table' },
-  { name: 'MaxWepMult',    desc: 'Weapon max multiplier (Swing or Stab) — see Weapon Multipliers table' },
-  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8  |  L7: MasteryLevel ≈ 5.25' },
-  { name: 'BasicAttack',   desc: 'Basic Attack damage value listed on the skill (magic skills)' },
+  { name: 'MinWepMult',    desc: 'Weapon min multiplier (Swing or Stab) - see Weapon Multipliers table' },
+  { name: 'MaxWepMult',    desc: 'Weapon max multiplier (Swing or Stab) - see Weapon Multipliers table' },
+  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8. Exception: Lucky Seven uses ~5.25' },
+  { name: 'BasicAttack',   desc: 'Basic Attack damage value listed on the skill, for magic skills only' },
   { name: 'MagicAttack',        desc: 'TotalInt / 2 + EquipmentMagicAttack (MAGIC value shown in UI)' },
   { name: 'EquipmentMagicAttack', desc: 'Sum of Magic Attack on all gear (including above/below average and scrolled stats)' },
-  { name: 'Int',           desc: 'BASE Int from AP only — equipment stats not included (likely a bug)' },
-  { name: 'Luk',           desc: 'BASE Luk from AP (assumed — see Heal notes)' },
+  { name: 'BaseInt',       desc: 'BASE Int from AP only - equipment stats not included (likely a bug)' },
+  { name: 'Luk',           desc: 'BASE Luk from AP only - equipment stats not included (assumed - see Heal notes)' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
   { name: 'TargetsHit',    desc: 'Total targets hit: enemies + caster + allies in range' },
+  { name: 'DoTDurationSeconds', desc: 'Duration of the DoT effect in seconds' },
 ];
 
 // ─── Damage Modifications ─────────────────────────────────────
@@ -127,61 +153,70 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Weapon Defense',
     wip: false,
+    status: 'partial',
+    statusNote: 'PercentEffects and FlatEffects have not been verified, not enough data',
     lines: [
-      'Damage = Damage × 100 / (trunc(WeaponDefense × (PercentEffects / 100 + 1) + FlatEffects) + 100)',
-      '',
-      'If Crossbow Mastery Ignore Defense procs: treat WeaponDefense as 0',
+      'Damage = Damage × 100 / (trunc(WeaponDefense × (PercentEffects / 100 + 1)) + FlatEffects + 100)',
     ],
     notes: [
       'trunc() rounds toward zero (down for positive, up for negative)',
       'Applies to Physical damage only',
+      'If Crossbow Mastery Ignore Defense procs, the entire defense formula is ignored',
+      'PercentEffects and FlatEffects have not been verified. Not enough in game data for PercentEffects, and there are no known flat weapon defense (de)buffs in the game',
     ],
   },
   {
     label: 'Magic Defense',
     wip: false,
+    status: 'ok',
     lines: [
       'Damage = Damage × 100 / (MagicDefense + 100)',
     ],
     notes: [
-      'No other variables — this is the complete formula',
+      'No other variables, this is the complete formula',
       'Applies to Magical damage only',
     ],
   },
   {
     label: 'Elemental Modifier',
     wip: false,
+    status: 'ok',
     lines: [
       'Damage = Damage × ElementalMult',
-      '  0.0  — immune',
-      '  0.75 — resistant (strong against element)',
-      '  1.0  — neutral',
-      '  1.25 — weak against element',
+      '  0.0  - immune',
+      '  0.75 - resistant',
+      '  1.0  - neutral',
+      '  1.25 - weak against element',
     ],
     notes: [],
   },
   {
     label: 'Level Difference Penalty',
     wip: false,
+    status: 'ok',
     lines: [
       'No penalty if player level ≥ enemy level',
       '  enemy < 10 levels above:  Damage / (LevelDiff² × 0.005 + 1)',
       '  enemy ≥ 10 levels above:  Damage / (LevelDiff × 0.05 + 1)',
+      '     DoT damage always applies this penalty if the enemy is above your level ',
     ],
-    notes: [],
+    notes: [
+      
+    ],
   },
   {
     label: 'Critical Hit',
     wip: false,
+    status: 'ok',
     lines: [
       'Damage = Damage × CritDamage',
-      '  CritDamage from Stats Panel (e.g. 120% Crit Damage → 1.2)',
     ],
     notes: [],
   },
   {
     label: 'Iron Arrow Falloff (Crossbow only)',
     wip: false,
+    status: 'ok',
     lines: [
       'Damage = Damage × (1 − ConsecutiveHits × 0.2)',
       '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.6 …',
@@ -191,6 +226,7 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Clamp',
     wip: false,
+    status: 'ok',
     lines: [
       'Damage = floor(Damage)',
       'Damage = clamp(Damage, 1, 700,000,000,000)',
@@ -202,10 +238,11 @@ const MOD_PIPELINE_STEPS = [
 const MOD_VARS = [
   { name: 'WeaponDefense',   desc: "Enemy's weapon defense stat" },
   { name: 'PercentEffects',  desc: 'Sum of percent-based buffs/debuffs on enemy weapon defense' },
-  { name: 'FlatEffects',     desc: 'Flat modifiers to enemy weapon defense — no known sources' },
+  { name: 'FlatEffects',     desc: 'Flat modifiers to enemy weapon defense - no known sources' },
   { name: 'MagicDefense',    desc: "Enemy's magic defense stat" },
   { name: 'ElementalMult',   desc: 'Elemental modifier: 0.0, 0.75, 1.0, or 1.25' },
-  { name: 'LevelDiff',       desc: 'Enemy level minus player level (when enemy is higher)' },
+  { name: 'EnemyLevel',      desc: "Enemy's level" },
+  { name: 'PlayerLevel',     desc: "Player's level" },
   { name: 'CritDamage',      desc: 'Crit damage from Stats Panel (e.g. 120% → 1.2)' },
   { name: 'ConsecutiveHits', desc: 'Iron Arrow: 0 for first mob hit, 1 for second, etc.' },
 ];
@@ -213,7 +250,7 @@ const MOD_VARS = [
 
 // ─── Formula tokenizer ───────────────────────────────────────
 
-const FORMULA_FNS = new Set(['exp', 'rand', 'trunc', 'floor', 'clamp']);
+const FORMULA_FNS = new Set(['exp', 'rand', 'trunc', 'floor', 'clamp', 'max']);
 const FORMULA_TOKEN_RE = /([A-Za-z][A-Za-z0-9]*)|(\d+(?:\.\d+)?)/g;
 
 function tokenizeLine(line) {
@@ -233,6 +270,41 @@ function tokenizeLine(line) {
   }
   out += line.slice(last);
   return out;
+}
+
+// ─── Status tooltip ───────────────────────────────────────────
+
+let _statusTip = null;
+function getStatusTip() {
+  if (!_statusTip) {
+    _statusTip = document.createElement('div');
+    _statusTip.className = 'formula-status-tooltip';
+    document.body.appendChild(_statusTip);
+  }
+  return _statusTip;
+}
+
+function showStatusTooltip(anchor, text) {
+  const tip = getStatusTip();
+  tip.textContent = text;
+  tip.style.visibility = 'hidden';
+  tip.classList.add('visible');
+
+  const rect = anchor.getBoundingClientRect();
+  const tw = tip.offsetWidth;
+  const th = tip.offsetHeight;
+  let x = rect.left + rect.width / 2 - tw / 2 + window.scrollX;
+  let y = rect.top - th - 6 + window.scrollY;
+  x = Math.max(8, Math.min(x, window.innerWidth - tw - 8));
+  if (y < window.scrollY + 8) y = rect.bottom + 6 + window.scrollY;
+
+  tip.style.left = `${x}px`;
+  tip.style.top = `${y}px`;
+  tip.style.visibility = '';
+}
+
+function hideStatusTooltip() {
+  _statusTip?.classList.remove('visible');
 }
 
 // ─── Shared helpers ───────────────────────────────────────────
@@ -259,13 +331,23 @@ function makeCollapsibleSection(title, countLabel, bodyFn) {
 
 function buildPipeline(steps) {
   const frag = document.createDocumentFragment();
-  steps.forEach(({ label, wip, lines, notes }, i) => {
+  steps.forEach(({ label, wip, status, statusNote, lines, notes }, i) => {
     const step = el('div', { className: 'formulas-pipeline-step' });
 
     const stepHeader = el('div', { className: 'formulas-pipeline-header' });
     stepHeader.appendChild(el('span', { className: 'formulas-pipeline-badge', textContent: i + 1 }));
     stepHeader.appendChild(el('span', { className: 'formulas-pipeline-title', textContent: label }));
     if (wip) stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
+    if (status) {
+      const statusLabels = { ok: 'Verified', partial: 'Partial', warn: 'Unverified' };
+      const statusTag = el('span', { className: `formulas-status-tag formulas-status-${status}`, textContent: statusLabels[status] });
+      const tooltipText = statusNote ?? (status === 'ok' ? 'Formula has been validated across multiple datapoints and edge cases' : null);
+      if (tooltipText) {
+        statusTag.addEventListener('mouseenter', () => showStatusTooltip(statusTag, tooltipText));
+        statusTag.addEventListener('mouseleave', hideStatusTooltip);
+      }
+      stepHeader.appendChild(statusTag);
+    }
     step.appendChild(stepHeader);
 
     const codeLines = lines.filter(l => l !== '');
@@ -393,10 +475,17 @@ export function renderFormulas() {
 
   wrapper.appendChild(el('div', { className: 'section-heading', textContent: 'Formulas & Tables' }));
 
+  const disclaimer = el('div', { className: 'formulas-disclaimer' });
+  disclaimer.textContent = 'These formulas are based on Closed Online Test (COT) playtest data and are subject to change.';
+  wrapper.appendChild(disclaimer);
+
   // Full-width formula sections
   const fullWidth = el('div', { className: 'formulas-full' });
 
   const accuracySection = makeCollapsibleSection('Accuracy', '', buildAccuracySection);
+  const accCredit = el('span', { className: 'formulas-credit' });
+  accCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
+  accuracySection.querySelector('.left').appendChild(accCredit);
 
   const baseDmgSection = makeCollapsibleSection('Base Damage Formulas', '', buildBaseDamageSection);
   const dmgCredit = el('span', { className: 'formulas-credit' });
@@ -404,6 +493,9 @@ export function renderFormulas() {
   baseDmgSection.querySelector('.left').appendChild(dmgCredit);
 
   const modsSection = makeCollapsibleSection('Damage Modifications', '', buildModsSection);
+  const modsCredit = el('span', { className: 'formulas-credit' });
+  modsCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
+  modsSection.querySelector('.left').appendChild(modsCredit);
 
   fullWidth.appendChild(accuracySection);
   fullWidth.appendChild(baseDmgSection);
@@ -421,6 +513,9 @@ export function renderFormulas() {
   expSection.querySelector('.left').appendChild(expCredit);
 
   const weaponMultSection = makeCollapsibleSection('Weapon Min/Max Multipliers', '', buildWeaponMultTable);
+  const weaponMultCredit = el('span', { className: 'formulas-credit' });
+  weaponMultCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash</strong> on Discord';
+  weaponMultSection.querySelector('.left').appendChild(weaponMultCredit);
 
   appendix.appendChild(weaponMultSection);
   appendix.appendChild(expSection);

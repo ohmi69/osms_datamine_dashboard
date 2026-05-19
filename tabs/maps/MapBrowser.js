@@ -204,7 +204,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         const chip = el('div', { className: 'map-exit-chip', title: `Go to map: ${exit.name}` });
         chip.appendChild(el('span', { className: 'map-exit-chip-arrow', textContent: '→' }));
         chip.appendChild(el('span', { textContent: exit.name || `Map #${padMapId(exit.id)}` }));
-        chip.appendChild(el('span', { className: 'map-exit-chip-id', textContent: `#${padMapId(exit.id)}` }));
+        chip.appendChild(el('span', { className: 'map-exit-chip-id id', textContent: `#${padMapId(exit.id)}` }));
         chip.addEventListener('click', (e) => {
           e.stopPropagation();
           if (selfNavigate) selfNavigate({ id: exit.id, autoExpand: true });
@@ -280,7 +280,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
           }));
         }
         chip.appendChild(el('span', { textContent: npc?.name || `NPC #${npcId}` }));
-        chip.appendChild(el('span', { className: 'map-npc-chip-id', textContent: `#${npcId}` }));
+        chip.appendChild(el('span', { className: 'map-npc-chip-id id', textContent: `#${npcId}` }));
 
         // Hover highlight: glow dot on map image at NPC's canvas position
         let highlightDots = [];
@@ -492,7 +492,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         }
 
         const idTd = el('td', { className: 'num id-col' });
-        idTd.appendChild(makeCopyableId(padMapId(mapEntry.id)));
+        idTd.appendChild(makeCopyableId(`#${padMapId(mapEntry.id)}`));
         tr.appendChild(idTd);
 
         let detailTr = null;

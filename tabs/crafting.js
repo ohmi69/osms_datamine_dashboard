@@ -162,7 +162,7 @@ export function renderCrafting(data, options = {}) {
             if (recipe.output_id != null) {
               const craftIdWrap = el('span', { className: 'item-id-wrap' });
               craftIdWrap.appendChild(makeDeepLinkButton('crafting', padItemId(recipe.output_id)));
-              craftIdWrap.appendChild(makeCopyableId(padItemId(recipe.output_id)));
+              craftIdWrap.appendChild(makeCopyableId(`#${padItemId(recipe.output_id)}`));
               resultWrap.appendChild(craftIdWrap);
             }
             resultCell.appendChild(resultWrap);
