@@ -31,6 +31,7 @@
       "debuffs": [],
       "gifs": {
         "move": "images/monsters/0000001.move.webp",
+        "stand": "images/monsters/0000001.stand.webp",
         "hit1": "images/monsters/0000001.hit1.webp",
         "die1": "images/monsters/0000001.die1.webp"
       },
@@ -2354,11 +2355,12 @@
       "self_buffs": [],
       "debuffs": [],
       "gifs": {
+        "move": "images/monsters/0000012.move.webp",
         "stand": "images/monsters/0000012.stand.webp",
         "hit1": "images/monsters/0000012.hit1.webp",
         "die1": "images/monsters/0000012.die1.webp"
       },
-      "gif": "images/monsters/0000012.stand.webp",
+      "gif": "images/monsters/0000012.move.webp",
       "thumbnail": "images/monsters/0000012.png"
     },
     {
@@ -6119,11 +6121,12 @@
       "self_buffs": [],
       "debuffs": [],
       "gifs": {
+        "move": "images/monsters/0000058.move.webp",
         "stand": "images/monsters/0000058.stand.webp",
         "hit1": "images/monsters/0000058.hit1.webp",
         "die1": "images/monsters/0000058.die1.webp"
       },
-      "gif": "images/monsters/0000058.stand.webp",
+      "gif": "images/monsters/0000058.move.webp",
       "thumbnail": "images/monsters/0000058.png"
     },
     {

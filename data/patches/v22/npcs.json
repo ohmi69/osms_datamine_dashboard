@@ -326,7 +326,7 @@
       "When's Mom coming She must be busy...",
       "I can only do this by myself for so long..."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/1012110.png"
   },
   {
     "id": 1012111,
@@ -621,7 +621,7 @@
       "It's not easy to make a new sauce.",
       "No, this is not it! I need a distinctive flavor."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/1032105.png"
   },
   {
     "id": 1032106,
@@ -1323,7 +1323,7 @@
       "You can pick up the items, if you press \"z\".",
       "If the monsters are strong, how about making a party with other players"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0002004.png"
   },
   {
     "id": 2005,
@@ -1334,7 +1334,7 @@
       "Press \"w\" to see the current position.",
       "How about partying with other players"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0002005.png"
   },
   {
     "id": 20100,
@@ -2925,7 +2925,7 @@
     "functions": [
       "To break the treasure box, you need short-range weapon. So~ you need one"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/9000015.png"
   },
   {
     "id": 9000017,

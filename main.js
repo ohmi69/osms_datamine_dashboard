@@ -201,7 +201,8 @@ async function buildPatchSelector() {
     if (!currentPatch) currentOpt.selected = true;
     select.appendChild(currentOpt);
 
-    for (const p of index.patches) {
+    const sortedPatches = [...index.patches].sort((a, b) => new Date(b.date) - new Date(a.date));
+    for (const p of sortedPatches) {
       const opt = el('option', { value: p.version, textContent: p.label || `v${p.version}` });
       if (currentPatch === p.version) opt.selected = true;
       select.appendChild(opt);

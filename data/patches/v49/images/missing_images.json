@@ -1,10 +1,10 @@
 {
   "copied": {
     "monsters": 782,
-    "items": 6514,
+    "items": 6520,
     "skills": 278,
     "maps": 950,
-    "npcs": 802
+    "npcs": 835
   },
   "missing": {
     "monsters": [
@@ -14,49 +14,24 @@
       },
       {
         "id": "9400707",
-        "reason": "asset_dir_missing"
+        "reason": "no_prioritized_state_found"
       },
       {
         "id": "9400711",
-        "reason": "asset_dir_missing"
+        "reason": "no_prioritized_state_found"
       },
       {
         "id": "9400713",
-        "reason": "asset_dir_missing"
+        "reason": "no_prioritized_state_found"
       },
       {
         "id": "9999999",
         "reason": "asset_dir_missing"
       }
     ],
-    "items": [
-      {
-        "id": "04000417",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "04001036",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "04001074",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "04001123",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "04031702",
-        "reason": "asset_dir_missing"
-      },
-      {
-        "id": "03995000",
-        "reason": "asset_dir_missing"
-      }
-    ],
+    "items": [],
     "skills": [],
     "maps": []
   },
-  "missing_total": 11
+  "missing_total": 5
 }

@@ -2115,11 +2115,12 @@
       "self_buffs": [],
       "debuffs": [],
       "gifs": {
+        "move": "images/monsters/1120100.move.webp",
         "stand": "images/monsters/1120100.stand.webp",
         "hit1": "images/monsters/1120100.hit1.webp",
         "die1": "images/monsters/1120100.die1.webp"
       },
-      "gif": "images/monsters/1120100.stand.webp",
+      "gif": "images/monsters/1120100.move.webp",
       "thumbnail": "images/monsters/1120100.png"
     },
     {
@@ -6616,6 +6617,7 @@
         "stand": "images/monsters/3220000.stand.webp",
         "attack1": "images/monsters/3220000.attack1.webp",
         "attack2": "images/monsters/3220000.attack2.webp",
+        "skill1": "images/monsters/3220000.skill1.webp",
         "hit1": "images/monsters/3220000.hit1.webp",
         "die1": "images/monsters/3220000.die1.webp"
       },
@@ -12534,6 +12536,7 @@
         "move": "images/monsters/5220000.move.webp",
         "stand": "images/monsters/5220000.stand.webp",
         "attack1": "images/monsters/5220000.attack1.webp",
+        "skill1": "images/monsters/5220000.skill1.webp",
         "hit1": "images/monsters/5220000.hit1.webp",
         "die1": "images/monsters/5220000.die1.webp"
       },
@@ -13237,6 +13240,7 @@
         "move": "images/monsters/6130202.move.webp",
         "stand": "images/monsters/6130202.stand.webp",
         "attack1": "images/monsters/6130202.attack1.webp",
+        "skill1": "images/monsters/6130202.skill1.webp",
         "hit1": "images/monsters/6130202.hit1.webp",
         "die1": "images/monsters/6130202.die1.webp"
       },
@@ -14167,6 +14171,7 @@
       "debuffs": [],
       "gifs": {
         "fly": "images/monsters/6300003.fly.webp",
+        "attack1": "images/monsters/6300003.attack1.webp",
         "hit1": "images/monsters/6300003.hit1.webp",
         "die1": "images/monsters/6300003.die1.webp"
       },
@@ -14205,7 +14210,8 @@
         "fly": "images/monsters/6300004.fly.webp",
         "stand": "images/monsters/6300004.stand.webp",
         "attack1": "images/monsters/6300004.attack1.webp",
-        "hit1": "images/monsters/6300004.hit1.webp"
+        "hit1": "images/monsters/6300004.hit1.webp",
+        "die1": "images/monsters/6300004.die1.webp"
       },
       "gif": "images/monsters/6300004.fly.webp",
       "thumbnail": "images/monsters/6300004.png"
@@ -14467,6 +14473,7 @@
       "debuffs": [],
       "gifs": {
         "fly": "images/monsters/6400003.fly.webp",
+        "attack1": "images/monsters/6400003.attack1.webp",
         "hit1": "images/monsters/6400003.hit1.webp",
         "die1": "images/monsters/6400003.die1.webp"
       },
@@ -15886,6 +15893,7 @@
         "stand": "images/monsters/7220000.stand.webp",
         "attack1": "images/monsters/7220000.attack1.webp",
         "attack2": "images/monsters/7220000.attack2.webp",
+        "skill1": "images/monsters/7220000.skill1.webp",
         "hit1": "images/monsters/7220000.hit1.webp",
         "die1": "images/monsters/7220000.die1.webp"
       },
@@ -17838,6 +17846,7 @@
         "move": "images/monsters/8160000.move.webp",
         "stand": "images/monsters/8160000.stand.webp",
         "attack1": "images/monsters/8160000.attack1.webp",
+        "attack2": "images/monsters/8160000.attack2.webp",
         "skill1": "images/monsters/8160000.skill1.webp",
         "hit1": "images/monsters/8160000.hit1.webp",
         "die1": "images/monsters/8160000.die1.webp"
@@ -18462,6 +18471,8 @@
         "move": "images/monsters/8500001.move.webp",
         "stand": "images/monsters/8500001.stand.webp",
         "attack1": "images/monsters/8500001.attack1.webp",
+        "attack2": "images/monsters/8500001.attack2.webp",
+        "attack3": "images/monsters/8500001.attack3.webp",
         "skill1": "images/monsters/8500001.skill1.webp",
         "hit1": "images/monsters/8500001.hit1.webp",
         "die1": "images/monsters/8500001.die1.webp"
@@ -18574,6 +18585,7 @@
         "jump": "images/monsters/8500004.jump.webp",
         "stand": "images/monsters/8500004.stand.webp",
         "attack1": "images/monsters/8500004.attack1.webp",
+        "skill1": "images/monsters/8500004.skill1.webp",
         "hit1": "images/monsters/8500004.hit1.webp",
         "die1": "images/monsters/8500004.die1.webp"
       },
@@ -18674,6 +18686,8 @@
       "gifs": {
         "stand": "images/monsters/8510000.stand.webp",
         "attack1": "images/monsters/8510000.attack1.webp",
+        "attack2": "images/monsters/8510000.attack2.webp",
+        "attack3": "images/monsters/8510000.attack3.webp",
         "skill1": "images/monsters/8510000.skill1.webp",
         "hit1": "images/monsters/8510000.hit1.webp",
         "die1": "images/monsters/8510000.die1.webp"
@@ -18809,6 +18823,8 @@
       "gifs": {
         "stand": "images/monsters/8520000.stand.webp",
         "attack1": "images/monsters/8520000.attack1.webp",
+        "attack2": "images/monsters/8520000.attack2.webp",
+        "attack3": "images/monsters/8520000.attack3.webp",
         "skill1": "images/monsters/8520000.skill1.webp",
         "hit1": "images/monsters/8520000.hit1.webp",
         "die1": "images/monsters/8520000.die1.webp"
@@ -19437,6 +19453,7 @@
         "stand": "images/monsters/8810000.stand.webp",
         "attack1": "images/monsters/8810000.attack1.webp",
         "attack2": "images/monsters/8810000.attack2.webp",
+        "attack3": "images/monsters/8810000.attack3.webp",
         "skill1": "images/monsters/8810000.skill1.webp",
         "hit1": "images/monsters/8810000.hit1.webp",
         "die1": "images/monsters/8810000.die1.webp"
@@ -19573,6 +19590,7 @@
         "stand": "images/monsters/8810002.stand.webp",
         "attack1": "images/monsters/8810002.attack1.webp",
         "attack2": "images/monsters/8810002.attack2.webp",
+        "attack3": "images/monsters/8810002.attack3.webp",
         "skill1": "images/monsters/8810002.skill1.webp",
         "hit1": "images/monsters/8810002.hit1.webp",
         "die1": "images/monsters/8810002.die1.webp"
@@ -19695,6 +19713,7 @@
         "stand": "images/monsters/8810004.stand.webp",
         "attack1": "images/monsters/8810004.attack1.webp",
         "attack2": "images/monsters/8810004.attack2.webp",
+        "attack3": "images/monsters/8810004.attack3.webp",
         "skill1": "images/monsters/8810004.skill1.webp",
         "hit1": "images/monsters/8810004.hit1.webp",
         "die1": "images/monsters/8810004.die1.webp"
@@ -23066,6 +23085,7 @@
       "debuffs": [],
       "gifs": {
         "move": "images/monsters/9300018.move.webp",
+        "stand": "images/monsters/9300018.stand.webp",
         "hit1": "images/monsters/9300018.hit1.webp",
         "die1": "images/monsters/9300018.die1.webp"
       },
@@ -23117,6 +23137,7 @@
         "move": "images/monsters/9300019.move.webp",
         "stand": "images/monsters/9300019.stand.webp",
         "attack1": "images/monsters/9300019.attack1.webp",
+        "skill1": "images/monsters/9300019.skill1.webp",
         "hit1": "images/monsters/9300019.hit1.webp",
         "die1": "images/monsters/9300019.die1.webp"
       },
@@ -23254,6 +23275,7 @@
         "move": "images/monsters/9300022.move.webp",
         "stand": "images/monsters/9300022.stand.webp",
         "attack1": "images/monsters/9300022.attack1.webp",
+        "skill1": "images/monsters/9300022.skill1.webp",
         "hit1": "images/monsters/9300022.hit1.webp",
         "die1": "images/monsters/9300022.die1.webp"
       },
@@ -23305,6 +23327,7 @@
         "move": "images/monsters/9300023.move.webp",
         "stand": "images/monsters/9300023.stand.webp",
         "attack1": "images/monsters/9300023.attack1.webp",
+        "skill1": "images/monsters/9300023.skill1.webp",
         "hit1": "images/monsters/9300023.hit1.webp",
         "die1": "images/monsters/9300023.die1.webp"
       },
@@ -23790,6 +23813,7 @@
         "move": "images/monsters/9300034.move.webp",
         "stand": "images/monsters/9300034.stand.webp",
         "attack1": "images/monsters/9300034.attack1.webp",
+        "skill1": "images/monsters/9300034.skill1.webp",
         "hit1": "images/monsters/9300034.hit1.webp",
         "die1": "images/monsters/9300034.die1.webp"
       },
@@ -23835,6 +23859,7 @@
         "move": "images/monsters/9300036.move.webp",
         "stand": "images/monsters/9300036.stand.webp",
         "attack1": "images/monsters/9300036.attack1.webp",
+        "skill1": "images/monsters/9300036.skill1.webp",
         "hit1": "images/monsters/9300036.hit1.webp",
         "die1": "images/monsters/9300036.die1.webp"
       },
@@ -23880,6 +23905,7 @@
         "move": "images/monsters/9300037.move.webp",
         "stand": "images/monsters/9300037.stand.webp",
         "attack1": "images/monsters/9300037.attack1.webp",
+        "skill1": "images/monsters/9300037.skill1.webp",
         "hit1": "images/monsters/9300037.hit1.webp",
         "die1": "images/monsters/9300037.die1.webp"
       },
@@ -28154,6 +28180,7 @@
       "gifs": {
         "move": "images/monsters/9300143.move.webp",
         "stand": "images/monsters/9300143.stand.webp",
+        "skill1": "images/monsters/9300143.skill1.webp",
         "hit1": "images/monsters/9300143.hit1.webp",
         "die1": "images/monsters/9300143.die1.webp"
       },
@@ -28195,6 +28222,7 @@
       "gifs": {
         "move": "images/monsters/9300144.move.webp",
         "stand": "images/monsters/9300144.stand.webp",
+        "skill1": "images/monsters/9300144.skill1.webp",
         "hit1": "images/monsters/9300144.hit1.webp",
         "die1": "images/monsters/9300144.die1.webp"
       },
@@ -34558,6 +34586,7 @@
         "move": "images/monsters/9500170.move.webp",
         "stand": "images/monsters/9500170.stand.webp",
         "attack1": "images/monsters/9500170.attack1.webp",
+        "skill1": "images/monsters/9500170.skill1.webp",
         "hit1": "images/monsters/9500170.hit1.webp",
         "die1": "images/monsters/9500170.die1.webp"
       },
@@ -34603,6 +34632,7 @@
         "stand": "images/monsters/9500171.stand.webp",
         "attack1": "images/monsters/9500171.attack1.webp",
         "attack2": "images/monsters/9500171.attack2.webp",
+        "skill1": "images/monsters/9500171.skill1.webp",
         "hit1": "images/monsters/9500171.hit1.webp",
         "die1": "images/monsters/9500171.die1.webp"
       },
@@ -34646,6 +34676,7 @@
         "jump": "images/monsters/9500172.jump.webp",
         "stand": "images/monsters/9500172.stand.webp",
         "attack1": "images/monsters/9500172.attack1.webp",
+        "skill1": "images/monsters/9500172.skill1.webp",
         "hit1": "images/monsters/9500172.hit1.webp",
         "die1": "images/monsters/9500172.die1.webp"
       },
@@ -34693,6 +34724,7 @@
         "attack1": "images/monsters/9500173.attack1.webp",
         "attack2": "images/monsters/9500173.attack2.webp",
         "attack3": "images/monsters/9500173.attack3.webp",
+        "skill1": "images/monsters/9500173.skill1.webp",
         "hit1": "images/monsters/9500173.hit1.webp",
         "die1": "images/monsters/9500173.die1.webp"
       },
@@ -34740,6 +34772,7 @@
         "attack1": "images/monsters/9500174.attack1.webp",
         "attack2": "images/monsters/9500174.attack2.webp",
         "attack3": "images/monsters/9500174.attack3.webp",
+        "skill1": "images/monsters/9500174.skill1.webp",
         "hit1": "images/monsters/9500174.hit1.webp",
         "die1": "images/monsters/9500174.die1.webp"
       },
@@ -34782,6 +34815,7 @@
         "move": "images/monsters/9500175.move.webp",
         "stand": "images/monsters/9500175.stand.webp",
         "attack1": "images/monsters/9500175.attack1.webp",
+        "skill1": "images/monsters/9500175.skill1.webp",
         "hit1": "images/monsters/9500175.hit1.webp",
         "die1": "images/monsters/9500175.die1.webp"
       },
@@ -34827,6 +34861,7 @@
         "jump": "images/monsters/9500176.jump.webp",
         "stand": "images/monsters/9500176.stand.webp",
         "attack1": "images/monsters/9500176.attack1.webp",
+        "skill1": "images/monsters/9500176.skill1.webp",
         "hit1": "images/monsters/9500176.hit1.webp",
         "die1": "images/monsters/9500176.die1.webp"
       },
@@ -34871,6 +34906,7 @@
         "attack1": "images/monsters/9500177.attack1.webp",
         "attack2": "images/monsters/9500177.attack2.webp",
         "attack3": "images/monsters/9500177.attack3.webp",
+        "skill1": "images/monsters/9500177.skill1.webp",
         "hit1": "images/monsters/9500177.hit1.webp",
         "die1": "images/monsters/9500177.die1.webp"
       },
@@ -34911,6 +34947,7 @@
       "debuffs": [],
       "gifs": {
         "stand": "images/monsters/9500178.stand.webp",
+        "skill1": "images/monsters/9500178.skill1.webp",
         "die1": "images/monsters/9500178.die1.webp"
       },
       "gif": "images/monsters/9500178.stand.webp",
@@ -34954,6 +34991,7 @@
         "attack1": "images/monsters/9500179.attack1.webp",
         "attack2": "images/monsters/9500179.attack2.webp",
         "attack3": "images/monsters/9500179.attack3.webp",
+        "skill1": "images/monsters/9500179.skill1.webp",
         "hit1": "images/monsters/9500179.hit1.webp",
         "die1": "images/monsters/9500179.die1.webp"
       },
@@ -34996,6 +35034,9 @@
         "move": "images/monsters/9500180.move.webp",
         "stand": "images/monsters/9500180.stand.webp",
         "attack1": "images/monsters/9500180.attack1.webp",
+        "attack2": "images/monsters/9500180.attack2.webp",
+        "attack3": "images/monsters/9500180.attack3.webp",
+        "skill1": "images/monsters/9500180.skill1.webp",
         "hit1": "images/monsters/9500180.hit1.webp",
         "die1": "images/monsters/9500180.die1.webp"
       },
@@ -35037,6 +35078,7 @@
       "gifs": {
         "fly": "images/monsters/9500181.fly.webp",
         "stand": "images/monsters/9500181.stand.webp",
+        "skill1": "images/monsters/9500181.skill1.webp",
         "hit1": "images/monsters/9500181.hit1.webp",
         "die1": "images/monsters/9500181.die1.webp"
       },

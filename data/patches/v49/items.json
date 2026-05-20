@@ -62569,7 +62569,7 @@
       "stats": {
         "price": 1
       },
-      "thumbnail": null
+      "thumbnail": "images/items/04000417.png"
     },
     {
       "id": 4000422,
@@ -63578,7 +63578,7 @@
         "price": 1,
         "pquest": 1
       },
-      "thumbnail": null
+      "thumbnail": "images/items/04001036.png"
     },
     {
       "id": 4001037,
@@ -63952,7 +63952,7 @@
         "price": 1,
         "pquest": 1
       },
-      "thumbnail": null
+      "thumbnail": "images/items/04001074.png"
     },
     {
       "id": 4001075,
@@ -64543,7 +64543,7 @@
         "price": 1,
         "pquest": 1
       },
-      "thumbnail": null
+      "thumbnail": "images/items/04001123.png"
     },
     {
       "id": 4001124,
@@ -73491,7 +73491,7 @@
         "price": 1,
         "pquest": 1
       },
-      "thumbnail": null
+      "thumbnail": "images/items/04031702.png"
     },
     {
       "id": 4031703,

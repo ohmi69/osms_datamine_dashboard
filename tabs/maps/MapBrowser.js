@@ -260,6 +260,36 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         });
         timerSpan.style.color = timerColor;
         chip.appendChild(timerSpan);
+
+        // Hover highlight: glow dot on map image at mob's canvas position
+        let mobHighlightDots = [];
+        chip.addEventListener('mouseenter', () => {
+          if (!imgContainer) return;
+          const img = imgContainer.querySelector('img.full-map-image');
+          if (!img || !img.naturalWidth) return;
+          const positions = (mapEntry.mob_positions || []).filter(p => Number(p.id) === Number(mob.id));
+          if (!positions.length) return;
+          const scaleX = img.width / img.naturalWidth;
+          const scaleY = img.height / img.naturalHeight;
+          const imgScale = Math.min(scaleX, scaleY);
+          const r = Math.max(10, Math.min(22, Math.round(10 + 18 * imgScale)));
+          for (const pos of positions) {
+            const dot = el('div', { className: 'mob-highlight-overlay' });
+            dot.style.left = `${pos.x * scaleX - r}px`;
+            dot.style.top = `${pos.y * scaleY - r}px`;
+            dot.style.width = `${r * 2}px`;
+            dot.style.height = `${r * 2}px`;
+            imgContainer.appendChild(dot);
+            mobHighlightDots.push(dot);
+          }
+          chip.classList.add('map-mob-chip--hover');
+        });
+        chip.addEventListener('mouseleave', () => {
+          mobHighlightDots.forEach(d => d.remove());
+          mobHighlightDots = [];
+          chip.classList.remove('map-mob-chip--hover');
+        });
+
         attachTooltip(chip, () => monsterById.get(String(mob.id)) || mob, 'mob');
         if (onMobClick) {
           chip.classList.add('mob-chip-clickable');

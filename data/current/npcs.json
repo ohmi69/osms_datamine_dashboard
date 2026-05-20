@@ -512,13 +512,13 @@
       "It's not easy to make a new sauce.",
       "No, this is not it! I need a distinctive flavor."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0000300.png"
   },
   {
     "id": 301,
     "name": "Regular Cab",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0000301.png"
   },
   {
     "id": 302,
@@ -699,7 +699,7 @@
     "id": 400,
     "name": "Regular Cab",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0000400.png"
   },
   {
     "id": 401,
@@ -901,7 +901,7 @@
     "id": 500,
     "name": "Regular Cab",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0000500.png"
   },
   {
     "id": 501,
@@ -1044,13 +1044,13 @@
     "id": 600,
     "name": "Regular Cab",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0000600.png"
   },
   {
     "id": 601,
     "name": "VIP Cab",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0000601.png"
   },
   {
     "id": 602,
@@ -1169,7 +1169,7 @@
       "You can pick up the items, if you press \"z\".",
       "If the monsters are strong, how about making a party with other players"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0000007.png"
   },
   {
     "id": 700,
@@ -1273,7 +1273,7 @@
       "Do you want to make the 2nd job advancement as the bowman Go see \"Athena Pierce\" of Henesys first.",
       "Only the ones that pass my test can make the 2nd job advancement as the bowman."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0800003.png"
   },
   {
     "id": 800004,
@@ -1282,7 +1282,7 @@
       "Do you want to make the 2nd job advancement as the magician Go see \"Grendel the Really Old\" of Ellinia first.",
       "Only the ones that pass my test can make the 2nd job advancement as the magician."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0800004.png"
   },
   {
     "id": 800005,
@@ -1291,7 +1291,7 @@
       "Do you want to make the 2nd job advancement as the thief Go see \"Dark Lord\" of Kerning City first.",
       "Only the ones that pass my test can make the 2nd job advancement as the thief"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0800005.png"
   },
   {
     "id": 800006,
@@ -1300,7 +1300,7 @@
       "Do you want to make the 2nd job advancement as the warrior Go see \"Dances with Balrog\" of Perion first.",
       "Only the ones that pass my test can make the 2nd job advancement as the warrior."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0800006.png"
   },
   {
     "id": 800007,
@@ -1363,7 +1363,7 @@
       "I can tell you more about the Truth Booth if you want.",
       "Be careful not to end up in the Truth Booth."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0800016.png"
   },
   {
     "id": 801,
@@ -1410,7 +1410,7 @@
       "Press \"w\" to see the current position.",
       "How about partying with other players"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0000009.png"
   },
   {
     "id": 900000,
@@ -1434,7 +1434,7 @@
     "id": 900002,
     "name": "VIP Cab",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0900002.png"
   },
   {
     "id": 900003,
@@ -1443,7 +1443,7 @@
       "Cough, cough... Welcome to MapleCon…",
       "There’s said to be a place called Someone Else’s House in Henesys. Have you heard of it"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0900003.png"
   },
   {
     "id": 900004,
@@ -1452,7 +1452,7 @@
       "I'm collecting herbs...",
       "Do you have any desire to challenge the Forest of Patience, hidden deep within Ellinia"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0900004.png"
   },
   {
     "id": 900005,
@@ -1460,7 +1460,7 @@
     "functions": [
       "It seems a massive underground cave, long forgotten, has been discovered…"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0900005.png"
   },
   {
     "id": 900006,
@@ -1469,7 +1469,7 @@
       "It seems the entrance to the Forgotten Hollow has been discovered near Sleepywood.",
       "I don't want to ask humans for a favor... but... there's no choice."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0900006.png"
   },
   {
     "id": 900007,
@@ -1478,7 +1478,7 @@
       "You like my hairstyle We hairdressers are supposed to keep up with the latest trends, you know",
       "Want to customize your character to your heart’s content Then come talk to me!"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0900007.png"
   },
   {
     "id": 900008,
@@ -1487,7 +1487,7 @@
       "Do you want to combine powers of your party members to solve this quest",
       "There are lots of obstacles here where the only way you'll pass is by joining forces with your party members."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0900008.png"
   },
   {
     "id": 900009,

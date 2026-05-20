@@ -2049,11 +2049,12 @@
       "self_buffs": [],
       "debuffs": [],
       "gifs": {
+        "move": "images/monsters/1120100.move.webp",
         "stand": "images/monsters/1120100.stand.webp",
         "hit1": "images/monsters/1120100.hit1.webp",
         "die1": "images/monsters/1120100.die1.webp"
       },
-      "gif": "images/monsters/1120100.stand.webp",
+      "gif": "images/monsters/1120100.move.webp",
       "thumbnail": "images/monsters/1120100.png"
     },
     {
@@ -10490,6 +10491,7 @@
       "debuffs": [],
       "gifs": {
         "fly": "images/monsters/6300003.fly.webp",
+        "attack1": "images/monsters/6300003.attack1.webp",
         "hit1": "images/monsters/6300003.hit1.webp",
         "die1": "images/monsters/6300003.die1.webp"
       },
@@ -10528,7 +10530,8 @@
         "fly": "images/monsters/6300004.fly.webp",
         "stand": "images/monsters/6300004.stand.webp",
         "attack1": "images/monsters/6300004.attack1.webp",
-        "hit1": "images/monsters/6300004.hit1.webp"
+        "hit1": "images/monsters/6300004.hit1.webp",
+        "die1": "images/monsters/6300004.die1.webp"
       },
       "gif": "images/monsters/6300004.fly.webp",
       "thumbnail": "images/monsters/6300004.png"
@@ -10750,6 +10753,7 @@
       "debuffs": [],
       "gifs": {
         "fly": "images/monsters/6400003.fly.webp",
+        "attack1": "images/monsters/6400003.attack1.webp",
         "hit1": "images/monsters/6400003.hit1.webp",
         "die1": "images/monsters/6400003.die1.webp"
       },
@@ -11851,6 +11855,7 @@
         "move": "images/monsters/8160000.move.webp",
         "stand": "images/monsters/8160000.stand.webp",
         "attack1": "images/monsters/8160000.attack1.webp",
+        "attack2": "images/monsters/8160000.attack2.webp",
         "skill1": "images/monsters/8160000.skill1.webp",
         "hit1": "images/monsters/8160000.hit1.webp",
         "die1": "images/monsters/8160000.die1.webp"
@@ -12046,6 +12051,8 @@
         "move": "images/monsters/8500001.move.webp",
         "stand": "images/monsters/8500001.stand.webp",
         "attack1": "images/monsters/8500001.attack1.webp",
+        "attack2": "images/monsters/8500001.attack2.webp",
+        "attack3": "images/monsters/8500001.attack3.webp",
         "skill1": "images/monsters/8500001.skill1.webp",
         "hit1": "images/monsters/8500001.hit1.webp",
         "die1": "images/monsters/8500001.die1.webp"
@@ -12158,6 +12165,7 @@
         "jump": "images/monsters/8500004.jump.webp",
         "stand": "images/monsters/8500004.stand.webp",
         "attack1": "images/monsters/8500004.attack1.webp",
+        "skill1": "images/monsters/8500004.skill1.webp",
         "hit1": "images/monsters/8500004.hit1.webp",
         "die1": "images/monsters/8500004.die1.webp"
       },
@@ -14861,6 +14869,7 @@
       "debuffs": [],
       "gifs": {
         "move": "images/monsters/9300018.move.webp",
+        "stand": "images/monsters/9300018.stand.webp",
         "hit1": "images/monsters/9300018.hit1.webp",
         "die1": "images/monsters/9300018.die1.webp"
       },

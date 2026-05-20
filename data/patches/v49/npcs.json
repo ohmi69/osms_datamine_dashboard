@@ -326,7 +326,7 @@
       "When's Mom coming She must be busy...",
       "I can only do this by myself for so long..."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/1012110.png"
   },
   {
     "id": 1012111,
@@ -651,7 +651,7 @@
       "It's not easy to make a new sauce.",
       "No, this is not it! I need a distinctive flavor."
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/1032105.png"
   },
   {
     "id": 1032106,
@@ -1430,7 +1430,7 @@
       "You can pick up the items, if you press \"z\".",
       "If the monsters are strong, how about making a party with other players"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0002004.png"
   },
   {
     "id": 2005,
@@ -1441,7 +1441,7 @@
       "Press \"w\" to see the current position.",
       "How about partying with other players"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/0002005.png"
   },
   {
     "id": 20100,
@@ -3225,7 +3225,7 @@
       "Hogul protects the delicious Watermelon",
       "Be careful not to be caught by Hogul. If you are caught by Hogul, you will be expelled.~"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2073000.png"
   },
   {
     "id": 2080000,
@@ -3902,43 +3902,43 @@
     "id": 2103000,
     "name": "Palace Oasis",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103000.png"
   },
   {
     "id": 2103001,
     "name": "Secret wall",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103001.png"
   },
   {
     "id": 2103002,
     "name": "Queen's cabinet",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103002.png"
   },
   {
     "id": 2103003,
     "name": "Ariant private house1",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103003.png"
   },
   {
     "id": 2103004,
     "name": "Ariant private house2",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103004.png"
   },
   {
     "id": 2103005,
     "name": "Ariant private house4",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103005.png"
   },
   {
     "id": 2103006,
     "name": "Ariant private house6",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103006.png"
   },
   {
     "id": 2103007,
@@ -3950,31 +3950,31 @@
     "id": 2103008,
     "name": "Mysterious voice",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103008.png"
   },
   {
     "id": 2103009,
     "name": "Ariant private house1 Cupboard",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103009.png"
   },
   {
     "id": 2103010,
     "name": "Ariant private house2 Cupboard",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103010.png"
   },
   {
     "id": 2103011,
     "name": "Ariant private house4 Cupboard",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103011.png"
   },
   {
     "id": 2103012,
     "name": "Ariant private house6 Cupboard",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2103012.png"
   },
   {
     "id": 2110000,
@@ -4103,25 +4103,25 @@
     "id": 2111010,
     "name": "Alchedeno's Cabinet.",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2111010.png"
   },
   {
     "id": 2111011,
     "name": "Wall",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2111011.png"
   },
   {
     "id": 2111012,
     "name": "Cabinet",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2111012.png"
   },
   {
     "id": 2111013,
     "name": "Picture frame",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2111013.png"
   },
   {
     "id": 2111014,
@@ -4133,7 +4133,7 @@
     "id": 2111015,
     "name": "Russellon's Desk",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2111015.png"
   },
   {
     "id": 2111016,
@@ -4145,19 +4145,19 @@
     "id": 2111017,
     "name": "1st Pipe handle",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2111017.png"
   },
   {
     "id": 2111018,
     "name": "2nd Pipe handle",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2111018.png"
   },
   {
     "id": 2111019,
     "name": "3rd Pipe handle",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2111019.png"
   },
   {
     "id": 2111020,
@@ -4226,19 +4226,19 @@
     "id": 2112005,
     "name": "Brittany",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2112005.png"
   },
   {
     "id": 2112006,
     "name": "Brady",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2112006.png"
   },
   {
     "id": 2112007,
     "name": "Investigation Result.",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2112007.png"
   },
   {
     "id": 2112008,
@@ -4256,13 +4256,13 @@
     "id": 2112010,
     "name": "Yulete",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2112010.png"
   },
   {
     "id": 2112011,
     "name": "Yulete",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2112011.png"
   },
   {
     "id": 2112012,
@@ -4271,13 +4271,13 @@
       "Where did this problem start from…..",
       "Is it possible to fix it now"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2112012.png"
   },
   {
     "id": 2112013,
     "name": "Investigation Result.",
     "functions": [],
-    "thumbnail": null
+    "thumbnail": "images/npcs/2112013.png"
   },
   {
     "id": 22000,
@@ -4424,7 +4424,7 @@
     "functions": [
       "To break the treasure box, you need short-range weapon. So~ you need one"
     ],
-    "thumbnail": null
+    "thumbnail": "images/npcs/9000015.png"
   },
   {
     "id": 9000016,
