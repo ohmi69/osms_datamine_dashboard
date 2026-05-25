@@ -223,16 +223,30 @@ async function buildPatchSelector() {
     const label = el('label', { className: 'patch-selector-label', textContent: 'Patch:' });
     const select = el('select', { className: 'patch-selector' });
 
-    const currentOpt = el('option', { value: '', textContent: 'Current' });
-    if (!currentPatch) currentOpt.selected = true;
-    select.appendChild(currentOpt);
+    const OLD_PATCHES = new Set(['v22', 'v43', 'v49']);
 
     const sortedPatches = [...index.patches].sort((a, b) => new Date(b.date) - new Date(a.date));
-    for (const p of sortedPatches) {
+    const classicPatches = sortedPatches.filter(p => !OLD_PATCHES.has(p.version));
+    const oldPatches = sortedPatches.filter(p => OLD_PATCHES.has(p.version));
+
+    const classicGroup = el('optgroup', { label: 'Classic World' });
+    const currentOpt = el('option', { value: '', textContent: 'Closed Online Test' });
+    if (!currentPatch) currentOpt.selected = true;
+    classicGroup.appendChild(currentOpt);
+    for (const p of classicPatches) {
       const opt = el('option', { value: p.version, textContent: p.label || `v${p.version}` });
       if (currentPatch === p.version) opt.selected = true;
-      select.appendChild(opt);
+      classicGroup.appendChild(opt);
     }
+    select.appendChild(classicGroup);
+
+    const oldGroup = el('optgroup', { label: 'Old School' });
+    for (const p of oldPatches) {
+      const opt = el('option', { value: p.version, textContent: p.label || `v${p.version}` });
+      if (currentPatch === p.version) opt.selected = true;
+      oldGroup.appendChild(opt);
+    }
+    select.appendChild(oldGroup);
 
     select.addEventListener('change', () => {
       const v = select.value;
@@ -422,8 +436,16 @@ async function init() {
     innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> Back to top`
   });
   scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  let footerVisible = false;
+  const footer = document.querySelector('.footer');
+  if (footer) {
+    new IntersectionObserver(([e]) => {
+      footerVisible = e.isIntersecting;
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 300 && !footerVisible);
+    }).observe(footer);
+  }
   window.addEventListener('scroll', () => {
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 300 && !footerVisible);
   }, { passive: true });
   document.body.appendChild(scrollTopBtn);
 
