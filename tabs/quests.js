@@ -1,8 +1,7 @@
-import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, toMobThumbPath, makeCopyableId, padQuestId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, padQuestId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { Router } from '../lib/Router.js';
 import { attachTooltip } from '../lib/tooltip.js';
-
-
-import state from '../lib/data.js';
+import state, { getMobThumbUrl } from '../lib/data.js';
 
 function loadCompletionState() {
   return state.get('questsCompletionById', {});
@@ -25,10 +24,10 @@ function isQuestCompleted(quest, completionState) {
 
 
 
-function getRequirementThumbPath(requirement) {
+function getRequirementThumbPath(requirement, monsterById) {
   if (!requirement || !requirement.type) return '';
   if (requirement.type === 'item') return toItemThumbPath(requirement.id);
-  if (requirement.type === 'mob') return toMobThumbPath(requirement.id);
+  if (requirement.type === 'mob') return getMobThumbUrl(monsterById?.get(String(requirement.id))?.thumbnail);
   return '';
 }
 
@@ -79,7 +78,7 @@ function renderRequirementChips(requirements, itemById, monsterById) {
         'span',
         { className: 'quest-chip quest-requirement-chip', tabIndex: 0, role: 'button' },
         makeThumbnail(
-          getRequirementThumbPath(requirement),
+          getRequirementThumbPath(requirement, monsterById),
           `${requirement.name || requirement.label || 'Requirement'} thumbnail`,
           {
             className: isMob ? 'monster-thumb' : 'item-thumb',
@@ -108,7 +107,7 @@ function renderRequirementChips(requirements, itemById, monsterById) {
         'span',
         { className: 'quest-chip quest-requirement-chip', tabIndex: 0, role: 'button' },
         makeThumbnail(
-          getRequirementThumbPath(requirement),
+          getRequirementThumbPath(requirement, monsterById),
           `${requirement.name || requirement.label || 'Requirement'} thumbnail`,
           {
             className: requirement.type === 'mob' ? 'monster-thumb' : 'item-thumb',
@@ -491,16 +490,27 @@ export function renderQuests(data, options = {}) {
     renderData();
   });
 
+  function updateFilterUrl() {
+    Router.updateFilter('quests', regionFilter !== 'All' ? { region: regionFilter } : {});
+  }
+
   const hasRegions = Array.isArray(quests.regions) && quests.regions.length > 0;
   const regions = ['All', ...(quests.regions || [])];
+  let regionPillGroup = null;
   if (hasRegions) {
     const filterRow = el('div', { className: 'filter-row' });
-    const regionPills = makePillGroup(
+    regionPillGroup = makePillGroup(
       regions.map((r) => ({ label: r, value: r })),
       regionFilter,
-      (value) => { regionFilter = value; regionPills.setActive(value); renderData(); }
+      (value) => {
+        regionFilter = value;
+        regionPillGroup.setActive(value);
+        hideFilterBanner();
+        updateFilterUrl();
+        renderData();
+      }
     );
-    filterRow.appendChild(regionPills);
+    filterRow.appendChild(regionPillGroup);
     container.appendChild(filterRow);
   }
 
@@ -608,6 +618,21 @@ export function renderQuests(data, options = {}) {
     if (autoExpandAfterId != null) {
       autoExpandById(dataDiv, autoExpandAfterId, '.quest-card');
       autoExpandAfterId = null;
+    }
+  }
+
+  if (options.initialParams) {
+    const region = options.initialParams.get('region');
+    if (region && region !== 'All') {
+      regionFilter = region;
+      regionPillGroup?.setActive(regionFilter);
+      updateFilterUrl();
+      showFilterBanner(regionFilter, () => {
+        regionFilter = 'All';
+        regionPillGroup?.setActive('All');
+        updateFilterUrl();
+        renderData();
+      });
     }
   }
 

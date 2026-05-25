@@ -1,4 +1,5 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { Router } from '../lib/Router.js';
 
 function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
@@ -12,7 +13,7 @@ function renderEquipRow(item) {
   const topLine = el('div', { className: 'top-line' });
   const nameWrap = el('span', { className: 'item-name-wrap' });
   nameWrap.appendChild(
-    makeThumbnail(item.thumbnail, `${item.name} thumbnail`, {
+    makeThumbnail(`images/items/${padItemId(item.id)}.png`, `${item.name} thumbnail`, {
       className: 'item-thumb',
       fallbackText: 'ITEM',
     })
@@ -83,7 +84,9 @@ export function renderEquipment(data, options = {}) {
   const classPillGroup = makePillGroup(classOptions, classFilter, (value) => {
     classFilter = value;
     classPillGroup.setActive(value);
+    hideFilterBanner();
     buildWeaponTypePills();
+    updateFilterUrl();
     renderData();
   }, { groupLabel: 'Class:' });
   container.appendChild(classPillGroup);
@@ -97,10 +100,21 @@ export function renderEquipment(data, options = {}) {
   const genderPillGroup = makePillGroup(genderOptions, genderFilter, (value) => {
     genderFilter = value;
     genderPillGroup.setActive(value);
+    hideFilterBanner();
+    updateFilterUrl();
     renderData();
   }, { groupLabel: 'Gender:' });
   container.appendChild(genderPillGroup);
   container.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
+
+  function updateFilterUrl() {
+    Router.updateFilter('equipment', {
+      ...(classFilter !== 0 && { class: String(classFilter) }),
+      ...(genderFilter && { gender: genderFilter }),
+      ...(selectedSubCategory && { type: selectedSubCategory }),
+      ...(selectedWeaponType && { wtype: selectedWeaponType }),
+    });
+  }
 
   // Subcategory pills using makePillGroup
   let subCategoryOptions = [];
@@ -125,8 +139,10 @@ export function renderEquipment(data, options = {}) {
     function handleSubCategoryPillChange(value) {
       selectedSubCategory = value;
       selectedWeaponType = null;
+      hideFilterBanner();
       buildSubCategoryPills();
       buildWeaponTypePills();
+      updateFilterUrl();
       renderData();
     }
     const newPillGroup = makePillGroup(subCategoryOptions, selectedSubCategory, handleSubCategoryPillChange, { groupLabel: 'Type:' });
@@ -159,6 +175,7 @@ export function renderEquipment(data, options = {}) {
     function handleWeaponTypePillChange(value) {
       selectedWeaponType = value;
       buildWeaponTypePills();
+      updateFilterUrl();
       renderData();
     }
     if (selectedSubCategory !== 'Weapon' || types.length === 0) {
@@ -261,6 +278,43 @@ export function renderEquipment(data, options = {}) {
 
   buildSubCategoryPills();
   buildWeaponTypePills();
+
+  // Apply initial filter from deep link
+  if (options.initialParams) {
+    const p = options.initialParams;
+    const hasAny = p.has('class') || p.has('gender') || p.has('type') || p.has('wtype');
+    if (hasAny) {
+      if (p.has('class')) { classFilter = Number(p.get('class')); classPillGroup.setActive(classFilter); buildWeaponTypePills(); }
+      if (p.has('gender')) { genderFilter = p.get('gender'); genderPillGroup.setActive(genderFilter); }
+      if (p.has('type')) {
+        selectedSubCategory = p.get('type');
+        buildSubCategoryPills();
+        if (p.has('wtype')) { selectedWeaponType = p.get('wtype'); buildWeaponTypePills(); }
+      }
+      const labelParts = [];
+      if (p.has('class')) {
+        const classLabel = classOptions.find(o => o.value === Number(p.get('class')))?.label;
+        if (classLabel && classLabel !== 'All Classes') labelParts.push(classLabel);
+      }
+      if (p.has('gender')) labelParts.push(p.get('gender') === 'male' ? 'Male' : 'Female');
+      if (p.has('type')) labelParts.push(p.has('wtype') ? `${p.get('type')} → ${p.get('wtype')}` : p.get('type'));
+      if (labelParts.length > 0) {
+        showFilterBanner(labelParts.join(' · '), () => {
+          classFilter = 0;
+          genderFilter = null;
+          selectedSubCategory = null;
+          selectedWeaponType = null;
+          classPillGroup.setActive(0);
+          genderPillGroup.setActive(null);
+          buildSubCategoryPills();
+          buildWeaponTypePills();
+          updateFilterUrl();
+          renderData();
+        });
+      }
+    }
+  }
+
   renderData();
   return container;
 }

@@ -1,4 +1,5 @@
-import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeCopyableId, padSkillId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
+import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeCopyableId, padSkillId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { Router } from '../lib/Router.js';
 
 function makeLevelRow(className, label, text) {
   const row = el('div', { className });
@@ -43,11 +44,52 @@ export function renderSkills(data, options = {}) {
     { label: 'Bowman', value: 'Archer' },
     { label: 'Thief', value: 'Rogue' },
   ];
+  const SUBCLASS_PILLS = {};
+  for (const [key, arr] of Object.entries(skillsData)) {
+    const flat = [].concat(arr);
+    if (flat.length <= 1) continue;
+    const pill = CLASS_PILLS.find(p => p.value && p.value.toLowerCase() === key);
+    if (!pill) continue;
+    SUBCLASS_PILLS[pill.value] = [
+      { label: 'All', value: '' },
+      ...flat.map(cls => ({ label: cls.class_name, value: cls.class_name })),
+    ];
+  }
+  let subclassFilter = '';
+  let subPillGroup = null;
+  const subPillsWrapper = el('div');
+
+  function updateFilterUrl() {
+    Router.updateFilter('skills', {
+      ...(classFilter && { class: classFilter }),
+      ...(subclassFilter && { subclass: subclassFilter }),
+    });
+  }
+
   const pillGroup = makePillGroup(CLASS_PILLS, classFilter, (value) => {
     classFilter = value;
+    subclassFilter = '';
+    hideFilterBanner();
+    buildSubclassPills();
+    updateFilterUrl();
     renderData();
-  });
+  }, { groupLabel: 'Class:' });
   container.appendChild(pillGroup);
+
+  function buildSubclassPills() {
+    subPillsWrapper.innerHTML = '';
+    subPillGroup = null;
+    const subs = SUBCLASS_PILLS[classFilter];
+    if (!subs) return;
+    subPillGroup = makePillGroup(subs, subclassFilter, (value) => {
+      subclassFilter = value;
+      hideFilterBanner();
+      updateFilterUrl();
+      renderData();
+    }, { groupLabel: 'Subclass:' });
+    subPillsWrapper.appendChild(subPillGroup);
+  }
+  container.appendChild(subPillsWrapper);
   container.appendChild(
     el('div', { className: 'count-text', textContent: `${totalSkills} skills` })
   );
@@ -57,15 +99,17 @@ export function renderSkills(data, options = {}) {
 
   function renderData() {
     pillGroup.setActive(classFilter);
+    if (subPillGroup) subPillGroup.setActive(subclassFilter);
     dataDiv.innerHTML = '';
     const exactId = parseIdFilter(searchQuery);
-    // Filter by main_class property
     let filteredClasses = classes;
     if (classFilter) {
-      filteredClasses = classes.filter((cls) => {
-        // Use main_class for robust filtering
-        return cls.main_class && cls.main_class.toLowerCase() === classFilter.toLowerCase();
-      });
+      filteredClasses = classes.filter(
+        (cls) => cls.main_class && cls.main_class.toLowerCase() === classFilter.toLowerCase()
+      );
+    }
+    if (subclassFilter) {
+      filteredClasses = filteredClasses.filter((cls) => cls.class_name === subclassFilter);
     }
     const JOB_TIER_ORDER = { Beginner: 0, '1st Job': 1, '2nd Job': 2, '3rd Job': 3, '4th Job': 4 };
     filteredClasses = [...filteredClasses].sort(
@@ -185,6 +229,26 @@ export function renderSkills(data, options = {}) {
     if (autoExpandAfterId != null) {
       autoExpandById(dataDiv, autoExpandAfterId, '.skill-card');
       autoExpandAfterId = null;
+    }
+  }
+
+  if (options.initialParams) {
+    const cls = options.initialParams.get('class');
+    const sub = options.initialParams.get('subclass');
+    if (cls || sub) {
+      if (cls) { classFilter = cls; pillGroup.setActive(classFilter); buildSubclassPills(); }
+      if (sub && subPillGroup) { subclassFilter = sub; subPillGroup.setActive(subclassFilter); }
+      updateFilterUrl();
+      const parts = [CLASS_PILLS.find(p => p.value === classFilter)?.label ?? classFilter];
+      if (subclassFilter) parts.push(subclassFilter);
+      showFilterBanner(parts.join(' · '), () => {
+        classFilter = '';
+        subclassFilter = '';
+        pillGroup.setActive('');
+        buildSubclassPills();
+        updateFilterUrl();
+        renderData();
+      });
     }
   }
 

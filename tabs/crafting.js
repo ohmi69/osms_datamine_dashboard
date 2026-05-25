@@ -1,4 +1,5 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { Router } from '../lib/Router.js';
 import { attachTooltip } from '../lib/tooltip.js';
 
 function filterDisciplines(disciplines, exactId, sq) {
@@ -59,8 +60,14 @@ export function renderCrafting(data, options = {}) {
     { label: 'All', value: null },
     ...recipes.disciplines.map((discipline) => ({ label: discipline.discipline, value: discipline.discipline }))
   ];
+  function updateFilterUrl() {
+    Router.updateFilter('crafting', selectedDiscipline ? { discipline: selectedDiscipline } : {});
+  }
+
   const pillGroup = makePillGroup(DISCIPLINE_PILLS, selectedDiscipline, (value) => {
     selectedDiscipline = value;
+    hideFilterBanner();
+    updateFilterUrl();
     renderData();
   });
   container.appendChild(pillGroup);
@@ -242,6 +249,21 @@ export function renderCrafting(data, options = {}) {
     if (autoExpandAfterId != null) {
       autoExpandById(dataDiv, autoExpandAfterId, 'tr');
       autoExpandAfterId = null;
+    }
+  }
+
+  if (options.initialParams) {
+    const discipline = options.initialParams.get('discipline');
+    if (discipline) {
+      selectedDiscipline = discipline;
+      pillGroup.setActive(selectedDiscipline);
+      updateFilterUrl();
+      showFilterBanner(selectedDiscipline, () => {
+        selectedDiscipline = null;
+        pillGroup.setActive(null);
+        updateFilterUrl();
+        renderData();
+      });
     }
   }
 

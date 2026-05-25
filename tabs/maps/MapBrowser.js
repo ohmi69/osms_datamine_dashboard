@@ -1,7 +1,7 @@
 
 import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeHideToggle, makeCopyableId, padMapId, padMobId, scrollToDetailRow, autoExpandById } from '../../lib/utils.js';
 import { attachTooltip } from '../../lib/tooltip.js';
-import state, { getNpcLookup, getMapUrl } from '../../lib/data.js';
+import state, { getMapUrl, getMobThumbUrl } from '../../lib/data.js';
 
 import { showNavigateModal } from './MapNavigator.js';
 import { attachPortalOverlay } from './MapPortalOverlay.js';
@@ -246,7 +246,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       const grid = el('div', { className: 'map-mob-grid' });
       for (const mob of mobs) {
         const chip = el('div', { className: 'map-mob-chip' });
-        chip.appendChild(makeThumbnail(mob.thumbnail, mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
+        chip.appendChild(makeThumbnail(getMobThumbUrl(mob.thumbnail), mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
         chip.appendChild(el('span', { textContent: mob.name || `#${padMobId(mob.id)}` }));
         chip.appendChild(el('span', { className: 'map-mob-chip-count', textContent: `×${mob.count}` }));
         const DEFAULT_SPAWN = 7.56;
@@ -306,7 +306,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     // NPCs
     if (Array.isArray(mapEntry.npcs) && mapEntry.npcs.length > 0) {
       const npcGrid = el('div', { className: 'map-npc-grid' });
-      const lookup = await getNpcLookup();
+      const lookup = maps.npc_lookup;
       for (const npcId of mapEntry.npcs) {
         const npc = lookup.get(Number(npcId));
         const chip = el('div', { className: 'map-npc-chip' });
@@ -588,7 +588,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     dataDiv.innerHTML = '';
     const sq = searchQuery.toLowerCase();
     const exactId = parseIdFilter(searchQuery);
-    const npcLookup = await getNpcLookup();
+    const npcLookup = maps.npc_lookup;
     if (gen !== renderGen) return;
     let regions = selectedRegion
       ? maps.regions.filter((r) => r.region === selectedRegion)

@@ -1,16 +1,1 @@
-{
-  "copied": {
-    "monsters": 250,
-    "items": 3711,
-    "skills": 175,
-    "maps": 631,
-    "npcs": 419
-  },
-  "missing": {
-    "monsters": [],
-    "items": [],
-    "skills": [],
-    "maps": []
-  },
-  "missing_total": 0
-}
+{"copied":{"monsters":0,"items":3711,"skills":175,"maps":631,"npcs":419},"missing":{"monsters":[],"items":[],"skills":[],"maps":[]},"missing_total":0}

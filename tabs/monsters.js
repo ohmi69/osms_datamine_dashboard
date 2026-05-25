@@ -1,6 +1,6 @@
 import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMobId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
-import state from '../lib/data.js';
+import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL } from '../lib/constants.js';
 
 const ELEMENT_CLASSES = {
@@ -32,9 +32,9 @@ function buildDetailRow(monster, colSpan, onMapClick) {
 
   const gifs = monster.gifs || {};
   const availableStates = MOB_STATE_ORDER.filter(s => gifs[s]);
-  const defaultSrc = normalizeAssetPath(
-    gifs['move'] || (availableStates.length > 0 ? gifs[availableStates[0]] : null) || monster.gif || monster.thumbnail
-  );
+  const defaultSrc =
+    getMobGifUrl(gifs['move'] || (availableStates.length > 0 ? gifs[availableStates[0]] : null) || monster.gif) ||
+    getMobThumbUrl(monster.thumbnail);
 
   const headerLeft = el('div', { className: 'monster-detail-header-left' });
 
@@ -62,7 +62,7 @@ function buildDetailRow(monster, colSpan, onMapClick) {
         activeState = state;
         tabs.querySelectorAll('.monster-anim-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        if (gifImg) gifImg.src = normalizeAssetPath(gifs[state]);
+        if (gifImg) gifImg.src = getMobGifUrl(gifs[state]);
       });
       tabs.appendChild(tab);
     });
@@ -76,9 +76,6 @@ function buildDetailRow(monster, colSpan, onMapClick) {
   const headerRight = el('div', { className: 'monster-detail-header-right' });
   if (monster.id != null) {
     headerRight.appendChild(makeCopyableId(`#${padMobId(monster.id)}`));
-  }
-  if (monster.is_boss) {
-    headerRight.appendChild(el('span', { className: 'badge badge-boss', textContent: 'BOSS' }));
   }
   if (monster.undead) {
     headerRight.appendChild(
@@ -461,7 +458,7 @@ export function renderMonsters(data, options = {}) {
       const nameWrap = el('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' } });
       const nameLeft = el('span', { style: { display: 'flex', alignItems: 'center', gap: '8px' } });
       nameLeft.appendChild(
-        makeThumbnail(monster.gif || monster.thumbnail, `${monster.name} thumbnail`, {
+        makeThumbnail(getMobGifUrl(monster.gif) || getMobThumbUrl(monster.thumbnail), `${monster.name} thumbnail`, {
           className: 'monster-thumb',
           fallbackText: 'MOB',
         })

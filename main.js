@@ -14,7 +14,7 @@ function showZoomTipModal() {
   }, 1800);
 }
 import { TABS, ICONS } from './lib/config.js';
-import { el, $, $$ } from './lib/utils.js';
+import { el, $, $$, hideFilterBanner } from './lib/utils.js';
 import state, { loadData, getDataBase } from './lib/data.js';
 import { TabManager } from './lib/TabManager.js';
 import { ThemeManager } from './lib/ThemeManager.js';
@@ -45,7 +45,14 @@ let tabManager = null;
 // Use Router for deep link parsing
 
 // Tab renderers as a config array for TabManager
-function getTabConfigs(appData, isTimeTravelMode = false) {
+function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, initialParams = null) {
+  const usedDeeplinks = new Set();
+  function onceParams(tabId) {
+    if (initialRoute !== tabId || usedDeeplinks.has(tabId)) return null;
+    usedDeeplinks.add(tabId);
+    return initialParams;
+  }
+
   const tabs = [
     {
       id: 'overview',
@@ -81,7 +88,10 @@ function getTabConfigs(appData, isTimeTravelMode = false) {
       id: 'skills',
       label: 'Skills',
       icon: ICONS.swords,
-      render: ({ setNavigate }) => renderSkills(appData, { setNavigate })
+      render: ({ setNavigate }) => renderSkills(appData, {
+        setNavigate,
+        initialParams: onceParams('skills'),
+      })
     },
     ...(appData.recipes?.disciplines?.length > 0 ? [{
       id: 'crafting',
@@ -89,6 +99,7 @@ function getTabConfigs(appData, isTimeTravelMode = false) {
       icon: ICONS.hammer,
       render: ({ setNavigate, navigators }) => renderCrafting(appData, {
         setNavigate,
+        initialParams: onceParams('crafting'),
         onItemClick: (item, id) => {
           const isEquip = item?.category === 'Equipment';
           const tab = isEquip ? 'equipment' : 'items';
@@ -101,25 +112,37 @@ function getTabConfigs(appData, isTimeTravelMode = false) {
       id: 'items',
       label: 'Items',
       icon: ICONS.scrollText,
-      render: ({ setNavigate }) => renderItems(appData, { setNavigate })
+      render: ({ setNavigate }) => renderItems(appData, {
+        setNavigate,
+        initialParams: onceParams('items'),
+      })
     },
     {
       id: 'equipment',
       label: 'Equipment',
       icon: ICONS.swords,
-      render: ({ setNavigate }) => renderEquipment(appData, { setNavigate })
+      render: ({ setNavigate }) => renderEquipment(appData, {
+        setNavigate,
+        initialParams: onceParams('equipment'),
+      })
     },
     {
       id: 'cashshop',
       label: 'Cash Shop',
       icon: ICONS.shoppingBag,
-      render: ({ setNavigate }) => renderCashShop(appData, { setNavigate })
+      render: ({ setNavigate }) => renderCashShop(appData, {
+        setNavigate,
+        initialParams: onceParams('cashshop'),
+      })
     },
     {
       id: 'quests',
       label: 'Quests',
       icon: ICONS.bookOpen,
-      render: ({ setNavigate }) => renderQuests(appData, { setNavigate })
+      render: ({ setNavigate }) => renderQuests(appData, {
+        setNavigate,
+        initialParams: onceParams('quests'),
+      })
     },
     {
       id: 'formulas',
@@ -154,7 +177,10 @@ function getTabConfigs(appData, isTimeTravelMode = false) {
 Router.onRouteChange((tab, query) => {
   if (!tabManager) return;
   let tabId = tab === 'cash_shop' ? 'cashshop' : tab;
-  if (tabId && tabManager.tabs.some(t => t.id === tabId)) tabManager.switchTab(tabId, false, query);
+  if (!tabId || !tabManager.tabs.some(t => t.id === tabId)) return;
+  // Skip if staying on the same tab with only a filter change (no navigation query)
+  if (tabId === tabManager.activeTab && !query) return;
+  tabManager.switchTab(tabId, false, query);
 });
 
 async function showMapleTip() {
@@ -239,7 +265,7 @@ async function init() {
     if (sessionStorage.getItem('tt_intentional')) {
       sessionStorage.removeItem('tt_intentional');
       const overlay = el('div', { className: 'tt-overlay' });
-      const monster = el('img', { className: 'tt-monster', src: './data/patches/v43/images/monsters/4230113.move.webp', alt: '' });
+      const monster = el('img', { className: 'tt-monster', src: './data/images/monsters/dfa7cc8dc3a3d612d44510bcf0b30401.webp', alt: '' });
       const ttText = el('div', { className: 'tt-text', textContent: `Timetravelling back to ${patchVersion}` });
       overlay.appendChild(monster);
       overlay.appendChild(ttText);
@@ -268,7 +294,7 @@ async function init() {
   if (!isTimeTravelMode && sessionStorage.getItem('tt_returning')) {
     sessionStorage.removeItem('tt_returning');
     const overlay = el('div', { className: 'tt-overlay' });
-    const monster = el('img', { className: 'tt-monster tt-monster--flipped', src: './data/patches/v43/images/monsters/4230113.move.webp', alt: '' });
+    const monster = el('img', { className: 'tt-monster tt-monster--flipped', src: './data/images/monsters/dfa7cc8dc3a3d612d44510bcf0b30401.webp', alt: '' });
     const ttText = el('div', { className: 'tt-text', textContent: 'Time travelling back to the present' });
     overlay.appendChild(monster);
     overlay.appendChild(ttText);
@@ -326,10 +352,10 @@ async function init() {
 
 
   // Determine initial tab from Router
-
   const route = Router.getCurrentRoute();
   const query = Router.getCurrentQuery();
-  const tabConfigs = getTabConfigs(appData, isTimeTravelMode);
+  const initialParams = Router.getParams();
+  const tabConfigs = getTabConfigs(appData, isTimeTravelMode, route, initialParams);
   const validTab = route && tabConfigs.some(t => t.id === route) ? route : 'overview';
 
   tabManager = new TabManager({
@@ -337,6 +363,19 @@ async function init() {
     panelContainer: panels,
     navContainer: nav,
     initialTab: validTab,
+    onTabSwitch: (() => {
+      let prev = null;
+      return (id) => {
+        if (prev !== null && prev !== id) {
+          hideFilterBanner();
+          if (tabManager?.panelCache[prev]) {
+            tabManager.panelCache[prev].remove();
+            delete tabManager.panelCache[prev];
+          }
+        }
+        prev = id;
+      };
+    })(),
   });
   // Expose global switchTab for header banner
   window.switchTab = function(tabId, push, query) {
@@ -376,6 +415,17 @@ async function init() {
     },
     className: 'id-toggle theme-toggle'
   });
+
+  const scrollTopBtn = el('button', {
+    className: 'scroll-top-btn',
+    title: 'Back to top',
+    innerHTML: `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> Back to top`
+  });
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+  document.body.appendChild(scrollTopBtn);
 
   const toggleDock = el('div', { className: 'toggle-dock' });
   toggleDock.appendChild(idToggle);

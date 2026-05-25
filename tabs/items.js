@@ -1,4 +1,5 @@
-import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { Router } from '../lib/Router.js';
 
 const STAT_LABELS = {
   price:       ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
@@ -32,7 +33,7 @@ function renderItemRow(item) {
   const topLine = el('div', { className: 'top-line' });
   const nameWrap = el('span', { className: 'item-name-wrap' });
   nameWrap.appendChild(
-    makeThumbnail(item.thumbnail, `${item.name} thumbnail`, {
+    makeThumbnail(`images/items/${padItemId(item.id)}.png`, `${item.name} thumbnail`, {
       className: 'item-thumb',
       fallbackText: 'ITEM',
     })
@@ -111,6 +112,12 @@ export function renderItems(data, options = {}) {
 
   let selectedCategory = null; // null = all
   let selectedScrollSlot = null; // null = all slots
+
+  function updateFilterUrl() {
+    Router.updateFilter('items', selectedCategory
+      ? { filter: selectedScrollSlot ? `${selectedCategory}:${selectedScrollSlot}` : selectedCategory }
+      : {});
+  }
 
   function updateScrollSubRowVisibility() {
     scrollSubRow.classList.toggle('hidden', selectedCategory !== 'Scrolls');
@@ -207,6 +214,7 @@ export function renderItems(data, options = {}) {
     selectedScrollSlot = null;
     scrollAllSlotBtn.classList.add('active');
     scrollSlotBtns.forEach((b) => b.classList.remove('active'));
+    updateFilterUrl();
     renderData();
   });
   scrollSlotBtns.forEach((btn, idx) => {
@@ -214,6 +222,7 @@ export function renderItems(data, options = {}) {
       selectedScrollSlot = allScrollSlots[idx];
       scrollAllSlotBtn.classList.remove('active');
       scrollSlotBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
+      updateFilterUrl();
       renderData();
     });
   });
@@ -223,7 +232,9 @@ export function renderItems(data, options = {}) {
     selectedCategory = null;
     allTab.classList.add('active');
     categoryTabs.forEach((btn) => btn.classList.remove('active'));
+    hideFilterBanner();
     updateScrollSubRowVisibility();
+    updateFilterUrl();
     renderData();
   });
   categoryTabs.forEach((btn, idx) => {
@@ -234,9 +245,30 @@ export function renderItems(data, options = {}) {
       btn.classList.add('active');
       categoryTabs.forEach((b, i) => { if (i !== idx) b.classList.remove('active'); });
       updateScrollSubRowVisibility();
+      updateFilterUrl();
       renderData();
     });
   });
+
+  // Apply initial filter from deep link
+  if (options.initialParams) {
+    const filterVal = options.initialParams.get('filter');
+    if (filterVal) {
+      const [cat, slot] = filterVal.split(':');
+      const catIdx = categories.indexOf(cat);
+      if (catIdx !== -1) {
+        selectedCategory = cat;
+        allTab.classList.remove('active');
+        categoryTabs.forEach((b, i) => b.classList.toggle('active', i === catIdx));
+        if (cat === 'Scrolls' && slot && allScrollSlots.includes(slot)) {
+          selectedScrollSlot = slot;
+          scrollAllSlotBtn.classList.remove('active');
+          scrollSlotBtns.forEach((b, i) => b.classList.toggle('active', allScrollSlots[i] === slot));
+        }
+        showFilterBanner(slot ? `${cat} → ${slot}` : cat, () => allTab.click());
+      }
+    }
+  }
 
   updateScrollSubRowVisibility();
   renderData();

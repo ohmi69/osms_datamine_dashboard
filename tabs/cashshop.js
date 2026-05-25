@@ -1,4 +1,5 @@
-import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeHideToggle, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
+import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeHideToggle, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { Router } from '../lib/Router.js';
 import state from '../lib/data.js';
 
 export function renderCashShop(data, options = {}) {
@@ -36,8 +37,18 @@ export function renderCashShop(data, options = {}) {
     ...namedCategories.map((cat) => ({ label: cat.category, value: cat.category })),
     ...(unnamedItems.length > 0 ? [{ label: 'Unnamed Unavailable Items', value: '__unnamed__' }] : [])
   ];
+  function updateFilterUrl() {
+    Router.updateFilter('cashshop', selectedCategory
+      ? { filter: selectedSubCategory ? `${selectedCategory}:${selectedSubCategory}` : selectedCategory }
+      : {});
+  }
+
   const pillGroup = makePillGroup(CATEGORY_PILLS, selectedCategory, (value) => {
     selectedCategory = value;
+    selectedSubCategory = null;
+    hideFilterBanner();
+    buildSubCategoryPills();
+    updateFilterUrl();
     renderData();
   });
   container.appendChild(pillGroup);
@@ -80,6 +91,7 @@ export function renderCashShop(data, options = {}) {
       selectedSubCategory = null;
       allSub.classList.add('active');
       subPillRow.querySelectorAll('button:not(:first-child)').forEach((b) => b.classList.remove('active'));
+      updateFilterUrl();
       renderData();
     });
     subPillRow.appendChild(allSub);
@@ -90,6 +102,7 @@ export function renderCashShop(data, options = {}) {
         selectedSubCategory = sub;
         subPillRow.querySelectorAll('button').forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
+        updateFilterUrl();
         renderData();
       });
       subPillRow.appendChild(btn);
@@ -237,6 +250,34 @@ export function renderCashShop(data, options = {}) {
     if (autoExpandAfterId != null) {
       autoExpandById(dataDiv, autoExpandAfterId, '.item-row');
       autoExpandAfterId = null;
+    }
+  }
+
+  // Apply initial filter from deep link
+  if (options.initialParams) {
+    const filterVal = options.initialParams.get('filter');
+    if (filterVal) {
+      const [cat, sub] = filterVal.split(':');
+      if (CATEGORY_PILLS.some(p => p.value === cat)) {
+        selectedCategory = cat;
+        pillGroup.setActive(cat);
+        buildSubCategoryPills();
+        if (sub) {
+          selectedSubCategory = sub;
+          subPillRow.querySelectorAll('button').forEach(b => {
+            b.classList.toggle('active', b.textContent === sub);
+          });
+        }
+        const catLabel = CATEGORY_PILLS.find(p => p.value === cat)?.label || cat;
+        showFilterBanner(sub ? `${catLabel} → ${sub}` : catLabel, () => {
+          selectedCategory = null;
+          selectedSubCategory = null;
+          pillGroup.setActive(null);
+          buildSubCategoryPills();
+          updateFilterUrl();
+          renderData();
+        });
+      }
     }
   }
 
