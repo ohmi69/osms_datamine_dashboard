@@ -802,6 +802,33 @@ body {
 }
 .info-banner p { font-size: 13px; color: var(--dim); }
 
+/* ── Loading screen ─────────────────────────────────────────── */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 80px 24px;
+  color: var(--dim);
+}
+.loading-image {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  animation: loading-bob 1s ease-in-out infinite;
+  image-rendering: pixelated;
+}
+@keyframes loading-bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+.loading-screen p {
+  font-size: 13px;
+  color: var(--dim);
+  letter-spacing: 0.04em;
+}
+
 /* ── Section heading (MappleTip panel header style) ─────────── */
 .section-heading {
   display: flex;

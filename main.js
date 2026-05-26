@@ -329,7 +329,10 @@ async function init() {
   const panels = $('#tabPanels');
   panels.innerHTML = '';
   panels.appendChild(
-    el('div', { className: 'info-banner', innerHTML: '<p>Loading parsed data...</p>' })
+    el('div', {
+      className: 'loading-screen',
+      innerHTML: '<img class="loading-image" src="data/images/monsters/60d6ad07b24fe15ad7f789827946c20b.webp" alt=""><p>Loading data…</p>',
+    })
   );
 
   try {
