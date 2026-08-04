@@ -353,6 +353,71 @@ function buildEntry(entry, bucket, section, onNavigate) {
   return row;
 }
 
+// One continuous run of rows. Each carries its own sign and colour, so the
+// change type reads per-entry without splitting the list into blocks.
+function buildList(rows, section, onNavigate) {
+  const list = el('div', { className: 'pn-list' });
+  rows.forEach(({ entry, bucket }) =>
+    list.appendChild(buildEntry(entry, bucket, section, onNavigate)));
+  return list;
+}
+
+// Coloured +N / −N / ~N breakdown for a heading. makeCollapsible's own
+// badgeText is plain text, so this is appended to the header separately to keep
+// each number in its own colour.
+function buildTally(counts) {
+  const tally = el('span', { className: 'pn-tally' });
+  BUCKETS.forEach((b) => {
+    if (!counts[b.key]) return;
+    tally.appendChild(el('span', {
+      className: `pn-tally-item ${b.cls}`,
+      textContent: `${b.sign}${counts[b.key]}`,
+    }));
+  });
+  return tally;
+}
+
+// Sections whose entries carry a `group` (Skills, by class) split into nested
+// collapsibles, one per group, closed by default: the section then opens as a
+// short index of classes rather than a wall of entries.
+//
+// `section.groups` is the generator's canonical order; anything missing from it
+// -- including entries with no group at all -- follows in the order it appears,
+// so nothing can silently drop out of the list.
+function buildGroupedList(rows, section, onNavigate) {
+  const byGroup = new Map();
+  rows.forEach((row) => {
+    const key = row.entry.group || '';
+    if (!byGroup.has(key)) byGroup.set(key, []);
+    byGroup.get(key).push(row);
+  });
+
+  const wrap = el('div', { className: 'pn-groups' });
+  [...new Set([...(section.groups || []), ...byGroup.keys()])]
+    .filter((key) => byGroup.has(key))
+    .forEach((key) => {
+      const groupRows = byGroup.get(key);
+      const list = buildList(groupRows, section, onNavigate);
+      // Entries with no group of their own stay loose, above the blocks.
+      if (!key) {
+        wrap.appendChild(list);
+        return;
+      }
+      // The rows are passed as a node rather than a builder, so they are in the
+      // DOM even while the block is closed -- reveal() finds a deep-linked row
+      // by query and then opens its block, which a lazy body would defeat.
+      const block = makeCollapsible(key, groupRows.length, false, null, list);
+      block.classList.add('pn-group');
+      const counts = {};
+      groupRows.forEach(({ bucket }) => {
+        counts[bucket.key] = (counts[bucket.key] || 0) + 1;
+      });
+      block.querySelector('.collapsible-header .left')?.appendChild(buildTally(counts));
+      wrap.appendChild(block);
+    });
+  return wrap;
+}
+
 function buildSectionBody(section, onNavigate) {
   const body = el('div', { className: 'pn-body' });
 
@@ -360,15 +425,14 @@ function buildSectionBody(section, onNavigate) {
     body.appendChild(el('div', { className: 'pn-note', textContent: section.note }));
   }
 
-  // One continuous list. Each row still carries its own sign and colour, so the
-  // change type reads per-entry without splitting the section into blocks.
-  const list = el('div', { className: 'pn-list' });
+  const rows = [];
   BUCKETS.forEach((bucket) => {
-    (section[bucket.key] || []).forEach((entry) => {
-      list.appendChild(buildEntry(entry, bucket, section, onNavigate));
-    });
+    (section[bucket.key] || []).forEach((entry) => rows.push({ entry, bucket }));
   });
-  body.appendChild(list);
+  const grouped = section.groups?.length || rows.some((r) => r.entry.group);
+  body.appendChild(grouped
+    ? buildGroupedList(rows, section, onNavigate)
+    : buildList(rows, section, onNavigate));
 
   // The generator's --max-items can cap each bucket. Say so: a silently short
   // list is indistinguishable from a section that had nothing more to report.
@@ -435,20 +499,7 @@ export function renderPatchNotes(notes, options = {}) {
     const collapsible = makeCollapsible(section.label, total, i === 0, null,
       () => buildSectionBody(section, onNavigate));
 
-    // makeCollapsible's badgeText is plain text, so append the per-type
-    // breakdown directly to keep each number in its own colour.
-    const left = collapsible.querySelector('.collapsible-header .left');
-    if (left) {
-      const tally = el('span', { className: 'pn-tally' });
-      BUCKETS.forEach((b) => {
-        if (!counts[b.key]) return;
-        tally.appendChild(el('span', {
-          className: `pn-tally-item ${b.cls}`,
-          textContent: `${b.sign}${counts[b.key]}`,
-        }));
-      });
-      left.appendChild(tally);
-    }
+    collapsible.querySelector('.collapsible-header .left')?.appendChild(buildTally(counts));
     sectionEls.set(section.key, collapsible);
     sectionsWrap.appendChild(collapsible);
   });
@@ -472,6 +523,13 @@ export function renderPatchNotes(notes, options = {}) {
       if (!target) {
         if (tries > 0) attempt(tries - 1);
         return;
+      }
+      // Grouped sections nest each block in its own collapsible, closed by
+      // default -- open whichever ones hold the row, or it stays invisible and
+      // the scroll below lands on a zero-height target.
+      for (let node = target.parentElement; node && node !== collapsible;
+           node = node.parentElement) {
+        if (node.classList.contains('collapsible')) node.classList.add('open');
       }
       document.querySelectorAll('.row-hotlink').forEach((r) => r.classList.remove('row-hotlink'));
       target.classList.add('row-hotlink');

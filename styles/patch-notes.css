@@ -37,7 +37,9 @@
      `clip` still rounds the corners but keeps sticky working. */
   overflow: clip;
 }
-.patch-notes-page .collapsible-header {
+/* Only the section header sticks; the nested group headers inside it would
+   otherwise pile up at the same offset and cover it. */
+.pn-sections > .collapsible > .collapsible-header {
   position: sticky;
   top: 0;
   z-index: 5;
@@ -60,6 +62,20 @@
 }
 
 .pn-list { display: flex; flex-direction: column; gap: 4px; }
+
+/* Grouped sections (Skills, by class): one nested collapsible per group, taking
+   base.css's nested-collapsible look. The heading replaces the per-entry
+   subtitle row, which would repeat the same class on every entry under it. */
+.pn-group > .collapsible-body { padding: 6px; }
+/* base.css mutes nested-collapsible titles; here they are the section's whole
+   index, so they read as headings. Selector matches that rule's specificity and
+   wins on order (patch-notes.css loads after base.css). */
+.pn-sections .pn-group > .collapsible-header .title {
+  color: var(--text);
+  font-weight: 600;
+}
+/* Spacing comes from the nested .collapsible margins, not a gap. */
+.pn-groups { display: block; }
 
 /* Per-type breakdown in each section heading */
 .pn-tally { display: inline-flex; gap: 8px; margin-left: 10px; align-items: baseline; }
