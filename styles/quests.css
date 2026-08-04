@@ -1,6 +1,8 @@
 .badge-daily,
 .badge-weekly,
-.badge-repeatable {
+.badge-repeatable,
+.badge-rotation,
+.badge-onetime {
   border-radius: 0;
   font-weight: 600;
   padding: 2px 7px;
@@ -23,6 +25,16 @@
   background: rgba(234,179,8,0.2);
   color: #fbbf24;
   border-color: rgba(234,179,8,0.4);
+}
+.badge-rotation {
+  background: rgba(20,184,166,0.2);
+  color: #2dd4bf;
+  border-color: rgba(20,184,166,0.4);
+}
+.badge-onetime {
+  background: rgba(148,163,184,0.2);
+  color: #cbd5e1;
+  border-color: rgba(148,163,184,0.4);
 }
 
 .quest-standalone.quest-group-complete,
@@ -227,8 +239,14 @@
   color: #7a4700;
   border-color: rgba(161,100,0,0.30);
 }
-[data-theme="mapletip"] .badge-repeatable {
+[data-theme="mapletip"] .badge-repeatable,
+[data-theme="mapletip"] .badge-rotation {
   background: rgba(161,100,0,0.10);
   color: #7a4700;
   border-color: rgba(161,100,0,0.30);
+}
+[data-theme="mapletip"] .badge-onetime {
+  background: rgba(90,90,90,0.10);
+  color: #4a4a4a;
+  border-color: rgba(90,90,90,0.30);
 }

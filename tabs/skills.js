@@ -8,6 +8,30 @@ function makeLevelRow(className, label, text) {
   return row;
 }
 
+// mob_count / attack_count come through as a plain number when the value holds
+// for every level, or an array (one entry per level) when it scales with rank.
+// Collapse an array to its span so the card stays one line: "1-4 monsters".
+function countSpan(value) {
+  if (typeof value === 'number') return { text: String(value), max: value };
+  if (!Array.isArray(value)) return null;
+  const nums = value.filter((v) => typeof v === 'number');
+  if (nums.length === 0) return null;
+  const lo = Math.min(...nums);
+  const hi = Math.max(...nums);
+  return { text: lo === hi ? String(hi) : `${lo}-${hi}`, max: hi };
+}
+
+function formatTargeting(skill) {
+  const mobs = countSpan(skill.mob_count);
+  const hits = countSpan(skill.attack_count);
+  if (!mobs && !hits) return '';
+  const parts = [];
+  if (mobs) parts.push(`${mobs.text} ${mobs.max === 1 ? 'monster' : 'monsters'}`);
+  // A single hit per monster is the default and says nothing worth the space.
+  if (hits && hits.max > 1) parts.push(`${hits.text} ${hits.max === 1 ? 'hit' : 'hits'} each`);
+  return parts.join(' · ');
+}
+
 function getSkillThumbnail(skill) {
   if (skill.thumbnail) return skill.thumbnail;
   const id = padSkillId(skill.id || '');
@@ -246,6 +270,14 @@ export function renderSkills(data, options = {}) {
           req.appendChild(el('span', { className: 'label', textContent: 'Required: ' }));
           req.appendChild(el('span', { className: 'value', textContent: skill.required_skill }));
           card.appendChild(req);
+        }
+
+        const targeting = formatTargeting(skill);
+        if (targeting) {
+          const row = el('div', { className: 'targeting' });
+          row.appendChild(el('span', { className: 'label', textContent: 'Targets: ' }));
+          row.appendChild(el('span', { className: 'value', textContent: targeting }));
+          card.appendChild(row);
         }
 
         if (Array.isArray(skill.all_level_stats) && skill.all_level_stats.length > 0) {

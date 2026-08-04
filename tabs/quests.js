@@ -330,11 +330,36 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
       );
     });
   }
+  // Rotation-pool quests only surface `select_count` of the pool per cycle, so
+  // spell the odds out rather than letting a bare DAILY badge imply every one
+  // of them shows up every day.
+  const rot = quest.rotation;
+  const rotTitle = rot
+    ? `${rot.group} — ${rot.select_count} of ${rot.pool_size} offered per ${rot.cadence} rotation`
+    : '';
   if (quest.is_daily) {
-    nameRow.appendChild(el('span', { className: 'badge badge-daily', textContent: 'DAILY' }));
+    nameRow.appendChild(el('span', {
+      className: 'badge badge-daily', textContent: 'DAILY', title: rotTitle,
+    }));
   }
   if (quest.is_weekly) {
-    nameRow.appendChild(el('span', { className: 'badge badge-weekly', textContent: 'WEEKLY' }));
+    nameRow.appendChild(el('span', {
+      className: 'badge badge-weekly', textContent: 'WEEKLY', title: rotTitle,
+    }));
+  }
+  if (rot) {
+    nameRow.appendChild(el('span', {
+      className: 'badge badge-rotation',
+      textContent: `1 / ${rot.pool_size} POOL`,
+      title: rotTitle,
+    }));
+    if (rot.one_time) {
+      nameRow.appendChild(el('span', {
+        className: 'badge badge-onetime',
+        textContent: 'ONE-TIME',
+        title: `${rot.group} — drawn from the pool at most once, then never again`,
+      }));
+    }
   }
   if (quest.is_repeatable) {
     nameRow.appendChild(

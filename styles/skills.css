@@ -37,6 +37,20 @@
 }
 .skill-card .required .label { color: var(--dim); }
 .skill-card .required .value { color: var(--accent); font-weight: 500; }
+.skill-card .targeting {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+/* Both pills are inline-block, so they share a line when the skill has a
+   prerequisite -- only then is a gutter needed. */
+.skill-card .required + .targeting { margin-left: 6px; }
+.skill-card .targeting .label { color: var(--dim); }
+.skill-card .targeting .value { color: var(--text); font-weight: 500; }
 .skill-card .stat-levels { margin-top: 8px; font-family: monospace; font-size: 13px; }
 .skill-card .stat-levels .lv1  { color: var(--dim); }
 .skill-card .stat-levels .lv1  .label { color: var(--secondary); }

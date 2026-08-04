@@ -197,7 +197,6 @@ export function renderOverview(data, options) {
   findingsSection.appendChild(el('div', { className: 'section-heading', textContent: 'Key Findings' }));
   const findingsGrid = el('div', { className: 'findings-grid' });
 
-  // "15 (Archer, Assassin, ...) — 2nd Job cap" -> { count: '15', items: [...], suffix: '2nd Job cap' }
   function parseCountedList(text) {
     const match = /^(\d+)\s*\(([^)]*)\)\s*(?:—|-)?\s*(.*)$/.exec(text || '');
     if (!match) return null;
@@ -282,7 +281,8 @@ export function renderOverview(data, options) {
 
   [
     ['Repeatable Quests', stats.repeatable_quests],
-  ].forEach(([title, text]) => {
+    ['Quest Rotation Pools', stats.rotation_pools],
+  ].filter(([, text]) => text).forEach(([title, text]) => {
     const card = el('div', { className: 'info-card' });
     card.appendChild(el('div', { className: 'title', textContent: title }));
     card.appendChild(el('div', { className: 'text', textContent: text }));
