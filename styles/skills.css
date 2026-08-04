@@ -16,6 +16,9 @@
   color: var(--secondary);
   margin-left: 8px;
 }
+/* .item-name-wrap already supplies the 8px gap; keep tags from being squeezed
+   by long skill names. */
+.skill-card .badge { flex-shrink: 0; }
 .skill-card .skill-desc {
   font-size: 13px;
   color: var(--dim);

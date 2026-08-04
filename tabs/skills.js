@@ -201,6 +201,11 @@ export function renderSkills(data, options = {}) {
             el('span', { className: 'max-level', textContent: `Max Lv.${skill.max_level}` })
           );
         }
+        if (skill.target === 'party') {
+          nameWrap.appendChild(
+            el('span', { className: 'badge badge-party', textContent: 'Party Buff', title: 'Applies to party members in range' })
+          );
+        }
         nameRow.appendChild(nameWrap);
         const skRightWrap = el('span', { className: 'item-id-wrap' });
         if (skill.id != null) skRightWrap.appendChild(makeDeepLinkButton('skills', padSkillId(skill.id)));

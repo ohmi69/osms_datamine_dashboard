@@ -260,6 +260,11 @@
   color: #2D7A3A;
   border-color: rgba(45,122,58,.2);
 }
+[data-theme="mapletip"] .badge-party {
+  background: rgba(204,85,0,.08);
+  color: #CC5500;
+  border-color: rgba(204,85,0,.2);
+}
 
 
 *, *::before, *::after {
@@ -703,6 +708,11 @@ body {
   background: rgba(34,197,94,0.13);
   color: var(--new-badge);
   border: 1px solid rgba(34,197,94,0.27);
+}
+.badge-party {
+  background: rgba(245,158,11,0.13);
+  color: var(--accent);
+  border: 1px solid rgba(245,158,11,0.27);
 }
 
 /* ── Count text ─────────────────────────────────────────────── */
