@@ -73,7 +73,7 @@ export function renderOverview(data, options) {
 
   frag.appendChild(buildBanner(
     'Welcome back to Closed Online Test 2!',
-    'The site has been updated with the latest COT2 data. Formulas and other data from COT1 may be outdated until re-verified, check back often as things change!',
+    "We're still waiting for the client download to drop, so check back soon! Formulas and other data from COT1 may be outdated until re-verified, check back often as things change!",
   ));
 
   // Hero banner
