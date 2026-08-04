@@ -120,7 +120,7 @@ export function renderOverview(data, options) {
       fontSize: '10px', color: 'var(--dim)', opacity: '.65',
       background: 'rgba(255,255,255,.04)', border: '1px solid var(--border)', borderRadius: '3px', padding: '0 4px',
     },
-    textContent: 'c80c0a8a',
+    textContent: '0a8ccb68',
   }));
   heroBadgeMeta.appendChild(heroBadge);
   heroBadgeMeta.appendChild(heroPatchHash);
@@ -140,7 +140,7 @@ export function renderOverview(data, options) {
   }));
   heroTimeLine.appendChild(el('span', {
     style: { fontSize: '10px', color: 'var(--dim)', opacity: '.75', fontFamily: 'monospace' },
-    textContent: 'August 4, 2026 10:01 PT',
+    textContent: 'August 4, 2026 11:10 PT',
   }));
   heroInfo.appendChild(heroTimeLine);
   heroBanner.appendChild(heroInfo);
