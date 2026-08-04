@@ -50,7 +50,8 @@ function buildNavSection(stats, switchTab, isTimeTravelMode = false) {
   return section;
 }
 
-export function renderOverview(data, { switchTab }) {
+export function renderOverview(data, options) {
+  const { switchTab } = options;
   const { overview } = data;
   const stats = overview.stats;
   const frag = document.createDocumentFragment();
@@ -72,7 +73,7 @@ export function renderOverview(data, { switchTab }) {
 
   frag.appendChild(buildBanner(
     'Welcome back to Closed Online Test 2!',
-    'We are waiting for the client to drop, but feel free to browse COT1 data in the meantime!',
+    'The site has been updated with the latest COT2 data. Formulas and other data from COT1 may be outdated until re-verified, check back often as things change!',
   ));
 
   // Hero banner
@@ -184,7 +185,7 @@ export function renderOverview(data, { switchTab }) {
     };
   }
 
-  function appendChipCard(title, unit, text) {
+  function appendChipCard(title, unit, text, onChipClick) {
     const parsed = parseCountedList(text);
     if (!parsed) {
       const card = el('div', { className: 'info-card' });
@@ -199,15 +200,35 @@ export function renderOverview(data, { switchTab }) {
     card.appendChild(el('div', { className: 'text', textContent: summary }));
     const chipRow = el('div', { className: 'info-chip-row' });
     parsed.items.forEach(item => {
-      chipRow.appendChild(el('span', { className: 'info-chip', textContent: item }));
+      if (onChipClick) {
+        const chip = el('button', { className: 'info-chip info-chip--link', textContent: item });
+        chip.addEventListener('click', () => onChipClick(item));
+        chipRow.appendChild(chip);
+      } else {
+        chipRow.appendChild(el('span', { className: 'info-chip', textContent: item }));
+      }
     });
     card.appendChild(chipRow);
     findingsGrid.appendChild(card);
   }
 
-  appendChipCard('Classes', 'classes', stats.classes);
-  appendChipCard('Craft Disciplines', 'disciplines', stats.disciplines);
-  appendChipCard('Bosses', 'bosses', stats.bosses);
+  // Chip label -> skills tab filter params (class pill and/or subclass pill)
+  const skillClasses = Object.values(data.skills || {}).flat().filter(c => c && c.class_name);
+  function openSkillsForClass(label) {
+    const cls = skillClasses.find(c => c.class_name === label);
+    if (!cls) return;
+    const params = {};
+    if (cls.main_class) params.class = cls.main_class;
+    if (cls.class_name !== cls.main_class) params.subclass = cls.class_name;
+    options.openTabWithParams('skills', params);
+  }
+
+  appendChipCard('Classes', 'classes', stats.classes,
+    options.openTabWithParams ? openSkillsForClass : null);
+  appendChipCard('Craft Disciplines', 'disciplines', stats.disciplines,
+    options.openTabWithParams ? (label => options.openTabWithParams('crafting', { discipline: label })) : null);
+  appendChipCard('Bosses', 'bosses', stats.bosses,
+    label => switchTab('monsters', true, label));
 
   // "4 tiers — Lesser (100%, +1 stat), Intermediate (60%, +2 stat), ..." -> one row per tier
   function appendScrollSystemCard(title, text) {

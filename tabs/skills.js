@@ -237,9 +237,10 @@ export function renderSkills(data, options = {}) {
     const sub = options.initialParams.get('subclass');
     if (cls || sub) {
       if (cls) { classFilter = cls; pillGroup.setActive(classFilter); buildSubclassPills(); }
-      if (sub && subPillGroup) { subclassFilter = sub; subPillGroup.setActive(subclassFilter); }
+      if (sub) { subclassFilter = sub; if (subPillGroup) subPillGroup.setActive(subclassFilter); }
       updateFilterUrl();
-      const parts = [CLASS_PILLS.find(p => p.value === classFilter)?.label ?? classFilter];
+      const parts = [];
+      if (classFilter) parts.push(CLASS_PILLS.find(p => p.value === classFilter)?.label ?? classFilter);
       if (subclassFilter) parts.push(subclassFilter);
       showFilterBanner(parts.join(' · '), () => {
         classFilter = '';

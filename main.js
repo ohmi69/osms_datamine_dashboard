@@ -49,7 +49,14 @@ let tabManager = null;
 // Tab renderers as a config array for TabManager
 function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, initialParams = null, patchVersion = null) {
   const usedDeeplinks = new Set();
+  // Params queued by in-app navigation (e.g. overview chips) for the next render of a tab.
+  const pendingTabParams = {};
   function onceParams(tabId) {
+    if (pendingTabParams[tabId]) {
+      const params = pendingTabParams[tabId];
+      delete pendingTabParams[tabId];
+      return params;
+    }
     if (initialRoute !== tabId || usedDeeplinks.has(tabId)) return null;
     usedDeeplinks.add(tabId);
     return initialParams;
@@ -60,7 +67,13 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
       id: 'overview',
       label: 'Overview',
       icon: ICONS.chartColumn,
-      render: () => renderOverview(appData, { switchTab: (id, push, query) => tabManager.switchTab(id, push, query) })
+      render: () => renderOverview(appData, {
+        switchTab: (id, push, query) => tabManager.switchTab(id, push, query),
+        openTabWithParams: (id, params) => {
+          pendingTabParams[id] = new URLSearchParams(params);
+          tabManager.switchTab(id);
+        },
+      })
     },
     ...(appData.patchNotes ? [{
       id: 'patchnotes',
@@ -172,13 +185,12 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
       hidden: true,
       render: ({ setNavigate }) => renderNavigatorGame(appData, { setNavigate })
     },
-    // Uncomment if beauty tab is enabled
-    // {
-    //   id: 'beauty',
-    //   label: 'Beauty',
-    //   icon: ICONS.sparkles,
-    //   render: () => renderBeautyStyles(appData)
-    // },
+    {
+      id: 'beauty',
+      label: 'Beauty',
+      icon: ICONS.sparkles,
+      render: () => renderBeautyStyles(appData)
+    },
   ];
   if (!isTimeTravelMode) return tabs;
   // cot1 keeps its own frozen snapshot of the formulas page; older patches have none.

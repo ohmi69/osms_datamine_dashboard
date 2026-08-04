@@ -603,6 +603,16 @@ body {
   background: var(--surface-2);
   color: var(--dim);
 }
+.info-chip--link {
+  font-family: inherit;
+  cursor: pointer;
+  transition: color .12s, border-color .12s, background .12s;
+}
+.info-chip--link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(251,146,60,.1);
+}
 .info-tier-list { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
 .info-tier-row {
   display: flex;
