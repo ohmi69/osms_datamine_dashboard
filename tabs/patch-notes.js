@@ -131,8 +131,23 @@ function buildFieldRow(field, onNavigate) {
     return block;
   }
 
-  const row = el('div', { className: 'pn-field' });
+  const row = el('div', {
+    className: field.unchanged ? 'pn-field pn-field-same' : 'pn-field',
+  });
   row.appendChild(el('span', { className: 'pn-field-label', textContent: field.label }));
+
+  // Context rows (a skill level this patch left alone) carry one value that is
+  // both the before and the after. It gets no strikethrough and no arrow --
+  // nothing changed to point at -- but a lone value sitting in the column where
+  // struck-through "before" text normally lives reads as old data, so it is
+  // tagged explicitly rather than left to the reader to infer.
+  if (field.unchanged) {
+    const values = el('span', { className: 'pn-field-values' });
+    values.appendChild(el('span', { className: 'pn-same-tag', textContent: 'unchanged' }));
+    values.appendChild(el('span', { className: 'pn-field-after', textContent: shown(field.after) }));
+    row.appendChild(values);
+    return row;
+  }
 
   // before / arrow / after share one grid cell so they stay on a single line
   // and wrap together, rather than each claiming its own row.

@@ -171,6 +171,23 @@ a.pn-name-link:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .pn-field-after { overflow-wrap: anywhere; }
 .pn-field-before { color: var(--dim); text-decoration: line-through; opacity: .65; }
 .pn-field-after { color: var(--text); font-weight: 600; }
+/* A level this patch left alone, shown only so the ladder reaches master
+   level. Muted so it reads as context and never competes with a real change. */
+.pn-field-same .pn-field-label,
+.pn-field-same .pn-field-after {
+  color: var(--dim); font-weight: 400; opacity: .7;
+}
+/* Names the row as "same in both patches", so a lone value is never mistaken
+   for a before-only one. Leads the value, occupying the column where the
+   struck-through before text sits on a real change. */
+.pn-same-tag {
+  flex: none;
+  font-size: .78em; font-weight: 600;
+  letter-spacing: .04em; text-transform: uppercase;
+  color: var(--dim); opacity: .6;
+  border: 1px solid currentColor; border-radius: 3px;
+  padding: 0 4px;
+}
 .pn-field-detail {
   grid-column: 2;
   color: var(--dim); font-style: italic;
