@@ -82,6 +82,11 @@ function buildDetailRow(monster, colSpan, onMapClick) {
       el('span', { className: 'elem-badge elem-undead', textContent: 'Undead' })
     );
   }
+  if (monster.passive) {
+    headerRight.appendChild(
+      el('span', { className: 'elem-badge elem-passive', textContent: 'Passive' })
+    );
+  }
   const elems = getMonsterElements(monster);
   elems.forEach((elem) => {
     headerRight.appendChild(

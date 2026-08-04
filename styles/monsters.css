@@ -187,6 +187,11 @@
   color: #a855f7;
   border: 1px solid rgba(168,85,247,0.27);
 }
+.elem-passive {
+  background: rgba(100,116,139,0.13);
+  color: #94a3b8;
+  border: 1px solid rgba(100,116,139,0.27);
+}
 
 /* ── Body ───────────────────────────────────────────────────── */
 .monster-detail-body {

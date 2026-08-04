@@ -133,7 +133,7 @@
   --tt-text-shadow: rgba(251, 191, 36, 0.7);
 }
 
-/* ── Theme: MapleTip — warm parchment, 2007 nostalgia ───────── */
+/* Theme: MapleTip, warm parchment, 2007 nostalgia */
 [data-theme="mapletip"] {
   --bg: #F0E8D6;
   --surface: #FBF7EE;
@@ -152,7 +152,7 @@
   scrollbar-color: #C4A878 #F0E8D6;
 }
 
-/* MapleTip — light-mode header & nav overrides */
+/* MapleTip: light-mode header & nav overrides */
 [data-theme="mapletip"] .site-header {
   background: linear-gradient(180deg, #FBF7EE 0%, #F0E8D6 100%);
   border-bottom: 4px solid #CC5500;
@@ -169,7 +169,7 @@
   background: rgba(204,85,0,.06);
 }
 
-/* Tab bar — warm parchment feel */
+/* Tab bar: warm parchment feel */
 [data-theme="mapletip"] .tab-nav {
   background: #F6EFDF;
   border-color: #D4C4A8;
@@ -184,12 +184,12 @@
   box-shadow: 0 2px 6px rgba(180,70,0,.25);
 }
 
-/* Active pill — ensure cream text on orange */
+/* Active pill: ensure cream text on orange */
 [data-theme="mapletip"] .pill.active {
   color: #FFFBF2;
 }
 
-/* Collapsible — warm gradient */
+/* Collapsible: warm gradient */
 [data-theme="mapletip"] .collapsible {
   box-shadow: 0 1px 4px rgba(140,100,50,.1);
 }
@@ -213,7 +213,7 @@
   box-shadow: 0 0 0 3px rgba(204,85,0,.12);
 }
 
-/* Image modal — light surface */
+/* Image modal: light surface */
 [data-theme="mapletip"] .image-modal-content {
   background: #FBF7EE;
   box-shadow: 0 8px 32px rgba(80,50,20,.25);
@@ -225,7 +225,7 @@
   box-shadow: 0 6px 24px rgba(80,50,20,.2);
 }
 
-/* Thumbnail boxes — softer on light bg */
+/* Thumbnail boxes: softer on light bg */
 [data-theme="mapletip"] .thumb { background: #F2EADB; }
 
 /* Full map image background matches theme */
@@ -249,7 +249,7 @@
   border-color: #CC5500;
 }
 
-/* Badges — warmed up for light background */
+/* Badges: warmed up for light background */
 [data-theme="mapletip"] .badge-boss {
   background: rgba(194,32,32,.08);
   color: #C22020;
@@ -593,6 +593,27 @@ body {
   font-weight: 600;
 }
 .info-card .text { font-size: 14px; color: var(--text); font-weight: 600; }
+.info-chip-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.info-chip {
+  padding: 3px 9px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--dim);
+}
+.info-tier-list { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+.info-tier-row {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  padding: 4px 0;
+  border-top: 1px solid var(--border);
+}
+.info-tier-row:first-child { border-top: none; }
+.info-tier-name { flex: 0 0 auto; font-weight: 700; color: var(--text); }
+.info-tier-detail { color: var(--dim); }
 
 /* ── Pills ──────────────────────────────────────────────────── */
 .pill-group { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
@@ -621,7 +642,7 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,.25);
 }
 
-/* Subfilter pills — outlined style to distinguish from level-1 pills */
+/* Subfilter pills: outlined style to distinguish from level-1 pills */
 .pill--sub {
   padding: 3px 10px;
   font-size: 10px;
@@ -645,7 +666,7 @@ body {
   border-color: var(--accent);
 }
 
-/* Primary weapon type pills — bold when class is selected */
+/* Primary weapon type pills: bold when class is selected */
 .pill--sub.pill--primary {
   font-weight: 800;
   color: var(--text);
@@ -951,6 +972,36 @@ body.hide-ids .id-col { display: none !important; }
 
 .item-detail-chip .chip-label { color: var(--dim); }
 .item-detail-chip .chip-value { color: var(--text); font-weight: 600; }
+.item-detail-chip--badge { background: var(--accent-bg); border-color: var(--accent); }
+.item-detail-chip--badge .chip-value { color: var(--accent); }
+.item-quest-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  vertical-align: middle;
+  line-height: 1.6;
+}
+
+/* ── Item spec expand panel ─────────────────────────────────── */
+.item-spec-panel {
+  display: none;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  font-size: 12px;
+  font-family: var(--font-mono, monospace);
+}
+.item-spec-panel--open { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; }
+.item-spec-key { color: var(--dim); }
+.item-spec-val { color: var(--text); font-weight: 600; }
 
 /* ── Equipment stat / req lines (shared: equipment page + crafting tooltip) ── */
 .equip-stat-line {

@@ -1,4 +1,4 @@
-// Navigator Game — Portal Runner mini-game
+// Navigator Game: Portal Runner mini-game
 // Navigate from start to end map by clicking portal overlays.
 
 import { el, padMapId } from '../lib/utils.js';
@@ -169,7 +169,7 @@ function generateChallenge(allMaps, graph, rand) {
       optimalLength,
     };
   }
-  // fallback — just pick two connected maps
+  // fallback: just pick two connected maps
   const start = pickRandom(candidates, rand);
   const endId = pickRandom(graph[start.id], rand);
   return { startId: start.id, endId, dfsPathLength: 1, optimalLength: 1 };
@@ -483,7 +483,7 @@ export function renderNavigatorGame(data, options = {}) {
   const mapArea = el('div', { className: 'navgame-map-area' });
   gameScreen.appendChild(mapArea);
 
-  // hint panel (destination preview — hidden until peeked)
+  // hint panel (destination preview, hidden until peeked)
   const hintPanel = el('div', { className: 'navgame-hint-panel hidden' });
   gameScreen.appendChild(hintPanel);
 
@@ -638,7 +638,7 @@ export function renderNavigatorGame(data, options = {}) {
     currentLabel.appendChild(el('strong', { textContent: name }));
 
     if (mapId === challenge.endId) {
-      currentLabel.appendChild(el('span', { className: 'navgame-dest-badge', textContent: ' — DESTINATION!' }));
+      currentLabel.appendChild(el('span', { className: 'navgame-dest-badge', textContent: ' - DESTINATION!' }));
     }
 
     const imgPath = getMapUrl(mapId);
@@ -799,7 +799,7 @@ export function renderNavigatorGame(data, options = {}) {
       const shareText = [
         header,
         `${startName} → ${endName}`,
-        `${rating} — ${moves} move${moves !== 1 ? 's' : ''} (optimal: ${optimal}, efficiency: ${efficiency})`,
+        `${rating}: ${moves} move${moves !== 1 ? 's' : ''} (optimal: ${optimal}, efficiency: ${efficiency})`,
         `⏱ ${formatTime(elapsed)}`,
         `\n${challengeUrl}`,
       ].join('\n');

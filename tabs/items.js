@@ -39,6 +39,8 @@ function renderItemRow(item) {
     })
   );
   nameWrap.appendChild(el('span', { className: 'name', textContent: item.name }));
+  const questFlag = item.stats?.pquest ? 'Party Quest Item' : item.stats?.quest ? 'Quest Item' : null;
+  if (questFlag) nameWrap.appendChild(el('span', { className: 'item-quest-badge', textContent: questFlag }));
   topLine.appendChild(nameWrap);
 
   const rightWrap = el('span', { className: 'item-id-wrap' });
@@ -47,8 +49,27 @@ function renderItemRow(item) {
 
   topLine.appendChild(rightWrap);
   row.appendChild(topLine);
+  let specExpanded = false;
+  let specEl = null;
+
   row.addEventListener('click', (e) => {
     if (e.target.closest('button, input')) return;
+    if (item.spec && !specEl) {
+      specEl = el('div', { className: 'item-spec-panel' });
+      const entries = Object.entries(item.spec);
+      entries.forEach(([k, v]) => {
+        const line = el('div', { className: 'item-spec-row' });
+        line.appendChild(el('span', { className: 'item-spec-key', textContent: k }));
+        line.appendChild(el('span', { className: 'item-spec-val', textContent: v }));
+        specEl.appendChild(line);
+      });
+      row.appendChild(specEl);
+    }
+    if (specEl) {
+      specExpanded = !specExpanded;
+      specEl.classList.toggle('item-spec-panel--open', specExpanded);
+      row.classList.toggle('item-row--spec-open', specExpanded);
+    }
     history.replaceState(null, '', `#items?q=${encodeURIComponent('id:' + padItemId(item.id))}`);
     document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
     row.classList.add('row-hotlink');

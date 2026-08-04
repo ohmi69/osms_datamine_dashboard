@@ -37,7 +37,8 @@ const ACCURACY_STEPS = [
   {
     label: 'Physical Accuracy',
     wip: false,
-    status: 'ok',
+    status: 'warn',
+    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
     lines: [
       'BaseChance = Acc × 100 / ((max(0, LevelDiff) + 51) × 5)',
       '',
@@ -53,7 +54,8 @@ const ACCURACY_STEPS = [
   {
     label: 'Magical Accuracy',
     wip: false,
-    status: 'ok',
+    status: 'warn',
+    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
     lines: [
       'Magical skills always hit - there is no accuracy check for magic.',
     ],
@@ -73,8 +75,8 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Physical Damage',
     wip: false,
-    status: 'partial',
-    statusNote: 'Verified for Assassins and Crossbowmen - no data for Warriors or Archers yet',
+    status: 'warn',
+    statusNote: 'Not yet re-verified against COT2 data. COT1 status: Verified for Assassins and Crossbowmen - no data for Warriors or Archers yet',
     lines: [
       'MIN = SkillMult × ((80 + PrimaryStat × MinWepMult × MasteryMult + SecondaryStat + AttackPower) / 100) × WeaponAttack',
       'MAX = SkillMult × ((100 + PrimaryStat × MaxWepMult + SecondaryStat + AttackPower) / 100) × WeaponAttack',
@@ -88,7 +90,8 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Magical Damage',
     wip: false,
-    status: 'ok',
+    status: 'warn',
+    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
     lines: [
       'MIN = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 × MasteryMult + BaseInt) / 100 + 1)',
       'MAX = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 + BaseInt) / 100 + 1)',
@@ -100,8 +103,8 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Heal',
     wip: false,
-    status: 'partial',
-    statusNote: 'Data is limited - verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
+    status: 'warn',
+    statusNote: 'Not yet re-verified against COT2 data. COT1 status: Data is limited - verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
     lines: [
       'MIN = ((BaseInt × 0.8 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
       'MAX = ((BaseInt × 1.0 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
@@ -115,7 +118,8 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Damage Over Time (DoT)',
     wip: false,
-    status: 'ok',
+    status: 'warn',
+    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
     lines: [
       'TotalDamage = (BasicAttack + MagicAttack / 7) × ((MagicAttack + BaseInt) / 100 + 1)',
       '',
@@ -130,8 +134,8 @@ const BASE_DAMAGE_STEPS = [
 
 const BASE_DAMAGE_VARS = [
   { name: 'SkillMult',     desc: 'Skill Damage % as a decimal (e.g. 120% → 1.2)' },
-  { name: 'PrimaryStat',   desc: 'Main stat for your class (STR, DEX, INT, or LUK)' },
-  { name: 'SecondaryStat', desc: 'Secondary stat, i.e: for Thieves, STR + DEX' },
+  { name: 'PrimaryStat',   desc: 'Set by weapon type:\nStr - Melee Weapons (1H/2H Swords, Axes, Blunt Weapons, Spears, Polearms, Barehands, and Staves/Wands while whacking)\nDex - Bows and Crossbows\nLuk - Daggers and Claws' },
+  { name: 'SecondaryStat', desc: 'Set by weapon type:\nDex - Melee Weapons\nStr - Bows and Crossbows\nStr + Dex - Daggers and Claws' },
   { name: 'AttackPower',   desc: 'Total weapon attack power from gear and buffs' },
   { name: 'WeaponAttack',  desc: 'Base weapon attack, including Stars and Arrows' },
   { name: 'MinWepMult',    desc: 'Weapon min multiplier (Swing or Stab) - see Weapon Multipliers table' },
@@ -153,8 +157,8 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Weapon Defense',
     wip: false,
-    status: 'partial',
-    statusNote: 'PercentEffects and FlatEffects have not been verified, not enough data',
+    status: 'warn',
+    statusNote: 'Not yet re-verified against COT2 data. COT1 status: PercentEffects and FlatEffects have not been verified, not enough data',
     lines: [
       'Damage = Damage × 100 / (trunc(WeaponDefense × (PercentEffects / 100 + 1)) + FlatEffects + 100)',
     ],
@@ -168,7 +172,8 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Magic Defense',
     wip: false,
-    status: 'ok',
+    status: 'warn',
+    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
     lines: [
       'Damage = Damage × 100 / (MagicDefense + 100)',
     ],
@@ -180,7 +185,8 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Elemental Modifier',
     wip: false,
-    status: 'ok',
+    status: 'warn',
+    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
     lines: [
       'Damage = Damage × ElementalMult',
       '  0.0  - immune',
@@ -193,7 +199,8 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Level Difference Penalty',
     wip: false,
-    status: 'ok',
+    status: 'warn',
+    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
     lines: [
       'No penalty if player level ≥ enemy level',
       '  enemy < 10 levels above:  Damage / (LevelDiff² × 0.005 + 1)',
@@ -207,7 +214,8 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Critical Hit',
     wip: false,
-    status: 'ok',
+    status: 'warn',
+    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
     lines: [
       'Damage = Damage × CritDamage',
     ],
@@ -216,7 +224,8 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Iron Arrow Falloff (Crossbow only)',
     wip: false,
-    status: 'ok',
+    status: 'warn',
+    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
     lines: [
       'Damage = Damage × (1 − ConsecutiveHits × 0.2)',
       '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.6 …',
@@ -226,7 +235,8 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Clamp',
     wip: false,
-    status: 'ok',
+    status: 'warn',
+    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
     lines: [
       'Damage = floor(Damage)',
       'Damage = clamp(Damage, 1, 700,000,000,000)',
@@ -413,6 +423,7 @@ function buildExpTable() {
   });
   table.appendChild(tbody);
   container.appendChild(table);
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Unverified: carried over from COT1, not yet re-verified against COT2 data.' }));
   return container;
 }
 
@@ -440,6 +451,7 @@ function buildWeaponMultTable() {
   container.appendChild(table);
 
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: '* Dagger uses Stab multiplier for both MinWepMult and MaxWepMult when stabbing. Savage Blow and Double Stab always Stab. Steal uses both.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Unverified: carried over from COT1, not yet re-verified against COT2 data.' }));
 
   return container;
 }
@@ -476,7 +488,10 @@ export function renderFormulas() {
   wrapper.appendChild(el('div', { className: 'section-heading', textContent: 'Formulas & Tables' }));
 
   const disclaimer = el('div', { className: 'formulas-disclaimer' });
-  disclaimer.textContent = 'These formulas are based on Closed Online Test (COT) playtest data and are subject to change.';
+  const disclaimerText = el('span');
+  disclaimerText.appendChild(el('strong', { textContent: 'Warning: ' }));
+  disclaimerText.append('Everything on this page is currently unverified. These formulas and tables are carried over from Closed Online Test 1 and have not yet been re-verified against COT2 data. The COT1 page is still available by time travelling to that patch.');
+  disclaimer.appendChild(disclaimerText);
   wrapper.appendChild(disclaimer);
 
   // Full-width formula sections

@@ -216,7 +216,7 @@ export function renderSkills(data, options = {}) {
       });
 
       dataDiv.appendChild(
-        makeCollapsible(`${cls.class_name} — ${cls.job}`, cls.skills.length, true, null, content)
+        makeCollapsible(`${cls.class_name} (${cls.job})`, cls.skills.length, true, null, content)
       );
     });
 

@@ -71,8 +71,8 @@ export function renderOverview(data, { switchTab }) {
   }
 
   frag.appendChild(buildBanner(
-    'Closed Online Test has ended',
-    'This site will be updated again once the game launches, or if theres an open beta. In the meantime, check out previous old school patches by clicking the dropdown on the top right! Thanks for visiting — see you soon! 👋',
+    'Welcome back to Closed Online Test 2!',
+    'We are waiting for the client to drop, but feel free to browse COT1 data in the meantime!',
   ));
 
   // Hero banner
@@ -163,7 +163,7 @@ export function renderOverview(data, { switchTab }) {
     textContent: 'Disclaimer:',
   }));
   disclaimer.append(
-    'This data comes from the game files but does not guarantee that everything will appear on release — or ever. Content may be cut, delayed, or changed before launch.'
+    'This data comes from the game files but does not guarantee that everything will appear on release, or ever. Content may be cut, delayed, or changed before launch.'
   );
   frag.appendChild(disclaimer);
 
@@ -172,14 +172,72 @@ export function renderOverview(data, { switchTab }) {
   const findingsSection = el('div', { style: { marginBottom: '24px' } });
   findingsSection.appendChild(el('div', { className: 'section-heading', textContent: 'Key Findings' }));
   const findingsGrid = el('div', { className: 'findings-grid' });
+
+  // "15 (Archer, Assassin, ...) — 2nd Job cap" -> { count: '15', items: [...], suffix: '2nd Job cap' }
+  function parseCountedList(text) {
+    const match = /^(\d+)\s*\(([^)]*)\)\s*(?:—|-)?\s*(.*)$/.exec(text || '');
+    if (!match) return null;
+    return {
+      count: match[1],
+      items: match[2].split(',').map(s => s.trim()).filter(Boolean),
+      suffix: match[3].trim(),
+    };
+  }
+
+  function appendChipCard(title, unit, text) {
+    const parsed = parseCountedList(text);
+    if (!parsed) {
+      const card = el('div', { className: 'info-card' });
+      card.appendChild(el('div', { className: 'title', textContent: title }));
+      card.appendChild(el('div', { className: 'text', textContent: text }));
+      findingsGrid.appendChild(card);
+      return;
+    }
+    const card = el('div', { className: 'info-card' });
+    card.appendChild(el('div', { className: 'title', textContent: title }));
+    const summary = `${parsed.count} ${unit}` + (parsed.suffix ? ` · ${parsed.suffix}` : '');
+    card.appendChild(el('div', { className: 'text', textContent: summary }));
+    const chipRow = el('div', { className: 'info-chip-row' });
+    parsed.items.forEach(item => {
+      chipRow.appendChild(el('span', { className: 'info-chip', textContent: item }));
+    });
+    card.appendChild(chipRow);
+    findingsGrid.appendChild(card);
+  }
+
+  appendChipCard('Classes', 'classes', stats.classes);
+  appendChipCard('Craft Disciplines', 'disciplines', stats.disciplines);
+  appendChipCard('Bosses', 'bosses', stats.bosses);
+
+  // "4 tiers — Lesser (100%, +1 stat), Intermediate (60%, +2 stat), ..." -> one row per tier
+  function appendScrollSystemCard(title, text) {
+    const headMatch = /^(.*?)—\s*(.*)$/.exec(text || '');
+    const tierPairs = [...(headMatch ? headMatch[2] : text || '').matchAll(/([\w./]+(?:\s[\w./]+)*)\s*\(([^)]*)\)/g)];
+    if (!headMatch || !tierPairs.length) {
+      const card = el('div', { className: 'info-card' });
+      card.appendChild(el('div', { className: 'title', textContent: title }));
+      card.appendChild(el('div', { className: 'text', textContent: text }));
+      findingsGrid.appendChild(card);
+      return;
+    }
+    const card = el('div', { className: 'info-card' });
+    card.appendChild(el('div', { className: 'title', textContent: title }));
+    card.appendChild(el('div', { className: 'text', textContent: headMatch[1].trim() }));
+    const tierList = el('div', { className: 'info-tier-list' });
+    tierPairs.forEach(([, name, detail]) => {
+      const row = el('div', { className: 'info-tier-row' });
+      row.appendChild(el('span', { className: 'info-tier-name', textContent: name.trim() }));
+      row.appendChild(el('span', { className: 'info-tier-detail', textContent: detail.trim() }));
+      tierList.appendChild(row);
+    });
+    card.appendChild(tierList);
+    findingsGrid.appendChild(card);
+  }
+
+  appendScrollSystemCard('Scroll System', stats.scroll_system);
+
   [
-    ['Content Era',       stats.version],
-    ['Classes',           stats.classes],
-    ['Max Level',         '50 · Same EXP curve as old school MS'],
-    ['Craft Disciplines', stats.disciplines],
-    ['Bosses',            stats.bosses],
     ['Mob Level Range',   stats.level_range],
-    ['Scroll System',     stats.scroll_system],
     ['Repeatable Quests', stats.repeatable_quests],
   ].forEach(([title, text]) => {
     const card = el('div', { className: 'info-card' });
@@ -189,6 +247,41 @@ export function renderOverview(data, { switchTab }) {
   });
   findingsSection.appendChild(findingsGrid);
   frag.appendChild(findingsSection);
+
+  // Portal Runner callout
+  const gameCallout = el('div', {
+    style: {
+      background: 'var(--surface)',
+      border: '1px solid var(--border)',
+      borderLeft: '6px solid var(--accent)',
+      borderRadius: '0 10px 10px 0',
+      padding: '16px 20px',
+      marginBottom: '24px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '16px',
+      flexWrap: 'wrap',
+      cursor: 'pointer',
+    },
+  });
+  const gameCalloutText = el('div');
+  gameCalloutText.appendChild(el('div', {
+    style: { fontSize: '14px', fontWeight: '700', color: 'var(--text)', marginBottom: '2px' },
+    textContent: "While you're waiting for the release...",
+  }));
+  gameCalloutText.appendChild(el('div', {
+    style: { fontSize: '13px', color: 'var(--dim)' },
+    textContent: '🗺️ Check out Portal Runner, a little game to pass the time!',
+  }));
+  gameCallout.appendChild(gameCalloutText);
+  gameCallout.appendChild(el('div', {
+    className: 'pill active',
+    style: { flexShrink: '0' },
+    textContent: 'Play now',
+  }));
+  gameCallout.addEventListener('click', () => switchTab('portal-runner'));
+  frag.appendChild(gameCallout);
 
   return frag;
 }

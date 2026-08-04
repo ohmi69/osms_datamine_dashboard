@@ -242,7 +242,7 @@ export function renderEquipment(data, options = {}) {
     }
 
     if (!selectedSubCategory) {
-      // "All" selected — group into collapsibles by sub_category
+      // "All" selected: group into collapsibles by sub_category
       const armorOrder = Array.isArray(equipmentMeta.armor_order) ? equipmentMeta.armor_order : [];
       const grouped = {};
       equips.forEach((item) => {
@@ -264,7 +264,7 @@ export function renderEquipment(data, options = {}) {
           dataDiv.appendChild(makeCollapsible(sub, grouped[sub].length, true, null, content));
         });
     } else {
-      // Specific sub_category selected — wrap in a collapsible like cashshop
+      // Specific sub_category selected: wrap in a collapsible like cashshop
       const content = el('div');
       equips.forEach((item) => content.appendChild(renderEquipRow(item)));
       dataDiv.appendChild(makeCollapsible(selectedSubCategory, equips.length, true, null, content));

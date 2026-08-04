@@ -31,7 +31,9 @@ import { renderCashShop }  from './tabs/cashshop.js';
 import { renderBeautyStyles } from './tabs/beauty.js';
 import { renderQuests }    from './tabs/quests.js';
 import { renderFormulas }  from './tabs/formulas.js';
+import { renderFormulasCot1 } from './tabs/formulas-cot1.js';
 import { renderNavigatorGame } from './tabs/navigator-game.js';
+import { renderPatchNotes } from './tabs/patch-notes.js';
 
 
 // Apply theme immediately
@@ -45,7 +47,7 @@ let tabManager = null;
 // Use Router for deep link parsing
 
 // Tab renderers as a config array for TabManager
-function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, initialParams = null) {
+function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, initialParams = null, patchVersion = null) {
   const usedDeeplinks = new Set();
   function onceParams(tabId) {
     if (initialRoute !== tabId || usedDeeplinks.has(tabId)) return null;
@@ -60,6 +62,19 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
       icon: ICONS.chartColumn,
       render: () => renderOverview(appData, { switchTab: (id, push, query) => tabManager.switchTab(id, push, query) })
     },
+    ...(appData.patchNotes ? [{
+      id: 'patchnotes',
+      label: 'Patch Notes',
+      icon: ICONS.newspaper,
+      render: ({ setNavigate }) => renderPatchNotes(appData.patchNotes, {
+        setNavigate,
+        // Current-dataset records behind the hover tooltips on names and chips.
+        data: appData,
+        initialParams: onceParams('patchnotes'),
+        switchTab: (id, push, query) => tabManager.switchTab(id, push, query),
+        getNavigators: () => tabManager?.navigators,
+      })
+    }] : []),
     {
       id: 'monsters',
       label: 'Monsters',
@@ -165,7 +180,12 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
     //   render: () => renderBeautyStyles(appData)
     // },
   ];
-  return isTimeTravelMode ? tabs.filter(t => t.id !== 'formulas') : tabs;
+  if (!isTimeTravelMode) return tabs;
+  // cot1 keeps its own frozen snapshot of the formulas page; older patches have none.
+  if (patchVersion === 'cot1') {
+    return tabs.map(t => (t.id === 'formulas' ? { ...t, render: () => renderFormulasCot1() } : t));
+  }
+  return tabs.filter(t => t.id !== 'formulas');
 }
 
 
@@ -230,7 +250,7 @@ async function buildPatchSelector() {
     const oldPatches = sortedPatches.filter(p => OLD_PATCHES.has(p.version));
 
     const classicGroup = el('optgroup', { label: 'Classic World' });
-    const currentOpt = el('option', { value: '', textContent: 'Closed Online Test' });
+    const currentOpt = el('option', { value: '', textContent: 'Closed Online Test 2' });
     if (!currentPatch) currentOpt.selected = true;
     classicGroup.appendChild(currentOpt);
     for (const p of classicPatches) {
@@ -372,7 +392,13 @@ async function init() {
   const route = Router.getCurrentRoute();
   const query = Router.getCurrentQuery();
   const initialParams = Router.getParams();
-  const tabConfigs = getTabConfigs(appData, isTimeTravelMode, route, initialParams);
+  const tabConfigs = getTabConfigs(
+    appData,
+    isTimeTravelMode,
+    route,
+    initialParams,
+    new URLSearchParams(window.location.search).get('patch')
+  );
   const validTab = route && tabConfigs.some(t => t.id === route) ? route : 'overview';
 
   tabManager = new TabManager({

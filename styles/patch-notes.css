@@ -1,0 +1,303 @@
+/* ── Patch Notes tab ─────────────────────────────────────────── */
+
+.patch-notes-page { padding-bottom: 32px; --pn-row-gap: 4px; }
+
+/* Header: before -> after */
+.pn-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.pn-side-label { font-size: 15px; font-weight: 700; color: var(--text); }
+.pn-side-date { font-size: 11px; color: var(--dim); margin-top: 2px; }
+.pn-arrow { font-size: 20px; color: var(--accent); font-weight: 700; }
+.pn-arrow-sm { color: var(--dim); opacity: .6; font-size: 11px; }
+
+/* Whole-patch totals, pushed to the trailing edge of the header card.
+   `margin-left: auto` only wins while the card is on one line; once it wraps
+   the tally simply starts the next row. */
+.pn-header-tally {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: baseline;
+}
+
+
+/* Sections */
+.pn-sections { margin-top: 14px; }
+
+/* Sticky section headings: sections run to hundreds of entries, so the
+   heading (and its collapse toggle) must stay reachable while scrolling. */
+.patch-notes-page .collapsible {
+  /* `hidden` would make this a scroll container and break the sticky child;
+     `clip` still rounds the corners but keeps sticky working. */
+  overflow: clip;
+}
+.patch-notes-page .collapsible-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  /* The shared header uses a translucent accent gradient; layer it over an
+     opaque base so scrolled content can't show through. */
+  background-color: var(--surface);
+  background-image: linear-gradient(90deg, var(--accent-bg) 0%, var(--surface) 55%);
+  /* .collapsible-body already supplies the divider line; only add depth. */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+}
+.pn-body { padding: 4px 0; }
+.pn-note {
+  font-size: 12px;
+  color: var(--dim);
+  font-style: italic;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-bg, rgba(255,255,255,.03));
+}
+
+.pn-list { display: flex; flex-direction: column; gap: 4px; }
+
+/* Per-type breakdown in each section heading */
+.pn-tally { display: inline-flex; gap: 8px; margin-left: 10px; align-items: baseline; }
+.pn-tally-item {
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .3px;
+}
+.pn-tally-item.pn-added   { color: var(--new-badge, #4ade80); }
+.pn-tally-item.pn-removed { color: var(--boss-badge, #f87171); }
+.pn-tally-item.pn-changed { color: var(--accent); }
+
+/* Entries */
+.pn-entry {
+  padding: 7px 10px;
+  border-left: 3px solid var(--border);
+  background: var(--surface);
+}
+.pn-entry.pn-added   { border-left-color: var(--new-badge, #4ade80); }
+.pn-entry.pn-removed { border-left-color: var(--boss-badge, #f87171); }
+.pn-entry.pn-changed { border-left-color: var(--accent); }
+
+.pn-entry-head { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.pn-sign { font-weight: 800; font-size: 13px; flex-shrink: 0; }
+.pn-sign.pn-added   { color: var(--new-badge, #4ade80); }
+.pn-sign.pn-removed { color: var(--boss-badge, #f87171); }
+.pn-sign.pn-changed { color: var(--accent); }
+
+/* Inherits .thumb from base.css; maps are wide, so they get a landscape box.
+   Empty placeholders collapse so missing art leaves no ragged gap. */
+.pn-thumb { width: 28px; height: 28px; }
+.pn-entry .pn-thumb.is-placeholder { display: none; }
+.pn-entry .pn-thumb img { object-fit: contain; }
+/* Minimaps are landscape; give them room rather than squashing to a square. */
+.pn-thumb-maps { width: 56px; height: 32px; }
+
+/* .deep-link-btn is opacity:0 by default and base.css only reveals it via an
+   explicit per-container hover list, which .pn-entry isn't part of. */
+.pn-entry:hover .deep-link-btn { opacity: .55; }
+.pn-entry .deep-link-btn:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.pn-name { font-size: 13px; font-weight: 600; color: var(--text); }
+a.pn-name-link { cursor: pointer; text-decoration: none; color: var(--text); }
+a.pn-name-link:hover { color: var(--accent); text-decoration: underline; }
+a.pn-name-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Description carried on added/removed entries */
+.pn-desc {
+  font-size: 11.5px;
+  color: var(--dim);
+  line-height: 1.6;
+  margin-top: var(--pn-row-gap);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 78ch;
+}
+
+/* Field-level changes.
+   One shared grid for the whole block -- `display: contents` on each row lifts
+   its label/value into that grid, so the label column auto-sizes to the widest
+   label and every row aligns exactly. A per-row grid can't do this: each would
+   size its own column independently. */
+.pn-fields {
+  margin-top: var(--pn-row-gap);
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--pn-row-gap) 12px;
+  align-items: baseline;
+  font-size: 11.5px;
+  line-height: 1.55;
+}
+.pn-field { display: contents; }
+.pn-field-label {
+  color: var(--dim); font-weight: 600;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+/* before → after live in one flex cell so they stay on a single line */
+.pn-field-values {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  min-width: 0;
+}
+.pn-field-before,
+.pn-field-after { overflow-wrap: anywhere; }
+.pn-field-before { color: var(--dim); text-decoration: line-through; opacity: .65; }
+.pn-field-after { color: var(--text); font-weight: 600; }
+.pn-field-detail {
+  grid-column: 2;
+  color: var(--dim); font-style: italic;
+  overflow-wrap: anywhere;
+}
+
+/* Members of a set-valued change, one chip each */
+.pn-chips {
+  grid-column: 2;
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.pn-chip {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+/* Chips carrying art (quest rewards/requirements) line the thumbnail up with
+   the label; text-only chips are unaffected. */
+.pn-chip-art {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 3px;
+}
+.pn-chip-thumb { width: 18px; height: 18px; flex: none; }
+.pn-chip-thumb img { object-fit: contain; }
+.pn-chip-thumb.is-placeholder { display: none; }
+.pn-chip.pn-added {
+  color: var(--new-badge, #4ade80);
+  border-color: color-mix(in srgb, var(--new-badge, #4ade80) 40%, transparent);
+}
+.pn-chip.pn-removed {
+  color: var(--boss-badge, #f87171);
+  border-color: color-mix(in srgb, var(--boss-badge, #f87171) 40%, transparent);
+}
+.pn-chip-neutral {
+  color: var(--dim);
+  background: var(--surface-2);
+  font-weight: 500;
+}
+a.pn-chip-link { text-decoration: none; cursor: pointer; }
+a.pn-chip-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+a.pn-chip-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Informational rows sit above the diff rows, visually quieter */
+.pn-meta-rows { margin-top: var(--pn-row-gap); }
+.pn-meta-rows + .pn-fields {
+  margin-top: 8px;
+  padding-top: 7px;
+  border-top: 1px dashed var(--border);
+}
+.pn-meta-value { color: var(--dim); overflow-wrap: anywhere; }
+
+/* Per-level skill stats.
+   styles/skills.css scopes all of its .stat-levels rules to `.skill-card`, so
+   none of them reach here -- these mirror that look at this tab's type scale. */
+.pn-entry .stat-levels {
+  margin-top: var(--pn-row-gap);
+  font-family: monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pn-entry .stat-levels .lv1   { color: var(--dim); }
+.pn-entry .stat-levels .lvmax { color: var(--text); }
+.pn-entry .stat-levels .lv1 .label   { color: var(--secondary); }
+.pn-entry .stat-levels .lvmax .label { color: var(--accent); }
+
+.pn-entry .stat-levels .all-levels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--dim);
+}
+/* display:flex above would defeat the `hidden` attribute on its own. */
+.pn-entry .stat-levels .all-levels-list[hidden] { display: none; }
+.pn-entry .stat-levels .all-levels-list .label { color: var(--secondary); }
+
+/* A <button> here, unlike the Skills tab's decorative <span>, so the toggle is
+   keyboard-operable; these resets keep it looking identical. */
+.pn-entry .stat-levels .all-levels-arrow {
+  align-self: flex-start;
+  cursor: pointer;
+  user-select: none;
+  font-family: inherit;
+  font-size: 9px;
+  line-height: 1;
+  color: var(--dim);
+  background: transparent;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.pn-entry .stat-levels .all-levels-arrow:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.pn-entry .stat-levels .all-levels-arrow:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* Long prose diffs (descriptions) stack full-width, never clipped */
+.pn-field-long .pn-field-label { grid-column: 1 / -1; margin-bottom: 3px; }
+.pn-longpair {
+  grid-column: 1 / -1;
+  display: flex; flex-direction: column; gap: 6px; max-width: 88ch;
+}
+.pn-long-before,
+.pn-long-after {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 6px 9px;
+  border-left: 3px solid var(--border);
+  line-height: 1.6;
+}
+.pn-long-before { color: var(--dim); opacity: .75; border-left-color: var(--boss-badge, #f87171); }
+.pn-long-after { color: var(--text); border-left-color: var(--new-badge, #4ade80); }
+
+.pn-more {
+  font-size: 11px;
+  color: var(--dim);
+  font-style: italic;
+  padding: 5px 10px;
+}
+
+.pn-generated {
+  margin-top: 20px;
+  font-size: 10px;
+  color: var(--dim);
+  opacity: .5;
+  font-family: monospace;
+}
+
+@media (max-width: 640px) {
+  .pn-fields { grid-template-columns: 1fr; }
+  .pn-field-values, .pn-field-detail, .pn-chips { grid-column: 1; }
+}
