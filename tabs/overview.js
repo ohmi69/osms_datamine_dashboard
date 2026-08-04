@@ -259,7 +259,6 @@ export function renderOverview(data, options) {
   appendScrollSystemCard('Scroll System', stats.scroll_system);
 
   [
-    ['Mob Level Range',   stats.level_range],
     ['Repeatable Quests', stats.repeatable_quests],
   ].forEach(([title, text]) => {
     const card = el('div', { className: 'info-card' });

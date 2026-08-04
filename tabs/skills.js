@@ -44,15 +44,62 @@ export function renderSkills(data, options = {}) {
     { label: 'Bowman', value: 'Archer' },
     { label: 'Thief', value: 'Rogue' },
   ];
+  // Each job line is one advancement path: 2nd job -> 3rd job (and beyond).
+  // The shared 1st job class is implicitly part of every line of its main class.
+  const JOB_LINES = {
+    Warrior: {
+      Fighter: ['Fighter', 'Crusader'],
+      Page: ['Page', 'White Knight'],
+      Spearman: ['Spearman', 'Berserker'],
+    },
+    Magician: {
+      'F/P Wizard': ['F/P Wizard', 'F/P Mage'],
+      'I/L Wizard': ['I/L Wizard', 'I/L Mage'],
+      Cleric: ['Cleric', 'Priest'],
+    },
+    Archer: {
+      Hunter: ['Hunter', 'Ranger'],
+      Crossbowman: ['Crossbowman', 'Sniper'],
+    },
+    Rogue: {
+      Assassin: ['Assassin', 'Hermit'],
+      Bandit: ['Bandit', 'Chief Bandit'],
+    },
+  };
+
+  // Map every class name to the line it belongs to, keeping only lines present in the data.
   const SUBCLASS_PILLS = {};
+  const LINE_MEMBERS = {};
+  const CLASS_TO_LINE = {};
   for (const [key, arr] of Object.entries(skillsData)) {
     const flat = [].concat(arr);
-    if (flat.length <= 1) continue;
     const pill = CLASS_PILLS.find(p => p.value && p.value.toLowerCase() === key);
     if (!pill) continue;
+    const present = new Set(flat.map(cls => cls.class_name));
+    const lines = [];
+    const claimed = new Set();
+    for (const [line, members] of Object.entries(JOB_LINES[pill.value] || {})) {
+      const inData = members.filter(m => present.has(m));
+      members.forEach(m => claimed.add(m));
+      if (inData.length === 0) continue;
+      lines.push(line);
+      LINE_MEMBERS[line] = new Set(inData);
+      inData.forEach(m => { CLASS_TO_LINE[m] = line; });
+    }
+    // Any class not covered by a known line (and not the 1st job root) becomes its own pill.
+    for (const cls of flat) {
+      const cn = cls.class_name;
+      if (claimed.has(cn) || cn === pill.value) continue;
+      if (!LINE_MEMBERS[cn]) {
+        lines.push(cn);
+        LINE_MEMBERS[cn] = new Set([cn]);
+      }
+      CLASS_TO_LINE[cn] = cn;
+    }
+    if (lines.length === 0) continue;
     SUBCLASS_PILLS[pill.value] = [
       { label: 'All', value: '' },
-      ...flat.map(cls => ({ label: cls.class_name, value: cls.class_name })),
+      ...lines.map(line => ({ label: line, value: line })),
     ];
   }
   let subclassFilter = '';
@@ -90,9 +137,8 @@ export function renderSkills(data, options = {}) {
     subPillsWrapper.appendChild(subPillGroup);
   }
   container.appendChild(subPillsWrapper);
-  container.appendChild(
-    el('div', { className: 'count-text', textContent: `${totalSkills} skills` })
-  );
+  const countText = el('div', { className: 'count-text', textContent: `${totalSkills} skills` });
+  container.appendChild(countText);
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);
@@ -109,7 +155,13 @@ export function renderSkills(data, options = {}) {
       );
     }
     if (subclassFilter) {
-      filteredClasses = filteredClasses.filter((cls) => cls.class_name === subclassFilter);
+      const members = LINE_MEMBERS[subclassFilter];
+      filteredClasses = filteredClasses.filter(
+        (cls) =>
+          // the shared 1st job class stays visible for every line
+          (classFilter && cls.class_name === classFilter) ||
+          (members ? members.has(cls.class_name) : cls.class_name === subclassFilter)
+      );
     }
     const JOB_TIER_ORDER = { Beginner: 0, '1st Job': 1, '2nd Job': 2, '3rd Job': 3, '4th Job': 4 };
     filteredClasses = [...filteredClasses].sort(
@@ -126,6 +178,10 @@ export function renderSkills(data, options = {}) {
         ),
       }))
       .filter((cls) => cls.skills.length > 0);
+
+    const shownSkills = filtered.reduce((sum, cls) => sum + cls.skills.length, 0);
+    countText.textContent =
+      shownSkills === totalSkills ? `${totalSkills} skills` : `${shownSkills} of ${totalSkills} skills`;
 
     filtered.forEach((cls) => {
       const content = el('div');
@@ -237,7 +293,8 @@ export function renderSkills(data, options = {}) {
     const sub = options.initialParams.get('subclass');
     if (cls || sub) {
       if (cls) { classFilter = cls; pillGroup.setActive(classFilter); buildSubclassPills(); }
-      if (sub) { subclassFilter = sub; if (subPillGroup) subPillGroup.setActive(subclassFilter); }
+      // a deep link may name any class in a line (e.g. "F/P Mage") — resolve it to its line pill
+      if (sub) { subclassFilter = CLASS_TO_LINE[sub] || sub; if (subPillGroup) subPillGroup.setActive(subclassFilter); }
       updateFilterUrl();
       const parts = [];
       if (classFilter) parts.push(CLASS_PILLS.find(p => p.value === classFilter)?.label ?? classFilter);
