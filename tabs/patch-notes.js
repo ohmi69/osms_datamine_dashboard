@@ -493,10 +493,10 @@ export function renderPatchNotes(notes, options = {}) {
 
   const sectionsWrap = el('div', { className: 'pn-sections' });
   const sectionEls = new Map();
-  notes.sections.forEach((section, i) => {
+  notes.sections.forEach((section) => {
     const counts = section.counts || {};
     const total = BUCKETS.reduce((sum, b) => sum + (counts[b.key] || 0), 0);
-    const collapsible = makeCollapsible(section.label, total, i === 0, null,
+    const collapsible = makeCollapsible(section.label, total, false, null,
       () => buildSectionBody(section, onNavigate));
 
     collapsible.querySelector('.collapsible-header .left')?.appendChild(buildTally(counts));
