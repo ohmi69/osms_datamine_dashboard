@@ -21,7 +21,78 @@ function getMonsterElements(monster) {
   }));
 }
 
-function buildDetailRow(monster, colSpan, onMapClick) {
+// Header flags that describe how a mob behaves rather than what it is made of.
+const BEHAVIOUR_BADGES = [
+  { key: 'aggro',     label: 'Aggro',      cls: 'elem-aggro',      title: 'Attacks on sight (firstAttack)' },
+  { key: 'invincible', label: 'Invincible', cls: 'elem-invincible', title: 'Cannot be damaged' },
+  { key: 'no_regen',   label: 'No Regen',   cls: 'elem-noregen',    title: 'Does not regenerate HP or MP' },
+];
+
+function describeAttack(attack) {
+  const parts = [];
+  if (attack.element) parts.push(attack.element);
+  if (attack.magic) parts.push('Magic');
+  if (attack.status) parts.push(attack.status_level ? `${attack.status} Lv.${attack.status_level}` : attack.status);
+  if (attack.bullet_speed) parts.push('Ranged');
+  if (attack.jump) parts.push('Jump attack');
+  if (attack.mp) parts.push(`${attack.mp} MP`);
+  if (attack.delay) parts.push(`${(attack.delay / 1000).toFixed(attack.delay % 1000 ? 1 : 0)}s delay`);
+  return parts;
+}
+
+function buildCombatSection(monster, focusMonster) {
+  const attacks = monster.attacks || [];
+  const revives = monster.revives || [];
+  if (!attacks.length && !revives.length) return null;
+
+  const col = el('div', { className: 'monster-detail-col monster-detail-col-combat' });
+
+  if (attacks.length) {
+    col.appendChild(el('div', { className: 'monster-stat-group-label', textContent: 'Attacks' }));
+    const list = el('div', { className: 'mob-attack-list' });
+    attacks.forEach((attack) => {
+      const row = el('div', { className: 'mob-attack-row' });
+      row.appendChild(el('span', { className: 'mob-attack-index', textContent: String(attack.index) }));
+      row.appendChild(
+        el('span', {
+          className: 'mob-attack-ratio',
+          textContent: attack.ratio != null ? `${attack.ratio}%` : '—',
+          title: attack.ratio != null ? `Deals ${attack.ratio}% of this mob's attack stat` : '',
+        })
+      );
+      const tags = describeAttack(attack);
+      row.appendChild(
+        el('span', { className: 'mob-attack-tags', textContent: tags.length ? tags.join(' · ') : 'Physical' })
+      );
+      list.appendChild(row);
+    });
+    col.appendChild(list);
+  }
+
+  if (revives.length) {
+    col.appendChild(el('div', { className: 'monster-stat-group-label', textContent: 'Summons On Death' }));
+    const chips = el('div', { className: 'monster-map-list' });
+    revives.forEach((spawn) => {
+      const chip = el('span', { className: 'monster-map-chip' });
+      chip.appendChild(el('span', { textContent: spawn.name || `#${spawn.id}` }));
+      chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${spawn.count}` }));
+      if (focusMonster) {
+        chip.classList.add('monster-map-chip--clickable');
+        chip.title = `Jump to ${spawn.name || `#${spawn.id}`}`;
+        chip.addEventListener('click', (e) => {
+          e.stopPropagation();
+          focusMonster(spawn.id);
+        });
+      }
+      chips.appendChild(chip);
+    });
+    col.appendChild(chips);
+  }
+
+  return col;
+}
+
+function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
   const detailTr = el('tr', { className: 'monster-detail-row' });
   const detailTd = el('td', { colSpan: String(colSpan) });
 
@@ -87,6 +158,19 @@ function buildDetailRow(monster, colSpan, onMapClick) {
       el('span', { className: 'elem-badge elem-passive', textContent: 'Passive' })
     );
   }
+  BEHAVIOUR_BADGES.forEach(({ key, label, cls, title }) => {
+    if (!monster[key]) return;
+    headerRight.appendChild(el('span', { className: `elem-badge ${cls}`, textContent: label, title }));
+  });
+  if (monster.self_destruct_hp) {
+    headerRight.appendChild(
+      el('span', {
+        className: 'elem-badge elem-selfdestruct',
+        textContent: 'Self-Destruct',
+        title: `selfDestruction HP value: ${fmt(monster.self_destruct_hp)}`,
+      })
+    );
+  }
   const elems = getMonsterElements(monster);
   elems.forEach((elem) => {
     headerRight.appendChild(
@@ -126,6 +210,13 @@ function buildDetailRow(monster, colSpan, onMapClick) {
         { label: 'KB',    value: monster.pushed },
       ],
     },
+    {
+      label: 'Regen (per tick)',
+      stats: [
+        { label: 'HP', value: monster.hp_recovery, accent: true },
+        { label: 'MP', value: monster.mp_recovery },
+      ],
+    },
   ];
 
   statGroups.forEach(({ label, stats }) => {
@@ -147,6 +238,10 @@ function buildDetailRow(monster, colSpan, onMapClick) {
   });
 
   body.appendChild(statsCol);
+
+  // Attacks / death-spawn column
+  const combatCol = buildCombatSection(monster, focusMonster);
+  if (combatCol) body.appendChild(combatCol);
 
   // Maps column
   const spawnMaps = monster.maps || [];
@@ -267,6 +362,7 @@ export function renderMonsters(data, options = {}) {
   let filter = '';
   let typeFilter = '';
   let elemWeakFilter = '';
+  let behaviourFilter = '';
   let sortCol = 'level';
   let sortDir = 1;
   let autoExpandAfterId = null;
@@ -320,6 +416,31 @@ export function renderMonsters(data, options = {}) {
     { groupLabel: 'Mob Type:' }
   );
 
+  // Death-spawn chips jump between mobs without leaving the tab.
+  function focusMonster(id) {
+    autoExpandAfterId = id;
+    filter = '';
+    searchBox._input.value = '';
+    renderData();
+    window.scrollTo(0, 0);
+  }
+
+  const behaviourPills = makePillGroup(
+    [
+      { label: 'Any', value: '' },
+      { label: 'Aggro', value: 'aggro' },
+      { label: 'Regenerates', value: 'regen' },
+      { label: 'Summons on Death', value: 'revives' },
+    ],
+    behaviourFilter,
+    (value) => {
+      behaviourFilter = value;
+      behaviourPills.setActive(value);
+      renderData();
+    },
+    { groupLabel: 'Behaviour:' }
+  );
+
   const elemPills = makePillGroup(
     [{ label: 'Any', value: '' }, { label: 'Fire', value: 'Fire' }, { label: 'Ice', value: 'Ice' }, { label: 'Lightning', value: 'Lightning' }, { label: 'Holy', value: 'Holy' }],
     elemWeakFilter,
@@ -335,6 +456,7 @@ export function renderMonsters(data, options = {}) {
 
   const filterRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' } });
   filterRow.appendChild(typePills);
+  filterRow.appendChild(behaviourPills);
   filterRow.appendChild(elemPills);
   container.appendChild(filterRow);
 
@@ -375,6 +497,9 @@ export function renderMonsters(data, options = {}) {
       if (!matchSearch(monster.name, filter) && !monster.maps?.some((m) => matchSearch(m.name, filter))) return false;
       if (typeFilter === 'boss' && !monster.is_boss) return false;
       if (typeFilter === 'nonboss' && monster.is_boss) return false;
+      if (behaviourFilter === 'aggro' && !monster.aggro) return false;
+      if (behaviourFilter === 'regen' && !(monster.hp_recovery || monster.mp_recovery)) return false;
+      if (behaviourFilter === 'revives' && !monster.revives?.length) return false;
       if (elemWeakFilter && monster.elements?.[elemWeakFilter] !== 'Weak') return false;
       return true;
     });
@@ -568,7 +693,7 @@ export function renderMonsters(data, options = {}) {
           row.classList.remove('expanded', 'row-hotlink');
           history.replaceState(null, '', '#monsters');
         } else {
-          detailRow = buildDetailRow(monster, totalCols, onMapClick);
+          detailRow = buildDetailRow(monster, totalCols, onMapClick, focusMonster);
           row.after(detailRow);
           row.classList.add('expanded');
           history.replaceState(null, '', `#monsters?q=${encodeURIComponent('id:' + padMobId(monster.id))}`);

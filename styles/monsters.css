@@ -192,6 +192,65 @@
   color: #94a3b8;
   border: 1px solid rgba(100,116,139,0.27);
 }
+.elem-aggro {
+  background: rgba(239,68,68,0.13);
+  color: #ef4444;
+  border: 1px solid rgba(239,68,68,0.27);
+}
+.elem-invincible {
+  background: rgba(56,189,248,0.13);
+  color: #38bdf8;
+  border: 1px solid rgba(56,189,248,0.27);
+}
+.elem-noregen,
+.elem-selfdestruct {
+  background: rgba(251,146,60,0.13);
+  color: #fb923c;
+  border: 1px solid rgba(251,146,60,0.27);
+}
+
+/* ── Attacks / death spawns ─────────────────────────────────── */
+.monster-detail-col-combat { max-width: 340px; }
+.mob-attack-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mob-attack-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+.mob-attack-index {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  font-family: monospace;
+  text-align: center;
+  line-height: 16px;
+}
+.mob-attack-ratio {
+  flex-shrink: 0;
+  min-width: 40px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: monospace;
+  color: var(--text);
+}
+.mob-attack-tags {
+  font-size: 11px;
+  color: var(--dim);
+  line-height: 1.4;
+}
 
 /* ── Body ───────────────────────────────────────────────────── */
 .monster-detail-body {
