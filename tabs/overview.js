@@ -1,7 +1,7 @@
 import { el } from '../lib/utils.js';
 import { getDataBase } from '../lib/data.js';
 
-function buildBanner(title, subtitle, accent = { rgb: '251,146,60', hex: '#fb923c' }) {
+function buildBanner(title, subtitle, accent = { rgb: '251,146,60', hex: '#fb923c' }, link = null) {
   const banner = el('div', {
     style: {
       background: `linear-gradient(135deg, rgba(${accent.rgb},.18) 0%, rgba(${accent.rgb},.08) 100%)`,
@@ -21,6 +21,27 @@ function buildBanner(title, subtitle, accent = { rgb: '251,146,60', hex: '#fb923
     style: { fontSize: '15px', color: 'var(--dim)', opacity: '.85' },
     textContent: subtitle,
   }));
+  if (link) {
+    const linkEl = el('a', {
+      href: '#',
+      style: {
+        display: 'inline-block',
+        marginTop: '14px',
+        padding: '7px 16px',
+        borderRadius: '99px',
+        background: `rgba(${accent.rgb},.16)`,
+        border: `1px solid rgba(${accent.rgb},.55)`,
+        color: accent.hex,
+        fontSize: '13px',
+        fontWeight: '700',
+        textDecoration: 'none',
+        cursor: 'pointer',
+      },
+      textContent: link.label,
+    });
+    linkEl.addEventListener('click', (e) => { e.preventDefault(); link.onClick(); });
+    banner.appendChild(linkEl);
+  }
   return banner;
 }
 
@@ -75,6 +96,7 @@ export function renderOverview(data, options) {
     'Welcome back to Closed Online Test 2!',
     "The COT2 datamine is complete! Formulas and other data from COT1 may be outdated until re-verified, check back often as things change!",
     { rgb: '34,197,94', hex: '#22c55e' },
+    data.patchNotes ? { label: 'View COT1 → COT2 patch notes →', onClick: () => switchTab('patchnotes') } : null,
   ));
 
   // Hero banner
