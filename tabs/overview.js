@@ -1,20 +1,20 @@
 import { el } from '../lib/utils.js';
 import { getDataBase } from '../lib/data.js';
 
-function buildBanner(title, subtitle) {
+function buildBanner(title, subtitle, accent = { rgb: '251,146,60', hex: '#fb923c' }) {
   const banner = el('div', {
     style: {
-      background: 'linear-gradient(135deg, rgba(251,146,60,.18) 0%, rgba(251,146,60,.08) 100%)',
-      border: '2px solid rgba(251,146,60,.55)',
+      background: `linear-gradient(135deg, rgba(${accent.rgb},.18) 0%, rgba(${accent.rgb},.08) 100%)`,
+      border: `2px solid rgba(${accent.rgb},.55)`,
       borderRadius: '12px',
       padding: '28px 32px',
       marginBottom: '28px',
       textAlign: 'center',
-      boxShadow: '0 4px 24px rgba(251,146,60,.12)',
+      boxShadow: `0 4px 24px rgba(${accent.rgb},.12)`,
     },
   });
   banner.appendChild(el('div', {
-    style: { fontSize: '22px', fontWeight: '800', color: '#fb923c', letterSpacing: '.5px', marginBottom: '8px' },
+    style: { fontSize: '22px', fontWeight: '800', color: accent.hex, letterSpacing: '.5px', marginBottom: '8px' },
     textContent: title,
   }));
   banner.appendChild(el('div', {
@@ -73,7 +73,8 @@ export function renderOverview(data, options) {
 
   frag.appendChild(buildBanner(
     'Welcome back to Closed Online Test 2!',
-    "We're still waiting for the client download to drop, so check back soon! Formulas and other data from COT1 may be outdated until re-verified, check back often as things change!",
+    "The COT2 datamine is complete! Formulas and other data from COT1 may be outdated until re-verified, check back often as things change!",
+    { rgb: '34,197,94', hex: '#22c55e' },
   ));
 
   // Hero banner
@@ -107,7 +108,7 @@ export function renderOverview(data, options) {
       whiteSpace: 'nowrap',
       alignSelf: 'flex-start',
     },
-    textContent: 'Closed Online Test (COT) Patch 2',
+    textContent: 'Closed Online Test 2 (COT2)',
   });
   const heroPatchHash = el('div', { style: { display: 'flex', alignItems: 'center', gap: '5px' }, title: 'c80c0a8a' });
   heroPatchHash.appendChild(el('span', {
@@ -139,7 +140,7 @@ export function renderOverview(data, options) {
   }));
   heroTimeLine.appendChild(el('span', {
     style: { fontSize: '10px', color: 'var(--dim)', opacity: '.75', fontFamily: 'monospace' },
-    textContent: 'April 21, 2026 09:01 PT',
+    textContent: 'August 4, 2026 10:01 PT',
   }));
   heroInfo.appendChild(heroTimeLine);
   heroBanner.appendChild(heroInfo);
