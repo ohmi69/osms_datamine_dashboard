@@ -330,6 +330,79 @@ const MOD_VARS = [
 ];
 
 
+// ─── Guard (damage taken) ─────────────────────────────────────
+
+const GUARD_STEPS = [
+  {
+    label: 'Guard Immunity',
+    wip: false,
+    status: 'partial',
+    statusNote: 'The check is read directly from the client, but the monster flag it reads has not been matched to a property in the monster data yet.',
+    lines: [
+      'A flag on the monster can switch guard off entirely for its attacks.',
+    ],
+    notes: [
+      'When that flag is set the attack always resolves as a normal hit and neither roll below is reached',
+      'No monster in the game data has been matched to this flag yet, so in practice every attack is currently guardable',
+    ],
+  },
+  {
+    label: 'Shield Guard',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Read directly from the damage-taken routine in the client, including the 500 divisor and the 5% floor.',
+    lines: [
+      'ShieldDefense = Weapon Defense on the item in the shield slot',
+      '',
+      'Only rolled if ShieldDefense > 0:',
+      '  GuardChance = max(0.05, ShieldDefense / (ShieldDefense + 500))',
+      '',
+      'Guarded = GuardChance > rand(0, 1)',
+    ],
+    notes: [
+      'Only the shield slot counts. Weapon Defense from armour, accessories or buffs adds nothing to the guard chance',
+      'Any shield at all gives at least 5%, and the chance reaches 50% at 500 shield Weapon Defense',
+      'Scrolled Weapon Defense on the shield counts',
+      'Throwing stars sit in the shield slot but carry no Weapon Defense, so claw users never get this roll',
+    ],
+  },
+  {
+    label: 'Claw Guard',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Read directly from the client, hard-coded to Claw Guard by skill ID and to the Assassin job line.',
+    lines: [
+      'Only rolled for Assassin, Hermit and Night Lord:',
+      '  Guarded = ClawGuardBlockChance / 100 > rand(0, 1)',
+    ],
+    notes: [
+      'ClawGuardBlockChance is the block chance listed on the skill: 3% at levels 1-6, 4% at 7-13, 5% at 14-20',
+      'This roll reuses the same random number as the Shield Guard roll, and it only runs when that roll has already failed. Because the shield chance is never below 5% and Claw Guard never goes above 5%, Claw Guard cannot fire while a shield with any Weapon Defense is equipped - it only does anything for the throwing-star setup it was written for',
+    ],
+  },
+  {
+    label: 'Result',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Read directly from the client - the damage is computed and then discarded on anything other than a clean hit.',
+    lines: [
+    ],
+    notes: [
+      'Guard is a full negation, not a reduction. The client still runs the whole damage calculation and then throws the number away, exactly as it does for a miss',
+      'A guarded hit shows no damage number at all',
+      'Guard is only rolled for a monster\'s regular attack. Monster skill attacks take a separate path that always resolves as a hit',
+      'An attack can be flagged unmissable and still be guarded - the guard rolls sit after the accuracy check, not inside it',
+    ],
+  },
+];
+
+const GUARD_VARS = [
+  { name: 'ShieldDefense', desc: 'Weapon Defense of the item equipped in the shield slot, scrolls included. Nothing else feeds this value' },
+  { name: 'GuardChance',   desc: 'Chance for the hit to be negated outright' },
+  { name: 'ClawGuardBlockChance', desc: "Claw Guard's block chance for the learned level (3, 4 or 5)" },
+  { name: 'DamageTaken',   desc: 'HP actually lost from the hit' },
+];
+
 // ─── Formula tokenizer ───────────────────────────────────────
 
 const FORMULA_FNS = new Set(['exp', 'rand', 'trunc', 'floor', 'clamp', 'max']);
@@ -535,8 +608,6 @@ function buildExpChart() {
 
   const plot = el('div', { className: 'formulas-chart-plot' });
   const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, class: 'formulas-chart-svg', role: 'img' });
-  svg.appendChild(svgEl('title', {})).textContent =
-    'Exp required per level, from level 1 to 120. The table beside this chart lists every value.';
   plot.appendChild(svg);
   const tip = el('div', { className: 'formulas-chart-tip' });
   plot.appendChild(tip);
@@ -747,6 +818,13 @@ function buildModsSection() {
   return container;
 }
 
+function buildGuardSection() {
+  const container = el('div', { className: 'formulas-formula-wrap' });
+  container.appendChild(buildPipeline(GUARD_STEPS));
+  container.appendChild(buildVarLegend(GUARD_VARS));
+  return container;
+}
+
 
 
 // ─── Page render ──────────────────────────────────────────────
@@ -772,12 +850,12 @@ export function renderFormulas() {
     makeStatusTag('ok', 'Read directly from the hit-test routine in the client, which runs this one check for both physical and magic attacks.')
   );
   const accCredit = el('span', { className: 'formulas-credit' });
-  accCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
+  accCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> and <strong>@ohmi</strong> on Discord';
   accuracySection.querySelector('.left').appendChild(accCredit);
 
   const baseDmgSection = makeCollapsibleSection('Base Damage Formulas', '', buildBaseDamageSection);
   const dmgCredit = el('span', { className: 'formulas-credit' });
-  dmgCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist, @jimmybald</strong> on Discord';
+  dmgCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist, @jimmybald</strong> and <strong>@ohmi</strong> on Discord';
   baseDmgSection.querySelector('.left').appendChild(dmgCredit);
 
   const modsSection = makeCollapsibleSection('Damage Modifications', '', buildModsSection);
@@ -785,9 +863,18 @@ export function renderFormulas() {
   modsCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
   modsSection.querySelector('.left').appendChild(modsCredit);
 
+  const guardSection = makeCollapsibleSection('Guard', '', buildGuardSection);
+  guardSection.querySelector('.right').appendChild(
+    makeStatusTag('ok', 'Read directly from the damage-taken routine in the client, which resolves every incoming hit as hit, miss or guard.')
+  );
+  const guardCredit = el('span', { className: 'formulas-credit' });
+  guardCredit.innerHTML = 'Reverse engineered by <strong>@ohmi</strong> on Discord';
+  guardSection.querySelector('.left').appendChild(guardCredit);
+
   fullWidth.appendChild(accuracySection);
   fullWidth.appendChild(baseDmgSection);
   fullWidth.appendChild(modsSection);
+  fullWidth.appendChild(guardSection);
   wrapper.appendChild(fullWidth);
 
   // Appendix
@@ -800,7 +887,7 @@ export function renderFormulas() {
     makeStatusTag('ok', 'Read directly from the routine in the client that builds the experience table at startup.')
   );
   const expCredit = el('span', { className: 'formulas-credit' });
-  expCredit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> on Discord';
+  expCredit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> and <strong>@ohmi</strong> on Discord';
   expSection.querySelector('.left').appendChild(expCredit);
 
   const weaponMultSection = makeCollapsibleSection('Weapon Min/Max Multipliers', '', buildWeaponMultTable);
