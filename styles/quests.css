@@ -1,7 +1,6 @@
 .badge-daily,
 .badge-weekly,
 .badge-repeatable,
-.badge-rotation,
 .badge-onetime {
   border-radius: 0;
   font-weight: 600;
@@ -25,11 +24,6 @@
   background: rgba(234,179,8,0.2);
   color: #fbbf24;
   border-color: rgba(234,179,8,0.4);
-}
-.badge-rotation {
-  background: rgba(20,184,166,0.2);
-  color: #2dd4bf;
-  border-color: rgba(20,184,166,0.4);
 }
 .badge-onetime {
   background: rgba(148,163,184,0.2);
@@ -177,6 +171,21 @@
   font-size: 12px;
 }
 
+.quest-stat-chip--contribution { cursor: help; }
+
+/* Per-grade contribution payouts inside the reward tooltip. */
+.contribution-grade-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 12px;
+  row-gap: 2px;
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 6px;
+}
+.contribution-grade-label { color: var(--dim); }
+.contribution-grade-value { color: var(--text); font-weight: 600; text-align: right; }
+
 .quest-reward-chip .item-thumb {
   width: 22px;
   height: 22px;
@@ -239,8 +248,7 @@
   color: #7a4700;
   border-color: rgba(161,100,0,0.30);
 }
-[data-theme="mapletip"] .badge-repeatable,
-[data-theme="mapletip"] .badge-rotation {
+[data-theme="mapletip"] .badge-repeatable {
   background: rgba(161,100,0,0.10);
   color: #7a4700;
   border-color: rgba(161,100,0,0.30);

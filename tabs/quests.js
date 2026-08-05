@@ -1,6 +1,6 @@
 import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padQuestId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
-import { attachTooltip } from '../lib/tooltip.js';
+import { attachTooltip, attachCustomTooltip } from '../lib/tooltip.js';
 import state, { getMobThumbUrl } from '../lib/data.js';
 
 function loadCompletionState() {
@@ -284,6 +284,38 @@ function renderRewardContent(quest, itemById) {
   return content;
 }
 
+// Residency contribution scales with the player's citizenship grade, so the
+// hover spells out the payout at every grade rather than a single number.
+function renderContributionTooltip(tip, contribution) {
+  const title = contribution.town_name
+    ? `${contribution.town_name} Contribution`
+    : 'Residency Contribution';
+  tip.appendChild(el('div', { className: 'item-tooltip-header' },
+    el('span', { className: 'item-tooltip-name', textContent: title })));
+
+  if (contribution.formula) {
+    tip.appendChild(
+      el('p', { className: 'item-tooltip-desc', textContent: contribution.formula })
+    );
+  }
+
+  const byGrade = Array.isArray(contribution.by_grade) ? contribution.by_grade : [];
+  if (byGrade.length) {
+    const grid = el('div', { className: 'contribution-grade-grid' });
+    byGrade.forEach((value, i) => {
+      grid.appendChild(el('span', { className: 'contribution-grade-label', textContent: `Grade ${i + 1}` }));
+      grid.appendChild(el('span', { className: 'contribution-grade-value', textContent: fmt(value) }));
+    });
+    tip.appendChild(grid);
+  } else {
+    tip.appendChild(el('p', {
+      className: 'item-tooltip-desc',
+      textContent: `${fmt(contribution.amount)} at every grade, this quest does not scale with level.`,
+    }));
+  }
+  return true;
+}
+
 function renderQuestCard(quest, completionState, onToggleCompletion, itemById, monsterById, expandedIds) {
   const card = el('div', { className: 'quest-card' });
   const nameRow = el('div', { className: 'quest-name' });
@@ -316,9 +348,8 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
       );
     });
   }
-  // Rotation-pool quests only surface `select_count` of the pool per cycle, so
-  // spell the odds out rather than letting a bare DAILY badge imply every one
-  // of them shows up every day.
+  // Rotation-pool quests belong to a RecurringQuestGroup; how the game picks
+  // from that pool is not known, so the group is surfaced only as hover detail.
   const rot = quest.rotation;
   const rotTitle = rot
     ? `${rot.group} — ${rot.select_count} of ${rot.pool_size} offered per ${rot.cadence} rotation`
@@ -334,11 +365,6 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
     }));
   }
   if (rot) {
-    nameRow.appendChild(el('span', {
-      className: 'badge badge-rotation',
-      textContent: `1 / ${rot.pool_size} POOL`,
-      title: rotTitle,
-    }));
     if (rot.one_time) {
       nameRow.appendChild(el('span', {
         className: 'badge badge-onetime',
@@ -431,7 +457,8 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
   card.appendChild(reqBox);
 
   const rewardContent = renderRewardContent(quest, itemById);
-  const hasRewards = quest.rewards_exp > 0 || quest.rewards_money > 0 || rewardContent;
+  const contribution = quest.rewards_contribution;
+  const hasRewards = quest.rewards_exp > 0 || quest.rewards_money > 0 || rewardContent || contribution;
   const rewardBox = el('div', { className: 'quest-meta-box' });
   rewardBox.appendChild(el('span', { className: 'label', textContent: 'Reward: ' }));
   if (hasRewards) {
@@ -449,6 +476,23 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
       mesoBox.appendChild(el('span', { className: 'label', textContent: 'Meso: ' }));
       mesoBox.appendChild(el('span', { className: 'value', textContent: fmt(quest.rewards_money) }));
       rewardBox.appendChild(mesoBox);
+    }
+    // Residency contribution is either a flat amount or a grade-scaling formula,
+    // so show the formula verbatim rather than a single misleading number.
+    if (contribution) {
+      const contrBox = el('span', { className: 'quest-stat-chip quest-stat-chip--contribution' });
+      contrBox.appendChild(el('span', { className: 'label', textContent: 'Contribution: ' }));
+      contrBox.appendChild(el('span', {
+        className: 'value',
+        textContent: contribution.amount != null ? fmt(contribution.amount) : contribution.formula,
+      }));
+      if (contribution.town_name) {
+        contrBox.appendChild(
+          el('span', { className: 'label', textContent: ` (${contribution.town_name})` })
+        );
+      }
+      attachCustomTooltip(contrBox, (tip) => renderContributionTooltip(tip, contribution));
+      rewardBox.appendChild(contrBox);
     }
   } else {
     rewardBox.appendChild(el('span', { className: 'value value--none', textContent: 'None' }));

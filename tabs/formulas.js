@@ -362,6 +362,7 @@ const GUARD_STEPS = [
     ],
     notes: [
       'Only the shield slot counts. Weapon Defense from armour, accessories or buffs adds nothing to the guard chance',
+      'Magic Defense is not part of this at all, on the shield or anywhere else. The mage shields carry most of their defense as Magic Defense and only a little Weapon Defense, so they sit at or barely above the 5% floor - a Mystic Shield guards exactly as often as a shield with 1 Weapon Defense would',
       'Any shield at all gives at least 5%, and the chance reaches 50% at 500 shield Weapon Defense',
       'Scrolled Weapon Defense on the shield counts',
       'Throwing stars sit in the shield slot but carry no Weapon Defense, so claw users never get this roll',
