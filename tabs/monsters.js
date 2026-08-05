@@ -362,7 +362,6 @@ export function renderMonsters(data, options = {}) {
   let filter = '';
   let typeFilter = '';
   let elemWeakFilter = '';
-  let behaviourFilter = '';
   let sortCol = 'level';
   let sortDir = 1;
   let autoExpandAfterId = null;
@@ -425,24 +424,8 @@ export function renderMonsters(data, options = {}) {
     window.scrollTo(0, 0);
   }
 
-  const behaviourPills = makePillGroup(
-    [
-      { label: 'Any', value: '' },
-      { label: 'Aggro', value: 'aggro' },
-      { label: 'Regenerates', value: 'regen' },
-      { label: 'Summons on Death', value: 'revives' },
-    ],
-    behaviourFilter,
-    (value) => {
-      behaviourFilter = value;
-      behaviourPills.setActive(value);
-      renderData();
-    },
-    { groupLabel: 'Behaviour:' }
-  );
-
   const elemPills = makePillGroup(
-    [{ label: 'Any', value: '' }, { label: 'Fire', value: 'Fire' }, { label: 'Ice', value: 'Ice' }, { label: 'Lightning', value: 'Lightning' }, { label: 'Holy', value: 'Holy' }],
+    [{ label: 'Any', value: '' }, { label: 'Fire', value: 'Fire' }, { label: 'Ice', value: 'Ice' }, { label: 'Lightning', value: 'Lightning' }, { label: 'Holy', value: 'Holy' }, { label: 'Poison', value: 'Poison' }],
     elemWeakFilter,
     (value) => {
       elemWeakFilter = value;
@@ -456,7 +439,6 @@ export function renderMonsters(data, options = {}) {
 
   const filterRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' } });
   filterRow.appendChild(typePills);
-  filterRow.appendChild(behaviourPills);
   filterRow.appendChild(elemPills);
   container.appendChild(filterRow);
 
@@ -497,9 +479,6 @@ export function renderMonsters(data, options = {}) {
       if (!matchSearch(monster.name, filter) && !monster.maps?.some((m) => matchSearch(m.name, filter))) return false;
       if (typeFilter === 'boss' && !monster.is_boss) return false;
       if (typeFilter === 'nonboss' && monster.is_boss) return false;
-      if (behaviourFilter === 'aggro' && !monster.aggro) return false;
-      if (behaviourFilter === 'regen' && !(monster.hp_recovery || monster.mp_recovery)) return false;
-      if (behaviourFilter === 'revives' && !monster.revives?.length) return false;
       if (elemWeakFilter && monster.elements?.[elemWeakFilter] !== 'Weak') return false;
       return true;
     });
