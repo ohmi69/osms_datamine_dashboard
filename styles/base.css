@@ -381,6 +381,21 @@ body {
   opacity: .6;
 }
 
+/* ── Cross-tab deep links ────────────────────────────────────── */
+/* Chips, cards and tabs that navigate elsewhere are real <a href> elements so
+   middle-click / ctrl-click / "Open in new tab" work. :where() keeps this at
+   zero specificity, so each link still gets its colour from its own class and
+   only the browser's default link colour and underline are stripped. */
+:where(a.tab-link) {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.tab-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* ── App container ───────────────────────────────────────────── */
 .app {
   max-width: 1400px;

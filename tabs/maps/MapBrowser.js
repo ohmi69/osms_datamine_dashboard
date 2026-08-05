@@ -1,5 +1,5 @@
 
-import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeHideToggle, makeCopyableId, padMapId, padMobId, scrollToDetailRow, autoExpandById } from '../../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeHideToggle, makeCopyableId, makeTabLink, padMapId, padMobId, scrollToDetailRow, autoExpandById } from '../../lib/utils.js';
 import { attachTooltip } from '../../lib/tooltip.js';
 import state, { getMapUrl, getMobThumbUrl } from '../../lib/data.js';
 
@@ -209,14 +209,15 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     if (Array.isArray(mapEntry.exit_names) && mapEntry.exit_names.length > 0) {
       const exitsGrid = el('div', { className: 'map-exits-grid' });
       for (const exit of mapEntry.exit_names) {
-        const chip = el('div', { className: 'map-exit-chip', title: `Go to map: ${exit.name}` });
+        const chip = makeTabLink('maps', `id:${padMapId(exit.id)}`, {
+          className: 'map-exit-chip',
+          title: `Go to map: ${exit.name}`,
+          onActivate: () => { if (selfNavigate) selfNavigate({ id: exit.id, autoExpand: true }); },
+          stopPropagation: true,
+        });
         chip.appendChild(el('span', { className: 'map-exit-chip-arrow', textContent: '→' }));
         chip.appendChild(el('span', { textContent: exit.name || `Map #${padMapId(exit.id)}` }));
         chip.appendChild(el('span', { className: 'map-exit-chip-id id', textContent: `#${padMapId(exit.id)}` }));
-        chip.addEventListener('click', (e) => {
-          e.stopPropagation();
-          if (selfNavigate) selfNavigate({ id: exit.id, autoExpand: true });
-        });
         chip.addEventListener('mouseenter', () => {
           chip.classList.add('map-exit-chip--hover');
           if (!imgContainer) return;
@@ -245,7 +246,14 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     } else {
       const grid = el('div', { className: 'map-mob-grid' });
       for (const mob of mobs) {
-        const chip = el('div', { className: 'map-mob-chip' });
+        const chip = onMobClick
+          ? makeTabLink('monsters', `id:${padMobId(mob.id)}`, {
+              className: 'map-mob-chip mob-chip-clickable',
+              onActivate: () => onMobClick(mob.id),
+              stopPropagation: true,
+              capture: true,
+            })
+          : el('div', { className: 'map-mob-chip' });
         chip.appendChild(makeThumbnail(getMobThumbUrl(mob.thumbnail), mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
         chip.appendChild(el('span', { textContent: mob.name || `#${padMobId(mob.id)}` }));
         chip.appendChild(el('span', { className: 'map-mob-chip-count', textContent: `×${mob.count}` }));
@@ -291,13 +299,6 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         });
 
         attachTooltip(chip, () => monsterById.get(String(mob.id)) || mob, 'mob');
-        if (onMobClick) {
-          chip.classList.add('mob-chip-clickable');
-          chip.addEventListener('click', (e) => {
-            e.stopPropagation();
-            onMobClick(mob.id);
-          }, true);
-        }
         grid.appendChild(chip);
       }
       panel.appendChild(grid);

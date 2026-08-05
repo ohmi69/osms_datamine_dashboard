@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, padQuestId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padQuestId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import state, { getMobThumbUrl } from '../lib/data.js';
@@ -74,9 +74,13 @@ function renderRequirementChips(requirements, itemById, monsterById) {
           tabId = 'equipment';
         }
       }
-      chip = el(
-        'span',
-        { className: 'quest-chip quest-requirement-chip', tabIndex: 0, role: 'button' },
+      // A real link, so the chip can be opened in a new tab; a plain click just
+      // follows the href and the Router picks it up as an in-page hash change.
+      chip = makeTabLink(tabId, `id:${requirement.id}`, {
+        className: 'quest-chip quest-requirement-chip',
+        stopPropagation: true,
+      });
+      chip.append(
         makeThumbnail(
           getRequirementThumbPath(requirement, monsterById),
           `${requirement.name || requirement.label || 'Requirement'} thumbnail`,
@@ -87,16 +91,6 @@ function renderRequirementChips(requirements, itemById, monsterById) {
         ),
         el('span', { textContent: formatRequirementLabel(requirement) })
       );
-      chip.addEventListener('click', (e) => {
-        e.stopPropagation();
-        window.location.hash = `#${tabId}?q=${encodeURIComponent('id:' + requirement.id)}`;
-      });
-      chip.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          window.location.hash = `#${tabId}?q=${encodeURIComponent('id:' + requirement.id)}`;
-          e.preventDefault();
-        }
-      });
       if (isMob) {
         attachTooltip(chip, () => monsterById.get(String(requirement.id)), 'mob');
       } else {
@@ -163,25 +157,17 @@ function renderRewardItemChips(itemList, itemById) {
         tabId = 'equipment';
       }
     }
-    const chip = el(
-      'span',
-      { className: 'quest-chip quest-reward-chip', tabIndex: 0, role: 'button' },
+    const chip = makeTabLink(tabId, `id:${item.id}`, {
+      className: 'quest-chip quest-reward-chip',
+      stopPropagation: true,
+    });
+    chip.append(
       makeThumbnail(toItemThumbPath(item.id), `${item.name || item.label || 'Reward'} thumbnail`, {
         className: 'item-thumb',
         fallbackText: 'ITEM',
       }),
       el('span', { textContent: formatRewardItemLabel(item) }),
     );
-    chip.addEventListener('click', (e) => {
-      e.stopPropagation();
-      window.location.hash = `#${tabId}?q=${encodeURIComponent('id:' + item.id)}`;
-    });
-    chip.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        window.location.hash = `#${tabId}?q=${encodeURIComponent('id:' + item.id)}`;
-        e.preventDefault();
-      }
-    });
     attachTooltip(chip, () => itemById.get(String(item.id)));
     wrap.appendChild(chip);
   });

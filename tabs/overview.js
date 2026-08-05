@@ -1,4 +1,4 @@
-import { el } from '../lib/utils.js';
+import { el, makeTabLink, tabHref, onLinkActivate } from '../lib/utils.js';
 import { getDataBase } from '../lib/data.js';
 
 function buildBanner(title, subtitle, accent = { rgb: '251,146,60', hex: '#fb923c' }, link = null) {
@@ -23,7 +23,7 @@ function buildBanner(title, subtitle, accent = { rgb: '251,146,60', hex: '#fb923
   }));
   if (link) {
     const linkEl = el('a', {
-      href: '#',
+      href: tabHref(link.tabId),
       style: {
         display: 'inline-block',
         marginTop: '14px',
@@ -39,7 +39,7 @@ function buildBanner(title, subtitle, accent = { rgb: '251,146,60', hex: '#fb923
       },
       textContent: link.label,
     });
-    linkEl.addEventListener('click', (e) => { e.preventDefault(); link.onClick(); });
+    onLinkActivate(linkEl, () => link.onClick());
     banner.appendChild(linkEl);
   }
   return banner;
@@ -60,11 +60,13 @@ function buildNavSection(stats, switchTab, isTimeTravelMode = false) {
     ['quests',    'Quests',     stats.quests,      'Full quest chains, rewards'],
   ].filter(Boolean)
   .forEach(([tabId, label, count, desc]) => {
-    const card = el('div', { className: 'nav-card' });
+    const card = makeTabLink(tabId, null, {
+      className: 'nav-card',
+      onActivate: () => switchTab(tabId),
+    });
     card.appendChild(el('div', { className: 'nav-count', textContent: count }));
     card.appendChild(el('div', { className: 'nav-label', textContent: label }));
     card.appendChild(el('div', { className: 'nav-desc', textContent: desc }));
-    card.addEventListener('click', () => switchTab(tabId));
     grid.appendChild(card);
   });
   section.appendChild(grid);
@@ -96,7 +98,7 @@ export function renderOverview(data, options) {
     'Welcome back to Closed Online Test 2!',
     "The COT2 datamine is complete! Formulas and other data from COT1 may be outdated until re-verified, check back often as things change!",
     { rgb: '34,197,94', hex: '#22c55e' },
-    data.patchNotes ? { label: 'View COT1 → COT2 patch notes →', onClick: () => switchTab('patchnotes') } : null,
+    data.patchNotes ? { label: 'View COT1 → COT2 patch notes →', tabId: 'patchnotes', onClick: () => switchTab('patchnotes') } : null,
   ));
 
   // Hero banner
@@ -207,7 +209,10 @@ export function renderOverview(data, options) {
     };
   }
 
-  function appendChipCard(title, unit, text, onChipClick) {
+  // `chipNav(label)` returns { tab, target, activate } for a chip that navigates
+  // somewhere, or null for a plain one. The target doubles as the chip's href,
+  // so a chip can be opened in a new tab.
+  function appendChipCard(title, unit, text, chipNav) {
     const parsed = parseCountedList(text);
     if (!parsed) {
       const card = el('div', { className: 'info-card' });
@@ -222,13 +227,17 @@ export function renderOverview(data, options) {
     card.appendChild(el('div', { className: 'text', textContent: summary }));
     const chipRow = el('div', { className: 'info-chip-row' });
     parsed.items.forEach(item => {
-      if (onChipClick) {
-        const chip = el('button', { className: 'info-chip info-chip--link', textContent: item });
-        chip.addEventListener('click', () => onChipClick(item));
-        chipRow.appendChild(chip);
-      } else {
+      const nav = chipNav ? chipNav(item) : null;
+      if (!nav) {
         chipRow.appendChild(el('span', { className: 'info-chip', textContent: item }));
+        return;
       }
+      const chip = makeTabLink(nav.tab, nav.target, {
+        className: 'info-chip info-chip--link',
+        onActivate: nav.activate,
+      });
+      chip.textContent = item;
+      chipRow.appendChild(chip);
     });
     card.appendChild(chipRow);
     findingsGrid.appendChild(card);
@@ -236,21 +245,33 @@ export function renderOverview(data, options) {
 
   // Chip label -> skills tab filter params (class pill and/or subclass pill)
   const skillClasses = Object.values(data.skills || {}).flat().filter(c => c && c.class_name);
-  function openSkillsForClass(label) {
+  function skillsNavForClass(label) {
     const cls = skillClasses.find(c => c.class_name === label);
-    if (!cls) return;
+    if (!cls) return null;
     const params = {};
     if (cls.main_class) params.class = cls.main_class;
     if (cls.class_name !== cls.main_class) params.subclass = cls.class_name;
-    options.openTabWithParams('skills', params);
+    return {
+      tab: 'skills',
+      target: params,
+      activate: () => options.openTabWithParams('skills', params),
+    };
   }
 
   appendChipCard('Classes', 'classes', stats.classes,
-    options.openTabWithParams ? openSkillsForClass : null);
+    options.openTabWithParams ? skillsNavForClass : null);
   appendChipCard('Craft Disciplines', 'disciplines', stats.disciplines,
-    options.openTabWithParams ? (label => options.openTabWithParams('crafting', { discipline: label })) : null);
+    options.openTabWithParams ? (label => ({
+      tab: 'crafting',
+      target: { discipline: label },
+      activate: () => options.openTabWithParams('crafting', { discipline: label }),
+    })) : null);
   appendChipCard('Bosses', 'bosses', stats.bosses,
-    label => switchTab('monsters', true, label));
+    label => ({
+      tab: 'monsters',
+      target: label,
+      activate: () => switchTab('monsters', true, label),
+    }));
 
   // "4 tiers — Lesser (100%, +1 stat), Intermediate (60%, +2 stat), ..." -> one row per tier
   function appendScrollSystemCard(title, text) {
@@ -281,7 +302,6 @@ export function renderOverview(data, options) {
 
   [
     ['Repeatable Quests', stats.repeatable_quests],
-    ['Quest Rotation Pools', stats.rotation_pools],
   ].filter(([, text]) => text).forEach(([title, text]) => {
     const card = el('div', { className: 'info-card' });
     card.appendChild(el('div', { className: 'title', textContent: title }));
@@ -292,21 +312,22 @@ export function renderOverview(data, options) {
   frag.appendChild(findingsSection);
 
   // Portal Runner callout
-  const gameCallout = el('div', {
-    style: {
-      background: 'var(--surface)',
-      border: '1px solid var(--border)',
-      borderLeft: '6px solid var(--accent)',
-      borderRadius: '0 10px 10px 0',
-      padding: '16px 20px',
-      marginBottom: '24px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      gap: '16px',
-      flexWrap: 'wrap',
-      cursor: 'pointer',
-    },
+  const gameCallout = makeTabLink('portal-runner', null, {
+    onActivate: () => switchTab('portal-runner'),
+  });
+  Object.assign(gameCallout.style, {
+    background: 'var(--surface)',
+    border: '1px solid var(--border)',
+    borderLeft: '6px solid var(--accent)',
+    borderRadius: '0 10px 10px 0',
+    padding: '16px 20px',
+    marginBottom: '24px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '16px',
+    flexWrap: 'wrap',
+    cursor: 'pointer',
   });
   const gameCalloutText = el('div');
   gameCalloutText.appendChild(el('div', {
@@ -323,7 +344,6 @@ export function renderOverview(data, options) {
     style: { flexShrink: '0' },
     textContent: 'Play now',
   }));
-  gameCallout.addEventListener('click', () => switchTab('portal-runner'));
   frag.appendChild(gameCallout);
 
   return frag;

@@ -13,6 +13,7 @@
 }
 
 .nav-card {
+  display: block; /* it is an <a> so it can be opened in a new tab */
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 0;

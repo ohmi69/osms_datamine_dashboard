@@ -1,5 +1,5 @@
 
-import { el, padMapId } from '../../lib/utils.js';
+import { el, padMapId, makeTabLink } from '../../lib/utils.js';
 import { getDataBase } from '../../lib/data.js';
 import { attachTooltip, hideItemTooltip } from '../../lib/tooltip.js';
 
@@ -92,7 +92,12 @@ export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate
       const bgColor = isIntra ? 'rgba(46,204,64,0.18)' : 'rgba(0,120,255,0.18)';
       const boxShadow = isIntra ? '0 0 8px 2px #2ecc4066' : '0 0 8px 2px #3af6';
       const hoverShadow = isIntra ? '0 0 16px 4px #2ecc40bb' : '0 0 16px 4px #fff8';
-      const overlay = el('div', { className: 'portal-overlay' });
+      // Portals that lead somewhere else get a real href, so they can be
+      // middle-clicked open in a new tab. Intra-map portals only toggle the
+      // arrow overlay, so they stay plain divs.
+      const overlay = isIntra
+        ? el('div', { className: 'portal-overlay' })
+        : makeTabLink('maps', `id:${padMapId(Number(portal.dest_map))}`, { className: 'portal-overlay' });
       overlay.dataset.destMap = String(Number(portal.dest_map));
       overlay.style.left = `${px - portalR}px`;
       overlay.style.top = `${py - portalR}px`;
@@ -173,6 +178,11 @@ export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate
             });
           }
         } else if (portal.dest_map) {
+          // Modifier/middle clicks fall through to the href so the browser opens
+          // the destination map in a new tab.
+          if (e.defaultPrevented || e.button !== 0
+              || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          e.preventDefault();
           const selfNavigate = getSelfNavigate();
           if (selfNavigate) selfNavigate({ id: Number(portal.dest_map), autoExpand: true });
         }

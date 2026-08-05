@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMobId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL } from '../lib/constants.js';
@@ -73,17 +73,17 @@ function buildCombatSection(monster, focusMonster) {
     col.appendChild(el('div', { className: 'monster-stat-group-label', textContent: 'Summons On Death' }));
     const chips = el('div', { className: 'monster-map-list' });
     revives.forEach((spawn) => {
-      const chip = el('span', { className: 'monster-map-chip' });
-      chip.appendChild(el('span', { textContent: spawn.name || `#${spawn.id}` }));
+      const label = spawn.name || `#${spawn.id}`;
+      const chip = focusMonster
+        ? makeTabLink('monsters', `id:${padMobId(spawn.id)}`, {
+            className: 'monster-map-chip monster-map-chip--clickable',
+            title: `Jump to ${label}`,
+            onActivate: () => focusMonster(spawn.id),
+            stopPropagation: true,
+          })
+        : el('span', { className: 'monster-map-chip' });
+      chip.appendChild(el('span', { textContent: label }));
       chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${spawn.count}` }));
-      if (focusMonster) {
-        chip.classList.add('monster-map-chip--clickable');
-        chip.title = `Jump to ${spawn.name || `#${spawn.id}`}`;
-        chip.addEventListener('click', (e) => {
-          e.stopPropagation();
-          focusMonster(spawn.id);
-        });
-      }
       chips.appendChild(chip);
     });
     col.appendChild(chips);
@@ -251,17 +251,17 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
     const mapList = el('div', { className: 'monster-map-list' });
     const sortedSpawnMaps = [...spawnMaps].sort((a, b) => b.count - a.count || a.id - b.id);
     sortedSpawnMaps.forEach((m) => {
-      const chip = el('span', { className: 'monster-map-chip' });
-      chip.appendChild(el('span', { textContent: m.name || `#${m.id}` }));
+      const label = m.name || `#${m.id}`;
+      const chip = onMapClick
+        ? makeTabLink('maps', `id:${padMapId(m.id)}`, {
+            className: 'monster-map-chip monster-map-chip--clickable',
+            title: `View ${label} in Maps tab`,
+            onActivate: () => onMapClick(m.id),
+            stopPropagation: true,
+          })
+        : el('span', { className: 'monster-map-chip' });
+      chip.appendChild(el('span', { textContent: label }));
       chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${m.count}` }));
-      if (onMapClick) {
-        chip.classList.add('monster-map-chip--clickable');
-        chip.title = `View ${m.name || `#${m.id}`} in Maps tab`;
-        chip.addEventListener('click', (e) => {
-          e.stopPropagation();
-          onMapClick(m.id);
-        });
-      }
       mapList.appendChild(chip);
     });
     mapsCol.appendChild(mapList);

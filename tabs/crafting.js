@@ -1,4 +1,4 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { attachTooltip } from '../lib/tooltip.js';
 
@@ -46,6 +46,18 @@ export function renderCrafting(data, options = {}) {
   [...(items?.items || []), ...(items?.scrolls || [])].forEach((item) => {
     if (item?.id != null) itemById.set(String(item.id), item);
   });
+
+  // Result/ingredient links point at the same tab and query main.js's
+  // onItemClick would navigate to, so the href matches the in-page click.
+  function makeItemLink(item, id, className) {
+    const tab = item?.category === 'Equipment' ? 'equipment' : 'items';
+    const target = id != null ? `id:${padItemId(id)}` : (item?.name || '');
+    return makeTabLink(tab, target, {
+      className,
+      onActivate: () => onItemClick(item, id),
+      stopPropagation: true,
+    });
+  }
 
 
   wireSearch(container, 'Search by result or ingredient...', options, (query) => {
@@ -153,7 +165,12 @@ export function renderCrafting(data, options = {}) {
             const row = el('tr');
             const resultCell = el('td');
             const resultWrap = el('div', { className: 'craft-result-wrap' });
-            const resultLeft = el('div', { className: 'craft-item' });
+            const resultItem = recipe.output_id != null
+              ? itemById.get(String(recipe.output_id))
+              : itemByName.get(recipe.result_item_name);
+            const resultLeft = onItemClick
+              ? makeItemLink(resultItem, recipe.output_id, 'craft-item craft-item--clickable')
+              : el('div', { className: 'craft-item' });
             resultLeft.appendChild(
               makeThumbnail(toItemThumbPath(recipe.output_id), `${recipe.result_item_name} thumbnail`, {
                 className: 'item-thumb',
@@ -162,13 +179,6 @@ export function renderCrafting(data, options = {}) {
             );
             resultLeft.appendChild(el('span', { className: 'craft-result-name', textContent: recipe.result_item_name }));
             attachTooltip(resultLeft, () => recipe.output_id != null ? itemById.get(String(recipe.output_id)) : itemByName.get(recipe.result_item_name));
-            if (onItemClick) {
-              resultLeft.classList.add('craft-item--clickable');
-              resultLeft.addEventListener('click', () => {
-                const item = recipe.output_id != null ? itemById.get(String(recipe.output_id)) : itemByName.get(recipe.result_item_name);
-                onItemClick(item, recipe.output_id);
-              });
-            }
             resultWrap.appendChild(resultLeft);
             if (recipe.output_id != null) {
               const craftIdWrap = el('span', { className: 'item-id-wrap' });
@@ -193,8 +203,11 @@ export function renderCrafting(data, options = {}) {
 
             const ingCell = el('td', { className: 'craft-ingredients' });
             recipe.ingredients.forEach((ingredient, index) => {
-              const ingWrap = el('span', { className: 'craft-ing' });
               const ingredientId = itemNameToId.get(ingredient.item_name);
+              const ingItem = itemByName.get(ingredient.item_name);
+              const ingWrap = onItemClick
+                ? makeItemLink(ingItem, ingredientId, 'craft-ing craft-ing--clickable')
+                : el('span', { className: 'craft-ing' });
               ingWrap.appendChild(
                 makeThumbnail(toItemThumbPath(ingredientId), `${ingredient.item_name} thumbnail`, {
                   className: 'item-thumb',
@@ -208,13 +221,6 @@ export function renderCrafting(data, options = {}) {
                 })
               );
               attachTooltip(ingWrap, () => itemByName.get(ingredient.item_name));
-              if (onItemClick) {
-                ingWrap.classList.add('craft-ing--clickable');
-                ingWrap.addEventListener('click', () => {
-                  const item = itemByName.get(ingredient.item_name);
-                  onItemClick(item, ingredientId);
-                });
-              }
               ingCell.appendChild(ingWrap);
             });
             row.appendChild(ingCell);
