@@ -337,6 +337,14 @@ export function renderSkills(data, options = {}) {
           card.appendChild(row);
         }
 
+        const distance = countSpan(skill.distance);
+        if (distance) {
+          const row = el('div', { className: 'targeting' });
+          row.appendChild(el('span', { className: 'label', textContent: 'Distance: ' }));
+          row.appendChild(el('span', { className: 'value', textContent: distance.text }));
+          card.appendChild(row);
+        }
+
         const consumes = formatConsumes(skill);
         if (consumes) {
           const row = el('div', { className: 'targeting' });
