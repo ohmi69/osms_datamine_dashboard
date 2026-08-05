@@ -32,6 +32,39 @@ function formatTargeting(skill) {
   return parts.join(' · ');
 }
 
+// cooldown is seconds, same scalar-or-per-level shape as mob_count. Long buff
+// cooldowns (Holy Symbol: 2700s) read better as minutes.
+function formatSeconds(n) {
+  if (n >= 60 && n % 60 === 0) return `${n / 60} min`;
+  return `${n}s`;
+}
+
+function formatCooldown(value) {
+  const span = countSpan(value);
+  if (!span) return '';
+  const nums = Array.isArray(value) ? value.filter((v) => typeof v === 'number') : [value];
+  const lo = Math.min(...nums);
+  const hi = Math.max(...nums);
+  return lo === hi ? formatSeconds(hi) : `${formatSeconds(lo)} - ${formatSeconds(hi)}`;
+}
+
+// item_consume is an item name (or per-level list of names when the item
+// changes with rank -- Three Snails), item_consume_count the usual
+// scalar-or-per-level count. money_consume is a meso cost per cast.
+function formatConsumes(skill) {
+  const parts = [];
+  if (skill.item_consume) {
+    const names = Array.isArray(skill.item_consume)
+      ? [...new Set(skill.item_consume.filter(Boolean))].join(' / ')
+      : skill.item_consume;
+    const count = countSpan(skill.item_consume_count);
+    if (names) parts.push(count && count.max > 1 ? `${count.text} × ${names}` : names);
+  }
+  const mesos = countSpan(skill.money_consume);
+  if (mesos) parts.push(`${mesos.text} mesos`);
+  return parts.join(' · ');
+}
+
 function getSkillThumbnail(skill) {
   if (skill.thumbnail) return skill.thumbnail;
   const id = padSkillId(skill.id || '');
@@ -277,6 +310,46 @@ export function renderSkills(data, options = {}) {
           const row = el('div', { className: 'targeting' });
           row.appendChild(el('span', { className: 'label', textContent: 'Targets: ' }));
           row.appendChild(el('span', { className: 'value', textContent: targeting }));
+          card.appendChild(row);
+        }
+
+        const cooldown = formatCooldown(skill.cooldown);
+        if (cooldown) {
+          const row = el('div', { className: 'targeting' });
+          row.appendChild(el('span', { className: 'label', textContent: 'Cooldown: ' }));
+          row.appendChild(el('span', { className: 'value', textContent: cooldown }));
+          card.appendChild(row);
+        }
+
+        const duration = formatCooldown(skill.duration);
+        if (duration) {
+          const row = el('div', { className: 'targeting' });
+          row.appendChild(el('span', { className: 'label', textContent: 'Duration: ' }));
+          row.appendChild(el('span', { className: 'value', textContent: duration }));
+          card.appendChild(row);
+        }
+
+        const range = countSpan(skill.range);
+        if (range) {
+          const row = el('div', { className: 'targeting' });
+          row.appendChild(el('span', { className: 'label', textContent: 'Range: ' }));
+          row.appendChild(el('span', { className: 'value', textContent: range.text }));
+          card.appendChild(row);
+        }
+
+        const consumes = formatConsumes(skill);
+        if (consumes) {
+          const row = el('div', { className: 'targeting' });
+          row.appendChild(el('span', { className: 'label', textContent: 'Consumes: ' }));
+          row.appendChild(el('span', { className: 'value', textContent: consumes }));
+          card.appendChild(row);
+        }
+
+        const ammo = countSpan(skill.bullet_consume);
+        if (ammo) {
+          const row = el('div', { className: 'targeting' });
+          row.appendChild(el('span', { className: 'label', textContent: 'Ammo per use: ' }));
+          row.appendChild(el('span', { className: 'value', textContent: ammo.text }));
           card.appendChild(row);
         }
 
