@@ -1,0 +1,678 @@
+
+
+==============================================================================
+== 0. PROVENANCE
+==============================================================================
+  path      D:\maplestorycw\appdata\MapleStory.exe
+  size      77548016 (0x49F49F0)
+  sha256    1255f19b6524addc6cd9aa0688f4bb6b0be77ea2f209e57cc9d1e652a857e30d  MATCH
+  imagebase 0x140000000
+  section .text    vaddr=0x00001000 raddr=0x00000600   (VA = offset + 0x140000A00 for .text)
+  section .rdata   vaddr=0x0326D000 raddr=0x0326C200   (VA = offset + 0x140000E00 for .text)
+  section .data    vaddr=0x03A4C000 raddr=0x03A4B000   (VA = offset + 0x140001000 for .text)
+
+
+==============================================================================
+== 1. SKILL FIELD NAMES  (offset -> name, proved by the tooltip formatter)
+==============================================================================
+
+sub_14078D530 formats skill descriptions. For each '#token' it decrypts one
+SkillLevelData field and then loads the pointer to that token's name string.
+The name array starts at VA 0x143A4E870; each entry is one char*.
+
+
+'#mad'     -> SkillLevelData + 0x5C
+  VA 140793d7d  file offset 0x79337D  (46 bytes)
+  bytes: 48 8d 4e 5c 8b 56 64 e8 b7 6f a2 ff 44 8b c0 48 8d 15 25 b5 ae 02 48 8d 4c 24 20 e8 e3 7f a0 ff 4c 8b 4c 24 20 4c 8b 05 9f ac 2b 03 48 8d
+    140793d7d  lea       rcx, [rsi + 0x5c]
+    140793d81  mov       edx, dword ptr [rsi + 0x64]
+    140793d84  call      0x1401bad40
+    140793d89  mov       r8d, eax
+    140793d8c  lea       rdx, [rip + 0x2aeb525]
+    140793d93  lea       rcx, [rsp + 0x20]
+    140793d98  call      0x14019bd80
+    140793d9d  mov       r9, qword ptr [rsp + 0x20]
+    140793da2  mov       r8, qword ptr [rip + 0x32bac9f]
+  name array slot 143a4ea48 (index 59) -> '#mad'
+
+'#damage'  -> SkillLevelData + 0x14C
+  VA 14079439d  file offset 0x79399D  (46 bytes)
+  bytes: 48 8d 8e 4c 01 00 00 8b 96 54 01 00 00 e8 91 69 a2 ff 44 8b c0 48 8d 15 ff ae ae 02 48 8d 4c 24 20 e8 bd 79 a0 ff 4c 8b 4c 24 20 4c 8b 05
+    14079439d  lea       rcx, [rsi + 0x14c]
+    1407943a4  mov       edx, dword ptr [rsi + 0x154]
+    1407943aa  call      0x1401bad40
+    1407943af  mov       r8d, eax
+    1407943b2  lea       rdx, [rip + 0x2aeaeff]
+    1407943b9  lea       rcx, [rsp + 0x20]
+    1407943be  call      0x14019bd80
+    1407943c3  mov       r9, qword ptr [rsp + 0x20]
+  name array slot 143a4eb00 (index 82) -> '#damage'
+
+'#mastery' -> SkillLevelData + 0x298
+  VA 140794c9b  file offset 0x79429B  (53 bytes)
+  bytes: 48 8d 8e 98 02 00 00 8b 96 a0 02 00 00 e8 93 60 a2 ff 44 8b c0 48 8d 15 01 a6 ae 02 48 8d 4c 24 20 e8 bf 70 a0 ff 4c 8b 4c 24 20 4c 8b 05 eb 9e 2b 03 48 8d 95
+    140794c9b  lea       rcx, [rsi + 0x298]
+    140794ca2  mov       edx, dword ptr [rsi + 0x2a0]
+    140794ca8  call      0x1401bad40
+    140794cad  mov       r8d, eax
+    140794cb0  lea       rdx, [rip + 0x2aea601]
+    140794cb7  lea       rcx, [rsp + 0x20]
+    140794cbc  call      0x14019bd80
+    140794cc1  mov       r9, qword ptr [rsp + 0x20]
+    140794cc6  mov       r8, qword ptr [rip + 0x32b9eeb]
+  name array slot 143a4ebb8 (index 105) -> '#mastery'
+
+'#dot'     -> SkillLevelData + 0x898
+  VA 1407902a2  file offset 0x78F8A2  (53 bytes)
+  bytes: 48 8d 8e 98 08 00 00 8b 96 a0 08 00 00 e8 8c aa a2 ff 44 8b c0 48 8d 15 fa ef ae 02 48 8d 4c 24 20 e8 b8 ba a0 ff 4c 8b 4c 24 20 4c 8b 05 c4 ea 2b 03 48 8d 95
+    1407902a2  lea       rcx, [rsi + 0x898]
+    1407902a9  mov       edx, dword ptr [rsi + 0x8a0]
+    1407902af  call      0x1401bad40
+    1407902b4  mov       r8d, eax
+    1407902b7  lea       rdx, [rip + 0x2aeeffa]
+    1407902be  lea       rcx, [rsp + 0x20]
+    1407902c3  call      0x14019bd80
+    1407902c8  mov       r9, qword ptr [rsp + 0x20]
+    1407902cd  mov       r8, qword ptr [rip + 0x32beac4]
+  name array slot 143a4ed98 (index 165) -> '#dot'
+
+
+==============================================================================
+== 2. MAGIC DAMAGE  sub_140260340
+==============================================================================
+
+read SkillLevelData+0x5C (mad)  -> [rsp+0x50]
+  VA 1402604d7  file offset 0x25FAD7  (17 bytes)
+  bytes: 48 8b 45 b8 48 8d 48 5c 8b 50 64 e8 59 a8 f5 ff 89
+    1402604d7  mov       rax, qword ptr [rbp - 0x48]
+    1402604db  lea       rcx, [rax + 0x5c]
+    1402604df  mov       edx, dword ptr [rax + 0x64]
+    1402604e2  call      0x1401bad40
+
+read SkillLevelData+0x298 (mastery) -> esi
+  VA 1402604eb  file offset 0x25FAEB  (17 bytes)
+  bytes: 48 8b 55 b8 48 8d 8a 98 02 00 00 8b 92 a0 02 00 00
+    1402604eb  mov       rdx, qword ptr [rbp - 0x48]
+    1402604ef  lea       rcx, [rdx + 0x298]
+    1402604f6  mov       edx, dword ptr [rdx + 0x2a0]
+
+MasteryMult = sub_14025EBB0(skillId, level, mastery) -> xmm6
+  VA 14026052e  file offset 0x25FB2E  (19 bytes)
+  bytes: 48 8b 54 24 48 8b 4a 10 44 8b c6 8b 52 14 e8 6f e6 ff ff
+    14026052e  mov       rdx, qword ptr [rsp + 0x48]
+    140260533  mov       ecx, dword ptr [rdx + 0x10]
+    140260536  mov       r8d, esi
+    140260539  mov       edx, dword ptr [rdx + 0x14]
+    14026053c  call      0x14025ebb0
+
+read CharacterStat+0x3C (INT) -> [rsp+0x68]
+  VA 140260672  file offset 0x25FC72  (12 bytes)
+  bytes: 48 8d 4e 3c 8b 56 44 e8 c2 a6 f5 ff
+    140260672  lea       rcx, [rsi + 0x3c]
+    140260676  mov       edx, dword ptr [rsi + 0x44]
+    140260679  call      0x1401bad40
+
+min/max pair: xmm2 = INT, xmm1 = INT * MasteryMult
+  VA 1402608aa  file offset 0x25FEAA  (35 bytes)
+  bytes: 49 63 c4 41 ff c4 66 0f 6e 54 24 68 f3 0f e6 d2 0f 28 ca f2 0f 59 ce f2 0f 11 4c 24 40 f2 0f 11 54 24 38
+    1402608aa  movsxd    rax, r12d
+    1402608ad  inc       r12d
+    1402608b0  movd      xmm2, dword ptr [rsp + 0x68]
+    1402608b6  cvtdq2pd  xmm2, xmm2
+    1402608ba  movaps    xmm1, xmm2
+    1402608bd  mulsd     xmm1, xmm6
+    1402608c1  movsd     qword ptr [rsp + 0x40], xmm1
+    1402608c7  movsd     qword ptr [rsp + 0x38], xmm2
+
+single uniform roll between them -> xmm2
+  VA 140260901  file offset 0x25FF01  (25 bytes)
+  bytes: f2 0f 5c ca 0f 57 c0 f2 48 0f 2a c2 f2 41 0f 59 c3 f2 0f 59 c8 f2 0f 58 d1
+    140260901  subsd     xmm1, xmm2
+    140260905  xorps     xmm0, xmm0
+    140260908  cvtsi2sd  xmm0, rdx
+    14026090d  mulsd     xmm0, xmm11
+    140260912  mulsd     xmm1, xmm0
+    140260916  addsd     xmm2, xmm1
+
+damage = (mad/100) * MagicAttack[r13+8] * (roll/100 + 1)
+  VA 14026091a  file offset 0x25FF1A  (43 bytes)
+  bytes: 66 0f 6e 74 24 50 f3 0f e6 f6 f2 41 0f 5e f1 66 41 0f 6e 45 08 f3 0f e6 c0 f2 0f 59 f0 f2 41 0f 5e d1 f2 41 0f 58 d2 f2 0f 59 f2
+    14026091a  movd      xmm6, dword ptr [rsp + 0x50]
+    140260920  cvtdq2pd  xmm6, xmm6
+    140260924  divsd     xmm6, xmm9
+    140260929  movd      xmm0, dword ptr [r13 + 8]
+    14026092f  cvtdq2pd  xmm0, xmm0
+    140260933  mulsd     xmm6, xmm0
+    140260937  divsd     xmm2, xmm9
+    14026093c  addsd     xmm2, xmm10
+    140260941  mulsd     xmm6, xmm2
+
+the 100.0 constant (xmm9)
+  VA 143282e98  file offset 0x3282098  ->  100.0
+
+the 1.0 constant (xmm10)
+  VA 1434c4550  file offset 0x34C3750  ->  1.0
+
+magic defense: damage *= 100 / (MDD + 100)
+  VA 140260b38  file offset 0x260138  (40 bytes)
+  bytes: 66 0f 6e 44 24 6c f3 0f e6 c0 f2 41 0f 58 c1 66 41 0f 2e c0 7a 08 75 06 41 0f 28 f0 eb 09 f2 41 0f 59 f1 f2 0f 5e f0 8b
+    140260b38  movd      xmm0, dword ptr [rsp + 0x6c]
+    140260b3e  cvtdq2pd  xmm0, xmm0
+    140260b42  addsd     xmm0, xmm9
+    140260b47  ucomisd   xmm0, xmm8
+    140260b4c  jp        0x140260b56
+    140260b4e  jne       0x140260b56
+    140260b50  movaps    xmm6, xmm8
+    140260b54  jmp       0x140260b5f
+    140260b56  mulsd     xmm6, xmm9
+    140260b5b  divsd     xmm6, xmm0
+
+sub_140262810: identical magic core, second dispatch path
+  VA 140262d62  file offset 0x262362  (150 bytes)
+  bytes: 66 0f 6e 54 24 58 f3 0f e6 d2 0f 28 ca f2 0f 59 ce f2 0f 11 4c 24 38 f2 0f 11 54 24 48 8b 54 85 20 66 0f 2f d1 76 22 48 8b 44 24 48 48 8b 4c 24 38 48 89 4c 24 48 48 89 44 24 38 f2 0f 10 4c 24 38 f2 0f 10 54 24 48 eb 08 66 0f 2e d1 7a 02 74 19 f2 0f 5c ca 0f 57 c0 f2 48 0f 2a c2 f2 41 0f 59 c2 f2 0f 59 c8 f2 0f 58 d1 0f 57 f6 f2 41 0f 2a 74 24 08 0f 57 c0 f2 0f 2a 44 24 50 f2 41 0f 5e c0 f2 0f 59 f0 f2 41 0f 5e d0 f2 41 0f 58 d1 f2 0f 59 f2 0f 57
+    140262d62  movd      xmm2, dword ptr [rsp + 0x58]
+    140262d68  cvtdq2pd  xmm2, xmm2
+    140262d6c  movaps    xmm1, xmm2
+    140262d6f  mulsd     xmm1, xmm6
+    140262d73  movsd     qword ptr [rsp + 0x38], xmm1
+    140262d79  movsd     qword ptr [rsp + 0x48], xmm2
+    140262d7f  mov       edx, dword ptr [rbp + rax*4 + 0x20]
+    140262d83  comisd    xmm2, xmm1
+    140262d87  jbe       0x140262dab
+    140262d89  mov       rax, qword ptr [rsp + 0x48]
+    140262d8e  mov       rcx, qword ptr [rsp + 0x38]
+    140262d93  mov       qword ptr [rsp + 0x48], rcx
+    140262d98  mov       qword ptr [rsp + 0x38], rax
+    140262d9d  movsd     xmm1, qword ptr [rsp + 0x38]
+    140262da3  movsd     xmm2, qword ptr [rsp + 0x48]
+    140262da9  jmp       0x140262db3
+    140262dab  ucomisd   xmm2, xmm1
+    140262daf  jp        0x140262db3
+    140262db1  je        0x140262dcc
+    140262db3  subsd     xmm1, xmm2
+    140262db7  xorps     xmm0, xmm0
+    140262dba  cvtsi2sd  xmm0, rdx
+    140262dbf  mulsd     xmm0, xmm10
+    140262dc4  mulsd     xmm1, xmm0
+    140262dc8  addsd     xmm2, xmm1
+    140262dcc  xorps     xmm6, xmm6
+    140262dcf  cvtsi2sd  xmm6, dword ptr [r12 + 8]
+    140262dd6  xorps     xmm0, xmm0
+    140262dd9  cvtsi2sd  xmm0, dword ptr [rsp + 0x50]
+    140262ddf  divsd     xmm0, xmm8
+    140262de4  mulsd     xmm6, xmm0
+    140262de8  divsd     xmm2, xmm8
+    140262ded  addsd     xmm2, xmm9
+    140262df2  mulsd     xmm6, xmm2
+
+
+==============================================================================
+== 2b. MASTERY MULTIPLIER  sub_14025EBB0
+==============================================================================
+
+(mastery/10 + 0.1) * 0.8   [+ Lucky Seven 4001003 override above]
+  VA 14025ec0b  file offset 0x25E20B  (38 bytes)
+  bytes: 66 0f 6e c3 f3 0f e6 c0 f2 0f 5e 05 45 59 26 03 f2 0f 58 05 ed 6d 02 03 f2 0f 59 05 1d 6e 02 03 48 83 c4 40 5b c3
+    14025ec0b  movd      xmm0, ebx
+    14025ec0f  cvtdq2pd  xmm0, xmm0
+    14025ec13  divsd     xmm0, qword ptr [rip + 0x3265945]
+    14025ec1b  addsd     xmm0, qword ptr [rip + 0x3026ded]
+    14025ec23  mulsd     xmm0, qword ptr [rip + 0x3026e1d]
+    14025ec2b  add       rsp, 0x40
+    14025ec2f  pop       rbx
+    14025ec30  ret       
+
+10.0
+  VA 1434c4560  file offset 0x34C3760  ->  10.0
+
+0.1
+  VA 143285a10  file offset 0x3284C10  ->  0.1
+
+0.8
+  VA 143285a48  file offset 0x3284C48  ->  0.8
+
+
+==============================================================================
+== 3. PHYSICAL DAMAGE  sub_14025F6F0
+==============================================================================
+
+SkillMult source: SkillLevelData+0x14C (damage %) -> [rsp+0x70]
+  VA 14025f8c8  file offset 0x25EEC8  (27 bytes)
+  bytes: 48 8b 45 c0 48 8d 88 4c 01 00 00 8b 90 54 01 00 00 e8 62 b4 f5 ff 66 0f 6e f0 f3
+    14025f8c8  mov       rax, qword ptr [rbp - 0x40]
+    14025f8cc  lea       rcx, [rax + 0x14c]
+    14025f8d3  mov       edx, dword ptr [rax + 0x154]
+    14025f8d9  call      0x1401bad40
+    14025f8de  movd      xmm6, eax
+
+sub_140280200 = safe divide; called with (damage%, 100.0, 0.0)
+  VA 140280200  file offset 0x27F800  (20 bytes)
+  bytes: 0f 57 db 66 0f 2e cb 7a 06 75 04 0f 28 c2 c3 f2 0f 5e c1 c3
+    140280200  xorps     xmm3, xmm3
+    140280203  ucomisd   xmm1, xmm3
+    140280207  jp        0x14028020f
+    140280209  jne       0x14028020f
+    14028020b  movaps    xmm0, xmm2
+    14028020e  ret       
+    14028020f  divsd     xmm0, xmm1
+    140280213  ret       
+
+mastery pair: xmm8 = PrimaryStat (wepmult out+4), xmm1 = * MasteryMult
+  VA 14025fe36  file offset 0x25F436  (19 bytes)
+  bytes: 66 44 0f 6e 45 dc f3 45 0f e6 c0 41 0f 28 c8 f2 0f 59 ce
+    14025fe36  movd      xmm8, dword ptr [rbp - 0x24]
+    14025fe3c  cvtdq2pd  xmm8, xmm8
+    14025fe41  movaps    xmm1, xmm8
+    14025fe45  mulsd     xmm1, xmm6
+
+ROLL 1 - ebx mod 11 indexes the random array; ebx is then incremented
+  VA 14025fe1a  file offset 0x25F41A  (67 bytes)
+  bytes: b8 e9 a2 8b 2e f7 eb d1 fa 8b c2 c1 e8 1f 03 d0 6b c2 0b 8b cb 2b c8 48 63 c1 ff c3 66 44 0f 6e 45 dc f3 45 0f e6 c0 41 0f 28 c8 f2 0f 59 ce f2 0f 11 4c 24 50 f2 44 0f 11 44 24 48 8b 94 85 e8 00 00 00
+    14025fe1a  mov       eax, 0x2e8ba2e9
+    14025fe1f  imul      ebx
+    14025fe21  sar       edx, 1
+    14025fe23  mov       eax, edx
+    14025fe25  shr       eax, 0x1f
+    14025fe28  add       edx, eax
+    14025fe2a  imul      eax, edx, 0xb
+    14025fe2d  mov       ecx, ebx
+    14025fe2f  sub       ecx, eax
+    14025fe31  movsxd    rax, ecx
+    14025fe34  inc       ebx
+    14025fe36  movd      xmm8, dword ptr [rbp - 0x24]
+    14025fe3c  cvtdq2pd  xmm8, xmm8
+    14025fe41  movaps    xmm1, xmm8
+    14025fe45  mulsd     xmm1, xmm6
+    14025fe49  movsd     qword ptr [rsp + 0x50], xmm1
+    14025fe4f  movsd     qword ptr [rsp + 0x48], xmm8
+    14025fe56  mov       edx, dword ptr [rbp + rax*4 + 0xe8]
+
+xmm8 /= out+0x20 (100.0);  xmm8 *= out+0x18 (weapon multiplier)
+  VA 14025feab  file offset 0x25F4AB  (37 bytes)
+  bytes: f2 0f 10 45 f8 66 41 0f 2e c3 7a 08 75 06 45 0f 28 c3 eb 05 f2 44 0f 5e c0 f2 44 0f 59 45 f0 f2 0f 10 45 00 66
+    14025feab  movsd     xmm0, qword ptr [rbp - 8]
+    14025feb0  ucomisd   xmm0, xmm11
+    14025feb5  jp        0x14025febf
+    14025feb7  jne       0x14025febf
+    14025feb9  movaps    xmm8, xmm11
+    14025febd  jmp       0x14025fec4
+    14025febf  divsd     xmm8, xmm0
+    14025fec4  mulsd     xmm8, qword ptr [rbp - 0x10]
+    14025feca  movsd     xmm0, qword ptr [rbp]
+
+xmm10 = SecondaryStat (out+0) / out+0x28 (100.0)
+  VA 14025feca  file offset 0x25F4CA  (36 bytes)
+  bytes: f2 0f 10 45 00 66 41 0f 2e c3 7a 08 75 06 45 0f 28 d3 eb 10 66 44 0f 6e 55 d8 f3 45 0f e6 d2 f2 44 0f 5e d0
+    14025feca  movsd     xmm0, qword ptr [rbp]
+    14025fecf  ucomisd   xmm0, xmm11
+    14025fed4  jp        0x14025fede
+    14025fed6  jne       0x14025fede
+    14025fed8  movaps    xmm10, xmm11
+    14025fedc  jmp       0x14025feee
+    14025fede  movd      xmm10, dword ptr [rbp - 0x28]
+    14025fee4  cvtdq2pd  xmm10, xmm10
+    14025fee9  divsd     xmm10, xmm0
+
+xmm9 = AttackPower (TotalStat+4) / out+0x30 (50.0)   <-- the /50
+  VA 14025feee  file offset 0x25F4EE  (36 bytes)
+  bytes: f2 0f 10 45 08 66 41 0f 2e c3 7a 08 75 06 45 0f 28 cb eb 10 66 44 0f 6e 4e 04 f3 45 0f e6 c9 f2 44 0f 5e c8
+    14025feee  movsd     xmm0, qword ptr [rbp + 8]
+    14025fef3  ucomisd   xmm0, xmm11
+    14025fef8  jp        0x14025ff02
+    14025fefa  jne       0x14025ff02
+    14025fefc  movaps    xmm9, xmm11
+    14025ff00  jmp       0x14025ff12
+    14025ff02  movd      xmm9, dword ptr [rsi + 4]
+    14025ff08  cvtdq2pd  xmm9, xmm9
+    14025ff0d  divsd     xmm9, xmm0
+
+ROLL 2 - ebx has advanced, so this is a DIFFERENT draw from the same array
+  VA 14025ff12  file offset 0x25F512  (58 bytes)
+  bytes: b8 e9 a2 8b 2e f7 eb d1 fa 8b c2 c1 e8 1f 03 d0 6b c2 0b 8b cb 2b c8 48 63 c1 ff c3 0f 28 c4 f2 0f 11 64 24 50 f2 0f 10 55 e0 0f 28 ca f2 0f 11 54 24 48 8b 94 85 e8 00 00 00
+    14025ff12  mov       eax, 0x2e8ba2e9
+    14025ff17  imul      ebx
+    14025ff19  sar       edx, 1
+    14025ff1b  mov       eax, edx
+    14025ff1d  shr       eax, 0x1f
+    14025ff20  add       edx, eax
+    14025ff22  imul      eax, edx, 0xb
+    14025ff25  mov       ecx, ebx
+    14025ff27  sub       ecx, eax
+    14025ff29  movsxd    rax, ecx
+    14025ff2c  inc       ebx
+    14025ff2e  movaps    xmm0, xmm4
+    14025ff31  movsd     qword ptr [rsp + 0x50], xmm4
+    14025ff37  movsd     xmm2, qword ptr [rbp - 0x20]
+    14025ff3c  movaps    xmm1, xmm2
+    14025ff3f  movsd     qword ptr [rsp + 0x48], xmm2
+    14025ff45  mov       edx, dword ptr [rbp + rax*4 + 0xe8]
+
+xmm7 = lerp(out+0x08, out+0x10) = 0.8 .. 1.0
+  VA 14025ff76  file offset 0x25F576  (25 bytes)
+  bytes: 0f 57 ff f2 48 0f 2a fa f2 41 0f 59 fe f2 0f 5c c1 f2 0f 59 f8 f2 0f 58 f9
+    14025ff76  xorps     xmm7, xmm7
+    14025ff79  cvtsi2sd  xmm7, rdx
+    14025ff7e  mulsd     xmm7, xmm14
+    14025ff83  subsd     xmm0, xmm1
+    14025ff87  mulsd     xmm7, xmm0
+    14025ff8b  addsd     xmm7, xmm1
+
+xmm7 += all three terms; *= (WeaponAttack + star/arrow); *= SkillMult
+  VA 14025ff9d  file offset 0x25F59D  (44 bytes)
+  bytes: e8 5e 02 02 00 0f 28 f0 f2 41 0f 58 f8 f2 41 0f 58 fa f2 41 0f 58 f9 8b 06 03 44 24 60 66 0f 6e c8 f3 0f e6 c9 f2 0f 59 f9 f2 0f 59
+    14025ff9d  call      0x140280200
+    14025ffa2  movaps    xmm6, xmm0
+    14025ffa5  addsd     xmm7, xmm8
+    14025ffaa  addsd     xmm7, xmm10
+    14025ffaf  addsd     xmm7, xmm9
+    14025ffb4  mov       eax, dword ptr [rsi]
+    14025ffb6  add       eax, dword ptr [rsp + 0x60]
+    14025ffba  movd      xmm1, eax
+    14025ffbe  cvtdq2pd  xmm1, xmm1
+    14025ffc2  mulsd     xmm7, xmm1
+
+stat-window range does the same doubling: mov eax,[r14+4]; add eax,eax
+  VA 14115f8b0  file offset 0x115EEB0  (15 bytes)
+  bytes: 41 8b 46 04 0f 57 e4 f2 0f 10 6d af 03 c0 f2
+    14115f8b0  mov       eax, dword ptr [r14 + 4]
+    14115f8b4  xorps     xmm4, xmm4
+    14115f8b7  movsd     xmm5, qword ptr [rbp - 0x51]
+    14115f8bc  add       eax, eax
+
+
+==============================================================================
+== 3b. WEAPON MULTIPLIER STRUCT  sub_14025E370
+==============================================================================
+
+action 1 (proneStab) -> 0.2/0.3 + 300/300/150; else 0.8/1.0 + 100/100/50
+  VA 14025e3d9  file offset 0x25D9D9  (71 bytes)
+  bytes: 83 fd 01 75 22 f2 0f 10 0d 22 77 02 03 f2 0f 10 05 2a 77 02 03 f2 0f 10 15 3a 61 26 03 f2 0f 10 1d 2a 76 02 03 eb 20 f2 0f 10 0d e8 76 02 03 f2 0f 10 05 88 4a 02 03 f2 0f 10 15 38 61 26 03 f2 0f 10 1d 28 76 02 03
+    14025e3d9  cmp       ebp, 1
+    14025e3dc  jne       0x14025e400
+    14025e3de  movsd     xmm1, qword ptr [rip + 0x3027722]
+    14025e3e6  movsd     xmm0, qword ptr [rip + 0x302772a]
+    14025e3ee  movsd     xmm2, qword ptr [rip + 0x326613a]
+    14025e3f6  movsd     xmm3, qword ptr [rip + 0x302762a]
+    14025e3fe  jmp       0x14025e420
+    14025e400  movsd     xmm1, qword ptr [rip + 0x30276e8]
+    14025e408  movsd     xmm0, qword ptr [rip + 0x3024a88]
+    14025e410  movsd     xmm2, qword ptr [rip + 0x3266138]
+    14025e418  movsd     xmm3, qword ptr [rip + 0x3027628]
+
+writes: +0x08 minBase, +0x10 maxBase, +0x20/+0x28, +0x30, then the switch
+  VA 14025e420  file offset 0x25DA20  (47 bytes)
+  bytes: 48 89 5c 24 40 41 83 c0 e2 f2 0f 11 5f 08 49 be 00 00 00 00 00 00 f0 3f f2 0f 11 57 10 66 0f 14 c0 0f 11 47 20 f2 0f 11 4f 30 41 83 f8 11 0f
+    14025e420  mov       qword ptr [rsp + 0x40], rbx
+    14025e425  add       r8d, -0x1e
+    14025e429  movsd     qword ptr [rdi + 8], xmm3
+    14025e42e  movabs    r14, 0x3ff0000000000000
+    14025e438  movsd     qword ptr [rdi + 0x10], xmm2
+    14025e43d  unpcklpd  xmm0, xmm0
+    14025e441  movups    xmmword ptr [rdi + 0x20], xmm0
+    14025e445  movsd     qword ptr [rdi + 0x30], xmm1
+    14025e44a  cmp       r8d, 0x11
+
+action 1 forces the weapon multiplier at +0x18 back to 1.0
+  VA 14025e7ca  file offset 0x25DDCA  (9 bytes)
+  bytes: 83 fd 01 75 04 4c 89 77 18
+    14025e7ca  cmp       ebp, 1
+    14025e7cd  jne       0x14025e7d3
+    14025e7cf  mov       qword ptr [rdi + 0x18], r14
+
+constant 150.0
+  VA 143285b08  file offset 0x3284D08  ->  150.0
+
+constant 300.0
+  VA 143285b18  file offset 0x3284D18  ->  300.0
+
+constant 0.3
+  VA 1434c4530  file offset 0x34C3730  ->  0.3
+
+constant 0.2
+  VA 143285a28  file offset 0x3284C28  ->  0.2
+
+constant 50.0
+  VA 143285af0  file offset 0x3284CF0  ->  50.0
+
+constant 100.0
+  VA 143282e98  file offset 0x3282098  ->  100.0
+
+constant 1.0
+  VA 1434c4550  file offset 0x34C3750  ->  1.0
+
+constant 0.8
+  VA 143285a48  file offset 0x3284C48  ->  0.8
+
+  weapon-type jump table at VA 0x14025E85C (file offset 0x25DE5C), 18 entries, RVA-relative:
+    weapon type 30 1H Sword   -> 14025e48a
+    weapon type 31 1H Axe     -> 14025e4ba
+    weapon type 32 1H Blunt   -> 14025e4ba
+    weapon type 33 Dagger     -> 14025e525
+    weapon type 34 (unused)   -> 14025e7ca
+    weapon type 35 (unused)   -> 14025e7ca
+    weapon type 36 (unused)   -> 14025e7ca
+    weapon type 37 Wand       -> 14025e48a
+    weapon type 38 Staff      -> 14025e48a
+    weapon type 39 (unused)   -> 14025e464
+    weapon type 40 2H Sword   -> 14025e582
+    weapon type 41 2H Axe     -> 14025e5b2
+    weapon type 42 2H Blunt   -> 14025e5b2
+    weapon type 43 Spear      -> 14025e61d
+    weapon type 44 Polearm    -> 14025e667
+    weapon type 45 Bow        -> 14025e6a2
+    weapon type 46 Crossbow   -> 14025e6a2
+    weapon type 47 Claw       -> 14025e72f
+
+
+==============================================================================
+== 4. SHARED POST-MULTIPLIERS
+==============================================================================
+
+elemental multiplier: bounds check + jump table
+  VA 14025ec40  file offset 0x25E240  (26 bytes)
+  bytes: 83 f9 06 77 47 48 63 c1 48 8d 15 b1 13 da ff 8b 8c 82 98 ec 25 00 48 03 ca ff
+    14025ec40  cmp       ecx, 6
+    14025ec43  ja        0x14025ec8c
+    14025ec45  movsxd    rax, ecx
+    14025ec48  lea       rdx, [rip - 0x25ec4f]
+    14025ec4f  mov       ecx, dword ptr [rdx + rax*4 + 0x25ec98]
+    14025ec56  add       rcx, rdx
+
+  elemental jump table at VA 0x14025EC98 (file offset 0x25E298):
+    attr 0 -> 14025ec8c  = 1.0
+    attr 1 -> 14025ec5b  = 0.0
+    attr 2 -> 14025ec71  = 0.75
+    attr 3 -> 14025ec7a  = 1.25
+    attr 4 -> 14025ec5f  = 0.25
+    attr 5 -> 14025ec68  = 0.5
+    attr 6 -> 14025ec83  = 1.5
+
+level-difference penalty: d^2*0.005 under 10 levels, else d*0.05
+  VA 140260b6c  file offset 0x26016C  (75 bytes)
+  bytes: 49 63 ce 45 85 f6 7e 61 41 8d 47 0a 41 3b c6 7f 18 41 8b c6 41 2b c7 66 0f 6e c0 f3 0f e6 c0 f2 0f 59 05 6d 4e 02 03 eb 28 4c 3b f9 7d 3b 41 8b c6 41 2b c7 66 0f 6e c0 f3 0f e6 c0 f2 0f 10 0d d8 4e 02 03 e8 3b 0f cc 02 f2 0f
+    140260b6c  movsxd    rcx, r14d
+    140260b6f  test      r14d, r14d
+    140260b72  jle       0x140260bd5
+    140260b74  lea       eax, [r15 + 0xa]
+    140260b78  cmp       eax, r14d
+    140260b7b  jg        0x140260b95
+    140260b7d  mov       eax, r14d
+    140260b80  sub       eax, r15d
+    140260b83  movd      xmm0, eax
+    140260b87  cvtdq2pd  xmm0, xmm0
+    140260b8b  mulsd     xmm0, qword ptr [rip + 0x3024e6d]
+    140260b93  jmp       0x140260bbd
+    140260b95  cmp       r15, rcx
+    140260b98  jge       0x140260bd5
+    140260b9a  mov       eax, r14d
+    140260b9d  sub       eax, r15d
+    140260ba0  movd      xmm0, eax
+    140260ba4  cvtdq2pd  xmm0, xmm0
+    140260ba8  movsd     xmm1, qword ptr [rip + 0x3024ed8]
+    140260bb0  call      0x142f21af0
+
+critical hit, then clamp to [1, 0x1869F = 99999]
+  VA 140260c4f  file offset 0x26024F  (106 bytes)
+  bytes: 45 8b 45 20 45 85 c0 7e 61 b8 e9 a2 8b 2e 41 f7 ec d1 fa 8b c2 c1 e8 1f 03 d0 6b c2 0b 41 8b cc 2b c8 48 63 c1 41 ff c4 8b 44 85 38 0f 57 c0 f2 48 0f 2a c0 f2 41 0f 59 c3 f2 41 0f 59 c1 f2 41 0f 58 c0 f2 0f 2c c0 41 3b c0 0f 9c c1 7d 18 66 41 0f 6e 45 24 f3 0f e6 c0 f2 41 0f 58 c1 f2 41 0f 5e c1 f2 0f 59 f0 88 4f f9
+    140260c4f  mov       r8d, dword ptr [r13 + 0x20]
+    140260c53  test      r8d, r8d
+    140260c56  jle       0x140260cb9
+    140260c58  mov       eax, 0x2e8ba2e9
+    140260c5d  imul      r12d
+    140260c60  sar       edx, 1
+    140260c62  mov       eax, edx
+    140260c64  shr       eax, 0x1f
+    140260c67  add       edx, eax
+    140260c69  imul      eax, edx, 0xb
+    140260c6c  mov       ecx, r12d
+    140260c6f  sub       ecx, eax
+    140260c71  movsxd    rax, ecx
+    140260c74  inc       r12d
+    140260c77  mov       eax, dword ptr [rbp + rax*4 + 0x38]
+    140260c7b  xorps     xmm0, xmm0
+    140260c7e  cvtsi2sd  xmm0, rax
+    140260c83  mulsd     xmm0, xmm11
+    140260c88  mulsd     xmm0, xmm9
+    140260c8d  addsd     xmm0, xmm8
+    140260c92  cvttsd2si eax, xmm0
+    140260c96  cmp       eax, r8d
+    140260c99  setl      cl
+    140260c9c  jge       0x140260cb6
+    140260c9e  movd      xmm0, dword ptr [r13 + 0x24]
+    140260ca4  cvtdq2pd  xmm0, xmm0
+    140260ca8  addsd     xmm0, xmm9
+    140260cad  divsd     xmm0, xmm9
+    140260cb2  mulsd     xmm6, xmm0
+    140260cb6  mov       byte ptr [rdi - 7], cl
+
+
+==============================================================================
+== 5. IS THE STAT BASE OR TOTAL?  (CharacterStat at CUser+0x2360)
+==============================================================================
+
+recalc loads CUser+0x2360 into r14 ...
+  VA 142cc9926  file offset 0x2CC8F26  (8 bytes)
+  bytes: 4d 8b b7 60 23 00 00 48
+    142cc9926  mov       r14, qword ptr [r15 + 0x2360]
+
+... and passes it as 'this' to sub_14085BA30
+  VA 142cc99c0  file offset 0x2CC8FC0  (8 bytes)
+  bytes: 49 8b ce e8 68 20 b9 fd
+    142cc99c0  mov       rcx, r14
+    142cc99c3  call      0x14085ba30
+
+step 1: INT := base value from the raw server record (CUser+0x2358 +0x4B)
+  VA 14085bc5e  file offset 0x85B25E  (65 bytes)
+  bytes: 49 8d 46 4b 48 89 85 f0 00 00 00 41 8b 56 4f 48 8b c8 e8 1b fb 94 ff 0f bf d8 48 8d 0d 51 10 27 03 e8 8c d0 ed ff 41 89 44 24 3c 8b c8 33 cb c1 c9 05 41 89 4c 24 40 35 0d f0 ad ba c1 c8 05 03 c1
+    14085bc5e  lea       rax, [r14 + 0x4b]
+    14085bc62  mov       qword ptr [rbp + 0xf0], rax
+    14085bc69  mov       edx, dword ptr [r14 + 0x4f]
+    14085bc6d  mov       rcx, rax
+    14085bc70  call      0x1401ab790
+    14085bc75  movsx     ebx, ax
+    14085bc78  lea       rcx, [rip + 0x3271051]
+    14085bc7f  call      0x140738d10
+    14085bc84  mov       dword ptr [r12 + 0x3c], eax
+    14085bc89  mov       ecx, eax
+    14085bc8b  xor       ecx, ebx
+    14085bc8d  ror       ecx, 5
+    14085bc90  mov       dword ptr [r12 + 0x40], ecx
+    14085bc95  xor       eax, 0xbaadf00d
+    14085bc9a  ror       eax, 5
+    14085bc9d  add       eax, ecx
+
+step 2: zero a 4-int bonus block at [rbp+0xF8]
+  VA 14085bfa8  file offset 0x85B5A8  (11 bytes)
+  bytes: 0f 57 c0 f3 0f 7f 85 f8 00 00 00
+    14085bfa8  xorps     xmm0, xmm0
+    14085bfab  movdqu    xmmword ptr [rbp + 0xf8], xmm0
+
+... pass &block as arg8 to sub_1408858E0
+  VA 14085bffa  file offset 0x85B5FA  (12 bytes)
+  bytes: 48 8d 85 f8 00 00 00 48 89 44 24 38
+    14085bffa  lea       rax, [rbp + 0xf8]
+    14085c001  mov       qword ptr [rsp + 0x38], rax
+
+step 3: per equipped item, block[i] += item.statBlock[i] (STR,DEX,INT,LUK first)
+  VA 140891779  file offset 0x890D79  (26 bytes)
+  bytes: 48 8b 56 68 8b 0b 01 0a 8b 4b 04 01 4a 04 8b 4b 08 01 4a 08 8b 4b 0c 01 4a 0c
+    140891779  mov       rdx, qword ptr [rsi + 0x68]
+    14089177d  mov       ecx, dword ptr [rbx]
+    14089177f  add       dword ptr [rdx], ecx
+    140891781  mov       ecx, dword ptr [rbx + 4]
+    140891784  add       dword ptr [rdx + 4], ecx
+    140891787  mov       ecx, dword ptr [rbx + 8]
+    14089178a  add       dword ptr [rdx + 8], ecx
+    14089178d  mov       ecx, dword ptr [rbx + 0xc]
+    140891790  add       dword ptr [rdx + 0xc], ecx
+
+step 4: STR += block[0x00]
+  VA 14085c052  file offset 0x85B652  (8 bytes)
+  bytes: 8b 9d f8 00 00 00 03 d8
+    14085c052  mov       ebx, dword ptr [rbp + 0xf8]
+    14085c058  add       ebx, eax
+
+        DEX += block[0x04]
+  VA 14085c095  file offset 0x85B695  (8 bytes)
+  bytes: 8b 9d fc 00 00 00 03 d8
+    14085c095  mov       ebx, dword ptr [rbp + 0xfc]
+    14085c09b  add       ebx, eax
+
+        INT += block[0x08]  -> sub_140899260
+  VA 14085c0c9  file offset 0x85B6C9  (26 bytes)
+  bytes: 41 8b 54 24 44 49 8d 4c 24 3c e8 68 ec 95 ff 8b 95 00 01 00 00 03 d0 49 8b cc
+    14085c0c9  mov       edx, dword ptr [r12 + 0x44]
+    14085c0ce  lea       rcx, [r12 + 0x3c]
+    14085c0d3  call      0x1401bad40
+    14085c0d8  mov       edx, dword ptr [rbp + 0x100]
+    14085c0de  add       edx, eax
+    14085c0e0  mov       rcx, r12
+
+sub_140899260 = SetINT, writes the encrypted triple at +0x3C/+0x40/+0x44
+  VA 140899260  file offset 0x898860  (64 bytes)
+  bytes: 48 89 5c 24 08 57 48 83 ec 20 48 8b d9 8b fa 48 8d 0d 5a 3a 23 03 e8 95 fa e9 ff 89 43 3c 44 8b c0 35 0d f0 ad ba 44 33 c7 41 c1 c8 05 c1 c8 05 41 03 c0 44 89 43 40 89 43 44 8b c7 48 8b 5c 24
+    140899260  mov       qword ptr [rsp + 8], rbx
+    140899265  push      rdi
+    140899266  sub       rsp, 0x20
+    14089926a  mov       rbx, rcx
+    14089926d  mov       edi, edx
+    14089926f  lea       rcx, [rip + 0x3233a5a]
+    140899276  call      0x140738d10
+    14089927b  mov       dword ptr [rbx + 0x3c], eax
+    14089927e  mov       r8d, eax
+    140899281  xor       eax, 0xbaadf00d
+    140899286  xor       r8d, edi
+    140899289  ror       r8d, 5
+    14089928d  ror       eax, 5
+    140899290  add       eax, r8d
+    140899293  mov       dword ptr [rbx + 0x40], r8d
+    140899297  mov       dword ptr [rbx + 0x44], eax
+    14089929a  mov       eax, edi
+
+  => CharacterStat+0x3C is base AP INT plus everything equipment and buffs add.
+     The magic bracket, Heal, the DoT, and the physical Primary/SecondaryStat
+     all read this same object, so all of them use totals, not AP-only values.
+
+
+TotalStat+0x08 (MagicAttack) is seeded with that same INT / 2
+  VA 14087cbea  file offset 0x87C1EA  (14 bytes)
+  bytes: 48 8d 4e 3c e8 4d e1 93 ff 99 2b c2 d1 f8
+    14087cbea  lea       rcx, [rsi + 0x3c]
+    14087cbee  call      0x1401bad40
+    14087cbf3  cdq       
+    14087cbf4  sub       eax, edx
+    14087cbf6  sar       eax, 1
+
+TotalStat+0x00 (WeaponAttack) = weapon + shield, +5 when barehanded
+  VA 14087cf23  file offset 0x87C523  (33 bytes)
+  bytes: 48 8b 9d 18 01 00 00 48 8b d3 48 8d 4c 24 48 e8 29 6c 01 00 48 39 b3 b8 00 00 00 75 04 83 45 30 05
+    14087cf23  mov       rbx, qword ptr [rbp + 0x118]
+    14087cf2a  mov       rdx, rbx
+    14087cf2d  lea       rcx, [rsp + 0x48]
+    14087cf32  call      0x140893b60
+    14087cf37  cmp       qword ptr [rbx + 0xb8], rsi
+    14087cf3e  jne       0x14087cf44
+    14087cf40  add       dword ptr [rbp + 0x30], 5
+
+
+All offsets above are file offsets into the exe; VA = offset + 0x140000A00 inside .text.

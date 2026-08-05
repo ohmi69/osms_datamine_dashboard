@@ -16,56 +16,63 @@ const EXP_TABLE = [
   [50, 51, 709716], 
 ];
 
+// Swing / Stab / Shoot / Other, read directly from the damage function in
+// MapleStory.exe. '-' = that action is not reachable for the weapon type.
 const WEAPON_MULTS = [
-  ['1H Sword',        1.8, 1.8],
-  ['2H Sword',        2.5, 2.5],
-  ['1H Blunt Weapon', 2.4, 1.2],
-  ['2H Blunt Weapon', 3,   2  ],
-  ['1H Axe',          2.4, 1.2],
-  ['2H Axe',          3,   2  ],
-  ['Spear',           1.5, 3.5],
-  ['Polearm',         3.5, 1.5],
-  ['Bow',             2.5, 2.5],
-  ['Crossbow',        2.5, 2.5],
-  ['Claw',            2.5, 2.5],
-  ['Dagger*',         1,   2  ],
+  ['1H Sword',        1.8, 1.8, '-', 1.8],
+  ['2H Sword',        2.5, 2.5, '-', 2.5],
+  ['1H Blunt Weapon', 2.4, 1.2, '-', 1.8],
+  ['2H Blunt Weapon', 3,   2,   '-', 2.5],
+  ['1H Axe',          2.4, 1.2, '-', 1.8],
+  ['2H Axe',          3,   2,   '-', 2.5],
+  ['Spear',           1.5, 3.5, '-', 2.5],
+  ['Polearm',         3.5, 1.5, '-', 2.5],
+  ['Bow',             1,   1,   2.5, 1],
+  ['Crossbow',        1,   1,   2.5, 1],
+  ['Claw',            1,   1,   2.5, 1],
+  ['Dagger*',         1,   2,   '-', 1.5],
+  ['Wand',            1.8, 1.8, '-', 1.8],
+  ['Staff',           1.8, 1.8, '-', 1.8],
+  ['Knuckle',         1,   1,   1,   1  ],
 ];
 
 // ─── Accuracy ────────────────────────────────────────────────
 
+// Read directly from the hit-test routine in MapleStory.exe. The client runs
+// one accuracy check for every attack - magic included.
 const ACCURACY_STEPS = [
   {
-    label: 'Physical Accuracy',
+    label: 'Physical & Magical Accuracy',
     wip: false,
-    status: 'warn',
-    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
+    status: 'ok',
+    statusNote: 'Read directly from the hit-test routine in the client.',
     lines: [
-      'BaseChance = Acc × 100 / ((max(0, LevelDiff) + 51) × 5)',
+      'BaseChance = Acc × 100 / ((max(0, LevelDiff) × 2 + 51) × 5)',
       '',
-      'MIN = 0.95 − 0.3 / (1 + exp((BaseChance − Avoid) / 12))',
-      'MAX = 1.05 + 0.3 / (1 + exp((BaseChance − Avoid) / 12))',
+      'Spread = 0.15 + 0.2 / (1 + exp((BaseChance − Avoid) / 12))',
+      '',
+      'MIN = 1 − Spread',
+      'MAX = 1 + Spread',
       '',
       'Roll = rand(MIN, MAX)',
       '',
-      'DidHit = Roll × BaseChance ≥ Avoid',
+      'AutoHit = BaseChance − Avoid ≥ 25 + LevelDiff × (Level / 2 + 15)',
+      '',
+      'DidHit = AutoHit or Roll × BaseChance ≥ Avoid',
     ],
-    notes: ['exp() is the exponential function'],
-  },
-  {
-    label: 'Magical Accuracy',
-    wip: false,
-    status: 'warn',
-    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
-    lines: [
-      'Magical skills always hit - there is no accuracy check for magic.',
+    notes: [
+      'exp() is the exponential function',
+      'AutoHit skips the roll entirely. It can only ever change the outcome against Avoid above roughly 120, and the highest Avoid on any live mob is 64 (Gatekeeper), so in practice it never decides a hit.',
+      'A handful of skills carry an internal flag that disables AutoHit and forces the roll. Which skills has not been worked out yet.',
+      'A separate miss-chance debuff is rolled after a successful hit and can still turn it into a miss.',
     ],
-    notes: [],
   },
 ];
 
 const ACCURACY_VARS = [
-  { name: 'Acc',       desc: "Player's Accuracy stat value" },
+  { name: 'Acc',       desc: "Player's Accuracy stat value (one stat - used for both physical and magic)" },
   { name: 'Avoid',     desc: "Enemy's Avoid stat value" },
+  { name: 'Level',     desc: "Player's level" },
   { name: 'LevelDiff', desc: 'Enemy level minus player level, or 0 if player level ≥ enemy level' },
 ];
 
@@ -75,29 +82,31 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Physical Damage',
     wip: false,
-    status: 'warn',
-    statusNote: 'Not yet re-verified against COT2 data. COT1 status: Verified for Assassins and Crossbowmen - no data for Warriors or Archers yet',
+    status: 'ok',
+    statusNote: 'Derived from the client binary.',
     lines: [
-      'MIN = SkillMult × ((80 + PrimaryStat × MinWepMult × MasteryMult + SecondaryStat + AttackPower) / 100) × WeaponAttack',
-      'MAX = SkillMult × ((100 + PrimaryStat × MaxWepMult + SecondaryStat + AttackPower) / 100) × WeaponAttack',
+      'MIN = SkillMult × ((80 + PrimaryStat × WepMult × MasteryMult + SecondaryStat + AttackPower × 2) / 100) × WeaponAttack',
+      'MAX = SkillMult × ((100 + PrimaryStat × WepMult + SecondaryStat + AttackPower × 2) / 100) × WeaponAttack',
     ],
     notes: [
-      'Verified for Assassins and Crossbowmen - no data for Warriors or Archers yet',
-      'Lucky Seven uses a 2.6 multi instead of the Claw\'s 2.5',
-      '❗ Drain (and possibly Normal Attack) erroneously use Lucky Seven\'s 2.6 multiplier instead of the Claw\'s intended 2.5. Likely a bug',
+      'The 80/100 term and the MasteryMult term are rolled independently, so a hit can land at the low end of one and the high end of the other - MIN and MAX are the corners of the range, not a single roll',
+      'WepMult is a single value chosen by the attack action - see the Weapon Multipliers table',
+      'Lucky Seven uses a 3.0 multi instead of the Claw\'s 2.5.',
+      'Melee/stab with a Bow, Crossbow or Claw divides PrimaryStat and SecondaryStat by 300 instead of 100; swing also divides AttackPower by 150 instead of 50',
+      'Prone Stab uses 20/30 in place of 80/100 and the same /300 and /150 divisors, and forces WepMult to 1',
     ],
   },
   {
     label: 'Magical Damage',
     wip: false,
-    status: 'warn',
-    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
+    status: 'ok',
+    statusNote: 'Derived from the client binary.',
     lines: [
-      'MIN = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 × MasteryMult + BaseInt) / 100 + 1)',
-      'MAX = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 + BaseInt) / 100 + 1)',
+      'MIN = (BasicAttack / 100) × MagicAttack × (TotalInt × MasteryMult / 100 + 1)',
+      'MAX = (BasicAttack / 100) × MagicAttack × (TotalInt / 100 + 1)',
     ],
     notes: [
-      '❗ Does not account for Int on Equipment or Scrolls. Luk is also assumed to not be accounted for (unconfirmed). Likely a bug',
+      'The roll between MIN and MAX is a single uniform random per hit',
     ],
   },
   {
@@ -106,12 +115,10 @@ const BASE_DAMAGE_STEPS = [
     status: 'warn',
     statusNote: 'Not yet re-verified against COT2 data. COT1 status: Data is limited - verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
     lines: [
-      'MIN = ((BaseInt × 0.8 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
-      'MAX = ((BaseInt × 1.0 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
+      'MIN = ((TotalInt × 0.8 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
+      'MAX = ((TotalInt × 1.0 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
     ],
     notes: [
-      '❗ Does not account for Int or Luk on Equipment or Scrolls. Likely a bug',
-      'Luk is assumed to be BASE Luk from AP - difficult to verify as mages have very low Luk on gear',
       'Data is limited - verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
     ],
   },
@@ -119,14 +126,13 @@ const BASE_DAMAGE_STEPS = [
     label: 'Damage Over Time (DoT)',
     wip: false,
     status: 'warn',
-    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
+    statusNote: 'Derived from the client binary.',
     lines: [
-      'TotalDamage = (BasicAttack + MagicAttack / 7) × ((MagicAttack + BaseInt) / 100 + 1)',
+      'TotalDamage = (DoTBasicAttack / 100) × MagicAttack × (TotalInt / 125 + 1)',
       '',
       'DamagePerTick = TotalDamage / DoTDurationSeconds',
     ],
     notes: [
-      '❗ Does not account for Int from Equipment or Scrolls. Likely a bug',
       'DoT damage ignores all Defense reductions',
     ],
   },
@@ -136,16 +142,16 @@ const BASE_DAMAGE_VARS = [
   { name: 'SkillMult',     desc: 'Skill Damage % as a decimal (e.g. 120% → 1.2)' },
   { name: 'PrimaryStat',   desc: 'Set by weapon type:\nStr - Melee Weapons (1H/2H Swords, Axes, Blunt Weapons, Spears, Polearms, Barehands, and Staves/Wands while whacking)\nDex - Bows and Crossbows\nLuk - Daggers and Claws' },
   { name: 'SecondaryStat', desc: 'Set by weapon type:\nDex - Melee Weapons\nStr - Bows and Crossbows\nStr + Dex - Daggers and Claws' },
-  { name: 'AttackPower',   desc: 'Total weapon attack power from gear and buffs' },
-  { name: 'WeaponAttack',  desc: 'Base weapon attack, including Stars and Arrows' },
-  { name: 'MinWepMult',    desc: 'Weapon min multiplier (Swing or Stab) - see Weapon Multipliers table' },
-  { name: 'MaxWepMult',    desc: 'Weapon max multiplier (Swing or Stab) - see Weapon Multipliers table' },
+  { name: 'AttackPower',   desc: 'Attack from all gear other than the weapon and shield, plus buffs' },
+  { name: 'WeaponAttack',  desc: 'Attack from the weapon and shield (5 if barehanded), plus Stars and Arrows' },
+  { name: 'WepMult',       desc: 'Weapon multiplier for the attack action used - see Weapon Multipliers table' },
   { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8. Exception: Lucky Seven uses ~5.25' },
-  { name: 'BasicAttack',   desc: 'Basic Attack damage value listed on the skill, for magic skills only' },
+  { name: 'BasicAttack',   desc: 'Basic Attack value listed on the skill, for magic skills only' },
+  { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
   { name: 'MagicAttack',        desc: 'TotalInt / 2 + EquipmentMagicAttack (MAGIC value shown in UI)' },
   { name: 'EquipmentMagicAttack', desc: 'Sum of Magic Attack on all gear (including above/below average and scrolled stats)' },
-  { name: 'BaseInt',       desc: 'BASE Int from AP only - equipment stats not included (likely a bug)' },
-  { name: 'Luk',           desc: 'BASE Luk from AP only - equipment stats not included (assumed - see Heal notes)' },
+  { name: 'TotalInt',      desc: 'Total Int, including Equipment and Scrolls' },
+  { name: 'Luk',           desc: 'Total Luk, including Equipment and Scrolls' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
   { name: 'TargetsHit',    desc: 'Total targets hit: enemies + caster + allies in range' },
   { name: 'DoTDurationSeconds', desc: 'Duration of the DoT effect in seconds' },
@@ -250,7 +256,7 @@ const MOD_VARS = [
   { name: 'PercentEffects',  desc: 'Sum of percent-based buffs/debuffs on enemy weapon defense' },
   { name: 'FlatEffects',     desc: 'Flat modifiers to enemy weapon defense - no known sources' },
   { name: 'MagicDefense',    desc: "Enemy's magic defense stat" },
-  { name: 'ElementalMult',   desc: 'Elemental modifier: 0.0, 0.75, 1.0, or 1.25' },
+  { name: 'ElementalMult',   desc: 'Elemental modifier: 0.0, 0.25, 0.5, 0.75, 1.0, 1.25, or 1.5' },
   { name: 'EnemyLevel',      desc: "Enemy's level" },
   { name: 'PlayerLevel',     desc: "Player's level" },
   { name: 'CritDamage',      desc: 'Crit damage from Stats Panel (e.g. 120% → 1.2)' },
@@ -433,25 +439,28 @@ function buildWeaponMultTable() {
 
   const thead = el('thead');
   const headerRow = el('tr');
-  for (const [text, cls] of [['Weapon Type', ''], ['Swing', 'num'], ['Stab', 'num']]) {
+  for (const [text, cls] of [['Weapon Type', ''], ['Swing', 'num'], ['Stab', 'num'], ['Shoot', 'num'], ['Other', 'num']]) {
     headerRow.appendChild(el('th', { className: cls, textContent: text }));
   }
   thead.appendChild(headerRow);
   table.appendChild(thead);
 
   const tbody = el('tbody');
-  WEAPON_MULTS.forEach(([type, swing, stab]) => {
+  WEAPON_MULTS.forEach(([type, swing, stab, shoot, other]) => {
     const row = el('tr');
     row.appendChild(el('td', { textContent: type }));
-    row.appendChild(el('td', { className: 'num', textContent: swing }));
-    row.appendChild(el('td', { className: 'num', textContent: stab }));
+    for (const v of [swing, stab, shoot, other]) {
+      row.appendChild(el('td', { className: 'num', textContent: v }));
+    }
     tbody.appendChild(row);
   });
   table.appendChild(tbody);
   container.appendChild(table);
 
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: '* Dagger uses Stab multiplier for both MinWepMult and MaxWepMult when stabbing. Savage Blow and Double Stab always Stab. Steal uses both.' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Unverified: carried over from COT1, not yet re-verified against COT2 data.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing / Stab are the normal melee actions, Shoot covers bow, crossbow and claw attacks, and Other applies when a skill uses its own custom animation (e.g. Rush, Assaulter)' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Swinging or stabbing with a bow, crossbow or claw gives a flat 1.0 and divides the stat terms by 300 instead of 100. Knuckle has no entry at all and always uses 1.0.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: '* Dagger uses the Stab multiplier when stabbing. Savage Blow and Double Stab always Stab. Steal uses both.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Verified: read directly from the damage routine in the client.' }));
 
   return container;
 }
@@ -460,6 +469,7 @@ function buildAccuracySection() {
   const container = el('div', { className: 'formulas-formula-wrap' });
   container.appendChild(buildPipeline(ACCURACY_STEPS));
   container.appendChild(buildVarLegend(ACCURACY_VARS));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Verified: read directly from the hit-test routine in the client.' }));
   return container;
 }
 
@@ -490,7 +500,7 @@ export function renderFormulas() {
   const disclaimer = el('div', { className: 'formulas-disclaimer' });
   const disclaimerText = el('span');
   disclaimerText.appendChild(el('strong', { textContent: 'Warning: ' }));
-  disclaimerText.append('Everything on this page is currently unverified. These formulas and tables are carried over from Closed Online Test 1 and have not yet been re-verified against COT2 data. The COT1 page is still available by time travelling to that patch.');
+  disclaimerText.append('Anything not marked Verified on this page is carried over from Closed Online Test 1 and has not yet been re-verified against COT2 data. Sections marked Verified were read directly out of the COT2 client. The COT1 page is still available by time travelling to that patch.');
   disclaimer.appendChild(disclaimerText);
   wrapper.appendChild(disclaimer);
 
@@ -529,7 +539,7 @@ export function renderFormulas() {
 
   const weaponMultSection = makeCollapsibleSection('Weapon Min/Max Multipliers', '', buildWeaponMultTable);
   const weaponMultCredit = el('span', { className: 'formulas-credit' });
-  weaponMultCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash</strong> on Discord';
+  weaponMultCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash, @cptbattler, @ohmi</strong> on Discord, confirmed against the client binary';
   weaponMultSection.querySelector('.left').appendChild(weaponMultCredit);
 
   appendix.appendChild(weaponMultSection);
