@@ -1,11 +1,6 @@
 {
   "patches": [
     {
-      "version": "closed_online_test",
-      "label": "closed_online_test",
-      "date": "2026-04-20"
-    },
-    {
       "version": "cot1",
       "label": "Closed Online Test 1",
       "date": "2026-04-21"
