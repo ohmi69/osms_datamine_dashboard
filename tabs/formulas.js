@@ -1,19 +1,39 @@
 import { el } from '../lib/utils.js';
 
+// Experience required per level, read out of the COT2 client. The client builds the
+// table at startup in sub_14003B220 and reads it back through GetNeedEXP
+// (sub_14087F690); see tmp/exp-table-binary.md.
 const EXP_TABLE = [
-  [1, 2, 15], [2, 3, 34], [3, 4, 57], [4, 5, 92], [5, 6, 135],
-  [6, 7, 372], [7, 8, 560], [8, 9, 840], [9, 10, 1242], [10, 11, 1716],
-  [11, 12, 2360], [12, 13, 3216], [13, 14, 4200], [14, 15, 5460],
-  [15, 16, 7050], [16, 17, 8840], [17, 18, 11040], [18, 19, 13716],
-  [19, 20, 16680], [20, 21, 20216], [21, 22, 24402], [22, 23, 28980],
-  [23, 24, 34320], [24, 25, 40512], [25, 26, 47216], [26, 27, 54900],
-  [27, 28, 63666], [28, 29, 73080], [29, 30, 83720], [30, 31, 95700],
-  [31, 32, 108480], [32, 33, 122760], [33, 34, 138666], [34, 35, 155540],
-  [35, 36, 174216], [36, 37, 194832], [37, 38, 216600], [38, 39, 240500],
-  [39, 40, 266682], [40, 41, 294216], [41, 42, 324240], [42, 43, 356916],
-  [43, 44, 391160], [44, 45, 428280], [45, 46, 468450], [46, 47, 510420],
-  [47, 48, 555680], [48, 49, 604416], [49, 50, 655200],
-  [50, 51, 709716], 
+  [1, 2, 15], [2, 3, 34], [3, 4, 57], [4, 5, 92],
+  [5, 6, 135], [6, 7, 372], [7, 8, 560], [8, 9, 840],
+  [9, 10, 1242], [10, 11, 1716], [11, 12, 2360], [12, 13, 3216],
+  [13, 14, 4200], [14, 15, 5460], [15, 16, 7050], [16, 17, 8840],
+  [17, 18, 11040], [18, 19, 13716], [19, 20, 16680], [20, 21, 20216],
+  [21, 22, 24402], [22, 23, 28980], [23, 24, 34320], [24, 25, 40512],
+  [25, 26, 47216], [26, 27, 54900], [27, 28, 63666], [28, 29, 73080],
+  [29, 30, 83720], [30, 31, 95700], [31, 32, 108480], [32, 33, 122760],
+  [33, 34, 138666], [34, 35, 155540], [35, 36, 174216], [36, 37, 194832],
+  [37, 38, 216600], [38, 39, 240500], [39, 40, 266682], [40, 41, 294216],
+  [41, 42, 324240], [42, 43, 356916], [43, 44, 391160], [44, 45, 428280],
+  [45, 46, 468450], [46, 47, 510420], [47, 48, 555680], [48, 49, 604416],
+  [49, 50, 655200], [50, 51, 709716], [51, 52, 748608], [52, 53, 789631],
+  [53, 54, 832902], [54, 55, 878545], [55, 56, 926689], [56, 57, 977471],
+  [57, 58, 1031036], [58, 59, 1087536], [59, 60, 1147132], [60, 61, 1209994],
+  [61, 62, 1276301], [62, 63, 1346242], [63, 64, 1420016], [64, 65, 1497832],
+  [65, 66, 1579913], [66, 67, 1666492], [67, 68, 1757815], [68, 69, 1854143],
+  [69, 70, 1955750], [70, 71, 2062925], [71, 72, 2175973], [72, 73, 2295216],
+  [73, 74, 2420993], [74, 75, 2553663], [75, 76, 2693603], [76, 77, 2841212],
+  [77, 78, 2996910], [78, 79, 3161140], [79, 80, 3334370], [80, 81, 3517093],
+  [81, 82, 3709829], [82, 83, 3913127], [83, 84, 4127566], [84, 85, 4353756],
+  [85, 86, 4592341], [86, 87, 4844001], [87, 88, 5109452], [88, 89, 5389449],
+  [89, 90, 5684790], [90, 91, 5996316], [91, 92, 6324914], [92, 93, 6671519],
+  [93, 94, 7037118], [94, 95, 7422752], [95, 96, 7829518], [96, 97, 8258575],
+  [97, 98, 8711144], [98, 99, 9188514], [99, 100, 9692044], [100, 101, 10223168],
+  [101, 102, 10783397], [102, 103, 11374327], [103, 104, 11997640], [104, 105, 12655110],
+  [105, 106, 13348610], [106, 107, 14080113], [107, 108, 14851703], [108, 109, 15665576],
+  [109, 110, 16524049], [110, 111, 17429566], [111, 112, 18384706], [112, 113, 19392187],
+  [113, 114, 20454878], [114, 115, 21575805], [115, 116, 22758159], [116, 117, 24005306],
+  [117, 118, 25320796], [118, 119, 26708375], [119, 120, 28171993],
 ];
 
 // Swing / Stab / Shoot / Other, read directly from the damage function in
@@ -38,14 +58,14 @@ const WEAPON_MULTS = [
 
 // ─── Accuracy ────────────────────────────────────────────────
 
-// Read directly from the hit-test routine in MapleStory.exe. The client runs
-// one accuracy check for every attack - magic included.
+// Read directly from the hit-test routine in MapleStory.exe. Physical and magic
+// share one hit-test routine. Skills whose additional_process list contains 128
+// skip it entirely - that is 9 debuff skills, no attack skills.
 const ACCURACY_STEPS = [
   {
     label: 'Physical & Magical Accuracy',
     wip: false,
-    status: 'ok',
-    statusNote: 'Read directly from the hit-test routine in the client.',
+    // Status lives on the section header instead - this is the only step in the section.
     lines: [
       'BaseChance = Acc × 100 / ((max(0, LevelDiff) × 2 + 51) × 5)',
       '',
@@ -62,8 +82,8 @@ const ACCURACY_STEPS = [
     ],
     notes: [
       'exp() is the exponential function',
+      'Nine skills skip this check entirely and always land: Armor Crash, Threaten, Elemental Crash, Power Crash, Slow, Seal and Doom. They are all monster debuffs, which land on their own success rate instead. No attack skill is exempt.',
       'AutoHit skips the roll entirely. It can only ever change the outcome against Avoid above roughly 120, and the highest Avoid on any live mob is 64 (Gatekeeper), so in practice it never decides a hit.',
-      'A handful of skills carry an internal flag that disables AutoHit and forces the roll. Which skills has not been worked out yet.',
       'A separate miss-chance debuff is rolled after a successful hit and can still turn it into a miss.',
     ],
   },
@@ -112,28 +132,35 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Heal',
     wip: false,
-    status: 'warn',
-    statusNote: 'Not yet re-verified against COT2 data. COT1 status: Data is limited - verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
+    status: 'ok',
+    statusNote: 'Read directly from the Heal branch of the magic damage routine in the client.',
     lines: [
-      'MIN = ((TotalInt × 0.8 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
-      'MAX = ((TotalInt × 1.0 + Luk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1) / TargetsHit × 0.5',
+      'HealAmount = ((TotalInt × Roll + TotalLuk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1)',
+      '',
+      'Roll = rand(0.8, 1.0)',
+      '',
+      'Damage = HealAmount / TargetsHit × 0.5',
     ],
     notes: [
-      'Data is limited - verified at Heal Lv 1, 2, and 5 only; maxed Heal is unverified',
+      'RecoveryRate is the recovery rate listed on the skill itself.',
+      'TargetsHit is everyone the cast reaches - monsters, up to 15 of them, plus party members, up to 6.',
     ],
   },
   {
     label: 'Damage Over Time (DoT)',
     wip: false,
-    status: 'warn',
-    statusNote: 'Derived from the client binary.',
+    status: 'ok',
+    statusNote: 'Read directly from the damage-over-time routine in the client.',
     lines: [
       'TotalDamage = (DoTBasicAttack / 100) × MagicAttack × (TotalInt / 125 + 1)',
       '',
       'DamagePerTick = TotalDamage / DoTDurationSeconds',
     ],
     notes: [
-      'DoT damage ignores all Defense reductions',
+      'DoT damage ignores all Defense reductions - the routine never reads the enemy\'s weapon or magic defense at all',
+      'Note the divisor is 125, not the 100 used everywhere else',
+      'Every DoT skill in the game currently ticks once per second, so ticks and seconds are interchangeable here',
+      'The Level Difference Penalty applies, but DoT only ever uses its linear branch - see that step',
     ],
   },
 ];
@@ -151,7 +178,7 @@ const BASE_DAMAGE_VARS = [
   { name: 'MagicAttack',        desc: 'TotalInt / 2 + EquipmentMagicAttack (MAGIC value shown in UI)' },
   { name: 'EquipmentMagicAttack', desc: 'Sum of Magic Attack on all gear (including above/below average and scrolled stats)' },
   { name: 'TotalInt',      desc: 'Total Int, including Equipment and Scrolls' },
-  { name: 'Luk',           desc: 'Total Luk, including Equipment and Scrolls' },
+  { name: 'TotalLuk',      desc: 'Total Luk, including Equipment and Scrolls' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
   { name: 'TargetsHit',    desc: 'Total targets hit: enemies + caster + allies in range' },
   { name: 'DoTDurationSeconds', desc: 'Duration of the DoT effect in seconds' },
@@ -163,104 +190,143 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Weapon Defense',
     wip: false,
-    status: 'warn',
-    statusNote: 'Not yet re-verified against COT2 data. COT1 status: PercentEffects and FlatEffects have not been verified, not enough data',
+    status: 'ok',
+    statusNote: 'Read directly from the physical damage routine and the enemy weapon-defense getter in the client.',
     lines: [
-      'Damage = Damage × 100 / (trunc(WeaponDefense × (PercentEffects / 100 + 1)) + FlatEffects + 100)',
+      'WeaponDefense = max(0, trunc(BaseWeaponDefense × (PercentEffects / 100 + 1)) + FlatEffects)',
+      '',
+      'Damage = Damage × 100 / (WeaponDefense + 100)',
     ],
     notes: [
       'trunc() rounds toward zero (down for positive, up for negative)',
       'Applies to Physical damage only',
-      'If Crossbow Mastery Ignore Defense procs, the entire defense formula is ignored',
-      'PercentEffects and FlatEffects have not been verified. Not enough in game data for PercentEffects, and there are no known flat weapon defense (de)buffs in the game',
+      'PercentEffects and FlatEffects are two separate modifier slots on the enemy, so the client fully supports both. There is still no in-game data for PercentEffects, and no known source of flat weapon defense (de)buffs',
+      'Blunt Weapon Mastery and Crossbow Mastery both roll their listed Ignore Defense chance. On a proc, WeaponDefense is forced to 0, which makes this step ×1',
     ],
   },
   {
     label: 'Magic Defense',
     wip: false,
-    status: 'warn',
-    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
+    status: 'ok',
+    statusNote: 'Read directly from the magic damage routine and the enemy magic-defense getter in the client.',
     lines: [
+      'MagicDefense = max(0, trunc(BaseMagicDefense × (PercentEffects / 100 + 1)) + FlatEffects)',
+      '',
       'Damage = Damage × 100 / (MagicDefense + 100)',
     ],
     notes: [
-      'No other variables, this is the complete formula',
       'Applies to Magical damage only',
+      'Identical in shape to Weapon Defense, reading its own pair of percent and flat modifier slots on the enemy',
+      'There is no Ignore Defense proc on the magic side',
     ],
   },
   {
     label: 'Elemental Modifier',
     wip: false,
-    status: 'warn',
-    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
+    status: 'ok',
+    statusNote: 'Read directly from the elemental multiplier table in the client - all seven entries.',
     lines: [
       'Damage = Damage × ElementalMult',
       '  0.0  - immune',
-      '  0.75 - resistant',
+      '  0.25 - highly resistant',
+      '  0.5  - resistant',
+      '  0.75 - slightly resistant',
       '  1.0  - neutral',
       '  1.25 - weak against element',
+      '  1.5  - highly weak against element',
     ],
-    notes: [],
+    notes: [
+      'Anything outside this table falls back to 1.0',
+    ],
   },
   {
     label: 'Level Difference Penalty',
     wip: false,
-    status: 'warn',
-    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
+    status: 'ok',
+    statusNote: 'Read directly from the client - the same code appears in the physical, magic and DoT routines.',
     lines: [
-      'No penalty if player level ≥ enemy level',
-      '  enemy < 10 levels above:  Damage / (LevelDiff² × 0.005 + 1)',
-      '  enemy ≥ 10 levels above:  Damage / (LevelDiff × 0.05 + 1)',
-      '     DoT damage always applies this penalty if the enemy is above your level ',
+      'LevelDiff = EnemyLevel − PlayerLevel',
+      '',
+      'No penalty if LevelDiff ≤ 0',
+      '  LevelDiff < 10:  Damage = Damage / (LevelDiff² × 0.005 + 1)',
+      '  LevelDiff ≥ 10:  Damage = Damage / (LevelDiff × 0.05 + 1)',
     ],
     notes: [
-      
+      'The two branches meet exactly at LevelDiff 10, where both give a ×0.5 penalty',
+      'Damage Over Time is the exception: it only ever uses the linear LevelDiff × 0.05 branch. That branch is the harsher of the two below LevelDiff 10, so a DoT is penalised more than a direct hit when the enemy is 1-9 levels above you, and identically at 10 or more',
     ],
   },
   {
     label: 'Critical Hit',
     wip: false,
-    status: 'warn',
-    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
+    status: 'ok',
+    statusNote: 'Read directly from the crit roll in the client.',
     lines: [
-      'Damage = Damage × CritDamage',
+      'IsCrit = rand(0, 99) < CritRate',
+      '',
+      'Damage = Damage × (100 + CritDamage) / 100',
     ],
-    notes: [],
+    notes: [
+      'CritRate and CritDamage are the two values shown in the Stats panel',
+      'Power Knockback is hard-coded to always crit, whatever your CritRate is - matching its skill description',
+    ],
   },
   {
     label: 'Iron Arrow Falloff (Crossbow only)',
     wip: false,
-    status: 'warn',
-    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
+    status: 'ok',
+    statusNote: 'Read directly from the client, hard-coded to Iron Arrow: Crossbow by skill ID.',
     lines: [
-      'Damage = Damage × (1 − ConsecutiveHits × 0.2)',
+      'Damage = Damage × clamp(1 − ConsecutiveHits × 0.2, 0, 1)',
       '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.6 …',
     ],
-    notes: [],
+    notes: [
+      'No other skill in the game uses this step',
+      'The skill caps at 4 targets, so the multiplier bottoms out at ×0.4 and never reaches the 0 floor',
+    ],
+  },
+  {
+    label: 'Shadow Partner (NL only)',
+    wip: false,
+    status: 'partial',
+    statusNote: 'The step is read directly from the client',
+    lines: [
+      'Damage = Damage × PartnerDamage / 100',
+      '  applied only to hits in the second half of the hit list',
+    ],
+    
   },
   {
     label: 'Clamp',
     wip: false,
-    status: 'warn',
-    statusNote: 'Carried over from COT1 - not yet re-verified against COT2 data.',
+    status: 'ok',
+    statusNote: 'Read directly from the client - the same clamp ends both the physical and magic routines.',
     lines: [
-      'Damage = floor(Damage)',
-      'Damage = clamp(Damage, 1, 700,000,000,000)',
+      'Damage = trunc(Damage)',
+      'Damage = clamp(Damage, 1, 99,999)',
     ],
-    notes: [],
+    notes: [
+      'The cap is 99,999. A single hit can never display more than that, whatever the numbers going in',
+      'The floor means any hit that passes the accuracy check deals at least 1',
+    ],
   },
 ];
 
 const MOD_VARS = [
-  { name: 'WeaponDefense',   desc: "Enemy's weapon defense stat" },
-  { name: 'PercentEffects',  desc: 'Sum of percent-based buffs/debuffs on enemy weapon defense' },
-  { name: 'FlatEffects',     desc: 'Flat modifiers to enemy weapon defense - no known sources' },
-  { name: 'MagicDefense',    desc: "Enemy's magic defense stat" },
+  { name: 'BaseWeaponDefense', desc: "Enemy's weapon defense stat, before modifiers" },
+  { name: 'BaseMagicDefense',  desc: "Enemy's magic defense stat, before modifiers" },
+  { name: 'WeaponDefense',   desc: "Enemy's weapon defense after percent and flat modifiers, floored at 0" },
+  { name: 'MagicDefense',    desc: "Enemy's magic defense after percent and flat modifiers, floored at 0" },
+  { name: 'PercentEffects',  desc: 'Sum of percent-based buffs/debuffs on the enemy defense stat being used. Weapon and magic defense read separate slots' },
+  { name: 'FlatEffects',     desc: 'Flat modifiers to the enemy defense stat being used. Supported by the client, but no skill or item in the game is known to set it' },
   { name: 'ElementalMult',   desc: 'Elemental modifier: 0.0, 0.25, 0.5, 0.75, 1.0, 1.25, or 1.5' },
   { name: 'EnemyLevel',      desc: "Enemy's level" },
   { name: 'PlayerLevel',     desc: "Player's level" },
-  { name: 'CritDamage',      desc: 'Crit damage from Stats Panel (e.g. 120% → 1.2)' },
+  { name: 'LevelDiff',       desc: 'Enemy level minus player level. No penalty when this is 0 or below' },
+  { name: 'CritRate',        desc: 'Critical hit rate % from the Stats panel' },
+  { name: 'CritDamage',      desc: 'Critical damage % from the Stats panel (e.g. 20 → a ×1.2 multiplier)' },
   { name: 'ConsecutiveHits', desc: 'Iron Arrow: 0 for first mob hit, 1 for second, etc.' },
+  { name: 'PartnerDamage',   desc: "Shadow Partner's damage %, carried on the attack" },
 ];
 
 
@@ -345,6 +411,18 @@ function makeCollapsibleSection(title, countLabel, bodyFn) {
   return wrap;
 }
 
+const STATUS_LABELS = { ok: 'Verified', partial: 'Partially Verified', warn: 'Unverified' };
+
+function makeStatusTag(status, statusNote) {
+  const statusTag = el('span', { className: `formulas-status-tag formulas-status-${status}`, textContent: STATUS_LABELS[status] });
+  const tooltipText = statusNote ?? (status === 'ok' ? 'Formula has been validated across multiple datapoints and edge cases' : null);
+  if (tooltipText) {
+    statusTag.addEventListener('mouseenter', () => showStatusTooltip(statusTag, tooltipText));
+    statusTag.addEventListener('mouseleave', hideStatusTooltip);
+  }
+  return statusTag;
+}
+
 function buildPipeline(steps) {
   const frag = document.createDocumentFragment();
   steps.forEach(({ label, wip, status, statusNote, lines, notes }, i) => {
@@ -354,16 +432,7 @@ function buildPipeline(steps) {
     stepHeader.appendChild(el('span', { className: 'formulas-pipeline-badge', textContent: i + 1 }));
     stepHeader.appendChild(el('span', { className: 'formulas-pipeline-title', textContent: label }));
     if (wip) stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
-    if (status) {
-      const statusLabels = { ok: 'Verified', partial: 'Partially Verified', warn: 'Unverified' };
-      const statusTag = el('span', { className: `formulas-status-tag formulas-status-${status}`, textContent: statusLabels[status] });
-      const tooltipText = statusNote ?? (status === 'ok' ? 'Formula has been validated across multiple datapoints and edge cases' : null);
-      if (tooltipText) {
-        statusTag.addEventListener('mouseenter', () => showStatusTooltip(statusTag, tooltipText));
-        statusTag.addEventListener('mouseleave', hideStatusTooltip);
-      }
-      stepHeader.appendChild(statusTag);
-    }
+    if (status) stepHeader.appendChild(makeStatusTag(status, statusNote));
     step.appendChild(stepHeader);
 
     const codeLines = lines.filter(l => l !== '');
@@ -400,8 +469,199 @@ function buildVarLegend(vars) {
 
 // ─── Section builders ─────────────────────────────────────────
 
+const EXP_RULES = [
+  ['Level 1 to 5', 'Exp = (floor(Level² / 2) + 15) × Level'],
+  ['Level 6 to 50', 'Exp = (floor(Level² / 3) + 19) × floor(Level² / 3)'],
+  ['Level 51 to 119', 'Exp = trunc(PreviousLevelExp × 1.0548)'],
+];
+
+// Cumulative exp, aligned with EXP_TABLE - EXP_CUMULATIVE[i] is the exp already
+// spent on reaching the level EXP_TABLE[i] starts from.
+const EXP_CUMULATIVE = (() => {
+  let acc = 0;
+  return EXP_TABLE.map(([, , exp]) => { const before = acc; acc += exp; return before; });
+})();
+
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+function svgEl(name, attrs = {}) {
+  const node = document.createElementNS(SVG_NS, name);
+  for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+  return node;
+}
+
+function compactExp(v) {
+  if (v >= 1e9) return `${+(v / 1e9).toFixed(v >= 1e10 ? 0 : 1)}B`;
+  if (v >= 1e6) return `${+(v / 1e6).toFixed(v >= 1e7 ? 0 : 1)}M`;
+  if (v >= 1e3) return `${+(v / 1e3).toFixed(v >= 1e4 ? 0 : 1)}K`;
+  return `${v}`;
+}
+
+const EXP_SERIES = {
+  level: {
+    label: 'Per Level',
+    title: 'Exp to Level Up',
+    values: EXP_TABLE.map(([, , exp]) => exp),
+    decades: [1, 8], // 10 .. 100M
+  },
+  cumulative: {
+    label: 'Cumulative',
+    title: 'Total Exp to Reach Level',
+    values: EXP_TABLE.map(([, , exp], i) => EXP_CUMULATIVE[i] + exp),
+    decades: [1, 9], // 10 .. 1B
+  },
+};
+
+// Single-series line chart of the exp curve. The y axis is log: the curve spans six
+// orders of magnitude, so a linear axis would flatten everything below level 90 onto
+// the baseline. Hovering snaps to the nearest level and reports its exact numbers.
+function buildExpChart() {
+  const W = 520, H = 380;
+  const M = { t: 14, r: 14, b: 32, l: 54 };
+  const plotW = W - M.l - M.r;
+  const plotH = H - M.t - M.b;
+
+  const levels = EXP_TABLE.map(([from]) => from);
+  const lastLevel = levels[levels.length - 1];
+
+  const wrap = el('div', { className: 'formulas-chart-wrap' });
+
+  const head = el('div', { className: 'formulas-chart-head' });
+  const title = el('span', { className: 'formulas-chart-title', textContent: EXP_SERIES.level.title });
+  head.appendChild(title);
+  const scaleToggle = el('div', { className: 'formulas-chart-scale' });
+  head.appendChild(scaleToggle);
+  wrap.appendChild(head);
+
+  const plot = el('div', { className: 'formulas-chart-plot' });
+  const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, class: 'formulas-chart-svg', role: 'img' });
+  svg.appendChild(svgEl('title', {})).textContent =
+    'Exp required per level, from level 1 to 120. The table beside this chart lists every value.';
+  plot.appendChild(svg);
+  const tip = el('div', { className: 'formulas-chart-tip' });
+  plot.appendChild(tip);
+  wrap.appendChild(plot);
+
+  const xOf = lvl => M.l + ((lvl - 1) / (lastLevel - 1)) * plotW;
+
+  let mode = 'level';
+
+  function draw() {
+    while (svg.childNodes.length > 1) svg.removeChild(svg.lastChild);
+
+    const series = EXP_SERIES[mode];
+    const values = series.values;
+    const [lo, hi] = series.decades;
+    const yOf = v => M.t + plotH - ((Math.log10(v) - lo) / (hi - lo)) * plotH;
+    title.textContent = series.title;
+
+    const grid = svgEl('g', { class: 'formulas-chart-grid' });
+    for (let d = lo; d <= hi; d++) {
+      const t = 10 ** d;
+      const y = yOf(t);
+      grid.appendChild(svgEl('line', { x1: M.l, x2: M.l + plotW, y1: y, y2: y }));
+      const label = svgEl('text', { x: M.l - 8, y: y + 3.5, class: 'formulas-chart-axis-label', 'text-anchor': 'end' });
+      label.textContent = compactExp(t);
+      grid.appendChild(label);
+    }
+    [1, 20, 40, 60, 80, 100, 120].forEach(lvl => {
+      const label = svgEl('text', { x: xOf(lvl), y: M.t + plotH + 20, class: 'formulas-chart-axis-label', 'text-anchor': 'middle' });
+      label.textContent = lvl;
+      grid.appendChild(label);
+    });
+    svg.appendChild(grid);
+
+    const pts = levels.map((lvl, i) => [xOf(lvl), yOf(values[i])]);
+    const line = pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x.toFixed(2)} ${y.toFixed(2)}`).join(' ');
+    svg.appendChild(svgEl('path', {
+      class: 'formulas-chart-area',
+      d: `${line} L${pts[pts.length - 1][0].toFixed(2)} ${M.t + plotH} L${pts[0][0].toFixed(2)} ${M.t + plotH} Z`,
+    }));
+    svg.appendChild(svgEl('path', { class: 'formulas-chart-line', d: line }));
+
+    const focus = svgEl('g', { class: 'formulas-chart-focus' });
+    const crosshair = svgEl('line', { y1: M.t, y2: M.t + plotH });
+    const dot = svgEl('circle', { r: 4.5 });
+    focus.appendChild(crosshair);
+    focus.appendChild(dot);
+    svg.appendChild(focus);
+
+    const hit = svgEl('rect', { x: M.l, y: M.t, width: plotW, height: plotH, class: 'formulas-chart-hit' });
+    svg.appendChild(hit);
+
+    function moveTo(clientX) {
+      const rect = svg.getBoundingClientRect();
+      const scale = rect.width / W;
+      const vx = (clientX - rect.left) / scale;
+      const i = Math.max(0, Math.min(levels.length - 1,
+        Math.round(((vx - M.l) / plotW) * (lastLevel - 1))));
+
+      const [x, y] = pts[i];
+      crosshair.setAttribute('x1', x);
+      crosshair.setAttribute('x2', x);
+      dot.setAttribute('cx', x);
+      dot.setAttribute('cy', y);
+      focus.classList.add('visible');
+
+      const perLevel = EXP_SERIES.level.values[i];
+      const total = EXP_SERIES.cumulative.values[i];
+      tip.innerHTML = '';
+      tip.appendChild(el('div', { className: 'formulas-chart-tip-lvl', textContent: `Lv ${levels[i]} → ${levels[i] + 1}` }));
+      tip.appendChild(el('div', {
+        className: 'formulas-chart-tip-val',
+        textContent: mode === 'level' ? `${perLevel.toLocaleString()} exp` : `${total.toLocaleString()} exp total`,
+      }));
+      tip.appendChild(el('div', {
+        className: 'formulas-chart-tip-sub',
+        textContent: mode === 'level'
+          ? `${total.toLocaleString()} total to Lv ${levels[i] + 1}`
+          : `${perLevel.toLocaleString()} for this level`,
+      }));
+      tip.classList.add('visible');
+      tip.style.left = `${Math.min(Math.max(x * scale, 60), rect.width - 60)}px`;
+      tip.style.top = `${y * scale}px`;
+    }
+
+    hit.addEventListener('pointermove', e => moveTo(e.clientX));
+    hit.addEventListener('pointerleave', () => {
+      focus.classList.remove('visible');
+      tip.classList.remove('visible');
+    });
+  }
+
+  Object.entries(EXP_SERIES).forEach(([key, { label }]) => {
+    const btn = el('button', { className: `pill pill--sub${key === mode ? ' active' : ''}`, textContent: label });
+    btn.addEventListener('click', () => {
+      mode = key;
+      scaleToggle.querySelectorAll('.pill').forEach(b => b.classList.toggle('active', b === btn));
+      tip.classList.remove('visible');
+      draw();
+    });
+    scaleToggle.appendChild(btn);
+  });
+
+  draw();
+  return wrap;
+}
+
 function buildExpTable() {
-  const container = el('div', { className: 'formulas-table-wrap' });
+  const container = el('div');
+
+  const formulaWrap = el('div', { className: 'formulas-formula-wrap' });
+  const block = el('div', { className: 'formulas-code-block' });
+  EXP_RULES.forEach(([label, line]) => {
+    const cell = el('div', { className: 'formulas-code-cell' });
+    cell.appendChild(el('div', { className: 'formulas-code-label', textContent: label }));
+    const pre = el('pre', { className: 'formulas-code' });
+    pre.innerHTML = tokenizeLine(line);
+    cell.appendChild(pre);
+    block.appendChild(cell);
+  });
+  formulaWrap.appendChild(block);
+  container.appendChild(formulaWrap);
+
+  const split = el('div', { className: 'formulas-exp-split' });
+  const tableWrap = el('div', { className: 'formulas-table-wrap formulas-exp-tablewrap' });
   const table = el('table', { className: 'data-table' });
 
   const thead = el('thead');
@@ -428,8 +688,10 @@ function buildExpTable() {
     accumulated += exp;
   });
   table.appendChild(tbody);
-  container.appendChild(table);
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Unverified: carried over from COT1, not yet re-verified against COT2 data.' }));
+  tableWrap.appendChild(table);
+  split.appendChild(tableWrap);
+  split.appendChild(buildExpChart());
+  container.appendChild(split);
   return container;
 }
 
@@ -460,7 +722,6 @@ function buildWeaponMultTable() {
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing / Stab are the normal melee actions, Shoot covers bow, crossbow and claw attacks, and Other applies when a skill uses its own custom animation (e.g. Rush, Assaulter)' }));
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Swinging or stabbing with a bow, crossbow or claw gives a flat 1.0 and divides the stat terms by 300 instead of 100. Knuckle has no entry at all and always uses 1.0.' }));
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: '* Dagger uses the Stab multiplier when stabbing. Savage Blow and Double Stab always Stab. Steal uses both.' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Verified: read directly from the damage routine in the client.' }));
 
   return container;
 }
@@ -469,7 +730,6 @@ function buildAccuracySection() {
   const container = el('div', { className: 'formulas-formula-wrap' });
   container.appendChild(buildPipeline(ACCURACY_STEPS));
   container.appendChild(buildVarLegend(ACCURACY_VARS));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Verified: read directly from the hit-test routine in the client.' }));
   return container;
 }
 
@@ -500,7 +760,7 @@ export function renderFormulas() {
   const disclaimer = el('div', { className: 'formulas-disclaimer' });
   const disclaimerText = el('span');
   disclaimerText.appendChild(el('strong', { textContent: 'Warning: ' }));
-  disclaimerText.append('Anything not marked Verified on this page is carried over from Closed Online Test 1 and has not yet been re-verified against COT2 data. Sections marked Verified were read directly out of the COT2 client. The COT1 page is still available by time travelling to that patch.');
+  disclaimerText.append('Every formula on this page marked Verified was read directly out of the COT2 client binary rather than fitted from test data. Partially Verified means the mechanic itself came out of the client but something about it - usually which skill drives it - is still inference.');
   disclaimer.appendChild(disclaimerText);
   wrapper.appendChild(disclaimer);
 
@@ -508,6 +768,9 @@ export function renderFormulas() {
   const fullWidth = el('div', { className: 'formulas-full' });
 
   const accuracySection = makeCollapsibleSection('Accuracy', '', buildAccuracySection);
+  accuracySection.querySelector('.right').appendChild(
+    makeStatusTag('ok', 'Read directly from the hit-test routine in the client, which runs this one check for both physical and magic attacks.')
+  );
   const accCredit = el('span', { className: 'formulas-credit' });
   accCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
   accuracySection.querySelector('.left').appendChild(accCredit);
@@ -533,11 +796,17 @@ export function renderFormulas() {
   const appendix = el('div', { className: 'formulas-full' });
 
   const expSection = makeCollapsibleSection('Experience Table', '', buildExpTable);
+  expSection.querySelector('.right').appendChild(
+    makeStatusTag('ok', 'Read directly from the routine in the client that builds the experience table at startup.')
+  );
   const expCredit = el('span', { className: 'formulas-credit' });
   expCredit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> on Discord';
   expSection.querySelector('.left').appendChild(expCredit);
 
   const weaponMultSection = makeCollapsibleSection('Weapon Min/Max Multipliers', '', buildWeaponMultTable);
+  weaponMultSection.querySelector('.right').appendChild(
+    makeStatusTag('ok', 'Read directly from the weapon multiplier table in the damage routine in the client.')
+  );
   const weaponMultCredit = el('span', { className: 'formulas-credit' });
   weaponMultCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash, @cptbattler, @ohmi</strong> on Discord, confirmed against the client binary';
   weaponMultSection.querySelector('.left').appendChild(weaponMultCredit);

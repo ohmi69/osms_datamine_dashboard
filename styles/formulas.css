@@ -407,3 +407,155 @@
   border-color: rgba(192, 74, 16, 0.3);
 }
 
+
+/* ── Exp table + curve, side by side ─────────────────────────── */
+.formulas-exp-split {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 0 16px 16px;
+}
+
+.formulas-exp-split > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .formulas-exp-split { flex-direction: column; }
+}
+
+.formulas-exp-tablewrap {
+  max-height: 420px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.formulas-exp-tablewrap thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--surface-2);
+}
+
+/* ── Exp curve chart ─────────────────────────────────────────── */
+.formulas-chart-wrap {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.formulas-chart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 10px 7px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.formulas-chart-title {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.formulas-chart-scale { display: flex; gap: 4px; }
+
+.formulas-chart-plot {
+  position: relative;
+  background: var(--bg);
+  padding: 8px;
+}
+
+.formulas-chart-svg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 520 / 380;
+  overflow: visible;
+}
+
+.formulas-chart-grid line {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.formulas-chart-axis-label {
+  fill: var(--dim);
+  font-family: 'Consolas', 'Fira Mono', monospace;
+  font-size: 10px;
+}
+
+.formulas-chart-area {
+  fill: var(--accent);
+  opacity: 0.1;
+}
+
+.formulas-chart-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.formulas-chart-focus { opacity: 0; }
+.formulas-chart-focus.visible { opacity: 1; }
+
+.formulas-chart-focus line {
+  stroke: var(--dim);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.formulas-chart-focus circle {
+  fill: var(--accent);
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+
+.formulas-chart-hit {
+  fill: transparent;
+  cursor: crosshair;
+}
+
+.formulas-chart-tip {
+  position: absolute;
+  z-index: 5;
+  transform: translate(-50%, calc(-100% - 14px));
+  padding: 6px 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.formulas-chart-tip.visible { opacity: 1; }
+
+.formulas-chart-tip-lvl {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--dim);
+}
+
+.formulas-chart-tip-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: 'Consolas', 'Fira Mono', monospace;
+}
+
+.formulas-chart-tip-sub {
+  font-size: 11px;
+  color: var(--dim);
+  font-family: 'Consolas', 'Fira Mono', monospace;
+}
