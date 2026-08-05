@@ -107,7 +107,7 @@ export function renderSkills(data, options = {}) {
     Warrior: {
       Fighter: ['Fighter', 'Crusader'],
       Page: ['Page', 'White Knight'],
-      Spearman: ['Spearman', 'Berserker'],
+      Spearman: ['Spearman', 'Dragon Knight'],
     },
     Magician: {
       'F/P Wizard': ['F/P Wizard', 'F/P Mage'],
