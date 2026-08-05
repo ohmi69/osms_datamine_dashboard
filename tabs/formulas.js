@@ -36,6 +36,16 @@ const EXP_TABLE = [
   [117, 118, 25320796], [118, 119, 26708375], [119, 120, 28171993],
 ];
 
+// Citizenship (Residency) grade thresholds, read out of the COT2 client. The
+// contribution column is NeedContribution (sub_1402C9850) and the level column is
+// NeedLevel (sub_1402C9830); the Citizenship tab (sub_1411AB6B0) is the only caller of
+// either. Grade, contribution required, character level required.
+// See tmp/citizenship-grade-binary.md.
+const CITIZENSHIP_GRADES = [
+  [1, 0, 12], [2, 1000, 17], [3, 2000, 22], [4, 3000, 27], [5, 4000, 32],
+  [6, 5000, 37], [7, 6000, 42], [8, 7000, 47], [9, 8000, 52], [10, 10000, 57],
+];
+
 // Swing / Stab / Shoot / Other, read directly from the damage function in
 // MapleStory.exe. '-' = that action is not reachable for the weapon type.
 const WEAPON_MULTS = [
@@ -768,6 +778,47 @@ function buildExpTable() {
   return container;
 }
 
+function buildCitizenshipTable() {
+  const container = el('div');
+
+  const tableWrap = el('div', { className: 'formulas-table-wrap' });
+  const table = el('table', { className: 'data-table' });
+
+  // Same text treatment as the Experience Table: chip in the key column, the
+  // headline number in accent, the supporting number dimmed.
+  const thead = el('thead');
+  const headerRow = el('tr');
+  for (const [text, cls] of [['Grade', ''], ['Contribution Required', 'num'], ['Character Level Required', 'num']]) {
+    headerRow.appendChild(el('th', { className: `${cls} formulas-exp-th`.trim(), textContent: text }));
+  }
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  const tbody = el('tbody');
+  CITIZENSHIP_GRADES.forEach(([grade, contribution, level]) => {
+    const row = el('tr', { className: 'formulas-exp-row' });
+
+    const gradeCell = el('td', { className: 'formulas-exp-td' });
+    gradeCell.appendChild(el('span', { className: 'lvl-chip', textContent: `Grade ${grade}` }));
+    row.appendChild(gradeCell);
+
+    row.appendChild(el('td', {
+      className: 'num formulas-exp-val formulas-exp-td',
+      textContent: contribution.toLocaleString(),
+    }));
+    row.appendChild(el('td', {
+      className: 'num formulas-accum-val formulas-exp-td',
+      textContent: `Lv ${level}`,
+    }));
+    tbody.appendChild(row);
+  });
+  table.appendChild(tbody);
+  tableWrap.appendChild(table);
+  container.appendChild(tableWrap);
+
+  return container;
+}
+
 function buildWeaponMultTable() {
   const container = el('div', { className: 'formulas-table-wrap' });
   const table = el('table', { className: 'data-table' });
@@ -900,8 +951,14 @@ export function renderFormulas() {
   weaponMultCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash, @cptbattler, @ohmi</strong> on Discord, confirmed against the client binary';
   weaponMultSection.querySelector('.left').appendChild(weaponMultCredit);
 
+  const citizenshipSection = makeCollapsibleSection('Citizenship Grades', '', buildCitizenshipTable);
+  citizenshipSection.querySelector('.right').appendChild(
+    makeStatusTag('partial', 'The contribution thresholds were read directly from the routine in the client that returns the requirement for a grade. The character level column comes from the same code path, but the field it is checked against is unlabelled, so reading it as character level is inference.')
+  );
+
   appendix.appendChild(weaponMultSection);
   appendix.appendChild(expSection);
+  appendix.appendChild(citizenshipSection);
   wrapper.appendChild(appendix);
 
   frag.appendChild(wrapper);

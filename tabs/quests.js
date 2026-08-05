@@ -301,12 +301,37 @@ function renderContributionTooltip(tip, contribution) {
 
   const byGrade = Array.isArray(contribution.by_grade) ? contribution.by_grade : [];
   if (byGrade.length) {
-    const grid = el('div', { className: 'contribution-grade-grid' });
-    byGrade.forEach((value, i) => {
-      grid.appendChild(el('span', { className: 'contribution-grade-label', textContent: `Grade ${i + 1}` }));
-      grid.appendChild(el('span', { className: 'contribution-grade-value', textContent: fmt(value) }));
-    });
-    tip.appendChild(grid);
+    // Ten grades stacked vertically make a needlessly tall tooltip, so fold the
+    // list in half and run the second half alongside the first.
+    const half = Math.ceil(byGrade.length / 2);
+    const table = el('table', { className: 'contribution-grade-table' });
+    const head = el('tr', null,
+      el('th', { textContent: 'Grade' }),
+      el('th', { textContent: 'Points' }),
+      el('th', { className: 'contribution-grade-split', textContent: 'Grade' }),
+      el('th', { textContent: 'Points' }),
+    );
+    table.appendChild(el('thead', null, head));
+
+    const body = el('tbody');
+    for (let i = 0; i < half; i += 1) {
+      const row = el('tr', null,
+        el('th', { scope: 'row', textContent: String(i + 1) }),
+        el('td', { textContent: fmt(byGrade[i]) }),
+      );
+      const j = i + half;
+      if (j < byGrade.length) {
+        row.append(
+          el('th', { scope: 'row', className: 'contribution-grade-split', textContent: String(j + 1) }),
+          el('td', { textContent: fmt(byGrade[j]) }),
+        );
+      } else {
+        row.append(el('td', { className: 'contribution-grade-split' }), el('td'));
+      }
+      body.appendChild(row);
+    }
+    table.appendChild(body);
+    tip.appendChild(table);
   } else {
     tip.appendChild(el('p', {
       className: 'item-tooltip-desc',

@@ -174,17 +174,42 @@
 .quest-stat-chip--contribution { cursor: help; }
 
 /* Per-grade contribution payouts inside the reward tooltip. */
-.contribution-grade-grid {
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 12px;
-  row-gap: 2px;
+.contribution-grade-table {
+  border-collapse: collapse;
   font-size: 12px;
-  border-top: 1px solid var(--border);
-  padding-top: 6px;
+  line-height: 1.5;
+  margin-top: 6px;
+  width: 100%;
 }
-.contribution-grade-label { color: var(--dim); }
-.contribution-grade-value { color: var(--text); font-weight: 600; text-align: right; }
+.contribution-grade-table thead th {
+  color: var(--dim);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: right;
+  padding: 0 0 3px;
+  border-bottom: 1px solid var(--border);
+}
+.contribution-grade-table tbody th {
+  color: var(--dim);
+  font-weight: 400;
+  text-align: right;
+  padding: 1px 0;
+}
+.contribution-grade-table td {
+  color: var(--text);
+  font-weight: 600;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  padding: 1px 0;
+}
+/* Gap between the two folded halves of the grade list. */
+.contribution-grade-table .contribution-grade-split { padding-left: 16px; }
+.contribution-grade-table tbody tr:nth-child(even) th,
+.contribution-grade-table tbody tr:nth-child(even) td {
+  background: rgba(127, 127, 127, 0.09);
+}
 
 .quest-reward-chip .item-thumb {
   width: 22px;
