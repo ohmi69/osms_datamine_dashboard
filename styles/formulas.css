@@ -317,6 +317,19 @@
   border: 1px solid rgba(255, 120, 60, 0.3);
 }
 
+/* COT1-diff tag: marks a step whose mechanic changed since Closed Online
+   Test 1. Violet so it reads as history, not as a verification status. */
+.formulas-cot1-tag {
+  color: #b48ce8;
+  background: rgba(150, 100, 220, 0.15);
+  border: 1px solid rgba(150, 100, 220, 0.35);
+}
+[data-theme="mapletip"] .formulas-cot1-tag {
+  color: #6a3fa0;
+  background: rgba(120, 70, 190, 0.1);
+  border-color: rgba(120, 70, 190, 0.4);
+}
+
 /* Validation tags sit next to a status tag - kept muted/cool so the
    provenance tag stays the one that reads first. */
 .formulas-validation-pending {
@@ -413,6 +426,35 @@
   left: 3px;
   color: var(--dim);
   font-weight: 700;
+}
+
+/* COT1-diff notes: what this step looked like in Closed Online Test 1 */
+.formulas-cot1-notes {
+  padding: 6px 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px dashed rgba(150, 100, 220, 0.35);
+  background: rgba(150, 100, 220, 0.05);
+}
+
+.formulas-cot1-notes .formulas-note {
+  margin-top: 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.formulas-cot1-notes .formulas-note::before {
+  content: 'Δ';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #b48ce8;
+  font-weight: 700;
+  font-size: 10px;
+}
+[data-theme="mapletip"] .formulas-cot1-notes .formulas-note::before {
+  color: #6a3fa0;
 }
 
 /* ── Variable legend ─────────────────────────────────────────── */

@@ -28,6 +28,11 @@ const BEHAVIOUR_BADGES = [
   { key: 'no_regen',   label: 'No Regen',   cls: 'elem-noregen',    title: 'Does not regenerate HP or MP' },
 ];
 
+const STAGGER_TOOLTIP =
+  'How long the mob is staggered after being hit. It cannot move, turn or start an attack ' +
+  'until this expires. Most mobs are 0.60s or 0.30s; the shorter ones re-engage twice as ' +
+  'fast. Taken from the length of the mob’s hit animation in the game data.';
+
 function describeAttack(attack) {
   const parts = [];
   if (attack.element) parts.push(attack.element);
@@ -208,6 +213,11 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
         { label: 'AVOID', value: monster.eva },
         { label: 'Speed', value: monster.speed },
         { label: 'KB',    value: monster.pushed },
+        {
+          label: 'Stagger',
+          value: monster.stagger ? `${(monster.stagger / 1000).toFixed(2)}s` : null,
+          title: STAGGER_TOOLTIP,
+        },
       ],
     },
     {
@@ -225,8 +235,9 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
     const group = el('div', { className: 'monster-stat-group' });
     group.appendChild(el('div', { className: 'monster-stat-group-label', textContent: label }));
     const grid = el('div', { className: 'monster-stat-grid' });
-    visible.forEach(({ label: sLabel, value, accent }) => {
+    visible.forEach(({ label: sLabel, value, accent, title }) => {
       const cell = el('div', { className: 'monster-stat-cell' });
+      if (title) cell.title = title;
       cell.appendChild(el('span', { className: 'monster-stat-label', textContent: sLabel }));
       cell.appendChild(
         el('span', { className: `monster-stat-value${accent ? ' accent' : ''}`, textContent: fmt(value) })
@@ -345,6 +356,7 @@ export function renderMonsters(data, options = {}) {
     { id: 'eva',      label: 'AVOID',   on: true  },
     { id: 'speed',    label: 'SPD',     on: false },
     { id: 'pushed',   label: 'KB',      on: false },
+    { id: 'stagger',  label: 'Stagger', on: false, title: STAGGER_TOOLTIP },
     { id: 'elements', label: 'Element', on: true  },
     { id: 'undead',   label: 'Undead',  on: false },
   ];
@@ -450,6 +462,7 @@ export function renderMonsters(data, options = {}) {
       const button = el('button', {
         className: `col-toggle${colState[col.id] ? ' active' : ''}`,
         textContent: col.label,
+        title: col.title || '',
       });
       button.addEventListener('click', () => {
         colState[col.id] = !colState[col.id];
@@ -521,6 +534,7 @@ export function renderMonsters(data, options = {}) {
         className: sortable ? 'num' : '',
         style: { ...thStyle, cursor: sortable ? 'pointer' : 'default' },
       });
+      if (col.title) th.title = col.title;
       const labelSpan = el('span', { textContent: sortCol === col.id ? `${col.label} ${sortDir === 1 ? '▲' : '▼'}` : col.label });
       th.appendChild(labelSpan);
       if (sortable) {
@@ -624,6 +638,14 @@ export function renderMonsters(data, options = {}) {
               className: 'num',
               style: tdBase,
               textContent: ratio > 0 ? ratio.toFixed(3) : '—',
+            })
+          );
+        } else if (col.id === 'stagger') {
+          row.appendChild(
+            el('td', {
+              className: 'num',
+              style: tdBase,
+              textContent: monster.stagger ? `${(monster.stagger / 1000).toFixed(2)}s` : '—',
             })
           );
         } else if (col.id === 'undead') {

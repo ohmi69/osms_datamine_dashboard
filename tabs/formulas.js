@@ -113,9 +113,36 @@ const ACTION_EXCEPTIONS = [
 // skip it entirely - that is 9 debuff skills, no attack skills.
 const ACCURACY_STEPS = [
   {
+    label: 'Base Accuracy & Avoidability',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Read from the stat-seeding routine in the client. All five class branches and their constants confirmed; the magician branch reads INT where every other class reads DEX.',
+    lines: [
+      'Common = Dex × 1.2 + Level × 2 + Luk × 0.6',
+      '',
+      'Beginner: Acc = Common / 2.5 + 5',
+      'Warrior: Acc = Common / 2.5 + 10',
+      'Magician: Acc = (Int × 1.2 + Level × 2 + Luk × 0.6) / 5.1 + 20',
+      'Bowman: Acc = Common / 4.8 + 20',
+      'Thief: Acc = Common / 4 + 15',
+      '',
+      'Avoid = Luk / 3 + Dex / 6 + 5',
+    ],
+    notes: [
+      'Every stat here is the total including equipment and buffs, not the base value.',
+      'Results are truncated to whole numbers.',
+    ],
+    cot1: {
+      notes: [
+        'COT1 used one classless formula with no level term: Acc = Dex / 3 + Luk / 6 + 5. The five per-class formulas and the level scaling are new.',
+      ],
+    },
+  },
+  {
     label: 'Physical & Magical Accuracy',
     wip: false,
-    // Status lives on the section header instead - this is the only step in the section.
+    status: 'ok',
+    statusNote: 'Read directly from the hit-test routine in the client.',
     lines: [
       'BaseChance = Acc × 100 / ((max(0, LevelDiff) × 2 + 51) × 5)',
       '',
@@ -131,11 +158,22 @@ const ACCURACY_STEPS = [
       'The client also auto-hits when BaseChance − Avoid ≥ 25 + LevelDiff × (Level / 2 + 15), but that needs Avoid above roughly 120 and the highest on any live mob is 64 (Gatekeeper), so it never decides a hit.',
       'A separate miss-chance debuff is rolled after a successful hit and can still turn it into a miss.',
     ],
+    cot1: {
+      notes: [
+        'In COT1 magic skipped the hit test entirely and always hit. The shared physical/magic check is new.',
+        'COT1\'s denominator was (LevelDiff + 51) × 5 - the ×2 on the level difference doubled the out-levelling penalty.',
+        'COT1\'s spread was 0.05 + 0.3 / (1 + exp(...)): a tighter band at high accuracy, so capping hit chance was cheaper.',
+        'COT1\'s auto-hit cutoff was a flat 25 with no level term, and the forced-miss debuff roll did not exist.',
+      ],
+    },
   },
 ];
 
 const ACCURACY_VARS = [
   { name: 'Acc',       desc: "Player's Accuracy stat value (one stat - used for both physical and magic)" },
+  { name: 'Dex',       desc: "Player's total DEX, including equipment and buffs" },
+  { name: 'Int',       desc: "Player's total INT, including equipment and buffs" },
+  { name: 'Luk',       desc: "Player's total LUK, including equipment and buffs" },
   { name: 'Avoid',     desc: "Enemy's Avoid stat value" },
   { name: 'Level',     desc: "Player's level" },
   { name: 'LevelDiff', desc: 'Enemy level minus player level, or 0 if player level ≥ enemy level' },
@@ -162,6 +200,11 @@ const BASE_DAMAGE_STEPS = [
       'Melee/stab with a Bow, Crossbow or Claw divides PrimaryStat and SecondaryStat by 300 instead of 100; swing also divides AttackPower by 150 instead of 50',
       'Prone Stab uses 20/30 in place of 80/100 and the same /300 and /150 divisors, and forces WepMult to 1',
     ],
+    cot1: {
+      notes: [
+        'Only Lucky Seven changed: COT1 forced a 2.6 weapon multiplier, raised to 3.0 in COT2.',
+      ],
+    },
   },
   {
     label: 'Magical Damage',
@@ -175,6 +218,11 @@ const BASE_DAMAGE_STEPS = [
     notes: [
       'The roll between MIN and MAX is a single uniform random per hit',
     ],
+    cot1: {
+      notes: [
+        'Rewritten since COT1, which used (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 × MasteryMult + BaseInt) / 100 + 1) - and read base Int only, so Int from equipment did not count in the bracket.',
+      ],
+    },
   },
   {
     label: 'Heal',
@@ -195,6 +243,11 @@ const BASE_DAMAGE_STEPS = [
       'TargetsHit is everyone the cast reaches - monsters, up to 15 of them, plus party members, up to 6. The party side counts at least 1, since the caster is always in range of their own Heal.',
       'HealBonus is a percentage buff slot that the client applies only to Heal, and no skill or item in the game is known to set it. It is applied before the split, so it raises the healing and the damage together.',
     ],
+    cot1: {
+      notes: [
+        'Same shape as COT1, but COT1 read base Int and base Luk from AP only - the switch to totals including equipment is new.',
+      ],
+    },
   },
   {
     label: 'Damage Over Time (DoT)',
@@ -212,6 +265,11 @@ const BASE_DAMAGE_STEPS = [
       'Every DoT skill in the game currently ticks once per second, so ticks and seconds are interchangeable here',
       'The Elemental Modifier, the Level Difference Penalty and the Critical Hit roll all apply to DoT, but DoT only ever uses the linear branch of the level penalty - see those steps',
     ],
+    cot1: {
+      notes: [
+        'Rewritten since COT1, which used (DoTBasicAttack + MagicAttack / 7) × ((MagicAttack + BaseInt) / 100 + 1) with base Int and a divisor of 100 - the 125 divisor is new.',
+      ],
+    },
   },
 ];
 
@@ -255,6 +313,12 @@ const MOD_PIPELINE_STEPS = [
       'Panic and Coma ignore that value and scale off the orb count instead. ComboBonus is a percentage, so at 1 to 5 orbs it is 0, 10, 30, 60 and 100 - a multiplier of ×1.0, ×1.1, ×1.3, ×1.6 and ×2.0',
       'This lands on the Skill Damage % before the base damage formula runs, so it multiplies the whole hit',
     ],
+    cot1: {
+      badge: 'New in COT2',
+      notes: [
+        'Combo Attack does not exist in COT1 - neither the skill nor the orb multiplier code path.',
+      ],
+    },
   },
   {
     label: 'Elemental Charge (White Knight)',
@@ -269,12 +333,37 @@ const MOD_PIPELINE_STEPS = [
       'ChargeDamage is the charge skill\'s own value, 2% at level 1 rising to 20% at level 30. Fire, Ice and Lightning Charge all use the same numbers',
       'Like Combo Attack, this lands on the Skill Damage % before the base damage formula runs',
     ],
+    cot1: {
+      badge: 'New in COT2',
+      notes: [
+        'The charge skills and this multiplier do not exist in COT1.',
+      ],
+    },
+  },
+  {
+    label: 'Defense Nullified (Armor Crash)',
+    wip: false,
+    status: 'partial',
+    statusNote: 'The branch is read directly from the client: the weapon-defense getter returns 0 outright when a flag on the monster is set, before any modifier is read. Tying that flag to Armor Crash is inference - the flag is set by the server, and Armor Crash is the only skill in the game data described as zeroing physical defense.',
+    lines: [
+      'If the monster is flagged, WeaponDefense = 0 and the step below is skipped entirely.',
+    ],
+    notes: [
+      'Armor Crash reduces a monster\'s Physical Defense to 0 rather than reducing it by a percentage, so it does not go through the modifier slots at all',
+      'Physical only. The magic-defense getter has no equivalent branch, matching the skill description',
+    ],
+    cot1: {
+      badge: 'New in COT2',
+      notes: [
+        'Neither the skill nor the branch exists in COT1 - Armor Crash\'s ID appears nowhere in that binary, and the defense build has no such check.',
+      ],
+    },
   },
   {
     label: 'Weapon Defense',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the physical damage routine and the enemy weapon-defense getter in the client.',
+    statusNote: 'Read directly from the physical damage routine and the enemy weapon-defense getter in the client, with both constants resolved.',
     lines: [
       'WeaponDefense = max(0, trunc(BaseWeaponDefense × (PercentEffects / 100 + 1)) + FlatEffects)',
       '',
@@ -284,10 +373,15 @@ const MOD_PIPELINE_STEPS = [
       'trunc() rounds toward zero (down for positive, up for negative)',
       'Applies to Physical damage only',
       'This is the monster side only. The damage a player takes uses the same stat names but a completely different formula, see the Damage Taken section',
-      'PercentEffects and FlatEffects are two separate modifier slots on the enemy, so the client fully supports both. There is still no in-game data for PercentEffects, and no known source of flat weapon defense (de)buffs',
+      'PercentEffects and FlatEffects are two separate modifier slots the monster carries. Threaten and Disorder are the two skills that lower a monster\'s Weapon Def',
       'Blunt Weapon Mastery and Crossbow Mastery both roll their listed Ignore Defense chance. On a proc, WeaponDefense is forced to 0, which makes this step ×1',
       'That roll happens once for the whole attack, not once per hit. On a multi-hit skill every hit ignores defense or none of them does - you never get a mix within one attack',
     ],
+    cot1: {
+      notes: [
+        'The formula is unchanged from COT1. What changed is the procs: COT1 only had the Crossbow Mastery Ignore Defense - the Blunt Weapon Mastery proc is new (in COT1 that skill was a stun passive).',
+      ],
+    },
   },
   {
     label: 'Magic Defense',
@@ -303,8 +397,14 @@ const MOD_PIPELINE_STEPS = [
       'Applies to Magical damage only',
       'Identical in shape to Weapon Defense, reading its own pair of percent and flat modifier slots on the enemy',
       'This is the monster side only. The damage a player takes uses the same stat names but a completely different formula - see the Damage Taken section',
-      'There is no Ignore Defense proc on the magic side',
+      'No skill in the game reduces a monster\'s Magic Def - every defense debuff in the data names Weapon Def. So the client supports these two slots, but nothing is currently known to fill them, and this step is in practice just the monster\'s printed Magic Def',
+      'There is no Ignore Defense proc on the magic side, and no equivalent of Armor Crash',
     ],
+    cot1: {
+      notes: [
+        'COT1 fed the raw monster stat straight in - its magic-defense getter is a two-instruction field read with no percent or flat lookup at all, so no debuff could ever lower the Magic Def your spells are divided by. The slots on the magic side are new, even though nothing fills them yet.',
+      ],
+    },
   },
   {
     label: 'Elemental Modifier',
@@ -329,6 +429,11 @@ const MOD_PIPELINE_STEPS = [
       'The two-element rule is what produces the 0.25, 0.5 and 1.5 multipliers, which a single-element attack can never reach. Element Composition against a monster weak to both of its elements gives 1.5, and against one immune to both it gives 0.0. The skill description says the same thing, that damage increases up to 1.5 times when the enemy is weak to both elements',
       'Anything outside this table falls back to 1.0',
     ],
+    cot1: {
+      notes: [
+        'COT1 had only the four single-element values (0, 0.75, 1.0, 1.25). The two-element blend, the 0.25/0.5/1.5 multipliers and Element Composition itself are all new.',
+      ],
+    },
   },
   {
     label: 'Level Difference Penalty',
@@ -388,6 +493,12 @@ const MOD_PIPELINE_STEPS = [
     ],
     notes: [
     ],
+    cot1: {
+      badge: 'New in COT2',
+      notes: [
+        'Shadow Partner and the second-half hit split do not exist in COT1.',
+      ],
+    },
   },
   {
     label: 'Clamp',
@@ -402,6 +513,11 @@ const MOD_PIPELINE_STEPS = [
       'The cap is 99,999. A single hit can never display more than that, whatever the numbers going in',
       'The floor means any hit that passes the accuracy check deals at least 1',
     ],
+    cot1: {
+      notes: [
+        'COT1\'s cap was 700,000,000,000, with per-hit damage stored as a 64-bit integer. The 99,999 cap is new.',
+      ],
+    },
   },
 ];
 
@@ -410,8 +526,8 @@ const MOD_VARS = [
   { name: 'BaseMagicDefense',  desc: "Enemy's magic defense stat, before modifiers" },
   { name: 'WeaponDefense',   desc: "Enemy's weapon defense after percent and flat modifiers, floored at 0" },
   { name: 'MagicDefense',    desc: "Enemy's magic defense after percent and flat modifiers, floored at 0" },
-  { name: 'PercentEffects',  desc: 'Sum of percent-based buffs/debuffs on the enemy defense stat being used. Weapon and magic defense read separate slots' },
-  { name: 'FlatEffects',     desc: 'Flat modifiers to the enemy defense stat being used. Supported by the client, but no skill or item in the game is known to set it' },
+  { name: 'PercentEffects',  desc: "A percentage modifier slot the monster carries for the defense stat being used. Weapon and magic defense read separate slots. On the weapon side this is what Threaten's -2% to -10% Weapon Def reduction feeds; nothing is known to fill the magic one" },
+  { name: 'FlatEffects',     desc: "A flat modifier slot the monster carries for the defense stat being used, added after the percentage. Disorder's small Weapon Def reduction is the likely source on the weapon side; nothing is known to fill the magic one" },
   { name: 'ElementalMult',   desc: "Elemental modifier from the monster's resistance to the attack's element: 0.0, 0.75, 1.0 or 1.25 for a normal attack, and any of 0.0, 0.25, 0.5, 0.75, 1.0, 1.25 or 1.5 for Element Composition" },
   { name: 'EnemyLevel',      desc: "Enemy's level" },
   { name: 'PlayerLevel',     desc: "Player's level" },
@@ -475,6 +591,12 @@ const GUARD_STEPS = [
       'ClawGuardBlockChance is the block chance listed on the skill: 3% at levels 1-6, 4% at 7-13, 5% at 14-20',
       'This roll reuses the same random number as the Shield Guard roll, and it only runs when that roll has already failed. Because the shield chance is never below 5% and Claw Guard never goes above 5%, Claw Guard cannot fire while a shield with any Weapon Defense is equipped - it only does anything for the throwing-star setup it was written for',
     ],
+    cot1: {
+      badge: 'New in COT2',
+      notes: [
+        'Claw Guard does not exist in COT1 - neither the skill nor its code path. Shields were the only source of guards.',
+      ],
+    },
   },
   {
     label: 'Incoming Damage',
@@ -488,6 +610,11 @@ const GUARD_STEPS = [
       "MonsterAttack is the monster's physical attack for a regular attack, its magic attack for a skill attack, after its own percent modifiers",
       'Fixed-damage attacks take a third path that skips every step below, including defense',
     ],
+    cot1: {
+      notes: [
+        'The roll is unchanged from COT1. The fixed-damage path existed there only as an empty stub returning 0 - COT2 implemented it.',
+      ],
+    },
   },
   {
     label: 'Player Defense',
@@ -507,6 +634,11 @@ const GUARD_STEPS = [
       'Because DefenseScale grows with your level, the same defense is worth less as you level. 300 Weapon Defense cuts about 39% off a 100 damage hit at level 30, but only about 25% at level 120',
       'Because DefenseScale grows with the hit, defense helps most against chip damage and least against what can kill you',
     ],
+    cot1: {
+      notes: [
+        'COT1 had no level term at all: DamageTaken = IncomingDamage / (1 + Defense / (5 × IncomingDamage)). There, defense crushed chip damage but did little against big hits - COT2\'s scale rework flipped that and made defense decay as you level.',
+      ],
+    },
   },
   {
     label: 'Result',
@@ -664,13 +796,21 @@ function makeStatusTag(status, statusNote, validated) {
 
 function buildPipeline(steps) {
   const frag = document.createDocumentFragment();
-  steps.forEach(({ label, wip, status, statusNote, validated, lines, notes }, i) => {
+  steps.forEach(({ label, wip, status, statusNote, validated, lines, notes, cot1 }, i) => {
     const step = el('div', { className: 'formulas-pipeline-step' });
 
     const stepHeader = el('div', { className: 'formulas-pipeline-header' });
     stepHeader.appendChild(el('span', { className: 'formulas-pipeline-badge', textContent: i + 1 }));
     stepHeader.appendChild(el('span', { className: 'formulas-pipeline-title', textContent: label }));
     if (wip) stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
+    if (cot1) {
+      const cot1Tag = el('span', {
+        className: 'formulas-status-tag formulas-cot1-tag',
+        textContent: cot1.badge ?? 'Changed from COT1',
+      });
+      attachTooltip(cot1Tag, 'This mechanic differs from Closed Online Test 1 - the Δ notes below say how. Both sides are read from the respective client binaries.');
+      stepHeader.appendChild(cot1Tag);
+    }
     if (status) stepHeader.appendChild(makeStatusTag(status, statusNote, validated));
     step.appendChild(stepHeader);
 
@@ -685,6 +825,12 @@ function buildPipeline(steps) {
       const noteWrap = el('div', { className: 'formulas-pipeline-notes' });
       notes.forEach(n => noteWrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
       step.appendChild(noteWrap);
+    }
+
+    if (cot1?.notes?.length) {
+      const cot1Wrap = el('div', { className: 'formulas-cot1-notes' });
+      cot1.notes.forEach(n => cot1Wrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
+      step.appendChild(cot1Wrap);
     }
 
     frag.appendChild(step);
@@ -896,6 +1042,13 @@ function buildExpTable() {
   });
   formulaWrap.appendChild(block);
   container.appendChild(formulaWrap);
+
+  const cot1Note = el('div', { className: 'formulas-cot1-notes' });
+  cot1Note.appendChild(el('div', {
+    className: 'formulas-note',
+    textContent: 'COT1 used the same two rules but capped at level 50 - the ×1.0548 tail past level 50 is new in COT2, and the 1.0548 constant does not exist in the COT1 client at all.',
+  }));
+  container.appendChild(cot1Note);
 
   const split = el('div', { className: 'formulas-exp-split' });
   const tableWrap = el('div', { className: 'formulas-table-wrap formulas-exp-tablewrap' });
