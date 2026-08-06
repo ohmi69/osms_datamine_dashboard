@@ -283,6 +283,7 @@ const MOD_PIPELINE_STEPS = [
     notes: [
       'trunc() rounds toward zero (down for positive, up for negative)',
       'Applies to Physical damage only',
+      'This is the monster side only. The damage a player takes uses the same stat names but a completely different formula - see the Damage Taken section',
       'PercentEffects and FlatEffects are two separate modifier slots on the enemy, so the client fully supports both. There is still no in-game data for PercentEffects, and no known source of flat weapon defense (de)buffs',
       'Blunt Weapon Mastery and Crossbow Mastery both roll their listed Ignore Defense chance. On a proc, WeaponDefense is forced to 0, which makes this step ×1',
       'That roll happens once for the whole attack, not once per hit. On a multi-hit skill every hit ignores defense or none of them does - you never get a mix within one attack',
@@ -301,6 +302,7 @@ const MOD_PIPELINE_STEPS = [
     notes: [
       'Applies to Magical damage only',
       'Identical in shape to Weapon Defense, reading its own pair of percent and flat modifier slots on the enemy',
+      'This is the monster side only. The damage a player takes uses the same stat names but a completely different formula - see the Damage Taken section',
       'There is no Ignore Defense proc on the magic side',
     ],
   },
@@ -425,7 +427,7 @@ const MOD_VARS = [
 ];
 
 
-// ─── Guard (damage taken) ─────────────────────────────────────
+// ─── Damage taken ─────────────────────────────────────────────
 
 const GUARD_STEPS = [
   {
@@ -456,11 +458,8 @@ const GUARD_STEPS = [
     ],
     notes: [
       'Only the shield slot counts. Weapon Defense from armour, accessories, buffs or skills adds nothing to the guard chance',
-      'Sword Mastery is the case worth calling out, since it grants up to +90 Weapon Defense. That bonus goes to the same Weapon Defense the damage-taken formula uses, so it does reduce the damage of every hit that lands, but it is not part of the guard roll and will not make you guard any more often',
-      'Magic Defense is not part of this at all, on the shield or anywhere else. The mage shields carry most of their defense as Magic Defense and only a little Weapon Defense, so they sit at or barely above the 5% floor - a Mystic Shield guards exactly as often as a shield with 1 Weapon Defense would',
       'Any shield at all gives at least 5%, and the chance reaches 50% at 500 shield Weapon Defense',
       'Scrolled Weapon Defense on the shield counts',
-      'Throwing stars sit in the shield slot but carry no Weapon Defense, so claw users never get this roll',
     ],
   },
   {
@@ -478,17 +477,52 @@ const GUARD_STEPS = [
     ],
   },
   {
+    label: 'Incoming Damage',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Read directly from the two damage-taken routines and the monster attack-value getters in the client.',
+    lines: [
+      'IncomingDamage = MonsterAttack × (1.1 + 0.4 × rand(0, 1))',
+    ],
+    notes: [
+      "MonsterAttack is the monster's physical attack for a regular attack, its magic attack for a skill attack, after its own percent modifiers",
+      'Fixed-damage attacks take a third path that skips every step below, including defense',
+    ],
+  },
+  {
+    label: 'Player Defense',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Read directly from both damage-taken routines in the client, with every constant resolved.',
+    lines: [
+      'Defense = WeaponDefense for a regular attack, MagicDefense for a skill attack',
+      '',
+      'DefenseScale = 5 × PlayerLevel + 200 + 1.2 × IncomingDamage',
+      '',
+      'DamageTaken = IncomingDamage / (1 + Defense / DefenseScale)',
+    ],
+    notes: [
+      'Same shape as the monster-side Weapon Defense and Magic Defense steps, which are IncomingDamage / (1 + Defense / 100). The difference is that a monster\'s scale is a fixed 100 while yours grows',
+      'Defense equal to DefenseScale halves the hit, twice it cuts the hit to a third. It never reaches zero',
+      'Because DefenseScale grows with your level, the same defense is worth less as you level. 300 Weapon Defense cuts about 39% off a 100 damage hit at level 30, but only about 25% at level 120',
+      'Because DefenseScale grows with the hit, defense helps most against chip damage and least against what can kill you',
+    ],
+  },
+  {
     label: 'Result',
     wip: false,
     status: 'ok',
     statusNote: 'Read directly from the client - the damage is computed and then discarded on anything other than a clean hit.',
     lines: [
+      'DamageTaken = clamp(DamageTaken, 1, 50000000), truncated',
+      '',
+      'DamageTaken = 0 if the hit missed or was guarded',
     ],
     notes: [
+      'Any hit that lands takes at least 1 HP, no matter how much defense you have',
       'Guard is a full negation, not a reduction. The client still runs the whole damage calculation and then throws the number away, exactly as it does for a miss',
-      'A guarded hit shows no damage number at all',
       'Guard is only rolled for a monster\'s regular attack. Monster skill attacks take a separate path that always resolves as a hit',
-      'An attack can be flagged unmissable and still be guarded - the guard rolls sit after the accuracy check, not inside it',
+      'An attack can be flagged unmissable and still be guarded, the guard rolls sit after the accuracy check, not inside it',
     ],
   },
 ];
@@ -497,6 +531,11 @@ const GUARD_VARS = [
   { name: 'ShieldDefense', desc: 'Weapon Defense of the item equipped in the shield slot, scrolls included. Nothing else feeds this value' },
   { name: 'GuardChance',   desc: 'Chance for the hit to be negated outright' },
   { name: 'ClawGuardBlockChance', desc: "Claw Guard's block chance for the learned level (3, 4 or 5)" },
+  { name: 'MonsterAttack', desc: "The monster's physical attack for a regular attack, or its magic attack for a skill attack, after its own percent modifiers" },
+  { name: 'IncomingDamage', desc: 'The rolled damage of the hit, before the player\'s defense is applied' },
+  { name: 'Defense',       desc: "The player's Weapon Defense against a regular attack, or Magic Defense against a skill attack, from the Stats panel" },
+  { name: 'DefenseScale',  desc: 'How much defense is worth one unit of the tug-of-war. Defense equal to this halves the hit; twice this cuts it to a third' },
+  { name: 'PlayerLevel',   desc: "Player's level" },
   { name: 'DamageTaken',   desc: 'HP actually lost from the hit' },
 ];
 
@@ -1108,7 +1147,7 @@ export function renderFormulas() {
   modsCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
   modsSection.querySelector('.left').appendChild(modsCredit);
 
-  const guardSection = makeCollapsibleSection('Guard', '', buildGuardSection);
+  const guardSection = makeCollapsibleSection('Damage Taken', '', buildGuardSection);
   guardSection.querySelector('.right').appendChild(
     makeStatusTag('ok', 'Read directly from the damage-taken routine in the client, which resolves every incoming hit as hit, miss or guard.')
   );
