@@ -116,7 +116,7 @@ const ACCURACY_STEPS = [
     label: 'Base Accuracy & Avoidability',
     wip: false,
     status: 'ok',
-    statusNote: 'Read from the stat-seeding routine in the client. All five class branches and their constants confirmed; the magician branch reads INT where every other class reads DEX.',
+    statusNote: 'Read from the stat-seeding routine in the client. All five class branches and their constants confirmed; the magician branch reads INT where every other class reads DEX',
     lines: [
       'Common = Dex × 1.2 + Level × 2 + Luk × 0.6',
       '',
