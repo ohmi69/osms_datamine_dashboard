@@ -63,7 +63,7 @@ const WEAPON_MULTS = [
   ['Dagger*',         1,   2,   '-', 1.5],
   ['Wand',            1.8, 1.8, '-', 1.8],
   ['Staff',           1.8, 1.8, '-', 1.8],
-  ['Knuckle',         1,   1,   1,   1  ],
+  ['Barehanded',      1,   1,   1,   1  ],
 ];
 
 // ─── Accuracy ────────────────────────────────────────────────
@@ -92,7 +92,7 @@ const ACCURACY_STEPS = [
     ],
     notes: [
       'exp() is the exponential function',
-      'Nine skills skip this check entirely and always land: Armor Crash, Threaten, Elemental Crash, Power Crash, Slow, Seal and Doom. They are all monster debuffs, which land on their own success rate instead. No attack skill is exempt.',
+      'Nine skills skip this check entirely and always land: Armor Crash, Threaten, Elemental Crash, Power Crash, Doom, and both versions of Slow and Seal (one each for the Fire/Poison and Ice/Lightning lines). They are all monster debuffs, which land on their own success rate instead. No attack skill is exempt.',
       'AutoHit skips the roll entirely. It can only ever change the outcome against Avoid above roughly 120, and the highest Avoid on any live mob is 64 (Gatekeeper), so in practice it never decides a hit.',
       'A separate miss-chance debuff is rolled after a successful hit and can still turn it into a miss.',
     ],
@@ -123,6 +123,7 @@ const BASE_DAMAGE_STEPS = [
       'WepMult is a single value chosen by the attack action - see the Weapon Multipliers table',
       'Lucky Seven uses a 3.0 multi instead of the Claw\'s 2.5.',
       'Lucky Seven is the only skill in the client that gets a special weapon multiplier',
+      'Combo Attack and the Knight elemental charges both raise the Skill Damage % before anything else happens - see the Damage Modifications section',
       'Melee/stab with a Bow, Crossbow or Claw divides PrimaryStat and SecondaryStat by 300 instead of 100; swing also divides AttackPower by 150 instead of 50',
       'Prone Stab uses 20/30 in place of 80/100 and the same /300 and /150 divisors, and forces WepMult to 1',
     ],
@@ -150,18 +151,21 @@ const BASE_DAMAGE_STEPS = [
       '',
       'Roll = rand(0.8, 1.0)',
       '',
+      'HealAmount = HealAmount × (HealBonus / 100 + 1)',
+      '',
       'Damage = HealAmount / TargetsHit × 0.5',
     ],
     notes: [
       'RecoveryRate is the recovery rate listed on the skill itself.',
-      'TargetsHit is everyone the cast reaches - monsters, up to 15 of them, plus party members, up to 6.',
+      'TargetsHit is everyone the cast reaches - monsters, up to 15 of them, plus party members, up to 6. The party side counts at least 1, since the caster is always in range of their own Heal.',
+      'HealBonus is a percentage buff slot that the client applies only to Heal, and no skill or item in the game is known to set it. It is applied before the split, so it raises the healing and the damage together.',
     ],
   },
   {
     label: 'Damage Over Time (DoT)',
     wip: false,
-    status: 'ok',
-    statusNote: 'Read directly from the damage-over-time routine in the client.',
+    status: 'partial',
+    statusNote: 'The total is read directly from the damage-over-time routine in the client. The split into per-tick damage is not: the client computes the total and never divides it, so that line comes from the skill descriptions, which say the listed value is the total dealt over the duration.',
     lines: [
       'TotalDamage = (DoTBasicAttack / 100) × MagicAttack × (TotalInt / 125 + 1)',
       '',
@@ -171,7 +175,7 @@ const BASE_DAMAGE_STEPS = [
       'DoT damage ignores all Defense reductions - the routine never reads the enemy\'s weapon or magic defense at all',
       'Note the divisor is 125, not the 100 used everywhere else',
       'Every DoT skill in the game currently ticks once per second, so ticks and seconds are interchangeable here',
-      'The Level Difference Penalty applies, but DoT only ever uses its linear branch - see that step',
+      'The Elemental Modifier, the Level Difference Penalty and the Critical Hit roll all apply to DoT, but DoT only ever uses the linear branch of the level penalty - see those steps',
     ],
   },
 ];
@@ -183,7 +187,7 @@ const BASE_DAMAGE_VARS = [
   { name: 'AttackPower',   desc: 'Attack from all gear other than the weapon and shield, plus buffs' },
   { name: 'WeaponAttack',  desc: 'Attack from the weapon and shield (5 if barehanded), plus Stars and Arrows' },
   { name: 'WepMult',       desc: 'Weapon multiplier for the attack action used - see Weapon Multipliers table' },
-  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8, where MasteryLevel runs 1 to 10. Physical attacks read MasteryLevel from the weapon mastery skill for the equipped weapon; magic attacks read it from the attacking skill\'s own data instead, so a weapon mastery skill never affects magic. Exception: Lucky Seven ignores mastery entirely and uses a flat 0.5, the same as a MasteryLevel of 5.25' },
+  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8, where MasteryLevel runs 1 to 10. Physical attacks read MasteryLevel from the weapon mastery skill for the equipped weapon; magic attacks read it from the attacking skill\'s own data instead, so a weapon mastery skill never affects magic. Exception: Lucky Seven ignores mastery skills entirely and takes its multiplier straight from its own skill data, which is 0.5 at every level - the same as a MasteryLevel of 5.25' },
   { name: 'BasicAttack',   desc: 'Basic Attack value listed on the skill, for magic skills only' },
   { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
   { name: 'MagicAttack',        desc: 'TotalInt / 2 + EquipmentMagicAttack (MAGIC value shown in UI)' },
@@ -191,13 +195,44 @@ const BASE_DAMAGE_VARS = [
   { name: 'TotalInt',      desc: 'Total Int, including Equipment and Scrolls' },
   { name: 'TotalLuk',      desc: 'Total Luk, including Equipment and Scrolls' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
-  { name: 'TargetsHit',    desc: 'Total targets hit: enemies + caster + allies in range' },
+  { name: 'TargetsHit',    desc: 'Total targets hit: enemies (max 15) + caster + allies in range (max 6 including the caster)' },
+  { name: 'HealBonus',     desc: 'Percentage bonus the client applies to Heal only. Supported by the client, but no skill or item in the game is known to set it' },
   { name: 'DoTDurationSeconds', desc: 'Duration of the DoT effect in seconds' },
 ];
 
 // ─── Damage Modifications ─────────────────────────────────────
 
 const MOD_PIPELINE_STEPS = [
+  {
+    label: 'Combo Attack (Crusader)',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Read directly from the physical damage routine and the combo multiplier function it calls, including the job check and the two Panic/Coma skill IDs.',
+    lines: [
+      'Panic and Coma:  SkillMult = SkillMult × (Orbs × (Orbs − 1) × 5 / 100 + 1)',
+      'Everything else: SkillMult = SkillMult × (ComboDamage / 100 + 1)',
+    ],
+    notes: [
+      'Only applies while Combo Attack is active and at least one orb is stacked',
+      'ComboDamage is Combo Attack\'s own damage bonus, 5% at level 1 rising to 20% at level 30',
+      'Panic and Coma ignore that value and scale off the orb count instead: ×1.0 at 1 orb, then ×1.1, ×1.3, ×1.6 and ×2.0 at 5 orbs',
+      'This lands on the Skill Damage % before the base damage formula runs, so it multiplies the whole hit',
+    ],
+  },
+  {
+    label: 'Elemental Charge (White Knight)',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Read directly from the physical damage routine, including the job check and the read of the active charge skill\'s own damage value.',
+    lines: [
+      'SkillMult = SkillMult × (ChargeDamage / 100 + 1)',
+    ],
+    notes: [
+      'Only applies while a charge is active',
+      'ChargeDamage is the charge skill\'s own value, 2% at level 1 rising to 20% at level 30. Fire, Ice and Lightning Charge all use the same numbers',
+      'Like Combo Attack, this lands on the Skill Damage % before the base damage formula runs',
+    ],
+  },
   {
     label: 'Weapon Defense',
     wip: false,
@@ -263,7 +298,7 @@ const MOD_PIPELINE_STEPS = [
       '  LevelDiff ≥ 10:  Damage = Damage / (LevelDiff × 0.05 + 1)',
     ],
     notes: [
-      'The two branches meet exactly at LevelDiff 10, where both give a ×0.5 penalty',
+      'The two branches meet exactly at LevelDiff 10, where the penalty term is 0.5 either way - the damage is divided by 1.5, so about a third of it is lost',
       'Damage Over Time is the exception: it only ever uses the linear LevelDiff × 0.05 branch. That branch is the harsher of the two below LevelDiff 10, so a DoT is penalised more than a direct hit when the enemy is 1-9 levels above you, and identically at 10 or more',
     ],
   },
@@ -271,7 +306,7 @@ const MOD_PIPELINE_STEPS = [
     label: 'Critical Hit',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the crit roll in the client.',
+    statusNote: 'Read directly from the crit roll in the client, which appears identically in the physical, magic and damage-over-time routines.',
     lines: [
       'IsCrit = rand(0, 99) < CritRate',
       '',
@@ -280,6 +315,7 @@ const MOD_PIPELINE_STEPS = [
     notes: [
       'CritRate and CritDamage are the two values shown in the Stats panel',
       'Power Knockback is hard-coded to always crit, whatever your CritRate is - matching its skill description',
+      'Damage over time rolls this too, so a burn or a bleed tick can crit',
     ],
   },
   {
@@ -297,15 +333,16 @@ const MOD_PIPELINE_STEPS = [
     ],
   },
   {
-    label: 'Shadow Partner (NL only)',
+    label: 'Shadow Partner (Hermit)',
     wip: false,
     status: 'partial',
-    statusNote: 'The step is read directly from the client',
+    statusNote: 'The step is read directly from the client, but nothing in the code names the skill - there is no skill ID check, only a flag carried on the attack, so the attribution to Shadow Partner is inference.',
     lines: [
       'Damage = Damage × PartnerDamage / 100',
       '  applied only to hits in the second half of the hit list',
     ],
-    
+    notes: [
+    ],
   },
   {
     label: 'Clamp',
@@ -338,6 +375,10 @@ const MOD_VARS = [
   { name: 'CritDamage',      desc: 'Critical damage % from the Stats panel (e.g. 20 → a ×1.2 multiplier)' },
   { name: 'ConsecutiveHits', desc: 'Iron Arrow: 0 for first mob hit, 1 for second, etc.' },
   { name: 'PartnerDamage',   desc: "Shadow Partner's damage %, carried on the attack" },
+  { name: 'SkillMult',       desc: 'Skill Damage % as a decimal, the same value the Base Damage formulas use' },
+  { name: 'Orbs',            desc: 'Combo Attack orbs stacked when the skill is cast, 1 to 5' },
+  { name: 'ComboDamage',     desc: "Combo Attack's damage bonus % for the learned level (5 at level 1, 20 at level 30)" },
+  { name: 'ChargeDamage',    desc: "The active elemental charge's damage bonus % for the learned level (2 at level 1, 20 at level 30)" },
 ];
 
 
@@ -874,7 +915,7 @@ function buildWeaponMultTable() {
   container.appendChild(table);
 
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing / Stab are the normal melee actions, Shoot covers bow, crossbow and claw attacks, and Other applies when a skill uses its own custom animation (e.g. Rush, Assaulter)' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Swinging or stabbing with a bow, crossbow or claw gives a flat 1.0 and divides the stat terms by 300 instead of 100. Knuckle has no entry at all and always uses 1.0.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Swinging or stabbing with a bow, crossbow or claw gives a flat 1.0 and divides the stat terms by 300 instead of 100.' }));
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: '* Dagger uses the Stab multiplier when stabbing. Savage Blow and Double Stab always Stab. Steal uses both.' }));
 
   return container;
