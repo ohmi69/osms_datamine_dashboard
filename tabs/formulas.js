@@ -921,7 +921,7 @@ export function renderFormulas() {
   const disclaimer = el('div', { className: 'formulas-disclaimer' });
   const disclaimerText = el('span');
   disclaimerText.appendChild(el('strong', { textContent: 'Warning: ' }));
-  disclaimerText.append('Each formula carries two tags. The first says where it came from: Code Verified means it was read straight out of the COT2 game files, and Partly Code Verified means the formula came out of the files but one detail - usually which skill it belongs to - is still a guess. The second tag says whether anyone has checked it against live gameplay. Requires Validation means nobody has yet, so if what you see in-game disagrees with the numbers here, please report it.');
+  disclaimerText.append('Every formula has two tags. Code Verified means it came out of the COT2 game files. Partly Code Verified means the same, except some detail is a guess, usually which skill it applies to. Requires Validation means nobody has tested it in-game yet, so if the numbers do not match what you see, let us know.');
   disclaimer.appendChild(disclaimerText);
   wrapper.appendChild(disclaimer);
 

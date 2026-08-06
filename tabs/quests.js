@@ -540,6 +540,24 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
   return card;
 }
 
+const CITIZENSHIP_REGION = 'Citizenship';
+
+// The four job regions are one system - a pill each buried among the towns read
+// as four unrelated places - so they collapse into a single synthetic region
+// with the job itself demoted to a subfilter.
+const JOB_ADVANCEMENT_REGION = 'Job Advancement';
+const JOB_REGIONS = ['Warrior', 'Magician', 'Bowman', 'Thief'];
+const SYSTEM_REGIONS = [JOB_ADVANCEMENT_REGION, CITIZENSHIP_REGION, 'Crafting'];
+
+// Residency quests belong to one town, named on the contribution they pay out.
+// The two intro quests ("become a resident") pay no contribution and belong to
+// neither town - they gate both, so they survive any town filter.
+function getQuestTown(quest) {
+  const contribution = quest.rewards_contribution
+    || (Array.isArray(quest.rewards) ? quest.rewards.find(r => r.type === 'citizenship_contribution') : null);
+  return contribution?.town_name || null;
+}
+
 export function renderQuests(data, options = {}) {
   const { quests } = data;
   const itemById = new Map(
@@ -551,6 +569,8 @@ export function renderQuests(data, options = {}) {
   let searchQuery = '';
   let autoExpandAfterId = null;
   let regionFilter = 'All';
+  let townFilter = 'All';
+  let jobFilter = 'All';
   const sortByLevel = true;
   const completionState = loadCompletionState();
   const expandedIds = new Set();
@@ -571,28 +591,133 @@ export function renderQuests(data, options = {}) {
   });
 
   function updateFilterUrl() {
-    Router.updateFilter('quests', regionFilter !== 'All' ? { region: regionFilter } : {});
+    const params = {};
+    if (regionFilter !== 'All') params.region = regionFilter;
+    if (regionFilter === CITIZENSHIP_REGION && townFilter !== 'All') params.town = townFilter;
+    if (regionFilter === JOB_ADVANCEMENT_REGION && jobFilter !== 'All') params.job = jobFilter;
+    Router.updateFilter('quests', params);
+  }
+
+  const citizenshipTowns = [...new Set(
+    (quests.quests || [])
+      .filter(q => q.region === CITIZENSHIP_REGION)
+      .map(getQuestTown)
+      .filter(Boolean)
+  )].sort();
+
+  let townPillGroup = null;
+  let townFilterRow = null;
+  let jobPillGroup = null;
+  let jobFilterRow = null;
+
+  // A subfilter row is only meaningful while its parent region is selected, so it
+  // is shown and reset alongside that pill rather than sitting stale underneath
+  // some unrelated region.
+  function syncSubFilterRows() {
+    if (townFilterRow) {
+      const show = regionFilter === CITIZENSHIP_REGION;
+      townFilterRow.style.display = show ? '' : 'none';
+      if (!show && townFilter !== 'All') {
+        townFilter = 'All';
+        townPillGroup.setActive('All');
+      }
+    }
+    if (jobFilterRow) {
+      const show = regionFilter === JOB_ADVANCEMENT_REGION;
+      jobFilterRow.style.display = show ? '' : 'none';
+      if (!show && jobFilter !== 'All') {
+        jobFilter = 'All';
+        jobPillGroup.setActive('All');
+      }
+    }
   }
 
   const hasRegions = Array.isArray(quests.regions) && quests.regions.length > 0;
-  const regions = ['All', ...(quests.regions || [])];
+  const allRegions = quests.regions || [];
+  const jobRegions = JOB_REGIONS.filter(r => allRegions.includes(r));
+  // Job Advancement is synthetic - it stands in for the four job regions, which
+  // are no longer pills of their own.
+  const systemRegions = SYSTEM_REGIONS.filter(
+    r => allRegions.includes(r) || (r === JOB_ADVANCEMENT_REGION && jobRegions.length > 0)
+  );
+  // Crafting, Citizenship and job advancement are systems rather than places, and
+  // are easy to miss at the tail of a long row of towns - so they get their own row.
+  const hiddenFromPlaces = new Set([...systemRegions, ...jobRegions]);
+  const placeRegions = ['All', ...allRegions.filter(r => !hiddenFromPlaces.has(r))];
+
   let regionPillGroup = null;
+  let systemPillGroup = null;
+
+  // Region lives in one variable but is split across two pill groups, so both get
+  // told about every change - the group without a matching pill just clears.
+  function selectRegion(value) {
+    regionFilter = value;
+    regionPillGroup?.setActive(value);
+    systemPillGroup?.setActive(value);
+    syncSubFilterRows();
+    hideFilterBanner();
+    updateFilterUrl();
+    renderData();
+  }
+
   if (hasRegions) {
     const filterRow = el('div', { className: 'filter-row' });
     regionPillGroup = makePillGroup(
-      regions.map((r) => ({ label: r, value: r })),
+      placeRegions.map((r) => ({ label: r, value: r })),
       regionFilter,
-      (value) => {
-        regionFilter = value;
-        regionPillGroup.setActive(value);
-        hideFilterBanner();
-        updateFilterUrl();
-        renderData();
-      }
+      selectRegion
     );
     filterRow.appendChild(regionPillGroup);
     container.appendChild(filterRow);
+
+    if (systemRegions.length) {
+      const systemRow = el('div', { className: 'filter-row' });
+      systemPillGroup = makePillGroup(
+        systemRegions.map((r) => ({ label: r, value: r })),
+        regionFilter,
+        selectRegion,
+        { groupLabel: 'Systems' }
+      );
+      systemRow.appendChild(systemPillGroup);
+      container.appendChild(systemRow);
+    }
   }
+
+  if (jobRegions.length > 1) {
+    jobFilterRow = el('div', { className: 'filter-row' });
+    jobPillGroup = makePillGroup(
+      ['All', ...jobRegions].map((j) => ({ label: j, value: j })),
+      jobFilter,
+      (value) => {
+        jobFilter = value;
+        jobPillGroup.setActive(value);
+        updateFilterUrl();
+        renderData();
+      },
+      { groupLabel: 'Job' }
+    );
+    jobFilterRow.appendChild(jobPillGroup);
+    container.appendChild(jobFilterRow);
+  }
+
+  if (citizenshipTowns.length > 1) {
+    townFilterRow = el('div', { className: 'filter-row' });
+    townPillGroup = makePillGroup(
+      ['All', ...citizenshipTowns].map((t) => ({ label: t, value: t })),
+      townFilter,
+      (value) => {
+        townFilter = value;
+        townPillGroup.setActive(value);
+        updateFilterUrl();
+        renderData();
+      },
+      { groupLabel: 'Town' }
+    );
+    townFilterRow.appendChild(townPillGroup);
+    container.appendChild(townFilterRow);
+  }
+
+  syncSubFilterRows();
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);
@@ -617,8 +742,20 @@ export function renderQuests(data, options = {}) {
     const exactId = parseIdFilter(searchQuery);
     const allQuests = quests.quests.filter((quest) => {
       if (exactId != null) return Number(quest.id) === exactId;
+      const town = getQuestTown(quest);
+      const townMatches = regionFilter !== CITIZENSHIP_REGION
+        || townFilter === 'All'
+        || town === null
+        || town === townFilter;
+      // Job Advancement is not a value any quest carries - it matches the four
+      // job regions, narrowed to one by the Job subfilter.
+      const regionMatches = regionFilter === 'All'
+        || (regionFilter === JOB_ADVANCEMENT_REGION
+          ? jobRegions.includes(quest.region) && (jobFilter === 'All' || quest.region === jobFilter)
+          : quest.region === regionFilter);
       return (
-        (regionFilter === 'All' || quest.region === regionFilter) &&
+        regionMatches &&
+        townMatches &&
         (matchSearch(quest.name, searchQuery) || matchSearch(quest.description, searchQuery) || matchSearch(quest.npc_name, searchQuery) || matchSearch(quest.rewards_items, searchQuery))
       );
     });
@@ -704,12 +841,38 @@ export function renderQuests(data, options = {}) {
   if (options.initialParams) {
     const region = options.initialParams.get('region');
     if (region && region !== 'All') {
-      regionFilter = region;
+      // Links predating the Job Advancement grouping point straight at a job
+      // region, so they land on the group with that job preselected.
+      if (jobRegions.includes(region)) {
+        regionFilter = JOB_ADVANCEMENT_REGION;
+        jobFilter = region;
+      } else {
+        regionFilter = region;
+      }
+      const job = options.initialParams.get('job');
+      if (regionFilter === JOB_ADVANCEMENT_REGION && job && jobRegions.includes(job)) {
+        jobFilter = job;
+      }
+      const town = options.initialParams.get('town');
+      if (regionFilter === CITIZENSHIP_REGION && town && citizenshipTowns.includes(town)) {
+        townFilter = town;
+      }
       regionPillGroup?.setActive(regionFilter);
+      systemPillGroup?.setActive(regionFilter);
+      jobPillGroup?.setActive(jobFilter);
+      townPillGroup?.setActive(townFilter);
+      syncSubFilterRows();
       updateFilterUrl();
-      showFilterBanner(regionFilter, () => {
+      const subLabel = townFilter !== 'All' ? townFilter : (jobFilter !== 'All' ? jobFilter : null);
+      showFilterBanner(subLabel ? `${regionFilter} · ${subLabel}` : regionFilter, () => {
         regionFilter = 'All';
         regionPillGroup?.setActive('All');
+        systemPillGroup?.setActive('All');
+        townFilter = 'All';
+        townPillGroup?.setActive('All');
+        jobFilter = 'All';
+        jobPillGroup?.setActive('All');
+        syncSubFilterRows();
         updateFilterUrl();
         renderData();
       });
