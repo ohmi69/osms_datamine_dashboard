@@ -1,4 +1,5 @@
 import { el } from '../lib/utils.js';
+import { buildCalcLauncher } from './formulas-calc.js';
 
 const EXP_TABLE = [
   [1, 2, 15], [2, 3, 34], [3, 4, 57], [4, 5, 92], [5, 6, 135],
@@ -649,9 +650,31 @@ function buildModsSection() {
   return container;
 }
 
+// ─── Damage taken calculator ──────────────────────────────────
+
+// Filled in by renderFormulasCot1 from the COT1 patch dataset, so the calculator
+// lists COT1's mobs with COT1's attack stats.
+let CALC_MONSTERS = [];
+
+// COT1's defense scale is 5 × the hit itself - no level term, no constant.
+const CALC_CONFIG = {
+  get monsters() { return CALC_MONSTERS; },
+  scale: (incoming) => 5 * incoming,
+  scaleTerms: (incoming) => `5 × ${incoming.toLocaleString()}`,
+  useLevel: false,
+  notes: (magic) => [
+    'Assumes the attack lands. A miss deals 0, and the accuracy roll is not modelled here',
+    magic
+      ? 'Monster skill attacks cannot miss or be guarded, and they read your Magic Defense'
+      : 'Regular attacks read your Weapon Defense and can be missed or guarded',
+    'Your level does not appear anywhere in the COT1 defense step, so there is no level input',
+  ],
+};
+
 function buildGuardSection() {
   const container = el('div', { className: 'formulas-formula-wrap' });
   container.appendChild(buildPipeline(GUARD_STEPS));
+  if (CALC_MONSTERS.length) container.appendChild(buildCalcLauncher(CALC_CONFIG));
   container.appendChild(buildVarLegend(GUARD_VARS));
   return container;
 }
@@ -660,7 +683,11 @@ function buildGuardSection() {
 
 // ─── Page render ──────────────────────────────────────────────
 
-export function renderFormulasCot1() {
+export function renderFormulasCot1(data) {
+  // Sorted by level so the picker reads top-down like the Monsters tab does.
+  CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]
+    .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
+
   const frag = document.createDocumentFragment();
   const wrapper = el('div', { className: 'formulas-page' });
 

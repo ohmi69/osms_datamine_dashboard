@@ -176,7 +176,7 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
       id: 'formulas',
       label: 'Formulas',
       icon: ICONS.flaskConical,
-      render: () => renderFormulas()
+      render: () => renderFormulas(appData)
     },
     {
       id: 'portal-runner',
@@ -195,7 +195,7 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
   if (!isTimeTravelMode) return tabs;
   // cot1 keeps its own frozen snapshot of the formulas page; older patches have none.
   if (patchVersion === 'cot1') {
-    return tabs.map(t => (t.id === 'formulas' ? { ...t, render: () => renderFormulasCot1() } : t));
+    return tabs.map(t => (t.id === 'formulas' ? { ...t, render: () => renderFormulasCot1(appData) } : t));
   }
   return tabs.filter(t => t.id !== 'formulas');
 }

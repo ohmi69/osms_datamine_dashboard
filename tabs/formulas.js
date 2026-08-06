@@ -1,4 +1,5 @@
 import { el } from '../lib/utils.js';
+import { buildCalcLauncher } from './formulas-calc.js';
 
 // Experience required per level, read out of the COT2 client. The client builds the
 // table at startup in sub_14003B220 and reads it back through GetNeedEXP
@@ -1255,9 +1256,31 @@ function buildModsSection() {
   return container;
 }
 
+// ─── Damage taken calculator ──────────────────────────────────
+
+// Filled in by renderFormulas from the same appData the Monsters tab uses, so the
+// calculator lists the real mobs with their real attack stats.
+let CALC_MONSTERS = [];
+
+// The COT2 defense scale: grows with the player's level and with the size of the hit.
+const CALC_CONFIG = {
+  get monsters() { return CALC_MONSTERS; },
+  scale: (incoming, level) => 5 * level + 200 + 1.2 * incoming,
+  scaleTerms: (incoming, level) => `5 × ${level} + 200 + 1.2 × ${incoming.toLocaleString()}`,
+  useLevel: true,
+  notes: (magic) => [
+    'Assumes the attack lands. A miss deals 0, and the accuracy roll is not modelled here',
+    magic
+      ? 'Monster skill attacks cannot miss or be guarded, and they read your Magic Defense'
+      : 'Regular attacks read your Weapon Defense and can be missed or guarded',
+    'Fixed-damage attacks ignore all of this and deal their set amount',
+  ],
+};
+
 function buildGuardSection() {
   const container = el('div', { className: 'formulas-formula-wrap' });
   container.appendChild(buildPipeline(GUARD_STEPS));
+  if (CALC_MONSTERS.length) container.appendChild(buildCalcLauncher(CALC_CONFIG));
   container.appendChild(buildVarLegend(GUARD_VARS));
   return container;
 }
@@ -1266,7 +1289,11 @@ function buildGuardSection() {
 
 // ─── Page render ──────────────────────────────────────────────
 
-export function renderFormulas() {
+export function renderFormulas(data) {
+  // Sorted by level so the picker reads top-down like the Monsters tab does.
+  CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]
+    .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
+
   const frag = document.createDocumentFragment();
   const wrapper = el('div', { className: 'formulas-page' });
 
