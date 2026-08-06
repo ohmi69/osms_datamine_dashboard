@@ -46,6 +46,22 @@ const CITIZENSHIP_GRADES = [
   [6, 5000, 37], [7, 6000, 42], [8, 7000, 47], [9, 8000, 52], [10, 10000, 57],
 ];
 
+// Craft level, craft exp needed to finish that level, character level needed to move on
+// to it. The exp column is GetCraftNeedEXP (sub_1401D2690), which takes only a level, so
+// every discipline shares it; the character level column is the 5 x nextLevel the
+// crafting window prints in its own tooltip (sub_1410F6F80). Level 1 comes from the
+// quest, so it has no character level of its own.
+// See tmp/crafting-exp-table-binary.md.
+const CRAFT_LEVELS = [
+  [1, 50, null], [2, 166, 10], [3, 319, 15], [4, 521, 20], [5, 787, 25],
+  [6, 1138, 30], [7, 1602, 35], [8, 2214, 40], [9, 3022, 45], [10, 4089, 50],
+];
+
+const CRAFT_RULES = [
+  ['Level 1', 'CraftExp = 50'],
+  ['Level 2 to 10', 'CraftExp = trunc(PreviousLevelExp × 1.32) + 100'],
+];
+
 // Swing / Stab / Shoot / Other, read directly from the damage function in
 // MapleStory.exe. '-' = that action is not reachable for the weapon type.
 const WEAPON_MULTS = [
@@ -123,7 +139,7 @@ const BASE_DAMAGE_STEPS = [
       'WepMult is a single value chosen by the attack action - see the Weapon Multipliers table',
       'Lucky Seven uses a 3.0 multi instead of the Claw\'s 2.5.',
       'Lucky Seven is the only skill in the client that gets a special weapon multiplier',
-      'Combo Attack and the Knight elemental charges both raise the Skill Damage % before anything else happens - see the Damage Modifications section',
+      'Combo Attack and the Elemental Charge both raise the Skill Damage % before anything else happens - see the Damage Modifications section',
       'Melee/stab with a Bow, Crossbow or Claw divides PrimaryStat and SecondaryStat by 300 instead of 100; swing also divides AttackPower by 150 instead of 50',
       'Prone Stab uses 20/30 in place of 80/100 and the same /300 and /150 divisors, and forces WepMult to 1',
     ],
@@ -899,6 +915,59 @@ function buildCitizenshipTable() {
   return container;
 }
 
+function buildCraftTable() {
+  const container = el('div');
+
+  const formulaWrap = el('div', { className: 'formulas-formula-wrap' });
+  const block = el('div', { className: 'formulas-code-block' });
+  CRAFT_RULES.forEach(([label, line]) => {
+    const cell = el('div', { className: 'formulas-code-cell' });
+    cell.appendChild(el('div', { className: 'formulas-code-label', textContent: label }));
+    const pre = el('pre', { className: 'formulas-code' });
+    pre.innerHTML = tokenizeLine(line);
+    cell.appendChild(pre);
+    block.appendChild(cell);
+  });
+  formulaWrap.appendChild(block);
+  container.appendChild(formulaWrap);
+
+  const tableWrap = el('div', { className: 'formulas-table-wrap' });
+  const table = el('table', { className: 'data-table' });
+
+  const thead = el('thead');
+  const headerRow = el('tr');
+  for (const [text, cls] of [['Craft Level', ''], ['Craft Exp to Level Up', 'num'], ['Accumulated Craft Exp', 'num'], ['Character Level Required', 'num']]) {
+    headerRow.appendChild(el('th', { className: `${cls} formulas-exp-th`.trim(), textContent: text }));
+  }
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  const tbody = el('tbody');
+  let accumulated = 0;
+  CRAFT_LEVELS.forEach(([level, exp, charLevel]) => {
+    const row = el('tr', { className: 'formulas-exp-row' });
+
+    const lvlCell = el('td', { className: 'formulas-exp-td' });
+    lvlCell.appendChild(el('span', { className: 'lvl-chip', textContent: `Lv ${level}` }));
+    row.appendChild(lvlCell);
+
+    row.appendChild(el('td', { className: 'num formulas-exp-val formulas-exp-td', textContent: exp.toLocaleString() }));
+    row.appendChild(el('td', { className: 'num formulas-accum-val formulas-exp-td', textContent: accumulated.toLocaleString() }));
+    row.appendChild(el('td', {
+      className: 'num formulas-accum-val formulas-exp-td',
+      textContent: charLevel === null ? '—' : `Lv ${charLevel}`,
+    }));
+
+    tbody.appendChild(row);
+    accumulated += exp;
+  });
+  table.appendChild(tbody);
+  tableWrap.appendChild(table);
+  container.appendChild(tableWrap);
+
+  return container;
+}
+
 function buildWeaponMultTable() {
   const container = el('div', { className: 'formulas-table-wrap' });
   const table = el('table', { className: 'data-table' });
@@ -1036,8 +1105,14 @@ export function renderFormulas() {
     makeStatusTag('partial', 'The contribution thresholds were read directly from the routine in the client that returns the requirement for a grade. The character level column comes from the same code path, but the field it is checked against is unlabelled, so reading it as character level is inference.')
   );
 
+  const craftSection = makeCollapsibleSection('Crafting Levels', '', buildCraftTable);
+  craftSection.querySelector('.right').appendChild(
+    makeStatusTag('ok', 'Read directly from the routine in the client that returns the craft exp requirement for a level, and from the crafting window that consumes it. The character level column is the number the crafting window itself prints in its level-up tooltip.')
+  );
+
   appendix.appendChild(weaponMultSection);
   appendix.appendChild(expSection);
+  appendix.appendChild(craftSection);
   appendix.appendChild(citizenshipSection);
   wrapper.appendChild(appendix);
 

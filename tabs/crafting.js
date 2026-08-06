@@ -27,6 +27,65 @@ function filterDisciplines(disciplines, exactId, sq) {
     .filter((discipline) => discipline.output_types.length > 0);
 }
 
+// Craft level, craft exp needed to finish that level, character level needed to move on
+// to it. Read out of the COT2 client: the exp column is GetCraftNeedEXP (sub_1401D2690),
+// which takes only a level, so all six disciplines share it; the character level column
+// is the 5 x nextLevel the crafting window prints in its own tooltip (sub_1410F6F80).
+// Level 1 comes from the quest, so it has no character level of its own.
+// See tmp/crafting-exp-table-binary.md.
+const CRAFT_LEVELS = [
+  [1, 50, null], [2, 166, 10], [3, 319, 15], [4, 521, 20], [5, 787, 25],
+  [6, 1138, 30], [7, 1602, 35], [8, 2214, 40], [9, 3022, 45], [10, 4089, 50],
+];
+
+// Transposed: ten levels across the top, three short rows underneath. Laid out the
+// other way round it is a narrow ten-row column that leaves most of the panel empty.
+function buildCraftLevelTable() {
+  const wrap = el('div', { className: 'craft-level-wrap' });
+
+  const tableWrap = el('div', { className: 'table-scroll' });
+  const table = el('table', { className: 'craft-level-table' });
+
+  const thead = el('thead');
+  const headRow = el('tr');
+  headRow.appendChild(el('th', { className: 'craft-level-rowhead' }));
+  CRAFT_LEVELS.forEach(([level]) => {
+    const cell = el('th');
+    cell.appendChild(el('span', { className: 'lvl-chip', textContent: `Lv ${level}` }));
+    headRow.appendChild(cell);
+  });
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
+  let accumulated = 0;
+  const accumulatedByLevel = CRAFT_LEVELS.map(([, exp]) => {
+    const before = accumulated;
+    accumulated += exp;
+    return before;
+  });
+
+  const ROWS = [
+    ['XP to Level Up', ([, exp]) => fmt(exp), 'craft-level-xp'],
+    ['Total XP Spent', (_, i) => fmt(accumulatedByLevel[i]), 'craft-num'],
+    ['Character Level', ([, , charLevel]) => (charLevel === null ? '—' : `Lv ${charLevel}`), 'craft-num'],
+  ];
+
+  const tbody = el('tbody');
+  ROWS.forEach(([label, value, cls]) => {
+    const row = el('tr');
+    row.appendChild(el('th', { className: 'craft-level-rowhead', textContent: label }));
+    CRAFT_LEVELS.forEach((entry, i) => {
+      row.appendChild(el('td', { className: cls, textContent: value(entry, i) }));
+    });
+    tbody.appendChild(row);
+  });
+  table.appendChild(tbody);
+  tableWrap.appendChild(table);
+  wrap.appendChild(tableWrap);
+
+  return wrap;
+}
+
 export function renderCrafting(data, options = {}) {
   const { recipes, items } = data;
   const { onItemClick } = options;
@@ -83,6 +142,12 @@ export function renderCrafting(data, options = {}) {
     renderData();
   });
   container.appendChild(pillGroup);
+
+  // Sits above the recipe lists and is deliberately outside renderData - the
+  // requirements are identical for every discipline, so the pills do not touch it.
+  container.appendChild(
+    makeCollapsible('Craft Level Requirements', null, true, null, buildCraftLevelTable)
+  );
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);

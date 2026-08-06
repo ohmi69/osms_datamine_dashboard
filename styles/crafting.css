@@ -50,6 +50,36 @@
 .craft-num { font-size: 13px; color: var(--dim); }
 .craft-qty { color: var(--secondary); }
 
+/* Craft level requirements. Transposed - levels run across the top - so the ten
+   entries fill the panel width in three rows instead of a narrow ten-row column. */
+.craft-level-wrap { padding: 12px 16px 14px; }
+.craft-level-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: center;
+}
+.craft-level-table th,
+.craft-level-table td { padding: 5px 6px; white-space: nowrap; }
+.craft-level-table thead th { border-bottom: 1px solid var(--border); padding-bottom: 7px; }
+.craft-level-table tbody tr + tr td,
+.craft-level-table tbody tr + tr .craft-level-rowhead { border-top: 1px solid var(--border); }
+.craft-level-table .craft-level-rowhead {
+  width: 1%;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+.craft-level-table .lvl-chip { padding: 1px 7px; font-size: 11px; }
+.craft-level-table .craft-num { font-size: 12px; font-family: monospace; }
+.craft-level-xp { color: var(--accent); font-weight: 700; font-size: 12px; font-family: monospace; }
+
 .craft-item {
   display: inline-flex;
   align-items: center;
