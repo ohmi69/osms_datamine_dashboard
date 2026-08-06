@@ -285,6 +285,20 @@
   border: 1px solid rgba(255, 120, 60, 0.3);
 }
 
+/* Validation tags sit next to a status tag - kept muted/cool so the
+   provenance tag stays the one that reads first. */
+.formulas-validation-pending {
+  color: var(--dim);
+  background: transparent;
+  border: 1px dashed var(--border);
+}
+
+.formulas-validation-done {
+  color: #6fc8df;
+  background: rgba(80, 180, 220, 0.15);
+  border: 1px solid rgba(80, 180, 220, 0.3);
+}
+
 /* ── Status tooltip (body-level floating div) ────────────────── */
 .formula-status-tooltip {
   position: absolute;
@@ -405,6 +419,17 @@
   color: #c04a10;
   background: rgba(192, 74, 16, 0.1);
   border-color: rgba(192, 74, 16, 0.3);
+}
+
+[data-theme="mapletip"] .formulas-validation-pending {
+  color: #8B7355;
+  border-color: #D4C4A8;
+}
+
+[data-theme="mapletip"] .formulas-validation-done {
+  color: #1a6a8a;
+  background: rgba(26, 106, 138, 0.1);
+  border-color: rgba(26, 106, 138, 0.3);
 }
 
 

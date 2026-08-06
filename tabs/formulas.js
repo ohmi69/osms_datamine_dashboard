@@ -496,28 +496,58 @@ function makeCollapsibleSection(title, countLabel, bodyFn) {
   return wrap;
 }
 
-const STATUS_LABELS = { ok: 'Verified', partial: 'Partially Verified', warn: 'Unverified' };
+const STATUS_LABELS = { ok: 'Code Verified', partial: 'Partly Code Verified', warn: 'Educated Guess' };
 
-function makeStatusTag(status, statusNote) {
+// Where the formula came from and whether anyone has checked it in-game are two
+// separate questions, so they get two separate tags.
+const VALIDATION_LABELS = { pending: 'Requires Validation', done: 'In-Game Confirmed' };
+const VALIDATION_NOTES = {
+  pending: 'Nobody has confirmed this against live gameplay yet - it is what the game files say, not what anyone has measured.',
+  done: 'Checked against live gameplay and matched.',
+};
+
+function attachTooltip(tag, text) {
+  if (!text) return tag;
+  tag.addEventListener('mouseenter', () => showStatusTooltip(tag, text));
+  tag.addEventListener('mouseleave', hideStatusTooltip);
+  return tag;
+}
+
+// Returns a fragment so callers can drop both tags in with one appendChild.
+// `validated` is only meaningful for code-backed formulas - an educated guess
+// carries no code claim to validate, so it gets no second tag.
+function makeStatusTag(status, statusNote, validated) {
+  const frag = document.createDocumentFragment();
+
   const statusTag = el('span', { className: `formulas-status-tag formulas-status-${status}`, textContent: STATUS_LABELS[status] });
-  const tooltipText = statusNote ?? (status === 'ok' ? 'Formula has been validated across multiple datapoints and edge cases' : null);
-  if (tooltipText) {
-    statusTag.addEventListener('mouseenter', () => showStatusTooltip(statusTag, tooltipText));
-    statusTag.addEventListener('mouseleave', hideStatusTooltip);
+  attachTooltip(statusTag, statusNote ?? (status === 'ok' ? 'Read straight out of the game files.' : null));
+  frag.appendChild(statusTag);
+
+  // `validated: null` opts out entirely - used for verbatim lookup tables, where
+  // the values are the data itself and there is no behaviour to test against.
+  if (status !== 'warn' && validated !== null) {
+    const key = validated ? 'done' : 'pending';
+    const validationTag = el('span', {
+      className: `formulas-status-tag formulas-validation-${key}`,
+      textContent: VALIDATION_LABELS[key],
+    });
+    attachTooltip(validationTag, VALIDATION_NOTES[key]);
+    frag.appendChild(validationTag);
   }
-  return statusTag;
+
+  return frag;
 }
 
 function buildPipeline(steps) {
   const frag = document.createDocumentFragment();
-  steps.forEach(({ label, wip, status, statusNote, lines, notes }, i) => {
+  steps.forEach(({ label, wip, status, statusNote, validated, lines, notes }, i) => {
     const step = el('div', { className: 'formulas-pipeline-step' });
 
     const stepHeader = el('div', { className: 'formulas-pipeline-header' });
     stepHeader.appendChild(el('span', { className: 'formulas-pipeline-badge', textContent: i + 1 }));
     stepHeader.appendChild(el('span', { className: 'formulas-pipeline-title', textContent: label }));
     if (wip) stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
-    if (status) stepHeader.appendChild(makeStatusTag(status, statusNote));
+    if (status) stepHeader.appendChild(makeStatusTag(status, statusNote, validated));
     step.appendChild(stepHeader);
 
     const codeLines = lines.filter(l => l !== '');
@@ -891,7 +921,7 @@ export function renderFormulas() {
   const disclaimer = el('div', { className: 'formulas-disclaimer' });
   const disclaimerText = el('span');
   disclaimerText.appendChild(el('strong', { textContent: 'Warning: ' }));
-  disclaimerText.append('Every formula on this page marked Verified was read directly out of the COT2 client binary rather than fitted from test data. Partially Verified means the mechanic itself came out of the client but something about it - usually which skill drives it - is still inference.');
+  disclaimerText.append('Each formula carries two tags. The first says where it came from: Code Verified means it was read straight out of the COT2 game files, and Partly Code Verified means the formula came out of the files but one detail - usually which skill it belongs to - is still a guess. The second tag says whether anyone has checked it against live gameplay. Requires Validation means nobody has yet, so if what you see in-game disagrees with the numbers here, please report it.');
   disclaimer.appendChild(disclaimerText);
   wrapper.appendChild(disclaimer);
 
@@ -900,7 +930,7 @@ export function renderFormulas() {
 
   const accuracySection = makeCollapsibleSection('Accuracy', '', buildAccuracySection);
   accuracySection.querySelector('.right').appendChild(
-    makeStatusTag('ok', 'Read directly from the hit-test routine in the client, which runs this one check for both physical and magic attacks.')
+    makeStatusTag('ok', 'Read directly from the client binary')
   );
   const accCredit = el('span', { className: 'formulas-credit' });
   accCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> and <strong>@ohmi</strong> on Discord';
@@ -937,7 +967,7 @@ export function renderFormulas() {
 
   const expSection = makeCollapsibleSection('Experience Table', '', buildExpTable);
   expSection.querySelector('.right').appendChild(
-    makeStatusTag('ok', 'Read directly from the routine in the client that builds the experience table at startup.')
+    makeStatusTag('ok', 'Read directly from the routine in the client that builds the experience table at startup.', null)
   );
   const expCredit = el('span', { className: 'formulas-credit' });
   expCredit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> and <strong>@ohmi</strong> on Discord';
@@ -945,7 +975,7 @@ export function renderFormulas() {
 
   const weaponMultSection = makeCollapsibleSection('Weapon Min/Max Multipliers', '', buildWeaponMultTable);
   weaponMultSection.querySelector('.right').appendChild(
-    makeStatusTag('ok', 'Read directly from the weapon multiplier table in the damage routine in the client.')
+    makeStatusTag('ok', 'Read directly from the weapon multiplier table in the damage routine in the client.', null)
   );
   const weaponMultCredit = el('span', { className: 'formulas-credit' });
   weaponMultCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash, @cptbattler, @ohmi</strong> on Discord, confirmed against the client binary';
