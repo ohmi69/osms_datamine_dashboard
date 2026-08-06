@@ -283,7 +283,7 @@ const MOD_PIPELINE_STEPS = [
     notes: [
       'trunc() rounds toward zero (down for positive, up for negative)',
       'Applies to Physical damage only',
-      'This is the monster side only. The damage a player takes uses the same stat names but a completely different formula - see the Damage Taken section',
+      'This is the monster side only. The damage a player takes uses the same stat names but a completely different formula, see the Damage Taken section',
       'PercentEffects and FlatEffects are two separate modifier slots on the enemy, so the client fully supports both. There is still no in-game data for PercentEffects, and no known source of flat weapon defense (de)buffs',
       'Blunt Weapon Mastery and Crossbow Mastery both roll their listed Ignore Defense chance. On a proc, WeaponDefense is forced to 0, which makes this step ×1',
       'That roll happens once for the whole attack, not once per hit. On a multi-hit skill every hit ignores defense or none of them does - you never get a mix within one attack',
