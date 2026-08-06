@@ -82,6 +82,30 @@ const WEAPON_MULTS = [
   ['Barehanded',      1,   1,   1,   1  ],
 ];
 
+// How the client picks a basic attack's animation: a uniform draw from the list the
+// weapon owns (GetAttackAction sub_1407E5650, list table 0x143A4D6D0, keyed by the
+// weapon's info/attack). The odds are just the make-up of that list - three swings and
+// two stabs gives 60/40. See tmp/swing-stab-ratio-binary.md.
+const ACTION_SPLIT = [
+  ['1H Sword / Axe / Blunt', '60%', '40%'],
+  ['2H Sword / Axe / Blunt', '60%', '40%'],
+  ['Spear / Polearm',        '60%', '40%'],
+  ['Dagger',                 '60%', '40%'],
+  ['Crossbow',               '50%', '50%'],
+  ['Bow',                    '100%', '—'],
+  ['Wand / Staff',           '100%', '—'],
+  ['Claw',                   '—',   '100%'],
+  ['Barehanded',             '—',   '100%'],
+];
+
+// The skills that carry their own action[] list in the client data and so never roll.
+// Grouped by the multiplier column their animation resolves to.
+const ACTION_EXCEPTIONS = [
+  ['Stab', ['Double Stab']],
+  ['Swing', ['Three Snails', 'Energy Bolt', 'Magic Claw', 'Poison Breath', 'Cold Beam', 'Thunder Bolt', 'Shadow Web', 'Dragon Fury']],
+  ['Other', ['Savage Blow', 'Rush', 'Avenger', 'Assaulter', 'Meso Explosion', 'Piercing Crusher', 'Wind Step', 'Evasion Step']],
+];
+
 // ─── Accuracy ────────────────────────────────────────────────
 
 // Read directly from the hit-test routine in MapleStory.exe. Physical and magic
@@ -968,33 +992,57 @@ function buildCraftTable() {
   return container;
 }
 
-function buildWeaponMultTable() {
-  const container = el('div', { className: 'formulas-table-wrap' });
+function buildTable(headers, rows) {
   const table = el('table', { className: 'data-table' });
 
   const thead = el('thead');
   const headerRow = el('tr');
-  for (const [text, cls] of [['Weapon Type', ''], ['Swing', 'num'], ['Stab', 'num'], ['Shoot', 'num'], ['Other', 'num']]) {
-    headerRow.appendChild(el('th', { className: cls, textContent: text }));
-  }
+  headers.forEach(([text, cls]) => headerRow.appendChild(el('th', { className: cls, textContent: text })));
   thead.appendChild(headerRow);
   table.appendChild(thead);
 
   const tbody = el('tbody');
-  WEAPON_MULTS.forEach(([type, swing, stab, shoot, other]) => {
+  rows.forEach((cells) => {
     const row = el('tr');
-    row.appendChild(el('td', { textContent: type }));
-    for (const v of [swing, stab, shoot, other]) {
-      row.appendChild(el('td', { className: 'num', textContent: v }));
-    }
+    cells.forEach((v, i) => row.appendChild(el('td', { className: headers[i][1], textContent: v })));
     tbody.appendChild(row);
   });
   table.appendChild(tbody);
-  container.appendChild(table);
+  return table;
+}
+
+function buildWeaponMultTable() {
+  const container = el('div');
+
+  const split = el('div', { className: 'formulas-exp-split' });
+
+  const multWrap = el('div', { className: 'formulas-table-wrap' });
+  multWrap.appendChild(el('div', { className: 'formulas-subhead', textContent: 'Multipliers' }));
+  multWrap.appendChild(buildTable(
+    [['Weapon Type', ''], ['Swing', 'num'], ['Stab', 'num'], ['Shoot', 'num'], ['Other', 'num']],
+    WEAPON_MULTS
+  ));
+  split.appendChild(multWrap);
+
+  const rollWrap = el('div', { className: 'formulas-table-wrap' });
+  rollWrap.appendChild(el('div', { className: 'formulas-subhead', textContent: 'Swing/Stab Ratio' }));
+  rollWrap.appendChild(buildTable(
+    [['Weapon Type', ''], ['Swing', 'num'], ['Stab', 'num']],
+    ACTION_SPLIT
+  ));
+  split.appendChild(rollWrap);
+
+  container.appendChild(split);
 
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing / Stab are the normal melee actions, Shoot covers bow, crossbow and claw attacks, and Other applies when a skill uses its own custom animation (e.g. Rush, Assaulter)' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Swinging or stabbing with a bow, crossbow or claw gives a flat 1.0 and divides the stat terms by 300 instead of 100.' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: '* Dagger uses the Stab multiplier when stabbing. Savage Blow and Double Stab always Stab. Steal uses both.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll for swing or stab just like a plain attack does. These ones never roll, each always uses the multiplier shown:' }));
+
+  const exceptions = el('div', { className: 'formulas-exceptions' });
+  ACTION_EXCEPTIONS.forEach(([column, skills]) => {
+    exceptions.appendChild(el('span', { className: 'formulas-exc-label', textContent: column }));
+    exceptions.appendChild(el('span', { className: 'formulas-exc-skills', textContent: skills.join(', ') }));
+  });
+  container.appendChild(exceptions);
 
   return container;
 }

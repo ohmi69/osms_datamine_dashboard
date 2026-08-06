@@ -33,6 +33,38 @@
   min-width: 320px;
 }
 
+/* Skills that never roll their attack animation, keyed by multiplier column */
+.formulas-exceptions {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 12px;
+  align-items: baseline;
+  padding: 2px 16px 12px;
+}
+.formulas-exc-label {
+  justify-self: start;
+  padding: 2px 9px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  color: var(--dim);
+}
+.formulas-exc-skills { font-size: 13px; color: var(--dim); line-height: 1.5; }
+
+/* Caption above a table when a section holds more than one */
+.formulas-subhead {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  padding: 0 0 8px 2px;
+}
+
 /* ── Level chips ─────────────────────────────────────────────── */
 .lvl-chip {
   display: inline-flex;
