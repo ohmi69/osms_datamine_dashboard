@@ -80,13 +80,14 @@ function buildMobPicker(monsters, onPick) {
   return wrap;
 }
 
-function makeNumberField(label, value, { min, max, onChange }) {
+function makeNumberField(label, value, { min, max, hint, onChange }) {
   const field = el('label', { className: 'formulas-calc-field' });
   const labelEl = el('span', { className: 'formulas-calc-label', textContent: label });
   const input = el('input', {
     type: 'number', className: 'formulas-calc-input',
     value: String(value), min: String(min), max: String(max),
-    title: `${min} to ${max}`,
+    title: hint ? `${hint}
+${min} to ${max}` : `${min} to ${max}`,
   });
 
   const clamp = () => {
@@ -152,12 +153,17 @@ function buildDamageCalc(config) {
   }
 
   const defField = makeNumberField('Weapon Defense', state.defense, {
-    min: 0, max: 99999, onChange: (v) => { state.defense = v; update(); },
+    min: 0, max: 99999,
+    hint: 'Your Stats panel total, which already includes your shield',
+    onChange: (v) => { state.defense = v; update(); },
   });
   controls.appendChild(defField);
 
+  // The same shield feeds both fields - see the footnote in update().
   const shieldField = makeNumberField('Shield Weapon Def', state.shield, {
-    min: 0, max: 9999, onChange: (v) => { state.shield = v; update(); },
+    min: 0, max: 9999,
+    hint: 'Weapon Defense on the shield itself. Already part of the total above - this only sets the guard chance',
+    onChange: (v) => { state.shield = v; update(); },
   });
   controls.appendChild(shieldField);
 
@@ -175,6 +181,8 @@ function buildDamageCalc(config) {
     physBtn.classList.toggle('active', !state.magic);
     magicBtn.classList.toggle('active', state.magic);
     defField._label.textContent = state.magic ? 'Magic Defense' : 'Weapon Defense';
+    defField._input.title = `Your Stats panel total${state.magic ? '' : ', which already includes your shield'}
+0 to 99999`;
     // Guard is only rolled on a monster's regular attack.
     shieldField.classList.toggle('formulas-calc-field--off', state.magic);
     shieldField._input.disabled = state.magic;
@@ -256,7 +264,13 @@ function buildDamageCalc(config) {
     out.appendChild(stats);
 
     const noteWrap = el('div', { className: 'formulas-pipeline-notes formulas-calc-notes' });
-    notes(state.magic).forEach(n => noteWrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
+    const lines = notes(state.magic);
+    // Both clients read the shield twice, so this note belongs to the widget rather
+    // than to either page's config.
+    if (!state.magic) {
+      lines.push('Your shield counts in both fields on purpose: its Weapon Defense is part of the total that shrinks the hit, and it is separately the only thing that sets your guard chance. Weapon Defense here is your Stats panel number, shield included');
+    }
+    lines.forEach(n => noteWrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
     out.appendChild(noteWrap);
   }
 

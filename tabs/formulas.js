@@ -100,11 +100,15 @@ const ACTION_SPLIT = [
 ];
 
 // The skills that carry their own action[] list in the client data and so never roll.
-// Grouped by the multiplier column their animation resolves to.
+// Grouped by the multiplier column their animation resolves to. Savage Blow and Avenger
+// use custom animations but are still hand-patched into the melee groups by the action
+// classifier (sub_14025E1F0 compares the action id against 47 and 48 directly), so they
+// do not fall to Other. See tmp/savage-blow-weapon-multiplier-binary.md.
 const ACTION_EXCEPTIONS = [
-  ['Stab', ['Double Stab']],
+  ['Stab', ['Double Stab', 'Savage Blow']],
   ['Swing', ['Three Snails', 'Energy Bolt', 'Magic Claw', 'Poison Breath', 'Cold Beam', 'Thunder Bolt', 'Shadow Web', 'Dragon Fury']],
-  ['Other', ['Savage Blow', 'Rush', 'Avenger', 'Assaulter', 'Meso Explosion', 'Piercing Crusher', 'Wind Step', 'Evasion Step']],
+  ['Shoot', ['Avenger']],
+  ['Other', ['Rush', 'Assaulter', 'Meso Explosion', 'Piercing Crusher', 'Wind Step', 'Evasion Step']],
 ];
 
 // ─── Accuracy ────────────────────────────────────────────────
