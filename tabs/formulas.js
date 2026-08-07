@@ -77,7 +77,7 @@ const WEAPON_MULTS = [
   ['Bow',             1,   1,   2.5, 1],
   ['Crossbow',        1,   1,   2.5, 1],
   ['Claw',            1,   1,   2.5, 1],
-  ['Dagger*',         1,   2,   '-', 1.5],
+  ['Dagger',          1,   2,   '-', 1.5],
   ['Wand',            1.8, 1.8, '-', 1.8],
   ['Staff',           1.8, 1.8, '-', 1.8],
   ['Barehanded',      1,   1,   1,   1  ],
@@ -87,6 +87,10 @@ const WEAPON_MULTS = [
 // weapon owns (GetAttackAction sub_1407E5650, list table 0x143A4D6D0, keyed by the
 // weapon's info/attack). The odds are just the make-up of that list - three swings and
 // two stabs gives 60/40. See tmp/swing-stab-ratio-binary.md.
+// This is the MELEE list. Bows, Crossbows and Claws have a second, ranged list at
+// 0x143A4D880 (sub_1407E5A20, called from the shoot routine sub_1428D5B50) which is what
+// a normal shot actually uses - bow shoot1, crossbow shoot2, claw swingO1/O2/O3. So for
+// those three weapons the rows below are only reached when meleeing without ammo.
 const ACTION_SPLIT = [
   ['1H Sword / Axe / Blunt', '60%', '40%'],
   ['2H Sword / Axe / Blunt', '60%', '40%'],
@@ -99,16 +103,19 @@ const ACTION_SPLIT = [
   ['Barehanded',             '—',   '100%'],
 ];
 
-// The skills that carry their own action[] list in the client data and so never roll.
-// Grouped by the multiplier column their animation resolves to. Savage Blow and Avenger
-// use custom animations but are still hand-patched into the melee groups by the action
-// classifier (sub_14025E1F0 compares the action id against 47 and 48 directly), so they
-// do not fall to Other. See tmp/savage-blow-weapon-multiplier-binary.md.
+// Physical attack skills that never roll for swing or stab, grouped by the multiplier
+// column they land in. Derived from the action classifier sub_14025E1F0, whose order is:
+// skill property 48 -> use the weapon's default action; property 123 -> Other; then the
+// action id ranges. Property 123 outranks the animation, which is why Dragon Fury is Other
+// despite carrying swingP1/swingP2. Savage Blow (action 47) and Avenger (action 48) are
+// hand-patched into the melee ranges by the same function.
+// Magic skills are left out on purpose - magic damage never uses a weapon multiplier.
+// See tmp/formulas-page-audit-2.md and tmp/savage-blow-weapon-multiplier-binary.md.
 const ACTION_EXCEPTIONS = [
   ['Stab', ['Double Stab', 'Savage Blow']],
-  ['Swing', ['Three Snails', 'Energy Bolt', 'Magic Claw', 'Poison Breath', 'Cold Beam', 'Thunder Bolt', 'Shadow Web', 'Dragon Fury']],
   ['Shoot', ['Avenger']],
-  ['Other', ['Rush', 'Assaulter', 'Meso Explosion', 'Piercing Crusher', 'Wind Step', 'Evasion Step']],
+  ['Other', ['Rush', 'Assaulter', 'Meso Explosion', 'Shout', 'Dragon Fury', 'Dragon Roar', 'Piercing Crusher', 'Silver Hawk', 'Golden Eagle']],
+  ["Weapon's Default", ['Armor Crash', 'Threaten', 'Elemental Crash', 'Power Crash', 'Slow', 'Seal', 'Doom', 'Poison Breath', 'Poison Mist', 'Shadow Web', 'Arrow Bomb: Bow', 'Inferno', 'Blizzard']],
 ];
 
 // ─── Accuracy ────────────────────────────────────────────────
@@ -131,11 +138,10 @@ const ACCURACY_STEPS = [
       'Bowman: Acc = Common / 4.8 + 20',
       'Thief: Acc = Common / 4 + 15',
       '',
-      'Avoid = Luk / 3 + Dex / 6 + 5',
+      'Avoid = trunc(Luk / 3) + trunc(Dex / 6) + 5',
     ],
     notes: [
       'Every stat here is the total including equipment and buffs, not the base value.',
-      'Results are truncated to whole numbers.',
     ],
     cot1: {
       notes: [
@@ -192,18 +198,52 @@ const BASE_DAMAGE_STEPS = [
     wip: false,
     status: 'ok',
     statusNote: 'Derived from the client binary.',
+    // Shown by default. StatDiv 100 / AtkDiv 50 covers every attack except Prone Stab
+    // and meleeing with a Bow, Crossbow or Claw, so folding them in recovers the plain
+    // form. Nothing here is an approximation - it is the general form with the two rare
+    // branches substituted.
+    simple: {
+      lines: [
+        'StatRoll = rand(PrimaryStat × MasteryMult, PrimaryStat)',
+        'BaseRoll = rand(80, 100)',
+        '',
+        'Damage = SkillMult × ((BaseRoll + StatRoll × WepMult + SecondaryStat + AttackPower × 2) / 100) × WeaponAttack',
+        '',
+        'MIN = SkillMult × ((80 + PrimaryStat × WepMult × MasteryMult + SecondaryStat + AttackPower × 2) / 100) × WeaponAttack',
+        'MAX = SkillMult × ((100 + PrimaryStat × WepMult + SecondaryStat + AttackPower × 2) / 100) × WeaponAttack',
+      ],
+      notes: [
+        'StatRoll and BaseRoll are two separate draws, so a hit can land low on one and high on the other. MIN and MAX are the corners of that rectangle, not the ends of a single roll',
+        'WepMult is chosen by the attack action, not by the skill - see the Weapon Multipliers table. Lucky Seven overrides it to 3.0',
+        'Combo Attack and the Elemental Charge both raise the Skill Damage % before anything else happens - see the Damage Modifications section',
+      ],
+    },
     lines: [
-      'MIN = SkillMult × ((80 + PrimaryStat × WepMult × MasteryMult + SecondaryStat + AttackPower × 2) / 100) × WeaponAttack',
-      'MAX = SkillMult × ((100 + PrimaryStat × WepMult + SecondaryStat + AttackPower × 2) / 100) × WeaponAttack',
+      'StatDiv = 300  if Prone Stab (any weapon)',
+      '          300  if Bow / Crossbow / Claw and the action is Swing, Stab or Other',
+      '          100  otherwise (incl. Bow / Crossbow / Claw on Shoot)',
+      '',
+      'AtkDiv  = 150  if Prone Stab (any weapon)',
+      '          150  if Bow / Crossbow / Claw and the action is Swing or Other',
+      '           50  otherwise (incl. their Stab, and Shoot)',
+      '',
+      'StatRoll = rand(PrimaryStat × MasteryMult, PrimaryStat)',
+      'BaseRoll = rand(0.8, 1.0)',
+      '',
+      'Damage = SkillMult × (BaseRoll + (StatRoll × WepMult + SecondaryStat) / StatDiv + AttackPower / AtkDiv) × WeaponAttack',
+      '',
+      'MIN = SkillMult × (0.8 + (PrimaryStat × WepMult × MasteryMult + SecondaryStat) / StatDiv + AttackPower / AtkDiv) × WeaponAttack',
+      'MAX = SkillMult × (1.0 + (PrimaryStat × WepMult + SecondaryStat) / StatDiv + AttackPower / AtkDiv) × WeaponAttack',
+      '',
+      'Prone Stab    replaces 0.8 and 1.0 with 0.2 and 0.3, and forces WepMult = 1',
+      'Lucky Seven   forces WepMult = 3.0 in place of the Claw Shoot 2.5',
     ],
     notes: [
-      'The 80/100 term and the MasteryMult term are rolled independently, so a hit can land at the low end of one and the high end of the other - MIN and MAX are the corners of the range, not a single roll',
-      'WepMult is a single value chosen by the attack action - see the Weapon Multipliers table',
-      'Lucky Seven uses a 3.0 multi instead of the Claw\'s 2.5.',
-      'Lucky Seven is the only skill in the client that gets a special weapon multiplier',
+      'StatRoll and BaseRoll are two separate draws, so a hit can land low on one and high on the other. MIN and MAX are the corners of that rectangle, not the ends of a single roll, and damage bunches toward the middle rather than spreading evenly between them',
+      'With the usual StatDiv of 100 and AtkDiv of 50 this is the familiar (100 + PrimaryStat × WepMult + SecondaryStat + AttackPower × 2) / 100 × WeaponAttack',
+      'WepMult is chosen by the attack action, not by the skill - see the Weapon Multipliers table',
+      'Bows, Crossbows and Claws draw their firing animation from a separate ranged action list, so a normal shot lands on Shoot (2.5, StatDiv 100). The StatDiv 300 rows are what you get meleeing with them - a Claw with no stars left stabs for 1.0',
       'Combo Attack and the Elemental Charge both raise the Skill Damage % before anything else happens - see the Damage Modifications section',
-      'Melee/stab with a Bow, Crossbow or Claw divides PrimaryStat and SecondaryStat by 300 instead of 100; swing also divides AttackPower by 150 instead of 50',
-      'Prone Stab uses 20/30 in place of 80/100 and the same /300 and /150 divisors, and forces WepMult to 1',
     ],
     cot1: {
       notes: [
@@ -215,17 +255,21 @@ const BASE_DAMAGE_STEPS = [
     label: 'Magical Damage',
     wip: false,
     status: 'ok',
-    statusNote: 'Derived from the client binary.',
+    statusNote: 'Derived from the client binary. The Magic term is the stat window\'s MAGIC value - confirmed by reading the same field the stat window\'s mad row displays.',
     lines: [
-      'MIN = (BasicAttack / 100) × MagicAttack × (TotalInt × MasteryMult / 100 + 1)',
-      'MAX = (BasicAttack / 100) × MagicAttack × (TotalInt / 100 + 1)',
+      'MIN = (BasicAttack / 100) × Magic × (TotalInt × MasteryMult / 100 + 1)',
+      'MAX = (BasicAttack / 100) × Magic × (TotalInt / 100 + 1)',
+    ],
+    warnings: [
+      'Magic and Magic Attack are two different numbers. Magic is the MAGIC stat on your stat window: Total Int / 2 plus Magic Attack.',
     ],
     notes: [
       'The roll between MIN and MAX is a single uniform random per hit',
+      'BasicAttack is the skill\'s own value. Almost every magician attack skill carries one - the exceptions are Poison Mist, which is pure damage over time, Poison Breath, whose direct hit comes from a hidden second skill, and Heal, which replaces this formula outright.',
     ],
     cot1: {
       notes: [
-        'Rewritten since COT1, which used (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 × MasteryMult + BaseInt) / 100 + 1) - and read base Int only, so Int from equipment did not count in the bracket.',
+        'Rewritten since COT1, which used (BasicAttack + Magic / 7) × ((Magic × 2 × MasteryMult + BaseInt) / 100 + 1) - and read base Int only, so Int from equipment did not count in the bracket.',
       ],
     },
   },
@@ -235,13 +279,16 @@ const BASE_DAMAGE_STEPS = [
     status: 'ok',
     statusNote: 'Read directly from the Heal branch of the magic damage routine in the client.',
     lines: [
-      'HealAmount = ((TotalInt × Roll + TotalLuk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1)',
+      'HealAmount = ((TotalInt × Roll + TotalLuk) / 200 + 3) × Magic × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1)',
       '',
       'Roll = rand(0.8, 1.0)',
       '',
       'HealAmount = HealAmount × (HealBonus / 100 + 1)',
       '',
-      'Damage = HealAmount / TargetsHit × 0.5',
+      'Damage = trunc(HealAmount) / TargetsHit × 0.5',
+    ],
+    warnings: [
+      'Magic and Magic Attack are two different numbers. Magic is the MAGIC stat on your stat window: Total Int / 2 plus Magic Attack.',
     ],
     notes: [
       'RecoveryRate is the recovery rate listed on the skill itself.',
@@ -260,9 +307,12 @@ const BASE_DAMAGE_STEPS = [
     status: 'partial',
     statusNote: 'The total is read directly from the damage-over-time routine in the client. The split into per-tick damage is not: the client computes the total and never divides it, so that line comes from the skill descriptions, which say the listed value is the total dealt over the duration.',
     lines: [
-      'TotalDamage = (DoTBasicAttack / 100) × MagicAttack × (TotalInt / 125 + 1)',
+      'TotalDamage = (DoTBasicAttack / 100) × Magic × (TotalInt / 125 + 1)',
       '',
       'DamagePerTick = TotalDamage / DoTDurationSeconds',
+    ],
+    warnings: [
+      'Magic and Magic Attack are two different numbers. Magic is the MAGIC stat on your stat window: Total Int / 2 plus Magic Attack.',
     ],
     notes: [
       'DoT damage ignores all Defense reductions - the routine never reads the enemy\'s weapon or magic defense at all',
@@ -272,7 +322,7 @@ const BASE_DAMAGE_STEPS = [
     ],
     cot1: {
       notes: [
-        'Rewritten since COT1, which used (DoTBasicAttack + MagicAttack / 7) × ((MagicAttack + BaseInt) / 100 + 1) with base Int and a divisor of 100 - the 125 divisor is new.',
+        'Rewritten since COT1, which used (DoTBasicAttack + Magic / 7) × ((Magic + BaseInt) / 100 + 1) with base Int and a divisor of 100 - the 125 divisor is new.',
       ],
     },
   },
@@ -285,11 +335,12 @@ const BASE_DAMAGE_VARS = [
   { name: 'AttackPower',   desc: 'Attack from all gear other than the weapon and shield, plus buffs' },
   { name: 'WeaponAttack',  desc: 'Attack from the weapon and shield (5 if barehanded), plus Stars and Arrows' },
   { name: 'WepMult',       desc: 'Weapon multiplier for the attack action used - see Weapon Multipliers table' },
+  { name: 'StatDiv',       desc: 'Divides both stat terms. Chosen alongside WepMult by the weapon type and the attack action - values listed with the Physical Damage formula' },
+  { name: 'AtkDiv',        desc: 'Divides the AttackPower term. Chosen the same way as StatDiv - values listed with the Physical Damage formula' },
   { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8, where MasteryLevel runs 1 to 10. Physical attacks read MasteryLevel from the weapon mastery skill for the equipped weapon; magic attacks read it from the attacking skill\'s own data instead, so a weapon mastery skill never affects magic. Exception: Lucky Seven ignores mastery skills entirely and takes its multiplier straight from its own skill data, which is 0.5 at every level - the same as a MasteryLevel of 5.25' },
   { name: 'BasicAttack',   desc: 'Basic Attack value listed on the skill, for magic skills only' },
   { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
-  { name: 'MagicAttack',        desc: 'TotalInt / 2 + EquipmentMagicAttack (MAGIC value shown in UI)' },
-  { name: 'EquipmentMagicAttack', desc: 'Sum of Magic Attack on all gear (including above/below average and scrolled stats)' },
+  { name: 'Magic',              desc: 'The MAGIC value on the stat window. The client builds it as TotalInt / 2 Magic Attack. It keeps only this one number, and every magic formula reads it' },
   { name: 'TotalInt',      desc: 'Total Int, including Equipment and Scrolls' },
   { name: 'TotalLuk',      desc: 'Total Luk, including Equipment and Scrolls' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
@@ -458,6 +509,17 @@ const MOD_PIPELINE_STEPS = [
     ],
   },
   {
+    label: 'Element Amplification',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Read directly from the client. The buff slot is named Element Amplification in the client\'s own list of buff names, and the same slot also drives the matching extra MP cost, which confirms the identification. The skill it belongs to is not in this game\'s data, so the step can never fire.',
+    lines: [
+      'Damage = Damage × (ElementAmpDamage / 100 + 1)',
+    ],
+    notes: [
+    ],
+  },
+  {
     label: 'Critical Hit',
     wip: false,
     status: 'ok',
@@ -545,12 +607,39 @@ const MOD_VARS = [
   { name: 'Orbs',            desc: 'Combo Attack orbs stacked when the skill is cast, 1 to 5' },
   { name: 'ComboDamage',     desc: "Combo Attack's damage bonus % for the learned level (5 at level 1, 20 at level 30)" },
   { name: 'ChargeDamage',    desc: "The active elemental charge's damage bonus % for the learned level (2 at level 1, 20 at level 30)" },
+  { name: 'ElementAmpDamage', desc: "Damage bonus % from the Element Amplification buff, taken as the y value of whichever skill fills the slot. Magic and DoT only. The client supports it, but the skill is not in this game's data, so it never fires" },
 ];
 
 
 // ─── Damage taken ─────────────────────────────────────────────
 
 const GUARD_STEPS = [
+  {
+    label: 'Monster Accuracy',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Read directly from the outcome routine in the client, with every constant resolved. This is a different formula from the one your own attacks use',
+    lines: [
+      'LevelGap = PlayerLevel − MonsterLevel, or 0 if the monster is the higher level',
+      '',
+      'MonsterHitScore = MonsterAcc × 100 / ((LevelGap + 51) × 5)',
+      '',
+      'EffectiveAvoid = Avoid / (Avoid / 80 + 1) / (LevelGap / 40 + 1)',
+      '',
+      'Spread = 0.15 + 0.2 / (1 + exp((MonsterHitScore − EffectiveAvoid) / 12))',
+      'Roll   = rand(1 − Spread, 1 + Spread)',
+      '',
+      'Hit if Roll × MonsterHitScore ≥ EffectiveAvoid',
+      '',
+      'A failed roll is still a hit 8% of the time.',
+    ],
+    notes: [
+      'Avoid has hard diminishing returns. Dividing by Avoid / 80 + 1 means the effective value climbs toward 80 and never passes it, however much Avoid you stack',
+      'Out-levelling a monster helps twice over: it lowers the monster\'s hit score, though it also shrinks your effective Avoid',
+      'Nothing makes you untouchable. Whenever the roll fails, the client gives the attack a flat 8% second chance, and if your Avoid is high enough that the roll could never have landed it first rolls a separate 2% chance on top of that',
+      'An attack can be flagged unmissable, which skips this whole step - it still has to get past the guard rolls below',
+    ],
+  },
   {
     label: 'Guard Immunity',
     wip: false,
@@ -613,13 +702,7 @@ const GUARD_STEPS = [
     ],
     notes: [
       "MonsterAttack is the monster's physical attack for a regular attack, its magic attack for a skill attack, after its own percent modifiers",
-      'Fixed-damage attacks take a third path that skips every step below, including defense',
     ],
-    cot1: {
-      notes: [
-        'The roll is unchanged from COT1. The fixed-damage path existed there only as an empty stub returning 0 - COT2 implemented it.',
-      ],
-    },
   },
   {
     label: 'Player Defense',
@@ -646,6 +729,38 @@ const GUARD_STEPS = [
     },
   },
   {
+    label: 'Invincible (Cleric)',
+    wip: false,
+    status: 'partial',
+    statusNote: 'The step is read directly from the damage-taken routine, including the job check and the 50% ceiling.',
+    lines: [
+      'Only for Cleric, Priest and Bishop, and only against a regular attack:',
+      '  DamageTaken = DamageTaken × (1 − InvincibleReduction / 100)',
+    ],
+    notes: [
+      'InvincibleReduction is the skill\'s own value, 10% at level 1 rising to 30% at level 20',
+      'Regular attacks only. A monster skill attack skips this step, matching the skill description, which says physical damage',
+    ],
+    cot1: {
+      badge: 'New in COT2',
+      notes: [
+        'Neither the skill nor this branch exists in COT1.',
+      ],
+    },
+  },
+  {
+    label: 'Elemental Damage Reduction',
+    wip: false,
+    status: 'partial',
+    statusNote: 'The step is read directly from both damage-taken routines and the getter they call. The four values are buff slots with no skill id attached, so naming Elemental Resistance as the source is inference.',
+    lines: [
+      'DamageTaken = DamageTaken × (1 − ElementResist / 100)',
+    ],
+    notes: [
+      'Applies to both regular and skill attacks, straight after your defense',
+    ],
+  },
+  {
     label: 'Result',
     wip: false,
     status: 'ok',
@@ -665,6 +780,14 @@ const GUARD_STEPS = [
 ];
 
 const GUARD_VARS = [
+  { name: 'MonsterAcc',    desc: "The monster's accuracy stat" },
+  { name: 'MonsterLevel',  desc: "The monster's level" },
+  { name: 'LevelGap',      desc: 'Your level minus the monster\'s level, or 0 if the monster is the higher level' },
+  { name: 'Avoid',         desc: "Your Avoid stat from the Stats panel, before the diminishing-returns step" },
+  { name: 'EffectiveAvoid', desc: 'Avoid after diminishing returns and the level-gap term. Climbs toward 80 and never passes it' },
+  { name: 'MonsterHitScore', desc: "The monster's accuracy scaled against the level gap - what the roll is measured against" },
+  { name: 'InvincibleReduction', desc: "Invincible's damage reduction % for the learned level (10 at level 1, 30 at level 20)" },
+  { name: 'ElementResist', desc: 'Percentage reduction for the element of the incoming attack, from one of four buff slots' },
   { name: 'ShieldDefense', desc: 'Weapon Defense of the item equipped in the shield slot, scrolls included. Nothing else feeds this value' },
   { name: 'GuardChance',   desc: 'Chance for the hit to be negated outright' },
   { name: 'ClawGuardBlockChance', desc: "Claw Guard's block chance for the learned level (3, 4 or 5)" },
@@ -801,12 +924,13 @@ function makeStatusTag(status, statusNote, validated) {
 
 function buildPipeline(steps) {
   const frag = document.createDocumentFragment();
-  steps.forEach(({ label, wip, status, statusNote, validated, lines, notes, cot1 }, i) => {
+  steps.forEach(({ label, wip, status, statusNote, validated, lines, notes, warnings, cot1, simple }, i) => {
     const step = el('div', { className: 'formulas-pipeline-step' });
 
     const stepHeader = el('div', { className: 'formulas-pipeline-header' });
     stepHeader.appendChild(el('span', { className: 'formulas-pipeline-badge', textContent: i + 1 }));
-    stepHeader.appendChild(el('span', { className: 'formulas-pipeline-title', textContent: label }));
+    const titleEl = el('span', { className: 'formulas-pipeline-title', textContent: label });
+    stepHeader.appendChild(titleEl);
     if (wip) stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
     if (cot1) {
       const cot1Tag = el('span', {
@@ -819,24 +943,68 @@ function buildPipeline(steps) {
     if (status) stepHeader.appendChild(makeStatusTag(status, statusNote, validated));
     step.appendChild(stepHeader);
 
-    const codeLines = lines.filter(l => l !== '');
-    if (codeLines.length) {
-      const pre = el('pre', { className: 'formulas-code' });
-      pre.innerHTML = lines.map(l => l === '' ? '' : tokenizeLine(l)).join('\n');
-      step.appendChild(pre);
+    // A step may carry a `simple` variant: the common-case formula with the rare
+    // branches (Prone Stab, meleeing with a ranged weapon) folded away. It is on by
+    // default, because those branches make the general form hard to read for the
+    // 99% case. The toggle switches to the exact form the client implements.
+    const body = el('div', { className: 'formulas-pipeline-body' });
+    let showSimple = Boolean(simple);
+
+    const renderBody = () => {
+      body.textContent = '';
+      const useLines = showSimple ? simple.lines : lines;
+      const useNotes = showSimple ? (simple.notes ?? notes) : notes;
+
+      if (useLines.filter(l => l !== '').length) {
+        const pre = el('pre', { className: 'formulas-code' });
+        pre.innerHTML = useLines.map(l => l === '' ? '' : tokenizeLine(l)).join('\n');
+        body.appendChild(pre);
+      }
+
+      // Warnings sit above the ordinary notes: they exist for traps a reader will
+      // otherwise walk into, like reading Magic as the gear-only Magic Attack.
+      if (warnings?.length) {
+        const warnWrap = el('div', { className: 'formulas-warn-notes' });
+        warnings.forEach(w => warnWrap.appendChild(el('div', { className: 'formulas-note', textContent: w })));
+        body.appendChild(warnWrap);
+      }
+
+      if (useNotes?.length) {
+        const noteWrap = el('div', { className: 'formulas-pipeline-notes' });
+        useNotes.forEach(n => noteWrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
+        body.appendChild(noteWrap);
+      }
+
+      if (cot1?.notes?.length) {
+        const cot1Wrap = el('div', { className: 'formulas-cot1-notes' });
+        cot1.notes.forEach(n => cot1Wrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
+        body.appendChild(cot1Wrap);
+      }
+    };
+
+    if (simple) {
+      const box = el('input', { type: 'checkbox' });
+      box.checked = !showSimple;
+      box.addEventListener('change', () => {
+        showSimple = !box.checked;
+        renderBody();
+      });
+
+      const toggle = el('label', { className: 'formulas-advanced-toggle' },
+        box,
+        el('span', { textContent: 'Advanced' }),
+      );
+      attachTooltip(toggle, 'Off, this shows the formula for the cases that actually come up. On, it adds the two branches that only fire for Prone Stab and for meleeing with a Bow, Crossbow or Claw - the exact form the client implements.');
+      // Sits directly after the step title, ahead of the status tags. Built here rather
+      // than inline above because it needs renderBody() to exist. The class stops the
+      // title's flex:1 from growing and pushing the toggle to the far edge - the toggle
+      // takes over as the spacer instead, so the status tags stay right-aligned.
+      stepHeader.classList.add('has-toggle');
+      stepHeader.insertBefore(toggle, titleEl.nextSibling);
     }
 
-    if (notes?.length) {
-      const noteWrap = el('div', { className: 'formulas-pipeline-notes' });
-      notes.forEach(n => noteWrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
-      step.appendChild(noteWrap);
-    }
-
-    if (cot1?.notes?.length) {
-      const cot1Wrap = el('div', { className: 'formulas-cot1-notes' });
-      cot1.notes.forEach(n => cot1Wrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
-      step.appendChild(cot1Wrap);
-    }
+    renderBody();
+    step.appendChild(body);
 
     frag.appendChild(step);
   });
@@ -1227,7 +1395,8 @@ function buildWeaponMultTable() {
   container.appendChild(split);
 
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing / Stab are the normal melee actions, Shoot covers bow, crossbow and claw attacks, and Other applies when a skill uses its own custom animation (e.g. Rush, Assaulter)' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll for swing or stab just like a plain attack does. These ones never roll, each always uses the multiplier shown:' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The Swing/Stab ratio above is the melee animation list. Bows, Crossbows and Claws normally fire instead, drawing from a separate ranged list that always resolves to Shoot, a Claw throwing a star rolls swingO1/O2/O3, which the client rewrites to Shoot because the weapon is a Claw. Their Swing and Stab columns are only reached when meleeing without ammo.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll for swing or stab just like a plain attack does. These ones never roll. The first three groups always use the multiplier shown; the last group takes whichever action the weapon defaults to, which is always that weapon\'s best column - Stab for 1H Swords, 2H Swords, Daggers, Spears, Wands, Staves and bare hands, Swing for Axes, Blunt Weapons and Polearms, and Shoot for Bows, Crossbows and Claws. Magic skills are left out because magic damage never uses a weapon multiplier at all.' }));
 
   const exceptions = el('div', { className: 'formulas-exceptions' });
   ACTION_EXCEPTIONS.forEach(([column, skills]) => {
@@ -1273,11 +1442,11 @@ const CALC_CONFIG = {
   scaleTerms: (incoming, level) => `5 × ${level} + 200 + 1.2 × ${incoming.toLocaleString()}`,
   useLevel: true,
   notes: (magic) => [
-    'Assumes the attack lands. A miss deals 0, and the accuracy roll is not modelled here',
+    'Assumes the attack lands. A miss deals 0, and the accuracy roll is not modelled here, see the Monster Accuracy step for what decides that',
     magic
       ? 'Monster skill attacks cannot miss or be guarded, and they read your Magic Defense'
       : 'Regular attacks read your Weapon Defense and can be missed or guarded',
-    'Fixed-damage attacks ignore all of this and deal their set amount',
+    'Invincible and elemental resistance are not modelled here either - both cut the number below further',
   ],
 };
 

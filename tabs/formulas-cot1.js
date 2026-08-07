@@ -131,12 +131,14 @@ const BASE_DAMAGE_STEPS = [
     status: 'ok',
     statusNote: 'Read directly from the COT1 magic damage routine. The community formula was exactly right, including the base-Int read - the bracket reads the raw character record, not the equipment-inclusive total.',
     lines: [
-      'MIN = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 × MasteryMult + BaseInt) / 100 + 1)',
-      'MAX = (BasicAttack + MagicAttack / 7) × ((MagicAttack × 2 + BaseInt) / 100 + 1)',
+      'MIN = (BasicAttack + Magic / 7) × ((Magic × 2 × MasteryMult + BaseInt) / 100 + 1)',
+      'MAX = (BasicAttack + Magic / 7) × ((Magic × 2 + BaseInt) / 100 + 1)',
+    ],
+    warnings: [
+      'Magic and Magic Attack are two different numbers. Magic is the MAGIC stat on your stat window: Total Int / 2, plus the Magic Attack on your gear, plus buff magic attack, all as one value. Magic Attack on its own is only the gear part, and the client never uses it by itself - every magic formula on this page multiplies by the full MAGIC stat.',
     ],
     notes: [
-      'BaseInt really is base Int only - the client reads the raw character record, so Int from equipment and scrolls is skipped in the bracket (it still counts inside MagicAttack)',
-      'MagicAttack itself is TotalInt / 2 + equipment Magic Attack',
+      'BaseInt really is base Int only - the client reads the raw character record, so Int from equipment and scrolls is skipped in the bracket (it still counts inside Magic)',
     ],
   },
   {
@@ -145,11 +147,14 @@ const BASE_DAMAGE_STEPS = [
     status: 'ok',
     statusNote: 'Read directly from the two Heal implementations in the COT1 client - the only two places where the 200 and 3 constants co-occur.',
     lines: [
-      'HealAmount = ((BaseInt × Roll + BaseLuk) / 200 + 3) × MagicAttack × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1)',
+      'HealAmount = ((BaseInt × Roll + BaseLuk) / 200 + 3) × Magic × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1)',
       '',
       'Roll = rand(0.8, 1.0)',
       '',
       'Damage = HealAmount / TargetsHit × 0.5',
+    ],
+    warnings: [
+      'Magic here is the MAGIC stat on your stat window (Total Int / 2 plus gear Magic Attack plus buffs), not the Magic Attack total from your gear on its own.',
     ],
     notes: [
       'BaseInt and BaseLuk are base stats from AP only, matching the community fit',
@@ -163,9 +168,12 @@ const BASE_DAMAGE_STEPS = [
     status: 'ok',
     statusNote: 'Read directly from the COT1 damage-over-time routines. The Int divisor is 100.',
     lines: [
-      'TotalDamage = (DoTBasicAttack + MagicAttack / 7) × ((MagicAttack + BaseInt) / 100 + 1)',
+      'TotalDamage = (DoTBasicAttack + Magic / 7) × ((Magic + BaseInt) / 100 + 1)',
       '',
       'DamagePerTick = TotalDamage / DoTDurationSeconds',
+    ],
+    warnings: [
+      'Magic here is the MAGIC stat on your stat window (Total Int / 2 plus gear Magic Attack plus buffs), not the Magic Attack total from your gear on its own.',
     ],
     notes: [
       'DoT damage ignores all Defense reductions - the routine never reads the enemy\'s defenses',
@@ -184,8 +192,8 @@ const BASE_DAMAGE_VARS = [
   { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8. Exception: Lucky Seven reads its own skill data instead, same mechanism as COT2' },
   { name: 'BasicAttack',   desc: 'Basic Attack damage value listed on the skill, for magic skills only' },
   { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
-  { name: 'MagicAttack',        desc: 'TotalInt / 2 + EquipmentMagicAttack (MAGIC value shown in UI)' },
-  { name: 'EquipmentMagicAttack', desc: 'Sum of Magic Attack on all gear (including above/below average and scrolled stats)' },
+  { name: 'Magic',              desc: 'The MAGIC value on the stat window, and the whole stat rather than the Magic Attack printed on your gear. The client builds it as TotalInt / 2, plus EquipmentMagicAttack, plus buff magic attack. It keeps only this one number, and every magic formula reads it' },
+  { name: 'EquipmentMagicAttack', desc: 'Sum of Magic Attack on all gear (including above/below average and scrolled stats). Feeds into Magic; nothing reads it on its own' },
   { name: 'TotalInt',      desc: 'Total Int, including Equipment and Scrolls' },
   { name: 'BaseInt',       desc: 'BASE Int from AP only - the client reads the raw character record here, skipping equipment' },
   { name: 'BaseLuk',       desc: 'BASE Luk from AP only - same raw-record read as BaseInt' },
@@ -500,7 +508,7 @@ function makeCollapsibleSection(title, countLabel, bodyFn) {
 
 function buildPipeline(steps) {
   const frag = document.createDocumentFragment();
-  steps.forEach(({ label, wip, status, statusNote, lines, notes }, i) => {
+  steps.forEach(({ label, wip, status, statusNote, lines, notes, warnings }, i) => {
     const step = el('div', { className: 'formulas-pipeline-step' });
 
     const stepHeader = el('div', { className: 'formulas-pipeline-header' });
@@ -524,6 +532,14 @@ function buildPipeline(steps) {
       const pre = el('pre', { className: 'formulas-code' });
       pre.innerHTML = lines.map(l => l === '' ? '' : tokenizeLine(l)).join('\n');
       step.appendChild(pre);
+    }
+
+    // Warnings sit above the ordinary notes: they exist for traps a reader will
+    // otherwise walk into, like reading Magic as the gear-only Magic Attack.
+    if (warnings?.length) {
+      const warnWrap = el('div', { className: 'formulas-warn-notes' });
+      warnings.forEach(w => warnWrap.appendChild(el('div', { className: 'formulas-note', textContent: w })));
+      step.appendChild(warnWrap);
     }
 
     if (notes?.length) {
