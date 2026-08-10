@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById, enableStickyTableHead } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL } from '../lib/constants.js';
@@ -715,6 +715,7 @@ export function renderMonsters(data, options = {}) {
     table.appendChild(tbody);
     wrapper.appendChild(table);
     dataContainer.appendChild(wrapper);
+    enableStickyTableHead(wrapper, table);
 
     if (autoExpandAfterId != null) {
       autoExpandById(dataContainer, autoExpandAfterId);

@@ -759,6 +759,27 @@ a.tab-link:focus-visible {
 .filter-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; align-items: center; }
 .filter-divider { width: 1px; height: 24px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
 .table-scroll { overflow-x: auto; }
+/* Pinned column header. The wrapper gives up its scroll container only on the
+   widths where the table fits - see enableStickyTableHead() in utils.js - since
+   a sticky thead can only pin to the scroll container it lives in. */
+.table-scroll--sticky-head,
+.formulas-table-wrap.table-scroll--sticky-head { overflow-x: visible; }
+.table-scroll--sticky-head thead {
+  position: sticky;
+  top: calc(var(--sticky-offset, 0px) + var(--toolbar-offset, 0px));
+  /* Above map/portal overlays (up to 10) that appear in expanded detail rows. */
+  z-index: 30;
+  transition: top .25s ease;
+}
+/* Rows must not show through: the header gradients build on a translucent
+   --accent-bg, and a th with no background of its own is transparent. Backing
+   the thead as well as the tr covers border-spacing gaps on tables that don't
+   collapse their borders. */
+.table-scroll--sticky-head thead,
+.table-scroll--sticky-head thead tr { background-color: var(--surface); }
+/* box-shadow rather than border-bottom: with border-collapse, a sticky header's
+   borders stay behind with the table body instead of travelling with it. */
+.table-scroll--sticky-head thead th { box-shadow: inset 0 -2px 0 var(--border); }
 /* Search + filter controls that stay put while the list scrolls past. Pins
    below .site-header; --sticky-offset drops to 0 when that header slides away
    (set in main.js), and the matching transition keeps the two in step. */
@@ -811,7 +832,9 @@ a.tab-link:focus-visible {
 .collapsible {
   border: 1px solid var(--border);
   border-radius: 10px;
-  overflow: hidden;
+  /* clip, not hidden: both round off the children, but hidden would make this a
+     scroll container and a sticky thead inside would pin to it, not the page. */
+  overflow: clip;
   margin-bottom: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,.2);
   transition: box-shadow .2s;
