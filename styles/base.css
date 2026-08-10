@@ -599,6 +599,27 @@ a.tab-link:focus-visible {
 .search-clear:hover { color: var(--text); background: var(--surface-2); }
 .search-box input:not(:placeholder-shown) ~ .search-clear { display: flex; }
 
+/* Regex mode: query is wrapped in slashes. Swap the magnifier for a ".*" glyph. */
+.search-icon-regex {
+  display: none;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+.search-box--regex .search-icon svg { display: none; }
+.search-box--regex .search-icon-regex { display: block; }
+.search-box--regex .search-icon { color: var(--accent); }
+.search-box--regex input { border-color: var(--accent); }
+
+/* Invalid regex (e.g. a half-typed "/foo(") — reads as a typo, not as "no results". */
+.search-box--invalid .search-icon { color: #e5534b; }
+.search-box--invalid input,
+.search-box--invalid input:focus {
+  border-color: #e5534b;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #e5534b 18%, transparent);
+}
+
 /* ── Info card ──────────────────────────────────────────────── */
 .info-card {
   background: var(--surface);
@@ -738,6 +759,22 @@ a.tab-link:focus-visible {
 .filter-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; align-items: center; }
 .filter-divider { width: 1px; height: 24px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
 .table-scroll { overflow-x: auto; }
+/* Search + filter controls that stay put while the list scrolls past. Pins
+   below .site-header; --sticky-offset drops to 0 when that header slides away
+   (set in main.js), and the matching transition keeps the two in step. */
+.sticky-toolbar {
+  position: sticky;
+  top: var(--sticky-offset, 0px);
+  z-index: 100;
+  /* Bleed over .app's horizontal padding so rows don't show at the edges. */
+  margin: 0 -16px;
+  padding: 10px 16px 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: top .25s ease;
+}
+/* Inside the bar the Navigate button is laid out in a flex row, not floated. */
+.sticky-toolbar .map-navigate-btn { float: none; margin: 0; }
 .item-name-wrap { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .item-id-wrap { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
 

@@ -40,7 +40,10 @@ const EXP_TABLE = [
 // Citizenship (Residency) grade thresholds, read out of the COT2 client. The
 // contribution column is NeedContribution (sub_1402C9850) and the level column is
 // NeedLevel (sub_1402C9830); the Citizenship tab (sub_1411AB6B0) is the only caller of
-// either. Grade, contribution required, character level required.
+// either. Grade, contribution required, character level required. The contribution
+// column is the price of one grade, not a lifetime total - the window's gauge divides
+// by NeedContribution(grade + 1), and an in-game reading of 450 / 2,000 at grade 2
+// (grade 2 itself costs 1,000) proves the counter resets on each grade up.
 // See tmp/citizenship-grade-binary.md.
 const CITIZENSHIP_GRADES = [
   [1, 0, 12], [2, 1000, 17], [3, 2000, 22], [4, 3000, 27], [5, 4000, 32],
@@ -1296,6 +1299,11 @@ function buildCitizenshipTable() {
   tableWrap.appendChild(table);
   container.appendChild(tableWrap);
 
+  container.appendChild(el('div', {
+    className: 'formulas-note formulas-note--padded',
+    textContent: 'Each figure is the price of that one grade, not a lifetime total - the counter resets on every grade up, and the Citizenship window shows it against the cost of the next grade. Grade 1 is granted by the citizenship quest, and the whole climb to Grade 10 costs 46,000.',
+  }));
+
   return container;
 }
 
@@ -1537,7 +1545,7 @@ export function renderFormulas(data) {
 
   const citizenshipSection = makeCollapsibleSection('Citizenship Grades', '', buildCitizenshipTable);
   citizenshipSection.querySelector('.right').appendChild(
-    makeStatusTag('partial', 'The contribution thresholds were read directly from the routine in the client that returns the requirement for a grade. The character level column comes from the same code path, but the field it is checked against is unlabelled, so reading it as character level is inference.')
+    makeStatusTag('ok', 'The contribution thresholds and the character level column were read directly from the routines in the client that return the requirement for a grade, and both have been confirmed against the Citizenship window in game. That in-game reading also settled the one thing the code left open, by showing a counter below the cost of the grade the character already holds: contribution resets on each grade up rather than accumulating.')
   );
 
   const craftSection = makeCollapsibleSection('Crafting Levels', '', buildCraftTable);

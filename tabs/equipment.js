@@ -1,4 +1,4 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 
 function matchesClass(item, classFilter) {
@@ -69,7 +69,11 @@ export function renderEquipment(data, options = {}) {
   const container = el('div');
   const equipmentMeta = items.equipment_meta || {};
 
-  wireSearch(container, 'Search by name or description...', options, (query) => {
+  // Search and filters stay pinned at the top while the list scrolls past.
+  const toolbar = el('div', { className: 'sticky-toolbar' });
+  container.appendChild(toolbar);
+
+  wireSearch(toolbar, 'Search by name or description...', options, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -89,8 +93,8 @@ export function renderEquipment(data, options = {}) {
     updateFilterUrl();
     renderData();
   }, { groupLabel: 'Class:' });
-  container.appendChild(classPillGroup);
-  container.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
+  toolbar.appendChild(classPillGroup);
+  toolbar.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
 
   const genderOptions = [
     { label: 'All Genders', value: null },
@@ -104,8 +108,8 @@ export function renderEquipment(data, options = {}) {
     updateFilterUrl();
     renderData();
   }, { groupLabel: 'Gender:' });
-  container.appendChild(genderPillGroup);
-  container.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
+  toolbar.appendChild(genderPillGroup);
+  toolbar.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
 
   function updateFilterUrl() {
     Router.updateFilter('equipment', {
@@ -147,9 +151,9 @@ export function renderEquipment(data, options = {}) {
     }
     const newPillGroup = makePillGroup(subCategoryOptions, selectedSubCategory, handleSubCategoryPillChange, { groupLabel: 'Type:' });
     if (subCategoryPillGroup) {
-      container.replaceChild(newPillGroup, subCategoryPillGroup);
+      toolbar.replaceChild(newPillGroup, subCategoryPillGroup);
     } else {
-      container.appendChild(newPillGroup);
+      toolbar.appendChild(newPillGroup);
     }
     subCategoryPillGroup = newPillGroup;
   }
@@ -180,7 +184,7 @@ export function renderEquipment(data, options = {}) {
     }
     if (selectedSubCategory !== 'Weapon' || types.length === 0) {
       if (weaponTypePillGroup) {
-        container.removeChild(weaponTypePillGroup);
+        toolbar.removeChild(weaponTypePillGroup);
         weaponTypePillGroup = null;
       }
       selectedWeaponType = null;
@@ -188,9 +192,9 @@ export function renderEquipment(data, options = {}) {
     }
     const newPillGroup = makePillGroup(weaponTypeOptions, selectedWeaponType, handleWeaponTypePillChange, { groupLabel: 'Weapon Type:' });
     if (weaponTypePillGroup) {
-      container.replaceChild(newPillGroup, weaponTypePillGroup);
+      toolbar.replaceChild(newPillGroup, weaponTypePillGroup);
     } else {
-      container.insertBefore(newPillGroup, dataDiv);
+      toolbar.appendChild(newPillGroup);
     }
     weaponTypePillGroup = newPillGroup;
   }
@@ -206,13 +210,21 @@ export function renderEquipment(data, options = {}) {
     let equips = items.items.filter((item) => item.category === 'Equipment');
 
     const exactId = parseIdFilter(searchQuery);
-    const sq = searchQuery.toLowerCase();
+    const matcher = makeMatcher(searchQuery);
     if (exactId != null) {
       equips = equips.filter((equip) => Number(equip.id) === exactId);
-    } else if (sq) {
+    } else if (searchQuery.trim()) {
+      // Guarded on the raw query so an empty search never pays to build the row-text cache.
+      // Cached text is lowercased, which is harmless: makeMatcher always forces the "i" flag.
       equips = equips.filter((equip) => {
-        if (!equipTextCache.has(equip.id)) equipTextCache.set(equip.id, renderEquipRow(equip).textContent.toLowerCase());
-        return equipTextCache.get(equip.id).includes(sq);
+        if (!equipTextCache.has(equip.id)) {
+          const row = renderEquipRow(equip);
+          // Drop the hidden thumbnail placeholder ("ITEM"), which is always in the DOM and
+          // would otherwise sit in front of the name and swallow a leading "^" anchor.
+          row.querySelectorAll('.thumb-fallback').forEach((n) => n.remove());
+          equipTextCache.set(equip.id, row.textContent.toLowerCase());
+        }
+        return matcher.test(equipTextCache.get(equip.id));
       });
     }
 

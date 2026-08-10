@@ -1,5 +1,5 @@
 
-import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeHideToggle, makeCopyableId, makeTabLink, padMapId, padMobId, scrollToDetailRow, autoExpandById } from '../../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeMatcher, makeHideToggle, makeCopyableId, makeTabLink, padMapId, padMobId, scrollToDetailRow, autoExpandById } from '../../lib/utils.js';
 import { attachTooltip } from '../../lib/tooltip.js';
 import state, { getMapUrl, getMobThumbUrl } from '../../lib/data.js';
 
@@ -56,7 +56,6 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
   let currentMapId = null;
   const navBtn = el('button', { textContent: 'Navigate', className: 'map-navigate-btn' });
   navBtn.onclick = () => showNavigateModal(data, currentMapId);
-  container.appendChild(navBtn);
 
   const allCols = [
     { id: 'mobs',              label: 'Mobs',                on: true },
@@ -99,7 +98,10 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     toggles.appendChild(toggleBtn);
   }
   rebuildToggles();
-  container.appendChild(toggles);
+  // Column toggles and search stay pinned at the top while the list scrolls past.
+  const toolbar = el('div', { className: 'sticky-toolbar' });
+  toolbar.appendChild(toggles);
+  container.appendChild(toolbar);
 
   const { onMobClick } = options;
 
@@ -122,7 +124,16 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     searchQuery = value;
     renderData();
   });
-  container.appendChild(searchBox);
+  // Above the column toggles, matching the other tabs' toolbar order. Navigate
+  // shares the row so it stays reachable while the list scrolls.
+  const topRow = el('div', {
+    style: { display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '10px' },
+  });
+  searchBox.style.flex = '1';
+  searchBox.style.minWidth = '0';
+  topRow.appendChild(searchBox);
+  topRow.appendChild(navBtn);
+  toolbar.insertBefore(topRow, toggles);
 
   if (options.setNavigate) {
     const navigateFn = (target) => {
@@ -135,12 +146,14 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         autoExpandAfterId = exactId;
         searchQuery = '';
         searchBox._input.value = '';
+        searchBox._sync();
       } else {
         autoExpandAfterId = (typeof target === 'object' && target && target.id != null && target.autoExpand)
           ? target.id
           : exactId;
         searchQuery = nextFilter;
         searchBox._input.value = nextFilter;
+        searchBox._sync();
       }
       selectedRegion = null;
       renderData();
@@ -587,7 +600,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
   async function renderData() {
     const gen = ++renderGen;
     dataDiv.innerHTML = '';
-    const sq = searchQuery.toLowerCase();
+    const matcher = makeMatcher(searchQuery);
     const exactId = parseIdFilter(searchQuery);
     const npcLookup = maps.npc_lookup;
     if (gen !== renderGen) return;
@@ -598,15 +611,15 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       let filtered;
       if (exactId != null) {
         filtered = region.maps.filter((m) => Number(m.id) === exactId);
-      } else if (sq) {
+      } else if (searchQuery.trim()) {
         filtered = region.maps.filter((m) => {
-          if ((m.name || '').toLowerCase().includes(sq) || (m.street_name || '').toLowerCase().includes(sq)) return true;
+          if (matcher.test(m.name) || matcher.test(m.street_name)) return true;
           const mobs = mapMobs.get(m.id);
-          if (mobs && mobs.some(mob => (mob.name || '').toLowerCase().includes(sq))) return true;
+          if (mobs && mobs.some(mob => matcher.test(mob.name))) return true;
           if (Array.isArray(m.npcs) && m.npcs.length > 0) {
             for (const npcId of m.npcs) {
               const npc = npcLookup.get(Number(npcId));
-              if ((npc?.name || '').toLowerCase().includes(sq)) return true;
+              if (matcher.test(npc?.name)) return true;
             }
           }
           return false;

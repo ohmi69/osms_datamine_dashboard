@@ -1,8 +1,8 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { attachTooltip } from '../lib/tooltip.js';
 
-function filterDisciplines(disciplines, exactId, sq) {
+function filterDisciplines(disciplines, exactId, matcher) {
   return disciplines
     .map((discipline) => ({
       ...discipline,
@@ -15,9 +15,8 @@ function filterDisciplines(disciplines, exactId, sq) {
               recipes: level.recipes.filter((recipe) =>
                 exactId != null
                   ? recipe.output_id != null && Number(recipe.output_id) === exactId
-                  : !sq ||
-                    recipe.result_item_name.toLowerCase().includes(sq) ||
-                    recipe.ingredients.some((ing) => ing.item_name.toLowerCase().includes(sq))
+                  : matcher.test(recipe.result_item_name) ||
+                    recipe.ingredients.some((ing) => matcher.test(ing.item_name))
               ),
             }))
             .filter((level) => level.recipes.length > 0),
@@ -119,7 +118,10 @@ export function renderCrafting(data, options = {}) {
   }
 
 
-  wireSearch(container, 'Search by result or ingredient...', options, (query) => {
+  // Search and filters stay pinned at the top while the list scrolls past.
+  const toolbar = el('div', { className: 'sticky-toolbar' });
+
+  wireSearch(toolbar, 'Search by result or ingredient...', options, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -141,7 +143,8 @@ export function renderCrafting(data, options = {}) {
     updateFilterUrl();
     renderData();
   });
-  container.appendChild(pillGroup);
+  toolbar.appendChild(pillGroup);
+  container.appendChild(toolbar);
 
   // Sits above the recipe lists and is deliberately outside renderData - the
   // requirements are identical for every discipline, so the pills do not touch it.
@@ -156,11 +159,11 @@ export function renderCrafting(data, options = {}) {
     pillGroup.setActive(selectedDiscipline);
     dataDiv.innerHTML = '';
     const exactId = parseIdFilter(searchQuery);
-    const sq = searchQuery.toLowerCase();
+    const matcher = makeMatcher(searchQuery);
     const source = selectedDiscipline
       ? recipes.disciplines.filter((d) => d.discipline === selectedDiscipline)
       : recipes.disciplines;
-    const filtered = filterDisciplines(source, exactId, sq);
+    const filtered = filterDisciplines(source, exactId, matcher);
 
     const totalRecipes = filtered.reduce(
       (sum, discipline) =>

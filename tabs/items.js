@@ -1,4 +1,4 @@
-import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, makeMatcher, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 
 const STAT_LABELS = {
@@ -94,7 +94,10 @@ export function renderItems(data, options = {}) {
   const container = el('div');
   const scrollIdSet = new Set(items.scrolls.map((scroll) => String(scroll.id)));
 
-  wireSearch(container, 'Search by name or description...', options, (query) => {
+  // Search and filters stay pinned at the top while the list scrolls past.
+  const toolbar = el('div', { className: 'sticky-toolbar' });
+
+  wireSearch(toolbar, 'Search by name or description...', options, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -112,7 +115,7 @@ export function renderItems(data, options = {}) {
     pillRow.appendChild(btn);
     return btn;
   });
-  container.appendChild(pillRow);
+  toolbar.appendChild(pillRow);
 
   // Scroll slot subfilters
   const allScrollSlots = [...new Set(items.scrolls.map((s) => s.equip_slot).filter(Boolean))].sort();
@@ -126,7 +129,8 @@ export function renderItems(data, options = {}) {
     scrollSubRow.appendChild(btn);
     return btn;
   });
-  container.appendChild(scrollSubRow);
+  toolbar.appendChild(scrollSubRow);
+  container.appendChild(toolbar);
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);
@@ -146,25 +150,21 @@ export function renderItems(data, options = {}) {
 
   function renderData() {
     dataDiv.innerHTML = '';
-    const sq = searchQuery.toLowerCase();
+    const matcher = makeMatcher(searchQuery);
     const exactId = parseIdFilter(searchQuery);
     const allItems = items.items.filter(
       (item) =>
         item.category !== 'Equipment' &&
         (exactId != null
           ? Number(item.id) === exactId
-          : !sq ||
-            item.name.toLowerCase().includes(sq) ||
-            (item.description || '').toLowerCase().includes(sq))
+          : matcher.test(item.name) || matcher.test(item.description))
     );
     const allScrolls = items.scrolls.filter(
       (scroll) =>
         (selectedScrollSlot == null || scroll.equip_slot === selectedScrollSlot) &&
         (exactId != null
           ? Number(scroll.id) === exactId
-          : !sq ||
-            scroll.name.toLowerCase().includes(sq) ||
-            (scroll.description || '').toLowerCase().includes(sq))
+          : matcher.test(scroll.name) || matcher.test(scroll.description))
     );
     const consumables = allItems.filter(
       (item) => item.category === 'Consumable' && !scrollIdSet.has(String(item.id))

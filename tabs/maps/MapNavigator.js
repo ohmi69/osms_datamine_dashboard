@@ -1,5 +1,5 @@
 
-import { el, padMapId } from '../../lib/utils.js';
+import { el, padMapId, makeMatcher } from '../../lib/utils.js';
 import { getDataBase, getMapUrl } from '../../lib/data.js';
 
 export function getAllMapsFlat(data) {
@@ -49,10 +49,10 @@ function makeMapAutocomplete(input, allMaps, mapNames) {
 
   function showList() {
     const val = input.value.trim();
-    const valLower = val.toLowerCase();
-    let matches = !valLower
+    const matcher = makeMatcher(val);
+    let matches = !val
       ? mapNames.slice(0, 20)
-      : mapNames.filter(n => n.toLowerCase().includes(valLower)).slice(0, 20);
+      : mapNames.filter(n => matcher.test(n)).slice(0, 20);
     if (/^\d+$/.test(val)) {
       const map = allMaps.find(m => m.id === Number(val));
       if (map && !matches.includes(map.name)) {

@@ -12,7 +12,8 @@ export function renderBeautyStyles(data) {
   let activeType = 'all';
   let activeGender = 'all';
 
-  const filterBar = el('div', { className: 'beauty-filter-bar' });
+  // sticky-toolbar keeps the filters in reach while the style grids scroll past.
+  const filterBar = el('div', { className: 'beauty-filter-bar sticky-toolbar' });
 
   function makeGroup(options, getValue, setValue) {
     const group = el('div', { className: 'pill-group' });

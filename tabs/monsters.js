@@ -410,6 +410,7 @@ export function renderMonsters(data, options = {}) {
         filter = nextFilter;
         searchBox._input.value = nextFilter;
       }
+      searchBox._sync();
       renderData();
       window.scrollTo(0, 0);
     });
@@ -447,12 +448,15 @@ export function renderMonsters(data, options = {}) {
     { groupLabel: 'Weak to:' }
   );
 
-  container.appendChild(topRow);
+  // Search, filters and column toggles ride along at the top of the viewport
+  // while the list scrolls underneath.
+  const toolbar = el('div', { className: 'sticky-toolbar' });
+  toolbar.appendChild(topRow);
 
   const filterRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' } });
   filterRow.appendChild(typePills);
   filterRow.appendChild(elemPills);
-  container.appendChild(filterRow);
+  toolbar.appendChild(filterRow);
 
   const toggles = el('div', { className: 'col-toggles' });
   function rebuildToggles() {
@@ -475,7 +479,8 @@ export function renderMonsters(data, options = {}) {
   }
   rebuildToggles();
 
-  container.appendChild(toggles);
+  toolbar.appendChild(toggles);
+  container.appendChild(toolbar);
   container.appendChild(dataContainer);
 
   function renderData() {

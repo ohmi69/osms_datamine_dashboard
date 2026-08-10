@@ -86,7 +86,10 @@ export function renderSkills(data, options = {}) {
 
 
 
-  wireSearch(container, 'Search by name or description...', options, (query) => {
+  // Search and filters stay pinned at the top while the list scrolls past.
+  const toolbar = el('div', { className: 'sticky-toolbar' });
+
+  wireSearch(toolbar, 'Search by name or description...', options, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -178,7 +181,7 @@ export function renderSkills(data, options = {}) {
     updateFilterUrl();
     renderData();
   }, { groupLabel: 'Class:' });
-  container.appendChild(pillGroup);
+  toolbar.appendChild(pillGroup);
 
   function buildSubclassPills() {
     subPillsWrapper.innerHTML = '';
@@ -193,7 +196,8 @@ export function renderSkills(data, options = {}) {
     }, { groupLabel: 'Subclass:' });
     subPillsWrapper.appendChild(subPillGroup);
   }
-  container.appendChild(subPillsWrapper);
+  toolbar.appendChild(subPillsWrapper);
+  container.appendChild(toolbar);
   const countText = el('div', { className: 'count-text', textContent: `${totalSkills} skills` });
   container.appendChild(countText);
 

@@ -9,7 +9,9 @@ export function renderCashShop(data, options = {}) {
   let selectedCategory = null; // null = all, '__unnamed__' = unnamed section
   let selectedSubCategory = null;
   const container = el('div');
-  wireSearch(container, 'Search by name or description...', options, (query) => {
+  // Search and filters stay pinned at the top while the list scrolls past.
+  const toolbar = el('div', { className: 'sticky-toolbar' });
+  wireSearch(toolbar, 'Search by name or description...', options, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -51,11 +53,11 @@ export function renderCashShop(data, options = {}) {
     updateFilterUrl();
     renderData();
   });
-  container.appendChild(pillGroup);
+  toolbar.appendChild(pillGroup);
 
   // Sub-category filter row (shown only when Equipment is selected)
   const subPillRow = el('div', { className: 'sub-pill-row hidden' });
-  container.appendChild(subPillRow);
+  toolbar.appendChild(subPillRow);
 
   // Hide unavailable toggle
   // Use StateManager for hideUnavailable
@@ -68,7 +70,8 @@ export function renderCashShop(data, options = {}) {
     state.set('cashshop_hide_unavailable', hideUnavailable);
     renderData();
   }));
-  container.appendChild(toggleRow);
+  toolbar.appendChild(toggleRow);
+  container.appendChild(toolbar);
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);

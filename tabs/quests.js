@@ -582,7 +582,11 @@ export function renderQuests(data, options = {}) {
       : []
   );
 
-  wireSearch(container, 'Search by name, NPC, or reward...', options, (query) => {
+  // Search and filters stay pinned at the top while the list scrolls past.
+  const toolbar = el('div', { className: 'sticky-toolbar' });
+  container.appendChild(toolbar);
+
+  wireSearch(toolbar, 'Search by name, NPC, or reward...', options, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -668,7 +672,7 @@ export function renderQuests(data, options = {}) {
       selectRegion
     );
     filterRow.appendChild(regionPillGroup);
-    container.appendChild(filterRow);
+    toolbar.appendChild(filterRow);
 
     if (systemRegions.length) {
       const systemRow = el('div', { className: 'filter-row' });
@@ -679,7 +683,7 @@ export function renderQuests(data, options = {}) {
         { groupLabel: 'Systems' }
       );
       systemRow.appendChild(systemPillGroup);
-      container.appendChild(systemRow);
+      toolbar.appendChild(systemRow);
     }
   }
 
@@ -697,7 +701,7 @@ export function renderQuests(data, options = {}) {
       { groupLabel: 'Job' }
     );
     jobFilterRow.appendChild(jobPillGroup);
-    container.appendChild(jobFilterRow);
+    toolbar.appendChild(jobFilterRow);
   }
 
   if (citizenshipTowns.length > 1) {
@@ -714,7 +718,7 @@ export function renderQuests(data, options = {}) {
       { groupLabel: 'Town' }
     );
     townFilterRow.appendChild(townPillGroup);
-    container.appendChild(townFilterRow);
+    toolbar.appendChild(townFilterRow);
   }
 
   syncSubFilterRows();

@@ -622,6 +622,14 @@ window.closeImageModal = closeImageModal;
 (function () {
   const header = document.querySelector('.site-header');
   if (!header) return;
+  // Sticky toolbars pin below the header, so they need its current height —
+  // 0 while it's slid away, so they take over the top of the viewport.
+  const syncOffset = () => {
+    const hidden = header.classList.contains('site-header--hidden');
+    document.documentElement.style.setProperty('--sticky-offset', hidden ? '0px' : `${header.offsetHeight}px`);
+  };
+  syncOffset();
+  window.addEventListener('resize', syncOffset, { passive: true });
   let lastY = window.scrollY;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
@@ -631,6 +639,7 @@ window.closeImageModal = closeImageModal;
       header.classList.add('site-header--hidden');
     }
     lastY = y;
+    syncOffset();
   }, { passive: true });
 })();
 
