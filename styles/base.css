@@ -758,7 +758,14 @@ a.tab-link:focus-visible {
 .empty-state { color: var(--dim); padding: 20px; text-align: center; }
 .filter-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; align-items: center; }
 .filter-divider { width: 1px; height: 24px; background: var(--border); margin: 0 4px; flex-shrink: 0; }
+/* Narrow screens scroll the wide tables sideways. On wider screens the
+   overflow is dropped: any overflow value other than `visible` makes this a
+   scroll container, which would anchor the sticky table heads to a box that
+   never scrolls vertically, i.e. kill them. */
 .table-scroll { overflow-x: auto; }
+@media (min-width: 900px) {
+  .table-scroll { overflow: visible; }
+}
 /* Search + filter controls that stay put while the list scrolls past. Pins
    below .site-header; --sticky-offset drops to 0 when that header slides away
    (set in main.js), and the matching transition keeps the two in step. */
@@ -811,7 +818,10 @@ a.tab-link:focus-visible {
 .collapsible {
   border: 1px solid var(--border);
   border-radius: 10px;
-  overflow: hidden;
+  /* `clip` rounds the corners like `hidden` but isn't a scroll container, so
+     sticky table heads inside a section still pin (same trick as
+     .patch-notes; see .data-table thead). */
+  overflow: clip;
   margin-bottom: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,.2);
   transition: box-shadow .2s;

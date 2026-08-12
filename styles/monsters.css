@@ -4,9 +4,25 @@
   border-collapse: collapse;
   font-size: 14px;
 }
-.data-table thead tr {
-  background: linear-gradient(90deg, var(--accent-bg) 0%, var(--surface) 60%);
-  border-left: 4px solid var(--accent);
+/* The head pins under whatever is already stuck at the top: the site header
+   (--sticky-offset, 0 once it slides away) plus the tab's sticky toolbar. The
+   transition keeps it in step with the header's slide. Only works when no
+   ancestor is a scroll container -- see .table-scroll in base.css. */
+.data-table thead th {
+  position: sticky;
+  top: calc(var(--sticky-offset, 0px) + var(--toolbar-offset, 0px));
+  z-index: 20;
+  transition: top .25s ease;
+  /* Each cell needs its own opaque fill: a sticky cell leaves its row's
+     background behind, so rows would show through the head. The accent fade
+     the row used to draw across the table now lives on the first cell. */
+  background: var(--surface);
+}
+.data-table thead th:first-child {
+  /* --accent-bg is a low-alpha tint, so it rides on top of the opaque fill
+     rather than replacing it -- on its own the rows show through. */
+  background-image: linear-gradient(90deg, var(--accent-bg) 0%, transparent 100%);
+  background-color: var(--surface);
 }
 .data-table th {
   padding: 10px 8px;
@@ -16,7 +32,13 @@
   letter-spacing: 1px;
   font-weight: 800;
   font-family: inherit;
-  border-bottom: 2px solid var(--border);
+  /* Inset shadows, not borders: with border-collapse the collapsed borders
+     stay behind when the cell sticks. Last shadow is the head's underline,
+     the accent bar re-creates the row's left border on the first cell. */
+  box-shadow: inset 0 -2px 0 var(--border);
+}
+.data-table thead th:first-child {
+  box-shadow: inset 4px 0 0 var(--accent), inset 0 -2px 0 var(--border);
 }
 .data-table td { padding: 9px 8px; border-bottom: 1px solid var(--border); }
 .data-table tr:hover { background: var(--surface-2); }

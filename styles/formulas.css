@@ -564,7 +564,10 @@
   border-radius: 8px;
 }
 
-.formulas-exp-tablewrap thead th {
+/* This table scrolls inside its own box, so its head pins to the box's top
+   rather than to the page's stack of sticky bars (see .data-table thead). */
+.formulas-exp-tablewrap thead th,
+.formulas-exp-tablewrap thead th:first-child {
   position: sticky;
   top: 0;
   z-index: 1;

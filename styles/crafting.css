@@ -17,7 +17,18 @@
   text-transform: uppercase;
   letter-spacing: .5px;
   font-weight: 600;
-  border-top: 1px solid var(--border);
+}
+/* Head pins under the site header + the tab's toolbar while the recipes
+   scroll past — same scheme as .data-table thead in monsters.css. The rules
+   are inset shadows because collapsed borders stay behind when a cell sticks,
+   and the cells need an opaque fill of their own. */
+.craft-table thead th {
+  position: sticky;
+  top: calc(var(--sticky-offset, 0px) + var(--toolbar-offset, 0px));
+  z-index: 20;
+  transition: top .25s ease;
+  background: var(--bg);
+  box-shadow: inset 0 1px 0 var(--border), inset 0 -1px 0 var(--border);
 }
 .craft-table td { padding: 8px 12px; border-top: 1px solid var(--border); }
 .craft-table tr:hover { background: var(--surface-2); }

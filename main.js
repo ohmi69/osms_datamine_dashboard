@@ -624,12 +624,33 @@ window.closeImageModal = closeImageModal;
   if (!header) return;
   // Sticky toolbars pin below the header, so they need its current height —
   // 0 while it's slid away, so they take over the top of the viewport.
+  // Sticky table heads pin below both, so they also need the height of
+  // whichever tab's toolbar is currently on screen (0 if the tab has none).
   const syncOffset = () => {
     const hidden = header.classList.contains('site-header--hidden');
     document.documentElement.style.setProperty('--sticky-offset', hidden ? '0px' : `${header.offsetHeight}px`);
   };
+  // The toolbar's own height only changes when a tab renders or the window
+  // resizes, so it stays out of the scroll handler.
+  const syncToolbarOffset = () => {
+    const toolbar = [...document.querySelectorAll('.sticky-toolbar')].find((t) => t.offsetParent);
+    document.documentElement.style.setProperty('--toolbar-offset', toolbar ? `${toolbar.offsetHeight}px` : '0px');
+  };
   syncOffset();
-  window.addEventListener('resize', syncOffset, { passive: true });
+  syncToolbarOffset();
+  window.addEventListener('resize', () => { syncOffset(); syncToolbarOffset(); }, { passive: true });
+  // Switching tabs (or re-rendering a list) swaps the toolbar out; re-measure
+  // once per frame after the DOM settles. Setting a custom property on <html>
+  // isn't a childList change, so this can't feed itself.
+  let toolbarQueued = false;
+  new MutationObserver(() => {
+    if (toolbarQueued) return;
+    toolbarQueued = true;
+    requestAnimationFrame(() => {
+      toolbarQueued = false;
+      syncToolbarOffset();
+    });
+  }).observe(document.getElementById('app') || document.body, { childList: true, subtree: true });
   let lastY = window.scrollY;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
