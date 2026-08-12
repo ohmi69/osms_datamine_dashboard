@@ -38,16 +38,21 @@ const EXP_TABLE = [
 ];
 
 // Citizenship (Residency) grade thresholds, read out of the COT2 client. The
-// contribution column is NeedContribution (sub_1402C9850) and the level column is
-// NeedLevel (sub_1402C9830); the Citizenship tab (sub_1411AB6B0) is the only caller of
-// either. Grade, contribution required, character level required. The contribution
+// contribution column is NeedContribution (sub_1402C94E0) and the level column is
+// NeedLevel (sub_1402C94C0); the Citizenship tab is the only caller of either. Grade,
+// contribution required, character level required, grade name. The contribution
 // column is the price of one grade, not a lifetime total - the window's gauge divides
 // by NeedContribution(grade + 1), and an in-game reading of 450 / 2,000 at grade 2
 // (grade 2 itself costs 1,000) proves the counter resets on each grade up.
-// See tmp/citizenship-grade-binary.md.
+// The names come from GetGradeName (sub_1402C8CF0), whose jump table maps grade 0-10
+// to message ids 6094-6104; those live in the client's obfuscated message table and
+// decrypt to the strings below. See tmp/citizenship-grade-binary.md.
 const CITIZENSHIP_GRADES = [
-  [1, 0, 12], [2, 1000, 17], [3, 2000, 22], [4, 3000, 27], [5, 4000, 32],
-  [6, 5000, 37], [7, 6000, 42], [8, 7000, 47], [9, 8000, 52], [10, 10000, 57],
+  [1, 0, 12, 'Traveler'], [2, 1000, 17, 'Visitor'], [3, 2000, 22, 'Helpful Stranger'],
+  [4, 3000, 27, 'Recognized Guest'], [5, 4000, 32, 'Town Resident'],
+  [6, 5000, 37, 'Trusted Neighbor'], [7, 6000, 42, 'Distinguished Citizen'],
+  [8, 7000, 47, 'Town Patron'], [9, 8000, 52, 'Guardian of the Village'],
+  [10, 10000, 57, 'Citizen of Honor'],
 ];
 
 // Craft level, craft exp needed to finish that level, character level needed to move on
@@ -1278,11 +1283,12 @@ function buildCitizenshipTable() {
   table.appendChild(thead);
 
   const tbody = el('tbody');
-  CITIZENSHIP_GRADES.forEach(([grade, contribution, level]) => {
+  CITIZENSHIP_GRADES.forEach(([grade, contribution, level, name]) => {
     const row = el('tr', { className: 'formulas-exp-row' });
 
     const gradeCell = el('td', { className: 'formulas-exp-td' });
     gradeCell.appendChild(el('span', { className: 'lvl-chip', textContent: `Grade ${grade}` }));
+    gradeCell.appendChild(el('span', { className: 'formulas-grade-name', textContent: name }));
     row.appendChild(gradeCell);
 
     row.appendChild(el('td', {
@@ -1545,7 +1551,7 @@ export function renderFormulas(data) {
 
   const citizenshipSection = makeCollapsibleSection('Citizenship Grades', '', buildCitizenshipTable);
   citizenshipSection.querySelector('.right').appendChild(
-    makeStatusTag('ok', 'The contribution thresholds and the character level column were read directly from the routines in the client that return the requirement for a grade, and both have been confirmed against the Citizenship window in game. That in-game reading also settled the one thing the code left open, by showing a counter below the cost of the grade the character already holds: contribution resets on each grade up rather than accumulating.')
+    makeStatusTag('ok', 'The contribution thresholds and the character level column were read directly from the routines in the client that return the requirement for a grade, and both have been confirmed against the Citizenship window in game. That in-game reading also settled the one thing the code left open, by showing a counter below the cost of the grade the character already holds: contribution resets on each grade up rather than accumulating. The grade names were decrypted out of the client\'s message table, which the routine that names a grade indexes by grade number; grade 2 decrypting to Visitor matches what the Citizenship window showed in game, which confirms the names line up with the grades.')
   );
 
   const craftSection = makeCollapsibleSection('Crafting Levels', '', buildCraftTable);

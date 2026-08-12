@@ -24,9 +24,16 @@
   .formulas-row { flex-direction: column; }
 }
 
-/* Table wrapper: scrollable on small screens */
+/* Table wrapper: scrollable on small screens. Dropped on wider ones, same as
+   .table-scroll: any overflow other than `visible` makes this a scroll
+   container, and the sticky heads inside then measure --sticky-offset from
+   this box instead of the viewport — so they get shoved that far *down* into
+   the table the moment the site header slides back in. */
 .formulas-table-wrap {
   overflow-x: auto;
+}
+@media (min-width: 900px) {
+  .formulas-table-wrap:not(.formulas-exp-tablewrap) { overflow: visible; }
 }
 
 .formulas-table-wrap .data-table {
@@ -198,6 +205,9 @@
 .formulas-exp-th { padding: 2px 6px; font-size: 0.95em; }
 .formulas-exp-row { line-height: 1.1; font-size: 0.95em; height: 22px; }
 .formulas-exp-td { padding: 2px 6px; }
+
+/* The in-game name of a citizenship grade, sitting beside its Grade N chip */
+.formulas-grade-name { margin-left: 8px; color: var(--dim); }
 
 /* ── Footnote ────────────────────────────────────────────────── */
 .formulas-note {

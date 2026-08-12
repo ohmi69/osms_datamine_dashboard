@@ -766,6 +766,16 @@ a.tab-link:focus-visible {
 @media (min-width: 900px) {
   .table-scroll { overflow: visible; }
 }
+/* Below that, the wrappers are scroll containers again, so a head that kept
+   `top: <sticky-offset>` would be pushed that far down into its own table
+   instead of pinning to the viewport. Nothing pins at this width anyway. */
+@media (max-width: 899px) {
+  .table-scroll .data-table thead th,
+  .formulas-table-wrap:not(.formulas-exp-tablewrap) .data-table thead th,
+  .table-scroll .craft-table thead th {
+    position: static;
+  }
+}
 /* Search + filter controls that stay put while the list scrolls past. Pins
    below .site-header; --sticky-offset drops to 0 when that header slides away
    (set in main.js), and the matching transition keeps the two in step. */
