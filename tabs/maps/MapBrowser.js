@@ -1,5 +1,5 @@
 
-import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeMatcher, makeHideToggle, makeCopyableId, makeTabLink, padMapId, padMobId, scrollToDetailRow, autoExpandById, enableStickyTableHead } from '../../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeMatcher, makeHideToggle, makeCopyableId, makeTabLink, padMapId, padMobId, scrollToDetailRow, autoExpandById } from '../../lib/utils.js';
 import { attachTooltip } from '../../lib/tooltip.js';
 import state, { getMapUrl, getMobThumbUrl } from '../../lib/data.js';
 
@@ -594,7 +594,6 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     }
 
     wrapper.appendChild(table);
-    enableStickyTableHead(wrapper, table);
     return wrapper;
   }
 

@@ -5,9 +5,7 @@
   font-size: 14px;
 }
 .data-table thead tr {
-  /* background-image, not the shorthand: the shorthand would reset the opaque
-     background-color a pinned header needs (see .table-scroll--sticky-head). */
-  background-image: linear-gradient(90deg, var(--accent-bg) 0%, var(--surface) 60%);
+  background: linear-gradient(90deg, var(--accent-bg) 0%, var(--surface) 60%);
   border-left: 4px solid var(--accent);
 }
 .data-table th {

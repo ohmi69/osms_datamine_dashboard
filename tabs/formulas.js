@@ -1,4 +1,4 @@
-import { el, enableStickyTableHead } from '../lib/utils.js';
+import { el } from '../lib/utils.js';
 import { buildCalcLauncher } from './formulas-calc.js';
 
 // Experience required per level, read out of the COT2 client. The client builds the
@@ -1255,7 +1255,6 @@ function buildExpTable() {
   });
   table.appendChild(tbody);
   tableWrap.appendChild(table);
-  enableStickyTableHead(tableWrap, table);
   split.appendChild(tableWrap);
   split.appendChild(buildExpChart());
   container.appendChild(split);
@@ -1298,7 +1297,6 @@ function buildCitizenshipTable() {
   });
   table.appendChild(tbody);
   tableWrap.appendChild(table);
-  enableStickyTableHead(tableWrap, table);
   container.appendChild(tableWrap);
 
   container.appendChild(el('div', {
@@ -1357,7 +1355,6 @@ function buildCraftTable() {
   });
   table.appendChild(tbody);
   tableWrap.appendChild(table);
-  enableStickyTableHead(tableWrap, table);
   container.appendChild(tableWrap);
 
   return container;
@@ -1389,22 +1386,18 @@ function buildWeaponMultTable() {
 
   const multWrap = el('div', { className: 'formulas-table-wrap' });
   multWrap.appendChild(el('div', { className: 'formulas-subhead', textContent: 'Multipliers' }));
-  const multTable = buildTable(
+  multWrap.appendChild(buildTable(
     [['Weapon Type', ''], ['Swing', 'num'], ['Stab', 'num'], ['Shoot', 'num'], ['Other', 'num']],
     WEAPON_MULTS
-  );
-  multWrap.appendChild(multTable);
-  enableStickyTableHead(multWrap, multTable);
+  ));
   split.appendChild(multWrap);
 
   const rollWrap = el('div', { className: 'formulas-table-wrap' });
   rollWrap.appendChild(el('div', { className: 'formulas-subhead', textContent: 'Swing/Stab Ratio' }));
-  const rollTable = buildTable(
+  rollWrap.appendChild(buildTable(
     [['Weapon Type', ''], ['Swing', 'num'], ['Stab', 'num']],
     ACTION_SPLIT
-  );
-  rollWrap.appendChild(rollTable);
-  enableStickyTableHead(rollWrap, rollTable);
+  ));
   split.appendChild(rollWrap);
 
   container.appendChild(split);

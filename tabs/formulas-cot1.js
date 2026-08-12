@@ -1,4 +1,4 @@
-import { el, enableStickyTableHead } from '../lib/utils.js';
+import { el } from '../lib/utils.js';
 import { buildCalcLauncher } from './formulas-calc.js';
 
 const EXP_TABLE = [
@@ -613,7 +613,6 @@ function buildExpTable() {
   });
   table.appendChild(tbody);
   tableWrap.appendChild(table);
-  enableStickyTableHead(tableWrap, table);
   container.appendChild(tableWrap);
   return container;
 }
@@ -640,7 +639,6 @@ function buildWeaponMultTable() {
   });
   table.appendChild(tbody);
   container.appendChild(table);
-  enableStickyTableHead(container, table);
 
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: '* Dagger uses Stab multiplier for both MinWepMult and MaxWepMult when stabbing. Savage Blow and Double Stab always Stab. Steal uses both.' }));
 

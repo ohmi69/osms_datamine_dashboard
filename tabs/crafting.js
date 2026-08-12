@@ -1,4 +1,4 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableStickyTableHead } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { attachTooltip } from '../lib/tooltip.js';
 
@@ -80,7 +80,6 @@ function buildCraftLevelTable() {
   });
   table.appendChild(tbody);
   tableWrap.appendChild(table);
-  enableStickyTableHead(tableWrap, table);
   wrap.appendChild(tableWrap);
 
   return wrap;
@@ -307,7 +306,6 @@ export function renderCrafting(data, options = {}) {
 
         table.appendChild(tbody);
         tableWrap.appendChild(table);
-        enableStickyTableHead(tableWrap, table);
         content.appendChild(makeCollapsible(outputType.output_type, outputRecipes, true, null, tableWrap));
       });
 

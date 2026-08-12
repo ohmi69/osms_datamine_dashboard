@@ -630,32 +630,6 @@ window.closeImageModal = closeImageModal;
   };
   syncOffset();
   window.addEventListener('resize', syncOffset, { passive: true });
-
-  // Pinned table headers stack under the visible tab's toolbar, whose height
-  // changes as pill rows appear, wrap, or the tab switches.
-  const root = document.documentElement;
-  const observer = new ResizeObserver(() => syncToolbarOffset());
-  const observed = new WeakSet();
-  function syncToolbarOffset() {
-    const bars = [...document.querySelectorAll('.sticky-toolbar')];
-    bars.forEach((bar) => {
-      if (observed.has(bar)) return;
-      observed.add(bar);
-      observer.observe(bar);
-    });
-    const visible = bars.find((bar) => bar.offsetParent);
-    const next = visible ? `${visible.offsetHeight}px` : '0px';
-    // Guard the write: this runs on every DOM mutation, and a no-op set would
-    // still invalidate style.
-    if (next !== lastToolbarOffset) {
-      lastToolbarOffset = next;
-      root.style.setProperty('--toolbar-offset', next);
-    }
-  }
-  let lastToolbarOffset = null;
-  syncToolbarOffset();
-  new MutationObserver(() => syncToolbarOffset())
-    .observe(document.body, { childList: true, subtree: true });
   let lastY = window.scrollY;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;

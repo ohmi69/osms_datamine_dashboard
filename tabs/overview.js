@@ -144,7 +144,7 @@ export function renderOverview(data, options) {
       fontSize: '10px', color: 'var(--dim)', opacity: '.65',
       background: 'rgba(255,255,255,.04)', border: '1px solid var(--border)', borderRadius: '3px', padding: '0 4px',
     },
-    textContent: '0a8ccb68',
+    textContent: '321d2f36',
   }));
   heroBadgeMeta.appendChild(heroBadge);
   heroBadgeMeta.appendChild(heroPatchHash);
