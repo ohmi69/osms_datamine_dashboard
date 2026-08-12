@@ -58,10 +58,20 @@
 }
 
 .elem-badge.weak {
-  background: rgba(34,197,94,0.13);
+  background: rgba(34,197,94,0.18);
   color: #22c55e;
-  border: 1px solid rgba(34,197,94,0.27);
+  border: 1px solid rgba(34,197,94,0.45);
 }
+
+/* Elemental attribute badges: emoji for the element, weaknesses sorted first
+   and drawn strongest so they read at a glance. */
+.elem-badge.elem-attr { gap: 4px; padding: 2px 7px; }
+.elem-badge .elem-emoji { font-size: 12px; line-height: 1; }
+.elem-badge .elem-effect { font-weight: 600; }
+.elem-badge.elem-attr.weak { font-weight: 600; }
+.elem-badge.elem-attr.immune .elem-emoji,
+.elem-badge.elem-attr.strong .elem-emoji,
+.elem-badge.elem-attr.resist .elem-emoji { filter: grayscale(0.55); }
 
 .elem-badge.strong {
   background: rgba(253,224,71,0.13); /* light yellow */

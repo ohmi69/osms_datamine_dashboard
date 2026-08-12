@@ -134,7 +134,7 @@ export function renderOverview(data, options) {
     },
     textContent: 'Closed Online Test 2 (COT2)',
   });
-  const heroPatchHash = el('div', { style: { display: 'flex', alignItems: 'center', gap: '5px' }, title: 'c80c0a8a' });
+  const heroPatchHash = el('div', { style: { display: 'flex', alignItems: 'center', gap: '5px' }, title: '321d2f3682b7cc5f6d7fc8ca2e3f3b7c16f2aeb7' });
   heroPatchHash.appendChild(el('span', {
     style: { fontSize: '9px', color: 'var(--dim)', opacity: '.5', letterSpacing: '.4px', fontWeight: '600', textTransform: 'uppercase' },
     textContent: 'hash',

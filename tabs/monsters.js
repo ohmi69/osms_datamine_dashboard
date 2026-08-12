@@ -1,24 +1,10 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById, makeElementBadge } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
-import { MOB_STATE_ORDER, MOB_STATE_LABEL } from '../lib/constants.js';
-
-const ELEMENT_CLASSES = {
-  Immune: 'immune',
-  Resist: 'resist',
-  Weak: 'weak',
-  Strong: 'strong',
-};
+import { MOB_STATE_ORDER, MOB_STATE_LABEL, ELEMENT_META, describeElements } from '../lib/constants.js';
 
 function getMonsterElements(monster) {
-  if (!monster || !monster.elements || typeof monster.elements !== 'object') {
-    return [];
-  }
-  return Object.entries(monster.elements).map(([name, effect]) => ({
-    name,
-    effect,
-    cls: ELEMENT_CLASSES[effect] || '',
-  }));
+  return describeElements(monster && monster.elements);
 }
 
 // Header flags that describe how a mob behaves rather than what it is made of.
@@ -178,9 +164,7 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
   }
   const elems = getMonsterElements(monster);
   elems.forEach((elem) => {
-    headerRight.appendChild(
-      el('span', { className: `elem-badge ${elem.cls}`, textContent: `${elem.name} ${elem.effect}` })
-    );
+    headerRight.appendChild(makeElementBadge(elem));
   });
   header.appendChild(headerRight);
   panel.appendChild(header);
@@ -438,7 +422,13 @@ export function renderMonsters(data, options = {}) {
   }
 
   const elemPills = makePillGroup(
-    [{ label: 'Any', value: '' }, { label: 'Fire', value: 'Fire' }, { label: 'Ice', value: 'Ice' }, { label: 'Lightning', value: 'Lightning' }, { label: 'Holy', value: 'Holy' }, { label: 'Poison', value: 'Poison' }],
+    [
+      { label: 'Any', value: '' },
+      ...['Fire', 'Ice', 'Lightning', 'Poison', 'Holy'].map((name) => ({
+        label: `${ELEMENT_META[name].emoji} ${name}`,
+        value: name,
+      })),
+    ],
     elemWeakFilter,
     (value) => {
       elemWeakFilter = value;
@@ -623,12 +613,7 @@ export function renderMonsters(data, options = {}) {
           const elems = getMonsterElements(monster);
           if (elems.length) {
             elems.forEach((elem) => {
-              td.appendChild(
-                el('span', {
-                  className: `elem-badge ${elem.cls}`,
-                  textContent: `${elem.name} ${elem.effect}`,
-                })
-              );
+              td.appendChild(makeElementBadge(elem));
             });
           } else {
             td.appendChild(
