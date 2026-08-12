@@ -164,7 +164,7 @@ export function renderOverview(data, options) {
   }));
   heroTimeLine.appendChild(el('span', {
     style: { fontSize: '10px', color: 'var(--dim)', opacity: '.75', fontFamily: 'monospace' },
-    textContent: 'August 4, 2026 11:10 PT',
+    textContent: 'August 11, 2026 18:00 PT',
   }));
   heroInfo.appendChild(heroTimeLine);
   heroBanner.appendChild(heroInfo);
