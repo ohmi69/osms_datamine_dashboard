@@ -792,6 +792,52 @@ a.tab-link:focus-visible {
 }
 /* Inside the bar the Navigate button is laid out in a flex row, not floated. */
 .sticky-toolbar .map-navigate-btn { float: none; margin: 0; }
+
+/* Search stays immediately useful on a phone; the more numerous filter pills
+   are available on demand so they do not crowd out the results. */
+.responsive-filter-panel__toggle {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .responsive-filter-panel {
+    margin-top: 8px;
+  }
+  .responsive-filter-panel__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 34px;
+    padding: 6px 10px;
+    margin: 0 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface-2);
+    color: var(--dim);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .responsive-filter-panel__toggle::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    margin-left: 2px;
+    border-right: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform .15s ease;
+  }
+  .responsive-filter-panel.is-open .responsive-filter-panel__toggle::after {
+    transform: rotate(225deg) translateY(-2px);
+  }
+  .responsive-filter-panel:not(.is-open) .responsive-filter-panel__content {
+    display: none;
+  }
+}
 .item-name-wrap { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .item-id-wrap { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
 

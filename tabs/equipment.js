@@ -1,4 +1,4 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, makeResponsiveFilterPanel, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 
 function matchesClass(item, classFilter) {
@@ -81,6 +81,10 @@ export function renderEquipment(data, options = {}) {
     renderData();
   });
 
+  const filterPanel = makeResponsiveFilterPanel();
+  const filterContent = filterPanel.content;
+  toolbar.appendChild(filterPanel);
+
   const classOptions = [
     { label: 'All Classes', value: 0 },
     ...((equipmentMeta.job_filters || []).map((opt) => ({ label: opt.label, value: opt.value }))),
@@ -93,8 +97,8 @@ export function renderEquipment(data, options = {}) {
     updateFilterUrl();
     renderData();
   }, { groupLabel: 'Class:' });
-  toolbar.appendChild(classPillGroup);
-  toolbar.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
+  filterContent.appendChild(classPillGroup);
+  filterContent.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
 
   const genderOptions = [
     { label: 'All Genders', value: null },
@@ -108,8 +112,8 @@ export function renderEquipment(data, options = {}) {
     updateFilterUrl();
     renderData();
   }, { groupLabel: 'Gender:' });
-  toolbar.appendChild(genderPillGroup);
-  toolbar.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
+  filterContent.appendChild(genderPillGroup);
+  filterContent.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
 
   function updateFilterUrl() {
     Router.updateFilter('equipment', {
@@ -151,9 +155,9 @@ export function renderEquipment(data, options = {}) {
     }
     const newPillGroup = makePillGroup(subCategoryOptions, selectedSubCategory, handleSubCategoryPillChange, { groupLabel: 'Type:' });
     if (subCategoryPillGroup) {
-      toolbar.replaceChild(newPillGroup, subCategoryPillGroup);
+      filterContent.replaceChild(newPillGroup, subCategoryPillGroup);
     } else {
-      toolbar.appendChild(newPillGroup);
+      filterContent.appendChild(newPillGroup);
     }
     subCategoryPillGroup = newPillGroup;
   }
@@ -184,7 +188,7 @@ export function renderEquipment(data, options = {}) {
     }
     if (selectedSubCategory !== 'Weapon' || types.length === 0) {
       if (weaponTypePillGroup) {
-        toolbar.removeChild(weaponTypePillGroup);
+        filterContent.removeChild(weaponTypePillGroup);
         weaponTypePillGroup = null;
       }
       selectedWeaponType = null;
@@ -192,9 +196,9 @@ export function renderEquipment(data, options = {}) {
     }
     const newPillGroup = makePillGroup(weaponTypeOptions, selectedWeaponType, handleWeaponTypePillChange, { groupLabel: 'Weapon Type:' });
     if (weaponTypePillGroup) {
-      toolbar.replaceChild(newPillGroup, weaponTypePillGroup);
+      filterContent.replaceChild(newPillGroup, weaponTypePillGroup);
     } else {
-      toolbar.appendChild(newPillGroup);
+      filterContent.appendChild(newPillGroup);
     }
     weaponTypePillGroup = newPillGroup;
   }
