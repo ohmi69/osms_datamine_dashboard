@@ -176,7 +176,10 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
       id: 'formulas',
       label: 'Formulas',
       icon: ICONS.flaskConical,
-      render: () => renderFormulas(appData)
+      render: ({ setNavigate }) => renderFormulas(appData, {
+        setNavigate,
+        initialParams: onceParams('formulas'),
+      })
     },
     {
       id: 'portal-runner',
@@ -195,7 +198,13 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
   if (!isTimeTravelMode) return tabs;
   // cot1 keeps its own frozen snapshot of the formulas page; older patches have none.
   if (patchVersion === 'cot1') {
-    return tabs.map(t => (t.id === 'formulas' ? { ...t, render: () => renderFormulasCot1(appData) } : t));
+    return tabs.map(t => (t.id === 'formulas' ? {
+      ...t,
+      render: ({ setNavigate }) => renderFormulasCot1(appData, {
+        setNavigate,
+        initialParams: onceParams('formulas'),
+      }),
+    } : t));
   }
   return tabs.filter(t => t.id !== 'formulas');
 }
@@ -206,13 +215,18 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
 
 
 // Listen for route changes using Router
-Router.onRouteChange((tab, query) => {
+Router.onRouteChange((tab, query, params) => {
   if (!tabManager) return;
   let tabId = tab === 'cash_shop' ? 'cashshop' : tab;
   if (!tabId || !tabManager.tabs.some(t => t.id === tabId)) return;
   // Skip if staying on the same tab with only a filter change (no navigation query)
+  if (tabId === tabManager.activeTab && tabId === 'formulas') {
+    tabManager.navigators.formulas?.(params);
+    return;
+  }
   if (tabId === tabManager.activeTab && !query) return;
   tabManager.switchTab(tabId, false, query);
+  if (tabId === 'formulas') tabManager.navigators.formulas?.(params);
 });
 
 async function showMapleTip() {

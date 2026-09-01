@@ -1,5 +1,6 @@
 import { el } from '../lib/utils.js';
 import { buildCalcLauncher } from './formulas-calc.js';
+import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
 
 // Experience required per level, read out of the COT2 client. The client builds the
 // table at startup in sub_14003B220 and reads it back through GetNeedEXP
@@ -930,9 +931,18 @@ function makeStatusTag(status, statusNote, validated) {
   return frag;
 }
 
-function buildPipeline(steps) {
+function buildPipeline(steps, chapterStarts = {}) {
   const frag = document.createDocumentFragment();
   steps.forEach(({ label, wip, status, statusNote, validated, lines, notes, warnings, cot1, simple }, i) => {
+    if (chapterStarts[i]) {
+      const { key, label: chapterLabel, description } = chapterStarts[i];
+      const chapter = el('div', { className: 'formulas-stage-heading' });
+      chapter.dataset.formulaSectionId = key;
+      chapter.id = `formula-${key}`;
+      chapter.appendChild(el('h2', { textContent: chapterLabel }));
+      if (description) chapter.appendChild(el('p', { textContent: description }));
+      frag.appendChild(chapter);
+    }
     const step = el('div', { className: 'formulas-pipeline-step' });
 
     const stepHeader = el('div', { className: 'formulas-pipeline-header' });
@@ -1438,7 +1448,12 @@ function buildBaseDamageSection() {
 
 function buildModsSection() {
   const container = el('div', { className: 'formulas-formula-wrap' });
-  container.appendChild(buildPipeline(MOD_PIPELINE_STEPS));
+  container.appendChild(buildPipeline(MOD_PIPELINE_STEPS, {
+    0: { key: 'opening-modifiers', label: 'Opening Modifiers', description: 'Class buffs and defense-breaking effects applied before ordinary defense.' },
+    3: { key: 'defense-elements', label: 'Defense & Elements', description: 'The target’s defenses, elemental response, and level-based scaling.' },
+    8: { key: 'hit-effects', label: 'Hit Effects', description: 'Criticals and skill-specific effects that shape individual hits.' },
+    11: { key: 'final-result', label: 'Final Result', description: 'The client’s final lower bound before the hit is applied.' },
+  }));
   container.appendChild(buildVarLegend(MOD_VARS));
   return container;
 }
@@ -1466,7 +1481,12 @@ const CALC_CONFIG = {
 
 function buildGuardSection() {
   const container = el('div', { className: 'formulas-formula-wrap' });
-  container.appendChild(buildPipeline(GUARD_STEPS));
+  container.appendChild(buildPipeline(GUARD_STEPS, {
+    0: { key: 'hit-check', label: 'Hit Check', description: 'Whether an ordinary monster attack reaches the player.' },
+    1: { key: 'guard-resolution', label: 'Guard Resolution', description: 'Immunity and shield or claw guard checks.' },
+    4: { key: 'damage-reduction', label: 'Damage Reduction', description: 'Incoming roll, player defense, and additional reductions.' },
+    8: { key: 'incoming-result', label: 'Result', description: 'The final outcome returned by the incoming-hit routine.' },
+  }));
   if (CALC_MONSTERS.length) container.appendChild(buildCalcLauncher(CALC_CONFIG));
   container.appendChild(buildVarLegend(GUARD_VARS));
   return container;
@@ -1476,95 +1496,113 @@ function buildGuardSection() {
 
 // ─── Page render ──────────────────────────────────────────────
 
-export function renderFormulas(data) {
+export function renderFormulas(data, options = {}) {
   // Sorted by level so the picker reads top-down like the Monsters tab does.
   CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]
     .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
-
-  const frag = document.createDocumentFragment();
-  const wrapper = el('div', { className: 'formulas-page' });
-
-  wrapper.appendChild(el('div', { className: 'section-heading', textContent: 'Formulas & Tables' }));
 
   const disclaimer = el('div', { className: 'formulas-disclaimer' });
   const disclaimerText = el('span');
   disclaimerText.appendChild(el('strong', { textContent: 'Warning: ' }));
   disclaimerText.append('Every formula has two tags. Code Verified means it came out of the COT2 game files. Partly Code Verified means the same, except some detail is a guess, usually which skill it applies to. Requires Validation means nobody has tested it in-game yet, so if the numbers do not match what you see, let us know.');
   disclaimer.appendChild(disclaimerText);
-  wrapper.appendChild(disclaimer);
+  const section = (title, key, bodyFn) => markFormulaSection(makeCollapsibleSection(title, '', bodyFn), key);
+  const group = (...children) => el('div', { className: 'formulas-full' }, ...children);
 
-  // Full-width formula sections
-  const fullWidth = el('div', { className: 'formulas-full' });
+  const buildAccuracyPage = () => {
+    const accuracy = section('Accuracy', 'accuracy-formulas', buildAccuracySection);
+    accuracy.querySelector('.right').appendChild(makeStatusTag('ok', 'Read directly from the client binary'));
+    const credit = el('span', { className: 'formulas-credit' });
+    credit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> and <strong>@ohmi</strong> on Discord';
+    accuracy.querySelector('.left').appendChild(credit);
+    return group(accuracy);
+  };
 
-  const accuracySection = makeCollapsibleSection('Accuracy', '', buildAccuracySection);
-  accuracySection.querySelector('.right').appendChild(
-    makeStatusTag('ok', 'Read directly from the client binary')
-  );
-  const accCredit = el('span', { className: 'formulas-credit' });
-  accCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> and <strong>@ohmi</strong> on Discord';
-  accuracySection.querySelector('.left').appendChild(accCredit);
+  const buildDamagePage = () => {
+    const base = section('Base Damage Formulas', 'base-damage', buildBaseDamageSection);
+    const baseCredit = el('span', { className: 'formulas-credit' });
+    baseCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist, @jimmybald</strong> and <strong>@ohmi</strong> on Discord';
+    base.querySelector('.left').appendChild(baseCredit);
 
-  const baseDmgSection = makeCollapsibleSection('Base Damage Formulas', '', buildBaseDamageSection);
-  const dmgCredit = el('span', { className: 'formulas-credit' });
-  dmgCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist, @jimmybald</strong> and <strong>@ohmi</strong> on Discord';
-  baseDmgSection.querySelector('.left').appendChild(dmgCredit);
+    const weapons = section('Weapon Min/Max Multipliers', 'weapon-multipliers', buildWeaponMultTable);
+    weapons.querySelector('.right').appendChild(makeStatusTag('ok', 'Read directly from the weapon multiplier table in the damage routine in the client.', null));
+    const weaponCredit = el('span', { className: 'formulas-credit' });
+    weaponCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash, @cptbattler, @ohmi</strong> on Discord, confirmed against the client binary';
+    weapons.querySelector('.left').appendChild(weaponCredit);
 
-  const modsSection = makeCollapsibleSection('Damage Modifications', '', buildModsSection);
-  const modsCredit = el('span', { className: 'formulas-credit' });
-  modsCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
-  modsSection.querySelector('.left').appendChild(modsCredit);
+    const mods = makeCollapsibleSection('Damage Modification Pipeline', '', buildModsSection);
+    const modsCredit = el('span', { className: 'formulas-credit' });
+    modsCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
+    mods.querySelector('.left').appendChild(modsCredit);
+    return group(base, weapons, mods);
+  };
 
-  const guardSection = makeCollapsibleSection('Damage Taken', '', buildGuardSection);
-  guardSection.querySelector('.right').appendChild(
-    makeStatusTag('ok', 'Read directly from the damage-taken routine in the client, which resolves every incoming hit as hit, miss or guard.')
-  );
-  const guardCredit = el('span', { className: 'formulas-credit' });
-  guardCredit.innerHTML = 'Reverse engineered by <strong>@ohmi</strong> on Discord';
-  guardSection.querySelector('.left').appendChild(guardCredit);
+  const buildDamageTakenPage = () => {
+    const guard = makeCollapsibleSection('Damage Taken Pipeline', '', buildGuardSection);
+    guard.querySelector('.right').appendChild(makeStatusTag('ok', 'Read directly from the damage-taken routine in the client, which resolves every incoming hit as hit, miss or guard.'));
+    const credit = el('span', { className: 'formulas-credit' });
+    credit.innerHTML = 'Reverse engineered by <strong>@ohmi</strong> on Discord';
+    guard.querySelector('.left').appendChild(credit);
+    return group(guard);
+  };
 
-  fullWidth.appendChild(accuracySection);
-  fullWidth.appendChild(baseDmgSection);
-  fullWidth.appendChild(modsSection);
-  fullWidth.appendChild(guardSection);
-  wrapper.appendChild(fullWidth);
+  const buildProgressionPage = () => {
+    const exp = section('Experience Table', 'experience', buildExpTable);
+    exp.querySelector('.right').appendChild(makeStatusTag('ok', 'Read directly from the routine in the client that builds the experience table at startup.', null));
+    const expCredit = el('span', { className: 'formulas-credit' });
+    expCredit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> and <strong>@ohmi</strong> on Discord';
+    exp.querySelector('.left').appendChild(expCredit);
 
-  // Appendix
-  wrapper.appendChild(el('div', { className: 'section-heading', textContent: 'Appendix' }));
+    const craft = section('Crafting Levels', 'crafting-levels', buildCraftTable);
+    craft.querySelector('.right').appendChild(makeStatusTag('ok', 'Read directly from the routine in the client that returns the craft exp requirement for a level, and from the crafting window that consumes it. The character level column is the number the crafting window itself prints in its level-up tooltip.'));
 
-  const appendix = el('div', { className: 'formulas-full' });
+    const citizenship = section('Citizenship Grades', 'citizenship-grades', buildCitizenshipTable);
+    citizenship.querySelector('.right').appendChild(makeStatusTag('ok', 'The contribution thresholds and character level column come from the client and have been confirmed against the Citizenship window in game.'));
+    return group(exp, craft, citizenship);
+  };
 
-  const expSection = makeCollapsibleSection('Experience Table', '', buildExpTable);
-  expSection.querySelector('.right').appendChild(
-    makeStatusTag('ok', 'Read directly from the routine in the client that builds the experience table at startup.', null)
-  );
-  const expCredit = el('span', { className: 'formulas-credit' });
-  expCredit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> and <strong>@ohmi</strong> on Discord';
-  expSection.querySelector('.left').appendChild(expCredit);
-
-  const weaponMultSection = makeCollapsibleSection('Weapon Min/Max Multipliers', '', buildWeaponMultTable);
-  weaponMultSection.querySelector('.right').appendChild(
-    makeStatusTag('ok', 'Read directly from the weapon multiplier table in the damage routine in the client.', null)
-  );
-  const weaponMultCredit = el('span', { className: 'formulas-credit' });
-  weaponMultCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash, @cptbattler, @ohmi</strong> on Discord, confirmed against the client binary';
-  weaponMultSection.querySelector('.left').appendChild(weaponMultCredit);
-
-  const citizenshipSection = makeCollapsibleSection('Citizenship Grades', '', buildCitizenshipTable);
-  citizenshipSection.querySelector('.right').appendChild(
-    makeStatusTag('ok', 'The contribution thresholds and the character level column were read directly from the routines in the client that return the requirement for a grade, and both have been confirmed against the Citizenship window in game. That in-game reading also settled the one thing the code left open, by showing a counter below the cost of the grade the character already holds: contribution resets on each grade up rather than accumulating. The grade names were decrypted out of the client\'s message table, which the routine that names a grade indexes by grade number; grade 2 decrypting to Visitor matches what the Citizenship window showed in game, which confirms the names line up with the grades.')
-  );
-
-  const craftSection = makeCollapsibleSection('Crafting Levels', '', buildCraftTable);
-  craftSection.querySelector('.right').appendChild(
-    makeStatusTag('ok', 'Read directly from the routine in the client that returns the craft exp requirement for a level, and from the crafting window that consumes it. The character level column is the number the crafting window itself prints in its level-up tooltip.')
-  );
-
-  appendix.appendChild(weaponMultSection);
-  appendix.appendChild(expSection);
-  appendix.appendChild(craftSection);
-  appendix.appendChild(citizenshipSection);
-  wrapper.appendChild(appendix);
-
-  frag.appendChild(wrapper);
-  return frag;
+  return createFormulaBrowser({
+    notice: disclaimer,
+    initialParams: options.initialParams,
+    setNavigate: options.setNavigate,
+    pages: [
+      {
+        key: 'accuracy', label: 'Accuracy', kicker: 'Will the attack connect?',
+        description: 'Player accuracy, monster avoidability, and the physical and magical hit checks.',
+        sections: [{ key: 'accuracy-formulas', label: 'Accuracy formulas' }], render: buildAccuracyPage,
+      },
+      {
+        key: 'dealing-damage', label: 'Dealing Damage', kicker: 'From stats to the applied hit',
+        description: 'Trace one outgoing hit from its base roll through defenses, elements, criticals, and the final clamp.',
+        flow: buildDamageFlow,
+        sections: [
+          { key: 'base-damage', label: 'Base damage' },
+          { key: 'weapon-multipliers', label: 'Weapons' },
+          { key: 'opening-modifiers', label: 'Opening modifiers' },
+          { key: 'defense-elements', label: 'Defense & elements' },
+          { key: 'hit-effects', label: 'Hit effects' },
+          { key: 'final-result', label: 'Final result' },
+        ],
+        render: buildDamagePage,
+      },
+      {
+        key: 'damage-taken', label: 'Damage Taken', kicker: 'What happens when a monster attacks?',
+        description: 'Follow the hit check, guard roll, defense scaling, reductions, and final incoming result.',
+        sections: [
+          { key: 'hit-check', label: 'Hit check' }, { key: 'guard-resolution', label: 'Guards' },
+          { key: 'damage-reduction', label: 'Damage reduction' }, { key: 'incoming-result', label: 'Result' },
+        ],
+        render: buildDamageTakenPage,
+      },
+      {
+        key: 'progression', label: 'Tables & Progression', kicker: 'Character and profession milestones',
+        description: 'Look up experience requirements, crafting levels, and citizenship grades.',
+        sections: [
+          { key: 'experience', label: 'Experience' }, { key: 'crafting-levels', label: 'Crafting' },
+          { key: 'citizenship-grades', label: 'Citizenship' },
+        ],
+        render: buildProgressionPage,
+      },
+    ],
+  });
 }

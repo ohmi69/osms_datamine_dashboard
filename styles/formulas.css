@@ -3,6 +3,209 @@
   margin: 0 auto;
 }
 
+/* Formula spellbook navigation: a small routed index that uses the same
+   bordered surfaces and orange selection language as the site's main tabs. */
+.formulas-subnav {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+  padding: 6px;
+  margin: 14px 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.formulas-page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: var(--dim);
+  text-align: center;
+  transition: color .15s, background .15s, border-color .15s;
+}
+
+.formulas-page-link:hover {
+  color: var(--text);
+  border-color: var(--border);
+  background: var(--surface-2);
+}
+
+.formulas-page-link.active {
+  color: var(--bg);
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .18);
+}
+
+.formulas-page-link-title { font-size: 12px; font-weight: 750; line-height: 1.2; }
+
+.formulas-page-outlet { min-height: 360px; }
+
+.formulas-index { padding: 22px 0 8px; }
+.formulas-index-intro { max-width: 680px; margin-bottom: 12px; }
+.formulas-index-intro h2,
+.formulas-subpage-head h1 {
+  margin: 0 0 6px;
+  color: var(--text);
+  font-size: clamp(20px, 2.5vw, 27px);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+.formulas-index-intro p,
+.formulas-subpage-head p,
+.formulas-stage-heading p {
+  margin: 0;
+  color: var(--dim);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.formulas-index-directory {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: clip;
+}
+.formulas-index-group + .formulas-index-group { border-top: 1px solid var(--border); }
+.formulas-index-group-label {
+  padding: 8px 14px;
+  color: var(--dim);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.formulas-index-row {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr) max-content;
+  align-items: center;
+  gap: 14px;
+  min-height: 52px;
+  padding: 9px 14px;
+  color: var(--text);
+  transition: background .12s;
+}
+.formulas-index-row + .formulas-index-row { border-top: 1px solid var(--border); }
+.formulas-index-row:hover { background: var(--accent-bg); }
+.formulas-index-row strong { font-size: 13px; }
+.formulas-index-row > span:not(.formulas-index-row-action) { color: var(--dim); font-size: 12px; line-height: 1.4; }
+.formulas-index-row-action { color: var(--accent); font-size: 11px; font-weight: 750; }
+
+.formulas-subpage { padding-top: 26px; }
+.formulas-subpage-head { max-width: 760px; margin-bottom: 16px; }
+.formulas-subpage-kicker {
+  margin-bottom: 5px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.formulas-flow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.formulas-flow-step {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--text);
+  background: var(--surface-2);
+  font-size: 11px;
+  font-weight: 700;
+}
+.formulas-flow-arrow { flex: 0 0 auto; color: var(--accent); font-weight: 800; }
+
+.formulas-jump-nav {
+  position: sticky;
+  top: var(--sticky-offset, 0px);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 -8px 16px;
+  padding: 9px 8px;
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  transition: top .25s ease;
+}
+.formulas-jump-label {
+  flex: 0 0 auto;
+  color: var(--dim);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.formulas-jump-links { display: flex; flex-wrap: wrap; gap: 5px; }
+.formulas-jump-link {
+  padding: 5px 9px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--dim);
+  background: var(--surface);
+  font-size: 11px;
+  font-weight: 650;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.formulas-jump-link:hover,
+.formulas-jump-link.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.formulas-stage-heading {
+  scroll-margin-top: 140px;
+  padding: 22px 16px 10px;
+  border-top: 1px solid var(--border);
+}
+.formulas-stage-heading h2 {
+  margin: 0 0 4px;
+  color: var(--text);
+  font-size: 16px;
+  letter-spacing: -.01em;
+}
+.formulas-stage-heading:first-child { padding-top: 12px; border-top: 0; }
+.formulas-full > [data-formula-section-id] { scroll-margin-top: 140px; }
+.formulas-full > .collapsible > .collapsible-header { cursor: default; }
+
+@media (max-width: 720px) {
+  .formulas-subnav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .formulas-page-link:first-child { grid-column: 1 / -1; }
+  .formulas-index { padding-top: 22px; }
+  .formulas-index-row { grid-template-columns: 1fr max-content; gap: 4px 10px; padding: 11px 13px; }
+  .formulas-index-row > span:not(.formulas-index-row-action) { grid-column: 1 / -1; grid-row: 2; }
+  .formulas-index-row-action { grid-column: 2; grid-row: 1; }
+  .formulas-jump-nav { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .formulas-jump-links { width: 100%; }
+  .formulas-jump-link { flex: 1 1 auto; text-align: center; }
+  .formulas-flow { flex-wrap: wrap; overflow-x: visible; }
+  .formulas-full > .collapsible > .collapsible-header { align-items: flex-start; flex-wrap: wrap; gap: 6px 12px; }
+  .formulas-full > .collapsible > .collapsible-header .left { flex-wrap: wrap; }
+}
+
+@media (max-width: 430px) {
+  .formulas-subnav { gap: 4px; padding: 4px; }
+  .formulas-page-link { min-height: 34px; padding: 6px; }
+}
+
 .formulas-row {
   display: flex;
   align-items: flex-start;

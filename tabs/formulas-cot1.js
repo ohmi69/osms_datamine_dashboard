@@ -1,5 +1,6 @@
 import { el } from '../lib/utils.js';
 import { buildCalcLauncher } from './formulas-calc.js';
+import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
 
 const EXP_TABLE = [
   [1, 2, 15], [2, 3, 34], [3, 4, 57], [4, 5, 92], [5, 6, 135],
@@ -506,9 +507,18 @@ function makeCollapsibleSection(title, countLabel, bodyFn) {
   return wrap;
 }
 
-function buildPipeline(steps) {
+function buildPipeline(steps, chapterStarts = {}) {
   const frag = document.createDocumentFragment();
   steps.forEach(({ label, wip, status, statusNote, lines, notes, warnings }, i) => {
+    if (chapterStarts[i]) {
+      const { key, label: chapterLabel, description } = chapterStarts[i];
+      const chapter = el('div', { className: 'formulas-stage-heading' });
+      chapter.dataset.formulaSectionId = key;
+      chapter.id = `formula-${key}`;
+      chapter.appendChild(el('h2', { textContent: chapterLabel }));
+      if (description) chapter.appendChild(el('p', { textContent: description }));
+      frag.appendChild(chapter);
+    }
     const step = el('div', { className: 'formulas-pipeline-step' });
 
     const stepHeader = el('div', { className: 'formulas-pipeline-header' });
@@ -661,7 +671,12 @@ function buildBaseDamageSection() {
 
 function buildModsSection() {
   const container = el('div', { className: 'formulas-formula-wrap' });
-  container.appendChild(buildPipeline(MOD_PIPELINE_STEPS));
+  container.appendChild(buildPipeline(MOD_PIPELINE_STEPS, {
+    0: { key: 'opening-modifiers', label: 'Opening Modifiers', description: 'Class buffs and defense-breaking effects applied before ordinary defense.' },
+    3: { key: 'defense-elements', label: 'Defense & Elements', description: 'The target’s defenses, elemental response, and level-based scaling.' },
+    8: { key: 'hit-effects', label: 'Hit Effects', description: 'Criticals and skill-specific effects that shape individual hits.' },
+    11: { key: 'final-result', label: 'Final Result', description: 'The client’s final lower bound before the hit is applied.' },
+  }));
   container.appendChild(buildVarLegend(MOD_VARS));
   return container;
 }
@@ -689,7 +704,12 @@ const CALC_CONFIG = {
 
 function buildGuardSection() {
   const container = el('div', { className: 'formulas-formula-wrap' });
-  container.appendChild(buildPipeline(GUARD_STEPS));
+  container.appendChild(buildPipeline(GUARD_STEPS, {
+    0: { key: 'hit-check', label: 'Hit Check', description: 'Whether an ordinary monster attack reaches the player.' },
+    1: { key: 'guard-resolution', label: 'Guard Resolution', description: 'Immunity and shield or claw guard checks.' },
+    4: { key: 'damage-reduction', label: 'Damage Reduction', description: 'Incoming roll, player defense, and additional reductions.' },
+    8: { key: 'incoming-result', label: 'Result', description: 'The final outcome returned by the incoming-hit routine.' },
+  }));
   if (CALC_MONSTERS.length) container.appendChild(buildCalcLauncher(CALC_CONFIG));
   container.appendChild(buildVarLegend(GUARD_VARS));
   return container;
@@ -699,7 +719,7 @@ function buildGuardSection() {
 
 // ─── Page render ──────────────────────────────────────────────
 
-export function renderFormulasCot1(data) {
+function renderFormulasCot1Legacy(data) {
   // Sorted by level so the picker reads top-down like the Monsters tab does.
   CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]
     .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
@@ -766,4 +786,95 @@ export function renderFormulasCot1(data) {
 
   frag.appendChild(wrapper);
   return frag;
+}
+
+export function renderFormulasCot1(data, options = {}) {
+  CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]
+    .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
+
+  const disclaimer = el('div', { className: 'formulas-disclaimer' });
+  const disclaimerText = el('span');
+  disclaimerText.appendChild(el('strong', { textContent: 'Archived: ' }));
+  disclaimerText.append('Formulas as they stood in Closed Online Test 1, read directly out of the COT1 client binary. Each step notes what COT2 changed - see the current Formulas tab for the live game.');
+  disclaimer.appendChild(disclaimerText);
+
+  const section = (title, key, bodyFn) => markFormulaSection(makeCollapsibleSection(title, '', bodyFn), key);
+  const group = (...children) => el('div', { className: 'formulas-full' }, ...children);
+
+  const buildAccuracyPage = () => {
+    const accuracy = section('Accuracy', 'accuracy-formulas', buildAccuracySection);
+    const credit = el('span', { className: 'formulas-credit' });
+    credit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
+    accuracy.querySelector('.left').appendChild(credit);
+    return group(accuracy);
+  };
+
+  const buildDamagePage = () => {
+    const base = section('Base Damage Formulas', 'base-damage', buildBaseDamageSection);
+    const baseCredit = el('span', { className: 'formulas-credit' });
+    baseCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist, @jimmybald</strong> and <strong>@ohmi</strong> on Discord';
+    base.querySelector('.left').appendChild(baseCredit);
+    const weapons = section('Weapon Min/Max Multipliers', 'weapon-multipliers', buildWeaponMultTable);
+    const weaponCredit = el('span', { className: 'formulas-credit' });
+    weaponCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash</strong> on Discord';
+    weapons.querySelector('.left').appendChild(weaponCredit);
+    const mods = makeCollapsibleSection('Damage Modification Pipeline', '', buildModsSection);
+    const modsCredit = el('span', { className: 'formulas-credit' });
+    modsCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
+    mods.querySelector('.left').appendChild(modsCredit);
+    return group(base, weapons, mods);
+  };
+
+  const buildDamageTakenPage = () => {
+    const guard = makeCollapsibleSection('Damage Taken Pipeline', '', buildGuardSection);
+    const credit = el('span', { className: 'formulas-credit' });
+    credit.innerHTML = 'Reverse engineered by <strong>@ohmi</strong> on Discord';
+    guard.querySelector('.left').appendChild(credit);
+    return group(guard);
+  };
+
+  const buildProgressionPage = () => {
+    const exp = section('Experience Table', 'experience', buildExpTable);
+    const credit = el('span', { className: 'formulas-credit' });
+    credit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> and <strong>@ohmi</strong> on Discord';
+    exp.querySelector('.left').appendChild(credit);
+    return group(exp);
+  };
+
+  return createFormulaBrowser({
+    notice: disclaimer,
+    archived: true,
+    initialParams: options.initialParams,
+    setNavigate: options.setNavigate,
+    pages: [
+      {
+        key: 'accuracy', label: 'Accuracy', kicker: 'Will the attack connect?',
+        description: 'COT1 player accuracy, monster avoidability, and the physical and magical hit checks.',
+        sections: [{ key: 'accuracy-formulas', label: 'Accuracy formulas' }], render: buildAccuracyPage,
+      },
+      {
+        key: 'dealing-damage', label: 'Dealing Damage', kicker: 'From stats to the applied hit',
+        description: 'Trace one archived outgoing hit from its base roll through defenses, elements, criticals, and the final clamp.',
+        flow: buildDamageFlow,
+        sections: [
+          { key: 'base-damage', label: 'Base damage' }, { key: 'weapon-multipliers', label: 'Weapons' },
+          { key: 'opening-modifiers', label: 'Opening modifiers' }, { key: 'defense-elements', label: 'Defense & elements' },
+          { key: 'hit-effects', label: 'Hit effects' }, { key: 'final-result', label: 'Final result' },
+        ], render: buildDamagePage,
+      },
+      {
+        key: 'damage-taken', label: 'Damage Taken', kicker: 'What happens when a monster attacks?',
+        description: 'Follow the archived hit check, guard roll, defense scaling, reductions, and final incoming result.',
+        sections: [
+          { key: 'hit-check', label: 'Hit check' }, { key: 'guard-resolution', label: 'Guards' },
+          { key: 'damage-reduction', label: 'Damage reduction' }, { key: 'incoming-result', label: 'Result' },
+        ], render: buildDamageTakenPage,
+      },
+      {
+        key: 'progression', label: 'Tables & Progression', kicker: 'Archived character milestones',
+        description: 'Look up COT1 experience requirements. Later crafting and citizenship tables are not part of this snapshot.',
+        sections: [{ key: 'experience', label: 'Experience' }], render: buildProgressionPage,
+      },
+    ],
+  });
 }

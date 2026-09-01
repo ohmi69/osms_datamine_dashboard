@@ -1,0 +1,1017 @@
+.formulas-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.formulas-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.formulas-row > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.formulas-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 800px) {
+  .formulas-row { flex-direction: column; }
+}
+
+/* Table wrapper: scrollable on small screens. Dropped on wider ones, same as
+   .table-scroll: any overflow other than `visible` makes this a scroll
+   container, and the sticky heads inside then measure --sticky-offset from
+   this box instead of the viewport — so they get shoved that far *down* into
+   the table the moment the site header slides back in. */
+.formulas-table-wrap {
+  overflow-x: auto;
+}
+@media (min-width: 900px) {
+  .formulas-table-wrap:not(.formulas-exp-tablewrap) { overflow: visible; }
+}
+
+.formulas-table-wrap .data-table {
+  min-width: 320px;
+}
+
+/* Skills that never roll their attack animation, keyed by multiplier column */
+.formulas-exceptions {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 12px;
+  align-items: baseline;
+  padding: 2px 16px 12px;
+}
+.formulas-exc-label {
+  justify-self: start;
+  padding: 2px 9px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  color: var(--dim);
+}
+.formulas-exc-skills { font-size: 13px; color: var(--dim); line-height: 1.5; }
+
+/* Caption above a table when a section holds more than one */
+.formulas-subhead {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  padding: 0 0 8px 2px;
+}
+
+/* ── Level chips ─────────────────────────────────────────────── */
+.lvl-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Consolas', 'Fira Mono', monospace;
+  letter-spacing: .3px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--dim);
+}
+
+/* ── EXP values ──────────────────────────────────────────────── */
+.formulas-exp-val {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.formulas-accum-val {
+  color: var(--dim);
+  font-size: 13px;
+}
+
+/* ── Formula block ───────────────────────────────────────────── */
+.formulas-formula-wrap {
+  padding: 16px;
+}
+
+.formulas-code-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.formulas-code-cell {
+  background: var(--bg);
+  border-left: 4px solid var(--accent);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.formulas-code-cell + .formulas-code-cell {
+  border-top: 1px solid var(--border);
+}
+
+.formulas-code-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.formulas-code {
+  font-family: 'Consolas', 'Fira Mono', monospace;
+  font-size: 13px;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Formula token colors ────────────────────────────────────── */
+.formula-var { color: var(--secondary); }
+.formula-num { color: var(--accent); opacity: 0.85; }
+.formula-fn  { color: var(--secondary); font-style: italic; }
+
+/* ── Variable legend ─────────────────────────────────────────── */
+.formulas-var-heading {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--dim);
+  margin-bottom: 8px;
+}
+
+.formulas-var-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formulas-var-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.formulas-var-row:last-child {
+  border-bottom: none;
+}
+
+.formulas-var-name {
+  font-family: 'Consolas', 'Fira Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--secondary);
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+.formulas-var-desc {
+  color: var(--dim);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+
+/* ── MapleTip overrides ──────────────────────────────────────── */
+[data-theme="mapletip"] .formulas-code-cell {
+  background: #EDE4D0;
+}
+
+/* ── Exp table compact styles ────────────────────────────────── */
+.formulas-exp-th { padding: 2px 6px; font-size: 0.95em; }
+.formulas-exp-row { line-height: 1.1; font-size: 0.95em; height: 22px; }
+.formulas-exp-td { padding: 2px 6px; }
+
+/* The in-game name of a citizenship grade, sitting beside its Grade N chip */
+.formulas-grade-name { margin-left: 8px; color: var(--dim); }
+
+/* ── Footnote ────────────────────────────────────────────────── */
+.formulas-note {
+  font-size: 12px;
+  color: var(--dim);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+.formulas-note--padded { margin-top: 0.5em; padding: 0.5em 1em; }
+
+/* ── TBD placeholder ─────────────────────────────────────────── */
+.formulas-tbd {
+  padding: 32px 16px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* ── Credit line ─────────────────────────────────────────────── */
+.formulas-credit {
+  font-size: 11px;
+  color: var(--dim);
+  font-weight: 400;
+}
+
+.formulas-credit strong {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+/* ── Damage pipeline ─────────────────────────────────────────── */
+.formulas-pipeline-step {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.formulas-pipeline-step:last-of-type {
+  margin-bottom: 20px;
+}
+
+.formulas-pipeline-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.formulas-pipeline-step pre {
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--bg);
+}
+
+.formulas-pipeline-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.formulas-pipeline-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+}
+
+.formulas-wip-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--dim);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.formulas-status-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.formulas-status-ok {
+  color: #6fdf9a;
+  background: rgba(80, 200, 120, 0.15);
+  border: 1px solid rgba(80, 200, 120, 0.3);
+}
+
+.formulas-status-partial {
+  color: #ffc864;
+  background: rgba(255, 180, 50, 0.15);
+  border: 1px solid rgba(255, 180, 50, 0.3);
+}
+
+.formulas-status-warn {
+  color: #ff9060;
+  background: rgba(255, 120, 60, 0.15);
+  border: 1px solid rgba(255, 120, 60, 0.3);
+}
+
+/* COT1-diff tag: marks a step whose mechanic changed since Closed Online
+   Test 1. Violet so it reads as history, not as a verification status. */
+.formulas-cot1-tag {
+  color: #b48ce8;
+  background: rgba(150, 100, 220, 0.15);
+  border: 1px solid rgba(150, 100, 220, 0.35);
+}
+[data-theme="mapletip"] .formulas-cot1-tag {
+  color: #6a3fa0;
+  background: rgba(120, 70, 190, 0.1);
+  border-color: rgba(120, 70, 190, 0.4);
+}
+
+/* Validation tags sit next to a status tag - kept muted/cool so the
+   provenance tag stays the one that reads first. */
+.formulas-validation-pending {
+  color: var(--dim);
+  background: transparent;
+  border: 1px dashed var(--border);
+}
+
+.formulas-validation-done {
+  color: #6fc8df;
+  background: rgba(80, 180, 220, 0.15);
+  border: 1px solid rgba(80, 180, 220, 0.3);
+}
+
+/* ── Status tooltip (body-level floating div) ────────────────── */
+.formula-status-tooltip {
+  position: absolute;
+  z-index: 9999;
+  max-width: 280px;
+  padding: 6px 10px;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.formula-status-tooltip.visible {
+  opacity: 1;
+}
+
+/* ── Disclaimer ──────────────────────────────────────────────── */
+.formulas-disclaimer {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffc864;
+  background: rgba(255, 120, 50, 0.12);
+  border: 1px solid rgba(255, 140, 50, 0.5);
+  border-left: 4px solid #ff9a3c;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 10px rgba(255, 120, 50, 0.1);
+}
+
+.formulas-disclaimer::before {
+  content: '⚠';
+  font-size: 16px;
+  flex-shrink: 0;
+}
+[data-theme="mapletip"] .formulas-disclaimer {
+  color: #7a4700;
+  background: rgba(200, 90, 0, 0.1);
+  border-color: rgba(200, 90, 0, 0.45);
+  border-left-color: #c85a00;
+  box-shadow: 0 2px 10px rgba(200, 90, 0, 0.08);
+}
+
+/* ── Full-width section stack ────────────────────────────────── */
+.formulas-full {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* ── Pipeline step notes ─────────────────────────────────────── */
+.formulas-pipeline-notes {
+  padding: 6px 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.formulas-pipeline-notes .formulas-note {
+  margin-top: 0;
+  padding-left: 14px;
+  position: relative;
+}
+
+.formulas-pipeline-notes .formulas-note::before {
+  content: '·';
+  position: absolute;
+  left: 3px;
+  color: var(--dim);
+  font-weight: 700;
+}
+
+/* COT1-diff notes: what this step looked like in Closed Online Test 1 */
+.formulas-cot1-notes {
+  padding: 6px 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px dashed rgba(150, 100, 220, 0.35);
+  background: rgba(150, 100, 220, 0.05);
+}
+
+.formulas-cot1-notes .formulas-note {
+  margin-top: 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.formulas-cot1-notes .formulas-note::before {
+  content: 'Δ';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #b48ce8;
+  font-weight: 700;
+  font-size: 10px;
+}
+[data-theme="mapletip"] .formulas-cot1-notes .formulas-note::before {
+  color: #6a3fa0;
+}
+
+/* Warnings: traps a reader walks into unless told, e.g. reading Magic as the
+   gear-only Magic Attack. Amber so it reads louder than a note but is clearly
+   not one of the verification status tags. */
+.formulas-warn-notes {
+  margin: 8px 16px 0;
+  padding: 7px 10px 7px 26px;
+  position: relative;
+  border: 1px solid rgba(255, 180, 50, 0.35);
+  border-left: 3px solid rgba(255, 180, 50, 0.75);
+  border-radius: 3px;
+  background: rgba(255, 180, 50, 0.09);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.formulas-warn-notes::before {
+  content: '⚠';
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  color: #ffc864;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.formulas-warn-notes .formulas-note {
+  margin-top: 0;
+  color: var(--text);
+}
+
+[data-theme="mapletip"] .formulas-warn-notes::before { color: #a8620a; }
+
+/* ── Variable legend ─────────────────────────────────────────── */
+.formulas-var-section {
+  padding: 0 16px 16px;
+}
+
+/* ── MapleTip theme overrides ────────────────────────────────── */
+[data-theme="mapletip"] .lvl-chip {
+  background: #EDE4D0;
+  border-color: #D4C4A8;
+  color: #8B7355;
+}
+
+[data-theme="mapletip"] .formulas-exp-val {
+  color: var(--accent);
+}
+
+[data-theme="mapletip"] .formulas-pipeline-notes {
+  background: #EDE4D0;
+}
+
+[data-theme="mapletip"] .formulas-status-partial {
+  color: #b07800;
+  background: rgba(180, 120, 0, 0.1);
+  border-color: rgba(180, 120, 0, 0.3);
+}
+
+[data-theme="mapletip"] .formulas-status-ok {
+  color: #1a8a3a;
+  background: rgba(26, 138, 58, 0.1);
+  border-color: rgba(26, 138, 58, 0.3);
+}
+
+[data-theme="mapletip"] .formulas-status-warn {
+  color: #c04a10;
+  background: rgba(192, 74, 16, 0.1);
+  border-color: rgba(192, 74, 16, 0.3);
+}
+
+[data-theme="mapletip"] .formulas-validation-pending {
+  color: #8B7355;
+  border-color: #D4C4A8;
+}
+
+[data-theme="mapletip"] .formulas-validation-done {
+  color: #1a6a8a;
+  background: rgba(26, 106, 138, 0.1);
+  border-color: rgba(26, 106, 138, 0.3);
+}
+
+
+/* ── Exp table + curve, side by side ─────────────────────────── */
+.formulas-exp-split {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 0 16px 16px;
+}
+
+.formulas-exp-split > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .formulas-exp-split { flex-direction: column; }
+}
+
+.formulas-exp-tablewrap {
+  max-height: 420px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* This table scrolls inside its own box, so its head pins to the box's top
+   rather than to the page's stack of sticky bars (see .data-table thead). */
+.formulas-exp-tablewrap thead th,
+.formulas-exp-tablewrap thead th:first-child {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--surface-2);
+}
+
+/* ── Exp curve chart ─────────────────────────────────────────── */
+.formulas-chart-wrap {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.formulas-chart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 10px 7px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.formulas-chart-title {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.formulas-chart-scale { display: flex; gap: 4px; }
+
+.formulas-chart-plot {
+  position: relative;
+  background: var(--bg);
+  padding: 8px;
+}
+
+.formulas-chart-svg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 520 / 380;
+  overflow: visible;
+}
+
+.formulas-chart-grid line {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.formulas-chart-axis-label {
+  fill: var(--dim);
+  font-family: 'Consolas', 'Fira Mono', monospace;
+  font-size: 10px;
+}
+
+.formulas-chart-area {
+  fill: var(--accent);
+  opacity: 0.1;
+}
+
+.formulas-chart-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.formulas-chart-focus { opacity: 0; }
+.formulas-chart-focus.visible { opacity: 1; }
+
+.formulas-chart-focus line {
+  stroke: var(--dim);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.formulas-chart-focus circle {
+  fill: var(--accent);
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+
+.formulas-chart-hit {
+  fill: transparent;
+  cursor: crosshair;
+}
+
+.formulas-chart-tip {
+  position: absolute;
+  z-index: 5;
+  transform: translate(-50%, calc(-100% - 14px));
+  padding: 6px 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.formulas-chart-tip.visible { opacity: 1; }
+
+.formulas-chart-tip-lvl {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--dim);
+}
+
+.formulas-chart-tip-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: 'Consolas', 'Fira Mono', monospace;
+}
+
+.formulas-chart-tip-sub {
+  font-size: 11px;
+  color: var(--dim);
+  font-family: 'Consolas', 'Fira Mono', monospace;
+}
+
+/* ── Damage taken calculator ─────────────────────────────────── */
+.formulas-calc-launcher { margin-bottom: 20px; }
+
+.formulas-calc-btn {
+  font-family: inherit;
+  text-transform: none;
+  letter-spacing: .3px;
+  font-size: 12px;
+}
+
+.formulas-calc-slot { display: none; margin-top: 10px; }
+.formulas-calc-slot.open { display: block; }
+
+/* No overflow clipping here - the monster picker's dropdown has to escape the card. */
+.formulas-calc {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.formulas-calc-heading {
+  border-radius: 7px 7px 0 0;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  padding: 11px 18px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.formulas-calc-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.formulas-calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1 1 130px;
+  min-width: 0;
+}
+
+.formulas-calc-field--mob { flex: 2 1 220px; }
+
+.formulas-calc-field--off { opacity: 0.4; }
+
+.formulas-calc-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--dim);
+}
+
+.formulas-calc-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: 'Consolas', 'Fira Mono', monospace;
+  font-size: 13px;
+  outline: none;
+}
+
+.formulas-calc-input:focus { border-color: var(--accent); }
+.formulas-calc-input::placeholder { color: var(--dim); font-family: inherit; }
+
+.formulas-calc-toggle { display: flex; gap: 6px; }
+/* Match the height of the number inputs sitting beside them in the same row. */
+.formulas-calc-toggle .pill {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 33px;
+  font-size: 12px;
+  padding: 0 12px;
+}
+.formulas-calc-toggle .pill.disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Monster picker dropdown ─────────────────────────────────── */
+.formulas-calc-picker { position: relative; }
+
+.formulas-calc-options {
+  display: none;
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 260px;
+  overflow-y: auto;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.formulas-calc-options.open { display: block; }
+
+.formulas-calc-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.formulas-calc-option:hover,
+.formulas-calc-option.active { background: var(--bg); }
+
+.formulas-calc-thumb {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.formulas-calc-opt-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.formulas-calc-empty {
+  padding: 12px 16px;
+  font-size: 12px;
+  color: var(--dim);
+}
+
+/* ── Calculator output ───────────────────────────────────────── */
+.formulas-calc-out { padding: 20px 18px 0; }
+
+.formulas-calc-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.formulas-calc-hero {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.formulas-calc-headtext { min-width: 0; }
+
+.formulas-calc-headline {
+  font-family: 'Consolas', 'Fira Mono', monospace;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.formulas-calc-sub {
+  font-size: 12px;
+  color: var(--dim);
+  margin-top: 2px;
+}
+
+.formulas-calc-bar {
+  height: 10px;
+  border-radius: 5px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-top: 18px;
+}
+
+.formulas-calc-bar-fill {
+  height: 100%;
+  background: var(--accent);
+}
+
+.formulas-calc-barlabel {
+  font-size: 11px;
+  color: var(--dim);
+  margin-top: 8px;
+  font-family: 'Consolas', 'Fira Mono', monospace;
+}
+
+.formulas-calc-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  margin: 20px 0 18px;
+}
+
+.formulas-calc-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-2);
+  min-width: 0;
+}
+
+.formulas-calc-stat-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--dim);
+}
+
+.formulas-calc-stat-val {
+  font-family: 'Consolas', 'Fira Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.formulas-calc-stat-note {
+  font-size: 11px;
+  color: var(--dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.formulas-calc-notes {
+  margin: 0 -18px;
+  padding: 12px 18px 14px;
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 7px 7px;
+}
+
+[data-theme="mapletip"] .formulas-calc { background: #FFF9EC; }
+[data-theme="mapletip"] .formulas-calc-options { box-shadow: 0 6px 18px rgba(120, 90, 40, 0.2); }
+
+/* ── Advanced toggle ─────────────────────────────────────────── */
+.formulas-pipeline-header.has-toggle .formulas-pipeline-title {
+  flex: none;
+}
+
+.formulas-advanced-toggle {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--dim);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.12s;
+}
+
+.formulas-advanced-toggle:hover {
+  color: var(--text);
+}
+
+.formulas-advanced-toggle input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  border: 1px solid var(--dim);
+  border-radius: 3px;
+  background: var(--bg);
+  cursor: pointer;
+  position: relative;
+  flex: none;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.formulas-advanced-toggle input:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.formulas-advanced-toggle input:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 3px;
+  height: 7px;
+  border: solid var(--bg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.formulas-advanced-toggle input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.formulas-advanced-toggle:has(input:checked) {
+  color: var(--accent);
+}

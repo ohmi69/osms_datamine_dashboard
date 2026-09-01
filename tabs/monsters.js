@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeResponsiveFilterPanel, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById, makeElementBadge } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById, makeElementBadge } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL, ELEMENT_META, describeElements } from '../lib/constants.js';
@@ -442,13 +442,11 @@ export function renderMonsters(data, options = {}) {
   // while the list scrolls underneath.
   const toolbar = el('div', { className: 'sticky-toolbar' });
   toolbar.appendChild(topRow);
-  const filterPanel = makeResponsiveFilterPanel();
-  toolbar.appendChild(filterPanel);
 
   const filterRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' } });
   filterRow.appendChild(typePills);
   filterRow.appendChild(elemPills);
-  filterPanel.content.appendChild(filterRow);
+  toolbar.appendChild(filterRow);
 
   const toggles = el('div', { className: 'col-toggles' });
   function rebuildToggles() {
@@ -471,7 +469,7 @@ export function renderMonsters(data, options = {}) {
   }
   rebuildToggles();
 
-  filterPanel.content.appendChild(toggles);
+  toolbar.appendChild(toggles);
   container.appendChild(toolbar);
   container.appendChild(dataContainer);
 
