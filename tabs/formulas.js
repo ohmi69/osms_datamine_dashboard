@@ -1,4 +1,4 @@
-import { el } from '../lib/utils.js';
+import { el, normalizeAssetPath } from '../lib/utils.js';
 import { buildCalcLauncher } from './formulas-calc.js';
 import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
 
@@ -1395,6 +1395,801 @@ function buildTable(headers, rows) {
   return table;
 }
 
+function buildHitDetectionOverview() {
+  const container = el('div', { className: 'formulas-formula-wrap' });
+
+  const block = el('div', { className: 'formulas-code-block' });
+  [
+    ['Hidden shapes', 'Attack area = the invisible shape used to look for targets\nMonster collision area = the invisible box where a monster can be hit'],
+    ['The rule', 'A monster is picked when those two hidden shapes overlap.\nSome attacks then check walls, platforms, and slopes. This depends on the attack\'s targeting routine: many projectile and box-shaped skills do; Magic Claw does not.'],
+  ].forEach(([label, line]) => {
+    const cell = el('div', { className: 'formulas-code-cell' });
+    cell.appendChild(el('div', { className: 'formulas-code-label', textContent: label }));
+    cell.appendChild(el('pre', { className: 'formulas-code', textContent: line }));
+    block.appendChild(cell);
+  });
+  container.appendChild(block);
+
+  const tableWrap = el('div', { className: 'formulas-table-wrap' });
+  tableWrap.appendChild(el('div', { className: 'formulas-subhead', textContent: 'What happens when you attack' }));
+  tableWrap.appendChild(buildTable(
+    [['Step', 'num'], ['Game check', ''], ['What you notice', '']],
+    [
+      ['1', 'Make the attack area', 'The game places an invisible box, line, or widening area from the point at your character\'s feet. Turning around mirrors areas that attack in the direction you face.'],
+      ['2', 'Find monsters inside it', 'The attack area must overlap a monster\'s collision area. Touching only at an edge does not count, and visible artwork does not matter.'],
+      ['3', 'Choose the final targets', 'Widening ranged skills check nearest monsters first. Other attacks use the game\'s own list order. The game applies the skill\'s target limit (at most 15). Attacks that use a terrain check then lose blocked targets, without replacements.'],
+      ['4', 'Play the attack', 'Damage lines, projectiles, and effects use this finished target list. They do not look for more monsters.'],
+    ],
+  ));
+  container.appendChild(tableWrap);
+  container.appendChild(el('div', {
+    className: 'formulas-note formulas-note--padded',
+    textContent: 'The foot marker in the diagrams is the starting point for every attack area. It is not your hands or weapon. Most ranged skills use a widening area, while ordinary ranged shots use a separate one-pixel target line 28 pixels above that point. Visible effects do not change either hidden shape.',
+  }));
+  return container;
+}
+
+const HITVIZ_CHARACTER = 'images/hair/00030000.png';
+const HITVIZ_STUMP = 'assets/hitviz/stump.png';
+const HITVIZ_TERRAIN = {
+  ground: 'assets/hitviz/grassy-soil-edge.png',
+  soil: 'assets/hitviz/grassy-soil-fill.png',
+  wall: 'assets/hitviz/grassy-soil-wall.png',
+  slopeDown: 'assets/hitviz/grassy-soil-slope-down.png',
+};
+// The Beauty compositor renders this stand1 composite at 3x. Before scaling its
+// cropped bounds are 39x66, and the body-frame WZ origin lands at (23, 66)
+// inside that crop. Keep those logical dimensions here so the sprite shares the
+// diagrams' game-pixel coordinate scale.
+const HITVIZ_CHARACTER_BOUNDS = { width: 39, height: 66, originX: 23, originY: 66 };
+// Stump move/0 is a 62x51 frame with its WZ origin at the bottom centre.
+const HITVIZ_STUMP_BOUNDS = { width: 62, height: 51, originX: 31, originY: 51 };
+
+// These are the same grassySoil sprites and origin rules used by map_compositor.py.
+// The horizontal edge's foothold sits 13 px below the top of the 38 px sprite;
+// the soil tile begins at its 38 px image edge, exactly as it does in a map layer.
+function addHitvizGround(svg, x1, x2, groundY) {
+  const width = Math.max(0, x2 - x1);
+  if (!width) return;
+  const terrain = svgEl('svg', {
+    x: x1,
+    y: groundY - 13,
+    width,
+    height: 98,
+    viewBox: `0 0 ${width} 98`,
+    class: 'hitviz-terrain-crop',
+    overflow: 'hidden',
+    'aria-hidden': 'true',
+  });
+  for (let x = 0; x < width; x += 90) {
+    terrain.appendChild(svgEl('image', {
+      href: HITVIZ_TERRAIN.ground,
+      x,
+      y: 0,
+      width: 90,
+      height: 38,
+      class: 'hitviz-terrain-sprite',
+    }));
+    terrain.appendChild(svgEl('image', {
+      href: HITVIZ_TERRAIN.soil,
+      x,
+      y: 38,
+      width: 90,
+      height: 60,
+      class: 'hitviz-terrain-sprite',
+    }));
+  }
+  svg.appendChild(terrain);
+}
+
+function addHitvizWall(svg, x, topY, bottomY) {
+  const height = Math.max(0, bottomY - topY);
+  if (!height) return;
+  const terrain = svgEl('svg', {
+    x: x - 16,
+    y: topY,
+    width: 32,
+    height,
+    viewBox: `0 0 32 ${height}`,
+    class: 'hitviz-terrain-crop',
+    overflow: 'hidden',
+    'aria-hidden': 'true',
+  });
+  for (let y = 0; y < height; y += 60) {
+    terrain.appendChild(svgEl('image', {
+      href: HITVIZ_TERRAIN.wall,
+      x: 0,
+      y,
+      width: 32,
+      height: 60,
+      class: 'hitviz-terrain-sprite',
+    }));
+  }
+  svg.appendChild(terrain);
+  // Keep the collision edge visible as a debug overlay on the rendered terrain.
+  svg.appendChild(svgEl('line', { x1: x, y1: topY, x2: x, y2: bottomY, class: 'hitviz-blocker' }));
+}
+
+function addHitvizDownSlope(svg, x, upperGroundY) {
+  svg.appendChild(svgEl('image', {
+    href: HITVIZ_TERRAIN.slopeDown,
+    x,
+    y: upperGroundY - 9,
+    width: 90,
+    height: 94,
+    class: 'hitviz-terrain-sprite',
+    'aria-hidden': 'true',
+  }));
+  svg.appendChild(svgEl('line', {
+    x1: x,
+    y1: upperGroundY,
+    x2: x + 90,
+    y2: upperGroundY + 60,
+    class: 'hitviz-blocker',
+  }));
+}
+
+function addHitvizGrid(svg, id, width, height) {
+  const defs = svgEl('defs');
+  const pattern = svgEl('pattern', {
+    id, width: 20, height: 20, patternUnits: 'userSpaceOnUse',
+  });
+  pattern.appendChild(svgEl('path', {
+    d: 'M 20 0 L 0 0 0 20', class: 'hitviz-grid-line',
+  }));
+  defs.appendChild(pattern);
+  svg.appendChild(defs);
+  svg.appendChild(svgEl('rect', {
+    x: 0, y: 0, width, height, fill: `url(#${id})`, class: 'hitviz-grid-fill',
+  }));
+}
+
+function addHitvizText(svg, textContent, x, y, className = '') {
+  const textNode = svgEl('text', { x, y, class: `hitviz-svg-text${className ? ` ${className}` : ''}` });
+  textNode.textContent = textContent;
+  svg.appendChild(textNode);
+  return textNode;
+}
+
+function addHitvizRangedCorridor(svg, originX, originY, nearX, farX) {
+  const nearHalfHeight = 20 + Math.trunc(Math.abs(nearX - originX) / 4);
+  const farHalfHeight = 20 + Math.trunc(Math.abs(farX - originX) / 4);
+  svg.appendChild(svgEl('polygon', {
+    points: [
+      `${nearX},${originY - nearHalfHeight}`,
+      `${farX},${originY - farHalfHeight}`,
+      `${farX},${originY + farHalfHeight}`,
+      `${nearX},${originY + nearHalfHeight}`,
+    ].join(' '),
+    class: 'hitviz-hitbox',
+  }));
+}
+
+function addHitvizDimension(svg, x1, y1, x2, y2, label, labelX, labelY) {
+  svg.appendChild(svgEl('line', { x1, y1, x2, y2, class: 'hitviz-dimension' }));
+  if (y1 === y2) {
+    svg.appendChild(svgEl('line', { x1, y1: y1 - 4, x2: x1, y2: y1 + 4, class: 'hitviz-dimension' }));
+    svg.appendChild(svgEl('line', { x1: x2, y1: y2 - 4, x2, y2: y2 + 4, class: 'hitviz-dimension' }));
+  } else {
+    svg.appendChild(svgEl('line', { x1: x1 - 4, y1, x2: x1 + 4, y2: y1, class: 'hitviz-dimension' }));
+    svg.appendChild(svgEl('line', { x1: x2 - 4, y1: y2, x2: x2 + 4, y2, class: 'hitviz-dimension' }));
+  }
+  addHitvizText(svg, label, labelX, labelY, 'hitviz-svg-text--dimension');
+}
+
+function addHitvizCharacter(svg, originX, originY) {
+  const bounds = HITVIZ_CHARACTER_BOUNDS;
+  svg.appendChild(svgEl('image', {
+    href: normalizeAssetPath(HITVIZ_CHARACTER),
+    x: originX - bounds.originX,
+    y: originY - bounds.originY,
+    width: bounds.width,
+    height: bounds.height,
+    // The saved stand frame faces left. Every directional example on this page
+    // attacks to the right, so mirror the artwork around the measured foot anchor.
+    transform: `translate(${2 * originX} 0) scale(-1 1)`,
+    class: 'hitviz-sprite',
+    preserveAspectRatio: 'xMidYMax meet',
+  }));
+  svg.appendChild(svgEl('line', {
+    x1: originX - 7, y1: originY, x2: originX + 7, y2: originY, class: 'hitviz-origin',
+  }));
+  svg.appendChild(svgEl('line', {
+    x1: originX, y1: originY - 7, x2: originX, y2: originY + 7, class: 'hitviz-origin',
+  }));
+  svg.appendChild(svgEl('circle', {
+    cx: originX, cy: originY, r: 2.5, class: 'hitviz-origin-dot',
+  }));
+}
+
+function buildHitvizLegend(legend) {
+  const legendEl = el('div', { className: 'hitviz-legend', role: 'list', 'aria-label': 'Diagram key' });
+  legend.forEach(([style, label]) => {
+    const item = el('span', { className: 'hitviz-legend-item', role: 'listitem' });
+    item.appendChild(el('span', {
+      className: `hitviz-legend-swatch hitviz-legend-swatch--${style}`,
+      'aria-hidden': 'true',
+    }));
+    item.append(label);
+    legendEl.appendChild(item);
+  });
+  return legendEl;
+}
+
+function buildHitvizCard(title, eyebrow, svg, caption, legend = []) {
+  const card = el('figure', { className: 'hitviz-card' });
+  const head = el('figcaption', { className: 'hitviz-head' });
+  const titleWrap = el('div');
+  titleWrap.appendChild(el('div', { className: 'hitviz-eyebrow', textContent: eyebrow }));
+  titleWrap.appendChild(el('div', { className: 'hitviz-title', textContent: title }));
+  head.appendChild(titleWrap);
+  card.appendChild(head);
+  card.appendChild(el('div', { className: 'hitviz-stage' }, svg));
+  if (legend.length) card.appendChild(buildHitvizLegend(legend));
+  card.appendChild(el('p', { className: 'hitviz-caption', textContent: caption }));
+  return card;
+}
+
+function addHitvizMob(svg, x, y, width = 42, height = 58, label = '') {
+  const bounds = HITVIZ_STUMP_BOUNDS;
+  const originX = x + width / 2;
+  const originY = y + height;
+  const collisionX = originX - bounds.originX;
+  const collisionY = originY - bounds.originY;
+  svg.appendChild(svgEl('image', {
+    href: HITVIZ_STUMP,
+    x: collisionX,
+    y: collisionY,
+    width: bounds.width,
+    height: bounds.height,
+    class: 'hitviz-sprite hitviz-mob-sprite',
+    preserveAspectRatio: 'xMidYMax meet',
+    'aria-hidden': 'true',
+  }));
+  svg.appendChild(svgEl('rect', {
+    x: collisionX,
+    y: collisionY,
+    width: bounds.width,
+    height: bounds.height,
+    class: 'hitviz-mob-box',
+  }));
+  if (label) addHitvizText(svg, label, originX, collisionY - 7, 'hitviz-svg-text--muted');
+}
+
+function buildAttackTypeVisual(title, examples, id, ariaLabel, draw, caption, legend = [], options = {}) {
+  const width = 320;
+  const height = options.height ?? 180;
+  const groundY = options.groundY ?? 145;
+  const svg = svgEl('svg', {
+    viewBox: `0 0 ${width} ${height}`,
+    class: 'hitviz-svg hitviz-svg--mini',
+    role: 'img',
+    'aria-label': ariaLabel,
+    preserveAspectRatio: 'xMidYMid meet',
+  });
+  addHitvizGrid(svg, `hitviz-grid-${id}`, width, height);
+  draw(svg, { width, height, groundY });
+
+  const card = buildHitvizCard(title, 'Attack type', svg, caption, legend);
+  card.classList.add('hitviz-card--mini');
+  const examplesNode = el('div', { className: 'hitviz-examples' });
+  examplesNode.appendChild(el('span', {
+    className: 'hitviz-examples-label', textContent: 'Examples',
+  }));
+  examplesNode.appendChild(el('span', {
+    className: 'hitviz-examples-list', textContent: examples,
+  }));
+  card.insertBefore(examplesNode, card.querySelector('.hitviz-stage'));
+  const captionNode = card.querySelector('.hitviz-caption');
+  captionNode.textContent = '';
+  captionNode.appendChild(el('span', {
+    className: 'hitviz-caption-label', textContent: 'Where the game checks',
+  }));
+  captionNode.append(caption);
+  return card;
+}
+
+function buildAttackTypeVisuals(keys = null) {
+  const grid = el('div', { className: 'hitviz-type-grid' });
+  const cards = new Map();
+  const addCard = (key, card) => cards.set(key, card);
+
+  addCard('animation-melee', buildAttackTypeVisual(
+    'Melee',
+    'Normal melee attacks, Power Strike',
+    'type-animation-melee',
+    'A weapon swing target area overlapping a monster',
+    (svg, { width, groundY }) => {
+      const originX = 64;
+      addHitvizGround(svg, 0, width, groundY);
+      svg.appendChild(svgEl('rect', { x: 78, y: 82, width: 82, height: 57, class: 'hitviz-hitbox' }));
+      addHitvizMob(svg, 136, 78, 42, 67);
+      svg.appendChild(svgEl('rect', { x: 136, y: 82, width: 24, height: 57, class: 'hitviz-overlap' }));
+      addHitvizCharacter(svg, originX, groundY);
+      addHitvizText(svg, 'current swing area', 119, 58, 'hitviz-svg-text--hitbox');
+      addHitvizText(svg, 'overlap = target', 191, 119, 'hitviz-svg-text--effect');
+    },
+    'The current weapon swing supplies the hidden target area, so the area can change with the swing animation.',
+    [
+      ['primary', 'Swing target area'],
+      ['monster', 'Monster collision area'],
+      ['overlap', 'Overlap selects target'],
+    ],
+  ));
+
+  addCard('triggered-splash', buildAttackTypeVisual(
+    'Melee with a triggered splash',
+    'Slash Blast',
+    'type-triggered-splash',
+    'Slash Blast keeping the swing height and extending only its forward edge to the measured 130 or 150 pixel range',
+    (svg, { width, groundY }) => {
+      const originX = 48;
+      const originalLeft = 61;
+      const originalTop = 88;
+      const originalRight = 137;
+      const originalBottom = 139;
+      const level10Edge = originX + 130;
+      const maxEdge = originX + 150;
+      addHitvizGround(svg, 0, width, groundY);
+      svg.appendChild(svgEl('rect', {
+        x: originalLeft,
+        y: originalTop,
+        width: maxEdge - originalLeft,
+        height: originalBottom - originalTop,
+        class: 'hitviz-hitbox hitviz-hitbox--secondary',
+      }));
+      svg.appendChild(svgEl('line', {
+        x1: level10Edge,
+        y1: originalTop,
+        x2: level10Edge,
+        y2: originalBottom,
+        class: 'hitviz-dimension',
+      }));
+      svg.appendChild(svgEl('rect', {
+        x: originalLeft,
+        y: originalTop,
+        width: originalRight - originalLeft,
+        height: originalBottom - originalTop,
+        class: 'hitviz-hitbox',
+      }));
+      addHitvizMob(svg, 105, 83, 38, 62, 'trigger');
+      addHitvizMob(svg, 191, 83, 38, 62, 'Lv. 11+');
+      svg.appendChild(svgEl('rect', {
+        x: 179,
+        y: 94,
+        width: maxEdge - 179,
+        height: originalBottom - 94,
+        class: 'hitviz-overlap',
+      }));
+      addHitvizCharacter(svg, originX, groundY);
+      addHitvizDimension(svg, originX, 73, maxEdge, 73, '150 px max', 123, 67);
+      addHitvizText(svg, 'first swing area', 99, 56, 'hitviz-svg-text--hitbox');
+      addHitvizText(svg, 'extends forward only', 166, 42, 'hitviz-svg-text--secondary-area');
+    },
+    'If the first swing finds exactly one monster, Slash Blast keeps the same height and extends only the front edge: 130 px at Lv. 1–10 and 150 px at Lv. 11–20.',
+    [
+      ['primary', 'First target check'],
+      ['secondary', 'Extra forward range after one hit'],
+      ['monster', 'Monster collision area'],
+      ['overlap', 'Max-range overlap'],
+    ],
+  ));
+
+  addCard('normal-ranged', buildAttackTypeVisual(
+    'Normal ranged shots',
+    'Normal bow, crossbow, and throwing-star attacks',
+    'type-normal-ranged',
+    'A normal ranged shot selecting a monster whose collision area crosses its horizontal target line',
+    (svg, { width, groundY }) => {
+      const originX = 40;
+      const stripY = groundY - 28;
+      const nearX = originX + 65;
+      addHitvizGround(svg, 0, width, groundY);
+      svg.appendChild(svgEl('rect', { x: nearX, y: stripY, width: 174, height: 1, class: 'hitviz-hitbox hitviz-hitbox--strip' }));
+      addHitvizMob(svg, 235, 75, 42, 70);
+      addHitvizCharacter(svg, originX, groundY);
+      addHitvizText(svg, '1 px target line', 190, stripY - 8, 'hitviz-svg-text--hitbox');
+    },
+    'This hidden one-pixel horizontal line is the target area for an ordinary ranged shot. It sits 28 px above your feet, starts 65 px in front of you, and ends at the shot\'s calculated range. A monster is considered only when its collision area crosses the line.',
+    [
+      ['target-line', 'One-pixel target line'],
+      ['monster', 'Monster collision area'],
+    ],
+  ));
+
+  addCard('ranged-projectile', buildAttackTypeVisual(
+    'Projectile skills using ranged targeting',
+    'Arrow Blow, Energy Bolt',
+    'type-ranged-projectile-skill',
+    'A projectile skill selecting a monster anywhere inside a widening target area',
+    (svg, { width, groundY }) => {
+      const originX = 40;
+      const nearX = originX + 65;
+      addHitvizGround(svg, 0, width, groundY);
+      addHitvizRangedCorridor(svg, originX, groundY, nearX, 279);
+      addHitvizMob(svg, 235, groundY - 70, 42, 70);
+      addHitvizCharacter(svg, originX, groundY);
+      addHitvizText(svg, 'widening target area', 175, 28, 'hitviz-svg-text--hitbox');
+    },
+    'Most ranged skills use a hidden area that widens with distance. A monster is considered when its collision area overlaps that area.',
+    [
+      ['primary', 'Widening target area'],
+      ['monster', 'Monster collision area'],
+    ],
+    { height: 200, groundY: 115 },
+  ));
+
+  addCard('area-skills', buildAttackTypeVisual(
+    'Centered or directional areas',
+    'Shout, Dragon Roar, Arrow Rain, Savage Blow',
+    'type-area-skills',
+    'Centered and forward-facing rectangular area attacks shown side by side',
+    (svg, { height }) => {
+      const groundY = 145;
+      addHitvizGround(svg, 0, 146, groundY);
+      addHitvizGround(svg, 174, 320, groundY);
+      svg.appendChild(svgEl('line', { x1: 160, y1: 16, x2: 160, y2: height - 12, class: 'hitviz-panel-divider' }));
+      svg.appendChild(svgEl('rect', { x: 18, y: 66, width: 124, height: 73, class: 'hitviz-hitbox' }));
+      svg.appendChild(svgEl('rect', { x: 221, y: 76, width: 79, height: 63, class: 'hitviz-hitbox' }));
+      addHitvizCharacter(svg, 80, groundY);
+      addHitvizCharacter(svg, 207, groundY);
+      addHitvizMob(svg, 25, 80, 36, 65);
+      addHitvizMob(svg, 105, 80, 36, 65);
+      addHitvizMob(svg, 270, 80, 36, 65);
+      addHitvizText(svg, 'centered', 80, 54, 'hitviz-svg-text--hitbox');
+      addHitvizText(svg, 'directional', 260, 64, 'hitviz-svg-text--hitbox');
+    },
+    'Centered areas reach both sides of your character. Directional areas, such as Savage Blow, use a fixed box mostly in front of you and mirror it when you turn around.',
+    [
+      ['primary', 'Target area'],
+      ['monster', 'Monster collision area'],
+    ],
+  ));
+
+  const selectedKeys = keys ?? [...cards.keys()];
+  selectedKeys.forEach((key) => {
+    const card = cards.get(key);
+    if (card) grid.appendChild(card);
+  });
+  if (selectedKeys.length === 1) grid.classList.add('hitviz-type-grid--single');
+  return grid;
+}
+
+function buildRangedTerrainComparisonVisual() {
+  const comparison = el('div', { className: 'hitviz-comparison' });
+  comparison.appendChild(el('div', {
+    className: 'formulas-subhead',
+    textContent: 'Ranged',
+  }));
+
+  const grid = el('div', { className: 'hitviz-type-grid hitviz-type-grid--comparison' });
+  const buildPanel = (title, eyebrow, id, rayStartsAtLine) => {
+    const width = 320;
+    const height = 220;
+    const groundY = 135;
+    const stripY = groundY - 28;
+    const originX = 48;
+    const nearX = originX + 60;
+    const targetX = 258;
+    const svg = svgEl('svg', {
+      viewBox: `0 0 ${width} ${height}`,
+      class: 'hitviz-svg hitviz-svg--mini',
+      role: 'img',
+      'aria-label': rayStartsAtLine
+        ? 'Normal ranged shot checking terrain horizontally from the one-pixel target line'
+        : 'Projectile skill checking terrain diagonally from the point at the character\'s feet',
+      preserveAspectRatio: 'xMidYMid meet',
+    });
+    addHitvizGrid(svg, id, width, height);
+    addHitvizGround(svg, 0, width, groundY);
+    if (rayStartsAtLine) {
+      svg.appendChild(svgEl('rect', {
+        x: nearX, y: stripY, width: targetX + 24 - nearX, height: 1, class: 'hitviz-hitbox hitviz-hitbox--strip',
+      }));
+    } else {
+      addHitvizRangedCorridor(svg, originX, groundY, nearX, targetX + 24);
+      svg.appendChild(svgEl('rect', {
+        x: nearX, y: stripY, width: targetX + 24 - nearX, height: 1, class: 'hitviz-hitbox hitviz-hitbox--strip hitviz-hitbox--secondary',
+      }));
+    }
+    addHitvizMob(svg, targetX - 24, 88, 48, groundY - 88);
+    const rayStartY = rayStartsAtLine ? stripY : groundY;
+    addHitvizCharacter(svg, originX, groundY);
+    svg.appendChild(svgEl('line', { x1: originX, y1: rayStartY, x2: targetX, y2: rayStartsAtLine ? stripY : 96, class: 'hitviz-los' }));
+    svg.appendChild(svgEl('circle', { cx: originX, cy: rayStartY, r: 5, class: 'hitviz-ray-start' }));
+    addHitvizText(svg, rayStartsAtLine ? 'target line' : 'widening target area', 185, stripY - 10, 'hitviz-svg-text--hitbox');
+
+    return buildHitvizCard(
+      title,
+      eyebrow,
+      svg,
+      rayStartsAtLine
+        ? 'The game checks for blocking terrain from the one-pixel target line, straight across to the monster.'
+        : 'The widening area finds a monster first. The game then checks for blocking terrain from your feet to the closest edge of that monster\'s collision area.',
+      [
+        [rayStartsAtLine ? 'target-line' : 'primary', rayStartsAtLine ? 'One-pixel target line' : 'Widening target area'],
+        ...(!rayStartsAtLine ? [['secondary', 'Separate one-pixel range line']] : []),
+        ['ray-start', 'Start of terrain check'],
+        ['check-line', 'Terrain check, not projectile'],
+        ['monster', 'Monster collision area'],
+      ],
+    );
+  };
+
+  grid.appendChild(buildPanel('Normal ranged shot', 'Terrain check starts on target line', 'hitviz-grid-normal-ray', true));
+  grid.appendChild(buildPanel('Projectile skill with a widening area', 'Projectile terrain check', 'hitviz-grid-skill-ray', false));
+  comparison.appendChild(grid);
+  return comparison;
+}
+
+function buildObstructionVisual() {
+  const width = 620;
+  const height = 260;
+  const originX = 90;
+  const originY = 205;
+  const targetX = 530;
+  const targetY = 135;
+  const svg = svgEl('svg', {
+    viewBox: `0 0 ${width} ${height}`,
+    class: 'hitviz-svg',
+    role: 'img',
+    'aria-label': 'Diagram showing a wall or platform blocking a skill terrain check from the point at the character\'s feet',
+    preserveAspectRatio: 'xMidYMid meet',
+  });
+  addHitvizGrid(svg, 'hitviz-grid-obstruction', width, height);
+  addHitvizGround(svg, 0, 250, originY);
+  addHitvizGround(svg, 458, width, targetY + 34);
+  addHitvizWall(svg, 318, 72, 222);
+  svg.appendChild(svgEl('line', { x1: originX, y1: originY, x2: targetX, y2: targetY, class: 'hitviz-los' }));
+  addHitvizMob(svg, targetX - 28, targetY - 34, 56, 68);
+  addHitvizCharacter(svg, originX, originY);
+  const t = (318 - originX) / (targetX - originX);
+  const hitY = originY + t * (targetY - originY);
+  svg.appendChild(svgEl('circle', { cx: 318, cy: hitY, r: 6, class: 'hitviz-blocked-point' }));
+  addHitvizText(svg, 'blocking terrain', 326, 62, 'hitviz-svg-text--blocker');
+  addHitvizText(svg, 'point at your feet', originX + 12, originY + 18, 'hitviz-svg-text--muted');
+  addHitvizText(svg, 'point checked near target', targetX, targetY - 43, 'hitviz-svg-text--muted');
+  addHitvizText(svg, 'target blocked', 326, hitY + 21, 'hitviz-svg-text--blocker');
+  return buildHitvizCard(
+    'Target blocked by a wall',
+    'Horizontal terrain check',
+    svg,
+    'This terrain check is used by normal projectile attacks and many box-shaped skills. The game checks a straight line from your feet toward the monster. If that line crosses the solid edge of a wall, platform, or slope, the monster is removed from the target list. Magic Claw does not make this check.',
+    [
+      ['check-line', 'Line checked for terrain'],
+      ['terrain', 'Blocking terrain'],
+      ['monster', 'Monster collision area'],
+      ['blocked', 'Blocked point'],
+    ],
+  );
+}
+
+function buildDownSlopeObstructionVisual() {
+  const width = 620;
+  const height = 280;
+  const originX = 85;
+  const upperGroundY = 135;
+  const slopeX = 225;
+  const lowerGroundY = upperGroundY + 60;
+  const targetX = 520;
+  const targetY = 160;
+  const svg = svgEl('svg', {
+    viewBox: `0 0 ${width} ${height}`,
+    class: 'hitviz-svg',
+    role: 'img',
+    'aria-label': 'Diagram showing a downhill slope blocking a terrain-checked attack aimed at a Stump below the player',
+    preserveAspectRatio: 'xMidYMid meet',
+  });
+  addHitvizGrid(svg, 'hitviz-grid-down-slope', width, height);
+  addHitvizGround(svg, 0, slopeX, upperGroundY);
+  addHitvizDownSlope(svg, slopeX, upperGroundY);
+  addHitvizGround(svg, slopeX + 90, width, lowerGroundY);
+  svg.appendChild(svgEl('rect', { x: 450, y: 120, width: 135, height: 69, class: 'hitviz-hitbox' }));
+  svg.appendChild(svgEl('line', { x1: originX, y1: upperGroundY, x2: targetX, y2: targetY, class: 'hitviz-los' }));
+  addHitvizMob(svg, targetX - 28, lowerGroundY - 68, 56, 68);
+  addHitvizCharacter(svg, originX, upperGroundY);
+
+  const raySlope = (targetY - upperGroundY) / (targetX - originX);
+  const terrainSlope = 60 / 90;
+  const hitX = (raySlope * originX - terrainSlope * slopeX) / (raySlope - terrainSlope);
+  const hitY = upperGroundY + raySlope * (hitX - originX);
+  svg.appendChild(svgEl('circle', { cx: hitX, cy: hitY, r: 6, class: 'hitviz-blocked-point' }));
+  addHitvizText(svg, 'projectile target area reaches Stump', 510, 109, 'hitviz-svg-text--hitbox');
+  addHitvizText(svg, 'downhill solid edge', slopeX + 45, 105, 'hitviz-svg-text--blocker');
+  addHitvizText(svg, 'terrain check enters slope', hitX + 9, hitY + 24, 'hitviz-svg-text--blocker');
+  addHitvizText(svg, 'point at your feet', originX + 12, upperGroundY + 18, 'hitviz-svg-text--muted');
+  return buildHitvizCard(
+    'Target blocked by a downhill slope',
+    'Vertical terrain change',
+    svg,
+    'This is the same terrain check, but the target is lower than you. The target area reaches the Stump, yet the line checked from your feet crosses the slope\'s solid edge, so the Stump is removed.',
+    [
+      ['primary', 'Target area'],
+      ['check-line', 'Line checked for terrain'],
+      ['terrain', 'Slope\'s solid edge'],
+      ['monster', 'Stump collision area'],
+      ['blocked', 'Blocked point'],
+    ],
+  );
+}
+
+function buildAttackAreaGuide() {
+  const container = el('div', { className: 'formulas-formula-wrap' });
+  container.appendChild(buildAttackTypeVisuals([
+    'animation-melee',
+    'triggered-splash',
+    'normal-ranged',
+    'ranged-projectile',
+    'area-skills',
+  ]));
+  container.appendChild(el('div', {
+    className: 'formulas-note formulas-note--padded',
+    textContent: 'Every attack starts with a hidden area positioned from the point at your character\'s feet. Turning mirrors directional areas; artwork, weapon reach, and effect placement do not change this hidden area.',
+  }));
+  return container;
+}
+
+function buildCollisionOverlapVisual() {
+  const width = 620;
+  const height = 230;
+  const groundY = 175;
+  const svg = svgEl('svg', {
+    viewBox: `0 0 ${width} ${height}`,
+    class: 'hitviz-svg',
+    role: 'img',
+    'aria-label': 'Comparison of positive collision overlap selecting a monster and edge-only contact missing it',
+    preserveAspectRatio: 'xMidYMid meet',
+  });
+  addHitvizGrid(svg, 'hitviz-grid-collision-overlap', width, height);
+  addHitvizGround(svg, 0, 286, groundY);
+  addHitvizGround(svg, 334, width, groundY);
+  svg.appendChild(svgEl('line', { x1: 310, y1: 18, x2: 310, y2: height - 14, class: 'hitviz-panel-divider' }));
+
+  svg.appendChild(svgEl('rect', { x: 35, y: 98, width: 165, height: 67, class: 'hitviz-hitbox' }));
+  addHitvizMob(svg, 170, 100, 42, 75);
+  svg.appendChild(svgEl('rect', { x: 160, y: 124, width: 40, height: 41, class: 'hitviz-overlap' }));
+  addHitvizText(svg, 'shared area', 135, 82, 'hitviz-svg-text--effect');
+  addHitvizText(svg, 'can be targeted', 181, 192, 'hitviz-svg-text--hitbox');
+
+  svg.appendChild(svgEl('rect', { x: 350, y: 98, width: 130, height: 67, class: 'hitviz-hitbox' }));
+  addHitvizMob(svg, 490, 100, 42, 75);
+  svg.appendChild(svgEl('line', { x1: 480, y1: 98, x2: 480, y2: 165, class: 'hitviz-dimension' }));
+  addHitvizText(svg, 'edges only touch', 480, 82, 'hitviz-svg-text--muted');
+  addHitvizText(svg, 'not selected', 500, 192, 'hitviz-svg-text--muted');
+
+  return buildHitvizCard(
+    'Shared area lets a monster be targeted',
+    'Step 2 · hidden attack areas',
+    svg,
+    'The attack area and monster collision area must share some width and height. If their edges only touch, the monster is not selected.',
+    [
+      ['primary', 'Attack area'],
+      ['monster', 'Monster collision area'],
+      ['overlap', 'Positive overlap'],
+    ],
+  );
+}
+
+function buildOverlapGuide() {
+  const container = el('div', { className: 'formulas-formula-wrap' });
+  container.appendChild(buildCollisionOverlapVisual());
+
+  const tableWrap = el('div', { className: 'formulas-table-wrap' });
+  tableWrap.appendChild(buildTable(
+    [['When the hidden boxes…', ''], ['What that means', ''], ['Result', '']],
+    [
+      ['Overlap', 'The attack area and collision area share real space in both directions.', 'The monster can become a target.'],
+      ['Only touch at an edge', 'The boxes meet, but share no area.', 'The monster is not selected.'],
+      ['Use a second collision format', 'The game contains another way to store collision shapes, but no current monster uses it.', 'Every current monster uses one or more rectangular collision areas.'],
+      ['Visible sprites touch', 'The game does not use the visible weapon, projectile, or effect pixels for this check.', 'A visible touch does not select a monster.'],
+    ],
+  ));
+  container.appendChild(tableWrap);
+  container.appendChild(el('div', {
+    className: 'formulas-note formulas-note--padded',
+    textContent: 'Passing this step makes a monster a candidate, not a guaranteed target. The game can still remove it because of target order or the skill\'s target limit. Attacks that use a terrain check can also lose targets behind solid terrain.',
+  }));
+  return container;
+}
+
+function buildHitDetectionDetails(summaryText, rows) {
+  const details = el('details', { className: 'hitviz-details' });
+  details.appendChild(el('summary', { textContent: summaryText }));
+  const body = el('div', { className: 'hitviz-details-body' });
+  rows.forEach(([label, textContent]) => {
+    const row = el('div', { className: 'hitviz-details-row' });
+    row.appendChild(el('strong', { textContent: label }));
+    row.append(textContent);
+    body.appendChild(row);
+  });
+  details.appendChild(body);
+  return details;
+}
+
+function buildFinalTargetGuide() {
+  const container = el('div', { className: 'formulas-formula-wrap' });
+
+  const terrainIntro = el('aside', { className: 'hitviz-terrain-intro' });
+  terrainIntro.appendChild(el('div', {
+    className: 'hitviz-terrain-intro-title',
+    textContent: 'How the terrain-check line works',
+  }));
+  terrainIntro.appendChild(el('p', {
+    textContent: 'Some attacks use an invisible line to decide whether a target is reachable. It is a target check, not the projectile\'s visible flight path. If it crosses solid terrain, the target is removed.',
+  }));
+  const terrainRules = el('div', { className: 'hitviz-terrain-intro-rules' });
+  [
+    ['Normal ranged shot', 'Checks straight across from its one-pixel target line.'],
+    ['Widening projectile skill', 'Checks from your feet to the monster\'s closest edge.'],
+    ['Many box-shaped skills', 'Also check from your feet toward the monster.'],
+  ].forEach(([label, description]) => {
+    const rule = el('div', { className: 'hitviz-terrain-intro-rule' });
+    rule.appendChild(el('strong', { textContent: label }));
+    rule.append(description);
+    terrainRules.appendChild(rule);
+  });
+  terrainIntro.appendChild(terrainRules);
+  container.appendChild(terrainIntro);
+
+  container.appendChild(buildRangedTerrainComparisonVisual());
+
+  container.appendChild(buildObstructionVisual());
+
+  container.appendChild(buildDownSlopeObstructionVisual());
+
+  const terrainWrap = el('div', { className: 'formulas-table-wrap' });
+  terrainWrap.appendChild(buildTable(
+    [['Attack type', ''], ['Can terrain block it?', ''], ['Examples', '']],
+    [
+      ['Normal ranged shots', 'Yes. They launch a projectile and check straight across from the one-pixel target line.', 'Ordinary bow, crossbow, and throwing-star attacks.'],
+      ['Projectile skills with a widening area', 'Yes. They first find a monster in the widening area, then check from your feet to the monster\'s closest edge.', 'Arrow Blow, Energy Bolt, and other skills that launch a projectile.'],
+      ['Non-projectile skills with a widening area', 'No. They use the same kind of target area but do not check terrain.', 'Magic Claw can select a monster through a wall.'],
+      ['Many box-shaped skills', 'Yes. They check from your feet toward the monster after the target area finds it.', 'Power Strike, Slash Blast, Savage Blow, Arrow Rain, Arrow Eruption, and most other skill areas.'],
+      ['Band of Thieves', 'No. This skill skips the terrain check.', 'Its opening swing must first find exactly one monster before the full area is used.'],
+      ['Meso Explosion', 'No. This skill skips the terrain check.', 'It selects dropped meso coins, then searches around each selected coin.'],
+    ],
+  ));
+  container.appendChild(terrainWrap);
+
+  const selectionWrap = el('div', { className: 'formulas-table-wrap' });
+  selectionWrap.appendChild(el('div', { className: 'formulas-subhead', textContent: 'Which candidates are kept first' }));
+  selectionWrap.appendChild(buildTable(
+    [['Attack type or rule', ''], ['How candidates are ordered', '']],
+    [
+      ['Ordinary skills', 'Uses the game\'s internal list of objects on the map. There is no closest-first sort, and we have not yet determined how that list order is made.'],
+      ['Normal basic attacks', 'Uses the same unsorted list of objects on the map, so nearest-first is not guaranteed.'],
+      ['Ranged skills with a widening area', 'Nearest monster to your feet first.'],
+      ['Band of Thieves', 'Nearest monster first. If the nearest is behind you, it prefers the nearest monster in front; if none is in front, it keeps the original nearest monster.'],
+      ['Meso Explosion', 'Checks dropped meso coins in internal list order. A coin is kept only if the area around it finds a monster, and selection stops at the skill\'s coin limit.'],
+      ['Target limit before terrain check', 'The game fills the skill\'s target limit first (never above 15). An attack that uses a terrain check then removes blocked targets without replacing them, so order matters when too many monsters are in range.'],
+    ],
+  ));
+  container.appendChild(selectionWrap);
+
+  container.appendChild(el('div', {
+    className: 'formulas-note formulas-note--padded',
+    textContent: 'Only an attack that uses a terrain check can be stopped by walls, platforms, or slopes marked as solid for attacks; decorative map art cannot stop it. Magic Claw, Band of Thieves, and Meso Explosion skip this check and can select through that terrain. The game server can still reject a target that your game client selected.',
+  }));
+  return container;
+}
+
+function buildSkillHitDetectionCases() {
+  const container = el('div', { className: 'formulas-formula-wrap' });
+
+  const tableWrap = el('div', { className: 'formulas-table-wrap' });
+  tableWrap.appendChild(buildTable(
+    [['Skill or family', ''], ['Target check', ''], ['Special result', '']],
+    [
+      ['Slash Blast / Coma / Charged Blow', 'The first swing must find exactly one monster before the larger area is used.', 'Only the front edge grows. If the first swing finds zero or more than one monster, the area stays the same.'],
+      ['Band of Thieves', 'The opening swing must find exactly one monster before the full attack area is used.', 'It uses the special nearest-first rule described above and skips the terrain check.'],
+      ['Meso Explosion', 'It first selects nearby dropped meso coins; it then looks for a monster around each selected coin.', 'It skips the terrain check.'],
+    ],
+  ));
+  container.appendChild(tableWrap);
+
+  return container;
+}
+
 function buildWeaponMultTable() {
   const container = el('div');
 
@@ -1518,6 +2313,20 @@ export function renderFormulas(data, options = {}) {
     return group(accuracy);
   };
 
+  const buildHitDetectionPage = () => {
+    const overview = section('How Targeting Works', 'targeting-pipeline', buildHitDetectionOverview);
+
+    const area = section('1. Build the Target Area', 'attack-families', buildAttackAreaGuide);
+
+    const overlap = section('2. Test Monster Overlap', 'target-overlap', buildOverlapGuide);
+
+    const finalTargets = section('3. Check Targets Against Terrain', 'ranged-terrain', buildFinalTargetGuide);
+
+    const cases = section('Skills with Special Targeting Rules', 'skill-cases', buildSkillHitDetectionCases);
+
+    return group(overview, area, overlap, finalTargets, cases);
+  };
+
   const buildDamagePage = () => {
     const base = section('Base Damage Formulas', 'base-damage', buildBaseDamageSection);
     const baseCredit = el('span', { className: 'formulas-credit' });
@@ -1570,6 +2379,18 @@ export function renderFormulas(data, options = {}) {
         key: 'accuracy', label: 'Accuracy', kicker: 'Will the attack connect?',
         description: 'Player accuracy, monster avoidability, and the physical and magical hit checks.',
         sections: [{ key: 'accuracy-formulas', label: 'Accuracy formulas' }], render: buildAccuracyPage,
+      },
+      {
+        key: 'hit-detection', label: 'Hit Detection', kicker: 'Which monster can the attack reach?',
+        description: 'See where each attack checks for monsters and which attacks terrain can block.',
+        sections: [
+          { key: 'targeting-pipeline', label: 'Overview' },
+          { key: 'attack-families', label: '1. Target area' },
+          { key: 'target-overlap', label: '2. Overlap' },
+          { key: 'ranged-terrain', label: '3. Terrain checks' },
+          { key: 'skill-cases', label: 'Special rules' },
+        ],
+        render: buildHitDetectionPage,
       },
       {
         key: 'dealing-damage', label: 'Dealing Damage', kicker: 'From stats to the applied hit',

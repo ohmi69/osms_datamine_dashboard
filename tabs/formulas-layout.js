@@ -1,6 +1,6 @@
 import { el, tabHref } from '../lib/utils.js';
 
-const PAGE_KEYS = new Set(['accuracy', 'dealing-damage', 'damage-taken', 'progression']);
+const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression']);
 
 function routeTarget(page, section = null) {
   const target = page ? { page } : {};
