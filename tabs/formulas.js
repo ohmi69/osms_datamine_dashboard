@@ -1435,7 +1435,6 @@ const HITVIZ_TERRAIN = {
   ground: 'assets/hitviz/grassy-soil-edge.png',
   soil: 'assets/hitviz/grassy-soil-fill.png',
   wall: 'assets/hitviz/grassy-soil-wall.png',
-  slopeDown: 'assets/hitviz/grassy-soil-slope-down.png',
 };
 // The Beauty compositor renders this stand1 composite at 3x. Before scaling its
 // cropped bounds are 39x66, and the body-frame WZ origin lands at (23, 66)
@@ -1510,21 +1509,35 @@ function addHitvizWall(svg, x, topY, bottomY) {
   svg.appendChild(svgEl('line', { x1: x, y1: topY, x2: x, y2: bottomY, class: 'hitviz-blocker' }));
 }
 
-function addHitvizDownSlope(svg, x, upperGroundY) {
-  svg.appendChild(svgEl('image', {
-    href: HITVIZ_TERRAIN.slopeDown,
-    x,
-    y: upperGroundY - 9,
-    width: 90,
-    height: 94,
-    class: 'hitviz-terrain-sprite',
+function addHitvizPlatform(svg, x1, x2, platformY) {
+  const width = Math.max(0, x2 - x1);
+  if (!width) return;
+  const terrain = svgEl('svg', {
+    x: x1,
+    y: platformY - 13,
+    width,
+    height: 32,
+    viewBox: `0 0 ${width} 32`,
+    class: 'hitviz-terrain-crop',
+    overflow: 'hidden',
     'aria-hidden': 'true',
-  }));
+  });
+  for (let x = 0; x < width; x += 90) {
+    terrain.appendChild(svgEl('image', {
+      href: HITVIZ_TERRAIN.ground,
+      x,
+      y: 0,
+      width: 90,
+      height: 38,
+      class: 'hitviz-terrain-sprite',
+    }));
+  }
+  svg.appendChild(terrain);
   svg.appendChild(svgEl('line', {
-    x1: x,
-    y1: upperGroundY,
-    x2: x + 90,
-    y2: upperGroundY + 60,
+    x1,
+    y1: platformY,
+    x2,
+    y2: platformY,
     class: 'hitviz-blocker',
   }));
 }
@@ -1577,7 +1590,7 @@ function addHitvizDimension(svg, x1, y1, x2, y2, label, labelX, labelY) {
   addHitvizText(svg, label, labelX, labelY, 'hitviz-svg-text--dimension');
 }
 
-function addHitvizCharacter(svg, originX, originY) {
+function addHitvizCharacter(svg, originX, originY, facingRight = true) {
   const bounds = HITVIZ_CHARACTER_BOUNDS;
   svg.appendChild(svgEl('image', {
     href: normalizeAssetPath(HITVIZ_CHARACTER),
@@ -1585,9 +1598,8 @@ function addHitvizCharacter(svg, originX, originY) {
     y: originY - bounds.originY,
     width: bounds.width,
     height: bounds.height,
-    // The saved stand frame faces left. Every directional example on this page
-    // attacks to the right, so mirror the artwork around the measured foot anchor.
-    transform: `translate(${2 * originX} 0) scale(-1 1)`,
+    // The saved stand frame faces left. Mirror it only when the target is rightward.
+    transform: facingRight ? `translate(${2 * originX} 0) scale(-1 1)` : '',
     class: 'hitviz-sprite',
     preserveAspectRatio: 'xMidYMax meet',
   }));
@@ -1753,7 +1765,6 @@ function buildAttackTypeVisuals(keys = null) {
         class: 'hitviz-hitbox',
       }));
       addHitvizMob(svg, 105, 83, 38, 62, 'trigger');
-      addHitvizMob(svg, 191, 83, 38, 62, 'Lv. 11+');
       svg.appendChild(svgEl('rect', {
         x: 179,
         y: 94,
@@ -1888,9 +1899,6 @@ function buildRangedTerrainComparisonVisual() {
       }));
     } else {
       addHitvizRangedCorridor(svg, originX, groundY, nearX, targetX + 24);
-      svg.appendChild(svgEl('rect', {
-        x: nearX, y: stripY, width: targetX + 24 - nearX, height: 1, class: 'hitviz-hitbox hitviz-hitbox--strip hitviz-hitbox--secondary',
-      }));
     }
     addHitvizMob(svg, targetX - 24, 88, 48, groundY - 88);
     const rayStartY = rayStartsAtLine ? stripY : groundY;
@@ -1908,7 +1916,6 @@ function buildRangedTerrainComparisonVisual() {
         : 'The widening area finds a monster first. The game then checks for blocking terrain from your feet to the closest edge of that monster\'s collision area.',
       [
         [rayStartsAtLine ? 'target-line' : 'primary', rayStartsAtLine ? 'One-pixel target line' : 'Widening target area'],
-        ...(!rayStartsAtLine ? [['secondary', 'Separate one-pixel range line']] : []),
         ['ray-start', 'Start of terrain check'],
         ['check-line', 'Terrain check, not projectile'],
         ['monster', 'Monster collision area'],
@@ -1954,7 +1961,7 @@ function buildObstructionVisual() {
     'Target blocked by a wall',
     'Horizontal terrain check',
     svg,
-    'This terrain check is used by normal projectile attacks and many box-shaped skills. The game checks a straight line from your feet toward the monster. If that line crosses the solid edge of a wall, platform, or slope, the monster is removed from the target list. Magic Claw uses this check in the current client.',
+    'This terrain check is used by normal projectile attacks and many box-shaped skills. The game checks a straight line from your feet toward the monster. A line that enters a terrain edge from its blocking side removes the monster from the target list. Magic Claw uses this check in the current client.',
     [
       ['check-line', 'Line checked for terrain'],
       ['terrain', 'Blocking terrain'],
@@ -1964,51 +1971,93 @@ function buildObstructionVisual() {
   );
 }
 
-function buildDownSlopeObstructionVisual() {
+function buildDownwardPlatformObstructionVisual() {
   const width = 620;
   const height = 280;
-  const originX = 85;
-  const upperGroundY = 135;
-  const slopeX = 225;
-  const lowerGroundY = upperGroundY + 60;
-  const targetX = 520;
-  const targetY = 160;
+  const originX = 135;
+  const originY = 115;
+  const platformX1 = 55;
+  const platformX2 = 240;
+  const targetX = 435;
+  const targetY = 145;
+  const targetGroundY = 195;
   const svg = svgEl('svg', {
     viewBox: `0 0 ${width} ${height}`,
     class: 'hitviz-svg',
     role: 'img',
-    'aria-label': 'Diagram showing a downhill slope blocking a terrain-checked attack aimed at a Stump below the player',
+    'aria-label': 'Diagram showing Lucky Seven crossing downward through the platform beneath the character and blocking the target',
     preserveAspectRatio: 'xMidYMid meet',
   });
-  addHitvizGrid(svg, 'hitviz-grid-down-slope', width, height);
-  addHitvizGround(svg, 0, slopeX, upperGroundY);
-  addHitvizDownSlope(svg, slopeX, upperGroundY);
-  addHitvizGround(svg, slopeX + 90, width, lowerGroundY);
-  svg.appendChild(svgEl('rect', { x: 450, y: 120, width: 135, height: 69, class: 'hitviz-hitbox' }));
-  svg.appendChild(svgEl('line', { x1: originX, y1: upperGroundY, x2: targetX, y2: targetY, class: 'hitviz-los' }));
-  addHitvizMob(svg, targetX - 28, lowerGroundY - 68, 56, 68);
-  addHitvizCharacter(svg, originX, upperGroundY);
+  addHitvizGrid(svg, 'hitviz-grid-platform-down', width, height);
+  addHitvizPlatform(svg, platformX1, platformX2, originY);
+  addHitvizGround(svg, 380, 530, targetGroundY);
+  svg.appendChild(svgEl('rect', { x: 370, y: 120, width: 130, height: 75, class: 'hitviz-hitbox' }));
+  svg.appendChild(svgEl('line', { x1: originX, y1: originY, x2: targetX, y2: targetY, class: 'hitviz-los' }));
+  addHitvizMob(svg, targetX - 28, targetGroundY - 68, 56, 68);
+  addHitvizCharacter(svg, originX, originY);
 
-  const raySlope = (targetY - upperGroundY) / (targetX - originX);
-  const terrainSlope = 60 / 90;
-  const hitX = (raySlope * originX - terrainSlope * slopeX) / (raySlope - terrainSlope);
-  const hitY = upperGroundY + raySlope * (hitX - originX);
-  svg.appendChild(svgEl('circle', { cx: hitX, cy: hitY, r: 6, class: 'hitviz-blocked-point' }));
-  addHitvizText(svg, 'projectile target area reaches Stump', 510, 109, 'hitviz-svg-text--hitbox');
-  addHitvizText(svg, 'downhill solid edge', slopeX + 45, 105, 'hitviz-svg-text--blocker');
-  addHitvizText(svg, 'terrain check enters slope', hitX + 9, hitY + 24, 'hitviz-svg-text--blocker');
-  addHitvizText(svg, 'point at your feet', originX + 12, upperGroundY + 18, 'hitviz-svg-text--muted');
+  svg.appendChild(svgEl('circle', { cx: originX, cy: originY, r: 8, class: 'hitviz-blocked-point hitviz-blocked-point--fatal' }));
+  addHitvizText(svg, 'leaves platform downward: blocked', originX + 15, originY + 28, 'hitviz-svg-text--blocked');
+  addHitvizText(svg, 'target area reaches Stump', targetX, 113, 'hitviz-svg-text--hitbox');
+  addHitvizDimension(svg, originX, 250, targetX, 250, '300 px horizontal range', 285, 270);
   return buildHitvizCard(
-    'Target blocked by a downhill slope',
-    'Vertical terrain change',
+    'Target blocked crossing downward',
+    'Attacking from above',
     svg,
-    'This is the same terrain check, but the target is lower than you. The target area reaches the Stump, yet the line checked from your feet crosses the slope\'s solid edge, so the Stump is removed.',
+    'The character stands on the platform that is tested. The terrain line starts at their feet and immediately leaves the platform downward into its blocking side, so the client removes the Stump.',
     [
       ['primary', 'Target area'],
       ['check-line', 'Line checked for terrain'],
-      ['terrain', 'Slope\'s solid edge'],
+      ['platform', 'One-way platform'],
       ['monster', 'Stump collision area'],
       ['blocked', 'Blocked point'],
+    ],
+  );
+}
+
+function buildUpwardPlatformClearVisual() {
+  const width = 620;
+  const height = 280;
+  const originX = 135;
+  const originY = 195;
+  const platformX1 = 55;
+  const platformX2 = 240;
+  const targetX = 435;
+  const targetY = 110;
+  const targetGroundY = 115;
+  const svg = svgEl('svg', {
+    viewBox: `0 0 ${width} ${height}`,
+    class: 'hitviz-svg',
+    role: 'img',
+    'aria-label': 'Diagram showing Lucky Seven leaving the platform beneath the character upward and keeping the target',
+    preserveAspectRatio: 'xMidYMid meet',
+  });
+  addHitvizGrid(svg, 'hitviz-grid-platform-up', width, height);
+  addHitvizPlatform(svg, platformX1, platformX2, originY);
+  addHitvizGround(svg, 380, 530, targetGroundY);
+  svg.appendChild(svgEl('rect', { x: 370, y: 40, width: 130, height: 75, class: 'hitviz-hitbox' }));
+  svg.appendChild(svgEl('line', { x1: originX, y1: originY, x2: targetX, y2: targetY, class: 'hitviz-los' }));
+  addHitvizMob(svg, targetX - 28, targetGroundY - 68, 56, 68);
+  addHitvizCharacter(svg, originX, originY);
+
+  const targetPlatformProgress = (targetGroundY - originY) / (targetY - originY);
+  const targetPlatformHitX = originX + targetPlatformProgress * (targetX - originX);
+  svg.appendChild(svgEl('circle', { cx: targetPlatformHitX, cy: targetGroundY, r: 6, class: 'hitviz-clear-point' }));
+  addHitvizText(svg, 'crosses upward: clear', 315, 145, 'hitviz-svg-text--clear');
+  addHitvizText(svg, 'leaves own platform upward', originX + 18, originY - 18, 'hitviz-svg-text--muted');
+  addHitvizText(svg, 'target area reaches Stump', targetX, 37, 'hitviz-svg-text--hitbox');
+  addHitvizDimension(svg, originX, 250, targetX, 250, '300 px horizontal range', 285, 270);
+  return buildHitvizCard(
+    'Target kept crossing upward',
+    'Attacking from below',
+    svg,
+    'The character stands on the lower platform. The terrain line leaves that platform upward and crosses the Stump\'s platform from below to above. Both contacts move toward the open side, so the client keeps the Stump.',
+    [
+      ['primary', 'Target area'],
+      ['check-line', 'Line checked for terrain'],
+      ['platform', 'One-way platform'],
+      ['monster', 'Stump collision area'],
+      ['clear', 'Clear crossing'],
     ],
   );
 }
@@ -2115,7 +2164,7 @@ function buildFinalTargetGuide() {
     textContent: 'How the terrain-check line works',
   }));
   terrainIntro.appendChild(el('p', {
-    textContent: 'Some attacks use an invisible line to decide whether a target is reachable. It is a target check, not the projectile\'s visible flight path. If it crosses solid terrain, the target is removed.',
+    textContent: 'Some attacks use an invisible line to decide whether a target is reachable. It is a target check, not the projectile\'s visible flight path. Terrain edges are one-sided: entering a blocking side removes the target, while leaving upward does not.',
   }));
   const terrainRules = el('div', { className: 'hitviz-terrain-intro-rules' });
   [
@@ -2135,7 +2184,10 @@ function buildFinalTargetGuide() {
 
   container.appendChild(buildObstructionVisual());
 
-  container.appendChild(buildDownSlopeObstructionVisual());
+  const platformDirectionGrid = el('div', { className: 'hitviz-type-grid hitviz-type-grid--comparison' });
+  platformDirectionGrid.appendChild(buildDownwardPlatformObstructionVisual());
+  platformDirectionGrid.appendChild(buildUpwardPlatformClearVisual());
+  container.appendChild(platformDirectionGrid);
 
   const terrainWrap = el('div', { className: 'formulas-table-wrap' });
   terrainWrap.appendChild(buildTable(

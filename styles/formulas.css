@@ -642,6 +642,19 @@
   vector-effect: non-scaling-stroke;
 }
 
+.hitviz-blocked-point--fatal {
+  fill: color-mix(in srgb, var(--boss-badge) 16%, var(--surface));
+  stroke: var(--boss-badge);
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--boss-badge) 65%, transparent));
+}
+
+.hitviz-clear-point {
+  fill: var(--surface);
+  stroke: var(--new-badge);
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
 .hitviz-dimension {
   stroke: var(--dim);
   stroke-width: 1;
@@ -666,6 +679,8 @@
 .hitviz-svg-text--effect { fill: var(--secondary); text-anchor: start; }
 .hitviz-svg-text--secondary-area { fill: var(--new-badge); }
 .hitviz-svg-text--blocker { fill: var(--accent); text-anchor: start; }
+.hitviz-svg-text--blocked { fill: var(--boss-badge); text-anchor: start; }
+.hitviz-svg-text--clear { fill: var(--new-badge); text-anchor: start; }
 
 .hitviz-legend {
   display: flex;
@@ -770,6 +785,14 @@
   width: 10px;
   height: 10px;
   border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.hitviz-legend-swatch--clear {
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--new-badge);
   border-radius: 50%;
   background: var(--surface);
 }

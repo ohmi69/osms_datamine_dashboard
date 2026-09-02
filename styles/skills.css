@@ -199,6 +199,31 @@
   gap: 12px;
   max-height: none;
 }
+.skill-range-stage--overview {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+.skill-range-stage--overview .skill-range-svg {
+  height: clamp(300px, var(--skill-range-natural-height), 420px);
+  max-height: 420px;
+}
+.skill-range-stage--overview .skill-range-action-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 0;
+}
+.skill-range-stage--overview .skill-range-metrics-title {
+  grid-column: 1 / -1;
+  padding: 8px 10px 5px;
+}
+.skill-range-stage--overview .skill-range-action-metrics .skill-range-fact {
+  border-top: 0;
+  border-left: 1px solid var(--border);
+}
+.skill-range-stage--overview .skill-range-action-metrics .skill-range-fact:nth-child(2) {
+  border-left: 0;
+}
 .skill-range-unavailable {
   display: grid;
   min-height: 190px;
@@ -343,6 +368,46 @@
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
   filter: drop-shadow(0 0 3px var(--accent));
+}
+.skill-range-motion-vector {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--accent) 55%, transparent));
+}
+.skill-range-motion-arrowhead { fill: var(--accent); }
+.skill-range-jump-trajectory {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--accent) 55%, transparent));
+}
+.skill-range-jump-ascent {
+  fill: none;
+  stroke: var(--secondary);
+  stroke-width: 2;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+.skill-range-motion-guide {
+  fill: none;
+  stroke: var(--dim);
+  stroke-width: 1;
+  stroke-dasharray: 5 5;
+  vector-effect: non-scaling-stroke;
+}
+.skill-range-motion-dimension { stroke-width: 1.5; }
+.skill-range-destination { opacity: .42; }
+.skill-range-destination-point {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
 }
 .skill-range-ally-box {
   fill: color-mix(in srgb, var(--new-badge) 10%, transparent);
