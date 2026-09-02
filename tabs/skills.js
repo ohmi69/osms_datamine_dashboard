@@ -361,7 +361,7 @@ export function renderSkills(data, options = {}) {
     dataDiv.appendChild(makeBreadcrumb());
     const heading = el('div', { className: 'skills-browser-heading skills-browser-heading--compact' });
     heading.append(el('div', { className: 'skills-eyebrow', textContent: subclassFilter ? 'Selected advancement path' : 'Class overview' }), el('h2', { textContent: subclassFilter ? pathLabel((PATHS_BY_CLASS[classFilter] || []).find(path => path.value === subclassFilter) || { members: [subclassFilter] }) : definition?.label || classFilter }));
-    if (!subclassFilter) heading.appendChild(el('p', { textContent: 'Choose an advancement path, or browse the shared first-job skills below.' }));
+    if (!subclassFilter) heading.appendChild(el('p', { textContent: 'Browse every advancement below, or choose a path to focus the list.' }));
     dataDiv.appendChild(heading);
 
     const paths = PATHS_BY_CLASS[classFilter] || [];
@@ -432,13 +432,23 @@ export function renderSkills(data, options = {}) {
           (classFilter && cls.class_name === classFilter) ||
           (members ? members.has(cls.class_name) : cls.class_name === subclassFilter)
       );
-    } else if (classFilter && !isSearching) {
-      filteredClasses = filteredClasses.filter(cls => cls.class_name === classFilter || cls.job === 'Beginner');
     }
     const JOB_TIER_ORDER = { Beginner: 0, '1st Job': 1, '2nd Job': 2, '3rd Job': 3, '4th Job': 4 };
-    filteredClasses = [...filteredClasses].sort(
-      (a, b) => (JOB_TIER_ORDER[a.job] ?? 99) - (JOB_TIER_ORDER[b.job] ?? 99)
-    );
+    if (classFilter && !subclassFilter && !isSearching) {
+      const classOrder = new Map([[classFilter, 0]]);
+      (PATHS_BY_CLASS[classFilter] || []).forEach((path, pathIndex) => {
+        path.members.forEach((member, memberIndex) => {
+          classOrder.set(member, 1 + (pathIndex * 10) + memberIndex);
+        });
+      });
+      filteredClasses = [...filteredClasses].sort(
+        (a, b) => (classOrder.get(a.class_name) ?? 999) - (classOrder.get(b.class_name) ?? 999)
+      );
+    } else {
+      filteredClasses = [...filteredClasses].sort(
+        (a, b) => (JOB_TIER_ORDER[a.job] ?? 99) - (JOB_TIER_ORDER[b.job] ?? 99)
+      );
+    }
     const filtered = filteredClasses
       .map((cls) => ({
         ...cls,
