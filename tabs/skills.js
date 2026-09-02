@@ -17,6 +17,7 @@ const MECHANIC_EXPLANATIONS = {
   target_routed: 'Selects a monster first, then routes the attack toward that selected target.',
   ranged_corridor: 'Finds targets inside a widening area that extends forward from the character.',
   piercing: 'A single projectile continues through multiple selected monsters.',
+  ignores_terrain: 'Walls, ledges, and slopes do not block this skill from reaching its target.',
 };
 
 function makeLevelRow(className, label, text) {
@@ -92,13 +93,17 @@ function getSkillThumbnail(skill) {
 
 function mechanicsText(skill) {
   const mechanics = skill.mechanics;
-  if (!mechanics) return '';
-  return [mechanics.label, ...(mechanics.modifiers || []).map(item => item.label)].join(' ');
+  const labels = mechanics
+    ? [mechanics.label, ...(mechanics.modifiers || []).map(item => item.label)]
+    : [];
+  if (skill.range_visual?.terrain_check === false) labels.push('Ignores terrain');
+  return labels.join(' ');
 }
 
 function makeMechanicBadges(skill) {
   const mechanics = skill.mechanics;
-  if (!mechanics) return null;
+  const ignoresTerrain = skill.range_visual?.terrain_check === false;
+  if (!mechanics && !ignoresTerrain) return null;
   const wrap = el('div', { className: 'skill-mechanics', 'aria-label': 'Skill mechanics' });
 
   function makeBadge(key, label, className) {
@@ -117,19 +122,28 @@ function makeMechanicBadges(skill) {
     return badge;
   }
 
-  const kind = mechanics.kind || 'special';
-  wrap.appendChild(makeBadge(
-    kind,
-    mechanics.label,
-    `skill-mechanic skill-mechanic--${kind}`,
-  ));
-  (mechanics.modifiers || []).forEach(modifier => {
+  if (mechanics) {
+    const kind = mechanics.kind || 'special';
     wrap.appendChild(makeBadge(
-      modifier.key,
-      modifier.label,
-      `skill-mechanic skill-mechanic--modifier skill-mechanic--${modifier.key}`,
+      kind,
+      mechanics.label,
+      `skill-mechanic skill-mechanic--${kind}`,
     ));
-  });
+    (mechanics.modifiers || []).forEach(modifier => {
+      wrap.appendChild(makeBadge(
+        modifier.key,
+        modifier.label,
+        `skill-mechanic skill-mechanic--modifier skill-mechanic--${modifier.key}`,
+      ));
+    });
+  }
+  if (ignoresTerrain) {
+    wrap.appendChild(makeBadge(
+      'ignores_terrain',
+      'Ignores terrain',
+      'skill-mechanic skill-mechanic--modifier skill-mechanic--ignores-terrain',
+    ));
+  }
   return wrap;
 }
 

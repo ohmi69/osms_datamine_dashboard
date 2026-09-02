@@ -501,6 +501,9 @@
   background: var(--surface-2);
 }
 
+.hitviz-scroll-hint { display: none; }
+.hitviz-scroll-table::before { display: none; }
+
 .hitviz-eyebrow {
   margin-bottom: 2px;
   color: var(--accent);
@@ -789,6 +792,14 @@
   background: var(--surface);
 }
 
+.hitviz-legend-swatch--blocked-fatal {
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--boss-badge);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--boss-badge) 16%, var(--surface));
+}
+
 .hitviz-legend-swatch--clear {
   width: 10px;
   height: 10px;
@@ -905,6 +916,15 @@
 
 .hitviz-details-row strong { color: var(--text); }
 
+.hitviz-details--content { margin: 4px 0 16px; }
+.hitviz-details--content > summary {
+  padding: 11px 12px;
+  color: var(--accent);
+}
+.hitviz-details--content > .hitviz-details-body { padding: 12px; }
+.hitviz-details--content .hitviz-type-grid { margin-bottom: 12px; }
+.hitviz-details--content .hitviz-card:last-child { margin-bottom: 0; }
+
 @media (max-width: 620px) {
   .hitviz-type-grid { grid-template-columns: 1fr; }
   .hitviz-head { align-items: flex-start; }
@@ -914,6 +934,25 @@
   .hitviz-card--mini .hitviz-svg { min-width: 0; }
   .hitviz-card--mini .hitviz-examples { min-height: 0; }
   .hitviz-card--mini .hitviz-caption { min-height: 0; }
+  .hitviz-card:not(.hitviz-card--mini) .hitviz-scroll-hint {
+    display: block;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--dim);
+    background: color-mix(in srgb, var(--surface) 92%, var(--bg));
+    font-size: 10px;
+    font-weight: 700;
+    text-align: left;
+  }
+  .hitviz-scroll-table::before {
+    content: 'Swipe table →';
+    display: block;
+    padding: 0 2px 6px;
+    color: var(--dim);
+    font-size: 10px;
+    font-weight: 700;
+    text-align: left;
+  }
   .hitviz-terrain-intro-rules { grid-template-columns: 1fr; gap: 7px; }
 }
 

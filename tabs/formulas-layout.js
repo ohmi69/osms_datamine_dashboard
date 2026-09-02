@@ -153,6 +153,11 @@ export function createFormulaBrowser({ pages, initialParams, setNavigate, notice
     const page = pageMap.get(pageKey);
     const sectionKey = params.get('section') || '';
 
+    // The verification notice explains formula status tags. Hit Detection is a
+    // visual mechanics guide and has no such tags, so showing it there delays
+    // the page's actual answer and creates a false expectation.
+    notice.classList.toggle('hidden', pageKey === 'hit-detection');
+
     nav.classList.toggle('hidden', !page);
 
     nav.querySelectorAll('[data-formula-page]').forEach(link => {
