@@ -250,7 +250,7 @@
 }
 .mob-attack-row {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 8px;
   padding: 4px 8px;
   border-radius: 5px;
@@ -279,10 +279,35 @@
   color: var(--text);
 }
 .mob-attack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
   font-size: 11px;
   color: var(--dim);
   line-height: 1.4;
 }
+.mob-combat-tag,
+.mob-skill-kind {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--dim);
+  font-size: 9px;
+  font-weight: 750;
+  line-height: 1.25;
+}
+.mob-combat-tag--physical,
+.mob-combat-tag--magic {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+.mob-combat-tag--ranged,
+.mob-combat-tag--element { color: var(--secondary); }
+.mob-combat-tag--status { color: var(--boss-badge); }
 
 /* ── Body ───────────────────────────────────────────────────── */
 .monster-detail-body {
@@ -420,6 +445,10 @@
   flex-direction: column;
   gap: 2px;
   min-width: 0;
+}
+.mob-skill-kind {
+  align-self: flex-start;
+  color: var(--secondary);
 }
 .mob-skill-id { padding-left: 6px; }
 .mob-skill-name {

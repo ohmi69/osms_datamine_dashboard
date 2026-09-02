@@ -20,14 +20,27 @@ const STAGGER_TOOLTIP =
   'fast. Taken from the length of the mob’s hit animation in the game data.';
 
 function describeAttack(attack) {
-  const parts = [];
-  if (attack.element) parts.push(attack.element);
-  if (attack.magic) parts.push('Magic');
-  if (attack.status) parts.push(attack.status_level ? `${attack.status} Lv.${attack.status_level}` : attack.status);
-  if (attack.bullet_speed) parts.push('Ranged');
-  if (attack.jump) parts.push('Jump attack');
-  if (attack.mp) parts.push(`${attack.mp} MP`);
-  if (attack.delay) parts.push(`${(attack.delay / 1000).toFixed(attack.delay % 1000 ? 1 : 0)}s delay`);
+  const parts = [{
+    label: attack.magic ? 'Magic' : 'Physical',
+    kind: attack.magic ? 'magic' : 'physical',
+    title: attack.magic ? 'Uses the monster’s magic attack' : 'Uses the monster’s physical attack',
+  }];
+  if (attack.bullet_speed) parts.push({
+    label: 'Ranged', kind: 'ranged', title: `Launches a projectile (speed ${attack.bullet_speed})`,
+  });
+  if (attack.element) parts.push({
+    label: attack.element, kind: 'element', title: `${attack.element}-element attack`,
+  });
+  if (attack.status) parts.push({
+    label: attack.status_level ? `${attack.status} Lv.${attack.status_level}` : attack.status,
+    kind: 'status', title: 'Can apply this status effect',
+  });
+  if (attack.jump) parts.push({ label: 'Jump attack', kind: 'movement', title: 'The monster jumps during this attack' });
+  if (attack.mp) parts.push({ label: `${attack.mp} MP`, kind: 'cost', title: 'Monster MP consumed per use' });
+  if (attack.delay) parts.push({
+    label: `${(attack.delay / 1000).toFixed(attack.delay % 1000 ? 1 : 0)}s recovery`,
+    kind: 'timing', title: 'Recovery time after the attack',
+  });
   return parts;
 }
 
@@ -52,9 +65,13 @@ function buildCombatSection(monster, focusMonster) {
         })
       );
       const tags = describeAttack(attack);
-      row.appendChild(
-        el('span', { className: 'mob-attack-tags', textContent: tags.length ? tags.join(' · ') : 'Physical' })
-      );
+      const tagWrap = el('span', { className: 'mob-attack-tags', 'aria-label': 'Attack properties' });
+      tags.forEach(tag => tagWrap.appendChild(el('span', {
+        className: `mob-combat-tag mob-combat-tag--${tag.kind}`,
+        textContent: tag.label,
+        title: tag.title,
+      })));
+      row.appendChild(tagWrap);
       list.appendChild(row);
     });
     col.appendChild(list);
@@ -279,6 +296,9 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
         card.appendChild(el('div', { className: 'mob-skill-icon-fallback', textContent: '?' }));
       }
       const info = el('div', { className: 'mob-skill-info' });
+      if (buff.kind) {
+        info.appendChild(el('span', { className: 'mob-skill-kind', textContent: buff.kind }));
+      }
       const nameRow = el('span', { className: 'mob-skill-name', textContent: `${buff.name} Lv.${buff.level}` });
       if (buff.id != null) {
         const idEl = makeCopyableId(`#${buff.id}`);

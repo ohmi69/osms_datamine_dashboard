@@ -1401,7 +1401,7 @@ function buildHitDetectionOverview() {
   const block = el('div', { className: 'formulas-code-block' });
   [
     ['Hidden shapes', 'Attack area = the invisible shape used to look for targets\nMonster collision area = the invisible box where a monster can be hit'],
-    ['The rule', 'A monster is picked when those two hidden shapes overlap.\nSome attacks then check walls, platforms, and slopes. This depends on the attack\'s targeting routine: many projectile and box-shaped skills do; Magic Claw does not.'],
+    ['The rule', 'A monster is picked when those two hidden shapes overlap.\nSome attacks then check walls, platforms, and slopes. This depends on the attack\'s targeting routine: the current generic player-skill routes, including Magic Claw, install this check; a few special routes skip it.'],
   ].forEach(([label, line]) => {
     const cell = el('div', { className: 'formulas-code-cell' });
     cell.appendChild(el('div', { className: 'formulas-code-label', textContent: label }));
@@ -1954,7 +1954,7 @@ function buildObstructionVisual() {
     'Target blocked by a wall',
     'Horizontal terrain check',
     svg,
-    'This terrain check is used by normal projectile attacks and many box-shaped skills. The game checks a straight line from your feet toward the monster. If that line crosses the solid edge of a wall, platform, or slope, the monster is removed from the target list. Magic Claw does not make this check.',
+    'This terrain check is used by normal projectile attacks and many box-shaped skills. The game checks a straight line from your feet toward the monster. If that line crosses the solid edge of a wall, platform, or slope, the monster is removed from the target list. Magic Claw uses this check in the current client.',
     [
       ['check-line', 'Line checked for terrain'],
       ['terrain', 'Blocking terrain'],
@@ -2143,7 +2143,7 @@ function buildFinalTargetGuide() {
     [
       ['Normal ranged shots', 'Yes. They launch a projectile and check straight across from the one-pixel target line.', 'Ordinary bow, crossbow, and throwing-star attacks.'],
       ['Projectile skills with a widening area', 'Yes. They first find a monster in the widening area, then check from your feet to the monster\'s closest edge.', 'Arrow Blow, Energy Bolt, and other skills that launch a projectile.'],
-      ['Non-projectile skills with a widening area', 'No. They use the same kind of target area but do not check terrain.', 'Magic Claw can select a monster through a wall.'],
+      ['Magic Claw and other generic widening skills', 'Yes. Their common skill route installs the terrain check.', 'A target behind solid attack terrain can be removed after selection.'],
       ['Many box-shaped skills', 'Yes. They check from your feet toward the monster after the target area finds it.', 'Power Strike, Slash Blast, Savage Blow, Arrow Rain, Arrow Eruption, and most other skill areas.'],
       ['Band of Thieves', 'No. This skill skips the terrain check.', 'Its opening swing must first find exactly one monster before the full area is used.'],
       ['Meso Explosion', 'No. This skill skips the terrain check.', 'It selects dropped meso coins, then searches around each selected coin.'],
@@ -2168,7 +2168,7 @@ function buildFinalTargetGuide() {
 
   container.appendChild(el('div', {
     className: 'formulas-note formulas-note--padded',
-    textContent: 'Only an attack that uses a terrain check can be stopped by walls, platforms, or slopes marked as solid for attacks; decorative map art cannot stop it. Magic Claw, Band of Thieves, and Meso Explosion skip this check and can select through that terrain. The game server can still reject a target that your game client selected.',
+    textContent: 'Only an attack that uses a terrain check can be stopped by walls, platforms, or slopes marked as solid for attacks; decorative map art cannot stop it. Band of Thieves and Meso Explosion use special routes that skip this check and can select through that terrain. The game server can still reject a target that your game client selected.',
   }));
   return container;
 }

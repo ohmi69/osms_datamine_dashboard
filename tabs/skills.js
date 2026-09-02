@@ -1,5 +1,23 @@
 import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeCopyableId, padSkillId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
+import { buildSkillRangeVisual } from '../lib/skill-range-viz.js';
+import { attachCustomTooltip } from '../lib/tooltip.js';
+
+const MECHANIC_EXPLANATIONS = {
+  attack: 'Deals damage to one or more monsters.',
+  passive: 'Always active once learned; it does not need to be cast.',
+  self_buff: 'Temporarily applies an effect to the character using the skill.',
+  summon: 'Creates a summoned ally or object that acts for a limited time.',
+  mobility: 'Moves or repositions the character instead of directly attacking.',
+  party_support: 'Applies a beneficial effect to eligible party members.',
+  weapon_projectile: 'Launches a weapon-based projectile, such as an arrow or throwing star, to deliver the attack.',
+  magic_projectile: 'Launches a magic projectile to deliver the attack to its target.',
+  action_hitbox: 'Hits monsters that overlap the active area of the character\'s weapon animation.',
+  special: 'Uses a skill-specific mechanic that does not fit the standard attack or buff handlers.',
+  target_routed: 'Selects a monster first, then routes the attack toward that selected target.',
+  ranged_corridor: 'Finds targets inside a widening area that extends forward from the character.',
+  piercing: 'A single projectile continues through multiple selected monsters.',
+};
 
 function makeLevelRow(className, label, text) {
   const row = el('div', { className });
@@ -72,6 +90,57 @@ function getSkillThumbnail(skill) {
   return `images/skills/${id}.png`;
 }
 
+function mechanicsText(skill) {
+  const mechanics = skill.mechanics;
+  if (!mechanics) return '';
+  return [mechanics.label, ...(mechanics.modifiers || []).map(item => item.label)].join(' ');
+}
+
+function makeMechanicBadges(skill) {
+  const mechanics = skill.mechanics;
+  if (!mechanics) return null;
+  const wrap = el('div', { className: 'skill-mechanics', 'aria-label': 'Skill mechanics' });
+
+  function makeBadge(key, label, className) {
+    const explanation = MECHANIC_EXPLANATIONS[key]
+      || 'Describes how the game processes this skill.';
+    const badge = el('span', {
+      className,
+      textContent: label,
+      tabindex: '0',
+      'aria-label': `${label}: ${explanation}`,
+    });
+    attachCustomTooltip(badge, (tip) => {
+      tip.appendChild(el('div', { className: 'item-tooltip-name', textContent: label }));
+      tip.appendChild(el('p', { className: 'item-tooltip-desc', textContent: explanation }));
+    });
+    return badge;
+  }
+
+  const kind = mechanics.kind || 'special';
+  wrap.appendChild(makeBadge(
+    kind,
+    mechanics.label,
+    `skill-mechanic skill-mechanic--${kind}`,
+  ));
+  (mechanics.modifiers || []).forEach(modifier => {
+    wrap.appendChild(makeBadge(
+      modifier.key,
+      modifier.label,
+      `skill-mechanic skill-mechanic--modifier skill-mechanic--${modifier.key}`,
+    ));
+  });
+  return wrap;
+}
+
+function appendDetailPill(parent, label, value) {
+  if (!value) return;
+  const row = el('div', { className: 'targeting' });
+  row.appendChild(el('span', { className: 'label', textContent: `${label}: ` }));
+  row.appendChild(el('span', { className: 'value', textContent: value }));
+  parent.appendChild(row);
+}
+
 export function renderSkills(data, options = {}) {
   // Flatten new skills.json schema: top-level keys are classes, each value is an array of job/class objects
   const skillsData = data.skills;
@@ -89,7 +158,7 @@ export function renderSkills(data, options = {}) {
   // Search and filters stay pinned at the top while the list scrolls past.
   const toolbar = el('div', { className: 'sticky-toolbar' });
 
-  wireSearch(toolbar, 'Search by name or description...', options, (query) => {
+  const searchBox = wireSearch(toolbar, 'Search by name or description...', options, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -235,7 +304,9 @@ export function renderSkills(data, options = {}) {
           (skill) =>
             exactId != null
               ? Number(skill.id) === exactId
-              : matchSearch(skill.name, searchQuery) || matchSearch(skill.description, searchQuery)
+              : matchSearch(skill.name, searchQuery)
+                || matchSearch(skill.description, searchQuery)
+                || matchSearch(mechanicsText(skill), searchQuery)
         ),
       }))
       .filter((cls) => cls.skills.length > 0);
@@ -273,97 +344,45 @@ export function renderSkills(data, options = {}) {
         skRightWrap.appendChild(makeCopyableId(skill.id != null ? `#${padSkillId(skill.id)}` : ''));
         nameRow.appendChild(skRightWrap);
         card.appendChild(nameRow);
-        if (skill.id != null) {
-          card.addEventListener('click', (e) => {
-            if (e.target.closest('button, input')) return;
-            history.replaceState(null, '', `#skills?q=${encodeURIComponent('id:' + padSkillId(skill.id))}`);
-            const levelsList = card.querySelector('.all-levels-list');
-            const arrow = card.querySelector('.all-levels-arrow');
-            if (levelsList) {
-              levelsList.hidden = !levelsList.hidden;
-              if (arrow) arrow.textContent = levelsList.hidden ? '▼' : '▲';
-              if (!levelsList.hidden) {
-                document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
-                card.classList.add('row-hotlink');
-                scrollToDetailRow(card, card);
-              } else {
-                card.classList.remove('row-hotlink');
-              }
-            } else {
-              document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
-              card.classList.add('row-hotlink');
-              scrollToDetailRow(card, card);
-            }
-          });
-        }
+        const detail = el('div', { className: 'skill-detail' });
+        card.appendChild(detail);
+        const advanced = el('div', { className: 'skill-advanced' });
+        advanced.hidden = true;
+        const mechanicBadges = makeMechanicBadges(skill);
+        if (mechanicBadges) advanced.appendChild(mechanicBadges);
 
         if (skill.description) {
           const desc = skill.description.replace(/^\[Master Level\s*:\s*\d+\]\n?/i, '').trim();
-          if (desc) card.appendChild(el('p', { className: 'skill-desc', textContent: desc }));
+          if (desc) detail.appendChild(el('p', { className: 'skill-desc', textContent: desc }));
         }
 
         if (skill.required_skill) {
           const req = el('div', { className: 'required' });
           req.appendChild(el('span', { className: 'label', textContent: 'Required: ' }));
           req.appendChild(el('span', { className: 'value', textContent: skill.required_skill }));
-          card.appendChild(req);
+          detail.appendChild(req);
         }
 
         const targeting = formatTargeting(skill);
-        if (targeting) {
-          const row = el('div', { className: 'targeting' });
-          row.appendChild(el('span', { className: 'label', textContent: 'Targets: ' }));
-          row.appendChild(el('span', { className: 'value', textContent: targeting }));
-          card.appendChild(row);
-        }
+        appendDetailPill(detail, 'Targets', targeting);
 
         const cooldown = formatCooldown(skill.cooldown);
-        if (cooldown) {
-          const row = el('div', { className: 'targeting' });
-          row.appendChild(el('span', { className: 'label', textContent: 'Cooldown: ' }));
-          row.appendChild(el('span', { className: 'value', textContent: cooldown }));
-          card.appendChild(row);
-        }
+        appendDetailPill(detail, 'Cooldown', cooldown);
 
         const duration = formatCooldown(skill.duration);
-        if (duration) {
-          const row = el('div', { className: 'targeting' });
-          row.appendChild(el('span', { className: 'label', textContent: 'Duration: ' }));
-          row.appendChild(el('span', { className: 'value', textContent: duration }));
-          card.appendChild(row);
-        }
+        appendDetailPill(detail, 'Duration', duration);
 
         const range = countSpan(skill.range);
-        if (range) {
-          const row = el('div', { className: 'targeting' });
-          row.appendChild(el('span', { className: 'label', textContent: 'Range: ' }));
-          row.appendChild(el('span', { className: 'value', textContent: range.text }));
-          card.appendChild(row);
-        }
+        appendDetailPill(detail, 'Range', range?.text);
 
         const distance = countSpan(skill.distance);
-        if (distance) {
-          const row = el('div', { className: 'targeting' });
-          row.appendChild(el('span', { className: 'label', textContent: 'Distance: ' }));
-          row.appendChild(el('span', { className: 'value', textContent: distance.text }));
-          card.appendChild(row);
-        }
+        appendDetailPill(detail, 'Distance', distance?.text);
 
         const consumes = formatConsumes(skill);
-        if (consumes) {
-          const row = el('div', { className: 'targeting' });
-          row.appendChild(el('span', { className: 'label', textContent: 'Consumes: ' }));
-          row.appendChild(el('span', { className: 'value', textContent: consumes }));
-          card.appendChild(row);
-        }
+        appendDetailPill(detail, 'Consumes', consumes);
 
         const ammo = countSpan(skill.bullet_consume);
-        if (ammo) {
-          const row = el('div', { className: 'targeting' });
-          row.appendChild(el('span', { className: 'label', textContent: 'Ammo per use: ' }));
-          row.appendChild(el('span', { className: 'value', textContent: ammo.text }));
-          card.appendChild(row);
-        }
+        appendDetailPill(detail, 'Ammo per use', ammo?.text);
 
         if (Array.isArray(skill.all_level_stats) && skill.all_level_stats.length > 0) {
           const statLevels = el('div', { className: 'stat-levels' });
@@ -387,7 +406,44 @@ export function renderSkills(data, options = {}) {
             statLevels.appendChild(makeLevelRow('lvmax', `Lv.${lastIdx + 1}: `, skill.all_level_stats[lastIdx]));
           }
 
-          card.appendChild(statLevels);
+          detail.appendChild(statLevels);
+        }
+
+        let rangeVisualBuilt = false;
+        function setAdvancedExpanded(expanded) {
+          advanced.hidden = !expanded;
+          if (expanded && !rangeVisualBuilt && skill.range_visual) {
+            const visual = buildSkillRangeVisual(skill);
+            if (visual) advanced.appendChild(visual);
+            rangeVisualBuilt = true;
+          }
+        }
+        if (mechanicBadges || skill.range_visual) card.appendChild(advanced);
+
+        if (skill.id != null) {
+          card.addEventListener('click', (event) => {
+            if (event.target.closest('button, input, a, .skill-advanced')) return;
+            history.replaceState(null, '', `#skills?q=${encodeURIComponent('id:' + padSkillId(skill.id))}`);
+            const levelsList = card.querySelector('.all-levels-list');
+            const arrow = card.querySelector('.all-levels-arrow');
+            if (levelsList) {
+              levelsList.hidden = !levelsList.hidden;
+              if (arrow) arrow.textContent = levelsList.hidden ? '▼' : '▲';
+              setAdvancedExpanded(!levelsList.hidden);
+              if (!levelsList.hidden) {
+                document.querySelectorAll('.row-hotlink').forEach(row => row.classList.remove('row-hotlink'));
+                card.classList.add('row-hotlink');
+                scrollToDetailRow(card, card);
+              } else {
+                card.classList.remove('row-hotlink');
+              }
+            } else {
+              setAdvancedExpanded(advanced.hidden);
+              document.querySelectorAll('.row-hotlink').forEach(row => row.classList.remove('row-hotlink'));
+              card.classList.add('row-hotlink');
+              scrollToDetailRow(card, card);
+            }
+          });
         }
 
         content.appendChild(card);
@@ -429,6 +485,17 @@ export function renderSkills(data, options = {}) {
         updateFilterUrl();
         renderData();
       });
+    }
+    const initialQuery = options.initialParams.get('q');
+    if (initialQuery) {
+      const exactId = parseIdFilter(initialQuery);
+      if (exactId != null) {
+        autoExpandAfterId = exactId;
+      } else {
+        searchQuery = initialQuery;
+        searchBox._input.value = initialQuery;
+        searchBox._sync();
+      }
     }
   }
 
