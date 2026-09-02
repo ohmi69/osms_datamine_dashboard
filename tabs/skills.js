@@ -1,4 +1,4 @@
-import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeCopyableId, padSkillId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, wireSearch, makeCopyableId, padSkillId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { buildSkillRangeVisual } from '../lib/skill-range-viz.js';
 import { attachCustomTooltip } from '../lib/tooltip.js';
@@ -142,146 +142,286 @@ function appendDetailPill(parent, label, value) {
 }
 
 export function renderSkills(data, options = {}) {
-  // Flatten new skills.json schema: top-level keys are classes, each value is an array of job/class objects
   const skillsData = data.skills;
-  // Flatten all class/job objects into a single array
-  const classes = Object.values(skillsData).flat();
-  // Compute total number of skills
-  const totalSkills = classes.reduce((sum, cls) => sum + (cls.skills?.length || 0), 0);
+  const classes = Object.values(skillsData)
+    .filter(Array.isArray)
+    .flat()
+    .filter(cls => cls && typeof cls === 'object' && typeof cls.class_name === 'string' && Array.isArray(cls.skills));
   let searchQuery = '';
   let classFilter = '';
+  let subclassFilter = '';
+  let viewAll = false;
   let autoExpandAfterId = null;
-  const container = el('div');
-
-
-
-  // Search and filters stay pinned at the top while the list scrolls past.
-  const toolbar = el('div', { className: 'sticky-toolbar' });
-
-  const searchBox = wireSearch(toolbar, 'Search by name or description...', options, (query) => {
-    searchQuery = query;
-    renderData();
-  }, (id) => {
-    autoExpandAfterId = id;
-    renderData();
-  });
-
-  const CLASS_PILLS = [
-    { label: 'All', value: '' },
-    { label: 'Warrior', value: 'Warrior' },
-    { label: 'Mage', value: 'Magician' },
-    { label: 'Bowman', value: 'Archer' },
-    { label: 'Thief', value: 'Rogue' },
+  const CLASS_DEFS = [
+    { label: 'Beginner', value: 'Beginner', key: 'beginner' },
+    { label: 'Warrior', value: 'Warrior', key: 'warrior' },
+    { label: 'Mage', value: 'Magician', key: 'magician' },
+    { label: 'Bowman', value: 'Archer', key: 'archer' },
+    { label: 'Thief', value: 'Rogue', key: 'rogue' },
   ];
-  // Each job line is one advancement path: 2nd job -> 3rd job (and beyond).
-  // The shared 1st job class is implicitly part of every line of its main class.
   const JOB_LINES = {
     Warrior: {
-      Fighter: ['Fighter', 'Crusader'],
-      Page: ['Page', 'White Knight'],
-      Spearman: ['Spearman', 'Dragon Knight'],
+      Fighter: ['Fighter', 'Crusader', 'Hero'],
+      Page: ['Page', 'White Knight', 'Paladin'],
+      Spearman: ['Spearman', 'Dragon Knight', 'Dark Knight'],
     },
     Magician: {
-      'F/P Wizard': ['F/P Wizard', 'F/P Mage'],
-      'I/L Wizard': ['I/L Wizard', 'I/L Mage'],
-      Cleric: ['Cleric', 'Priest'],
+      'F/P Wizard': ['F/P Wizard', 'F/P Mage', 'Archmage F/P'],
+      'I/L Wizard': ['I/L Wizard', 'I/L Mage', 'Archmage I/L'],
+      Cleric: ['Cleric', 'Priest', 'Bishop'],
     },
     Archer: {
-      Hunter: ['Hunter', 'Ranger'],
-      Crossbowman: ['Crossbowman', 'Sniper'],
+      Hunter: ['Hunter', 'Ranger', 'Bowmaster'],
+      Crossbowman: ['Crossbowman', 'Sniper', 'Marksman'],
     },
     Rogue: {
-      Assassin: ['Assassin', 'Hermit'],
-      Bandit: ['Bandit', 'Chief Bandit'],
+      Assassin: ['Assassin', 'Hermit', 'Night Lord'],
+      Bandit: ['Bandit', 'Chief Bandit', 'Shadower'],
     },
   };
-
-  // Map every class name to the line it belongs to, keeping only lines present in the data.
-  const SUBCLASS_PILLS = {};
+  const PATHS_BY_CLASS = {};
   const LINE_MEMBERS = {};
   const CLASS_TO_LINE = {};
-  for (const [key, arr] of Object.entries(skillsData)) {
-    const flat = [].concat(arr);
-    const pill = CLASS_PILLS.find(p => p.value && p.value.toLowerCase() === key);
-    if (!pill) continue;
+  const CLASS_TO_MAIN = {};
+
+  for (const definition of CLASS_DEFS) {
+    const flat = Array.isArray(skillsData[definition.key]) ? skillsData[definition.key] : [];
     const present = new Set(flat.map(cls => cls.class_name));
-    const lines = [];
+    const paths = [];
     const claimed = new Set();
-    for (const [line, members] of Object.entries(JOB_LINES[pill.value] || {})) {
+    flat.forEach(cls => { CLASS_TO_MAIN[cls.class_name] = definition.value; });
+    for (const [line, members] of Object.entries(JOB_LINES[definition.value] || {})) {
       const inData = members.filter(m => present.has(m));
       members.forEach(m => claimed.add(m));
       if (inData.length === 0) continue;
-      lines.push(line);
       LINE_MEMBERS[line] = new Set(inData);
       inData.forEach(m => { CLASS_TO_LINE[m] = line; });
+      paths.push({ value: line, members: inData });
     }
-    // Any class not covered by a known line (and not the 1st job root) becomes its own pill.
     for (const cls of flat) {
       const cn = cls.class_name;
-      if (claimed.has(cn) || cn === pill.value) continue;
+      if (claimed.has(cn) || cn === definition.value || definition.value === 'Beginner') continue;
       if (!LINE_MEMBERS[cn]) {
-        lines.push(cn);
         LINE_MEMBERS[cn] = new Set([cn]);
+        paths.push({ value: cn, members: [cn] });
       }
       CLASS_TO_LINE[cn] = cn;
     }
-    if (lines.length === 0) continue;
-    SUBCLASS_PILLS[pill.value] = [
-      { label: 'All', value: '' },
-      ...lines.map(line => ({ label: line, value: line })),
-    ];
+    PATHS_BY_CLASS[definition.value] = paths;
   }
-  let subclassFilter = '';
-  let subPillGroup = null;
-  const subPillsWrapper = el('div');
+
+  const container = el('div', { className: 'skills-page' });
+  const toolbar = el('div', { className: 'sticky-toolbar skills-toolbar' });
+
+  let searchBox;
+  searchBox = wireSearch(toolbar, 'Search all skills by name, description, or mechanic...', options, (query) => {
+    searchQuery = query;
+    renderData();
+  }, (id) => {
+    classFilter = '';
+    subclassFilter = '';
+    viewAll = false;
+    searchQuery = `id:${padSkillId(id)}`;
+    searchBox._input.value = searchQuery;
+    searchBox._sync();
+    autoExpandAfterId = id;
+    renderData();
+  });
+  container.appendChild(toolbar);
+
+  const dataDiv = el('div', { className: 'skills-browser' });
+  container.appendChild(dataDiv);
+
+  function classDefinition(value) {
+    return CLASS_DEFS.find(definition => definition.value === value);
+  }
+
+  function classesForMain(value) {
+    return classes.filter(cls => (cls.main_class || cls.class_name) === value);
+  }
+
+  function pathLabel(path) {
+    return path.members.join(' → ');
+  }
 
   function updateFilterUrl() {
     Router.updateFilter('skills', {
+      ...(searchQuery && { q: searchQuery }),
       ...(classFilter && { class: classFilter }),
       ...(subclassFilter && { subclass: subclassFilter }),
+      ...(viewAll && { view: 'all' }),
     });
   }
 
-  const pillGroup = makePillGroup(CLASS_PILLS, classFilter, (value) => {
+  function navigateToClass(value) {
     classFilter = value;
     subclassFilter = '';
-    hideFilterBanner();
-    buildSubclassPills();
+    viewAll = false;
     updateFilterUrl();
     renderData();
-  }, { groupLabel: 'Class:' });
-  toolbar.appendChild(pillGroup);
+  }
 
-  function buildSubclassPills() {
-    subPillsWrapper.innerHTML = '';
-    subPillGroup = null;
-    const subs = SUBCLASS_PILLS[classFilter];
-    if (!subs) return;
-    subPillGroup = makePillGroup(subs, subclassFilter, (value) => {
-      subclassFilter = value;
-      hideFilterBanner();
+  function navigateToPath(value) {
+    subclassFilter = value;
+    viewAll = false;
+    updateFilterUrl();
+    renderData();
+  }
+
+  function navigateHome() {
+    classFilter = '';
+    subclassFilter = '';
+    viewAll = false;
+    updateFilterUrl();
+    renderData();
+  }
+
+  function makeBreadcrumb() {
+    const nav = el('nav', { className: 'skills-breadcrumb', 'aria-label': 'Skill class hierarchy' });
+    const home = el('button', { type: 'button', textContent: 'All classes' });
+    home.addEventListener('click', navigateHome);
+    nav.appendChild(home);
+    if (viewAll) {
+      nav.append(el('span', { className: 'skills-breadcrumb-separator', textContent: '/' }), el('span', { 'aria-current': 'page', textContent: 'All skills' }));
+    } else if (classFilter) {
+      nav.appendChild(el('span', { className: 'skills-breadcrumb-separator', textContent: '/' }));
+      const definition = classDefinition(classFilter);
+      if (subclassFilter) {
+        const classButton = el('button', { type: 'button', textContent: definition?.label || classFilter });
+        classButton.addEventListener('click', () => navigateToClass(classFilter));
+        nav.appendChild(classButton);
+        nav.append(el('span', { className: 'skills-breadcrumb-separator', textContent: '/' }), el('span', { 'aria-current': 'page', textContent: pathLabel((PATHS_BY_CLASS[classFilter] || []).find(path => path.value === subclassFilter) || { members: [subclassFilter] }) }));
+      } else {
+        nav.appendChild(el('span', { 'aria-current': 'page', textContent: definition?.label || classFilter }));
+      }
+    }
+    return nav;
+  }
+
+  function makePathCard(path, selected = false) {
+    const pathClasses = path.members.map(name => classes.find(cls => cls.class_name === name)).filter(Boolean);
+    const button = el('button', {
+      type: 'button',
+      className: `skill-path-card${selected ? ' active' : ''}`,
+      'aria-pressed': selected ? 'true' : 'false',
+      'aria-label': `Browse ${pathLabel(path)} skills`,
+    });
+    const trail = el('span', { className: 'skill-path-trail' });
+    trail.style.setProperty('--skill-path-steps', path.members.length);
+    path.members.forEach((member, index) => {
+      const cls = pathClasses.find(item => item.class_name === member);
+      const node = el('span', { className: 'skill-path-node' });
+      node.append(el('span', { className: 'skill-path-tier', textContent: cls?.job || `${index + 2}nd Job` }), el('strong', { textContent: member }));
+      trail.appendChild(node);
+    });
+    button.appendChild(trail);
+    button.addEventListener('click', () => navigateToPath(path.value));
+    return button;
+  }
+
+  function renderClassDirectory() {
+    const intro = el('div', { className: 'skills-browser-heading' });
+    intro.append(el('div', { className: 'skills-eyebrow', textContent: 'Job advancement' }), el('h2', { textContent: 'Choose a class' }),);
+    dataDiv.appendChild(intro);
+
+    const grid = el('div', { className: 'skill-class-grid' });
+    CLASS_DEFS.forEach(definition => {
+      const classList = classesForMain(definition.value);
+      if (classList.length === 0) return;
+      const paths = PATHS_BY_CLASS[definition.value] || [];
+      const button = el('button', { type: 'button', className: 'skill-class-card', 'aria-label': `Browse ${definition.label} skills` });
+      const top = el('span', { className: 'skill-class-card-top' });
+      top.appendChild(el('strong', { textContent: definition.label }));
+      button.appendChild(top);
+      if (paths.length > 0) {
+        const previews = el('span', { className: 'skill-class-paths' });
+        paths.forEach(path => previews.appendChild(el('span', { textContent: pathLabel(path) })));
+        button.appendChild(previews);
+      }
+      button.appendChild(el('span', { className: 'skill-class-action', textContent: 'Browse class →' }));
+      button.addEventListener('click', () => navigateToClass(definition.value));
+      grid.appendChild(button);
+    });
+    dataDiv.appendChild(grid);
+
+    const allButton = el('button', { type: 'button', className: 'skills-view-all' });
+    allButton.appendChild(el('strong', { textContent: 'View all skills' }));
+    allButton.addEventListener('click', () => {
+      classFilter = '';
+      subclassFilter = '';
+      viewAll = true;
       updateFilterUrl();
       renderData();
-    }, { groupLabel: 'Subclass:' });
-    subPillsWrapper.appendChild(subPillGroup);
+    });
+    dataDiv.appendChild(allButton);
   }
-  toolbar.appendChild(subPillsWrapper);
-  container.appendChild(toolbar);
-  const countText = el('div', { className: 'count-text', textContent: `${totalSkills} skills` });
-  container.appendChild(countText);
 
-  const dataDiv = el('div');
-  container.appendChild(dataDiv);
+  function renderClassHeader() {
+    const definition = classDefinition(classFilter);
+    dataDiv.appendChild(makeBreadcrumb());
+    const heading = el('div', { className: 'skills-browser-heading skills-browser-heading--compact' });
+    heading.append(el('div', { className: 'skills-eyebrow', textContent: subclassFilter ? 'Selected advancement path' : 'Class overview' }), el('h2', { textContent: subclassFilter ? pathLabel((PATHS_BY_CLASS[classFilter] || []).find(path => path.value === subclassFilter) || { members: [subclassFilter] }) : definition?.label || classFilter }));
+    if (!subclassFilter) heading.appendChild(el('p', { textContent: 'Choose an advancement path, or browse the shared first-job skills below.' }));
+    dataDiv.appendChild(heading);
+
+    const paths = PATHS_BY_CLASS[classFilter] || [];
+    if (paths.length > 0) {
+      const pathSection = el('section', { className: 'skill-path-section', 'aria-label': `${definition?.label || classFilter} advancement paths` });
+      pathSection.appendChild(el('h3', { textContent: subclassFilter ? 'Switch path' : 'Advancement paths' }));
+      const pathGrid = el('div', { className: 'skill-path-grid' });
+      paths.forEach(path => pathGrid.appendChild(makePathCard(path, path.value === subclassFilter)));
+      pathSection.appendChild(pathGrid);
+      dataDiv.appendChild(pathSection);
+    }
+  }
+
+  function renderSearchHeader() {
+    if (classFilter) dataDiv.appendChild(makeBreadcrumb());
+    const definition = classDefinition(classFilter);
+    const selectedPath = (PATHS_BY_CLASS[classFilter] || []).find(path => path.value === subclassFilter);
+    const scope = selectedPath ? pathLabel(selectedPath) : definition?.label;
+    const heading = el('div', { className: 'skills-browser-heading skills-browser-heading--compact skills-search-heading' });
+    const copy = el('div');
+    copy.append(el('div', { className: 'skills-eyebrow', textContent: scope ? `Searching in ${scope}` : 'Searching all classes' }), el('h2', { textContent: `Results for “${searchQuery}”` }));
+    heading.appendChild(copy);
+    if (classFilter) {
+      const allClasses = el('button', { type: 'button', className: 'skills-scope-action', textContent: 'Search all classes' });
+      allClasses.addEventListener('click', () => {
+        classFilter = '';
+        subclassFilter = '';
+        updateFilterUrl();
+        renderData();
+      });
+      heading.appendChild(allClasses);
+    }
+    dataDiv.appendChild(heading);
+  }
 
   function renderData() {
-    pillGroup.setActive(classFilter);
-    if (subPillGroup) subPillGroup.setActive(subclassFilter);
     dataDiv.innerHTML = '';
     const exactId = parseIdFilter(searchQuery);
+    const isSearching = Boolean(searchQuery.trim());
+
+    if (!isSearching && !classFilter && !viewAll) {
+      renderClassDirectory();
+      return;
+    }
+
+    if (isSearching) {
+      renderSearchHeader();
+    } else if (viewAll) {
+      dataDiv.appendChild(makeBreadcrumb());
+      const heading = el('div', { className: 'skills-browser-heading skills-browser-heading--compact' });
+      heading.append(el('div', { className: 'skills-eyebrow', textContent: 'Complete index' }), el('h2', { textContent: 'All skills' }), el('p', { textContent: 'Every job is listed below. Sections stay closed until you need them.' }));
+      dataDiv.appendChild(heading);
+    } else if (classFilter) {
+      renderClassHeader();
+    }
+
     let filteredClasses = classes;
     if (classFilter) {
       filteredClasses = classes.filter(
-        (cls) => cls.main_class && cls.main_class.toLowerCase() === classFilter.toLowerCase()
+        (cls) => (cls.main_class || cls.class_name || '').toLowerCase() === String(classFilter).toLowerCase()
       );
     }
     if (subclassFilter) {
@@ -292,6 +432,8 @@ export function renderSkills(data, options = {}) {
           (classFilter && cls.class_name === classFilter) ||
           (members ? members.has(cls.class_name) : cls.class_name === subclassFilter)
       );
+    } else if (classFilter && !isSearching) {
+      filteredClasses = filteredClasses.filter(cls => cls.class_name === classFilter || cls.job === 'Beginner');
     }
     const JOB_TIER_ORDER = { Beginner: 0, '1st Job': 1, '2nd Job': 2, '3rd Job': 3, '4th Job': 4 };
     filteredClasses = [...filteredClasses].sort(
@@ -310,10 +452,6 @@ export function renderSkills(data, options = {}) {
         ),
       }))
       .filter((cls) => cls.skills.length > 0);
-
-    const shownSkills = filtered.reduce((sum, cls) => sum + cls.skills.length, 0);
-    countText.textContent =
-      shownSkills === totalSkills ? `${totalSkills} skills` : `${shownSkills} of ${totalSkills} skills`;
 
     filtered.forEach((cls) => {
       const content = el('div');
@@ -449,8 +587,11 @@ export function renderSkills(data, options = {}) {
         content.appendChild(card);
       });
 
+      const defaultOpen = isSearching
+        || (!viewAll && !subclassFilter)
+        || (subclassFilter && (cls.job === '2nd Job' || cls.job === 'Beginner'));
       dataDiv.appendChild(
-        makeCollapsible(`${cls.class_name} (${cls.job})`, cls.skills.length, true, null, content)
+        makeCollapsible(`${cls.class_name} (${cls.job})`, null, defaultOpen, null, content)
       );
     });
 
@@ -467,35 +608,23 @@ export function renderSkills(data, options = {}) {
   }
 
   if (options.initialParams) {
-    const cls = options.initialParams.get('class');
+    const CLASS_ALIASES = { Mage: 'Magician', Bowman: 'Archer', Thief: 'Rogue' };
+    const rawClass = options.initialParams.get('class');
+    const cls = CLASS_ALIASES[rawClass] || rawClass;
     const sub = options.initialParams.get('subclass');
-    if (cls || sub) {
-      if (cls) { classFilter = cls; pillGroup.setActive(classFilter); buildSubclassPills(); }
-      // a deep link may name any class in a line (e.g. "F/P Mage") — resolve it to its line pill
-      if (sub) { subclassFilter = CLASS_TO_LINE[sub] || sub; if (subPillGroup) subPillGroup.setActive(subclassFilter); }
-      updateFilterUrl();
-      const parts = [];
-      if (classFilter) parts.push(CLASS_PILLS.find(p => p.value === classFilter)?.label ?? classFilter);
-      if (subclassFilter) parts.push(subclassFilter);
-      showFilterBanner(parts.join(' · '), () => {
-        classFilter = '';
-        subclassFilter = '';
-        pillGroup.setActive('');
-        buildSubclassPills();
-        updateFilterUrl();
-        renderData();
-      });
+    if (cls) classFilter = cls;
+    if (sub) {
+      subclassFilter = CLASS_TO_LINE[sub] || sub;
+      if (!classFilter) classFilter = CLASS_TO_MAIN[sub] || '';
     }
+    viewAll = options.initialParams.get('view') === 'all' && !classFilter;
     const initialQuery = options.initialParams.get('q');
     if (initialQuery) {
       const exactId = parseIdFilter(initialQuery);
-      if (exactId != null) {
-        autoExpandAfterId = exactId;
-      } else {
-        searchQuery = initialQuery;
-        searchBox._input.value = initialQuery;
-        searchBox._sync();
-      }
+      if (exactId != null) autoExpandAfterId = exactId;
+      searchQuery = initialQuery;
+      searchBox._input.value = initialQuery;
+      searchBox._sync();
     }
   }
 
