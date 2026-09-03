@@ -487,22 +487,29 @@ function buildEntry(entry, bucket, section, onNavigate, opts = {}) {
 // nobody glances past the first screenful anyway.
 const PN_LIST_LIMIT = 50;
 
+// Quest entries run long (multi-stage prose plus reward/requirement chips),
+// so the quest buckets page after 10 instead of 50 -- same "Show N more"
+// toggle, just a shorter first page.
+const PN_LIST_LIMITS = { quests: 10 };
+const pnListLimit = (section) => PN_LIST_LIMITS[section.key] ?? PN_LIST_LIMIT;
+
 function buildList(rows, section, onNavigate, opts = {}) {
   const list = el('div', {
     className: `pn-list pn-list-${section.key}${isTileSection(section) ? ' pn-tiles' : ''}`,
   });
+  const limit = pnListLimit(section);
   const appendRow = ({ entry, bucket }) =>
     list.appendChild(buildEntry(entry, bucket, section, onNavigate, opts));
-  rows.slice(0, PN_LIST_LIMIT).forEach(appendRow);
-  if (rows.length > PN_LIST_LIMIT) {
-    const hidden = rows.length - PN_LIST_LIMIT;
+  rows.slice(0, limit).forEach(appendRow);
+  if (rows.length > limit) {
+    const hidden = rows.length - limit;
     const more = el('button', {
       type: 'button',
       className: 'pn-show-more',
       textContent: `Show ${hidden} more`,
     });
     more.addEventListener('click', () => {
-      rows.slice(PN_LIST_LIMIT).forEach(appendRow);
+      rows.slice(limit).forEach(appendRow);
       more.remove();
     });
     list.appendChild(more);
