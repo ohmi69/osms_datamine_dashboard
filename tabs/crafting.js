@@ -121,7 +121,11 @@ export function renderCrafting(data, options = {}) {
   // Search and filters stay pinned at the top while the list scrolls past.
   const toolbar = el('div', { className: 'sticky-toolbar' });
 
-  wireSearch(toolbar, 'Search by result or ingredient...', options, (query) => {
+  // Capture the search-box navigator so the tab-level navigator below can
+  // handle both `q` string routes (deep links) and full filter params.
+  const outerSetNavigate = options.setNavigate;
+  let searchNavigate = null;
+  const searchBox = wireSearch(toolbar, 'Search by result or ingredient...', { ...options, setNavigate: (fn) => { searchNavigate = fn; } }, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -133,14 +137,20 @@ export function renderCrafting(data, options = {}) {
     { label: 'All', value: null },
     ...recipes.disciplines.map((discipline) => ({ label: discipline.discipline, value: discipline.discipline }))
   ];
-  function updateFilterUrl() {
-    Router.updateFilter('crafting', selectedDiscipline ? { discipline: selectedDiscipline } : {});
+  function currentFilterParams() {
+    return selectedDiscipline ? { discipline: selectedDiscipline } : {};
+  }
+
+  // Discrete pill navigation gets its own history entry so Back walks back
+  // up one level at a time instead of jumping to the previous tab.
+  function pushFilterUrl() {
+    Router.pushFilter('crafting', currentFilterParams());
   }
 
   const pillGroup = makePillGroup(DISCIPLINE_PILLS, selectedDiscipline, (value) => {
     selectedDiscipline = value;
     hideFilterBanner();
-    updateFilterUrl();
+    pushFilterUrl();
     renderData();
   });
   toolbar.appendChild(pillGroup);
@@ -326,21 +336,47 @@ export function renderCrafting(data, options = {}) {
     }
   }
 
-  if (options.initialParams) {
-    const discipline = options.initialParams.get('discipline');
-    if (discipline) {
-      selectedDiscipline = discipline;
-      pillGroup.setActive(selectedDiscipline);
-      updateFilterUrl();
+  // Shared by the initial deep link and by back/forward traversal. Applies
+  // URL params to UI state without touching history (the URL is already
+  // correct when this runs).
+  function applyParams(params, { showBanner = false } = {}) {
+    if (!params) return;
+    const get = typeof params.get === 'function'
+      ? (k) => params.get(k)
+      : (k) => params[k];
+    selectedDiscipline = get('discipline') || null;
+    pillGroup.setActive(selectedDiscipline);
+    if (showBanner && selectedDiscipline) {
       showFilterBanner(selectedDiscipline, () => {
         selectedDiscipline = null;
         pillGroup.setActive(null);
-        updateFilterUrl();
+        pushFilterUrl();
         renderData();
       });
     }
+    const q = get('q') || '';
+    const exactId = parseIdFilter(q);
+    autoExpandAfterId = exactId != null ? exactId : null;
+    searchQuery = q;
+    if (searchBox) {
+      searchBox._input.value = q;
+      searchBox._sync();
+    }
+    renderData();
+    window.scrollTo(0, 0);
   }
 
-  renderData();
+  if (outerSetNavigate) {
+    outerSetNavigate((route) => {
+      if (typeof route === 'string') searchNavigate?.(route);
+      else applyParams(route);
+    });
+  }
+
+  if (options.initialParams) {
+    applyParams(options.initialParams, { showBanner: true });
+  } else {
+    renderData();
+  }
   return container;
 }

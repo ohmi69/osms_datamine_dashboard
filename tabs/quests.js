@@ -586,7 +586,11 @@ export function renderQuests(data, options = {}) {
   const toolbar = el('div', { className: 'sticky-toolbar' });
   container.appendChild(toolbar);
 
-  wireSearch(toolbar, 'Search by name, NPC, or reward...', options, (query) => {
+  // Capture the search-box navigator so the tab-level navigator below can
+  // handle both `q` string routes (deep links) and full filter params.
+  const outerSetNavigate = options.setNavigate;
+  let searchNavigate = null;
+  const searchBox = wireSearch(toolbar, 'Search by name, NPC, or reward...', { ...options, setNavigate: (fn) => { searchNavigate = fn; } }, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -594,12 +598,22 @@ export function renderQuests(data, options = {}) {
     renderData();
   });
 
-  function updateFilterUrl() {
+  function currentFilterParams() {
     const params = {};
     if (regionFilter !== 'All') params.region = regionFilter;
     if (regionFilter === CITIZENSHIP_REGION && townFilter !== 'All') params.town = townFilter;
     if (regionFilter === JOB_ADVANCEMENT_REGION && jobFilter !== 'All') params.job = jobFilter;
-    Router.updateFilter('quests', params);
+    return params;
+  }
+
+  function updateFilterUrl() {
+    Router.updateFilter('quests', currentFilterParams());
+  }
+
+  // Discrete pill navigation gets its own history entry so Back walks back
+  // up one level at a time instead of jumping to the previous tab.
+  function pushFilterUrl() {
+    Router.pushFilter('quests', currentFilterParams());
   }
 
   const citizenshipTowns = [...new Set(
@@ -660,7 +674,7 @@ export function renderQuests(data, options = {}) {
     systemPillGroup?.setActive(value);
     syncSubFilterRows();
     hideFilterBanner();
-    updateFilterUrl();
+    pushFilterUrl();
     renderData();
   }
 
@@ -695,7 +709,7 @@ export function renderQuests(data, options = {}) {
       (value) => {
         jobFilter = value;
         jobPillGroup.setActive(value);
-        updateFilterUrl();
+        pushFilterUrl();
         renderData();
       },
       { groupLabel: 'Job' }
@@ -712,7 +726,7 @@ export function renderQuests(data, options = {}) {
       (value) => {
         townFilter = value;
         townPillGroup.setActive(value);
-        updateFilterUrl();
+        pushFilterUrl();
         renderData();
       },
       { groupLabel: 'Town' }
@@ -842,8 +856,18 @@ export function renderQuests(data, options = {}) {
     }
   }
 
-  if (options.initialParams) {
-    const region = options.initialParams.get('region');
+  // Shared by the initial deep link and by back/forward traversal. Applies
+  // URL params to UI state without touching history (the URL is already
+  // correct when this runs).
+  function applyParams(params, { showBanner = false } = {}) {
+    if (!params) return;
+    const get = typeof params.get === 'function'
+      ? (k) => params.get(k)
+      : (k) => params[k];
+    regionFilter = 'All';
+    townFilter = 'All';
+    jobFilter = 'All';
+    const region = get('region');
     if (region && region !== 'All') {
       // Links predating the Job Advancement grouping point straight at a job
       // region, so they land on the group with that job preselected.
@@ -853,20 +877,21 @@ export function renderQuests(data, options = {}) {
       } else {
         regionFilter = region;
       }
-      const job = options.initialParams.get('job');
+      const job = get('job');
       if (regionFilter === JOB_ADVANCEMENT_REGION && job && jobRegions.includes(job)) {
         jobFilter = job;
       }
-      const town = options.initialParams.get('town');
+      const town = get('town');
       if (regionFilter === CITIZENSHIP_REGION && town && citizenshipTowns.includes(town)) {
         townFilter = town;
       }
-      regionPillGroup?.setActive(regionFilter);
-      systemPillGroup?.setActive(regionFilter);
-      jobPillGroup?.setActive(jobFilter);
-      townPillGroup?.setActive(townFilter);
-      syncSubFilterRows();
-      updateFilterUrl();
+    }
+    regionPillGroup?.setActive(regionFilter);
+    systemPillGroup?.setActive(regionFilter);
+    jobPillGroup?.setActive(jobFilter);
+    townPillGroup?.setActive(townFilter);
+    syncSubFilterRows();
+    if (showBanner && regionFilter !== 'All') {
       const subLabel = townFilter !== 'All' ? townFilter : (jobFilter !== 'All' ? jobFilter : null);
       showFilterBanner(subLabel ? `${regionFilter} · ${subLabel}` : regionFilter, () => {
         regionFilter = 'All';
@@ -877,12 +902,35 @@ export function renderQuests(data, options = {}) {
         jobFilter = 'All';
         jobPillGroup?.setActive('All');
         syncSubFilterRows();
-        updateFilterUrl();
+        pushFilterUrl();
         renderData();
       });
     }
+    const q = get('q') || '';
+    const exactId = parseIdFilter(q);
+    autoExpandAfterId = exactId != null ? exactId : null;
+    searchQuery = q;
+    if (searchBox) {
+      searchBox._input.value = q;
+      searchBox._sync();
+    }
+    renderData();
+    window.scrollTo(0, 0);
   }
 
-  renderData();
+  if (outerSetNavigate) {
+    outerSetNavigate((route) => {
+      if (typeof route === 'string') searchNavigate?.(route);
+      else applyParams(route);
+    });
+  }
+
+  if (options.initialParams) {
+    applyParams(options.initialParams, { showBanner: true });
+    // Canonicalize legacy links (e.g. ?region=Warrior) in place.
+    updateFilterUrl();
+  } else {
+    renderData();
+  }
   return container;
 }

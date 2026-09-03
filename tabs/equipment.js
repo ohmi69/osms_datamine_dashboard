@@ -73,14 +73,17 @@ export function renderEquipment(data, options = {}) {
   const toolbar = el('div', { className: 'sticky-toolbar' });
   container.appendChild(toolbar);
 
-  wireSearch(toolbar, 'Search by name or description...', options, (query) => {
+  // Capture the search-box navigator so the tab-level navigator below can
+  // handle both `q` string routes (deep links) and full filter params.
+  const outerSetNavigate = options.setNavigate;
+  let searchNavigate = null;
+  const searchBox = wireSearch(toolbar, 'Search by name or description...', { ...options, setNavigate: (fn) => { searchNavigate = fn; } }, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
     autoExpandAfterId = id;
     renderData();
   });
-
   const classOptions = [
     { label: 'All Classes', value: 0 },
     ...((equipmentMeta.job_filters || []).map((opt) => ({ label: opt.label, value: opt.value }))),
@@ -90,7 +93,7 @@ export function renderEquipment(data, options = {}) {
     classPillGroup.setActive(value);
     hideFilterBanner();
     buildWeaponTypePills();
-    updateFilterUrl();
+    pushFilterUrl();
     renderData();
   }, { groupLabel: 'Class:' });
   toolbar.appendChild(classPillGroup);
@@ -105,19 +108,25 @@ export function renderEquipment(data, options = {}) {
     genderFilter = value;
     genderPillGroup.setActive(value);
     hideFilterBanner();
-    updateFilterUrl();
+    pushFilterUrl();
     renderData();
   }, { groupLabel: 'Gender:' });
   toolbar.appendChild(genderPillGroup);
   toolbar.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
 
-  function updateFilterUrl() {
-    Router.updateFilter('equipment', {
+  function currentFilterParams() {
+    return {
       ...(classFilter !== 0 && { class: String(classFilter) }),
       ...(genderFilter && { gender: genderFilter }),
       ...(selectedSubCategory && { type: selectedSubCategory }),
       ...(selectedWeaponType && { wtype: selectedWeaponType }),
-    });
+    };
+  }
+
+  // Discrete pill navigation gets its own history entry so Back walks back
+  // up one level at a time instead of jumping to the previous tab.
+  function pushFilterUrl() {
+    Router.pushFilter('equipment', currentFilterParams());
   }
 
   // Subcategory pills using makePillGroup
@@ -146,7 +155,7 @@ export function renderEquipment(data, options = {}) {
       hideFilterBanner();
       buildSubCategoryPills();
       buildWeaponTypePills();
-      updateFilterUrl();
+      pushFilterUrl();
       renderData();
     }
     const newPillGroup = makePillGroup(subCategoryOptions, selectedSubCategory, handleSubCategoryPillChange, { groupLabel: 'Type:' });
@@ -179,7 +188,7 @@ export function renderEquipment(data, options = {}) {
     function handleWeaponTypePillChange(value) {
       selectedWeaponType = value;
       buildWeaponTypePills();
-      updateFilterUrl();
+      pushFilterUrl();
       renderData();
     }
     if (selectedSubCategory !== 'Weapon' || types.length === 0) {
@@ -291,25 +300,42 @@ export function renderEquipment(data, options = {}) {
   buildSubCategoryPills();
   buildWeaponTypePills();
 
-  // Apply initial filter from deep link
-  if (options.initialParams) {
-    const p = options.initialParams;
-    const hasAny = p.has('class') || p.has('gender') || p.has('type') || p.has('wtype');
+  // Shared by the initial deep link and by back/forward traversal. Applies
+  // URL params to UI state without touching history (the URL is already
+  // correct when this runs).
+  function applyParams(params, { showBanner = false } = {}) {
+    if (!params) return;
+    const get = typeof params.get === 'function'
+      ? (k) => params.get(k)
+      : (k) => params[k];
+    const has = typeof params.has === 'function'
+      ? (k) => params.has(k)
+      : (k) => get(k) != null && get(k) !== '';
+    classFilter = 0;
+    genderFilter = null;
+    selectedSubCategory = null;
+    selectedWeaponType = null;
+    const hasAny = has('class') || has('gender') || has('type') || has('wtype');
     if (hasAny) {
-      if (p.has('class')) { classFilter = Number(p.get('class')); classPillGroup.setActive(classFilter); buildWeaponTypePills(); }
-      if (p.has('gender')) { genderFilter = p.get('gender'); genderPillGroup.setActive(genderFilter); }
-      if (p.has('type')) {
-        selectedSubCategory = p.get('type');
-        buildSubCategoryPills();
-        if (p.has('wtype')) { selectedWeaponType = p.get('wtype'); buildWeaponTypePills(); }
+      if (has('class')) { classFilter = Number(get('class')); }
+      if (has('gender')) { genderFilter = get('gender'); }
+      if (has('type')) {
+        selectedSubCategory = get('type');
+        if (has('wtype')) { selectedWeaponType = get('wtype'); }
       }
+    }
+    classPillGroup.setActive(classFilter);
+    genderPillGroup.setActive(genderFilter);
+    buildSubCategoryPills();
+    buildWeaponTypePills();
+    if (showBanner && hasAny) {
       const labelParts = [];
-      if (p.has('class')) {
-        const classLabel = classOptions.find(o => o.value === Number(p.get('class')))?.label;
+      if (has('class')) {
+        const classLabel = classOptions.find(o => o.value === Number(get('class')))?.label;
         if (classLabel && classLabel !== 'All Classes') labelParts.push(classLabel);
       }
-      if (p.has('gender')) labelParts.push(p.get('gender') === 'male' ? 'Male' : 'Female');
-      if (p.has('type')) labelParts.push(p.has('wtype') ? `${p.get('type')} → ${p.get('wtype')}` : p.get('type'));
+      if (has('gender')) labelParts.push(get('gender') === 'male' ? 'Male' : 'Female');
+      if (has('type')) labelParts.push(has('wtype') ? `${get('type')} → ${get('wtype')}` : get('type'));
       if (labelParts.length > 0) {
         showFilterBanner(labelParts.join(' · '), () => {
           classFilter = 0;
@@ -320,13 +346,35 @@ export function renderEquipment(data, options = {}) {
           genderPillGroup.setActive(null);
           buildSubCategoryPills();
           buildWeaponTypePills();
-          updateFilterUrl();
+          pushFilterUrl();
           renderData();
         });
       }
     }
+    const q = get('q') || '';
+    const exactId = parseIdFilter(q);
+    autoExpandAfterId = exactId != null ? exactId : null;
+    searchQuery = q;
+    if (searchBox) {
+      searchBox._input.value = q;
+      searchBox._sync();
+    }
+    renderData();
+    window.scrollTo(0, 0);
   }
 
-  renderData();
+  if (outerSetNavigate) {
+    outerSetNavigate((route) => {
+      if (typeof route === 'string') searchNavigate?.(route);
+      else applyParams(route);
+    });
+  }
+
+  // Apply initial filter from deep link
+  if (options.initialParams) {
+    applyParams(options.initialParams, { showBanner: true });
+  } else {
+    renderData();
+  }
   return container;
 }

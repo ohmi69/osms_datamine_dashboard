@@ -175,7 +175,7 @@ const ACCURACY_STEPS = [
     notes: [
       'exp() is the exponential function',
       'Nine monster debuffs skip the check and always land, using their own success rate instead: Armor Crash, Threaten, Elemental Crash, Power Crash, Doom, and both versions of Slow and Seal. No attack skill is exempt.',
-      'The client also auto-hits when BaseChance − Avoid ≥ 25 + LevelDiff × (Level / 2 + 15), but that needs Avoid above roughly 120 and the highest on any live mob is 64 (Gatekeeper), so it never decides a hit.',
+      'Auto-hits when BaseChance − Avoid ≥ 25 + LevelDiff × (Level / 2 + 15) — unreachable in practice (needs Avoid ~120+; the highest on any live mob is 64).',
       'A separate miss-chance debuff is rolled after a successful hit and can still turn it into a miss.',
     ],
     cot1: {
@@ -248,7 +248,7 @@ const BASE_DAMAGE_STEPS = [
       'Lucky Seven   forces WepMult = 3.0 in place of the Claw Shoot 2.5',
     ],
     notes: [
-      'StatRoll and BaseRoll are two separate draws, so a hit can land low on one and high on the other. MIN and MAX are the corners of that rectangle, not the ends of a single roll, and damage bunches toward the middle rather than spreading evenly between them',
+      'Same two draws; damage bunches toward the middle rather than spreading evenly between MIN and MAX',
       'With the usual StatDiv of 100 and AtkDiv of 50 this is the familiar (100 + PrimaryStat × WepMult + SecondaryStat + AttackPower × 2) / 100 × WeaponAttack',
       'WepMult is chosen by the attack action, not by the skill - see the Weapon Multipliers table',
       'Bows, Crossbows and Claws draw their firing animation from a separate ranged action list, so a normal shot lands on Shoot (2.5, StatDiv 100). The StatDiv 300 rows are what you get meleeing with them - a Claw with no stars left stabs for 1.0',
@@ -274,7 +274,7 @@ const BASE_DAMAGE_STEPS = [
     ],
     notes: [
       'The roll between MIN and MAX is a single uniform random per hit',
-      'BasicAttack is the skill\'s own value. Almost every magician attack skill carries one - the exceptions are Poison Mist, which is pure damage over time, Poison Breath, whose direct hit comes from a hidden second skill, and Heal, which replaces this formula outright.',
+      'BasicAttack is the value listed on the skill. Exceptions: Poison Mist (pure damage over time), Poison Breath (direct hit from a hidden second skill), Heal (own formula outright).',
     ],
     cot1: {
       notes: [
@@ -301,8 +301,8 @@ const BASE_DAMAGE_STEPS = [
     ],
     notes: [
       'RecoveryRate is the recovery rate listed on the skill itself.',
-      'TargetsHit is everyone the cast reaches - monsters, up to 15 of them, plus party members, up to 6. The party side counts at least 1, since the caster is always in range of their own Heal.',
-      'HealBonus is a percentage buff slot that the client applies only to Heal, and no skill or item in the game is known to set it. It is applied before the split, so it raises the healing and the damage together.',
+      'TargetsHit is everyone the cast reaches — up to 15 monsters plus up to 6 party members, counting at least 1 since the caster is always in range.',
+      'HealBonus is the bonus from Bless (Cleric skill 2301003), 1% at level 1 rising to 10% at level 20. Applied before the split, so it raises healing and damage together.',
     ],
     cot1: {
       notes: [
@@ -314,7 +314,7 @@ const BASE_DAMAGE_STEPS = [
     label: 'Damage Over Time (DoT)',
     wip: false,
     status: 'partial',
-    statusNote: 'The total is read directly from the damage-over-time routine in the client. The split into per-tick damage is not: the client computes the total and never divides it, so that line comes from the skill descriptions, which say the listed value is the total dealt over the duration.',
+    statusNote: 'Total verified in the damage-over-time routine. The per-tick split is not: the client computes the total and never divides it, so that line comes from the skill descriptions.',
     lines: [
       'TotalDamage = (DoTBasicAttack / 100) × Magic × (TotalInt / 125 + 1)',
       '',
@@ -346,7 +346,7 @@ const BASE_DAMAGE_VARS = [
   { name: 'WepMult',       desc: 'Weapon multiplier for the attack action used - see Weapon Multipliers table' },
   { name: 'StatDiv',       desc: 'Divides both stat terms. Chosen alongside WepMult by the weapon type and the attack action - values listed with the Physical Damage formula' },
   { name: 'AtkDiv',        desc: 'Divides the AttackPower term. Chosen the same way as StatDiv - values listed with the Physical Damage formula' },
-  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8, where MasteryLevel runs 1 to 10. Physical attacks read MasteryLevel from the weapon mastery skill for the equipped weapon; magic attacks read it from the attacking skill\'s own data instead, so a weapon mastery skill never affects magic. Exception: Lucky Seven ignores mastery skills entirely and takes its multiplier straight from its own skill data, which is 0.5 at every level - the same as a MasteryLevel of 5.25' },
+  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8 (levels 1 to 10). Physical attacks read MasteryLevel from the weapon mastery skill for the equipped weapon; magic attacks read it from the attacking skill\'s own data instead. Exception: Lucky Seven ignores mastery skills entirely and takes 0.5 at every level from its own skill data' },
   { name: 'BasicAttack',   desc: 'Basic Attack value listed on the skill, for magic skills only' },
   { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
   { name: 'Magic',              desc: 'The MAGIC value on the stat window. The client builds it as TotalInt / 2 Magic Attack. It keeps only this one number, and every magic formula reads it' },
@@ -354,7 +354,7 @@ const BASE_DAMAGE_VARS = [
   { name: 'TotalLuk',      desc: 'Total Luk, including Equipment and Scrolls' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
   { name: 'TargetsHit',    desc: 'Total targets hit: enemies (max 15) + caster + allies in range (max 6 including the caster)' },
-  { name: 'HealBonus',     desc: 'Percentage bonus the client applies to Heal only. Supported by the client, but no skill or item in the game is known to set it' },
+  { name: 'HealBonus',     desc: "Bless's bonus % for the learned level (1 at level 1, 10 at level 20). The client applies it to Heal only" },
   { name: 'DoTDurationSeconds', desc: 'Duration of the DoT effect in seconds' },
 ];
 
@@ -409,7 +409,7 @@ const MOD_PIPELINE_STEPS = [
     label: 'Defense Nullified (Armor Crash)',
     wip: false,
     status: 'partial',
-    statusNote: 'The branch is read directly from the client: the weapon-defense getter returns 0 outright when a flag on the monster is set, before any modifier is read. Tying that flag to Armor Crash is inference - the flag is set by the server, and Armor Crash is the only skill in the game data described as zeroing physical defense.',
+    statusNote: 'Zero-defense branch verified in the client; tying the (server-set) flag to Armor Crash is inference — the only skill described as zeroing physical defense.',
     lines: [
       'If the monster is flagged, WeaponDefense = 0 and the step below is skipped entirely.',
     ],
@@ -462,12 +462,12 @@ const MOD_PIPELINE_STEPS = [
       'Applies to Magical damage only',
       'Identical in shape to Weapon Defense, reading its own pair of percent and flat modifier slots on the enemy',
       'This is the monster side only. The damage a player takes uses the same stat names but a completely different formula - see the Damage Taken section',
-      'No skill in the game reduces a monster\'s Magic Def - every defense debuff in the data names Weapon Def. So the client supports these two slots, but nothing is currently known to fill them, and this step is in practice just the monster\'s printed Magic Def',
+      'No skill reduces Magic Def (all defense debuffs name Weapon Def), so this step is just the monster\'s printed Magic Def',
       'There is no Ignore Defense proc on the magic side, and no equivalent of Armor Crash',
     ],
     cot1: {
       notes: [
-        'COT1 fed the raw monster stat straight in - its magic-defense getter is a two-instruction field read with no percent or flat lookup at all, so no debuff could ever lower the Magic Def your spells are divided by. The slots on the magic side are new, even though nothing fills them yet.',
+        'COT1 read the raw stat with no modifier lookup. The percent/flat slots are new, though nothing fills them yet.',
       ],
     },
   },
@@ -491,7 +491,7 @@ const MOD_PIPELINE_STEPS = [
     ],
     notes: [
       'Only two skills carry two elements: both versions of Element Composition, which blends Fire with Poison for the Fire/Poison line and Ice with Lightning for the Ice/Lightning line',
-      'The two-element rule is what produces the 0.25, 0.5 and 1.5 multipliers, which a single-element attack can never reach. Element Composition against a monster weak to both of its elements gives 1.5, and against one immune to both it gives 0.0. The skill description says the same thing, that damage increases up to 1.5 times when the enemy is weak to both elements',
+      'Only the two-element blend reaches 0.25/0.5/1.5 — 1.5 against monsters weak to both elements, 0.0 against those immune to both.',
       'Anything outside this table falls back to 1.0',
     ],
     cot1: {
@@ -514,14 +514,14 @@ const MOD_PIPELINE_STEPS = [
     ],
     notes: [
       'The two branches meet exactly at LevelDiff 10, where the penalty term is 0.5 either way - the damage is divided by 1.5, so about a third of it is lost',
-      'Damage Over Time is the exception: it only ever uses the linear LevelDiff × 0.05 branch. That branch is the harsher of the two below LevelDiff 10, so a DoT is penalised more than a direct hit when the enemy is 1-9 levels above you, and identically at 10 or more',
+      'DoT always uses the linear branch — harsher than direct hits below LevelDiff 10, identical at 10+.',
     ],
   },
   {
     label: 'Element Amplification',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the client. The buff slot is named Element Amplification in the client\'s own list of buff names, and the same slot also drives the matching extra MP cost, which confirms the identification. The skill it belongs to is not in this game\'s data, so the step can never fire.',
+    statusNote: 'Buff slot named Element Amplification in the client (it also drives the extra MP cost). Its skill is not in the game data, so this never fires.',
     lines: [
       'Damage = Damage × (ElementAmpDamage / 100 + 1)',
     ],
@@ -645,7 +645,7 @@ const GUARD_STEPS = [
     notes: [
       'Avoid has hard diminishing returns. Dividing by Avoid / 80 + 1 means the effective value climbs toward 80 and never passes it, however much Avoid you stack',
       'Out-levelling a monster helps twice over: it lowers the monster\'s hit score, though it also shrinks your effective Avoid',
-      'Nothing makes you untouchable. Whenever the roll fails, the client gives the attack a flat 8% second chance, and if your Avoid is high enough that the roll could never have landed it first rolls a separate 2% chance on top of that',
+      'A failed roll still hits 8% of the time, plus a separate 2% chance when the avoid is out of roll reach.',
       'An attack can be flagged unmissable, which skips this whole step - it still has to get past the guard rolls below',
     ],
   },
@@ -692,7 +692,7 @@ const GUARD_STEPS = [
     ],
     notes: [
       'ClawGuardBlockChance is the block chance listed on the skill: 3% at levels 1-6, 4% at 7-13, 5% at 14-20',
-      'This roll reuses the same random number as the Shield Guard roll, and it only runs when that roll has already failed. Because the shield chance is never below 5% and Claw Guard never goes above 5%, Claw Guard cannot fire while a shield with any Weapon Defense is equipped - it only does anything for the throwing-star setup it was written for',
+      'Shares the Shield Guard roll and only runs if it failed — so with any shield equipped (guard ≥5% vs Claw Guard ≤5%) it can never fire. Only the throwing-star setup benefits.',
     ],
     cot1: {
       badge: 'New in COT2',
@@ -749,13 +749,8 @@ const GUARD_STEPS = [
     notes: [
       'InvincibleReduction is the skill\'s own value, 10% at level 1 rising to 30% at level 20',
       'Regular attacks only. A monster skill attack skips this step, matching the skill description, which says physical damage',
+      'Same branch exists in COT1 — same 230–232 job gate and 0.5 cap',
     ],
-    cot1: {
-      badge: 'New in COT2',
-      notes: [
-        'Neither the skill nor this branch exists in COT1.',
-      ],
-    },
   },
   {
     label: 'Elemental Damage Reduction',
@@ -1317,7 +1312,7 @@ function buildCitizenshipTable() {
 
   container.appendChild(el('div', {
     className: 'formulas-note formulas-note--padded',
-    textContent: 'Each figure is the price of that one grade, not a lifetime total - the counter resets on every grade up, and the Citizenship window shows it against the cost of the next grade. Grade 1 is granted by the citizenship quest, and the whole climb to Grade 10 costs 46,000.',
+    textContent: 'Each figure buys one grade (counter resets on grade-up). Grade 1 comes from the citizenship quest; the full climb costs 46,000.',
   }));
 
   return container;
@@ -2341,9 +2336,9 @@ function buildWeaponMultTable() {
 
   container.appendChild(split);
 
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing / Stab are the normal melee actions, Shoot covers bow, crossbow and claw attacks, and Other applies when a skill uses its own custom animation (e.g. Rush, Assaulter)' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The Swing/Stab ratio above is the melee animation list. Bows, Crossbows and Claws normally fire instead, drawing from a separate ranged list that always resolves to Shoot, a Claw throwing a star rolls swingO1/O2/O3, which the client rewrites to Shoot because the weapon is a Claw. Their Swing and Stab columns are only reached when meleeing without ammo.' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll for swing or stab just like a plain attack does. These ones never roll. The first three groups always use the multiplier shown; the last group takes whichever action the weapon defaults to, which is always that weapon\'s best column - Stab for 1H Swords, 2H Swords, Daggers, Spears, Wands, Staves and bare hands, Swing for Axes, Blunt Weapons and Polearms, and Shoot for Bows, Crossbows and Claws. Magic skills are left out because magic damage never uses a weapon multiplier at all.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing/Stab are the normal melee actions, Shoot covers bow, crossbow and claw attacks, and Other applies when a skill uses its own custom animation (e.g. Rush, Assaulter)' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The Swing/Stab ratio above is the melee animation list. Bows, Crossbows and Claws normally fire instead, drawing from a separate ranged list that always resolves to Shoot; a star-throwing Claw rolls swingO1/O2/O3, rewritten to Shoot for claws. Their Swing and Stab columns are only reached when meleeing without ammo.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll swing/stab like a plain attack. The groups below never roll: the first three use the shown multiplier; the last takes the weapon default — Stab for 1H/2H Swords, Daggers, Spears, Wands, Staves and bare hands; Swing for Axes, Blunt Weapons and Polearms; Shoot for Bows, Crossbows and Claws. Magic skills never use a weapon multiplier.' }));
 
   const exceptions = el('div', { className: 'formulas-exceptions' });
   ACTION_EXCEPTIONS.forEach(([column, skills]) => {
@@ -2427,7 +2422,7 @@ export function renderFormulas(data, options = {}) {
   const disclaimer = el('div', { className: 'formulas-disclaimer' });
   const disclaimerText = el('span');
   disclaimerText.appendChild(el('strong', { textContent: 'Warning: ' }));
-  disclaimerText.append('Every formula has two tags. Code Verified means it came out of the COT2 game files. Partly Code Verified means the same, except some detail is a guess, usually which skill it applies to. Requires Validation means nobody has tested it in-game yet, so if the numbers do not match what you see, let us know.');
+  disclaimerText.append('Code Verified: read from the game files. Partly: same, except one detail (usually which skill) is inferred. Requires Validation: untested in-game — report mismatches.');
   disclaimer.appendChild(disclaimerText);
   const section = (title, key, bodyFn) => markFormulaSection(makeCollapsibleSection(title, '', bodyFn), key);
   const group = (...children) => el('div', { className: 'formulas-full' }, ...children);
@@ -2493,7 +2488,7 @@ export function renderFormulas(data, options = {}) {
     exp.querySelector('.left').appendChild(expCredit);
 
     const craft = section('Crafting Levels', 'crafting-levels', buildCraftTable);
-    craft.querySelector('.right').appendChild(makeStatusTag('ok', 'Read directly from the routine in the client that returns the craft exp requirement for a level, and from the crafting window that consumes it. The character level column is the number the crafting window itself prints in its level-up tooltip.'));
+    craft.querySelector('.right').appendChild(makeStatusTag('ok', 'Exp column from the client requirement routine; level column from the crafting window tooltip.'));
 
     const citizenship = section('Citizenship Grades', 'citizenship-grades', buildCitizenshipTable);
     citizenship.querySelector('.right').appendChild(makeStatusTag('ok', 'The contribution thresholds and character level column come from the client and have been confirmed against the Citizenship window in game.'));

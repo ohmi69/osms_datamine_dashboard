@@ -11,7 +11,11 @@ export function renderCashShop(data, options = {}) {
   const container = el('div');
   // Search and filters stay pinned at the top while the list scrolls past.
   const toolbar = el('div', { className: 'sticky-toolbar' });
-  wireSearch(toolbar, 'Search by name or description...', options, (query) => {
+  // Capture the search-box navigator so the tab-level navigator below can
+  // handle both `q` string routes (deep links) and full filter params.
+  const outerSetNavigate = options.setNavigate;
+  let searchNavigate = null;
+  const searchBox = wireSearch(toolbar, 'Search by name or description...', { ...options, setNavigate: (fn) => { searchNavigate = fn; } }, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -39,10 +43,16 @@ export function renderCashShop(data, options = {}) {
     ...namedCategories.map((cat) => ({ label: cat.category, value: cat.category })),
     ...(unnamedItems.length > 0 ? [{ label: 'Unnamed Unavailable Items', value: '__unnamed__' }] : [])
   ];
-  function updateFilterUrl() {
-    Router.updateFilter('cashshop', selectedCategory
+  function currentFilterParams() {
+    return selectedCategory
       ? { filter: selectedSubCategory ? `${selectedCategory}:${selectedSubCategory}` : selectedCategory }
-      : {});
+      : {};
+  }
+
+  // Discrete pill navigation gets its own history entry so Back walks back
+  // up one level at a time instead of jumping to the previous tab.
+  function pushFilterUrl() {
+    Router.pushFilter('cashshop', currentFilterParams());
   }
 
   const pillGroup = makePillGroup(CATEGORY_PILLS, selectedCategory, (value) => {
@@ -50,7 +60,7 @@ export function renderCashShop(data, options = {}) {
     selectedSubCategory = null;
     hideFilterBanner();
     buildSubCategoryPills();
-    updateFilterUrl();
+    pushFilterUrl();
     renderData();
   });
   toolbar.appendChild(pillGroup);
@@ -94,7 +104,7 @@ export function renderCashShop(data, options = {}) {
       selectedSubCategory = null;
       allSub.classList.add('active');
       subPillRow.querySelectorAll('button:not(:first-child)').forEach((b) => b.classList.remove('active'));
-      updateFilterUrl();
+      pushFilterUrl();
       renderData();
     });
     subPillRow.appendChild(allSub);
@@ -105,7 +115,7 @@ export function renderCashShop(data, options = {}) {
         selectedSubCategory = sub;
         subPillRow.querySelectorAll('button').forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
-        updateFilterUrl();
+        pushFilterUrl();
         renderData();
       });
       subPillRow.appendChild(btn);
@@ -256,34 +266,66 @@ export function renderCashShop(data, options = {}) {
     }
   }
 
-  // Apply initial filter from deep link
-  if (options.initialParams) {
-    const filterVal = options.initialParams.get('filter');
+  // Shared by the initial deep link and by back/forward traversal. Applies
+  // URL params to UI state without touching history (the URL is already
+  // correct when this runs).
+  function applyParams(params, { showBanner = false } = {}) {
+    if (!params) return;
+    const get = typeof params.get === 'function'
+      ? (k) => params.get(k)
+      : (k) => params[k];
+    selectedCategory = null;
+    selectedSubCategory = null;
+    const filterVal = get('filter');
     if (filterVal) {
-      const [cat, sub] = filterVal.split(':');
+      const [cat, sub] = String(filterVal).split(':');
       if (CATEGORY_PILLS.some(p => p.value === cat)) {
         selectedCategory = cat;
-        pillGroup.setActive(cat);
-        buildSubCategoryPills();
-        if (sub) {
-          selectedSubCategory = sub;
-          subPillRow.querySelectorAll('button').forEach(b => {
-            b.classList.toggle('active', b.textContent === sub);
-          });
-        }
-        const catLabel = CATEGORY_PILLS.find(p => p.value === cat)?.label || cat;
-        showFilterBanner(sub ? `${catLabel} → ${sub}` : catLabel, () => {
-          selectedCategory = null;
-          selectedSubCategory = null;
-          pillGroup.setActive(null);
-          buildSubCategoryPills();
-          updateFilterUrl();
-          renderData();
-        });
+        if (sub) selectedSubCategory = sub;
       }
     }
+    pillGroup.setActive(selectedCategory);
+    buildSubCategoryPills();
+    if (selectedSubCategory) {
+      subPillRow.querySelectorAll('button').forEach(b => {
+        b.classList.toggle('active', b.textContent === selectedSubCategory);
+      });
+    }
+    const q = get('q') || '';
+    const exactId = parseIdFilter(q);
+    autoExpandAfterId = exactId != null ? exactId : null;
+    searchQuery = q;
+    if (searchBox) {
+      searchBox._input.value = q;
+      searchBox._sync();
+    }
+    if (showBanner && selectedCategory) {
+      const catLabel = CATEGORY_PILLS.find(p => p.value === selectedCategory)?.label || selectedCategory;
+      showFilterBanner(selectedSubCategory ? `${catLabel} → ${selectedSubCategory}` : catLabel, () => {
+        selectedCategory = null;
+        selectedSubCategory = null;
+        pillGroup.setActive(null);
+        buildSubCategoryPills();
+        pushFilterUrl();
+        renderData();
+      });
+    }
+    renderData();
+    window.scrollTo(0, 0);
   }
 
-  renderData();
+  if (outerSetNavigate) {
+    outerSetNavigate((route) => {
+      if (typeof route === 'string') searchNavigate?.(route);
+      else applyParams(route);
+    });
+  }
+
+  // Apply initial filter from deep link
+  if (options.initialParams) {
+    applyParams(options.initialParams, { showBanner: true });
+  } else {
+    renderData();
+  }
   return container;
 }

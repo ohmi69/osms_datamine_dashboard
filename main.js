@@ -215,18 +215,32 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
 
 
 // Listen for route changes using Router
+// FILTER_TABS keep discrete filter state in the hash (e.g. #items?filter=Scrolls)
+// and expose it through their navigator, so back/forward re-applies the params
+// instead of skipping to the previous tab.
+const FILTER_TABS = new Set(['skills', 'items', 'equipment', 'cashshop', 'crafting', 'quests']);
 Router.onRouteChange((tab, query, params) => {
   if (!tabManager) return;
   let tabId = tab === 'cash_shop' ? 'cashshop' : tab;
   if (!tabId || !tabManager.tabs.some(t => t.id === tabId)) return;
-  // Skip if staying on the same tab with only a filter change (no navigation query)
-  if (tabId === tabManager.activeTab && tabId === 'formulas') {
-    tabManager.navigators.formulas?.(params);
+  // Same-tab filter traversal (back/forward through pushed filter states).
+  // The URL is already correct; just re-apply params to the live tab.
+  if (tabId === tabManager.activeTab) {
+    if (tabId === 'formulas') {
+      tabManager.navigators.formulas?.(params);
+      return;
+    }
+    if (FILTER_TABS.has(tabId)) {
+      tabManager.navigators[tabId]?.(params);
+      return;
+    }
+    if (!query) return;
+    tabManager.switchTab(tabId, false, query);
     return;
   }
-  if (tabId === tabManager.activeTab && !query) return;
   tabManager.switchTab(tabId, false, query);
   if (tabId === 'formulas') tabManager.navigators.formulas?.(params);
+  else if (FILTER_TABS.has(tabId) && !query) tabManager.navigators[tabId]?.(params);
 });
 
 async function showMapleTip() {

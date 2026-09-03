@@ -97,7 +97,11 @@ export function renderItems(data, options = {}) {
   // Search and filters stay pinned at the top while the list scrolls past.
   const toolbar = el('div', { className: 'sticky-toolbar' });
 
-  wireSearch(toolbar, 'Search by name or description...', options, (query) => {
+  // Capture the search-box navigator so the tab-level navigator below can
+  // handle both `q` string routes (deep links) and full filter params.
+  const outerSetNavigate = options.setNavigate;
+  let searchNavigate = null;
+  const searchBox = wireSearch(toolbar, 'Search by name or description...', { ...options, setNavigate: (fn) => { searchNavigate = fn; } }, (query) => {
     searchQuery = query;
     renderData();
   }, (id) => {
@@ -138,10 +142,16 @@ export function renderItems(data, options = {}) {
   let selectedCategory = null; // null = all
   let selectedScrollSlot = null; // null = all slots
 
-  function updateFilterUrl() {
-    Router.updateFilter('items', selectedCategory
+  function currentFilterParams() {
+    return selectedCategory
       ? { filter: selectedScrollSlot ? `${selectedCategory}:${selectedScrollSlot}` : selectedCategory }
-      : {});
+      : {};
+  }
+
+  // Discrete pill navigation gets its own history entry so Back walks back
+  // up one level at a time instead of jumping to the previous tab.
+  function pushFilterUrl() {
+    Router.pushFilter('items', currentFilterParams());
   }
 
   function updateScrollSubRowVisibility() {
@@ -235,7 +245,7 @@ export function renderItems(data, options = {}) {
     selectedScrollSlot = null;
     scrollAllSlotBtn.classList.add('active');
     scrollSlotBtns.forEach((b) => b.classList.remove('active'));
-    updateFilterUrl();
+    pushFilterUrl();
     renderData();
   });
   scrollSlotBtns.forEach((btn, idx) => {
@@ -243,7 +253,7 @@ export function renderItems(data, options = {}) {
       selectedScrollSlot = allScrollSlots[idx];
       scrollAllSlotBtn.classList.remove('active');
       scrollSlotBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
-      updateFilterUrl();
+      pushFilterUrl();
       renderData();
     });
   });
@@ -255,7 +265,7 @@ export function renderItems(data, options = {}) {
     categoryTabs.forEach((btn) => btn.classList.remove('active'));
     hideFilterBanner();
     updateScrollSubRowVisibility();
-    updateFilterUrl();
+    pushFilterUrl();
     renderData();
   });
   categoryTabs.forEach((btn, idx) => {
@@ -266,32 +276,64 @@ export function renderItems(data, options = {}) {
       btn.classList.add('active');
       categoryTabs.forEach((b, i) => { if (i !== idx) b.classList.remove('active'); });
       updateScrollSubRowVisibility();
-      updateFilterUrl();
+      pushFilterUrl();
       renderData();
     });
   });
 
-  // Apply initial filter from deep link
-  if (options.initialParams) {
-    const filterVal = options.initialParams.get('filter');
+  // Shared by the initial deep link and by back/forward traversal. Applies
+  // URL params to UI state without touching history (the URL is already
+  // correct when this runs).
+  function applyParams(params, { showBanner = false } = {}) {
+    if (!params) return;
+    const get = typeof params.get === 'function'
+      ? (k) => params.get(k)
+      : (k) => params[k];
+    selectedCategory = null;
+    selectedScrollSlot = null;
+    const filterVal = get('filter');
     if (filterVal) {
-      const [cat, slot] = filterVal.split(':');
-      const catIdx = categories.indexOf(cat);
-      if (catIdx !== -1) {
+      const [cat, slot] = String(filterVal).split(':');
+      if (categories.includes(cat)) {
         selectedCategory = cat;
-        allTab.classList.remove('active');
-        categoryTabs.forEach((b, i) => b.classList.toggle('active', i === catIdx));
         if (cat === 'Scrolls' && slot && allScrollSlots.includes(slot)) {
           selectedScrollSlot = slot;
-          scrollAllSlotBtn.classList.remove('active');
-          scrollSlotBtns.forEach((b, i) => b.classList.toggle('active', allScrollSlots[i] === slot));
         }
-        showFilterBanner(slot ? `${cat} → ${slot}` : cat, () => allTab.click());
       }
     }
+    allTab.classList.toggle('active', !selectedCategory);
+    categoryTabs.forEach((b, i) => b.classList.toggle('active', categories[i] === selectedCategory));
+    updateScrollSubRowVisibility();
+    scrollAllSlotBtn.classList.toggle('active', !selectedScrollSlot);
+    scrollSlotBtns.forEach((b, i) => b.classList.toggle('active', allScrollSlots[i] === selectedScrollSlot));
+    const q = get('q') || '';
+    const exactId = parseIdFilter(q);
+    autoExpandAfterId = exactId != null ? exactId : null;
+    searchQuery = q;
+    if (searchBox) {
+      searchBox._input.value = q;
+      searchBox._sync();
+    }
+    if (showBanner && selectedCategory) {
+      showFilterBanner(selectedScrollSlot ? `${selectedCategory} → ${selectedScrollSlot}` : selectedCategory, () => allTab.click());
+    }
+    renderData();
+    window.scrollTo(0, 0);
   }
 
-  updateScrollSubRowVisibility();
-  renderData();
+  if (outerSetNavigate) {
+    outerSetNavigate((route) => {
+      if (typeof route === 'string') searchNavigate?.(route);
+      else applyParams(route);
+    });
+  }
+
+  // Apply initial filter from deep link
+  if (options.initialParams) {
+    applyParams(options.initialParams, { showBanner: true });
+  } else {
+    updateScrollSubRowVisibility();
+    renderData();
+  }
   return container;
 }

@@ -258,27 +258,33 @@ export function renderSkills(data, options = {}) {
     return path.members.join(' → ');
   }
 
-  function updateFilterUrl() {
-    Router.updateFilter('skills', {
+  function currentFilterParams() {
+    return {
       ...(searchQuery && { q: searchQuery }),
       ...(classFilter && { class: classFilter }),
       ...(subclassFilter && { subclass: subclassFilter }),
       ...(viewAll && { view: 'all' }),
-    });
+    };
+  }
+
+  // Discrete drill-down steps get their own history entry so Back walks back
+  // up one level at a time instead of jumping to the previous tab.
+  function pushFilterUrl() {
+    Router.pushFilter('skills', currentFilterParams());
   }
 
   function navigateToClass(value) {
     classFilter = value;
     subclassFilter = '';
     viewAll = false;
-    updateFilterUrl();
+    pushFilterUrl();
     renderData();
   }
 
   function navigateToPath(value) {
     subclassFilter = value;
     viewAll = false;
-    updateFilterUrl();
+    pushFilterUrl();
     renderData();
   }
 
@@ -286,7 +292,7 @@ export function renderSkills(data, options = {}) {
     classFilter = '';
     subclassFilter = '';
     viewAll = false;
-    updateFilterUrl();
+    pushFilterUrl();
     renderData();
   }
 
@@ -364,7 +370,7 @@ export function renderSkills(data, options = {}) {
       classFilter = '';
       subclassFilter = '';
       viewAll = true;
-      updateFilterUrl();
+      pushFilterUrl();
       renderData();
     });
     dataDiv.appendChild(allButton);
@@ -403,7 +409,7 @@ export function renderSkills(data, options = {}) {
       allClasses.addEventListener('click', () => {
         classFilter = '';
         subclassFilter = '';
-        updateFilterUrl();
+        pushFilterUrl();
         renderData();
       });
       heading.appendChild(allClasses);
@@ -631,27 +637,53 @@ export function renderSkills(data, options = {}) {
     }
   }
 
-  if (options.initialParams) {
-    const CLASS_ALIASES = { Mage: 'Magician', Bowman: 'Archer', Thief: 'Rogue' };
-    const rawClass = options.initialParams.get('class');
+  const CLASS_ALIASES = { Mage: 'Magician', Bowman: 'Archer', Thief: 'Rogue' };
+
+  // Shared by the initial deep link and by back/forward traversal. Applies
+  // URL params to UI state without touching history (the URL is already
+  // correct when this runs).
+  function applyParams(params) {
+    if (!params) return;
+    const get = typeof params.get === 'function'
+      ? (k) => params.get(k)
+      : (k) => params[k];
+    const rawClass = get('class');
     const cls = CLASS_ALIASES[rawClass] || rawClass;
-    const sub = options.initialParams.get('subclass');
-    if (cls) classFilter = cls;
+    const sub = get('subclass');
+    classFilter = cls || '';
     if (sub) {
       subclassFilter = CLASS_TO_LINE[sub] || sub;
       if (!classFilter) classFilter = CLASS_TO_MAIN[sub] || '';
+    } else {
+      subclassFilter = '';
     }
-    viewAll = options.initialParams.get('view') === 'all' && !classFilter;
-    const initialQuery = options.initialParams.get('q');
-    if (initialQuery) {
-      const exactId = parseIdFilter(initialQuery);
-      if (exactId != null) autoExpandAfterId = exactId;
-      searchQuery = initialQuery;
-      searchBox._input.value = initialQuery;
+    viewAll = get('view') === 'all' && !classFilter;
+    const q = get('q') || '';
+    const exactId = parseIdFilter(q);
+    autoExpandAfterId = exactId != null ? exactId : null;
+    searchQuery = q;
+    if (searchBox) {
+      searchBox._input.value = q;
       searchBox._sync();
     }
+    renderData();
+    window.scrollTo(0, 0);
   }
 
-  renderData();
+  if (options.setNavigate) {
+    options.setNavigate((route) => {
+      // String routes are `q` search queries (deep links, cross-tab jumps);
+      // URLSearchParams carry full filter state (back/forward traversal).
+      applyParams(typeof route === 'string'
+        ? new URLSearchParams(route ? { q: route } : {})
+        : route);
+    });
+  }
+
+  if (options.initialParams) {
+    applyParams(options.initialParams);
+  } else {
+    renderData();
+  }
   return container;
 }
