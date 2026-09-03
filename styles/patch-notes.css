@@ -51,6 +51,20 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
 }
 .pn-body { padding: 4px 0; }
+
+/* Bucket blocks (Added / Removed / Changed) inside a section. Nested
+   collapsibles, so they inherit base.css's nested look; these rules only add
+   the colour coding and spacing that names which bucket each block is. */
+.pn-buckets { display: flex; flex-direction: column; gap: 8px; }
+.pn-bucket > .collapsible-body { padding: 6px; }
+.pn-bucket-list { display: flex; flex-direction: column; gap: 4px; }
+.pn-sections .pn-bucket > .collapsible-header .title {
+  color: var(--text);
+  font-weight: 600;
+}
+.pn-bucket-added > .collapsible-header .title { color: var(--new-badge, #4ade80); }
+.pn-bucket-removed > .collapsible-header .title { color: var(--boss-badge, #f87171); }
+.pn-bucket-changed > .collapsible-header .title { color: var(--accent); }
 .pn-note {
   font-size: 12px;
   color: var(--dim);
@@ -62,6 +76,79 @@
 }
 
 .pn-list { display: flex; flex-direction: column; gap: 4px; }
+
+/* Toolbar (sticky search + pills), same pattern as the other tabs. Tighten the
+   shared bottom margins so the bar stays slim while pinned. */
+.pn-toolbar .search-box { margin-bottom: 10px; }
+.pn-toolbar .search-box input { width: 100%; }
+.pn-filter-row { margin-bottom: 0; }
+.pn-status {
+  font-size: 11px;
+  color: var(--dim);
+  padding: 8px 0;
+}
+.pn-status[hidden] { display: none; }
+
+/* Render-cap toggle at the end of long buckets. Full-width in column lists;
+   full-row in the monster tile grid. */
+.pn-show-more {
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--dim);
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+.pn-show-more:hover { color: var(--accent); border-color: var(--accent); }
+.pn-show-more:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.pn-tiles > .pn-show-more { grid-column: 1 / -1; }
+/* Detailed view (toolbar toggle): tiles fall back to the previous full-row
+   column display. Entries render inline (no pn-collapsed), so the tile-only
+   hiding rules below stay inert on their own. Padding, wrapping, and name
+   overflow reset to the plain-row values for an exact revert. */
+.pn-detailed .pn-tiles { display: flex; flex-direction: column; }
+.pn-detailed .pn-tiles > .pn-entry { padding: 7px 10px; }
+.pn-detailed .pn-tiles .pn-entry-head { flex-wrap: wrap; }
+.pn-detailed .pn-tiles .pn-name {
+  flex: 0 1 auto;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+}
+.pn-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+/* Map names run long, so map tiles take wider cells: fewer per row, far
+   less truncation. Later rule wins the equal-specificity tie with .pn-tiles. */
+.pn-list-maps {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.pn-tiles > .pn-entry { padding: 5px 8px; min-width: 0; }
+.pn-tiles > .pn-entry:hover {
+  border-color: var(--accent);
+  background: var(--surface-2);
+}
+.pn-tiles .pn-entry-head { flex-wrap: nowrap; }
+.pn-tiles .pn-name {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Map tiles drop badges entirely: region/street tags live in the modal and
+   tooltip, and the tile stays a clean thumb + name row. */
+.pn-list-maps > .pn-entry.pn-collapsed .pn-entry-head .badge { display: none; }
+/* Collapsed tiles read as thumb + name: ids, change counts, and deep-link
+   buttons hide until the tile is expanded, so the name gets the full cell.
+   Short badges (BOSS) stay -- they scan at a glance. */
+.pn-tiles > .pn-entry.pn-collapsed .id,
+.pn-tiles > .pn-entry.pn-collapsed .pn-change-count,
+.pn-tiles > .pn-entry.pn-collapsed .deep-link-btn { display: none; }
+.pn-tiles > .pn-entry.pn-collapsed .pn-entry-head { cursor: pointer; }
 
 /* Grouped sections (Skills, by class): one nested collapsible per group, taking
    base.css's nested-collapsible look. The heading replaces the per-entry
@@ -126,6 +213,64 @@
 a.pn-name-link { cursor: pointer; text-decoration: none; color: var(--text); }
 a.pn-name-link:hover { color: var(--accent); text-decoration: underline; }
 a.pn-name-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Monster tile heads are buttons (role=button opens the detail modal). */
+.pn-tiles > .pn-entry.pn-collapsed .pn-entry-head:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+/* How many field diffs hide behind a collapsed monster's toggle. */
+.pn-change-count {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--dim);
+  opacity: .8;
+  white-space: nowrap;
+}
+.pn-entry-details { display: contents; }
+.pn-entry-details[hidden] { display: none; }
+
+/* Monster detail modal: the tile grid never reflows; stats read at full
+   width in a centered panel. Same dismiss pattern as the image modal. */
+.pn-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, .6);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px 16px;
+  overflow-y: auto;
+}
+.pn-modal {
+  position: relative;
+  width: min(640px, 100%);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, .5);
+}
+.pn-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--dim);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+.pn-modal-close:hover { color: var(--text); border-color: var(--dim); }
+.pn-modal-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+@media (max-width: 640px) {
+  .pn-modal-overlay { padding: 24px 8px 8px; }
+  .pn-modal { padding: 12px; }
+}
 
 /* Description carried on added/removed entries */
 .pn-desc {

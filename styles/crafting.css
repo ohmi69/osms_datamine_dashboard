@@ -173,6 +173,53 @@
   margin-top: 4px;
 }
 
+/* Patch-notes "what changed" section for item/equipment/scroll tooltips:
+   mirrors the mob version at this tab's type scale. */
+.item-tooltip-changes {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.item-tooltip-changes-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--accent, #f59e0b);
+  margin-bottom: 5px;
+}
+.item-tooltip-change {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.item-tooltip-change-label {
+  color: var(--dim);
+  white-space: nowrap;
+}
+.item-tooltip-change-value {
+  font-weight: 600;
+  color: var(--text);
+  text-align: right;
+}
+.item-tooltip-change-value .item-tooltip-old {
+  color: var(--dim);
+  font-weight: 400;
+  text-decoration: line-through;
+}
+.item-tooltip-change-value .item-tooltip-new {
+  font-weight: 700;
+}
+.item-tooltip-changes-more {
+  font-size: 10px;
+  color: var(--dim);
+  font-style: italic;
+  margin-top: 4px;
+  text-align: right;
+}
+
 /* ── Mob tooltip ───────────────────────────────────────────── */
 .item-tooltip.mob-tooltip {
   min-width: 180px;
@@ -265,4 +312,34 @@
   flex-wrap: wrap;
   gap: 4px;
   padding: 0 12px 10px;
+}
+
+/* Patch-notes "what changed" section: same grid as the stats, with the old
+   value struck through and the new value emphasized. */
+.mob-tooltip-changes {
+  padding: 8px 12px 10px;
+  border-top: 1px solid var(--border);
+}
+.mob-tooltip-changes-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--accent, #f59e0b);
+  margin-bottom: 5px;
+}
+.mob-tooltip-old {
+  color: var(--dim);
+  text-decoration: line-through;
+}
+.mob-tooltip-new {
+  color: var(--text);
+  font-weight: 700;
+}
+.mob-tooltip-changes-more {
+  font-size: 10px;
+  color: var(--dim);
+  font-style: italic;
+  margin-top: 4px;
+  text-align: right;
 }

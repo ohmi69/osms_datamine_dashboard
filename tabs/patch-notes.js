@@ -1,5 +1,5 @@
 import { el, makeCollapsible, makeCopyableId, makeThumbnail,
-         makeDeepLinkButton } from '../lib/utils.js';
+         makeDeepLinkButton, makeSearchBox, makePillGroup, makeMatcher, makeHideToggle } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 
 const BUCKETS = [
@@ -7,6 +7,11 @@ const BUCKETS = [
   { key: 'removed', label: 'Removed', sign: '−', cls: 'pn-removed' },
   { key: 'changed', label: 'Changed', sign: '~', cls: 'pn-changed' },
 ];
+
+// Sections dense enough to tile: thumbnail + name cells in a grid, full
+// stats/diffs in the detail modal. Everything else renders as full rows.
+const TILE_SECTIONS = new Set(['monsters', 'equipment', 'items', 'scrolls', 'cash_shop', 'beauty', 'maps']);
+const isTileSection = (section) => TILE_SECTIONS.has(section.key);
 
 // Lookups into the *current* dataset, so hovering a name or chip shows the same
 // tooltip the Items/Monsters/Maps tabs do. Removed entries have no current
@@ -36,7 +41,15 @@ function buildLookups(data) {
   (data?.maps?.regions || []).forEach((region) =>
     (region.maps || []).forEach((map) => maps.set(String(map.id), map)));
 
-  return { items, monsters, maps };
+  const cash = new Map();
+  (data?.cashShop?.categories || []).forEach((cat) =>
+    (cat.items || []).forEach((item) => cash.set(String(item.id), item)));
+
+  const beauty = new Map();
+  [...(data?.beauty_coupons?.hair || []), ...(data?.beauty_coupons?.face || [])]
+    .forEach((style) => beauty.set(String(style.id), style));
+
+  return { items, monsters, maps, cash, beauty };
 }
 
 // mob_positions is one entry per spawn point, so collapse to id -> count the
@@ -53,18 +66,22 @@ function mapSpawns(map) {
   });
 }
 
-function attachEntityTooltip(node, tab, id) {
+function attachEntityTooltip(node, tab, id, extra = null) {
   if (!lookups || !node || id === null || id === undefined) return;
   const key = String(id);
   if (tab === 'items' || tab === 'equipment') {
-    attachTooltip(node, () => lookups.items.get(key));
+    attachTooltip(node, () => lookups.items.get(key), 'item', extra);
   } else if (tab === 'monsters') {
-    attachTooltip(node, () => lookups.monsters.get(key), 'mob');
+    attachTooltip(node, () => lookups.monsters.get(key), 'mob', extra);
+  } else if (tab === 'cashshop') {
+    attachTooltip(node, () => lookups.cash.get(key), 'item', extra);
+  } else if (tab === 'beauty') {
+    attachTooltip(node, () => lookups.beauty.get(key), 'item', extra);
   } else if (tab === 'maps') {
     attachTooltip(node, () => {
       const map = lookups.maps.get(key);
       return map ? { map, mobs: mapSpawns(map) } : null;
-    }, 'map');
+    }, 'map', extra);
   }
 }
 
@@ -277,7 +294,58 @@ function buildLevelStats(levels) {
   return wrap;
 }
 
-function buildEntry(entry, bucket, section, onNavigate) {
+// ---- Detail modal for tile sections ----
+// Tiles stay tiles: expanding one inline would morph a grid cell into a
+// full-width row and shove the whole wall around. Details open in a modal
+// instead, rendered fresh (so links, tooltips, and copy buttons work) at a
+// width where stat tables read comfortably.
+let pnModal = null;
+
+function closeEntryModal() {
+  if (!pnModal) return;
+  const { overlay, opener } = pnModal;
+  pnModal = null;
+  document.removeEventListener('keydown', pnModalEsc);
+  overlay.remove();
+  document.body.style.overflow = '';
+  opener?.focus?.();
+}
+
+function pnModalEsc(event) {
+  if (event.key === 'Escape') closeEntryModal();
+}
+
+function openEntryModal(entry, bucket, section, onNavigate, opener) {
+  closeEntryModal();
+  const overlay = el('div', { className: 'pn-modal-overlay' });
+  const panel = el('div', {
+    className: 'pn-modal',
+    role: 'dialog',
+    'aria-modal': 'true',
+    'aria-label': `${entry.name || entry.id} details`,
+  });
+  const closeBtn = el('button', {
+    className: 'pn-modal-close',
+    type: 'button',
+    textContent: '×',
+    'aria-label': 'Close details',
+  });
+  closeBtn.addEventListener('click', closeEntryModal);
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay) closeEntryModal();
+  });
+  panel.appendChild(closeBtn);
+  // A full (non-tile) render: head plus visible details, no tile handlers.
+  panel.appendChild(buildEntry(entry, bucket, section, onNavigate, { full: true }));
+  overlay.appendChild(panel);
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+  document.addEventListener('keydown', pnModalEsc);
+  pnModal = { overlay, opener };
+  closeBtn.focus();
+}
+
+function buildEntry(entry, bucket, section, onNavigate, opts = {}) {
   const row = el('div', {
     className: `pn-entry ${bucket.cls}`,
     'data-pn-key': `${section.key}:${entry.id}`,
@@ -317,7 +385,12 @@ function buildEntry(entry, bucket, section, onNavigate) {
     });
   }
   head.appendChild(name);
-  attachEntityTooltip(name, section.tab, entry.id);
+  // Changed tile entries feed their diff fields into the hover tooltip, so
+  // it reads "what changed" (before → after) on top of the live record.
+  const tooltipExtra = isTileSection(section) && bucket.key === 'changed'
+    ? entry.fields || null
+    : null;
+  attachEntityTooltip(name, section.tab, entry.id, tooltipExtra);
 
   if (entry.id) {
     head.appendChild(makeCopyableId(`#${entry.id}`));
@@ -327,12 +400,24 @@ function buildEntry(entry, bucket, section, onNavigate) {
   (entry.badges || []).forEach((badge) => {
     head.appendChild(el('span', { className: 'badge badge-new', textContent: badge }));
   });
+  // Glanceable hint for tiles: how many field diffs the modal holds,
+  // so readers can tell a stat tweak from a full rework before clicking.
+  if (isTileSection(section) && entry.fields?.length) {
+    head.appendChild(el('span', {
+      className: 'pn-change-count',
+      textContent: `${entry.fields.length} change${entry.fields.length === 1 ? '' : 's'}`,
+    }));
+  }
   row.appendChild(head);
+
+  // Detail nodes collect here instead of landing on the row directly, so the
+  // monsters section can hide them behind a toggle (below).
+  const details = el('div', { className: 'pn-entry-details' });
 
   // Only meaningful for added/removed -- changed entries show a Description
   // field row instead, with both sides.
   if (entry.description && bucket.key !== 'changed') {
-    row.appendChild(el('div', { className: 'pn-desc', textContent: entry.description }));
+    details.appendChild(el('div', { className: 'pn-desc', textContent: entry.description }));
   }
   // Informational context (what lives on this map, where it connects).
   // Same row grid as diffs, but neutral -- these aren't changes.
@@ -351,29 +436,77 @@ function buildEntry(entry, bucket, section, onNavigate) {
       }
       meta.appendChild(metaRow);
     });
-    row.appendChild(meta);
+    details.appendChild(meta);
   }
 
   // Only on added/removed -- a changed skill reports its level deltas as
   // individual "Level N" diff rows instead.
   if (entry.levels?.length && bucket.key !== 'changed') {
-    row.appendChild(buildLevelStats(entry.levels));
+    details.appendChild(buildLevelStats(entry.levels));
   }
 
   if (entry.fields?.length) {
     const fields = el('div', { className: 'pn-fields' });
     entry.fields.forEach((f) => fields.appendChild(buildFieldRow(f, onNavigate)));
-    row.appendChild(fields);
+    details.appendChild(fields);
   }
+
+  // Tile sections collapse entries to thumbnail + name and open stats or
+  // diffs in a modal, in every bucket. Full-row sections keep everything
+  // inline. Detailed view (toolbar toggle) opts tiles back out to the
+  // previous full-row display.
+  if (isTileSection(section) && !opts.full && !opts.detailed && details.childElementCount) {
+    details.hidden = true;
+    row.classList.add('pn-collapsed');
+    head.setAttribute('tabindex', '0');
+    head.setAttribute('role', 'button');
+    head.setAttribute('aria-label', `Show details for ${entry.name || entry.id}`);
+    const open = (event) => {
+      // Interactive children (name link, buttons, copyable id) keep their
+      // own clicks; anything else on the tile opens the modal.
+      if (event.target.closest('a,button,.id')) return;
+      event.preventDefault();
+      openEntryModal(entry, bucket, section, onNavigate, head);
+    };
+    head.addEventListener('click', open);
+    head.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      open(event);
+    });
+  }
+  if (details.childElementCount) row.appendChild(details);
   return row;
 }
 
-// One continuous run of rows. Each carries its own sign and colour, so the
-// change type reads per-entry without splitting the list into blocks.
-function buildList(rows, section, onNavigate) {
-  const list = el('div', { className: 'pn-list' });
-  rows.forEach(({ entry, bucket }) =>
-    list.appendChild(buildEntry(entry, bucket, section, onNavigate)));
+// One continuous run of rows for a single bucket. Each row carries its own
+// sign and colour, so the change type still reads per-entry; the bucket block
+// header above it carries the grouping.
+// Buckets render only the first page; the rest sits behind an explicit
+// toggle. A Changed bucket can hold ~800 entries, and rendering them all on
+// every section open (or every search keystroke) janks the page -- while
+// nobody glances past the first screenful anyway.
+const PN_LIST_LIMIT = 50;
+
+function buildList(rows, section, onNavigate, opts = {}) {
+  const list = el('div', {
+    className: `pn-list pn-list-${section.key}${isTileSection(section) ? ' pn-tiles' : ''}`,
+  });
+  const appendRow = ({ entry, bucket }) =>
+    list.appendChild(buildEntry(entry, bucket, section, onNavigate, opts));
+  rows.slice(0, PN_LIST_LIMIT).forEach(appendRow);
+  if (rows.length > PN_LIST_LIMIT) {
+    const hidden = rows.length - PN_LIST_LIMIT;
+    const more = el('button', {
+      type: 'button',
+      className: 'pn-show-more',
+      textContent: `Show ${hidden} more`,
+    });
+    more.addEventListener('click', () => {
+      rows.slice(PN_LIST_LIMIT).forEach(appendRow);
+      more.remove();
+    });
+    list.appendChild(more);
+  }
   return list;
 }
 
@@ -399,7 +532,7 @@ function buildTally(counts) {
 // `section.groups` is the generator's canonical order; anything missing from it
 // -- including entries with no group at all -- follows in the order it appears,
 // so nothing can silently drop out of the list.
-function buildGroupedList(rows, section, onNavigate) {
+function buildGroupedList(rows, section, onNavigate, opts = {}) {
   const byGroup = new Map();
   rows.forEach((row) => {
     const key = row.entry.group || '';
@@ -412,7 +545,7 @@ function buildGroupedList(rows, section, onNavigate) {
     .filter((key) => byGroup.has(key))
     .forEach((key) => {
       const groupRows = byGroup.get(key);
-      const list = buildList(groupRows, section, onNavigate);
+      const list = buildList(groupRows, section, onNavigate, opts);
       // Entries with no group of their own stay loose, above the blocks.
       if (!key) {
         wrap.appendChild(list);
@@ -433,36 +566,63 @@ function buildGroupedList(rows, section, onNavigate) {
   return wrap;
 }
 
-function buildSectionBody(section, onNavigate) {
+// Sections open as three bucket blocks -- Added / Removed / Changed -- rather
+// than one continuous run. Added reads first and stays open while Changed and
+// Removed start collapsed: Changed rows carry the full field diff and dominate
+// the page (e.g. Equipment's ~800 changed rows bury its 230 added ones), so
+// hiding them by default keeps the section glanceable and prioritises new
+// content. Buckets with no entries are skipped; when a section has no Added
+// rows the first non-empty bucket opens instead, so it never lands empty.
+function buildBucketBlock(bucket, entries, section, onNavigate, defaultOpen, isFiltering, opts = {}) {
+  if (!entries?.length) return null;
+  const rows = entries.map((entry) => ({ entry, bucket }));
+  const grouped = section.groups?.length || rows.some((r) => r.entry.group);
+  const list = grouped
+    ? buildGroupedList(rows, section, onNavigate, opts)
+    : buildList(rows, section, onNavigate, opts);
+
+  const wrap = el('div', { className: 'pn-bucket-list' });
+  wrap.appendChild(list);
+
+  // The generator's --max-items can cap each bucket. Say so: a silently short
+  // list is indistinguishable from a section that had nothing more to report.
+  // Sections with a note already explain their own empty bucket, and while a
+  // search/type filter is active the counts describe the filter, not the data.
+  const counts = section.counts || {};
+  const hidden = (counts[bucket.key] || 0) - entries.length;
+  if (hidden > 0 && !section.note && !isFiltering) {
+    wrap.appendChild(el('div', {
+      className: 'pn-more',
+      textContent: `Not listed: ${hidden} more ${bucket.label.toLowerCase()}.`,
+    }));
+  }
+
+  const block = makeCollapsible(bucket.label, entries.length, defaultOpen, null, wrap);
+  block.classList.add('pn-bucket', `pn-bucket-${bucket.key}`);
+  return block;
+}
+
+// `entries` is the bucket -> row subset to show: the full section when idle,
+// the search/type-filtered subset while the toolbar filter is active.
+function buildSectionBody(section, entries, onNavigate, ctx) {
   const body = el('div', { className: 'pn-body' });
 
   if (section.note) {
     body.appendChild(el('div', { className: 'pn-note', textContent: section.note }));
   }
 
-  const rows = [];
-  BUCKETS.forEach((bucket) => {
-    (section[bucket.key] || []).forEach((entry) => rows.push({ entry, bucket }));
+  const buckets = el('div', { className: 'pn-buckets' });
+  const nonEmpty = BUCKETS.filter((b) => (entries[b.key] || []).length);
+  nonEmpty.forEach((bucket) => {
+    // Tiles and the render cap keep even the biggest buckets cheap, so every
+    // bucket starts open. Collapse all in the toolbar puts the wall away;
+    // Skills keeps its per-class groups closed as an index.
+    const block = buildBucketBlock(bucket, entries[bucket.key] || [], section, onNavigate, true, ctx.isFiltering, {
+      detailed: ctx.detailed,
+    });
+    if (block) buckets.appendChild(block);
   });
-  const grouped = section.groups?.length || rows.some((r) => r.entry.group);
-  body.appendChild(grouped
-    ? buildGroupedList(rows, section, onNavigate)
-    : buildList(rows, section, onNavigate));
-
-  // The generator's --max-items can cap each bucket. Say so: a silently short
-  // list is indistinguishable from a section that had nothing more to report.
-  // Sections with a note already explain their own empty bucket.
-  const counts = section.counts || {};
-  const omitted = section.note ? [] : BUCKETS.map((bucket) => {
-    const hidden = (counts[bucket.key] || 0) - (section[bucket.key] || []).length;
-    return hidden > 0 ? `${hidden} more ${bucket.label.toLowerCase()}` : null;
-  }).filter(Boolean);
-  if (omitted.length) {
-    body.appendChild(el('div', {
-      className: 'pn-more',
-      textContent: `Not listed: ${omitted.join(', ')}.`,
-    }));
-  }
+  body.appendChild(buckets);
 
   return body;
 }
@@ -506,19 +666,138 @@ export function renderPatchNotes(notes, options = {}) {
     if (nav) nav(`id:${id}`);
   };
 
+  // ---- Toolbar: search + change-type pills + expand controls ----
+  // Same sticky-toolbar pattern as Items/Equipment/Skills, so the controls
+  // stay in reach while thousand-row sections scroll past.
+  let searchQuery = '';
+  let bucketFilter = 'all'; // all | added | removed | changed
+  let detailedView = false; // toolbar toggle: full inline rows, no tiles
+  const isFiltering = () => searchQuery.trim() !== '' || bucketFilter !== 'all';
+
+  // Name, id, or (Skills) class-group match. Regex in slashes comes free via
+  // makeMatcher, matching the other tabs.
+  const matchesQuery = (entry) => {
+    const q = searchQuery.trim();
+    if (!q) return true;
+    const m = makeMatcher(q);
+    return m.test(entry.name) || m.test(entry.id) || m.test(entry.group);
+  };
+
+  const filterBuckets = (section) => {
+    const out = {};
+    BUCKETS.forEach((b) => {
+      out[b.key] = bucketFilter !== 'all' && b.key !== bucketFilter
+        ? []
+        : (section[b.key] || []).filter(matchesQuery);
+    });
+    return out;
+  };
+
+  const toolbar = el('div', { className: 'sticky-toolbar pn-toolbar' });
+  const searchBox = makeSearchBox('Search by name or id...', (value) => {
+    searchQuery = value;
+    renderData();
+  });
+  toolbar.appendChild(searchBox);
+
+  const pillRow = el('div', { className: 'filter-row pn-filter-row' });
+  const bucketPills = makePillGroup(
+    [{ label: 'All changes', value: 'all' },
+     ...BUCKETS.map((b) => ({ label: b.label, value: b.key }))],
+    'all',
+    (value) => {
+      bucketFilter = value;
+      renderData();
+    },
+    { groupLabel: 'Show:' },
+  );
+  pillRow.appendChild(bucketPills);
+  pillRow.appendChild(el('span', { className: 'filter-divider' }));
+  const expandBtn = el('button', { className: 'pill pill--sub', type: 'button', textContent: 'Expand all' });
+  expandBtn.addEventListener('click', () => sectionEls.forEach((c) => c.classList.add('open')));
+  const collapseBtn = el('button', { className: 'pill pill--sub', type: 'button', textContent: 'Collapse all' });
+  collapseBtn.addEventListener('click', () => sectionEls.forEach((c) => c.classList.remove('open')));
+  pillRow.appendChild(expandBtn);
+  pillRow.appendChild(collapseBtn);
+  pillRow.appendChild(el('span', { className: 'filter-divider' }));
+  // Detailed view restores the previous full-row display: every entry
+  // renders its stats/diffs inline instead of collapsing to a modal tile.
+  const detailedToggle = makeHideToggle('Detailed view', false, (active) => {
+    detailedView = active;
+    renderData();
+  });
+  pillRow.appendChild(detailedToggle);
+  toolbar.appendChild(pillRow);
+
+  const statusLine = el('div', { className: 'pn-status', hidden: true });
+  toolbar.appendChild(statusLine);
+  page.appendChild(toolbar);
+
   const sectionsWrap = el('div', { className: 'pn-sections' });
   const sectionEls = new Map();
-  notes.sections.forEach((section) => {
-    const counts = section.counts || {};
-    const total = BUCKETS.reduce((sum, b) => sum + (counts[b.key] || 0), 0);
-    const collapsible = makeCollapsible(section.label, total, false, null,
-      () => buildSectionBody(section, onNavigate));
-
-    collapsible.querySelector('.collapsible-header .left')?.appendChild(buildTally(counts));
-    sectionEls.set(section.key, collapsible);
-    sectionsWrap.appendChild(collapsible);
-  });
   page.appendChild(sectionsWrap);
+
+  // Tiles and the render cap keep the full page cheap, so every section
+  // lands open. (Skills still indexes its classes behind closed groups.)
+  function renderData() {
+    const filtering = isFiltering();
+    page.classList.toggle('pn-detailed', detailedView);
+    sectionEls.clear();
+    sectionsWrap.innerHTML = '';
+    let matchEntries = 0;
+    let matchSections = 0;
+    notes.sections.forEach((section) => {
+      const entries = filtering
+        ? filterBuckets(section)
+        : {
+            added: section.added || [],
+            removed: section.removed || [],
+            changed: section.changed || [],
+          };
+      const total = BUCKETS.reduce((sum, b) => sum + entries[b.key].length, 0);
+      if (filtering && total === 0) return;
+      matchEntries += total;
+      matchSections += 1;
+      // While filtering, headings count the matches; idle, the generator's
+      // canonical counts (which include --max-items-truncated rows).
+      const counts = filtering
+        ? Object.fromEntries(BUCKETS.map((b) => [b.key, entries[b.key].length]).filter(([, n]) => n))
+        : section.counts || {};
+      const shown = filtering
+        ? total
+        : BUCKETS.reduce((sum, b) => sum + (counts[b.key] || 0), 0);
+      const collapsible = makeCollapsible(section.label, shown, true, null,
+        () => buildSectionBody(section, entries, onNavigate, {
+          isFiltering: filtering,
+          bucketFilter,
+          hasQuery: searchQuery.trim() !== '',
+          detailed: detailedView,
+        }));
+
+      collapsible.querySelector('.collapsible-header .left')?.appendChild(buildTally(counts));
+      sectionEls.set(section.key, collapsible);
+      sectionsWrap.appendChild(collapsible);
+    });
+
+    if (filtering) {
+      const q = searchQuery.trim();
+      statusLine.hidden = false;
+      statusLine.textContent = matchEntries
+        ? q
+          ? `${matchEntries} match${matchEntries === 1 ? '' : 'es'} for "${q}" across ${matchSections} section${matchSections === 1 ? '' : 's'}`
+          : `${matchEntries} ${bucketFilter} across ${matchSections} section${matchSections === 1 ? '' : 's'}`
+        : 'No entries match the current filter.';
+    } else {
+      statusLine.hidden = true;
+    }
+    if (filtering && matchEntries === 0) {
+      sectionsWrap.appendChild(el('div', {
+        className: 'empty-state',
+        textContent: 'No entries match the current filter.',
+      }));
+    }
+  }
+  renderData();
 
   // Deep link to a single row: "#patchnotes?q=id:<section>:<entryId>".
   // The section key is part of the key because entry ids are only unique
@@ -536,6 +815,9 @@ export function renderPatchNotes(notes, options = {}) {
       const target = [...collapsible.querySelectorAll('[data-pn-key]')]
         .find((n) => n.getAttribute('data-pn-key') === key);
       if (!target) {
+        // Rows past the render cap aren't in the DOM yet -- expand any
+        // "Show more" toggles and retry on the next frame.
+        collapsible.querySelectorAll('.pn-show-more').forEach((b) => b.click());
         if (tries > 0) attempt(tries - 1);
         return;
       }
@@ -545,6 +827,11 @@ export function renderPatchNotes(notes, options = {}) {
       for (let node = target.parentElement; node && node !== collapsible;
            node = node.parentElement) {
         if (node.classList.contains('collapsible')) node.classList.add('open');
+      }
+      // Tile rows keep their details in a modal -- open it for the
+      // deep-linked row so the landing shows the linked content.
+      if (target.classList.contains('pn-collapsed')) {
+        target.querySelector(':scope > .pn-entry-head')?.click();
       }
       document.querySelectorAll('.row-hotlink').forEach((r) => r.classList.remove('row-hotlink'));
       target.classList.add('row-hotlink');
@@ -560,12 +847,22 @@ export function renderPatchNotes(notes, options = {}) {
         behavior: 'smooth',
       });
     });
-    attempt(3);
+    attempt(5);
   };
 
   const goToEntry = (query) => {
     const raw = String(query || '').trim().replace(/^id\s*:\s*/i, '');
     if (!raw) return;
+
+    // A deep link escapes any active filter: its row may be hidden by it.
+    if (isFiltering()) {
+      searchQuery = '';
+      bucketFilter = 'all';
+      searchBox._input.value = '';
+      searchBox._sync();
+      bucketPills.setActive('all');
+      renderData();
+    }
 
     const match = /^([a-z_]+)\s*:\s*(.+)$/i.exec(raw);
     if (match && sectionEls.has(match[1])) {
@@ -580,9 +877,27 @@ export function renderPatchNotes(notes, options = {}) {
     if (hit) reveal(sectionEls.get(hit.key), `${hit.key}:${bare}`);
   };
 
-  options.setNavigate?.(goToEntry);
+  // Router/deep-link entry point: section-qualified targets ("maps:10000")
+  // reveal a row; anything else becomes toolbar search text, matching the
+  // ?q=<query> convention the other tabs use.
+  const navigate = (query) => {
+    const raw = String(query || '').trim();
+    if (!raw) return;
+    const bare = raw.replace(/^id\s*:\s*/i, '');
+    if (/^[a-z_]+\s*:\s*.+/i.test(bare)) {
+      goToEntry(raw);
+    } else {
+      searchQuery = bare;
+      searchBox._input.value = bare;
+      searchBox._sync();
+      renderData();
+      window.scrollTo(0, 0);
+    }
+  };
+
+  options.setNavigate?.(navigate);
   const initial = options.initialParams?.get?.('q');
-  if (initial) goToEntry(initial);
+  if (initial) navigate(initial);
 
   const generated = formatTimestamp(notes.generated_at);
   if (generated) {
