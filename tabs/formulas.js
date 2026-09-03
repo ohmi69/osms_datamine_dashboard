@@ -346,7 +346,7 @@ const BASE_DAMAGE_VARS = [
   { name: 'WepMult',       desc: 'Weapon multiplier for the attack action used - see Weapon Multipliers table' },
   { name: 'StatDiv',       desc: 'Divides both stat terms. Chosen alongside WepMult by the weapon type and the attack action - values listed with the Physical Damage formula' },
   { name: 'AtkDiv',        desc: 'Divides the AttackPower term. Chosen the same way as StatDiv - values listed with the Physical Damage formula' },
-  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8 (levels 1 to 10). Physical attacks read MasteryLevel from the weapon mastery skill for the equipped weapon; magic attacks read it from the attacking skill\'s own data instead. Exception: Lucky Seven ignores mastery skills entirely and takes 0.5 at every level from its own skill data' },
+  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8 (level 0 if unlearned). Physical attacks read MasteryLevel from the weapon mastery skill for the equipped weapon; magic attacks read it from the attacking skill\'s own data instead. Exception: Lucky Seven ignores mastery skills entirely and takes 0.5 at every level from its own skill data' },
   { name: 'BasicAttack',   desc: 'Basic Attack value listed on the skill, for magic skills only' },
   { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
   { name: 'Magic',              desc: 'The MAGIC value on the stat window. The client builds it as TotalInt / 2 Magic Attack. It keeps only this one number, and every magic formula reads it' },
