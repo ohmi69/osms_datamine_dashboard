@@ -18,6 +18,11 @@
   align-items: center;
 }
 
+.beauty-search {
+  flex: 1 0 100%;
+  width: 100%;
+}
+
 /* ── Type sections ──────────────────────────────────────────── */
 
 .beauty-body {
@@ -143,6 +148,11 @@
 .beauty-style-card:hover {
   background: var(--accent-bg);
   outline: 1px solid var(--accent);
+}
+
+.beauty-style-card.row-hotlink {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .beauty-style-thumb {

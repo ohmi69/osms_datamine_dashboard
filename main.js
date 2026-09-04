@@ -34,6 +34,7 @@ import { renderFormulas }  from './tabs/formulas.js';
 import { renderFormulasCot1 } from './tabs/formulas-cot1.js';
 import { renderNavigatorGame } from './tabs/navigator-game.js';
 import { renderPatchNotes } from './tabs/patch-notes.js';
+import { buildGlobalSearchIndex } from './lib/global-search.js';
 
 
 // Apply theme immediately
@@ -42,6 +43,7 @@ ThemeManager.applyTheme();
 
 let appData = null;
 let tabManager = null;
+let globalSearchIndex = [];
 
 
 // Use Router for deep link parsing
@@ -68,6 +70,7 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
       label: 'Overview',
       icon: ICONS.chartColumn,
       render: () => renderOverview(appData, {
+        searchIndex: globalSearchIndex,
         switchTab: (id, push, query) => tabManager.switchTab(id, push, query),
         openTabWithParams: (id, params) => {
           pendingTabParams[id] = new URLSearchParams(params);
@@ -128,6 +131,7 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
       render: ({ setNavigate, navigators }) => renderCrafting(appData, {
         setNavigate,
         initialParams: onceParams('crafting'),
+        patchVersion,
         onItemClick: (item, id) => {
           const isEquip = item?.category === 'Equipment';
           const tab = isEquip ? 'equipment' : 'items';
@@ -192,7 +196,7 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
       id: 'beauty',
       label: 'Beauty',
       icon: ICONS.sparkles,
-      render: () => renderBeautyStyles(appData)
+      render: ({ setNavigate }) => renderBeautyStyles(appData, { setNavigate })
     },
   ];
   if (!isTimeTravelMode) return tabs;
@@ -218,7 +222,7 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
 // FILTER_TABS keep discrete filter state in the hash (e.g. #items?filter=Scrolls)
 // and expose it through their navigator, so back/forward re-applies the params
 // instead of skipping to the previous tab.
-const FILTER_TABS = new Set(['skills', 'items', 'equipment', 'cashshop', 'crafting', 'quests']);
+const FILTER_TABS = new Set(['skills', 'items', 'equipment', 'cashshop', 'crafting', 'quests', 'beauty']);
 Router.onRouteChange((tab, query, params) => {
   if (!tabManager) return;
   let tabId = tab === 'cash_shop' ? 'cashshop' : tab;
@@ -397,6 +401,7 @@ async function init() {
 
   try {
     appData = await loadData();
+    globalSearchIndex = buildGlobalSearchIndex(appData);
   } catch (error) {
     console.error(error);
     panels.innerHTML = '';

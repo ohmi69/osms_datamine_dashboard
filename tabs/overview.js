@@ -1,5 +1,6 @@
 import { el, makeTabLink, tabHref, onLinkActivate } from '../lib/utils.js';
 import { getDataBase } from '../lib/data.js';
+import { renderGlobalSearch } from '../lib/global-search.js';
 
 function buildBanner(title, subtitle, accent = { rgb: '251,146,60', hex: '#fb923c' }, link = null) {
   const banner = el('div', {
@@ -90,6 +91,7 @@ export function renderOverview(data, options) {
       `Welcome back to ${dateStr} (${version})`,
       dateStr ? `Enjoy the walk down memory lane` : 'Historical datamine snapshot',
     ));
+    frag.appendChild(renderGlobalSearch(options.searchIndex || []));
     frag.appendChild(buildNavSection(stats, switchTab, true));
     return frag;
   }
@@ -100,6 +102,8 @@ export function renderOverview(data, options) {
     { rgb: '34,197,94', hex: '#22c55e' },
     data.patchNotes ? { label: 'View COT1 → COT2 patch notes →', tabId: 'patchnotes', onClick: () => switchTab('patchnotes') } : null,
   ));
+
+  frag.appendChild(renderGlobalSearch(options.searchIndex || []));
 
   // Hero banner
   const heroBanner = el('div', {
