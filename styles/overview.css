@@ -395,3 +395,61 @@
 @media (max-width: 480px) {
   .nav-grid { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 640px) {
+  .overview-welcome {
+    padding: 20px 16px !important;
+    margin-bottom: 22px !important;
+  }
+  .overview-welcome__title {
+    font-size: 20px !important;
+    line-height: 1.25;
+  }
+  .overview-welcome__copy {
+    font-size: 14px !important;
+    line-height: 1.55;
+  }
+  .overview-welcome__link {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .global-search { margin: 0 0 22px; }
+  .global-search__icon { margin-left: 13px; }
+
+  .overview-release {
+    align-items: stretch !important;
+    flex-wrap: wrap;
+    gap: 10px !important;
+    padding: 13px 14px !important;
+    margin-bottom: 18px !important;
+  }
+  .overview-release__meta {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .overview-release__divider { display: none; }
+  .overview-release__info {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .overview-release__time {
+    align-items: flex-start !important;
+    flex-wrap: wrap;
+  }
+  .overview-disclaimer {
+    padding: 11px 13px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .nav-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav-card { min-width: 0; padding: 11px 12px; }
+  .findings-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 350px) {
+  .overview-welcome { padding: 18px 13px !important; }
+  .overview-welcome__title { font-size: 18px !important; }
+  .nav-grid { gap: 8px; }
+  .nav-card { padding: 10px; }
+}

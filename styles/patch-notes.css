@@ -478,4 +478,44 @@ a.pn-chip-link:focus-visible { outline: 2px solid var(--accent); outline-offset:
 @media (max-width: 640px) {
   .pn-fields { grid-template-columns: 1fr; }
   .pn-field-values, .pn-field-detail, .pn-chips { grid-column: 1; }
+
+  .patch-notes-page { padding-bottom: 20px; }
+  .pn-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 8px;
+    padding: 12px;
+  }
+  .pn-side { min-width: 0; }
+  .pn-side-label { overflow-wrap: anywhere; }
+  .pn-arrow { font-size: 17px; }
+  .pn-header-tally {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-left: 0;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+  .pn-toolbar .search-box { margin-bottom: 8px; }
+  .pn-filter-row { gap: 6px; }
+  .pn-sections { margin-top: 10px; }
+  .pn-sections > .collapsible > .collapsible-header { position: static; }
+  .pn-bucket > .collapsible-body,
+  .pn-group > .collapsible-body { padding: 4px; }
+  .pn-entry { padding: 7px 8px; }
+  .pn-entry-head { min-width: 0; }
+  .pn-name { min-width: 0; overflow-wrap: anywhere; }
+  .pn-modal-overlay { padding: 8px 0 0; }
+  .pn-modal {
+    min-height: 100%;
+    padding: 12px;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 12px 12px 0 0;
+  }
+  .pn-modal-close {
+    min-width: 40px;
+    min-height: 40px;
+  }
 }

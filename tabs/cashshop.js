@@ -1,4 +1,4 @@
-import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeHideToggle, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeHideToggle, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import state from '../lib/data.js';
 
@@ -81,6 +81,7 @@ export function renderCashShop(data, options = {}) {
     renderData();
   }));
   toolbar.appendChild(toggleRow);
+  enableMobileFilterDrawer(toolbar, { keep: [searchBox] });
   container.appendChild(toolbar);
 
   const dataDiv = el('div');

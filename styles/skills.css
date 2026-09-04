@@ -728,4 +728,18 @@
     border-left: 0;
   }
   .skill-range-selector-field { grid-template-columns: 1fr; gap: 4px; }
+
+  .skills-browser-heading { margin-bottom: 16px; }
+  .skills-browser-heading h2 { font-size: 22px; }
+  .skill-class-card {
+    min-height: 0;
+    padding: 15px;
+  }
+  .skill-class-card-top { gap: 8px; }
+  .skill-class-card-top strong { font-size: 19px; }
+  .skill-class-action { padding-top: 13px; }
+  .skill-card .top-line { min-width: 0; gap: 8px; }
+  .skill-card .name { overflow-wrap: anywhere; }
+  .skill-range-figure { overflow: hidden; }
+  .skill-range-choice { min-height: 34px; }
 }

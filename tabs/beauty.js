@@ -1,4 +1,4 @@
-import { el, normalizeAssetPath, makeCopyableId, padItemId, makeSearchBox, parseIdFilter } from '../lib/utils.js';
+import { el, normalizeAssetPath, makeCopyableId, padItemId, makeSearchBox, parseIdFilter, enableMobileFilterDrawer } from '../lib/utils.js';
 
 export function renderBeautyStyles(data, options = {}) {
   const beauty = data.beauty_coupons;
@@ -56,6 +56,7 @@ export function renderBeautyStyles(data, options = {}) {
   );
   filterBar.appendChild(typeGroup);
   filterBar.appendChild(genderGroup);
+  enableMobileFilterDrawer(filterBar, { keep: [searchBox] });
 
   container.appendChild(filterBar);
 

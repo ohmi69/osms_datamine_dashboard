@@ -1,5 +1,5 @@
 
-import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeMatcher, makeHideToggle, makeCopyableId, makeTabLink, padMapId, padMobId, scrollToDetailRow, autoExpandById } from '../../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeMatcher, makeHideToggle, makeCopyableId, makeTabLink, padMapId, padMobId, scrollToDetailRow, autoExpandById, enableMobileFilterDrawer } from '../../lib/utils.js';
 import { attachTooltip } from '../../lib/tooltip.js';
 import state, { getMapUrl, getMobThumbUrl } from '../../lib/data.js';
 
@@ -134,6 +134,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
   topRow.appendChild(searchBox);
   topRow.appendChild(navBtn);
   toolbar.insertBefore(topRow, toggles);
+  enableMobileFilterDrawer(toolbar, { keep: [topRow], label: 'Columns & options' });
 
   if (options.setNavigate) {
     const navigateFn = (target) => {

@@ -343,3 +343,42 @@
   margin-top: 4px;
   text-align: right;
 }
+
+@media (max-width: 640px) {
+  .craft-table col.result { width: 43%; }
+  .craft-table col.qty { width: 9%; }
+  .craft-table col.ingredients { width: 48%; }
+  .craft-table th,
+  .craft-table td { padding-right: 6px; padding-left: 6px; }
+  .craft-table th:nth-child(2),
+  .craft-table td:nth-child(2) { padding-right: 2px; padding-left: 2px; }
+  .craft-table th { font-size: 9px; }
+  .craft-table .level-header td { padding: 6px 10px; }
+  .craft-result-wrap {
+    min-width: 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .craft-item,
+  .craft-ing { min-width: 0; align-items: flex-start; }
+  .craft-result-wrap .craft-item { width: 100%; }
+  .craft-result-wrap .item-id-wrap {
+    width: 100%;
+    padding-left: 38px;
+  }
+  .craft-result-wrap .deep-link-btn { display: none; }
+  .craft-item .item-thumb,
+  .craft-ing .item-thumb { flex-shrink: 0; }
+  .craft-result-name,
+  .craft-ing-text {
+    overflow-wrap: normal;
+    word-break: normal;
+    white-space: normal;
+  }
+  .craft-result-name { line-height: 1.35; }
+  .craft-level-wrap { padding: 10px 12px 12px; }
+  .craft-level-table { min-width: 520px; }
+  .item-tooltip {
+    max-width: min(260px, calc(100vw - 24px));
+  }
+}

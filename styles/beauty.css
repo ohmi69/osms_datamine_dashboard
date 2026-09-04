@@ -180,3 +180,24 @@
   color: var(--dim);
   opacity: 0.6;
 }
+
+@media (max-width: 640px) {
+  .beauty-container { gap: 12px; }
+  .beauty-filter-bar { gap: 12px; }
+  .beauty-body { gap: 24px; }
+  .beauty-type-section { gap: 12px; }
+  .beauty-style-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .beauty-style-card {
+    min-width: 0;
+    min-height: 178px;
+    padding: 8px 5px;
+  }
+  .beauty-coupon-section { padding: 12px; }
+  .beauty-coupon-header { align-items: flex-start; }
+  .beauty-coupon-header-text { min-width: 0; }
+  .beauty-coupon-name,
+  .beauty-coupon-desc { overflow-wrap: anywhere; }
+}

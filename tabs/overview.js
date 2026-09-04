@@ -4,6 +4,7 @@ import { renderGlobalSearch } from '../lib/global-search.js';
 
 function buildBanner(title, subtitle, accent = { rgb: '251,146,60', hex: '#fb923c' }, link = null) {
   const banner = el('div', {
+    className: 'overview-welcome',
     style: {
       background: `linear-gradient(135deg, rgba(${accent.rgb},.18) 0%, rgba(${accent.rgb},.08) 100%)`,
       border: `2px solid rgba(${accent.rgb},.55)`,
@@ -15,15 +16,18 @@ function buildBanner(title, subtitle, accent = { rgb: '251,146,60', hex: '#fb923
     },
   });
   banner.appendChild(el('div', {
+    className: 'overview-welcome__title',
     style: { fontSize: '22px', fontWeight: '800', color: accent.hex, letterSpacing: '.5px', marginBottom: '8px' },
     textContent: title,
   }));
   banner.appendChild(el('div', {
+    className: 'overview-welcome__copy',
     style: { fontSize: '15px', color: 'var(--dim)', opacity: '.85' },
     textContent: subtitle,
   }));
   if (link) {
     const linkEl = el('a', {
+      className: 'overview-welcome__link',
       href: tabHref(link.tabId),
       style: {
         display: 'inline-block',
@@ -107,6 +111,7 @@ export function renderOverview(data, options) {
 
   // Hero banner
   const heroBanner = el('div', {
+    className: 'overview-release',
     style: {
       background: 'var(--surface)',
       border: '1px solid var(--border)',
@@ -121,6 +126,7 @@ export function renderOverview(data, options) {
     },
   });
   const heroBadgeMeta = el('div', {
+    className: 'overview-release__meta',
     style: { display: 'flex', flexDirection: 'column', gap: '5px', flexShrink: '0' },
   });
   const heroBadge = el('div', {
@@ -154,14 +160,15 @@ export function renderOverview(data, options) {
   heroBadgeMeta.appendChild(heroPatchHash);
   heroBanner.appendChild(heroBadgeMeta);
   heroBanner.appendChild(el('div', {
+    className: 'overview-release__divider',
     style: { width: '1px', alignSelf: 'stretch', background: 'var(--border)', flexShrink: '0', margin: '0 4px' },
   }));
-  const heroInfo = el('div', { style: { display: 'flex', flexDirection: 'column', gap: '4px' } });
+  const heroInfo = el('div', { className: 'overview-release__info', style: { display: 'flex', flexDirection: 'column', gap: '4px' } });
   heroInfo.appendChild(el('p', {
     style: { fontSize: '12px', color: 'var(--dim)', lineHeight: '1.5', margin: '0' },
     textContent: 'Latest datamine for this patch. All data is extracted directly from the game client.',
   }));
-  const heroTimeLine = el('div', { style: { display: 'flex', alignItems: 'center', gap: '5px' } });
+  const heroTimeLine = el('div', { className: 'overview-release__time', style: { display: 'flex', alignItems: 'center', gap: '5px' } });
   heroTimeLine.appendChild(el('span', {
     style: { fontSize: '9px', color: 'var(--dim)', opacity: '.5', letterSpacing: '.4px', fontWeight: '600', textTransform: 'uppercase' },
     textContent: 'Last Datamine Time:',
@@ -176,6 +183,7 @@ export function renderOverview(data, options) {
 
   // Disclaimer
   const disclaimer = el('div', {
+    className: 'overview-disclaimer',
     style: {
       background: 'rgba(254,178,114,.08)',
       border: '1px solid rgba(254,178,114,.35)',

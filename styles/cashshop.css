@@ -64,3 +64,9 @@
   border: 1px solid #ef444444;
   line-height: 1.5;
 }
+
+@media (max-width: 640px) {
+  .cashshop-toggle-row { align-items: flex-start; flex-wrap: wrap; }
+  .cashshop-name-wrap { min-width: 0; }
+  .cashshop-badge--price { margin-left: 0; }
+}

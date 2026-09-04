@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById, makeElementBadge } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById, makeElementBadge, enableMobileFilterDrawer } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL, ELEMENT_META, describeElements } from '../lib/constants.js';
@@ -490,6 +490,7 @@ export function renderMonsters(data, options = {}) {
   rebuildToggles();
 
   toolbar.appendChild(toggles);
+  enableMobileFilterDrawer(toolbar, { keep: [topRow], label: 'Filters & columns' });
   container.appendChild(toolbar);
   container.appendChild(dataContainer);
 

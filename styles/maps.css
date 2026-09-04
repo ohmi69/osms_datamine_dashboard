@@ -371,3 +371,53 @@
   z-index: 2;
   pointer-events: none;
 }
+
+@media (max-width: 640px) {
+  .maps-panel .sticky-toolbar > div:first-child { gap: 8px !important; }
+  .map-navigate-btn {
+    min-height: 44px;
+    margin: 0;
+    padding: 7px 13px;
+    font-size: 14px;
+    touch-action: manipulation;
+  }
+  .hide-toggle { margin-left: 0; }
+
+  .map-name-wrap,
+  .map-name-left {
+    min-width: 0;
+    align-items: flex-start;
+  }
+  .map-name-left { flex-wrap: wrap; }
+  .map-name-text { overflow-wrap: anywhere; }
+  .map-street-name {
+    flex-basis: 100%;
+    margin-left: 0;
+    line-height: 1.35;
+  }
+
+  .map-detail-panel {
+    position: sticky;
+    left: 0;
+    width: min(100%, calc(100dvw - 24px));
+    padding: 10px 12px 14px;
+  }
+  .full-map-image-container { margin: 14px auto 12px; }
+  .map-meta-row { align-items: flex-start; }
+  .map-meta-left,
+  .map-meta-right { width: 100%; }
+  .map-meta-right { margin-left: 0; }
+  .map-detail-nav-btn {
+    width: 100%;
+    min-height: 42px;
+    margin: 2px 0 0;
+  }
+  .map-exit-chip,
+  .map-mob-chip,
+  .map-npc-chip { max-width: 100%; }
+  .navigate-step {
+    margin: 14px 0;
+    padding: 10px;
+  }
+  .navigate-step-img { width: 100%; height: auto; }
+}

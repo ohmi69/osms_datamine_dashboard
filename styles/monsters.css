@@ -462,3 +462,60 @@
   color: var(--dim);
   white-space: nowrap;
 }
+
+@media (max-width: 640px) {
+  .data-table th { padding: 8px 6px; }
+  .data-table td { padding: 8px 6px; }
+
+  .monster-detail-panel {
+    position: sticky;
+    left: 0;
+    width: min(100%, calc(100dvw - 24px));
+  }
+  .monster-detail-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+  }
+  .monster-detail-header-left {
+    width: 100%;
+    min-width: 0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .monster-anim-wrap { max-width: 128px; }
+  .monster-detail-gif {
+    max-width: 128px;
+    max-height: 104px;
+  }
+  .monster-detail-name {
+    min-width: 0;
+    padding-top: 4px;
+    overflow-wrap: anywhere;
+  }
+  .monster-detail-header-right { width: 100%; }
+  .monster-detail-body { flex-direction: column; }
+  .monster-detail-col,
+  .monster-detail-col-combat,
+  .monster-detail-col-skills {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-left: 0;
+    padding: 12px;
+  }
+  .monster-detail-col + .monster-detail-col {
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+  .monster-stat-grid { gap: 8px 14px; }
+  .mob-attack-row { min-width: 0; }
+  .mob-attack-tags { min-width: 0; }
+  .mob-skill-card { min-width: 0; max-width: 100%; }
+  .mob-skill-name,
+  .mob-skill-stats {
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+}

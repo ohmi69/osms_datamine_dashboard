@@ -526,7 +526,9 @@ async function init() {
   const toggleDock = el('div', { className: 'toggle-dock' });
   toggleDock.appendChild(idToggle);
   toggleDock.appendChild(themeToggle);
-  document.body.appendChild(toggleDock);
+  // Keep utility controls in the page flow on phones; desktop CSS still docks
+  // this element to the viewport edge.
+  nav.insertAdjacentElement('afterend', toggleDock);
 
 
 

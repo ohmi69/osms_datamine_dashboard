@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padQuestId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padQuestId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { attachTooltip, attachCustomTooltip } from '../lib/tooltip.js';
 import state, { getMobThumbUrl } from '../lib/data.js';
@@ -341,7 +341,7 @@ function renderContributionTooltip(tip, contribution) {
   return true;
 }
 
-function renderQuestCard(quest, completionState, onToggleCompletion, itemById, monsterById, expandedIds) {
+function renderQuestCard(quest, completionState, onToggleCompletion, itemById, monsterById, npcByName, expandedIds) {
   const card = el('div', { className: 'quest-card' });
   const nameRow = el('div', { className: 'quest-name' });
 
@@ -409,7 +409,21 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
     qIdWrap.appendChild(makeCopyableId(`#${padQuestId(quest.id)}`));
     nameRow.appendChild(qIdWrap);
   }
-  card.appendChild(nameRow);
+  const questHeader = el('div', { className: 'quest-card-header' });
+  const npc = npcByName?.get(String(quest.npc_name || '').trim().toLowerCase());
+  if (npc?.thumbnail) {
+    questHeader.appendChild(makeThumbnail(npc.thumbnail, `${quest.npc_name} portrait`, {
+      className: 'quest-npc-thumb',
+      fallbackText: 'NPC',
+    }));
+  }
+  const headingCopy = el('div', { className: 'quest-card-heading' });
+  headingCopy.appendChild(nameRow);
+  if (quest.npc_name) {
+    headingCopy.appendChild(el('div', { className: 'quest-npc', textContent: quest.npc_name }));
+  }
+  questHeader.appendChild(headingCopy);
+  card.appendChild(questHeader);
 
   const stages = quest.description ? quest.description.split('\n').filter(s => s.trim()) : [];
   let descEl = null;
@@ -439,9 +453,6 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
     });
   }
 
-  if (quest.npc_name) {
-    card.appendChild(el('div', { className: 'quest-npc', textContent: quest.npc_name }));
-  }
   if (stages.length > 0) {
     descEl = el('p', { className: 'quest-desc', textContent: stages[0] });
     card.appendChild(descEl);
@@ -565,6 +576,14 @@ export function renderQuests(data, options = {}) {
   );
   const monsterById = new Map(
     (data.monsters?.monsters || []).map(mob => [String(mob.id), mob])
+  );
+  const npcValues = data.maps?.npc_lookup instanceof Map
+    ? data.maps.npc_lookup.values()
+    : Object.values(data.maps?.npc_lookup || {});
+  const npcByName = new Map(
+    [...npcValues]
+      .filter(npc => npc?.name)
+      .map(npc => [String(npc.name).trim().toLowerCase(), npc])
   );
   let searchQuery = '';
   let autoExpandAfterId = null;
@@ -736,6 +755,7 @@ export function renderQuests(data, options = {}) {
   }
 
   syncSubFilterRows();
+  enableMobileFilterDrawer(toolbar, { keep: [searchBox] });
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);
@@ -826,7 +846,7 @@ export function renderQuests(data, options = {}) {
       if (item.type === 'quest') {
         const wrapper = el('div', { className: 'quest-standalone' });
         if (isQuestCompleted(item.quest, completionState)) wrapper.classList.add('quest-group-complete');
-        wrapper.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion, itemById, monsterById, expandedIds));
+        wrapper.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion, itemById, monsterById, npcByName, expandedIds));
         dataDiv.appendChild(wrapper);
       } else {
         const chain = item.chain;
@@ -838,7 +858,7 @@ export function renderQuests(data, options = {}) {
         });
         chainDiv.appendChild(header);
         chain.quests.forEach((quest) =>
-          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion, itemById, monsterById, expandedIds))
+          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion, itemById, monsterById, npcByName, expandedIds))
         );
         dataDiv.appendChild(chainDiv);
       }

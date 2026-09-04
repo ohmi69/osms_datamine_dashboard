@@ -1005,4 +1005,27 @@
   .navgame-rules {
     padding: 14px 18px;
   }
+
+  .navgame { padding: 4px 0 12px; }
+  .navgame-start { gap: 14px; padding: 12px 0 20px; }
+  .navgame-title { font-size: 1.65rem; }
+  .navgame-subtitle { font-size: .95rem; line-height: 1.5; }
+  .navgame-daily-card,
+  .navgame-challenge-card { padding: 13px 14px; }
+  .navgame-daily-card-top { align-items: flex-start; gap: 8px; }
+  .navgame-daily-meta { flex-wrap: wrap; justify-content: flex-end; }
+  .navgame-rules { padding: 13px 14px; }
+  .navgame-rule { align-items: flex-start; font-size: .9rem; }
+  .navgame-difficulty { width: 100%; }
+  .navgame-diff-btn { flex: 1; min-width: 0; }
+  .navgame-start-btn { width: 100%; min-height: 48px; padding: 12px 18px; }
+  .navgame-hud-from,
+  .navgame-hud-to { flex: 1 1 35%; }
+  .navgame-hud-spacer { display: none; }
+  .navgame-hud-timer,
+  .navgame-hud-moves { flex: 1; }
+  .navgame-hint-btn { min-width: calc(50% - 4px); white-space: normal; }
+  .navgame-result { padding: 12px 0; }
+  .navgame-result-btns { flex-direction: column; }
+  .navgame-result-btns > * { width: 100%; }
 }

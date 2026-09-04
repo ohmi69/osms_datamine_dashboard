@@ -1,4 +1,4 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 
 function matchesClass(item, classFilter) {
@@ -209,6 +209,7 @@ export function renderEquipment(data, options = {}) {
   }
   buildSubCategoryPills();
   buildWeaponTypePills();
+  enableMobileFilterDrawer(toolbar, { keep: [searchBox] });
 
   const dataDiv = el('div');
   container.appendChild(dataDiv);

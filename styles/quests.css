@@ -73,6 +73,24 @@
 .quest-card.quest-complete {
   background: rgba(34, 197, 94, 0.08);
 }
+.quest-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.quest-card-heading {
+  flex: 1;
+  min-width: 0;
+  padding-top: 1px;
+}
+.quest-npc-thumb {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  background: var(--surface);
+  border-color: var(--border);
+  image-rendering: pixelated;
+}
 .quest-card .quest-name {
   font-size: 15px;
   font-weight: 600;
@@ -141,6 +159,14 @@
 .quest-card .quest-stages { margin-top: 8px; border-top: 1px solid var(--border); padding-top: 8px; }
 .quest-card .quest-stage { font-size: 13px; color: var(--dim); line-height: 1.6; margin: 0 0 6px; }
 .quest-card .quest-stage:last-child { margin-bottom: 0; }
+
+@media (max-width: 480px) {
+  .quest-npc-thumb {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+}
 
 .quest-meta-box {
   font-size: 12px;
@@ -282,4 +308,29 @@
   background: rgba(90,90,90,0.10);
   color: #4a4a4a;
   border-color: rgba(90,90,90,0.30);
+}
+
+@media (max-width: 640px) {
+  .quest-card { padding: 11px 12px; }
+  .quest-chain-header { padding: 10px 12px; }
+  .quest-card-header { gap: 8px; }
+  .quest-card .quest-name {
+    align-items: flex-start;
+    gap: 6px;
+    overflow-wrap: anywhere;
+  }
+  .quest-id-wrap { margin-left: 0; }
+  .quest-meta-box {
+    align-items: flex-start;
+    gap: 7px;
+    padding: 7px 8px;
+  }
+  .quest-meta-box > .value { min-width: 0; overflow-wrap: anywhere; }
+  .quest-chip-list { gap: 5px; }
+  .quest-chip {
+    max-width: 100%;
+    padding: 4px 8px;
+    white-space: normal;
+  }
+  .item-tooltip { max-width: min(280px, calc(100vw - 24px)); }
 }

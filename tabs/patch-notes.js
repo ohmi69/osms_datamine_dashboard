@@ -1,5 +1,6 @@
 import { el, makeCollapsible, makeCopyableId, makeThumbnail,
-         makeDeepLinkButton, makeSearchBox, makePillGroup, makeMatcher, makeHideToggle } from '../lib/utils.js';
+         makeDeepLinkButton, makeSearchBox, makePillGroup, makeMatcher, makeHideToggle,
+         enableMobileFilterDrawer } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 
 const BUCKETS = [
@@ -738,6 +739,7 @@ export function renderPatchNotes(notes, options = {}) {
 
   const statusLine = el('div', { className: 'pn-status', hidden: true });
   toolbar.appendChild(statusLine);
+  enableMobileFilterDrawer(toolbar, { keep: [searchBox, statusLine] });
   page.appendChild(toolbar);
 
   const sectionsWrap = el('div', { className: 'pn-sections' });

@@ -1,4 +1,4 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { attachTooltip } from '../lib/tooltip.js';
 
@@ -158,6 +158,7 @@ export function renderCrafting(data, options = {}) {
     renderData();
   });
   toolbar.appendChild(pillGroup);
+  enableMobileFilterDrawer(toolbar, { keep: [searchBox] });
   container.appendChild(toolbar);
 
   // Sits above the recipe lists and is deliberately outside renderData - the

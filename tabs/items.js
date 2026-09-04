@@ -1,4 +1,4 @@
-import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, makeMatcher, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner } from '../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, makeMatcher, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 
 const STAT_LABELS = {
@@ -134,6 +134,7 @@ export function renderItems(data, options = {}) {
     return btn;
   });
   toolbar.appendChild(scrollSubRow);
+  enableMobileFilterDrawer(toolbar, { keep: [searchBox] });
   container.appendChild(toolbar);
 
   const dataDiv = el('div');
