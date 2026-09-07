@@ -102,7 +102,7 @@ export function renderOverview(data, options) {
 
   frag.appendChild(buildBanner(
     'Closed Online Test 2 is complete!',
-    "While we wait for the global release, check out what was new in COT2 below.",
+    "While we wait for the (Founder's Access) global release on Oct. 6th, check out what was new in COT2 below.",
     { rgb: '34,197,94', hex: '#22c55e' },
     data.patchNotes ? { label: 'View COT1 → COT2 patch notes →', tabId: 'patchnotes', onClick: () => switchTab('patchnotes') } : null,
   ));
