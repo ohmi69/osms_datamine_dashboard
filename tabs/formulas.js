@@ -1,5 +1,6 @@
 import { el, normalizeAssetPath } from '../lib/utils.js';
 import { buildCalcLauncher } from './formulas-calc.js';
+import { tokenizeLine, attachTooltip, makeCollapsibleSection, buildVarLegend, buildTable } from './formulas-shared.js';
 import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
 
 // Experience required per level, read out of the COT2 client. The client builds the
@@ -619,7 +620,6 @@ const MOD_VARS = [
   { name: 'ElementAmpDamage', desc: "Damage bonus % from the Element Amplification buff, taken as the y value of whichever skill fills the slot. Magic and DoT only. The client supports it, but the skill is not in this game's data, so it never fires" },
 ];
 
-
 // ─── Damage taken ─────────────────────────────────────────────
 
 const GUARD_STEPS = [
@@ -803,86 +803,7 @@ const GUARD_VARS = [
   { name: 'DamageTaken',   desc: 'HP actually lost from the hit' },
 ];
 
-// ─── Formula tokenizer ───────────────────────────────────────
-
-const FORMULA_FNS = new Set(['exp', 'rand', 'trunc', 'floor', 'clamp', 'max']);
-const FORMULA_TOKEN_RE = /([A-Za-z][A-Za-z0-9]*)|(\d+(?:\.\d+)?)/g;
-
-function tokenizeLine(line) {
-  let out = '';
-  let last = 0;
-  let m;
-  FORMULA_TOKEN_RE.lastIndex = 0;
-  while ((m = FORMULA_TOKEN_RE.exec(line)) !== null) {
-    out += line.slice(last, m.index);
-    if (m[1]) {
-      const cls = FORMULA_FNS.has(m[1]) ? 'formula-fn' : 'formula-var';
-      out += `<span class="${cls}">${m[1]}</span>`;
-    } else {
-      out += `<span class="formula-num">${m[0]}</span>`;
-    }
-    last = FORMULA_TOKEN_RE.lastIndex;
-  }
-  out += line.slice(last);
-  return out;
-}
-
-// ─── Status tooltip ───────────────────────────────────────────
-
-let _statusTip = null;
-function getStatusTip() {
-  if (!_statusTip) {
-    _statusTip = document.createElement('div');
-    _statusTip.className = 'formula-status-tooltip';
-    document.body.appendChild(_statusTip);
-  }
-  return _statusTip;
-}
-
-function showStatusTooltip(anchor, text) {
-  const tip = getStatusTip();
-  tip.textContent = text;
-  tip.style.visibility = 'hidden';
-  tip.classList.add('visible');
-
-  const rect = anchor.getBoundingClientRect();
-  const tw = tip.offsetWidth;
-  const th = tip.offsetHeight;
-  let x = rect.left + rect.width / 2 - tw / 2 + window.scrollX;
-  let y = rect.top - th - 6 + window.scrollY;
-  x = Math.max(8, Math.min(x, window.innerWidth - tw - 8));
-  if (y < window.scrollY + 8) y = rect.bottom + 6 + window.scrollY;
-
-  tip.style.left = `${x}px`;
-  tip.style.top = `${y}px`;
-  tip.style.visibility = '';
-}
-
-function hideStatusTooltip() {
-  _statusTip?.classList.remove('visible');
-}
-
 // ─── Shared helpers ───────────────────────────────────────────
-
-function makeCollapsibleSection(title, countLabel, bodyFn) {
-  const wrap = el('div', { className: 'collapsible open' });
-
-  const header = el('div', { className: 'collapsible-header' });
-  const left = el('div', { className: 'left' });
-  left.appendChild(el('span', { className: 'title', textContent: title }));
-  const right = el('div', { className: 'right' });
-  if (countLabel) right.appendChild(el('span', { className: 'count', textContent: countLabel }));
-
-  header.appendChild(left);
-  header.appendChild(right);
-
-  const body = el('div', { className: 'collapsible-body' });
-  body.appendChild(bodyFn());
-
-  wrap.appendChild(header);
-  wrap.appendChild(body);
-  return wrap;
-}
 
 const STATUS_LABELS = { ok: 'Code Verified', partial: 'Partly Code Verified', warn: 'Educated Guess' };
 
@@ -893,13 +814,6 @@ const VALIDATION_NOTES = {
   pending: 'Nobody has confirmed this against live gameplay yet - it is what the game files say, not what anyone has measured.',
   done: 'Checked against live gameplay and matched.',
 };
-
-function attachTooltip(tag, text) {
-  if (!text) return tag;
-  tag.addEventListener('mouseenter', () => showStatusTooltip(tag, text));
-  tag.addEventListener('mouseleave', hideStatusTooltip);
-  return tag;
-}
 
 // Returns a fragment so callers can drop both tags in with one appendChild.
 // `validated` is only meaningful for code-backed formulas - an educated guess
@@ -1022,20 +936,6 @@ function buildPipeline(steps, chapterStarts = {}) {
     frag.appendChild(step);
   });
   return frag;
-}
-
-function buildVarLegend(vars) {
-  const wrap = el('div', { className: 'formulas-var-section' });
-  wrap.appendChild(el('div', { className: 'formulas-var-heading', textContent: 'Variables' }));
-  const grid = el('div', { className: 'formulas-var-grid' });
-  vars.forEach(({ name, desc }) => {
-    const row = el('div', { className: 'formulas-var-row' });
-    row.appendChild(el('span', { className: 'formulas-var-name', textContent: name }));
-    row.appendChild(el('span', { className: 'formulas-var-desc', textContent: desc }));
-    grid.appendChild(row);
-  });
-  wrap.appendChild(grid);
-  return wrap;
 }
 
 // ─── Section builders ─────────────────────────────────────────
@@ -1369,25 +1269,6 @@ function buildCraftTable() {
   container.appendChild(tableWrap);
 
   return container;
-}
-
-function buildTable(headers, rows) {
-  const table = el('table', { className: 'data-table' });
-
-  const thead = el('thead');
-  const headerRow = el('tr');
-  headers.forEach(([text, cls]) => headerRow.appendChild(el('th', { className: cls, textContent: text })));
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
-
-  const tbody = el('tbody');
-  rows.forEach((cells) => {
-    const row = el('tr');
-    cells.forEach((v, i) => row.appendChild(el('td', { className: headers[i][1], textContent: v })));
-    tbody.appendChild(row);
-  });
-  table.appendChild(tbody);
-  return table;
 }
 
 function buildHitDetectionOverview() {
@@ -2058,57 +1939,6 @@ function buildUpwardPlatformClearVisual() {
   );
 }
 
-function buildPlatformAnatomyVisual() {
-  const width = 620;
-  const height = 280;
-  const lowerGroundY = 210;
-  const upperGroundY = 90;
-  const cliffX = 310;
-  const originX = 105;
-  const originY = lowerGroundY;
-  const targetX = 500;
-  const targetY = 55;
-  const svg = svgEl('svg', {
-    viewBox: `0 0 ${width} ${height}`,
-    class: 'hitviz-svg',
-    role: 'img',
-    'aria-label': 'Diagram separating a platform\'s visible dirt from its horizontal and vertical platform collision lines, called footholds internally',
-    preserveAspectRatio: 'xMidYMid meet',
-  });
-  addHitvizGrid(svg, 'hitviz-grid-platform-anatomy', width, height);
-  addHitvizGround(svg, 0, 255, lowerGroundY);
-  addHitvizGround(svg, cliffX, width, upperGroundY);
-  addHitvizWall(svg, cliffX, upperGroundY, lowerGroundY);
-  svg.appendChild(svgEl('line', {
-    x1: cliffX,
-    y1: upperGroundY,
-    x2: width,
-    y2: upperGroundY,
-    class: 'hitviz-blocker',
-  }));
-  svg.appendChild(svgEl('line', {
-    x1: originX,
-    y1: originY,
-    x2: targetX,
-    y2: targetY,
-    class: 'hitviz-los',
-  }));
-  addHitvizMob(svg, targetX - 28, upperGroundY - 68, 56, 68);
-  addHitvizCharacter(svg, originX, originY);
-  addHitvizText(svg, 'horizontal platform line', 454, upperGroundY - 16, 'hitviz-svg-text--blocker');
-  addHitvizText(svg, 'vertical platform line', cliffX + 13, 159, 'hitviz-svg-text--blocker');
-  return buildHitvizCard(
-    'The dirt wall is not always a skill wall',
-    'Platform collision and attack blocking are separate rules',
-    svg,
-    'A vertical platform collision line—called a foothold internally—can stop movement. It only blocks attacks that run a terrain check, so direct attacks can still hit a monster across it.',
-    [
-      ['check-line', 'Path between you and the monster'],
-      ['terrain', 'Platform collision lines'],
-    ],
-  );
-}
-
 function buildAttackAreaGuide() {
   const container = el('div', { className: 'formulas-formula-wrap' });
   container.appendChild(buildAttackTypeVisuals([
@@ -2201,13 +2031,6 @@ function buildHitDetectionDetails(summaryText, rows) {
     body.appendChild(row);
   });
   details.appendChild(body);
-  return details;
-}
-
-function buildHitDetectionDisclosure(summaryText, children) {
-  const details = el('details', { className: 'hitviz-details hitviz-details--content' });
-  details.appendChild(el('summary', { textContent: summaryText }));
-  details.appendChild(el('div', { className: 'hitviz-details-body' }, ...children));
   return details;
 }
 
@@ -2409,8 +2232,6 @@ function buildGuardSection() {
   container.appendChild(buildVarLegend(GUARD_VARS));
   return container;
 }
-
-
 
 // ─── Page render ──────────────────────────────────────────────
 

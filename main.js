@@ -13,7 +13,7 @@ function showZoomTipModal() {
     setTimeout(() => tip.remove(), 600);
   }, 1800);
 }
-import { TABS, ICONS } from './lib/config.js';
+import { ICONS } from './lib/config.js';
 import { el, $, $$, hideFilterBanner } from './lib/utils.js';
 import state, { loadData, getDataBase } from './lib/data.js';
 import { TabManager } from './lib/TabManager.js';
@@ -591,14 +591,12 @@ function openImageModal(src, alt) {
   };
   // Touch pinch zoom (basic)
   let pinchStartDist = null;
-  let pinchStartZoom = null;
   img.ontouchstart = (e) => {
     if (e.touches.length === 2) {
       pinchStartDist = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
       );
-      pinchStartZoom = zoomLevels[zoomIdx];
     }
   };
   img.ontouchmove = (e) => {
@@ -621,13 +619,8 @@ function openImageModal(src, alt) {
   img.ontouchend = (e) => {
     if (e.touches.length < 2) {
       pinchStartDist = null;
-      pinchStartZoom = null;
     }
   };
-  // Reset zoom on modal close
-  modal.querySelector('.image-modal-close').onclick = closeImageModal;
-  // Overlay click closes modal
-  modal.querySelector('.image-modal-overlay').onclick = closeImageModal;
   // Prevent clicks inside content from bubbling to overlay (not strictly needed, but safe)
   modal.querySelector('.image-modal-content').onclick = (e) => {
     e.stopPropagation();

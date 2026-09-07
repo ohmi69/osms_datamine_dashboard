@@ -101,8 +101,8 @@ export function renderOverview(data, options) {
   }
 
   frag.appendChild(buildBanner(
-    'Welcome back to Closed Online Test 2!',
-    "The COT2 datamine is complete! Formulas and other data from COT1 may be outdated until re-verified, check back often as things change!",
+    'Closed Online Test 2 is complete!',
+    "While we wait for the global release, check out what was new in COT2 below.",
     { rgb: '34,197,94', hex: '#22c55e' },
     data.patchNotes ? { label: 'View COT1 → COT2 patch notes →', tabId: 'patchnotes', onClick: () => switchTab('patchnotes') } : null,
   ));

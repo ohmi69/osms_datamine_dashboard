@@ -1,5 +1,6 @@
 import { el } from '../lib/utils.js';
 import { buildCalcLauncher } from './formulas-calc.js';
+import { tokenizeLine, attachTooltip, makeCollapsibleSection, buildVarLegend, buildTable } from './formulas-shared.js';
 import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
 
 const EXP_TABLE = [
@@ -529,94 +530,7 @@ const GUARD_VARS = [
   { name: 'DamageTaken',   desc: 'HP actually lost from the hit' },
 ];
 
-
-// ─── Formula tokenizer ───────────────────────────────────────
-
-const FORMULA_FNS = new Set(['exp', 'rand', 'trunc', 'floor', 'clamp', 'max']);
-const FORMULA_TOKEN_RE = /([A-Za-z][A-Za-z0-9]*)|(\d+(?:\.\d+)?)/g;
-
-function tokenizeLine(line) {
-  let out = '';
-  let last = 0;
-  let m;
-  FORMULA_TOKEN_RE.lastIndex = 0;
-  while ((m = FORMULA_TOKEN_RE.exec(line)) !== null) {
-    out += line.slice(last, m.index);
-    if (m[1]) {
-      const cls = FORMULA_FNS.has(m[1]) ? 'formula-fn' : 'formula-var';
-      out += `<span class="${cls}">${m[1]}</span>`;
-    } else {
-      out += `<span class="formula-num">${m[0]}</span>`;
-    }
-    last = FORMULA_TOKEN_RE.lastIndex;
-  }
-  out += line.slice(last);
-  return out;
-}
-
-// ─── Status tooltip ───────────────────────────────────────────
-
-let _statusTip = null;
-function getStatusTip() {
-  if (!_statusTip) {
-    _statusTip = document.createElement('div');
-    _statusTip.className = 'formula-status-tooltip';
-    document.body.appendChild(_statusTip);
-  }
-  return _statusTip;
-}
-
-function showStatusTooltip(anchor, text) {
-  const tip = getStatusTip();
-  tip.textContent = text;
-  tip.style.visibility = 'hidden';
-  tip.classList.add('visible');
-
-  const rect = anchor.getBoundingClientRect();
-  const tw = tip.offsetWidth;
-  const th = tip.offsetHeight;
-  let x = rect.left + rect.width / 2 - tw / 2 + window.scrollX;
-  let y = rect.top - th - 6 + window.scrollY;
-  x = Math.max(8, Math.min(x, window.innerWidth - tw - 8));
-  if (y < window.scrollY + 8) y = rect.bottom + 6 + window.scrollY;
-
-  tip.style.left = `${x}px`;
-  tip.style.top = `${y}px`;
-  tip.style.visibility = '';
-}
-
-function hideStatusTooltip() {
-  _statusTip?.classList.remove('visible');
-}
-
-function attachTooltip(tag, text) {
-  if (!text) return tag;
-  tag.addEventListener('mouseenter', () => showStatusTooltip(tag, text));
-  tag.addEventListener('mouseleave', hideStatusTooltip);
-  return tag;
-}
-
 // ─── Shared helpers ───────────────────────────────────────────
-
-function makeCollapsibleSection(title, countLabel, bodyFn) {
-  const wrap = el('div', { className: 'collapsible open' });
-
-  const header = el('div', { className: 'collapsible-header' });
-  const left = el('div', { className: 'left' });
-  left.appendChild(el('span', { className: 'title', textContent: title }));
-  const right = el('div', { className: 'right' });
-  if (countLabel) right.appendChild(el('span', { className: 'count', textContent: countLabel }));
-
-  header.appendChild(left);
-  header.appendChild(right);
-
-  const body = el('div', { className: 'collapsible-body' });
-  body.appendChild(bodyFn());
-
-  wrap.appendChild(header);
-  wrap.appendChild(body);
-  return wrap;
-}
 
 function buildPipeline(steps, chapterStarts = {}) {
   const frag = document.createDocumentFragment();
@@ -642,8 +556,7 @@ function buildPipeline(steps, chapterStarts = {}) {
       const statusTag = el('span', { className: `formulas-status-tag formulas-status-${status}`, textContent: statusLabels[status] });
       const tooltipText = statusNote ?? (status === 'ok' ? 'Formula has been validated across multiple datapoints and edge cases' : null);
       if (tooltipText) {
-        statusTag.addEventListener('mouseenter', () => showStatusTooltip(statusTag, tooltipText));
-        statusTag.addEventListener('mouseleave', hideStatusTooltip);
+        attachTooltip(statusTag, tooltipText);
       }
       stepHeader.appendChild(statusTag);
     }
@@ -711,20 +624,6 @@ function buildPipeline(steps, chapterStarts = {}) {
   return frag;
 }
 
-function buildVarLegend(vars) {
-  const wrap = el('div', { className: 'formulas-var-section' });
-  wrap.appendChild(el('div', { className: 'formulas-var-heading', textContent: 'Variables' }));
-  const grid = el('div', { className: 'formulas-var-grid' });
-  vars.forEach(({ name, desc }) => {
-    const row = el('div', { className: 'formulas-var-row' });
-    row.appendChild(el('span', { className: 'formulas-var-name', textContent: name }));
-    row.appendChild(el('span', { className: 'formulas-var-desc', textContent: desc }));
-    grid.appendChild(row);
-  });
-  wrap.appendChild(grid);
-  return wrap;
-}
-
 // ─── Section builders ─────────────────────────────────────────
 
 function buildExpTable() {
@@ -773,25 +672,6 @@ function buildExpTable() {
   tableWrap.appendChild(table);
   container.appendChild(tableWrap);
   return container;
-}
-
-function buildTable(headers, rows) {
-  const table = el('table', { className: 'data-table' });
-
-  const thead = el('thead');
-  const headerRow = el('tr');
-  headers.forEach(([text, cls]) => headerRow.appendChild(el('th', { className: cls, textContent: text })));
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
-
-  const tbody = el('tbody');
-  rows.forEach((cells) => {
-    const row = el('tr');
-    cells.forEach((v, i) => row.appendChild(el('td', { className: headers[i][1], textContent: v })));
-    tbody.appendChild(row);
-  });
-  table.appendChild(tbody);
-  return table;
 }
 
 // Physical attack skills that never roll for swing or stab. Re-verified against
@@ -919,78 +799,7 @@ function buildGuardSection() {
   return container;
 }
 
-
-
 // ─── Page render ──────────────────────────────────────────────
-
-function renderFormulasCot1Legacy(data) {
-  // Sorted by level so the picker reads top-down like the Monsters tab does.
-  CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]
-    .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
-
-  const frag = document.createDocumentFragment();
-  const wrapper = el('div', { className: 'formulas-page' });
-
-  wrapper.appendChild(el('div', { className: 'section-heading', textContent: 'Formulas & Tables' }));
-
-  const disclaimer = el('div', { className: 'formulas-disclaimer' });
-  const disclaimerText = el('span');
-  disclaimerText.appendChild(el('strong', { textContent: 'Archived: ' }));
-  disclaimerText.append('Formulas as they stood in Closed Online Test 1, read directly out of the COT1 client binary. See the current Formulas tab for the live game.');
-  disclaimer.appendChild(disclaimerText);
-  wrapper.appendChild(disclaimer);
-
-  // Full-width formula sections
-  const fullWidth = el('div', { className: 'formulas-full' });
-
-  const accuracySection = makeCollapsibleSection('Accuracy', '', buildAccuracySection);
-  const accCredit = el('span', { className: 'formulas-credit' });
-  accCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
-  accuracySection.querySelector('.left').appendChild(accCredit);
-
-  const baseDmgSection = makeCollapsibleSection('Base Damage Formulas', '', buildBaseDamageSection);
-  const dmgCredit = el('span', { className: 'formulas-credit' });
-  dmgCredit.innerHTML = 'Reverse engineered by <strong>@Slash, @kirbypickr, @sublimerealist, @jimmybald</strong> on Discord';
-  baseDmgSection.querySelector('.left').appendChild(dmgCredit);
-
-  const modsSection = makeCollapsibleSection('Damage Modifications', '', buildModsSection);
-  const modsCredit = el('span', { className: 'formulas-credit' });
-  modsCredit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> on Discord';
-  modsSection.querySelector('.left').appendChild(modsCredit);
-
-  const guardSection = makeCollapsibleSection('Damage Taken', '', buildGuardSection);
-  const guardCredit = el('span', { className: 'formulas-credit' });
-  guardCredit.innerHTML = 'Reverse engineered by <strong>@ohmi</strong> on Discord';
-  guardSection.querySelector('.left').appendChild(guardCredit);
-
-  fullWidth.appendChild(accuracySection);
-  fullWidth.appendChild(baseDmgSection);
-  fullWidth.appendChild(modsSection);
-  fullWidth.appendChild(guardSection);
-  wrapper.appendChild(fullWidth);
-
-  // Appendix
-  wrapper.appendChild(el('div', { className: 'section-heading', textContent: 'Appendix' }));
-
-  const appendix = el('div', { className: 'formulas-full' });
-
-  const expSection = makeCollapsibleSection('Experience Table', '', buildExpTable);
-  const expCredit = el('span', { className: 'formulas-credit' });
-  expCredit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> on Discord';
-  expSection.querySelector('.left').appendChild(expCredit);
-
-  const weaponMultSection = makeCollapsibleSection('Weapon Min/Max Multipliers', '', buildWeaponMultTable);
-  const weaponMultCredit = el('span', { className: 'formulas-credit' });
-  weaponMultCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash</strong> on Discord';
-  weaponMultSection.querySelector('.left').appendChild(weaponMultCredit);
-
-  appendix.appendChild(weaponMultSection);
-  appendix.appendChild(expSection);
-  wrapper.appendChild(appendix);
-
-  frag.appendChild(wrapper);
-  return frag;
-}
 
 export function renderFormulasCot1(data, options = {}) {
   CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]

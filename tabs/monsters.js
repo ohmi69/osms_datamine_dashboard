@@ -1,5 +1,4 @@
 import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById, makeElementBadge, enableMobileFilterDrawer } from '../lib/utils.js';
-import { attachTooltip } from '../lib/tooltip.js';
 import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL, ELEMENT_META, describeElements } from '../lib/constants.js';
 
