@@ -29,18 +29,18 @@ export const FORMULA_EXPLORERS = {
   'Meso Explosion': {
     title: 'Meso Explosion calculator',
     className: 'formulas-meso-calc',
-    fields: [field('mastery', 'Mastery (%)', 150, 150, 90, 150),
-      field('mesos', 'Mesos per pile', 100, 1000, 1, 2147483647)],
+    fields: [field('masteryPercent', 'Mastery (%)', 150, 150, 90, 150),
+      field('mesosPerPile', 'Mesos per pile', 100, 1000, 1, 2147483647)],
     scale: 1500,
     evaluate: s => {
       // The skill's Mastery percentage is raw x / 10, so x / 2 = Mastery * 5.
-      const maximum = s.mastery * 5 * (1 + s.mesos / (s.mesos + 10));
+      const maximum = s.masteryPercent * 5 * (1 + s.mesosPerPile / (s.mesosPerPile + 10));
       const minimum = maximum / 2;
       return { headline: `${format(minimum)} – ${format(maximum)} damage per pile`,
         bars: [{ label: 'Minimum', value: minimum }, { label: 'Maximum', value: maximum }],
-        detail: `Average: ${format((minimum + maximum) / 2)}` };
+        detail: `Average: ${format((minimum + maximum) / 2)} per pile; total is the sum over exploded piles` };
     },
-    note: 'Before defense and other modifiers. Tooltip correction: Lv.28 = 144%, Lv.29 = 146%.',
+    note: 'Same MasteryPercent and MesosPerPile as the formula. Before defense and other modifiers. Tooltip correction: Lv.28 = 144%, Lv.29 = 146%.',
   },
   'Physical & Magical Accuracy': {
     title: 'Explore hit chance',

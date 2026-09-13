@@ -29,7 +29,7 @@ function buildGraph({ title, note, fields, evaluate, percent = false, extra }) {
   const sliders = new Map();
   fields.forEach(field => {
     const input = el('input', { type: 'number', className: 'formulas-calc-input', min: field.min ?? 0,
-      max: field.max, step: field.step || 1, value: field.value, 'aria-label': field.label });
+      max: field.max, step: 'any', value: field.value, 'aria-label': field.label });
     const slider = el('input', { type: 'range', min: field.min ?? 0, max: ranges[field.key],
       step: field.step || 1, value: field.value, 'aria-label': `${field.label} slider` });
     inputs.set(field.key, input);
@@ -37,7 +37,7 @@ function buildGraph({ title, note, fields, evaluate, percent = false, extra }) {
     input.addEventListener('input', () => {
       if (input.value === '' || !input.validity.valid) {
         input.setAttribute('aria-invalid', 'true');
-        output.textContent = `Enter ${field.label.toLowerCase()} from ${field.min ?? 0} to ${format(field.max)}${field.step ? ` in steps of ${field.step}` : ', using whole numbers'}.`;
+        output.textContent = `Enter ${field.label.toLowerCase()} from ${field.min ?? 0} to ${format(field.max)}.`;
         plot.hidden = true;
         return;
       }
@@ -248,7 +248,7 @@ export function buildDamageGraph(magic = false, graphData) {
   }
   fields.forEach(f => {
     const input = el('input', { type: 'number', className: 'formulas-calc-input',
-      min: f.min, max: f.max, step: f.step, value: current[f.key], 'aria-label': f.label });
+      min: f.min, max: f.max, step: 'any', value: current[f.key], 'aria-label': f.label });
     inputs.set(f.key, input);
     input.addEventListener('input', () => {
       if (input.value !== '' && input.validity.valid) current[f.key] = Number(input.value);
@@ -294,7 +294,7 @@ export function buildDamageGraph(magic = false, graphData) {
     });
     plot.hidden = Boolean(invalid);
     if (invalid) {
-      output.textContent = `Enter ${invalid.label} from ${format(invalid.min)} to ${format(invalid.max)}, in steps of ${invalid.step}.`;
+      output.textContent = `Enter ${invalid.label} from ${format(invalid.min)} to ${format(invalid.max)}.`;
       return;
     }
     const after = evaluate(current);
