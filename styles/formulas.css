@@ -1875,3 +1875,8 @@
   .formulas-calc-stats { grid-template-columns: 1fr; }
   .formulas-calc-notes { margin-right: -12px; margin-left: -12px; padding-right: 12px; padding-left: 12px; }
 }
+
+.formulas-meso-calc .formulas-graph-stat { grid-template-columns: minmax(0, 1fr) 120px; }
+@media (max-width: 640px) {
+  .formulas-meso-calc .formulas-graph-controls { grid-template-columns: 1fr; }
+}

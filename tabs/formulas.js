@@ -287,6 +287,20 @@ const BASE_DAMAGE_STEPS = [
     },
   },
   {
+    label: 'Meso Explosion',
+    wip: false,
+    status: 'ok',
+    statusNote: 'Derived from the client binary and skill data; not yet live-tested.',
+    lines: [
+      'MAX = MasteryPercent × 5 × (1 + PileMesos / (PileMesos + 10))',
+      'MIN = MAX / 2',
+    ],
+    notes: [
+      'Base damage is rolled separately per pile. Enter 150 for 150% Mastery.',
+      'Larger piles quickly give diminishing returns',
+    ],
+  },
+  {
     label: 'Heal',
     wip: false,
     status: 'ok',
@@ -357,6 +371,8 @@ const BASE_DAMAGE_VARS = [
   { name: 'MagicAttack',    desc: 'Total Magic Attack from equipment, scrolls and buffs, excluding the contribution from INT. Historical COT1 notes use Magic for the combined MAGIC stat' },
   { name: 'TotalInt',      desc: 'Total Int, including Equipment and Scrolls' },
   { name: 'TotalLuk',      desc: 'Total Luk, including Equipment and Scrolls' },
+  { name: 'PileMesos',     desc: 'Number of mesos in one selected ground pile for Meso Explosion' },
+  { name: 'MasteryPercent', desc: 'Meso Explosion Mastery percentage, entered as 150 for 150% (raw skill data x / 10)' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
   { name: 'TargetsHit',    desc: 'Total targets hit: enemies (max 15) + caster + allies in range (max 6 including the caster)' },
   { name: 'HealBonus',     desc: "Bless's bonus % for the learned level (1 at level 1, 10 at level 20). The client applies it to Heal only" },
