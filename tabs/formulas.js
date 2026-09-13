@@ -1,5 +1,8 @@
 import { el, normalizeAssetPath } from '../lib/utils.js';
 import { buildCalcLauncher } from './formulas-calc.js';
+import { buildShieldGraph, buildDamageGraph } from './formulas-graphs.js';
+import { deriveGraphData } from './formulas-graph-data.js';
+import { buildFormulaExplorer } from './formulas-explorers.js';
 import { tokenizeLine, attachTooltip, makeCollapsibleSection, buildVarLegend, buildTable } from './formulas-shared.js';
 import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
 
@@ -265,13 +268,13 @@ const BASE_DAMAGE_STEPS = [
     label: 'Magical Damage',
     wip: false,
     status: 'ok',
-    statusNote: 'Derived from the client binary. The Magic term is the stat window\'s MAGIC value - confirmed by reading the same field the stat window\'s mad row displays.',
+    statusNote: 'Derived from the client binary. The client seeds MAGIC with floor(TotalInt / 2), then adds equipment and buff Magic Attack. The formula expands that combined stat into player inputs.',
     lines: [
-      'MIN = (BasicAttack / 100) × Magic × (TotalInt × MasteryMult / 100 + 1)',
-      'MAX = (BasicAttack / 100) × Magic × (TotalInt / 100 + 1)',
+      'MIN = (BasicAttack / 100) × (floor(TotalInt / 2) + MagicAttack) × (TotalInt × MasteryMult / 100 + 1)',
+      'MAX = (BasicAttack / 100) × (floor(TotalInt / 2) + MagicAttack) × (TotalInt / 100 + 1)',
     ],
     warnings: [
-      'Magic and Magic Attack are two different numbers. Magic is the MAGIC stat on your stat window: Total Int / 2 plus Magic Attack.',
+      'MagicAttack includes equipment and buffs.',
     ],
     notes: [
       'The roll between MIN and MAX is a single uniform random per hit',
@@ -287,23 +290,24 @@ const BASE_DAMAGE_STEPS = [
     label: 'Heal',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the Heal branch of the magic damage routine in the client.',
+    statusNote: 'Undead damage verified in the current client. The live Heal cast sends a recipient mask; HP updates arrive from the server. This formula does not establish HP restored per player.',
     lines: [
-      'HealAmount = ((TotalInt × Roll + TotalLuk) / 200 + 3) × Magic × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1)',
+      'HealBase = ((TotalInt × Roll + TotalLuk) / 200 + 3) × (floor(TotalInt / 2) + MagicAttack) × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1)',
       '',
       'Roll = rand(0.8, 1.0)',
       '',
-      'HealAmount = HealAmount × (HealBonus / 100 + 1)',
+      'HealBase = HealBase × (HealBonus / 100 + 1)',
       '',
-      'Damage = trunc(HealAmount) / TargetsHit × 0.5',
+      'Damage = trunc(HealBase) / TargetsHit × 0.5',
     ],
     warnings: [
-      'Magic and Magic Attack are two different numbers. Magic is the MAGIC stat on your stat window: Total Int / 2 plus Magic Attack.',
+      'MagicAttack includes equipment and buffs.',
     ],
     notes: [
+      'This calculates damage against undead, not HP restored to each player. HealBase is an intermediate damage term; the client does not establish how HP recovery is distributed.',
       'RecoveryRate is the recovery rate listed on the skill itself.',
       'TargetsHit is everyone the cast reaches — up to 15 monsters plus up to 6 party members, counting at least 1 since the caster is always in range.',
-      'HealBonus is the bonus from Bless (Cleric skill 2301003), 1% at level 1 rising to 10% at level 20. Applied before the split, so it raises healing and damage together.',
+      'HealBonus is the bonus from Bless (Cleric skill 2301003), 1% at level 1 rising to 10% at level 20. The undead-damage calculation applies it before the target split.',
     ],
     cot1: {
       notes: [
@@ -317,12 +321,12 @@ const BASE_DAMAGE_STEPS = [
     status: 'partial',
     statusNote: 'Total verified in the damage-over-time routine. The per-tick split is not: the client computes the total and never divides it, so that line comes from the skill descriptions.',
     lines: [
-      'TotalDamage = (DoTBasicAttack / 100) × Magic × (TotalInt / 125 + 1)',
+      'TotalDamage = (DoTBasicAttack / 100) × (floor(TotalInt / 2) + MagicAttack) × (TotalInt / 125 + 1)',
       '',
       'DamagePerTick = TotalDamage / DoTDurationSeconds',
     ],
     warnings: [
-      'Magic and Magic Attack are two different numbers. Magic is the MAGIC stat on your stat window: Total Int / 2 plus Magic Attack.',
+      'MagicAttack includes equipment and buffs.',
     ],
     notes: [
       'DoT damage ignores all Defense reductions - the routine never reads the enemy\'s weapon or magic defense at all',
@@ -350,7 +354,7 @@ const BASE_DAMAGE_VARS = [
   { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8 (level 0 if unlearned). Physical attacks read MasteryLevel from the weapon mastery skill for the equipped weapon; magic attacks read it from the attacking skill\'s own data instead. Exception: Lucky Seven ignores mastery skills entirely and takes 0.5 at every level from its own skill data' },
   { name: 'BasicAttack',   desc: 'Basic Attack value listed on the skill, for magic skills only' },
   { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
-  { name: 'Magic',              desc: 'The MAGIC value on the stat window. The client builds it as TotalInt / 2 Magic Attack. It keeps only this one number, and every magic formula reads it' },
+  { name: 'MagicAttack',    desc: 'Total Magic Attack from equipment, scrolls and buffs, excluding the contribution from INT. Historical COT1 notes use Magic for the combined MAGIC stat' },
   { name: 'TotalInt',      desc: 'Total Int, including Equipment and Scrolls' },
   { name: 'TotalLuk',      desc: 'Total Luk, including Equipment and Scrolls' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
@@ -932,6 +936,12 @@ function buildPipeline(steps, chapterStarts = {}) {
 
     renderBody();
     step.appendChild(body);
+
+    if (label === 'Shield Guard') step.appendChild(buildShieldGraph(GRAPH_ITEMS, GRAPH_DATA));
+    if (label === 'Physical Damage') step.appendChild(buildDamageGraph(false, GRAPH_DATA));
+    if (label === 'Magical Damage') step.appendChild(buildDamageGraph(true, GRAPH_DATA));
+    const explorer = buildFormulaExplorer(label);
+    if (explorer) step.appendChild(explorer);
 
     frag.appendChild(step);
   });
@@ -2204,6 +2214,8 @@ function buildModsSection() {
 // Filled in by renderFormulas from the same appData the Monsters tab uses, so the
 // calculator lists the real mobs with their real attack stats.
 let CALC_MONSTERS = [];
+let GRAPH_ITEMS = [];
+let GRAPH_DATA;
 
 // The COT2 defense scale: grows with the player's level and with the size of the hit.
 const CALC_CONFIG = {
@@ -2236,6 +2248,8 @@ function buildGuardSection() {
 // ─── Page render ──────────────────────────────────────────────
 
 export function renderFormulas(data, options = {}) {
+  GRAPH_ITEMS = data?.items?.items ?? [];
+  GRAPH_DATA = deriveGraphData(data, WEAPON_MULTS);
   // Sorted by level so the picker reads top-down like the Monsters tab does.
   CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]
     .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));

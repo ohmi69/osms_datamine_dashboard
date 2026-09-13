@@ -1754,6 +1754,88 @@
   color: var(--accent);
 }
 
+/* Inline formula explorers reuse the reference page's surfaces and chart ink. */
+.formulas-graph { margin: 12px 16px 20px; }
+.formulas-graph .formulas-chart-head { color: var(--accent); font-size: 16px; padding: 12px 16px; }
+.formulas-graph-note { margin: 12px 16px; color: var(--text); font-size: 14px; line-height: 1.6; }
+.formulas-graph-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 12px 16px 16px; border-bottom: 1px solid var(--border); }
+.formulas-graph-stat { display: grid; grid-template-columns: minmax(0, 1fr) 84px; align-items: center; gap: 6px 8px; min-width: 0; }
+.formulas-graph-stat:only-child { grid-column: 1 / -1; }
+.formulas-graph-stat input[type="range"] { grid-column: 1 / -1; width: 100%; min-width: 0; margin: 0; min-height: 24px; accent-color: var(--accent); }
+.formulas-graph-svg { display: block; width: 100%; max-width: 760px; margin: 0 auto; }
+.formulas-graph-readout { display: grid; gap: 6px; padding: 8px 16px; color: var(--text); }
+.formulas-graph-result { color: var(--accent); font-size: 24px; line-height: 1.3; font-variant-numeric: tabular-nums; }
+.formulas-graph-hint { color: var(--text); font-size: 13px; line-height: 1.5; font-weight: normal; }
+.formulas-graph .pill { text-transform: none; letter-spacing: 0; font-size: 13px; min-height: 36px; }
+.formulas-graph .formulas-calc-label { font-size: 13px; text-transform: none; letter-spacing: 0; color: var(--text); }
+.formulas-graph .formulas-calc-input { min-height: 40px; font-size: 16px; }
+.formulas-graph .formulas-chart-axis-label { font-size: 17px; fill: var(--text); font-family: inherit; }
+.formulas-graph-presets { padding: 12px 16px; border-top: 1px solid var(--border); font-size: 14px; }
+.formulas-graph-presets .formulas-calc-controls { padding: 12px 0 0; border: 0; }
+.formulas-graph-presets summary { cursor: pointer; color: var(--text); padding: 4px 0; }
+.formulas-graph-preset { display: flex; justify-content: space-between; gap: 16px; width: 100%; padding: 9px 4px; border: 0; border-bottom: 1px solid var(--border); background: transparent; color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.formulas-graph-preset span:last-child { white-space: nowrap; color: var(--accent); font-variant-numeric: tabular-nums; }
+.formulas-graph-preset:hover { background: var(--accent-bg); }
+.formulas-graph :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.formulas-graph input[aria-invalid="true"] { border-color: var(--text); }
+/* Compact damage controls and chart sit beside the formula. */
+.formulas-damage-layout { display: block; }
+.formulas-damage-weapon { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.formulas-damage-weapon-menu { position: relative; min-width: 0; }
+.formulas-damage-weapon-menu summary { padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-2); cursor: pointer; font-size: 13px; }
+.formulas-damage-weapon-options { position: absolute; top: 100%; left: 0; right: 0; z-index: 5; max-height: 220px; overflow-y: auto; padding: 4px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-2); }
+.formulas-damage-weapon-options button { display: block; width: 100%; padding: 8px; text-align: left; color: var(--text); font: inherit; font-size: 13px; background: transparent; border: 0; border-radius: 4px; cursor: pointer; }
+.formulas-damage-weapon-options button:hover, .formulas-damage-weapon-options button[aria-pressed="true"] { background: var(--accent-bg); color: var(--accent); }
+.formulas-damage-action-options { display: flex; flex-wrap: wrap; gap: 4px; }
+.formulas-damage-action-options .pill { padding: 4px 7px; min-height: 30px; font-size: 12px; }
+.formulas-damage-weapon-info { grid-column: 1 / -1; font-size: 12px; color: var(--dim); }
+.formulas-damage-multiplier { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; }
+.formulas-damage-multiplier .formulas-calc-input { width: 84px; flex: 0 0 84px; }
+.formulas-damage-layout > .formulas-graph-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; padding: 12px 16px 8px; }
+.formulas-damage-graph .formulas-graph-stat { grid-template-columns: minmax(0, 1fr) 64px; gap: 2px 6px; }
+.formulas-damage-graph .formulas-calc-input { min-height: 30px; padding: 4px 6px; font-size: 14px; }
+.formulas-damage-graph .formulas-calc-label { font-size: 12px; }
+.formulas-damage-graph .formulas-chart-head { font-size: 14px; padding: 10px 16px; }
+.formulas-damage-result { min-width: 0; padding: 8px 16px 12px; }
+.formulas-damage-result .formulas-graph-readout { padding: 0 0 4px; gap: 2px; }
+.formulas-damage-result .formulas-graph-result { font-size: 20px; }
+.formulas-damage-result .formulas-graph-note { margin: 6px 0; font-size: 12px; }
+.formulas-damage-result .formulas-chart-plot { padding: 0; }
+.formulas-damage-svg { display: block; width: 100%; max-height: 220px; font-family: inherit; font-size: 17px; }
+.formulas-damage-tick { font-size: 15px; }
+.formulas-explorer-bars { margin: 12px 0; }
+.formulas-explorer-bar + .formulas-explorer-bar { margin-top: 12px; }
+.formulas-explorer-bar-label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 4px; font-size: 12px; }
+.formulas-explorer-bar-label strong { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.formulas-explorer-bar-track { height: 16px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.formulas-explorer-bar-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+.formulas-explorer-sr { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 480px) {
+  .formulas-damage-graph .formulas-graph-stat { grid-template-columns: minmax(0, 1fr) 54px; }
+  .formulas-damage-graph .formulas-calc-input { font-size: 16px; }
+  .formulas-damage-layout > .formulas-graph-controls { gap: 8px 12px; }
+}
+@media (min-width: 1000px) {
+  .formulas-pipeline-step:has(> .formulas-graph) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+  .formulas-pipeline-step:has(> .formulas-graph) > .formulas-pipeline-header {
+    grid-column: 1 / -1;
+  }
+  .formulas-pipeline-step:has(> .formulas-graph) > .formulas-pipeline-body {
+    min-width: 0;
+  }
+  .formulas-pipeline-step > .formulas-graph { min-width: 0; margin: 12px 16px 16px 0; }
+}
+@media (max-width: 640px) {
+  .formulas-graph { margin: 12px 0; }
+  .formulas-graph-controls { grid-template-columns: 1fr; gap: 12px; }
+  .formulas-graph .formulas-calc-field { flex-basis: 130px; }
+  .formulas-graph .formulas-chart-axis-label { font-size: 21px; }
+}
+
 @media (max-width: 640px) {
   .formulas-index { padding-top: 16px; }
   .formulas-subpage { padding-top: 18px; }
