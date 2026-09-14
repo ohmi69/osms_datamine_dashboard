@@ -90,6 +90,24 @@ export const FORMULA_EXPLORERS = {
     },
     note: 'Before element, level and critical modifiers. Per-tick damage assumes one tick per second, based on the skill descriptions.',
   },
+  'Bleed (Physical Damage Over Time)': {
+    title: 'Explore bleed damage',
+    fields: [field('primary', 'Primary Stat (STR for axes)', 100, 500),
+      field('secondary', 'Secondary Stat (DEX for axes)', 50, 500),
+      field('attackPower', 'Attack Power', 20, 300, 0, 10000, 'Attack from gear other than the weapon and shield, plus buffs.'),
+      field('weaponAttack', 'Weapon Attack', 50, 300, 0, 10000, 'Weapon and shield attack.'),
+      field('bleed', 'Bleed (%)', 100, 200, 1, 1000,
+        'The percentage listed for the full bleed effect: 40 at level 1, 100 at level 20 of Axe Mastery.'),
+      field('duration', 'Duration (seconds)', 3, 10, 1, 3600)],
+    evaluate: s => {
+      const total = s.bleed / 100 * ((2 * s.primary + s.secondary) / 100 + 1 + s.attackPower / 50) * s.weaponAttack;
+      const perTick = total / s.duration;
+      return { headline: `${format(total)} total damage`,
+        bars: [{ label: 'Total damage', value: total }, { label: 'Estimated damage per tick', value: perTick }],
+        detail: `${format(perTick)} damage per tick over ${format(s.duration)} seconds.` };
+    },
+    note: 'Before element, level and critical modifiers. Per-tick damage assumes one tick per second, based on the skill descriptions.',
+  },
   'Level Difference Penalty': {
     title: 'Explore level penalties',
     fields: [damage(), level('playerLevel', 'Your level', 30), level('enemyLevel', 'Enemy level', 35)],

@@ -346,11 +346,31 @@ const BASE_DAMAGE_STEPS = [
       'DoT damage ignores all Defense reductions - the routine never reads the enemy\'s weapon or magic defense at all',
       'Note the divisor is 125, not the 100 used everywhere else',
       'Every DoT skill in the game currently ticks once per second, so ticks and seconds are interchangeable here',
-      'The Elemental Modifier, the Level Difference Penalty and the Critical Hit roll all apply to DoT, but DoT only ever uses the linear branch of the level penalty - see those steps',
+      'Level penalty is applied differently for DoT calculations',
     ],
     cot1: {
       notes: [
         'Rewritten since COT1, which used (DoTBasicAttack + Magic / 7) × ((Magic + BaseInt) / 100 + 1) with base Int and a divisor of 100 - the 125 divisor is new.',
+      ],
+    },
+  },
+  {
+    label: 'Bleed (Physical Damage Over Time)',
+    wip: false,
+    status: 'partial',
+    statusNote: 'Base damage read directly from the physical damage-over-time routine in the client. The per-tick split is not: the client computes the total and never divides it, so that line comes from the skill data.',
+    lines: [
+      'TotalDamage = (BleedPercent / 100) × ((2 × PrimaryStat + SecondaryStat) / 100 + 1 + AttackPower / 50) × WeaponAttack',
+      '',
+      'DamagePerTick = TotalDamage / BleedDurationSeconds',
+    ],
+    notes: [
+      'Bleed ignores all Defense reductions, the routine never reads the enemy weapon or magic defense at all',
+      'Level penalty is applied differently for DoT calculations',
+    ],
+    cot1: {
+      notes: [
+        
       ],
     },
   },
@@ -368,6 +388,8 @@ const BASE_DAMAGE_VARS = [
   { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8 (level 0 if unlearned). Physical attacks read MasteryLevel from the weapon mastery skill for the equipped weapon; magic attacks read it from the attacking skill\'s own data instead. Exception: Lucky Seven is fixed at 0.5, ignoring Claw Mastery (equivalent to mastery level 5.25)' },
   { name: 'BasicAttack',   desc: 'Basic Attack value listed on the skill, for magic skills only' },
   { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
+  { name: 'BleedPercent', desc: 'The "dealing N% total damage over X sec" value listed on the skill (the dot field): 40 at level 1 rising to 100 at level 20 for Axe Mastery' },
+  { name: 'BleedDurationSeconds', desc: 'Duration of the bleed effect in seconds (3 for Axe Mastery, ticking once per second)' },
   { name: 'MagicAttack',    desc: 'Total Magic Attack from equipment, scrolls and buffs, excluding the contribution from INT. Historical COT1 notes use Magic for the combined MAGIC stat' },
   { name: 'TotalInt',      desc: 'Total Int, including Equipment and Scrolls' },
   { name: 'TotalLuk',      desc: 'Total Luk, including Equipment and Scrolls' },
@@ -530,8 +552,13 @@ const MOD_PIPELINE_STEPS = [
       'LevelDiff = EnemyLevel − PlayerLevel',
       '',
       'No penalty if LevelDiff ≤ 0',
+      '',
+      'Direct hits:',
       '  LevelDiff < 10:  Damage = Damage / (LevelDiff² × 0.005 + 1)',
       '  LevelDiff ≥ 10:  Damage = Damage / (LevelDiff × 0.05 + 1)',
+      '',
+      'Damage over time and bleed, at any LevelDiff ≥ 1:',
+      '  Damage = Damage / (LevelDiff × 0.05 + 1)',
     ],
     notes: [
       'The two branches meet exactly at LevelDiff 10, where the penalty term is 0.5 either way - the damage is divided by 1.5, so about a third of it is lost',
