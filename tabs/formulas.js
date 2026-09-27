@@ -320,8 +320,9 @@ const BASE_DAMAGE_STEPS = [
     notes: [
       'This calculates damage against undead, not HP restored to each player. HealBase is an intermediate damage term; the client does not establish how HP recovery is distributed.',
       'RecoveryRate is the recovery rate listed on the skill itself.',
-      'TargetsHit is everyone the cast reaches — up to 15 monsters plus up to 6 party members, counting at least 1 since the caster is always in range.',
+      'TargetsHit is everyone the cast reaches — up to 15 undead monsters (Heal only targets undead, so other monsters in range neither take hits nor dilute the split) plus up to 6 party members, counting at least 1 since the caster is always in range.',
       'HealBonus is the bonus from Bless (Cleric skill 2301003), 1% at level 1 rising to 10% at level 20. The undead-damage calculation applies it before the target split.',
+      'Heal treats any nonzero undead flag as undead. The template builder stores the flag as (value != 0), so Green Mushroom\'s 25 becomes 1, while a value of 0 or a missing undead entry both become 0 and take no damage from Heal. Every other dataset checked gives Green Mushroom 0, so the 25 looks like a data error.',
     ],
     cot1: {
       notes: [

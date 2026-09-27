@@ -1,5 +1,6 @@
 import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, makeMatcher, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
+import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
 
 const STAT_LABELS = {
   price:       ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
@@ -49,11 +50,13 @@ function renderItemRow(item) {
 
   topLine.appendChild(rightWrap);
   row.appendChild(topLine);
-  let specExpanded = false;
+  let expanded = false;
   let specEl = null;
+  let compare = null;
 
   row.addEventListener('click', (e) => {
     if (e.target.closest('button, input')) return;
+    expanded = !expanded;
     if (item.spec && !specEl) {
       specEl = el('div', { className: 'item-spec-panel' });
       const entries = Object.entries(item.spec);
@@ -66,14 +69,16 @@ function renderItemRow(item) {
       row.appendChild(specEl);
     }
     if (specEl) {
-      specExpanded = !specExpanded;
-      specEl.classList.toggle('item-spec-panel--open', specExpanded);
-      row.classList.toggle('item-row--spec-open', specExpanded);
+      specEl.classList.toggle('item-spec-panel--open', expanded);
+      row.classList.toggle('item-row--spec-open', expanded);
     }
+    if (compare) compare.hidden = !expanded;
     history.replaceState(null, '', `#items?q=${encodeURIComponent('id:' + padItemId(item.id))}`);
     document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
-    row.classList.add('row-hotlink');
-    scrollToDetailRow(row, row);
+    if (expanded) {
+      row.classList.add('row-hotlink');
+      scrollToDetailRow(row, row);
+    }
   });
 
   if (item.description) {
@@ -84,6 +89,11 @@ function renderItemRow(item) {
 
   const panel = buildDetailPanel(item);
   if (panel) row.appendChild(panel);
+  if (canCompareWithOsms()) {
+    compare = makeOsmsCompare('item', item);
+    compare.hidden = true;
+    row.appendChild(compare);
+  }
   return row;
 }
 

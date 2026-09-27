@@ -1,4 +1,5 @@
 import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, wireSearch, makeCopyableId, padSkillId, scrollToDetailRow, autoExpandById } from '../lib/utils.js';
+import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
 import { Router } from '../lib/Router.js';
 import { buildSkillRangeVisual } from '../lib/skill-range-viz.js';
 import { attachCustomTooltip } from '../lib/tooltip.js';
@@ -578,8 +579,10 @@ export function renderSkills(data, options = {}) {
         }
 
         let rangeVisualBuilt = false;
+        let compare = null;
         function setAdvancedExpanded(expanded) {
           advanced.hidden = !expanded;
+          if (compare) compare.hidden = !expanded;
           if (expanded && !rangeVisualBuilt && skill.range_visual) {
             const visual = buildSkillRangeVisual(skill);
             if (visual) advanced.appendChild(visual);
@@ -587,6 +590,11 @@ export function renderSkills(data, options = {}) {
           }
         }
         if (mechanicBadges || skill.range_visual) card.appendChild(advanced);
+        if (canCompareWithOsms()) {
+          compare = makeOsmsCompare('skill', skill);
+          compare.hidden = true;
+          card.appendChild(compare);
+        }
 
         if (skill.id != null) {
           card.addEventListener('click', (event) => {

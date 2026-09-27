@@ -1,5 +1,6 @@
 import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
+import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
 
 function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
@@ -8,7 +9,7 @@ function matchesClass(item, classFilter) {
   return (requiredJob & classFilter) !== 0;
 }
 
-function renderEquipRow(item) {
+function renderEquipRow(item, includeCompare = true) {
   const row = el('div', { className: 'item-row' });
   const topLine = el('div', { className: 'top-line' });
   const nameWrap = el('span', { className: 'item-name-wrap' });
@@ -28,12 +29,18 @@ function renderEquipRow(item) {
   eqRightWrap.appendChild(makeCopyableId(`#${padItemId(item.id)}`));
   topLine.appendChild(eqRightWrap);
   row.appendChild(topLine);
+  let expanded = false;
+  let compare = null;
   row.addEventListener('click', (e) => {
     if (e.target.closest('button, input')) return;
+    expanded = !expanded;
+    if (compare) compare.hidden = !expanded;
     history.replaceState(null, '', `#equipment?q=${encodeURIComponent('id:' + padItemId(item.id))}`);
     document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
-    row.classList.add('row-hotlink');
-    scrollToDetailRow(row, row);
+    if (expanded) {
+      row.classList.add('row-hotlink');
+      scrollToDetailRow(row, row);
+    }
   });
 
   if (item.description) {
@@ -52,6 +59,12 @@ function renderEquipRow(item) {
     if (statLine) row.appendChild(statLine);
     const reqLine = makeEquipReqLine(item);
     if (reqLine) row.appendChild(reqLine);
+  }
+
+  if (includeCompare && canCompareWithOsms()) {
+    compare = makeOsmsCompare('item', item);
+    compare.hidden = true;
+    row.appendChild(compare);
   }
 
   return row;
@@ -228,7 +241,7 @@ export function renderEquipment(data, options = {}) {
       // Cached text is lowercased, which is harmless: makeMatcher always forces the "i" flag.
       equips = equips.filter((equip) => {
         if (!equipTextCache.has(equip.id)) {
-          const row = renderEquipRow(equip);
+          const row = renderEquipRow(equip, false);
           // Drop the hidden thumbnail placeholder ("ITEM"), which is always in the DOM and
           // would otherwise sit in front of the name and swallow a leading "^" anchor.
           row.querySelectorAll('.thumb-fallback').forEach((n) => n.remove());

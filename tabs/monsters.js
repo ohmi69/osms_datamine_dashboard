@@ -1,6 +1,7 @@
 import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById, makeElementBadge, enableMobileFilterDrawer } from '../lib/utils.js';
 import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL, ELEMENT_META, describeElements } from '../lib/constants.js';
+import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
 
 function getMonsterElements(monster) {
   return describeElements(monster && monster.elements);
@@ -206,9 +207,9 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
       label: 'Combat',
       stats: [
         { label: 'P.ATK', value: monster.PADamage },
-        { label: 'P.DEF', value: monster.PDDamage },
+        { label: 'P.DEF', value: monster.PDDamage, showZero: true },
         { label: 'M.ATK', value: monster.MADamage },
-        { label: 'M.DEF', value: monster.MDDamage },
+        { label: 'M.DEF', value: monster.MDDamage, showZero: true },
         { label: 'ACC',   value: monster.acc },
         { label: 'AVOID', value: monster.eva },
         { label: 'Speed', value: monster.speed },
@@ -230,7 +231,7 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
   ];
 
   statGroups.forEach(({ label, stats }) => {
-    const visible = stats.filter(({ value }) => value != null && value !== 0);
+    const visible = stats.filter(({ value, showZero }) => value != null && (value !== 0 || showZero));
     if (!visible.length) return;
     const group = el('div', { className: 'monster-stat-group' });
     group.appendChild(el('div', { className: 'monster-stat-group-label', textContent: label }));
@@ -335,6 +336,7 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
   }
 
   panel.appendChild(body);
+  if (canCompareWithOsms()) panel.appendChild(makeOsmsCompare('monster', monster));
   detailTd.appendChild(panel);
   detailTr.appendChild(detailTd);
   return detailTr;
