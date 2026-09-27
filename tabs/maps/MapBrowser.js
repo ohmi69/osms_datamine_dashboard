@@ -2,6 +2,7 @@
 import { el, makeCollapsible, makeThumbnail, makeSearchBox, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makeMatcher, makeHideToggle, makeCopyableId, makeTabLink, padMapId, padMobId, scrollToDetailRow, autoExpandById, enableMobileFilterDrawer } from '../../lib/utils.js';
 import { attachTooltip } from '../../lib/tooltip.js';
 import state, { getMapUrl, getMobThumbUrl } from '../../lib/data.js';
+import { makeOsmsCompare, canCompareWithOsms } from '../../lib/compare-osms.js';
 
 import { showNavigateModal } from './MapNavigator.js';
 import { attachPortalOverlay } from './MapPortalOverlay.js';
@@ -370,6 +371,13 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       panel.appendChild(npcGrid);
     }
 
+    if (canCompareWithOsms()) {
+      panel.appendChild(makeOsmsCompare('map', mapEntry, {
+        spawns: mobs || [],
+        imageUrl: getMapUrl(mapEntry.id),
+      }));
+    }
+
     td.appendChild(panel);
     tr.appendChild(td);
     return tr;
@@ -468,7 +476,8 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       for (const mapEntry of sorted) {
         const mobs = mapMobs.get(mapEntry.id);
         const stats = mobStats.get(mapEntry.id);
-        const hasDetail = !!stats || mapEntry.bgm || mapEntry.mob_rate != null || mapEntry.return_map_name;
+        const hasDetail = !!stats || mapEntry.bgm || mapEntry.mob_rate != null
+          || mapEntry.return_map_name || canCompareWithOsms();
 
         const tr = el('tr');
         if (hasDetail) tr.classList.add('map-tr-clickable');

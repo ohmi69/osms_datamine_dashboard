@@ -621,9 +621,10 @@ function openImageModal(src, alt) {
       pinchStartDist = null;
     }
   };
-  // Prevent clicks inside content from bubbling to overlay (not strictly needed, but safe)
+  // The content fills the viewport, so empty space around the image receives
+  // clicks here rather than on the overlay behind it.
   modal.querySelector('.image-modal-content').onclick = (e) => {
-    e.stopPropagation();
+    if (e.target === e.currentTarget) closeImageModal();
   };
   // Initial state
   zoomIdx = 0;
