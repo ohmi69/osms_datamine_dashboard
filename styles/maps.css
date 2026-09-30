@@ -277,6 +277,7 @@
 .map-detail-label--npc { margin: 10px 0 2px 0; }
 .map-no-spawns { font-size: 13px; color: var(--dim); }
 .map-mob-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.map-spawn-disclaimer { font-size: 12px; color: var(--dim); font-style: italic; margin: 6px 0 10px 0; }
 .map-mob-chip,
 .map-npc-chip {
   display: flex;

@@ -317,6 +317,14 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         grid.appendChild(chip);
       }
       panel.appendChild(grid);
+      // Spawn points are just possible spawn spots; mobRate is unverified.
+      {
+        let note = '×N is how many spots mobs can spawn in, not how many mobs are actually out on the map at once. We don\'t know the exact formula at this point.';
+        if (mapEntry.mob_rate != null) {
+          note += ` What the Mob Rate number actually does in-game is also still unclear.`;
+        }
+        panel.appendChild(el('div', { className: 'map-spawn-disclaimer', textContent: note }));
+      }
     }
 
     // NPCs
@@ -421,7 +429,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       ...allCols.filter(col => colState[col.id]).map(col => {
         if (col.id === 'mobs') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.total ?? -1 };
         if (col.id === 'weighted_level') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.weightedLevel ?? -1, tooltip: 'Weighted average mob level' };
-        if (col.id === 'common_mob') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.mostCommonMobLevel ?? -1, tooltip: 'Most common mob (Name Lv. X), sorted by level' };
+        if (col.id === 'common_mob') return { ...col, cls: '', sortVal: m => mobStats.get(m.id)?.mostCommonMobLevel ?? -1, tooltip: 'Most common mob (Name Lv. X), sorted by level' };
         if (col.id === 'exp_per_mob') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.expPerMob ?? -1 };
         if (col.id === 'total_exp') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.totalExp ?? -1, tooltip: 'Sum of the EXP of all mobs on this map at max capacity' };
         if (col.id === 'weighted_exp_hour') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.weightedExpPerHour ?? -1, tooltip: 'Mob spawn-time adjusted and map mob-rate adjusted EXP per hour' };
