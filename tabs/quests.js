@@ -52,6 +52,12 @@ function formatRequirementLabel(requirement) {
     return name;
   }
 
+  if (requirement.type === 'quest') {
+    const action = { 0: 'Not started: ', 1: 'In progress: ' }[requirement.state] || '';
+    const questName = name.replace(/\s*\(#\d+\)$/, '').replace(/^Quest #\d+$/, 'Quest');
+    return `${action}${questName}`;
+  }
+
   if (requirement.label) return requirement.label;
   return name;
 }
@@ -59,9 +65,15 @@ function formatRequirementLabel(requirement) {
 function renderRequirementChips(requirements, itemById, monsterById) {
   const wrap = el('div', { className: 'quest-chip-list' });
   requirements.forEach((requirement) => {
-    // Only make items clickable
     let chip;
-    if (requirement.type === 'item' || requirement.type === 'mob') {
+    if (requirement.type === 'quest') {
+      chip = makeTabLink('quests', `id:${requirement.id}`, {
+        className: 'quest-chip quest-requirement-chip',
+        stopPropagation: true,
+      });
+      chip.appendChild(el('span', { textContent: formatRequirementLabel(requirement) }));
+      chip.appendChild(el('span', { className: 'id', textContent: ` (#${padQuestId(requirement.id)})` }));
+    } else if (requirement.type === 'item' || requirement.type === 'mob') {
       // Items: link to items/equipment, Mobs: link to monsters tab
       let tabId = 'items';
       let isMob = requirement.type === 'mob';
@@ -470,22 +482,29 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
     });
     card.appendChild(detailSection);
   }
+  const requirements = Array.isArray(quest.requirements_list) ? quest.requirements_list : [];
+  const prerequisites = requirements.filter(r => r.type === 'quest');
+  if (prerequisites.length) {
+    const prereqBox = el('div', { className: 'quest-meta-box', style: { marginTop: '8px' } });
+    prereqBox.appendChild(el('span', { className: 'label', textContent: 'Prerequisites: ' }));
+    prereqBox.appendChild(renderRequirementChips(prerequisites, itemById, monsterById));
+    card.appendChild(prereqBox);
+  }
+
   const startItems = Array.isArray(quest.start_items) ? quest.start_items : [];
   if (startItems.length) {
-    const startBox = el('div', { className: 'quest-meta-box', style: { marginTop: '8px' } });
+    const startBox = el('div', { className: 'quest-meta-box', style: { marginTop: prerequisites.length ? '0' : '8px' } });
     startBox.appendChild(el('span', { className: 'label', textContent: 'Given on start: ' }));
     startBox.appendChild(renderRewardItemChips(startItems, itemById));
     card.appendChild(startBox);
   }
 
-  const nonSkillReqs = Array.isArray(quest.requirements_list)
-    ? quest.requirements_list.filter(r => r.type !== 'skill')
-    : [];
-  const reqBox = el('div', { className: 'quest-meta-box', style: { marginTop: startItems.length ? '0' : '8px' } });
+  const nonSkillReqs = requirements.filter(r => r.type !== 'skill' && r.type !== 'quest');
+  const reqBox = el('div', { className: 'quest-meta-box', style: { marginTop: startItems.length || prerequisites.length ? '0' : '8px' } });
   reqBox.appendChild(el('span', { className: 'label', textContent: 'Requirements: ' }));
   if (nonSkillReqs.length) {
     reqBox.appendChild(renderRequirementChips(nonSkillReqs, itemById, monsterById));
-  } else if (quest.requirements) {
+  } else if (!requirements.length && quest.requirements) {
     reqBox.appendChild(el('span', { className: 'value', textContent: quest.requirements }));
   } else {
     reqBox.appendChild(el('span', { className: 'value value--none', textContent: 'None' }));
@@ -600,6 +619,30 @@ export function renderQuests(data, options = {}) {
       ? quests.chains.map((chain) => [chain.parent, chain])
       : []
   );
+
+  // Connect named chains and dependency links once; searching any member
+  // includes the entire connected chain, even across region boundaries.
+  const normalizeId = id => String(Number(id));
+  const questById = new Map(quests.quests.map(q => [normalizeId(q.id), q]));
+  const relatedIds = new Map([...questById.keys()].map(id => [id, new Set()]));
+  function connect(a, b) {
+    a = normalizeId(a);
+    b = normalizeId(b);
+    if (!relatedIds.has(a) || !relatedIds.has(b)) return;
+    relatedIds.get(a).add(b);
+    relatedIds.get(b).add(a);
+  }
+  const firstByParent = new Map();
+  quests.quests.forEach(quest => {
+    if (quest.parent) {
+      if (firstByParent.has(quest.parent)) connect(quest.id, firstByParent.get(quest.parent));
+      else firstByParent.set(quest.parent, quest.id);
+    }
+    if (quest.next_quest != null) connect(quest.id, quest.next_quest);
+    (quest.requirements_list || []).forEach(requirement => {
+      if (requirement.type === 'quest' && requirement.state !== 0) connect(quest.id, requirement.id);
+    });
+  });
 
   // Search and filters stay pinned at the top while the list scrolls past.
   const toolbar = el('div', { className: 'sticky-toolbar' });
@@ -778,7 +821,7 @@ export function renderQuests(data, options = {}) {
   function renderData() {
     dataDiv.innerHTML = '';
     const exactId = parseIdFilter(searchQuery);
-    const allQuests = quests.quests.filter((quest) => {
+    const matchedQuests = quests.quests.filter((quest) => {
       if (exactId != null) return Number(quest.id) === exactId;
       const town = getQuestTown(quest);
       const townMatches = regionFilter !== CITIZENSHIP_REGION
@@ -797,6 +840,19 @@ export function renderQuests(data, options = {}) {
         (matchSearch(quest.name, searchQuery) || matchSearch(quest.description, searchQuery) || matchSearch(quest.npc_name, searchQuery) || matchSearch(quest.rewards_items, searchQuery))
       );
     });
+
+    const visibleIds = new Set(matchedQuests.map(q => normalizeId(q.id)));
+    if (searchQuery.trim()) {
+      const pending = [...visibleIds];
+      while (pending.length) {
+        for (const id of relatedIds.get(pending.pop()) || []) {
+          if (visibleIds.has(id)) continue;
+          visibleIds.add(id);
+          pending.push(id);
+        }
+      }
+    }
+    const allQuests = quests.quests.filter(q => visibleIds.has(normalizeId(q.id)));
 
     const groups = {};
     allQuests.forEach((quest) => {
