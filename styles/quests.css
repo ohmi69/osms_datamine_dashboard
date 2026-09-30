@@ -1,13 +1,34 @@
 .badge-daily,
 .badge-weekly,
 .badge-repeatable,
-.badge-onetime {
+.badge-onetime,
+.badge-match {
   border-radius: 0;
   font-weight: 600;
   padding: 2px 7px;
   border: 1px solid transparent;
   white-space: nowrap;
   line-height: 1.4;
+}
+
+.badge-match {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Direct search hits stand out; chain context pulled in for completeness is dimmed. */
+.quest-card.quest-match {
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.quest-card.quest-match.row-hotlink {
+  box-shadow: inset 3px 0 0 var(--accent), inset 0 0 0 2px var(--accent);
+}
+.quest-card.quest-context {
+  opacity: 0.72;
+}
+.quest-card.quest-context:hover {
+  opacity: 1;
 }
 
 .badge-daily {
