@@ -125,7 +125,8 @@
 
 /* Item hover tooltip */
 .item-tooltip {
-  position: absolute;
+  position: fixed;
+  display: none;
   z-index: 9999;
   pointer-events: none;
   background: var(--surface);
@@ -138,7 +139,7 @@
   opacity: 0;
   transition: opacity 0.1s;
 }
-.item-tooltip.visible { opacity: 1; }
+.item-tooltip.visible { display: block; opacity: 1; }
 
 .item-tooltip-header {
   display: flex;

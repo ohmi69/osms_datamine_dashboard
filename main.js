@@ -97,6 +97,7 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
       icon: ICONS.skull,
       render: ({ setNavigate, navigators }) => renderMonsters(appData, {
         setNavigate,
+        patchVersion,
         onMapClick: (mapId) => {
           tabManager.switchTab('maps');
           if (navigators.maps) navigators.maps({ id: mapId, autoExpand: true });

@@ -41,10 +41,11 @@ function showStatusTooltip(anchor, text) {
   const rect = anchor.getBoundingClientRect();
   const tw = tip.offsetWidth;
   const th = tip.offsetHeight;
-  let x = rect.left + rect.width / 2 - tw / 2 + window.scrollX;
-  let y = rect.top - th - 6 + window.scrollY;
+  // Fixed positioning: viewport coords, no scroll offsets (see tooltip.js).
+  let x = rect.left + rect.width / 2 - tw / 2;
+  let y = rect.top - th - 6;
   x = Math.max(8, Math.min(x, window.innerWidth - tw - 8));
-  if (y < window.scrollY + 8) y = rect.bottom + 6 + window.scrollY;
+  if (y < 8) y = rect.bottom + 6;
 
   tip.style.left = `${x}px`;
   tip.style.top = `${y}px`;

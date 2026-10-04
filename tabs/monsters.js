@@ -3,6 +3,21 @@ import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL, ELEMENT_META, describeElements } from '../lib/constants.js';
 import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
 
+const DEFENSE_RATIO_COLUMNS = [
+  { id: 'exp_ehp_p', label: 'EXP/eHP (P)', toggleLabel: 'EXP/Effective Physical HP', defenseField: 'PDDamage',
+    title: 'EXP / (HP × (1 + WDEF / 100)). Higher is better.' },
+  { id: 'exp_ehp_m', label: 'EXP/eHP (M)', toggleLabel: 'EXP/Effective Magic HP', defenseField: 'MDDamage',
+    title: 'EXP / (HP × (1 + MDEF / 100)). Higher is better.' },
+].map(col => ({ ...col, on: false, ratio: true }));
+
+function getExpHpRatio(monster, defenseField) {
+  if (!(monster.hp > 0 && monster.exp > 0)) return null;
+  // Zero defenses may be omitted by the extractor. Monster defense reduces
+  // damage by 100 / (100 + DEF), so effective HP is HP × (1 + DEF / 100).
+  const defense = defenseField ? Math.max(0, monster[defenseField] ?? 0) : 0;
+  return monster.exp / (monster.hp * (1 + defense / 100));
+}
+
 function getMonsterElements(monster) {
   return describeElements(monster && monster.elements);
 }
@@ -60,7 +75,7 @@ function buildCombatSection(monster, focusMonster) {
       row.appendChild(
         el('span', {
           className: 'mob-attack-ratio',
-          textContent: attack.ratio != null ? `${attack.ratio}%` : '—',
+          textContent: attack.ratio != null ? `${attack.ratio}%` : '-',
           title: attack.ratio != null ? `Deals ${attack.ratio}% of this mob's attack stat` : '',
         })
       );
@@ -100,7 +115,7 @@ function buildCombatSection(monster, focusMonster) {
   return col;
 }
 
-function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
+function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseRatios) {
   const detailTr = el('tr', { className: 'monster-detail-row' });
   const detailTd = el('td', { colSpan: String(colSpan) });
 
@@ -200,7 +215,12 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
         { label: 'HP',    value: monster.hp },
         { label: 'MP',    value: monster.mp },
         { label: 'EXP',   value: monster.exp },
-        { label: 'EXP/HP', value: monster.hp > 0 && monster.exp > 0 ? (monster.exp / monster.hp).toFixed(3) : null },
+        { label: 'EXP/HP', value: getExpHpRatio(monster)?.toFixed(3) ?? null },
+        ...(showDefenseRatios ? DEFENSE_RATIO_COLUMNS.map(col => ({
+          label: col.label,
+          value: getExpHpRatio(monster, col.defenseField)?.toFixed(3) ?? '-',
+          title: col.title,
+        })) : []),
       ],
     },
     {
@@ -345,14 +365,16 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster) {
 
 export function renderMonsters(data, options = {}) {
   const { monsters } = data;
-  const { onMapClick } = options;
+  const { onMapClick, patchVersion = null } = options;
+  const showDefenseRatios = patchVersion == null || patchVersion === 'cot1' || patchVersion === 'cot2';
 
   const allCols = [
     { id: 'level',    label: 'Lv',      on: true  },
     { id: 'hp',       label: 'HP',      on: true  },
     { id: 'mp',       label: 'MP',      on: false },
     { id: 'exp',      label: 'EXP',     on: true  },
-    { id: 'exp_hp',   label: 'EXP/HP',  on: false },
+    { id: 'exp_hp',   label: 'EXP/HP',  on: false, ratio: true },
+    ...(showDefenseRatios ? DEFENSE_RATIO_COLUMNS : []),
     { id: 'PADamage', label: 'PATK',    on: false },
     { id: 'PDDamage', label: 'PDEF',    on: true },
     { id: 'MADamage', label: 'MATK',    on: false },
@@ -375,6 +397,13 @@ export function renderMonsters(data, options = {}) {
         : col.on
       : col.on;
   });
+
+  function saveColumnState() {
+    // Historical patches do not expose the defense ratios, but changing their
+    // columns must still preserve the Classic World column preferences.
+    const savedCols = state.get('monsters', { cols: null }).cols;
+    state.set('monsters', { cols: { ...savedCols, ...colState } });
+  }
 
   let filter = '';
   let typeFilter = '';
@@ -427,7 +456,7 @@ export function renderMonsters(data, options = {}) {
     (value) => {
       typeFilter = value;
       typePills.setActive(value);
-      state.set('monsters', { cols: { ...colState } });
+      saveColumnState();
       renderData();
     },
     { groupLabel: 'Mob Type:' }
@@ -476,12 +505,19 @@ export function renderMonsters(data, options = {}) {
     allCols.forEach((col) => {
       const button = el('button', {
         className: `col-toggle${colState[col.id] ? ' active' : ''}`,
-        textContent: col.label,
+        textContent: col.toggleLabel || col.label,
         title: col.title || '',
       });
+      if (col.ratio && col.title) {
+        button.appendChild(el('span', {
+          textContent: ' (?)',
+          'aria-hidden': 'true',
+          style: { cursor: 'help' },
+        }));
+      }
       button.addEventListener('click', () => {
         colState[col.id] = !colState[col.id];
-        state.set('monsters', { cols: { ...colState } });
+        saveColumnState();
         rebuildToggles();
         renderData();
       });
@@ -540,7 +576,7 @@ export function renderMonsters(data, options = {}) {
         sortCol = 'name';
         sortDir = 1;
       }
-      state.set('monsters', { cols: { ...colState } });
+      saveColumnState();
       renderData();
     });
     headRow.appendChild(nameHeader);
@@ -562,7 +598,7 @@ export function renderMonsters(data, options = {}) {
             sortCol = col.id;
             sortDir = 1;
           }
-          state.set('monsters', { cols: { ...colState } });
+          saveColumnState();
           renderData();
         });
       }
@@ -573,6 +609,7 @@ export function renderMonsters(data, options = {}) {
     thead.appendChild(headRow);
     table.appendChild(thead);
 
+    const sortColumn = allCols.find(col => col.id === sortCol);
     filtered.sort((a, b) => {
       let left, right;
       if (sortCol === 'name') {
@@ -580,9 +617,9 @@ export function renderMonsters(data, options = {}) {
         right = b.name.toLowerCase();
         return sortDir * (left < right ? -1 : left > right ? 1 : 0);
       }
-      if (sortCol === 'exp_hp') {
-        left = a.hp > 0 && a.exp > 0 ? a.exp / a.hp : 0;
-        right = b.hp > 0 && b.exp > 0 ? b.exp / b.hp : 0;
+      if (sortColumn?.ratio) {
+        left = getExpHpRatio(a, sortColumn.defenseField) ?? 0;
+        right = getExpHpRatio(b, sortColumn.defenseField) ?? 0;
       } else {
         left = a[sortCol] || 0;
         right = b[sortCol] || 0;
@@ -639,17 +676,18 @@ export function renderMonsters(data, options = {}) {
             });
           } else {
             td.appendChild(
-              el('span', { style: { color: 'var(--dim)', fontSize: '11px' }, textContent: '—' })
+              el('span', { style: { color: 'var(--dim)', fontSize: '11px' }, textContent: '-' })
             );
           }
           row.appendChild(td);
-        } else if (col.id === 'exp_hp') {
-          const ratio = monster.hp > 0 && monster.exp > 0 ? monster.exp / monster.hp : 0;
+        } else if (col.ratio) {
+          const ratio = getExpHpRatio(monster, col.defenseField);
           row.appendChild(
             el('td', {
               className: 'num',
               style: tdBase,
-              textContent: ratio > 0 ? ratio.toFixed(3) : '—',
+              textContent: ratio != null ? ratio.toFixed(3) : '-',
+              title: col.title || '',
             })
           );
         } else if (col.id === 'stagger') {
@@ -657,7 +695,7 @@ export function renderMonsters(data, options = {}) {
             el('td', {
               className: 'num',
               style: tdBase,
-              textContent: monster.stagger ? `${(monster.stagger / 1000).toFixed(2)}s` : '—',
+              textContent: monster.stagger ? `${(monster.stagger / 1000).toFixed(2)}s` : '-',
             })
           );
         } else if (col.id === 'undead') {
@@ -675,7 +713,7 @@ export function renderMonsters(data, options = {}) {
               })
             );
           } else {
-            td.textContent = '—';
+            td.textContent = '-';
           }
           row.appendChild(td);
         } else {
@@ -684,7 +722,7 @@ export function renderMonsters(data, options = {}) {
             el('td', {
               className: 'num',
               style: tdBase,
-              textContent: value != null && value !== 0 ? fmt(value) : '—',
+              textContent: value != null && value !== 0 ? fmt(value) : '-',
             })
           );
         }
@@ -706,7 +744,7 @@ export function renderMonsters(data, options = {}) {
           row.classList.remove('expanded', 'row-hotlink');
           history.replaceState(null, '', '#monsters');
         } else {
-          detailRow = buildDetailRow(monster, totalCols, onMapClick, focusMonster);
+          detailRow = buildDetailRow(monster, totalCols, onMapClick, focusMonster, showDefenseRatios);
           row.after(detailRow);
           row.classList.add('expanded');
           history.replaceState(null, '', `#monsters?q=${encodeURIComponent('id:' + padMobId(monster.id))}`);

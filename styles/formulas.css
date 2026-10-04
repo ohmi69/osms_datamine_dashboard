@@ -1094,7 +1094,8 @@
 
 /* ── Status tooltip (body-level floating div) ────────────────── */
 .formula-status-tooltip {
-  position: absolute;
+  position: fixed;
+  display: none;
   z-index: 9999;
   max-width: 280px;
   padding: 6px 10px;
@@ -1111,6 +1112,7 @@
 }
 
 .formula-status-tooltip.visible {
+  display: block;
   opacity: 1;
 }
 
@@ -1408,6 +1410,7 @@
 
 .formulas-chart-tip {
   position: absolute;
+  display: none;
   z-index: 5;
   transform: translate(-50%, calc(-100% - 14px));
   padding: 6px 10px;
@@ -1420,7 +1423,7 @@
   transition: opacity 0.1s;
 }
 
-.formulas-chart-tip.visible { opacity: 1; }
+.formulas-chart-tip.visible { display: block; opacity: 1; }
 
 .formulas-chart-tip-lvl {
   font-size: 10px;
