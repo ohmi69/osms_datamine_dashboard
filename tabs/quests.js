@@ -62,6 +62,13 @@ function formatRequirementLabel(requirement) {
     return `${action}${questName}`;
   }
 
+  if (requirement.type === 'citizenship') {
+    if (requirement.label) return requirement.label;
+    const town = requirement.town_name || (requirement.town != null ? `Town ${requirement.town}` : '');
+    const grade = requirement.grade != null ? ` Grade ${requirement.grade}+` : '';
+    return `${town} Citizenship${grade}`.trim() || name;
+  }
+
   if (requirement.label) return requirement.label;
   return name;
 }
@@ -112,6 +119,16 @@ function renderRequirementChips(requirements, itemById, monsterById) {
       } else {
         attachTooltip(chip, () => itemById.get(String(requirement.id)));
       }
+    } else if (requirement.type === 'citizenship') {
+      // Residency gate (town + minimum grade) - plain text, no link or art.
+      chip = el(
+        'span',
+        {
+          className: 'quest-chip quest-requirement-chip',
+          title: 'Must be a citizen of this town at the listed grade or higher',
+        },
+        el('span', { textContent: formatRequirementLabel(requirement) })
+      );
     } else {
       chip = el(
         'span',
@@ -596,13 +613,17 @@ const JOB_ADVANCEMENT_REGION = 'Job Advancement';
 const JOB_REGIONS = ['Warrior', 'Magician', 'Bowman', 'Thief'];
 const SYSTEM_REGIONS = [JOB_ADVANCEMENT_REGION, CITIZENSHIP_REGION, 'Crafting'];
 
-// Residency quests belong to one town, named on the contribution they pay out.
-// The two intro quests ("become a resident") pay no contribution and belong to
-// neither town - they gate both, so they survive any town filter.
+// Residency quests belong to one town, named on the contribution they pay out
+// (mirrored on the citizenship requirement). The two intro quests ("become a
+// resident") pay no contribution and belong to neither town - they gate both,
+// so they survive any town filter.
 function getQuestTown(quest) {
   const contribution = quest.rewards_contribution
     || (Array.isArray(quest.rewards) ? quest.rewards.find(r => r.type === 'citizenship_contribution') : null);
-  return contribution?.town_name || null;
+  if (contribution?.town_name) return contribution.town_name;
+  const requirement = (Array.isArray(quest.requirements_list) ? quest.requirements_list : null)
+    ?.find(r => r && r.type === 'citizenship');
+  return requirement?.town_name || null;
 }
 
 export function renderQuests(data, options = {}) {
