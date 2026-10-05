@@ -204,6 +204,7 @@
 .quest-graph-edge--chain { stroke: var(--dim); stroke-dasharray: 4 5; }
 .quest-graph-edge--in-progress,
 .quest-graph-edge--not-started { stroke-dasharray: 8 4; }
+.quest-graph-edge.is-context-muted { stroke: var(--dim); opacity: .28; }
 .quest-graph-edge.is-highlighted { opacity: 1; stroke-width: 1.5; }
 .quest-graph-node { box-sizing: border-box; position: absolute; width: 232px; height: 88px; display: flex; align-items: center; gap: 8px; padding: 8px 10px; font: inherit; text-align: left; text-decoration: none; color: var(--text); background: var(--surface); border: 1px solid var(--border); cursor: pointer; }
 .quest-graph-node-copy { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 4px; }
@@ -214,6 +215,9 @@
 .quest-tooltip-identity { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
 body.hide-ids .quest-graph-node-identity:has(> .id:only-child) { display: none; }
 .quest-graph-node.is-root { border-left: 3px solid var(--accent); }
+.quest-graph-node.is-context-muted { color: var(--dim); background: var(--bg); border-color: var(--border); }
+.quest-graph-node.is-context-muted .quest-graph-npc-thumb { opacity: .42; }
+.quest-graph-node.is-context-muted strong { color: var(--dim); }
 .quest-graph-node.is-complete .quest-graph-node-meta:first-child { color: var(--secondary); }
 .quest-graph-node:hover { background: var(--surface-2); border-color: var(--secondary); text-decoration: none; }
 .quest-graph-node.is-selected { border-color: var(--accent); background: var(--surface-2); }

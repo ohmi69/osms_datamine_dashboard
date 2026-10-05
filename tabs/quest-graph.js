@@ -114,6 +114,35 @@ let graphNumber = 0;
 export function renderQuestGraph(root, graph, completionState, buildTooltip, npcByName = new Map()) {
   const component = getQuestComponent(graph, root.id);
   if (!component.links.length) return null;
+  // Keep prerequisites and follow-ups connected to the opened quest in focus.
+  // Sibling branches may share an earlier prerequisite without belonging to
+  // the opened quest's route.
+  const relevantIds = new Set([key(root.id)]);
+  let addedRelevant;
+  do {
+    addedRelevant = false;
+    for (const edge of component.links) {
+      if (edge.kind !== 'chain' && relevantIds.has(edge.to) && !relevantIds.has(edge.from)) {
+        relevantIds.add(edge.from);
+        addedRelevant = true;
+      }
+    }
+  } while (addedRelevant);
+  // Future quests branch from the opened quest itself. Start this traversal
+  // from the root alone so sibling branches off a prerequisite stay muted.
+  const futureIds = new Set([key(root.id)]);
+  let addedFuture;
+  do {
+    addedFuture = false;
+    for (const edge of component.links) {
+      if (edge.kind === 'chain') continue;
+      if (futureIds.has(edge.from) && !futureIds.has(edge.to)) {
+        futureIds.add(edge.to);
+        addedFuture = true;
+      }
+    }
+  } while (addedFuture);
+  futureIds.forEach(id => relevantIds.add(id));
   const layout = layoutQuestGraph(component);
   const panel = el('section', { className: 'quest-graph', 'aria-label': `Linked quests for ${root.name}` });
   panel.addEventListener('click', event => event.stopPropagation());
@@ -162,7 +191,8 @@ export function renderQuestGraph(root, graph, completionState, buildTooltip, npc
       const x1 = a.x + 116, x2 = b.x + 116, y1 = a.y - 2, y2 = b.y - 4;
       d = `M ${x1} ${y1} L ${x1} 24 Q ${x1} 12 ${x1 - 12} 12 L ${x2 + 12} 12 Q ${x2} 12 ${x2} 24 L ${x2} ${y2}`;
     }
-    const path = svgEl('path', { d, class: `quest-graph-edge quest-graph-edge--${edge.kind}` });
+    const edgeMuted = !relevantIds.has(edge.from) || !relevantIds.has(edge.to);
+    const path = svgEl('path', { d, class: `quest-graph-edge quest-graph-edge--${edge.kind}${edgeMuted ? ' is-context-muted' : ''}` });
     if (edge.kind !== 'chain') path.setAttribute('marker-end', `url(#${markerId})`);
     const title = svgEl('title', {}); title.textContent = labels[edge.kind]; path.appendChild(title);
     svg.appendChild(path); paths.push({ edge, path });
@@ -197,6 +227,7 @@ export function renderQuestGraph(root, graph, completionState, buildTooltip, npc
       copy);
     node.classList.toggle('is-root', id === key(root.id));
     node.classList.toggle('is-complete', completionState[String(quest.id)] === true);
+    node.classList.toggle('is-context-muted', !relevantIds.has(id));
     if (buildTooltip) attachCustomTooltip(node, tip => buildTooltip(tip, quest));
     node.addEventListener('click', hideItemTooltip);
     node.addEventListener('mouseenter', () => highlight(id));
