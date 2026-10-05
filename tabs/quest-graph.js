@@ -155,8 +155,47 @@ export function renderQuestGraph(root, graph, completionState, buildTooltip, npc
   panel.appendChild(toolbar);
   const workspace = el('div', { className: 'quest-graph-workspace' });
   panel.appendChild(workspace);
-  const viewport = el('div', { className: 'quest-graph-viewport', tabIndex: 0, 'aria-label': 'Scrollable quest dependency graph' });
+  const viewport = el('div', { className: 'quest-graph-viewport', tabIndex: 0, 'aria-label': 'Quest dependency graph; drag to pan' });
   viewport.addEventListener('scroll', hideItemTooltip);
+  let drag = null;
+  let suppressClick = false;
+  viewport.addEventListener('pointerdown', event => {
+    if (event.pointerType !== 'mouse' || event.button !== 0) return;
+    suppressClick = false;
+    drag = { id: event.pointerId, x: event.clientX, y: event.clientY, left: viewport.scrollLeft, top: viewport.scrollTop, active: false };
+  });
+  viewport.addEventListener('pointermove', event => {
+    if (!drag || event.pointerId !== drag.id) return;
+    const dx = event.clientX - drag.x, dy = event.clientY - drag.y;
+    if (!drag.active && Math.hypot(dx, dy) < 4) return;
+    if (!drag.active) {
+      drag.active = true;
+      viewport.classList.add('is-dragging');
+      viewport.setPointerCapture?.(drag.id);
+      hideItemTooltip();
+    }
+    viewport.scrollLeft = drag.left - dx;
+    viewport.scrollTop = drag.top - dy;
+    event.preventDefault();
+  });
+  const endDrag = event => {
+    if (!drag || event.pointerId !== drag.id) return;
+    if (drag.active) {
+      suppressClick = event.type === 'pointerup';
+      viewport.classList.remove('is-dragging');
+      if (viewport.hasPointerCapture?.(drag.id)) viewport.releasePointerCapture(drag.id);
+    }
+    drag = null;
+  };
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', endDrag);
+  viewport.addEventListener('click', event => {
+    if (!suppressClick) return;
+    suppressClick = false;
+    event.preventDefault();
+    event.stopPropagation();
+  }, true);
+  viewport.addEventListener('dragstart', event => event.preventDefault());
   const sizer = el('div', { className: 'quest-graph-sizer' });
   const canvas = el('div', { className: 'quest-graph-canvas', style: { width: `${layout.width}px`, height: `${layout.height}px` } });
   viewport.appendChild(sizer); sizer.appendChild(canvas); workspace.appendChild(viewport);
@@ -202,7 +241,7 @@ export function renderQuestGraph(root, graph, completionState, buildTooltip, npc
   for (const [kind, label] of [['dependency', 'Prerequisite / follow-up'], ['condition', 'State condition'], ['chain', 'Same chain']]) {
     legend.appendChild(el('span', null, el('i', { className: `quest-graph-line quest-graph-line--${kind}`, 'aria-hidden': 'true' }), document.createTextNode(label)));
   }
-  legend.appendChild(el('span', { className: 'quest-graph-hint', textContent: component.links.length ? 'Hover for details \u00b7 Click to open quest' : 'No linked quests in this dataset' }));
+  legend.appendChild(el('span', { className: 'quest-graph-hint', textContent: component.links.length ? 'Drag to pan \u00b7 Hover for details \u00b7 Click to open quest' : 'No linked quests in this dataset' }));
   panel.appendChild(legend);
   function highlight(id) {
     for (const [nodeId, node] of nodes) node.classList.toggle('is-selected', nodeId === id);

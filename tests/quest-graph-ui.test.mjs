@@ -55,6 +55,23 @@ assert.ok(walk(tooltip).some(node => node.tag === 'img' && node.attrs.src?.endsW
 for (const node of walk(tooltip).filter(node => node.text && /#\d+/.test(node.text))) assert.ok(node.classList.contains('id'), 'Tooltip IDs must use the shared Show IDs class');
 
 const panel = renderQuestGraph(quest, buildQuestGraph(quests), {}, (tip, linked) => renderQuestTooltip(tip, linked, new Map(), npcs), npcs);
+const viewport = panel.querySelector('.quest-graph-viewport');
+const startLeft = viewport.scrollLeft, startTop = viewport.scrollTop;
+viewport.fire('pointerdown', { pointerType: 'mouse', button: 0, pointerId: 1, clientX: 100, clientY: 100 });
+viewport.fire('pointermove', { pointerId: 1, clientX: 98, clientY: 100 });
+assert.ok(!viewport.classList.contains('is-dragging'), 'Small movements still count as clicks');
+viewport.fire('pointermove', { pointerId: 1, clientX: 50, clientY: 60, preventDefault() {} });
+assert.equal(viewport.scrollLeft, startLeft + 50, 'Dragging pans horizontally');
+assert.equal(viewport.scrollTop, startTop + 40, 'Dragging pans vertically');
+assert.ok(viewport.classList.contains('is-dragging'));
+viewport.fire('pointerup', { type: 'pointerup', pointerId: 1 });
+assert.ok(!viewport.classList.contains('is-dragging'));
+let dragClickCanceled = false;
+viewport.fire('click', { preventDefault() { dragClickCanceled = true; }, stopPropagation() {} });
+assert.ok(dragClickCanceled, 'Dragging must not open a quest link');
+viewport.fire('pointerdown', { pointerType: 'mouse', button: 0, pointerId: 2, clientX: 100, clientY: 100 });
+viewport.fire('pointerup', { type: 'pointerup', pointerId: 2 });
+viewport.fire('click', { preventDefault() { assert.fail('A regular click must still open a quest'); } });
 const nodes = walk(panel).filter(node => node.classList.contains('quest-graph-node'));
 assert.equal(nodes.length, 14);
 assert.ok(nodes.every(node => node.querySelector('.quest-graph-npc-thumb')), 'Every graph node has an NPC portrait or fallback');

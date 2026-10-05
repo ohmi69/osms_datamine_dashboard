@@ -196,7 +196,9 @@
 .quest-graph-controls { display: flex; align-items: center; gap: 4px; }
 .quest-graph-controls .quest-graph-count { min-width: 36px; text-align: right; margin-left: 4px; }
 .quest-graph-workspace { min-width: 0; }
-.quest-graph-viewport { height: 300px; max-width: 100%; overflow: auto; background: var(--bg); scrollbar-width: thin; }
+.quest-graph-viewport { height: 300px; max-width: 100%; overflow: auto; background: var(--bg); scrollbar-width: thin; cursor: grab; user-select: none; }
+.quest-graph-viewport.is-dragging { cursor: grabbing; user-select: none; }
+.quest-graph-viewport.is-dragging .quest-graph-node { cursor: grabbing; }
 .quest-graph-sizer { position: relative; min-height: 100%; }
 .quest-graph-canvas { position: absolute; inset: 0 auto auto 0; transform-origin: top left; }
 .quest-graph-canvas svg { position: absolute; inset: 0; overflow: visible; }
