@@ -2,6 +2,7 @@ import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter,
 import { Router } from '../lib/Router.js';
 import { attachTooltip, attachCustomTooltip } from '../lib/tooltip.js';
 import state, { getMobThumbUrl } from '../lib/data.js';
+import { buildQuestGraph, renderQuestGraph } from './quest-graph.js';
 
 function loadCompletionState() {
   return state.get('questsCompletionById', {});
@@ -374,7 +375,63 @@ function renderContributionTooltip(tip, contribution) {
   return true;
 }
 
-function renderQuestCard(quest, completionState, onToggleCompletion, itemById, monsterById, npcByName, expandedIds, searchState = null) {
+export function renderQuestTooltip(tip, quest, itemById, npcByName, monsterById = new Map()) {
+  const content = el('div', { className: 'quest-node-tooltip' });
+  const npc = npcByName?.get(String(quest.npc_name || '').trim().toLowerCase());
+  const heading = el('div', { className: 'quest-tooltip-heading' },
+    makeThumbnail(npc?.thumbnail || '', `${quest.npc_name || 'NPC'} portrait`, { className: 'quest-npc-thumb', fallbackText: 'NPC' }),
+    el('div', null,
+      el('strong', { className: 'quest-tooltip-name', textContent: quest.name }),
+      el('span', { className: 'quest-tooltip-npc', textContent: quest.npc_name || 'Unknown NPC' }),
+      el('span', { className: 'quest-tooltip-meta quest-tooltip-identity' },
+        el('span', { className: 'id', textContent: `#${padQuestId(quest.id)}` }),
+        el('span', { textContent: [quest.level_min ? `Lv. ${quest.level_min}+` : '', quest.region].filter(Boolean).join(' · ') }))));
+  content.appendChild(heading);
+  const summary = (quest.description || '').split('\n').find(line => line.trim());
+  if (summary) content.appendChild(el('p', { className: 'quest-tooltip-summary', textContent: summary }));
+  function section(label) {
+    const block = el('div', { className: 'quest-tooltip-section' }, el('span', { className: 'quest-graph-eyebrow', textContent: label }));
+    content.appendChild(block);
+    return block;
+  }
+  const requirements = section('Requirements');
+  const list = quest.requirements_list || [];
+  if (list.length) {
+    const entries = el('ul', { className: 'quest-tooltip-requirement-list' });
+    for (const requirement of list) {
+      const label = requirement.label || formatRequirementLabel(requirement);
+      if (requirement.type === 'item' || requirement.type === 'mob') {
+        entries.appendChild(el('li', { className: 'quest-tooltip-requirement-icon', title: label, 'aria-label': label },
+          makeThumbnail(getRequirementThumbPath(requirement, monsterById), requirement.name || label, {
+            className: requirement.type === 'mob' ? 'monster-thumb' : 'item-thumb',
+            fallbackText: requirement.type === 'mob' ? 'MOB' : 'ITEM',
+          }),
+          el('span', { textContent: `× ${requirement.count || 1}` })));
+      } else if (requirement.type === 'quest') {
+        entries.appendChild(el('li', { className: 'quest-tooltip-requirement-text' },
+          el('span', { textContent: label.replace(/\s*\(#\d+\)$/, '').replace(/^Quest #\d+$/, 'Unknown quest') }),
+          el('span', { className: 'id', textContent: ` (#${padQuestId(requirement.id)})` })));
+      } else entries.appendChild(el('li', { className: 'quest-tooltip-requirement-text', textContent: label }));
+    }
+    requirements.appendChild(entries);
+  } else requirements.appendChild(el('p', { textContent: quest.requirements || 'None' }));
+  const rewards = section('Rewards');
+  const rewardContent = renderRewardContent(quest, itemById);
+  if (rewardContent) rewards.appendChild(rewardContent);
+  const stats = [];
+  if (quest.rewards_exp > 0) stats.push(`${fmt(quest.rewards_exp)} EXP`);
+  if (quest.rewards_money > 0) stats.push(`${fmt(quest.rewards_money)} mesos`);
+  const contribution = quest.rewards_contribution;
+  if (contribution) stats.push(`${contribution.amount != null ? fmt(contribution.amount) : contribution.formula} contribution${contribution.town_name ? ` (${contribution.town_name})` : ''}`);
+  if (stats.length) rewards.appendChild(el('p', { textContent: stats.join(' · ') }));
+  if (!stats.length && !rewardContent) rewards.appendChild(el('p', { textContent: 'None' }));
+  if (quest.unavailable) content.appendChild(el('p', { textContent: 'Details unavailable in this dataset.' }));
+  content.appendChild(el('div', { className: 'quest-tooltip-hint', textContent: 'Click to open this quest' }));
+  tip.appendChild(content);
+  return true;
+}
+
+export function renderQuestCard(quest, completionState, onToggleCompletion, itemById, monsterById, npcByName, expandedIds, searchState = null, questGraph = null) {
   const card = el('div', { className: 'quest-card' });
   const isDirectMatch = Boolean(searchState?.isActive && searchState?.directIds?.has(normalizeQuestId(quest.id)));
   if (searchState?.isActive) {
@@ -474,10 +531,30 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
   const stages = quest.description ? quest.description.split('\n').filter(s => s.trim()) : [];
   let descEl = null;
   let detailSection = null;
+  let graphRendered = false;
+  const hasQuestLinks = Boolean(questGraph?.related.get(normalizeQuestId(quest.id))?.size);
+  function ensureGraph() {
+    if (!graphRendered && hasQuestLinks && detailSection) {
+      detailSection.prepend(renderQuestGraph(quest, questGraph, completionState, (tip, linked) => renderQuestTooltip(tip, linked, itemById, npcByName, monsterById), npcByName));
+      graphRendered = true;
+    }
+  }
+  // Deep-link navigation must open, never toggle, an already expanded quest.
+  card._expandDetails = () => {
+    if (detailSection) {
+      detailSection.hidden = false;
+      ensureGraph();
+      const story = detailSection.querySelector('.quest-story');
+      if (story) story.open = true;
+    }
+    if (descEl) descEl.hidden = true;
+    card.classList.add('quest-expanded');
+    expandedIds?.add(String(quest.id));
+  };
 
   if (quest.id != null) {
     card.addEventListener('click', (e) => {
-      if (e.target.closest('button, input, label')) return;
+      if (e.target.closest('button, input, label, a')) return;
       if (detailSection) {
         if (!detailSection.hidden) {
           detailSection.hidden = true;
@@ -488,6 +565,7 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
           return;
         }
         detailSection.hidden = false;
+        ensureGraph();
         if (descEl) descEl.hidden = true;
         card.classList.add('quest-expanded');
         if (expandedIds) expandedIds.add(String(quest.id));
@@ -503,7 +581,7 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
     descEl = el('p', { className: 'quest-desc', textContent: stages[0] });
     card.appendChild(descEl);
   }
-  if (stages.length > 1) {
+  if (stages.length > 0 || hasQuestLinks) {
     const isExpanded = expandedIds ? expandedIds.has(String(quest.id)) : false;
     detailSection = el('div', { className: 'quest-stages' });
     detailSection.hidden = !isExpanded;
@@ -511,10 +589,17 @@ function renderQuestCard(quest, completionState, onToggleCompletion, itemById, m
       if (descEl) descEl.hidden = true;
       card.classList.add('quest-expanded');
     }
-    stages.forEach((stage, i) => {
-      detailSection.appendChild(el('p', { className: 'quest-stage', textContent: `${i + 1}) ${stage}` }));
-    });
+    if (stages.length) {
+      const story = el('details', { className: 'quest-story' });
+      story.appendChild(el('summary', { textContent: 'Quest story' }));
+      const storyContent = el('div', { className: 'quest-story-content' });
+      stages.forEach((stage, i) => storyContent.appendChild(el('p', { className: 'quest-stage', textContent: `${i + 1}) ${stage}` })));
+      story.appendChild(storyContent);
+      story.addEventListener('click', event => event.stopPropagation());
+      detailSection.appendChild(story);
+    }
     card.appendChild(detailSection);
+    if (isExpanded) ensureGraph();
   }
   const requirements = Array.isArray(quest.requirements_list) ? quest.requirements_list : [];
   const prerequisites = requirements.filter(r => r.type === 'quest');
@@ -650,6 +735,7 @@ export function renderQuests(data, options = {}) {
   const sortByLevel = true;
   const completionState = loadCompletionState();
   const expandedIds = new Set();
+  const questGraph = buildQuestGraph(quests.quests);
   const container = el('div');
 
   const chainMetaByParent = new Map(
@@ -700,6 +786,7 @@ export function renderQuests(data, options = {}) {
 
   function currentFilterParams() {
     const params = {};
+    if (searchQuery) params.q = searchQuery;
     if (regionFilter !== 'All') params.region = regionFilter;
     if (regionFilter === CITIZENSHIP_REGION && townFilter !== 'All') params.town = townFilter;
     if (regionFilter === JOB_ADVANCEMENT_REGION && jobFilter !== 'All') params.job = jobFilter;
@@ -857,6 +944,7 @@ export function renderQuests(data, options = {}) {
   }
 
   function renderData() {
+    dataDiv.querySelectorAll('.quest-graph').forEach(panel => panel._dispose?.());
     dataDiv.innerHTML = '';
     const exactId = parseIdFilter(searchQuery);
     const matchedQuests = quests.quests.filter((quest) => {
@@ -944,7 +1032,7 @@ export function renderQuests(data, options = {}) {
       if (item.type === 'quest') {
         const wrapper = el('div', { className: 'quest-standalone' });
         if (isQuestCompleted(item.quest, completionState)) wrapper.classList.add('quest-group-complete');
-        wrapper.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion, itemById, monsterById, npcByName, expandedIds, searchState));
+        wrapper.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion, itemById, monsterById, npcByName, expandedIds, searchState, questGraph));
         dataDiv.appendChild(wrapper);
       } else {
         const chain = item.chain;
@@ -960,7 +1048,7 @@ export function renderQuests(data, options = {}) {
         });
         chainDiv.appendChild(header);
         chain.quests.forEach((quest) =>
-          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion, itemById, monsterById, npcByName, expandedIds, searchState))
+          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion, itemById, monsterById, npcByName, expandedIds, searchState, questGraph))
         );
         dataDiv.appendChild(chainDiv);
       }
