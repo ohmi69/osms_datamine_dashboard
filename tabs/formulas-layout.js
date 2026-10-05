@@ -1,4 +1,4 @@
-import { el, tabHref } from '../lib/utils.js';
+import { el, tabHref, startDeepLinkJump } from '../lib/utils.js';
 
 const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression']);
 
@@ -76,9 +76,9 @@ function scrollToSection(outlet, sectionKey) {
   // The tab panel is assembled in a fragment. Wait until both it and any lazy
   // table/chart layout are in the document before measuring the destination.
   requestAnimationFrame(() => requestAnimationFrame(() => {
-    const header = document.querySelector('.site-header');
     const jump = outlet.querySelector('.formulas-jump-nav');
-    const offset = (header?.offsetHeight || 0) + (jump?.offsetHeight || 0) + 16;
+    startDeepLinkJump();
+    const offset = (jump?.offsetHeight || 0) + 16;
     target.scrollIntoView({ block: 'start' });
     window.scrollBy(0, -offset);
   }));

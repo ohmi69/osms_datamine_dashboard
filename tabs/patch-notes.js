@@ -2,6 +2,7 @@ import { el, makeCollapsible, makeCopyableId, makeThumbnail,
          makeDeepLinkButton, makeSearchBox, makePillGroup, makeMatcher, makeHideToggle,
          enableMobileFilterDrawer } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
+import { startDeepLinkJump } from '../lib/utils.js';
 
 const BUCKETS = [
   { key: 'added',   label: 'Added',   sign: '+', cls: 'pn-added' },
@@ -849,11 +850,11 @@ export function renderPatchNotes(notes, options = {}) {
       // load/error first, and our thumbnails are loading="lazy". An off-screen
       // lazy image never loads until it is scrolled into view, so that wait
       // deadlocks and the scroll never happens.
-      const header = document.querySelector('.site-header');
-      const offset = (header ? header.offsetHeight : 64) + 8;
+      startDeepLinkJump();
+      const offset = 8;
       window.scrollTo({
         top: window.scrollY + target.getBoundingClientRect().top - offset,
-        behavior: 'smooth',
+        behavior: 'instant',
       });
     });
     attempt(5);

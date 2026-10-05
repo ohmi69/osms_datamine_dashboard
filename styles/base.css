@@ -306,6 +306,8 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+.deep-link-jump .site-header,
+.deep-link-jump .sticky-toolbar { transition: none; }
 .site-header-inner {
   max-width: 1200px;
   margin: 0 auto;

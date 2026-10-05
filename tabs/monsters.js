@@ -445,8 +445,9 @@ export function renderMonsters(data, options = {}) {
         searchBox._input.value = nextFilter;
       }
       searchBox._sync();
+      const scrollToTop = autoExpandAfterId == null;
       renderData();
-      window.scrollTo(0, 0);
+      if (scrollToTop) window.scrollTo(0, 0);
     });
   }
 
@@ -468,7 +469,6 @@ export function renderMonsters(data, options = {}) {
     filter = '';
     searchBox._input.value = '';
     renderData();
-    window.scrollTo(0, 0);
   }
 
   const elemPills = makePillGroup(

@@ -329,7 +329,7 @@ export function renderItems(data, options = {}) {
       showFilterBanner(selectedScrollSlot ? `${selectedCategory} → ${selectedScrollSlot}` : selectedCategory, () => allTab.click());
     }
     renderData();
-    window.scrollTo(0, 0);
+    if (exactId == null) window.scrollTo(0, 0);
   }
 
   if (outerSetNavigate) {

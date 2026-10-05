@@ -682,9 +682,25 @@ window.closeImageModal = closeImageModal;
     });
   }).observe(document.getElementById('app') || document.body, { childList: true, subtree: true });
   let lastY = window.scrollY;
+  let deepLinkJump = false;
+  window.addEventListener('deep-link-scroll', () => {
+    deepLinkJump = true;
+    document.documentElement.classList.add('deep-link-jump');
+    header.classList.add('site-header--hidden');
+    syncOffset();
+    // A jump's scroll event should not be mistaken for a manual scroll up.
+    // Clear the guard after the browser has delivered that event.
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      deepLinkJump = false;
+      lastY = window.scrollY;
+      document.documentElement.classList.remove('deep-link-jump');
+    }));
+  });
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    if (y <= 0 || y < lastY) {
+    if (deepLinkJump) {
+      header.classList.add('site-header--hidden');
+    } else if (y <= 0 || y < lastY) {
       header.classList.remove('site-header--hidden');
     } else {
       header.classList.add('site-header--hidden');

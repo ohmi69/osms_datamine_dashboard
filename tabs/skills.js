@@ -675,7 +675,7 @@ export function renderSkills(data, options = {}) {
       searchBox._sync();
     }
     renderData();
-    window.scrollTo(0, 0);
+    if (exactId == null) window.scrollTo(0, 0);
   }
 
   if (options.setNavigate) {

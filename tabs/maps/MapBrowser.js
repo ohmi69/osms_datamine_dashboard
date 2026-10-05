@@ -158,8 +158,9 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         searchBox._sync();
       }
       selectedRegion = null;
+      const scrollToTop = autoExpandAfterId == null;
       renderData();
-      window.scrollTo(0, 0);
+      if (scrollToTop) window.scrollTo(0, 0);
     };
     selfNavigate = navigateFn;
     options.setNavigate(navigateFn);

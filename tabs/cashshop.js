@@ -312,7 +312,7 @@ export function renderCashShop(data, options = {}) {
       });
     }
     renderData();
-    window.scrollTo(0, 0);
+    if (exactId == null) window.scrollTo(0, 0);
   }
 
   if (outerSetNavigate) {

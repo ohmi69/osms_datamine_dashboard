@@ -1,4 +1,4 @@
-import { el, normalizeAssetPath, makeCopyableId, padItemId, makeSearchBox, parseIdFilter, enableMobileFilterDrawer } from '../lib/utils.js';
+import { el, normalizeAssetPath, makeCopyableId, padItemId, makeSearchBox, parseIdFilter, enableMobileFilterDrawer, startDeepLinkJump } from '../lib/utils.js';
 
 export function renderBeautyStyles(data, options = {}) {
   const beauty = data.beauty_coupons;
@@ -162,7 +162,8 @@ export function renderBeautyStyles(data, options = {}) {
         const match = styleCards.find(({ style }) => Number(style.id) === Number(targetId));
         if (!match || match.card.classList.contains('beauty-hidden')) return;
         match.card.classList.add('row-hotlink');
-        match.card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        startDeepLinkJump();
+        match.card.scrollIntoView({ behavior: 'instant', block: 'center' });
       });
     }
   }
@@ -182,7 +183,7 @@ export function renderBeautyStyles(data, options = {}) {
       searchBox._input.value = query;
       searchBox._sync();
       applyFilters();
-      window.scrollTo(0, 0);
+      if (exactId == null) window.scrollTo(0, 0);
     });
   }
 
