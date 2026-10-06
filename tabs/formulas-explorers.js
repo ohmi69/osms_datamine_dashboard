@@ -63,18 +63,27 @@ export const FORMULA_EXPLORERS = {
     title: 'Explore Heal damage',
     fields: [int(), magicAttack(), field('luk', 'Total LUK', 30),
       field('recovery', 'Skill recovery (%)', 100, 300, 0, 1000),
-      field('players', 'Players in range', 1, 6, 1, 6, 'Includes the caster, even when at full HP.'),
-      field('monsters', 'Monsters hit', 1, 15, 1, 15, 'Damage shown applies to undead monsters only.'),
+      field('players', 'Players (including you)', 1, 6, 1, 6, 'Includes the caster, even at full HP; up to 6 players total.'),
+      field('monsters', 'Undead monsters hit', 1, 15, 0, 15, 'Other monsters do not count toward this target split.'),
       field('bonus', 'Bless heal bonus (%)', 0, 10, 0, 10)],
-    evaluate: s => {
-      const targets = s.players + s.monsters;
-      const amounts = [0.8, 1].map(roll => Math.trunc(((s.int * roll + s.luk) / 200 + 3)
-        * magic(s) * s.recovery / 100 * (targets * 0.1 + 1) * (1 + s.bonus / 100)) / targets * 0.5);
+    evaluate: (s, revision = 'steam') => {
+      const targets = Math.min(6, Math.max(1, s.players)) + Math.min(15, Math.max(0, s.monsters));
+      if (revision === 'steam' && s.monsters === 0) return {
+        headline: 'No undead targets hit', bars: [{ label: 'Damage', value: 0 }],
+        detail: `${targets} player recipients. No undead damage is dealt.`,
+      };
+      const amounts = (revision === 'cot2' ? [0.8, 1] : [0.1, 1.2]).map(roll => revision === 'cot2'
+        ? Math.trunc(((s.int * roll + s.luk) / 200 + 3) * magic(s) * s.recovery / 100
+          * (targets * 0.1 + 1) * (1 + s.bonus / 100)) / targets * 0.5
+        : Math.trunc(((s.int * roll + s.luk) / 1000 + 2.5) * magic(s) * s.recovery / 100
+          * ((targets - 1) * 0.5 + 1)) / targets / 1.5);
       return { bars: amounts.map((value, i) => ({ label: `${i ? 'Maximum' : 'Minimum'} base damage`, value })),
         headline: `${amounts.map(format).join(' - ')} damage per undead target`,
-        detail: `${targets} total targets, including the caster. More targets reduce damage per monster.` };
+        detail: `${targets} total recipients. More recipients reduce damage per undead target.` };
     },
-    note: 'Before enemy defense and later modifiers. HP restored per player is not established by this client formula.',
+    note: revision => revision === 'cot2'
+      ? 'Archived COT2 formula. Before enemy defense and later modifiers; HP restored per player is not established by this formula.'
+      : 'Current version formula for undead damage, before enemy defense and later modifiers. HP restored per player is not established by this formula.',
   },
   'Damage Over Time (DoT)': {
     title: 'Explore damage over time',
@@ -86,7 +95,7 @@ export const FORMULA_EXPLORERS = {
       const perTick = total / s.duration;
       return { headline: `${format(total)} total damage`,
         bars: [{ label: 'Total damage', value: total }, { label: 'Estimated damage per tick', value: perTick }],
-        detail: `${format(perTick)} damage per tick over ${format(s.duration)} seconds.` };
+        detail: `${format(perTick)} estimated damage per tick over ${format(s.duration)} seconds.` };
     },
     note: 'Before element, level and critical modifiers. Per-tick damage assumes one tick per second, based on the skill descriptions.',
   },
@@ -104,7 +113,7 @@ export const FORMULA_EXPLORERS = {
       const perTick = total / s.duration;
       return { headline: `${format(total)} total damage`,
         bars: [{ label: 'Total damage', value: total }, { label: 'Estimated damage per tick', value: perTick }],
-        detail: `${format(perTick)} damage per tick over ${format(s.duration)} seconds.` };
+        detail: `${format(perTick)} estimated damage per tick over ${format(s.duration)} seconds.` };
     },
     note: 'Before element, level and critical modifiers. Per-tick damage assumes one tick per second, based on the skill descriptions.',
   },
@@ -127,21 +136,40 @@ export const FORMULA_EXPLORERS = {
     title: 'Explore damage taken',
     fields: [field('incoming', 'Incoming damage', 100, 1000),
       field('defense', 'Your defense', 300, 1000), level('playerLevel', 'Your level', 30)],
-    evaluate: s => {
+    evaluate: (s, revision = 'steam') => {
       const scale = 5 * s.playerLevel + 200 + 1.2 * s.incoming;
-      const taken = s.incoming / (1 + s.defense / scale);
+      const rawTaken = revision === 'cot2'
+        ? s.incoming / (1 + s.defense / scale)
+        : s.incoming * (1 - s.defense / (s.defense + 2 * s.incoming + 300))
+          - s.defense / 25 - s.playerLevel / 10;
+      const taken = revision === 'cot2' ? rawTaken : Math.max(1, Math.trunc(rawTaken));
       return { headline: `${format(taken)} damage taken`, bars: [
         { label: 'Before your defense', value: s.incoming }, { label: 'After your defense', value: taken }],
-      detail: `${format(100 * s.defense / (scale + s.defense))}% reduced by defense.` };
+      detail: revision === 'cot2'
+        ? `${format(100 * s.defense / (scale + s.defense))}% reduced by defense.`
+        : 'Incoming fraction minus Defense/25 and level/10; final client result is truncated and clamped to 1-50,000,000.' };
     },
-    note: 'Use Weapon Defense for regular attacks or Magic Defense for skill attacks. Before Invincible, elemental reductions and final rounding.',
+    note: revision => revision === 'cot2'
+      ? 'Archived COT2 formula. Use Weapon Defense for regular attacks or Magic Defense for skill attacks.'
+      : 'Use Weapon Defense for regular attacks or Magic Defense for skill attacks. Before Invincible and elemental reductions.',
   },
 };
 
-export function buildFormulaExplorer(label) {
+export function buildFormulaExplorer(label, { revision = 'steam' } = {}) {
   const config = FORMULA_EXPLORERS[label];
   if (!config) return null;
-  const state = Object.fromEntries(config.fields.map(f => [f.key, f.value]));
+  const fields = config.fields
+    .filter(f => !(label === 'Heal' && revision !== 'cot2' && f.key === 'bonus'))
+    .map(f => {
+      if (label === 'Heal' && revision === 'steam') {
+        if (f.key === 'players') return { ...f, hint: 'Players and undead monsters share 6 total slots. Includes you, even at full HP.' };
+        if (f.key === 'monsters') return { ...f, range: 5, max: 5,
+          hint: 'At most 6 minus the selected player count. Non-undead monsters do not dilute the split.' };
+      }
+      return label === 'Heal' && revision === 'cot2' && f.key === 'players'
+        ? { ...f, min: 1, label: 'Players in range', hint: 'Includes the caster, even when at full HP.' } : f;
+    });
+  const state = Object.fromEntries(fields.map(f => [f.key, f.value]));
   const wrap = el('section', { className: 'formulas-graph formulas-chart-wrap formulas-damage-graph', 'aria-label': config.title });
   if (config.className) wrap.classList.add(config.className);
   const controls = el('div', { className: 'formulas-graph-controls' });
@@ -150,7 +178,7 @@ export function buildFormulaExplorer(label) {
   const inputs = new Map();
   const sliders = new Map();
   let scale = 1;
-  config.fields.forEach(f => {
+  fields.forEach(f => {
     const input = el('input', { type: 'number', className: 'formulas-calc-input', value: f.value,
       min: f.min, max: f.max, step: 1, 'aria-label': f.label, title: f.hint });
     const slider = el('input', { type: 'range', value: f.value, min: f.min, max: f.range,
@@ -165,10 +193,11 @@ export function buildFormulaExplorer(label) {
   wrap.append(el('div', { className: 'formulas-chart-head' }, el('strong', { textContent: config.title })),
     el('div', { className: 'formulas-damage-layout' }, controls,
       el('div', { className: 'formulas-damage-result' }, output, bars,
-        el('p', { className: 'formulas-graph-note', textContent: config.note }))));
+        el('p', { className: 'formulas-graph-note', textContent:
+          typeof config.note === 'function' ? config.note(revision) : config.note }))));
   function draw() {
     let invalid;
-    config.fields.forEach(f => {
+    fields.forEach(f => {
       const input = inputs.get(f.key);
       const valid = input.value !== '' && input.validity.valid;
       if (valid) {
@@ -187,7 +216,13 @@ export function buildFormulaExplorer(label) {
       output.textContent = `Enter ${invalid.label.toLowerCase()} from ${format(invalid.min)} to ${format(invalid.max)}, using whole numbers.`;
       return;
     }
-    const result = config.evaluate(state);
+    if (label === 'Heal' && revision === 'steam' && state.players + state.monsters > 6) {
+      bars.hidden = true;
+      inputs.get('monsters').setAttribute('aria-invalid', 'true');
+      output.textContent = `Heal shares 6 recipient slots. With ${state.players} players selected, at most ${6 - state.players} undead monsters can be hit.`;
+      return;
+    }
+    const result = config.evaluate(state, revision);
     scale = config.scale ?? Math.max(scale, ...result.bars.map(bar => bar.value));
     const formatValue = config.formatValue ?? format;
     output.replaceChildren(el('strong', { className: 'formulas-graph-result', textContent: result.headline }),

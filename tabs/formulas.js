@@ -6,58 +6,33 @@ import { buildFormulaExplorer } from './formulas-explorers.js';
 import { tokenizeLine, attachTooltip, makeCollapsibleSection, buildVarLegend, buildTable } from './formulas-shared.js';
 import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
 
-// Experience required per level, read out of the COT2 client. The client builds the
-// table at startup in sub_14003B220 and reads it back through GetNeedEXP
-// (sub_14087F690); see tmp/exp-table-binary.md.
-const EXP_TABLE = [
-  [1, 2, 15], [2, 3, 34], [3, 4, 57], [4, 5, 92],
-  [5, 6, 135], [6, 7, 372], [7, 8, 560], [8, 9, 840],
-  [9, 10, 1242], [10, 11, 1716], [11, 12, 2360], [12, 13, 3216],
-  [13, 14, 4200], [14, 15, 5460], [15, 16, 7050], [16, 17, 8840],
-  [17, 18, 11040], [18, 19, 13716], [19, 20, 16680], [20, 21, 20216],
-  [21, 22, 24402], [22, 23, 28980], [23, 24, 34320], [24, 25, 40512],
-  [25, 26, 47216], [26, 27, 54900], [27, 28, 63666], [28, 29, 73080],
-  [29, 30, 83720], [30, 31, 95700], [31, 32, 108480], [32, 33, 122760],
-  [33, 34, 138666], [34, 35, 155540], [35, 36, 174216], [36, 37, 194832],
-  [37, 38, 216600], [38, 39, 240500], [39, 40, 266682], [40, 41, 294216],
-  [41, 42, 324240], [42, 43, 356916], [43, 44, 391160], [44, 45, 428280],
-  [45, 46, 468450], [46, 47, 510420], [47, 48, 555680], [48, 49, 604416],
-  [49, 50, 655200], [50, 51, 709716], [51, 52, 748608], [52, 53, 789631],
-  [53, 54, 832902], [54, 55, 878545], [55, 56, 926689], [56, 57, 977471],
-  [57, 58, 1031036], [58, 59, 1087536], [59, 60, 1147132], [60, 61, 1209994],
-  [61, 62, 1276301], [62, 63, 1346242], [63, 64, 1420016], [64, 65, 1497832],
-  [65, 66, 1579913], [66, 67, 1666492], [67, 68, 1757815], [68, 69, 1854143],
-  [69, 70, 1955750], [70, 71, 2062925], [71, 72, 2175973], [72, 73, 2295216],
-  [73, 74, 2420993], [74, 75, 2553663], [75, 76, 2693603], [76, 77, 2841212],
-  [77, 78, 2996910], [78, 79, 3161140], [79, 80, 3334370], [80, 81, 3517093],
-  [81, 82, 3709829], [82, 83, 3913127], [83, 84, 4127566], [84, 85, 4353756],
-  [85, 86, 4592341], [86, 87, 4844001], [87, 88, 5109452], [88, 89, 5389449],
-  [89, 90, 5684790], [90, 91, 5996316], [91, 92, 6324914], [92, 93, 6671519],
-  [93, 94, 7037118], [94, 95, 7422752], [95, 96, 7829518], [96, 97, 8258575],
-  [97, 98, 8711144], [98, 99, 9188514], [99, 100, 9692044], [100, 101, 10223168],
-  [101, 102, 10783397], [102, 103, 11374327], [103, 104, 11997640], [104, 105, 12655110],
-  [105, 106, 13348610], [106, 107, 14080113], [107, 108, 14851703], [108, 109, 15665576],
-  [109, 110, 16524049], [110, 111, 17429566], [111, 112, 18384706], [112, 113, 19392187],
-  [113, 114, 20454878], [114, 115, 21575805], [115, 116, 22758159], [116, 117, 24005306],
-  [117, 118, 25320796], [118, 119, 26708375], [119, 120, 28171993],
-];
+// Experience requirements re-derived from the current version. The startup builder fills
+// levels 1-99; level 100 is the cap. See tmp/steam-tables.md.
+const EXP_TABLE = (() => {
+  const rows = [];
+  let previous = 0;
+  for (let level = 1; level <= 99; level++) {
+    const third = Math.floor(level ** 2 / 3);
+    const exp = level <= 5
+      ? (Math.floor(level ** 2 / 2) + 15) * level
+      : level <= 50
+        ? (third + 19) * third
+        : Math.trunc(previous * (level < 90 ? 1.0548 : 2.1));
+    rows.push([level, level + 1, exp]);
+    previous = exp;
+  }
+  return rows;
+})();
 
-// Citizenship (Residency) grade thresholds, read out of the COT2 client. The
-// contribution column is NeedContribution (sub_1402C94E0) and the level column is
-// NeedLevel (sub_1402C94C0); the Citizenship tab is the only caller of either. Grade,
-// contribution required, character level required, grade name. The contribution
-// column is the price of one grade, not a lifetime total - the window's gauge divides
-// by NeedContribution(grade + 1), and an in-game reading of 450 / 2,000 at grade 2
-// (grade 2 itself costs 1,000) proves the counter resets on each grade up.
-// The names come from GetGradeName (sub_1402C8CF0), whose jump table maps grade 0-10
-// to message ids 6094-6104; those live in the client's obfuscated message table and
-// decrypt to the strings below. See tmp/citizenship-grade-binary.md.
+// Current version citizenship thresholds from NeedContribution / NeedLevel. Contribution
+// is the price of one grade; the counter resets on promotion.
+// Grade names decoded from current message IDs 6073-6082; see tmp/steam-citizenship-names-binary.md.
 const CITIZENSHIP_GRADES = [
-  [1, 0, 12, 'Traveler'], [2, 1000, 17, 'Visitor'], [3, 2000, 22, 'Helpful Stranger'],
-  [4, 3000, 27, 'Recognized Guest'], [5, 4000, 32, 'Town Resident'],
-  [6, 5000, 37, 'Trusted Neighbor'], [7, 6000, 42, 'Distinguished Citizen'],
-  [8, 7000, 47, 'Town Patron'], [9, 8000, 52, 'Guardian of the Village'],
-  [10, 10000, 57, 'Citizen of Honor'],
+  [1, 0, 12, 'Traveler'], [2, 1500, 17, 'Visitor'], [3, 3500, 22, 'Helpful Stranger'],
+  [4, 6000, 27, 'Recognized Guest'], [5, 9000, 32, 'Town Resident'],
+  [6, 12500, 37, 'Trusted Neighbor'], [7, 16500, 42, 'Distinguished Citizen'],
+  [8, 21000, 47, 'Town Patron'], [9, 26000, 52, 'Guardian of the Village'],
+  [10, 32000, 57, 'Citizen of Honor'],
 ];
 
 // Craft level, craft exp needed to finish that level, character level needed to move on
@@ -65,15 +40,15 @@ const CITIZENSHIP_GRADES = [
 // every discipline shares it; the character level column is the 5 x nextLevel the
 // crafting window prints in its own tooltip (sub_1410F6F80). Level 1 comes from the
 // quest, so it has no character level of its own.
-// See tmp/crafting-exp-table-binary.md.
+// Current version caps crafting at level 8. See tmp/steam-tables.md.
 const CRAFT_LEVELS = [
   [1, 50, null], [2, 166, 10], [3, 319, 15], [4, 521, 20], [5, 787, 25],
-  [6, 1138, 30], [7, 1602, 35], [8, 2214, 40], [9, 3022, 45], [10, 4089, 50],
+  [6, 1138, 30], [7, 1602, 35], [8, 2214, 40],
 ];
 
 const CRAFT_RULES = [
   ['Level 1', 'CraftExp = 50'],
-  ['Level 2 to 10', 'CraftExp = trunc(PreviousLevelExp × 1.32) + 100'],
+  ['Level 2 to 8', 'CraftExp = trunc(PreviousLevelExp × 1.32) + 100'],
 ];
 
 // Swing / Stab / Shoot / Other, read directly from the damage function in
@@ -96,14 +71,14 @@ const WEAPON_MULTS = [
   ['Barehanded',      1,   1,   1,   1  ],
 ];
 
-// How the client picks a basic attack's animation: a uniform draw from the list the
-// weapon owns (GetAttackAction sub_1407E5650, list table 0x143A4D6D0, keyed by the
+// How the current client picks a basic attack's animation: a uniform draw from the list the
+// weapon owns (GetAttackAction sub_14083CD20, list table 0x143AD26F0, keyed by the
 // weapon's info/attack). The odds are just the make-up of that list - three swings and
-// two stabs gives 60/40. See tmp/swing-stab-ratio-binary.md.
+// two stabs gives 60/40. See tmp/steam-weapon-actions-binary.md.
 // This is the MELEE list. Bows, Crossbows and Claws have a second, ranged list at
-// 0x143A4D880 (sub_1407E5A20, called from the shoot routine sub_1428D5B50) which is what
-// a normal shot actually uses - bow shoot1, crossbow shoot2, claw swingO1/O2/O3. So for
-// those three weapons the rows below are only reached when meleeing without ammo.
+// 0x143AD28A0 (sub_14083D100, called from the shoot routine at 0x142927A31) which is what
+// a normal shot actually uses - bow shoot1, crossbow shoot2, claw swingO1/O2/O3.
+// Those three weapons' rows below describe melee attacks, including attacks without ammo.
 const ACTION_SPLIT = [
   ['1H Sword / Axe / Blunt', '60%', '40%'],
   ['2H Sword / Axe / Blunt', '60%', '40%'],
@@ -116,19 +91,21 @@ const ACTION_SPLIT = [
   ['Barehanded',             '-',   '100%'],
 ];
 
-// Physical attack skills that never roll for swing or stab, grouped by the multiplier
-// column they land in. Derived from the action classifier sub_14025E1F0, whose order is:
+// Current skills whose multiplier category stays fixed, even if the animation can vary.
+// Derived from the action classifier sub_1402A37F0, whose order is:
 // skill property 48 -> use the weapon's default action; property 123 -> Other; then the
-// action id ranges. Property 123 outranks the animation, which is why Dragon Fury is Other
-// despite carrying swingP1/swingP2. Savage Blow (action 47) and Avenger (action 48) are
+// action id ranges. Property 123 outranks the animation. Savage Blow (action 47) and
+// the legacy Avenger animation (action 48) are
 // hand-patched into the melee ranges by the same function.
-// Magic skills are left out on purpose - magic damage never uses a weapon multiplier.
-// See tmp/formulas-page-audit-2.md and tmp/savage-blow-weapon-multiplier-binary.md.
+// Magic damage does not use a weapon multiplier.
+// Current skill definitions and action registrations re-read from the installed Steam client.
+// Threaten and Slow are debuffs; Poison Breath's damage uses the magic path. Their Default
+// labels describe the classifier, not a weapon multiplier applied to their damage.
+// See tmp/steam-weapon-actions-binary.md. Third-job COT2 examples are absent from this pack.
 const ACTION_EXCEPTIONS = [
   ['Stab', ['Double Stab', 'Savage Blow']],
-  ['Shoot', ['Avenger']],
-  ['Other', ['Rush', 'Assaulter', 'Meso Explosion', 'Shout', 'Dragon Fury', 'Dragon Roar', 'Piercing Crusher', 'Silver Hawk', 'Golden Eagle']],
-  ["Weapon's Default", ['Armor Crash', 'Threaten', 'Elemental Crash', 'Power Crash', 'Slow', 'Seal', 'Doom', 'Poison Breath', 'Poison Mist', 'Shadow Web', 'Arrow Bomb: Bow', 'Inferno', 'Blizzard']],
+  ['Other', ['Rush']],
+  ["Weapon's Default", ['Threaten', 'Slow', 'Poison Breath', 'Arrow Bomb: Bow']],
 ];
 
 // ─── Accuracy ────────────────────────────────────────────────
@@ -258,6 +235,7 @@ const BASE_DAMAGE_STEPS = [
       'Bows, Crossbows and Claws draw their firing animation from a separate ranged action list, so a normal shot lands on Shoot (2.5, StatDiv 100). The StatDiv 300 rows are what you get meleeing with them - a Claw with no stars left stabs for 1.0',
       'Combo Attack and the Elemental Charge both raise the Skill Damage % before anything else happens - see the Damage Modifications section',
     ],
+    cot2: { notes: ['MasteryMult is 12.5% lower at every mastery level, so minimum physical damage drops slightly; maximum damage is unchanged.'] },
     cot1: {
       notes: [
         'Only Lucky Seven changed: COT1 forced a 2.6 weapon multiplier, raised to 3.0 in COT2.',
@@ -270,12 +248,13 @@ const BASE_DAMAGE_STEPS = [
     status: 'stale',
     statusNote: 'Derived from the client binary. The client seeds MAGIC with floor(TotalInt / 2), then adds equipment and buff Magic Attack. The formula expands that combined stat into player inputs.',
     lines: [
-      'MIN = (BasicAttack / 100) × (floor(TotalInt / 2) + MagicAttack) × (TotalInt × MasteryMult / 100 + 1)',
-      'MAX = (BasicAttack / 100) × (floor(TotalInt / 2) + MagicAttack) × (TotalInt / 100 + 1)',
+      'MIN = (BasicAttack / 100) × (floor(TotalInt / 2) + MagicAttack) × (TotalInt × MasteryMult / 125 + 1)',
+      'MAX = (BasicAttack / 100) × (floor(TotalInt / 2) + MagicAttack) × (TotalInt / 125 + 1)',
     ],
     warnings: [
       'MagicAttack includes equipment and buffs.',
     ],
+    cot2: { notes: ['Compared with the COT2 formula, INT contributes less to both minimum and maximum damage (divisor 125 instead of 100)'] },
     notes: [
       'The roll between MIN and MAX is a single uniform random per hit',
       'BasicAttack is the value listed on the skill. Exceptions: Poison Mist (pure damage over time), Poison Breath (direct hit from a hidden second skill), Heal (own formula outright).',
@@ -304,15 +283,13 @@ const BASE_DAMAGE_STEPS = [
     label: 'Heal',
     wip: false,
     status: 'stale',
-    statusNote: 'Undead damage verified in the current client. The live Heal cast sends a recipient mask; HP updates arrive from the server. This formula does not establish HP restored per player.',
+    statusNote: 'Undead damage formula re-derived from both Heal paths in the current version. This formula does not establish HP restored per player.',
     lines: [
-      'HealBase = ((TotalInt × Roll + TotalLuk) / 200 + 3) × (floor(TotalInt / 2) + MagicAttack) × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1)',
+      'HealBase = ((TotalInt × Roll + TotalLuk) / 1000 + 2.5) × (floor(TotalInt / 2) + MagicAttack) × (RecoveryRate / 100) × ((TargetsHit − 1) × 0.5 + 1)',
       '',
-      'Roll = rand(0.8, 1.0)',
+      'Roll = rand(0.1, 1.2)',
       '',
-      'HealBase = HealBase × (HealBonus / 100 + 1)',
-      '',
-      'Damage = trunc(HealBase) / TargetsHit × 0.5',
+      'Damage = trunc(HealBase) / TargetsHit / 1.5',
     ],
     warnings: [
       'MagicAttack includes equipment and buffs.',
@@ -320,10 +297,14 @@ const BASE_DAMAGE_STEPS = [
     notes: [
       'This calculates damage against undead, not HP restored to each player. HealBase is an intermediate damage term; the client does not establish how HP recovery is distributed.',
       'RecoveryRate is the recovery rate listed on the skill itself.',
-      'TargetsHit is everyone the cast reaches - up to 15 undead monsters (Heal only targets undead, so other monsters in range neither take hits nor dilute the split) plus up to 6 party members, counting at least 1 since the caster is always in range.',
-      'HealBonus is the bonus from Bless (Cleric skill 2301003), 1% at level 1 rising to 10% at level 20. The undead-damage calculation applies it before the target split.',
-      'Heal treats any nonzero undead flag as undead. The template builder stores the flag as (value != 0), so Green Mushroom\'s 25 becomes 1, while a value of 0 or a missing undead entry both become 0 and take no damage from Heal. Every other dataset checked gives Green Mushroom 0, so the 25 looks like a data error.',
+      'TargetsHit counts selected players and undead monsters, sharing 6 total slots. You still count even at full HP, leaving at most 5 undead monsters when solo. Non-undead monsters do not dilute the split.',
     ],
+    cot2: {
+      notes: [
+        'COT2 applies a Bless/HealBonus multiplier to undead damage. This version’s undead-damage calculation does not explicitly read that value',
+        'Higher INT/LUK and a Bless bonus favor COT2. This version keeps more of its damage per undead target when Heal reaches larger groups of allies and undead, so larger groups favor this version.',
+      ],
+    },
     cot1: {
       notes: [
         'Same shape as COT1, but COT1 read base Int and base Luk from AP only - the switch to totals including equipment is new.',
@@ -338,15 +319,14 @@ const BASE_DAMAGE_STEPS = [
     lines: [
       'TotalDamage = (DoTBasicAttack / 100) × (floor(TotalInt / 2) + MagicAttack) × (TotalInt / 125 + 1)',
       '',
-      'DamagePerTick = TotalDamage / DoTDurationSeconds',
+      'EstimatedDamagePerTick = TotalDamage / DoTDurationSeconds',
     ],
     warnings: [
       'MagicAttack includes equipment and buffs.',
     ],
     notes: [
       'DoT damage ignores all Defense reductions - the routine never reads the enemy\'s weapon or magic defense at all',
-      'Note the divisor is 125, not the 100 used everywhere else',
-      'Every DoT skill in the game currently ticks once per second, so ticks and seconds are interchangeable here',
+      'Current periodic DoT skill data specifies a 1-second interval. The per-tick line estimates an even split; server tick amounts and rounding are not established by the client.',
       'Level penalty is applied differently for DoT calculations',
     ],
     cot1: {
@@ -363,7 +343,7 @@ const BASE_DAMAGE_STEPS = [
     lines: [
       'TotalDamage = (BleedPercent / 100) × ((2 × PrimaryStat + SecondaryStat) / 100 + 1 + AttackPower / 50) × WeaponAttack',
       '',
-      'DamagePerTick = TotalDamage / BleedDurationSeconds',
+      'EstimatedDamagePerTick = TotalDamage / BleedDurationSeconds',
     ],
     notes: [
       'Bleed ignores all Defense reductions, the routine never reads the enemy weapon or magic defense at all',
@@ -386,7 +366,7 @@ const BASE_DAMAGE_VARS = [
   { name: 'WepMult',       desc: 'Weapon multiplier for the attack action used - see Weapon Multipliers table' },
   { name: 'StatDiv',       desc: 'Divides both stat terms. Chosen alongside WepMult by the weapon type and the attack action - values listed with the Physical Damage formula' },
   { name: 'AtkDiv',        desc: 'Divides the AttackPower term. Chosen the same way as StatDiv - values listed with the Physical Damage formula' },
-  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8 (level 0 if unlearned). Physical attacks read MasteryLevel from the weapon mastery skill for the equipped weapon; magic attacks read it from the attacking skill\'s own data instead. Exception: Lucky Seven is fixed at 0.5, ignoring Claw Mastery (equivalent to mastery level 5.25)' },
+  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.7 (level 0 if unlearned) in the current version. Physical attacks read the equipped weapon mastery; magic attacks read the attacking skill data. Lucky Seven uses its own skill-data multiplier (z / 1000) instead.' },
   { name: 'BasicAttack',   desc: 'Basic Attack value listed on the skill, for magic skills only' },
   { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
   { name: 'BleedPercent', desc: 'The "dealing N% total damage over X sec" value listed on the skill (the dot field): 40 at level 1 rising to 100 at level 20 for Axe Mastery' },
@@ -397,8 +377,7 @@ const BASE_DAMAGE_VARS = [
   { name: 'MesosPerPile',  desc: 'Mesos in one selected ground pile for Meso Explosion - same value as the calculator Mesos per pile input' },
   { name: 'MasteryPercent', desc: 'Meso Explosion Mastery percentage, same value as the calculator Mastery input (raw skill data x / 10; enter 150 for 150%)' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
-  { name: 'TargetsHit',    desc: 'Total targets hit: enemies (max 15) + caster + allies in range (max 6 including the caster)' },
-  { name: 'HealBonus',     desc: "Bless's bonus % for the learned level (1 at level 1, 10 at level 20). The client applies it to Heal only" },
+  { name: 'TargetsHit',    desc: 'Heal recipient count: selected players and undead monsters share 6 total slots, including the caster even at full HP' },
   { name: 'DoTDurationSeconds', desc: 'Duration of the DoT effect in seconds' },
 ];
 
@@ -452,8 +431,8 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Defense Nullified (Armor Crash)',
     wip: false,
-    status: 'partial',
-    statusNote: 'Zero-defense branch verified in the client; tying the (server-set) flag to Armor Crash is inference - the only skill described as zeroing physical defense.',
+    status: 'ok',
+    statusNote: 'The current client names the runtime flag ArmorCrash, and its physical-defense getter returns zero when that flag is active.',
     lines: [
       'If the monster is flagged, WeaponDefense = 0 and the step below is skipped entirely.',
     ],
@@ -563,7 +542,7 @@ const MOD_PIPELINE_STEPS = [
     ],
     notes: [
       'The two branches meet exactly at LevelDiff 10, where the penalty term is 0.5 either way - the damage is divided by 1.5, so about a third of it is lost',
-      'DoT always uses the linear branch - harsher than direct hits below LevelDiff 10, identical at 10+.',
+      'DoT and Bleed use the linear branch - harsher than direct hits below LevelDiff 10, identical at 10+.',
     ],
   },
   {
@@ -597,21 +576,22 @@ const MOD_PIPELINE_STEPS = [
     label: 'Iron Arrow Falloff (Crossbow only)',
     wip: false,
     status: 'stale',
-    statusNote: 'Read directly from the client, hard-coded to Iron Arrow: Crossbow by skill ID.',
+    statusNote: 'Re-derived from the current version, hard-coded to Iron Arrow: Crossbow by skill ID.',
     lines: [
-      'Damage = Damage × clamp(1 − ConsecutiveHits × 0.2, 0, 1)',
-      '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.6 …',
+      'Damage = Damage × 0.8^ConsecutiveHits',
+      '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.64,  4th: ×0.512',
     ],
     notes: [
       'No other skill in the game uses this step',
-      'The skill caps at 4 targets, so the multiplier bottoms out at ×0.4 and never reaches the 0 floor',
+      'The skill caps at 4 targets. This geometric falloff differs from the earlier linear formula starting at the third target.',
     ],
+    cot2: { notes: ['The 3rd and 4th targets take more damage: their falloff rises from ×0.60 to ×0.64 and from ×0.40 to ×0.512.'] },
   },
   {
     label: 'Shadow Partner (Hermit)',
     wip: false,
-    status: 'partial',
-    statusNote: 'The step is read directly from the client, but nothing in the code names the skill - there is no skill ID check, only a flag carried on the attack, so the attribution to Shadow Partner is inference.',
+    status: 'ok',
+    statusNote: 'Traced the named ShadowPartner status through the shooting attack producer into the second-half damage flag and multiplier. Its third-job skill definition is absent from the current patch.',
     lines: [
       'Damage = Damage × PartnerDamage / 100',
       '  applied only to hits in the second half of the hit list',
@@ -700,14 +680,14 @@ const GUARD_STEPS = [
   {
     label: 'Guard Immunity',
     wip: false,
-    status: 'partial',
-    statusNote: 'The check is read directly from the client, but the monster flag it reads has not been matched to a property in the monster data yet.',
+    status: 'ok',
+    statusNote: 'Traced monster info/invincible through the template and runtime monster to the guard-immunity check.',
     lines: [
-      'A flag on the monster can switch guard off entirely for its attacks.',
+      'Monsters with invincible = 1 bypass guard checks.',
     ],
     notes: [
       'When that flag is set the attack always resolves as a normal hit and neither roll below is reached',
-      'No monster in the game data has been matched to this flag yet, so in practice every attack is currently guardable',
+      'Current monster data sets this flag on IDs 90–94 (jump-quest obstacles). Their regular attacks cannot be guarded.',
     ],
   },
   {
@@ -765,50 +745,49 @@ const GUARD_STEPS = [
     label: 'Player Defense',
     wip: false,
     status: 'stale',
-    statusNote: 'Read directly from both damage-taken routines in the client, with every constant resolved.',
+    statusNote: 'Re-derived from all three regular damage-taken paths in the current version.',
     lines: [
       'Defense = WeaponDefense for a regular attack, MagicDefense for a skill attack',
       '',
-      'DefenseScale = 5 × PlayerLevel + 200 + 1.2 × IncomingDamage',
-      '',
-      'DamageTaken = IncomingDamage / (1 + Defense / DefenseScale)',
+      'DamageTaken = IncomingDamage × (1 − Defense / (Defense + 2 × IncomingDamage + 300))',
+      '              − Defense / 25 − PlayerLevel / 10',
     ],
     notes: [
-      'Same shape as the monster-side Weapon Defense and Magic Defense steps, which are IncomingDamage / (1 + Defense / 100). The difference is that a monster\'s scale is a fixed 100 while yours grows',
-      'Defense equal to DefenseScale halves the hit, twice it cuts the hit to a third. It never reaches zero',
-      'Because DefenseScale grows with your level, the same defense is worth less as you level. 300 Weapon Defense cuts about 39% off a 100 damage hit at level 30, but only about 25% at level 120',
-      'Because DefenseScale grows with the hit, defense helps most against chip damage and least against what can kill you',
+      'This replaces the COT2 scale formula. Defense now affects damage through both a fraction of incoming damage and flat Defense/25 and Level/10 subtractions.',
+      'The result is truncated and clamped to 1-50,000,000 at the final result step for regular and magic attacks.',
     ],
+    cot2: { notes: ['Smaller hits benefit more from this version’s flat Defense/25 and Level/10 reductions. Against large hits, COT2’s percentage reduction can be stronger, so this version can take more damage despite those flat reductions.'] },
     cot1: {
       notes: [
-        'COT1 had no level term at all: DamageTaken = IncomingDamage / (1 + Defense / (5 × IncomingDamage)). There, defense crushed chip damage but did little against big hits - COT2\'s scale rework flipped that and made defense decay as you level.',
+        'COT1 and COT2 used different formulas. The current version uses the formula above.',
       ],
     },
   },
   {
     label: 'Invincible (Cleric)',
     wip: false,
-    status: 'partial',
-    statusNote: 'The step is read directly from the damage-taken routine, including the job check and the 50% ceiling.',
+    status: 'ok',
+    statusNote: 'Matched the named Invincible status getters to the physical damage-taken path and skill 2301002. Reductions outside 0–50% are ignored.',
     lines: [
       'Only for Cleric, Priest and Bishop, and only against a regular attack:',
       '  DamageTaken = DamageTaken × (1 − InvincibleReduction / 100)',
     ],
     notes: [
-      'InvincibleReduction is the skill\'s own value, 10% at level 1 rising to 30% at level 20',
+      'InvincibleReduction is the skill\'s own value, 1% at level 1 rising to 20% at level 20',
       'Regular attacks only. A monster skill attack skips this step, matching the skill description, which says physical damage',
     ],
+    cot2: { notes: ['Invincible reduces less physical damage at every skill level: 1–20% instead of COT2’s 10–30%. '] },
   },
   {
     label: 'Elemental Damage Reduction',
     wip: false,
     status: 'partial',
-    statusNote: 'The step is read directly from both damage-taken routines and the getter they call. The four values are buff slots with no skill id attached, so naming Elemental Resistance as the source is inference.',
+    statusNote: 'Reverified the four element-specific status values and multiplier in the current client. Which skill supplies these values remains unresolved.',
     lines: [
       'DamageTaken = DamageTaken × (1 − ElementResist / 100)',
     ],
     notes: [
-      'Applies to both regular and skill attacks, straight after your defense',
+      'Applies to both regular and skill attacks when ElementResist is positive, straight after your defense',
     ],
   },
   {
@@ -826,6 +805,7 @@ const GUARD_STEPS = [
       'Guard is a full negation, not a reduction. The client still runs the whole damage calculation and then throws the number away, exactly as it does for a miss',
       'Guard is only rolled for a monster\'s regular attack. Monster skill attacks take a separate path that always resolves as a hit',
       'An attack can be flagged unmissable and still be guarded, the guard rolls sit after the accuracy check, not inside it',
+      'A separate fixed-variance damage path skips player defense and the final clamp; this result step describes ordinary monster-hit resolution.',
     ],
   },
 ];
@@ -837,7 +817,7 @@ const GUARD_VARS = [
   { name: 'Avoid',         desc: "Your Avoid stat from the Stats panel, before the diminishing-returns step" },
   { name: 'EffectiveAvoid', desc: 'Avoid after diminishing returns and the level-gap term. Climbs toward 80 and never passes it' },
   { name: 'MonsterHitScore', desc: "The monster's accuracy scaled against the level gap - what the roll is measured against" },
-  { name: 'InvincibleReduction', desc: "Invincible's damage reduction % for the learned level (10 at level 1, 30 at level 20)" },
+  { name: 'InvincibleReduction', desc: "Invincible's damage reduction % for the learned level (1 at level 1, 20 at level 20)" },
   { name: 'ElementResist', desc: 'Percentage reduction for the element of the incoming attack, from one of four buff slots' },
   { name: 'ShieldDefense', desc: 'Weapon Defense of the item equipped in the shield slot, scrolls included. Nothing else feeds this value' },
   { name: 'GuardChance',   desc: 'Chance for the hit to be negated outright' },
@@ -845,54 +825,52 @@ const GUARD_VARS = [
   { name: 'MonsterAttack', desc: "The monster's physical attack for a regular attack, or its magic attack for a skill attack, after its own percent modifiers" },
   { name: 'IncomingDamage', desc: 'The rolled damage of the hit, before the player\'s defense is applied' },
   { name: 'Defense',       desc: "The player's Weapon Defense against a regular attack, or Magic Defense against a skill attack, from the Stats panel" },
-  { name: 'DefenseScale',  desc: 'How much defense is worth one unit of the tug-of-war. Defense equal to this halves the hit; twice this cuts it to a third' },
+  { name: 'DefenseDenominator', desc: 'Defense + 2 × IncomingDamage + 300 in this version’s player-defense fraction' },
   { name: 'PlayerLevel',   desc: "Player's level" },
   { name: 'DamageTaken',   desc: 'HP actually lost from the hit' },
 ];
 
 // ─── Shared helpers ───────────────────────────────────────────
 
-const STATUS_LABELS = { ok: 'Code Verified', partial: 'Partly Code Verified', warn: 'Educated Guess', stale: 'Verified for COT2' };
+const STATUS_LABELS = { ok: 'Verified', partial: 'Partly Verified', warn: 'Educated Guess', stale: 'Verified' };
 
-// Where the formula came from and whether anyone has checked it in-game are two
-// separate questions, so they get two separate tags.
-const VALIDATION_LABELS = { pending: 'Requires Validation', done: 'In-Game Confirmed' };
-const VALIDATION_NOTES = {
-  pending: 'This formula has not been reverified sincE COT2.',
-  done: 'Checked against live gameplay and matched.',
-};
-
-// Returns a fragment so callers can drop both tags in with one appendChild.
-// `validated` is only meaningful for code-backed formulas - an educated guess
-// carries no code claim to validate, so it gets no second tag.
+// Binary verification is shown directly. Gameplay confirmation is an additional
+// badge only when explicitly recorded.
 function makeStatusTag(status, statusNote, validated) {
   const frag = document.createDocumentFragment();
+  const statusClass = status === 'stale' ? 'ok' : status;
+  const statusTag = el('span', { className: `formulas-status-tag formulas-status-${statusClass}`, textContent: STATUS_LABELS[status] });
+  attachTooltip(statusTag, statusNote ?? (status === 'ok' ? 'Read straight out of the game files.' : status === 'stale' ? 'Re-derived from the current version’s client binary.' : null));
+  frag.appendChild(statusTag);
 
-  // 'stale' steps show no provenance tag - only the validation tag below.
-  if (status !== 'stale') {
-    const statusTag = el('span', { className: `formulas-status-tag formulas-status-${status}`, textContent: STATUS_LABELS[status] });
-    attachTooltip(statusTag, statusNote ?? (status === 'ok' ? 'Read straight out of the game files.' : status === 'stale' ? 'Read out of the COT2 client binary - not yet re-checked against the Public Release client.' : null));
-    frag.appendChild(statusTag);
-  }
-
-  // `validated: null` opts out entirely - used for verbatim lookup tables, where
-  // the values are the data itself and there is no behaviour to test against.
-  if (status !== 'warn' && validated !== null) {
-    const key = validated ? 'done' : 'pending';
+  if (status !== 'warn' && validated === true) {
     const validationTag = el('span', {
-      className: `formulas-status-tag formulas-validation-${key}`,
-      textContent: VALIDATION_LABELS[key],
+      className: 'formulas-status-tag formulas-validation-done',
+      textContent: 'In-Game Confirmed',
     });
-    attachTooltip(validationTag, VALIDATION_NOTES[key]);
+    attachTooltip(validationTag, 'Checked against live gameplay and matched.');
     frag.appendChild(validationTag);
   }
 
   return frag;
 }
 
+function buildComparisonTag() {
+  const tag = el('span', { className: 'formulas-status-tag formulas-cot2-tag', textContent: 'Changed from COT2' });
+  attachTooltip(tag, 'This formula or table differs from Closed Online Test 2. The comparison note below summarizes the client change.');
+  return tag;
+}
+
+function buildComparisonNotes(notes) {
+  const wrap = el('div', { className: 'formulas-cot2-notes' });
+  wrap.appendChild(el('strong', { className: 'formulas-cot2-heading', textContent: 'Comparison with COT2' }));
+  notes.forEach(note => wrap.appendChild(el('div', { className: 'formulas-note', textContent: note })));
+  return wrap;
+}
+
 function buildPipeline(steps, chapterStarts = {}) {
   const frag = document.createDocumentFragment();
-  steps.forEach(({ label, wip, status, statusNote, validated, lines, notes, warnings, simple }, i) => {
+  steps.forEach(({ label, wip, status, statusNote, validated, lines, notes, warnings, simple, cot2 }, i) => {
     if (chapterStarts[i]) {
       const { key, label: chapterLabel, description } = chapterStarts[i];
       const chapter = el('div', { className: 'formulas-stage-heading' });
@@ -910,6 +888,7 @@ function buildPipeline(steps, chapterStarts = {}) {
     stepHeader.appendChild(titleEl);
     if (wip) stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
     if (status) stepHeader.appendChild(makeStatusTag(status, statusNote, validated));
+    if (cot2) stepHeader.appendChild(buildComparisonTag());
     step.appendChild(stepHeader);
 
     // A step may carry a `simple` variant: the common-case formula with the rare
@@ -943,6 +922,7 @@ function buildPipeline(steps, chapterStarts = {}) {
         useNotes.forEach(n => noteWrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
         body.appendChild(noteWrap);
       }
+      if (cot2?.notes?.length) body.appendChild(buildComparisonNotes(cot2.notes));
     };
 
     if (simple) {
@@ -970,8 +950,8 @@ function buildPipeline(steps, chapterStarts = {}) {
     step.appendChild(body);
 
     if (label === 'Shield Guard') step.appendChild(buildShieldGraph(GRAPH_ITEMS, GRAPH_DATA));
-    if (label === 'Physical Damage') step.appendChild(buildDamageGraph(false, GRAPH_DATA));
-    if (label === 'Magical Damage') step.appendChild(buildDamageGraph(true, GRAPH_DATA));
+    if (label === 'Physical Damage') step.appendChild(buildDamageGraph(false, GRAPH_DATA, 0.7));
+    if (label === 'Magical Damage') step.appendChild(buildDamageGraph(true, GRAPH_DATA, 0.7, 125));
     const explorer = buildFormulaExplorer(label);
     if (explorer) step.appendChild(explorer);
 
@@ -985,7 +965,8 @@ function buildPipeline(steps, chapterStarts = {}) {
 const EXP_RULES = [
   ['Level 1 to 5', 'Exp = (floor(Level² / 2) + 15) × Level'],
   ['Level 6 to 50', 'Exp = (floor(Level² / 3) + 19) × floor(Level² / 3)'],
-  ['Level 51 to 119', 'Exp = trunc(PreviousLevelExp × 1.0548)'],
+  ['Level 51 to 89', 'Exp = trunc(PreviousLevelExp × 1.0548)'],
+  ['Level 90 to 99', 'Exp = trunc(PreviousLevelExp × 2.1)'],
 ];
 
 // Cumulative exp, aligned with EXP_TABLE - EXP_CUMULATIVE[i] is the exp already
@@ -1015,13 +996,13 @@ const EXP_SERIES = {
     label: 'Per Level',
     title: 'Exp to Level Up',
     values: EXP_TABLE.map(([, , exp]) => exp),
-    decades: [1, 8], // 10 .. 100M
+    decades: [1, 10], // 10 .. 10B
   },
   cumulative: {
     label: 'Cumulative',
     title: 'Total Exp to Reach Level',
     values: EXP_TABLE.map(([, , exp], i) => EXP_CUMULATIVE[i] + exp),
-    decades: [1, 9], // 10 .. 1B
+    decades: [1, 11], // 10 .. 100B
   },
 };
 
@@ -1075,7 +1056,7 @@ function buildExpChart() {
       label.textContent = compactExp(t);
       grid.appendChild(label);
     }
-    [1, 20, 40, 60, 80, 100, 120].forEach(lvl => {
+    [1, 20, 40, 60, 80, 99].forEach(lvl => {
       const label = svgEl('text', { x: xOf(lvl), y: M.t + plotH + 20, class: 'formulas-chart-axis-label', 'text-anchor': 'middle' });
       label.textContent = lvl;
       grid.appendChild(label);
@@ -1247,7 +1228,7 @@ function buildCitizenshipTable() {
 
   container.appendChild(el('div', {
     className: 'formulas-note formulas-note--padded',
-    textContent: 'Each figure buys one grade (counter resets on grade-up). Grade 1 comes from the citizenship quest; the full climb costs 46,000.',
+    textContent: 'Each figure buys one grade (counter resets on grade-up). Grade 1 comes from the citizenship quest; the full climb costs 128,000 contribution.',
   }));
 
   return container;
@@ -2194,9 +2175,10 @@ function buildWeaponMultTable() {
 
   container.appendChild(split);
 
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing/Stab are the normal melee actions, Shoot covers bow, crossbow and claw attacks, and Other applies when a skill uses its own custom animation (e.g. Rush, Assaulter)' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The Swing/Stab ratio above is the melee animation list. Bows, Crossbows and Claws normally fire instead, drawing from a separate ranged list that always resolves to Shoot; a star-throwing Claw rolls swingO1/O2/O3, rewritten to Shoot for claws. Their Swing and Stab columns are only reached when meleeing without ammo.' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll swing/stab like a plain attack. The groups below never roll: the first three use the shown multiplier; the last takes the weapon default - Stab for 1H/2H Swords, Daggers, Spears, Wands, Staves and bare hands; Swing for Axes, Blunt Weapons and Polearms; Shoot for Bows, Crossbows and Claws. Magic skills never use a weapon multiplier.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The client selects the multiplier category from the attack animation and skill flags. Swing and Stab cover normal melee actions; Shoot covers normal bow, crossbow and claw shots. Custom animations such as Rush fall into Other, with explicit exceptions such as Savage Blow, which counts as Stab. Skill flags can force Other or the weapon default before the animation is checked. Lucky Seven separately overrides its claw multiplier to 3.0.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The Swing/Stab ratio above comes from the melee animation list. Normal bow and crossbow shots use shoot1 and shoot2 from a separate ranged list. Star-throwing claws roll swingO1/O2/O3, which the classifier maps to Shoot for claws. The melee rows describe close-range attacks, including attacks made without ammo.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Skills without a selected skill animation fall back to the weapon animation list. The groups below keep the same multiplier category even when their animations vary. The weapon default is Stab for 1H/2H Swords, Daggers, Spears, Wands, Staves and bare hands; Swing for Axes, Blunt Weapons and Polearms; Shoot for Bows, Crossbows and Claws. Threaten and Slow are debuffs; Poison Breath uses magic damage. Their default classification does not apply a weapon multiplier to their effects. Magic damage does not use a weapon multiplier.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The installed Steam skill pack contains no third-job skill definitions. COT2 examples such as Avenger, Assaulter, Meso Explosion, Shout and Dragon Fury are therefore omitted from the current skill groups. The compiled classifier still recognizes the avenger animation as Shoot.' }));
 
   const exceptions = el('div', { className: 'formulas-exceptions' });
   ACTION_EXCEPTIONS.forEach(([column, skills]) => {
@@ -2242,11 +2224,15 @@ let CALC_MONSTERS = [];
 let GRAPH_ITEMS = [];
 let GRAPH_DATA;
 
-// The COT2 defense scale: grows with the player's level and with the size of the hit.
+// The current version applies fractional and flat defense reductions, then truncates and clamps.
 const CALC_CONFIG = {
   get monsters() { return CALC_MONSTERS; },
-  scale: (incoming, level) => 5 * level + 200 + 1.2 * incoming,
-  scaleTerms: (incoming, level) => `5 × ${level} + 200 + 1.2 × ${incoming.toLocaleString()}`,
+  damageFormula: (incoming, defense, level) => incoming * (1 - defense / (defense + 2 * incoming + 300))
+    - defense / 25 - level / 10,
+  scale: (incoming, level, defense) => defense + 2 * incoming + 300,
+  scaleTerms: (incoming, level, defense) => `${defense} + 2 × ${incoming.toLocaleString()} + 300`,
+  defenseLabel: 'Defense denominator',
+  maxLevel: 100,
   useLevel: true,
   notes: (magic) => [
     'Assumes the attack lands. A miss deals 0, and the accuracy roll is not modelled here, see the Monster Accuracy step for what decides that',
@@ -2279,10 +2265,10 @@ export function renderFormulas(data, options = {}) {
   CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]
     .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
 
-  const disclaimer = el('div', { className: 'formulas-disclaimer formulas-disclaimer--stale' });
+  const disclaimer = el('div', { className: 'formulas-disclaimer' });
   const disclaimerText = el('span');
-  disclaimerText.appendChild(el('strong', { textContent: 'Warning: ' }));
-  disclaimerText.append('These formulas are from Closed Online Test 2. They have not been confirmed against the live game and may be inaccurate. Check again later!');
+  disclaimerText.appendChild(el('strong', { textContent: 'Verified: ' }));
+  disclaimerText.append('Combat formulas and progression tables were re-derived from the installed current version. Values can change with future client updates.');
   disclaimer.appendChild(disclaimerText);
   const section = (title, key, bodyFn) => markFormulaSection(makeCollapsibleSection(title, '', bodyFn), key);
   const group = (...children) => el('div', { className: 'formulas-full' }, ...children);
@@ -2343,15 +2329,27 @@ export function renderFormulas(data, options = {}) {
   const buildProgressionPage = () => {
     const exp = section('Experience Table', 'experience', buildExpTable);
     exp.querySelector('.right').appendChild(makeStatusTag('stale', 'Read directly from the routine in the client that builds the experience table at startup.', null));
+    exp.querySelector('.right').appendChild(buildComparisonTag());
+    exp.querySelector('.collapsible-body').appendChild(buildComparisonNotes([
+      'The level cap drops from 120 to 100. EXP requirements match through level 89, then rise sharply: level 90 takes 11,938,059 EXP instead of 5,996,316, likely a softcap.',
+    ]));
     const expCredit = el('span', { className: 'formulas-credit' });
     expCredit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> and <strong>@ohmi</strong> on Discord';
     exp.querySelector('.left').appendChild(expCredit);
 
     const craft = section('Crafting Levels', 'crafting-levels', buildCraftTable);
     craft.querySelector('.right').appendChild(makeStatusTag('stale', 'Exp column from the client requirement routine; level column from the crafting window tooltip.'));
+    craft.querySelector('.right').appendChild(buildComparisonTag());
+    craft.querySelector('.collapsible-body').appendChild(buildComparisonNotes([
+      'Crafting now stops at level 8, so levels 9-10 are unavailable. Levels 1-8 keep the same EXP requirements and character-level gates.',
+    ]));
 
     const citizenship = section('Citizenship Grades', 'citizenship-grades', buildCitizenshipTable);
-    citizenship.querySelector('.right').appendChild(makeStatusTag('stale', 'The contribution thresholds and character level column come from the client and have been confirmed against the Citizenship window in game.'));
+    citizenship.querySelector('.right').appendChild(makeStatusTag('ok', 'Current version contribution thresholds and character-level requirements were read from the client binary. Grade names were decoded from its built-in English message table.'));
+    citizenship.querySelector('.right').appendChild(buildComparisonTag());
+    citizenship.querySelector('.collapsible-body').appendChild(buildComparisonNotes([
+      'Higher grades require more contribution: the full climb rises from 46,000 to 128,000 total',
+    ]));
     return group(exp, craft, citizenship);
   };
 
@@ -2394,7 +2392,7 @@ export function renderFormulas(data, options = {}) {
       },
       {
         key: 'damage-taken', label: 'Damage Taken', kicker: 'What happens when a monster attacks?',
-        description: 'Follow the hit check, guard roll, defense scaling, reductions, and final incoming result.',
+        description: 'Follow the hit check, guard roll, player defense formula, reductions, and final incoming result.',
         sections: [
           { key: 'hit-check', label: 'Hit check' }, { key: 'guard-resolution', label: 'Guards' },
           { key: 'damage-reduction', label: 'Damage reduction' }, { key: 'incoming-result', label: 'Result' },

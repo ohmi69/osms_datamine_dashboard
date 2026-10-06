@@ -984,7 +984,7 @@ function buildPipeline(steps, chapterStarts = {}) {
     if (label === 'Shield Guard') step.appendChild(buildShieldGraph(GRAPH_ITEMS, GRAPH_DATA));
     if (label === 'Physical Damage') step.appendChild(buildDamageGraph(false, GRAPH_DATA));
     if (label === 'Magical Damage') step.appendChild(buildDamageGraph(true, GRAPH_DATA));
-    const explorer = buildFormulaExplorer(label);
+    const explorer = buildFormulaExplorer(label, { revision: 'cot2' });
     if (explorer) step.appendChild(explorer);
 
     frag.appendChild(step);

@@ -1,7 +1,5 @@
-// Damage-taken calculator, shared by the live formulas page and the frozen COT1/COT2
-// snapshot. Everything the two clients disagree on is passed in by the caller -
-// the defense scale, whether the player's level is part of it, and the footnotes -
-// so neither page's numbers can drift by editing this file.
+// Damage-taken calculator, shared by the live formulas page and frozen COT1/COT2
+// snapshots. The caller supplies each client's defense formula, level range, and notes.
 
 import { el, matchSearch } from '../lib/utils.js';
 import { getMobThumbUrl, getMobGifUrl } from '../lib/data.js';
@@ -107,11 +105,15 @@ ${min} to ${max}` : `${min} to ${max}`,
 }
 
 function buildDamageCalc(config) {
-  const { monsters, scale, scaleTerms, useLevel = true, notes } = config;
+  const { monsters, scale, scaleTerms, damageFormula, defenseLabel = 'DefenseScale',
+    maxLevel = 120, useLevel = true, notes } = config;
 
-  // Both clients share everything but the scale, and both clamp and truncate at the end.
+  // Archived clients use their scale formula; the live current version supplies its
+  // separate Defense adjustment formula. All displayed regular results are clamped.
   const damageTaken = (incoming, defense, level) =>
-    Math.min(50000000, Math.max(1, Math.trunc(incoming / (1 + defense / scale(incoming, level)))));
+    Math.min(50000000, Math.max(1, Math.trunc(damageFormula
+      ? damageFormula(incoming, defense, level)
+      : incoming / (1 + defense / scale(incoming, level)))));
 
   const state = {
     mob: monsters.find(m => m.name === 'Orange Mushroom') ?? monsters[0] ?? null,
@@ -147,8 +149,8 @@ function buildDamageCalc(config) {
 
   // COT1's defense step has no level term, so the field would do nothing there.
   if (useLevel) {
-    controls.appendChild(makeNumberField('Your Level (1-120)', state.level, {
-      min: 1, max: 120, onChange: (v) => { state.level = v; update(); },
+    controls.appendChild(makeNumberField(`Your Level (1-${maxLevel})`, state.level, {
+      min: 1, max: maxLevel, onChange: (v) => { state.level = v; update(); },
     }));
   }
 
@@ -246,16 +248,16 @@ function buildDamageCalc(config) {
     out.appendChild(bar);
     out.appendChild(el('div', {
       className: 'formulas-calc-barlabel',
-      textContent: `${Math.round(incAvg).toLocaleString()} incoming on an average roll, ${(reduction * 100).toFixed(1)}% cut by defense`,
+      textContent: `${Math.round(incAvg).toLocaleString()} incoming on an average roll, ${(reduction * 100).toFixed(1)}% reduction after the defense formula`,
     }));
 
     const stats = el('div', { className: 'formulas-calc-stats' });
     stats.appendChild(statRow(state.magic ? 'Magic Attack' : 'Physical Attack', attack.toLocaleString(), `${mob.name}, Lv ${mob.level}`));
     stats.appendChild(statRow('IncomingDamage', `${Math.round(incMin).toLocaleString()} - ${Math.round(incMax).toLocaleString()}`, 'attack × 1.1 to 1.5'));
     stats.appendChild(statRow(
-      'DefenseScale',
-      Math.round(scale(incAvg, state.level)).toLocaleString(),
-      scaleTerms(Math.round(incAvg), state.level),
+      defenseLabel,
+      Math.round(scale(incAvg, state.level, state.defense)).toLocaleString(),
+      scaleTerms(Math.round(incAvg), state.level, state.defense),
     ));
     if (!state.magic) {
       stats.appendChild(statRow('Guard Chance', guard ? `${(guard * 100).toFixed(1)}%` : '-', guard ? 'hit negated entirely' : 'no shield equipped'));

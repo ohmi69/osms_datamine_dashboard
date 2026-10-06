@@ -1927,3 +1927,45 @@
 @media (max-width: 640px) {
   .formulas-meso-calc .formulas-graph-controls { grid-template-columns: 1fr; }
 }
+.formulas-cot2-tag {
+  color: #6fc8df;
+  background: rgba(80, 180, 220, 0.12);
+  border: 1px solid rgba(80, 180, 220, 0.32);
+}
+[data-theme="mapletip"] .formulas-cot2-tag {
+  color: #246f83;
+  background: rgba(40, 140, 170, 0.1);
+  border-color: rgba(40, 140, 170, 0.4);
+}
+.formulas-cot2-notes {
+  padding: 6px 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px dashed rgba(80, 180, 220, 0.35);
+  background: rgba(80, 180, 220, 0.05);
+}
+.formulas-cot2-heading {
+  color: #6fc8df;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.formulas-cot2-notes .formulas-note {
+  margin-top: 0;
+  padding-left: 16px;
+  position: relative;
+}
+.formulas-cot2-notes .formulas-note::before {
+  content: '\0394';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #6fc8df;
+  font-weight: 700;
+  font-size: 10px;
+}
+[data-theme="mapletip"] .formulas-cot2-notes .formulas-note::before {
+  color: #246f83;
+}

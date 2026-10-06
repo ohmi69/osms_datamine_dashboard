@@ -532,3 +532,10 @@ a.pn-chip-link:focus-visible { outline: 2px solid var(--accent); outline-offset:
     min-height: 40px;
   }
 }
+.pn-chip-change {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  white-space: normal;
+}

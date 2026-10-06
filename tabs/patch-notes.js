@@ -170,8 +170,10 @@ function buildFieldRow(field, onNavigate) {
 
   // before / arrow / after share one grid cell so they stay on a single line
   // and wrap together, rather than each claiming its own row.
-  if (field.before !== null && field.before !== undefined
-      || field.after !== null && field.after !== undefined) {
+  const hasMemberChanges = Boolean(field.added?.length || field.removed?.length);
+  if (!(hasMemberChanges && field.before === field.after)
+      && (field.before !== null && field.before !== undefined
+        || field.after !== null && field.after !== undefined)) {
     const values = el('span', { className: 'pn-field-values' });
     values.appendChild(el('span', { className: 'pn-field-before', textContent: shown(field.before) }));
     values.appendChild(el('span', { className: 'pn-arrow-sm', textContent: '→' }));
@@ -180,15 +182,35 @@ function buildFieldRow(field, onNavigate) {
   }
   // Set-valued fields (spawn maps, NPCs, monsters, exits) list their members
   // as individually coloured chips rather than one run-on italic string.
-  if (field.added?.length || field.removed?.length) {
+  if (hasMemberChanges) {
     const chips = el('span', { className: 'pn-chips' });
+    const pairedAdded = new Set();
+    const pairedRemoved = new Set();
+    (field.removed || []).forEach((oldItem, oldIndex) => {
+      if (!oldItem?.id) return;
+      const newIndex = (field.added || []).findIndex((newItem, index) =>
+        !pairedAdded.has(index) && newItem?.id != null
+        && String(newItem.id) === String(oldItem.id)
+        && (newItem.tab || field.tab) === (oldItem.tab || field.tab));
+      if (newIndex < 0) return;
+      const newItem = field.added[newIndex];
+      const chip = buildChip(newItem, 'pn-chip-neutral pn-chip-change', field.tab, onNavigate);
+      chip.lastChild.replaceWith(
+        el('span', { className: 'pn-field-before', textContent: oldItem.name }),
+        el('span', { className: 'pn-arrow-sm', textContent: '→' }),
+        el('span', { className: 'pn-field-after', textContent: newItem.name }),
+      );
+      chips.appendChild(chip);
+      pairedAdded.add(newIndex);
+      pairedRemoved.add(oldIndex);
+    });
     const add = (list, cls, sign) => (list || []).forEach((item) => {
       const labelled = typeof item === 'string'
         ? `${sign} ${item}` : { ...item, name: `${sign} ${item.name}` };
       chips.appendChild(buildChip(labelled, cls, field.tab, onNavigate));
     });
-    add(field.added, 'pn-added', '+');
-    add(field.removed, 'pn-removed', '−');
+    add((field.added || []).filter((_, i) => !pairedAdded.has(i)), 'pn-added', '+');
+    add((field.removed || []).filter((_, i) => !pairedRemoved.has(i)), 'pn-removed', '−');
     row.appendChild(chips);
   } else if (field.detail) {
     row.appendChild(el('span', { className: 'pn-field-detail', textContent: field.detail }));

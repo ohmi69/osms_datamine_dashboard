@@ -6,7 +6,7 @@ export const physicalRange = s => [s.mastery / 100, 1]
     + (s.primary * s.mult * mastery + s.secondary) / (s.statDiv ?? 100)
     + s.power / (s.atkDiv ?? 50)) * s.attack);
 export const magicalRange = s => [s.int * s.mastery / 100, s.int]
-  .map(stat => s.basic / 100 * (Math.floor(s.int / 2) + s.magicAttack) * (stat / 100 + 1));
+  .map(stat => s.basic / 100 * (Math.floor(s.int / 2) + s.magicAttack) * (stat / (s.statDivisor ?? 100) + 1));
 
 const svgNode = (tag, attrs = {}) => {
   const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -155,20 +155,20 @@ export function buildShieldGraph(items = [], graphData) {
   });
 }
 
-export function buildDamageGraph(magic = false, graphData) {
+export function buildDamageGraph(magic = false, graphData, masteryFactor = 0.8, statDivisor = 100) {
   const profile = magic ? graphData.magical : graphData.physical;
   const field = (key, label, hint) => ({ key, label, hint, ...profile[key] });
   const fields = magic ? [
     field('int', 'Total INT', 'Total INT from base stats, equipment and buffs. Also contributes half its value, rounded down, to MAGIC.'),
     field('magicAttack', 'Magic Attack', 'Total Magic Attack from equipment, scrolls and buffs, excluding INT. Scales both minimum and maximum damage.'),
     field('basic', 'Skill Basic Attack', 'The Basic Attack listed on your spell. Doubling it doubles damage.'),
-    field('mastery', 'Mastery level', 'Raises minimum damage only, making hits more consistent. Use the level in the skill effect.'),
+    field('mastery', 'Mastery level', `Raises minimum damage only. MasteryMult = (0.1 + level/10) × ${masteryFactor}.`),
   ] : [
     field('primary', 'Primary stat', 'Raises both ends of the range. STR for melee, DEX for bows, LUK for daggers and claws.'),
     field('secondary', 'Secondary stat', 'Raises both ends equally. DEX for melee, STR for bows, STR + DEX for daggers and claws.'),
     field('attack', 'Weapon Attack', 'Weapon + shield + stars or arrows. With other stats fixed, 10% more means 10% more damage.'),
     field('power', 'AttackPower', 'The AttackPower term in the formula: attack from buffs and equipment other than your weapon and shield. Appears as AttackPower × 2 in the simplified formula.'),
-    field('mastery', 'Mastery level', 'Raises minimum damage only, making hits more consistent. Use the level in the skill effect.'),
+    field('mastery', 'Mastery level', `Raises minimum damage only. MasteryMult = (0.1 + level/10) × ${masteryFactor}.`),
     field('skill', 'Skill Damage (%)', 'The damage percentage on your skill. 100% is a basic attack; 200% doubles damage.'),
     { key: 'mult', label: 'Weapon multiplier', value: profile.mult.value, min: 0, max: 1000, step: 0.01,
       numberOnly: true, hint: 'Enter a custom multiplier. Selecting a weapon or action loads its preset again.' },
@@ -176,7 +176,7 @@ export function buildDamageGraph(magic = false, graphData) {
   const current = Object.fromEntries(fields.map(f => [f.key, f.value]));
   if (!magic) current.mult = profile.mult.value;
   const evaluate = state => (magic ? magicalRange : physicalRange)({ ...state,
-    mastery: 8 + state.mastery * 8 });
+    mastery: (0.1 + state.mastery / 10) * masteryFactor * 100, statDivisor });
   const title = `Explore ${magic ? 'magical' : 'physical'} base damage`;
   const wrap = el('section', { className: 'formulas-graph formulas-chart-wrap formulas-damage-graph', 'aria-label': title });
   wrap.append(el('div', { className: 'formulas-chart-head' }, el('strong', { textContent: title })));
@@ -277,6 +277,8 @@ export function buildDamageGraph(magic = false, graphData) {
   result.append(output, plot);
   layout.append(controls, result);
   wrap.append(layout);
+  wrap.append(el('p', { className: 'formulas-graph-note', textContent:
+    `Uses MasteryMult = (0.1 + MasteryLevel/10) × ${masteryFactor}; Lucky Seven uses its own skill-data multiplier.` }));
   // Keep the scale steady when stats decrease, so shorter bars show the loss.
   let chartMax = 0;
   function draw() {

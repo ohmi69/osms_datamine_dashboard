@@ -35,13 +35,15 @@ const CRAFT_LEVELS_COT2 = [
   [6, 1138, 30], [7, 1602, 35], [8, 2214, 40], [9, 3022, 45], [10, 4089, 50],
 ];
 
+// The current version keeps COT2's requirements through level 8 and caps there.
+const CRAFT_LEVELS_CURRENT = CRAFT_LEVELS_COT2.slice(0, 8);
+
 const CRAFT_LEVELS_COT1 = [
   [1, 50, null], [2, 115, 10], [3, 199, 15], [4, 308, 20], [5, 450, 25],
   [6, 635, 30], [7, 875, 35], [8, 1187, 40], [9, 1593, 45], [10, 2120, 50],
 ];
 
-// Transposed: ten levels across the top, three short rows underneath. Laid out the
-// other way round it is a narrow ten-row column that leaves most of the panel empty.
+// Transposed: levels across the top, three short rows underneath.
 function buildCraftLevelTable(craftLevels) {
   const wrap = el('div', { className: 'craft-level-wrap' });
 
@@ -91,7 +93,8 @@ function buildCraftLevelTable(craftLevels) {
 export function renderCrafting(data, options = {}) {
   const { recipes, items } = data;
   const { onItemClick, patchVersion } = options;
-  const craftLevels = patchVersion === 'cot1' ? CRAFT_LEVELS_COT1 : CRAFT_LEVELS_COT2;
+  const craftLevels = patchVersion === 'cot1' ? CRAFT_LEVELS_COT1
+    : patchVersion === 'cot2' ? CRAFT_LEVELS_COT2 : CRAFT_LEVELS_CURRENT;
   let searchQuery = '';
   let autoExpandAfterId = null;
   let selectedDiscipline = null; // null = all
