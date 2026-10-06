@@ -235,7 +235,7 @@ const BASE_DAMAGE_STEPS = [
       'Bows, Crossbows and Claws draw their firing animation from a separate ranged action list, so a normal shot lands on Shoot (2.5, StatDiv 100). The StatDiv 300 rows are what you get meleeing with them - a Claw with no stars left stabs for 1.0',
       'Combo Attack and the Elemental Charge both raise the Skill Damage % before anything else happens - see the Damage Modifications section',
     ],
-    cot2: { notes: ['MasteryMult is 12.5% lower at every mastery level, so minimum physical damage drops slightly; maximum damage is unchanged.'] },
+    cot2: { notes: ['MasteryMult is 12.5% lower at every mastery level (caps at 0.7 instead of 0.8), so minimum physical damage drops slightly'] },
     cot1: {
       notes: [
         'Only Lucky Seven changed: COT1 forced a 2.6 weapon multiplier, raised to 3.0 in COT2.',
@@ -254,7 +254,7 @@ const BASE_DAMAGE_STEPS = [
     warnings: [
       'MagicAttack includes equipment and buffs.',
     ],
-    cot2: { notes: ['Compared with the COT2 formula, INT contributes less to both minimum and maximum damage (divisor 125 instead of 100)'] },
+    cot2: { notes: ['MasteryMult is 12.5% lower at every mastery level (caps at 0.7 instead of 0.8), so minimum physical damage drops slightly', 'Compared with the COT2 formula, INT contributes less to both minimum and maximum damage (divisor 125 instead of 100)'] },
     notes: [
       'The roll between MIN and MAX is a single uniform random per hit',
       'BasicAttack is the value listed on the skill. Exceptions: Poison Mist (pure damage over time), Poison Breath (direct hit from a hidden second skill), Heal (own formula outright).',
