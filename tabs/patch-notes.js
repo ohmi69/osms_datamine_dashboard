@@ -296,6 +296,39 @@ function buildLevelStats(levels) {
   return wrap;
 }
 
+// Keep changed descriptions in their before/after layout while folding the
+// intermediate ranks just like the Skills tab.
+function buildLevelDiffs(levels, onNavigate) {
+  const wrap = el('div', { className: 'stat-levels pn-level-diffs' });
+  const appendRow = (parent, field) => {
+    const row = el('div', { className: 'pn-fields' });
+    row.appendChild(buildFieldRow(field, onNavigate));
+    parent.appendChild(row);
+  };
+  appendRow(wrap, levels[0]);
+  if (levels.length > 2) {
+    const list = el('div', { className: 'all-levels-list' });
+    levels.slice(1, -1).forEach((field) => appendRow(list, field));
+    list.hidden = true;
+    const arrow = el('button', {
+      className: 'all-levels-arrow', type: 'button', textContent: '▼',
+      'aria-expanded': 'false', 'aria-label': 'Show intermediate levels',
+    });
+    arrow.addEventListener('click', (event) => {
+      event.stopPropagation();
+      list.hidden = !list.hidden;
+      arrow.textContent = list.hidden ? '▼' : '▲';
+      arrow.setAttribute('aria-expanded', String(!list.hidden));
+      arrow.setAttribute('aria-label',
+        list.hidden ? 'Show intermediate levels' : 'Hide intermediate levels');
+    });
+    wrap.appendChild(arrow);
+    wrap.appendChild(list);
+  }
+  if (levels.length > 1) appendRow(wrap, levels[levels.length - 1]);
+  return wrap;
+}
+
 // ---- Detail modal for tile sections ----
 // Tiles stay tiles: expanding one inline would morph a grid cell into a
 // full-width row and shove the whole wall around. Details open in a modal
@@ -449,8 +482,12 @@ function buildEntry(entry, bucket, section, onNavigate, opts = {}) {
 
   if (entry.fields?.length) {
     const fields = el('div', { className: 'pn-fields' });
-    entry.fields.forEach((f) => fields.appendChild(buildFieldRow(f, onNavigate)));
-    details.appendChild(fields);
+    const levels = section.key === 'skills'
+      ? entry.fields.filter((f) => f.field === 'all_level_stats') : [];
+    entry.fields.filter((f) => !levels.includes(f))
+      .forEach((f) => fields.appendChild(buildFieldRow(f, onNavigate)));
+    if (fields.childElementCount) details.appendChild(fields);
+    if (levels.length) details.appendChild(buildLevelDiffs(levels, onNavigate));
   }
 
   // Tile sections collapse entries to thumbnail + name and open stats or

@@ -430,6 +430,8 @@ a.pn-chip-link:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .pn-entry .stat-levels .all-levels-list[hidden] { display: none; }
 .pn-entry .stat-levels .all-levels-list .label { color: var(--secondary); }
 
+.pn-entry .pn-level-diffs .pn-fields { margin-top: 0; }
+
 /* A <button> here, unlike the Skills tab's decorative <span>, so the toggle is
    keyboard-operable; these resets keep it looking identical. */
 .pn-entry .stat-levels .all-levels-arrow {
