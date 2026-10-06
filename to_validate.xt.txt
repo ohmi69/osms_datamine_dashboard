@@ -1,0 +1,50 @@
+Formulas & Tables page (tabs/formulas.js, current COT2 build) — 5 sub-pages, 29 pipeline steps + 6 tables + 7 explorers + 4 calculators/graphs.
+Accuracy (2)
+1. Base Accuracy & Avoidability — Acc per class from total Dex/Int/Luk/Level; Avoid = trunc(Luk/3)+trunc(Dex/6)+5
+2. Physical & Magical Accuracy — BaseChance = Acc×100/((max(0,LevelDiff)×2+51)×5); Spread = 0.15 + 0.2/(1+exp((BaseChance−Avoid)/12)); Roll = rand(1−Spread, 1+Spread); DidHit = Roll×BaseChance ≥ Avoid (+ auto-hit shortcut, debuff bypasses, miss-debuff roll after)
+Hit Detection (0 formulas — mechanics guide, 6 sections)
+Overview, attack hitbox, overlap, priority & 15-target cap, terrain, special rules
+Dealing Damage — Base Damage (6)
+3. Physical Damage — StatRoll = rand(Primary×MasteryMult, Primary); BaseRoll = rand(0.8,1.0); Damage = SkillMult×(BaseRoll + (StatRoll×WepMult + Secondary)/StatDiv + AttackPower/AtkDiv)×WeaponAttack (StatDiv 100/300, AtkDiv 50/150)
+4. Magical Damage — MIN/MAX = (BasicAttack/100)×(floor(TotalInt/2)+MagicAttack)×(TotalInt×MasteryMult/100 + 1 … TotalInt/100 + 1)
+5. Meso Explosion — MAX = MasteryPercent×5×(1 + MesosPerPile/(MesosPerPile+10)), MIN = MAX/2
+6. Heal — ((TotalInt×Roll+TotalLuk)/200+3)×(floor(TotalInt/2)+MagicAttack)×(RecoveryRate/100)×(TargetsHit×0.1+1)×(HealBonus/100+1), trunc then split /TargetsHit×0.5
+7. Damage Over Time — Total = (DoTBasicAttack/100)×(floor(TotalInt/2)+MagicAttack)×(TotalInt/125+1), PerTick = Total/Duration (per-tick split from skill descriptions, not client)
+8. Bleed — Total = (BleedPercent/100)×((2×Primary+Secondary)/100 + 1 + AttackPower/50)×WeaponAttack, PerTick = Total/Duration (per-tick split from skill data, not client)
+Dealing Damage — Weapon tables (3)
+ 9. Weapon multiplier table (Swing/Stab/Shoot/Other × 15 weapon types)
+10. Swing/Stab animation ratio table (9 rows)
+11. Non-rolling skill exceptions (Stab/Shoot/Other/Weapon's Default)
+Dealing Damage — Modification Pipeline (12)
+12. Combo Attack — Panic/Coma: ComboBonus = 5×Orbs×(Orbs−1); others: ComboBonus = ComboDamage; SkillMult ×= ComboBonus/100+1
+13. Elemental Charge — SkillMult ×= ChargeDamage/100+1
+14. Defense Nullified (Armor Crash) — WeaponDefense = 0
+15. Weapon Defense — WeaponDefense = max(0,trunc(Base×(Pct/100+1))+Flat); Damage ×= 100/(WeaponDefense+100); ignore-defense procs force 0
+16. Magic Defense — same shape on MagicDefense
+17. Elemental Modifier — single: 0.0/0.75/1.0/1.25; two-element: 0.25×(Res1+Res2)
+18. Level Difference Penalty — <10: / (LevelDiff²×0.005+1); ≥10: / (LevelDiff×0.05+1); DoT always linear
+19. Element Amplification — Damage ×= ElementAmpDamage/100+1 (never fires)
+20. Critical Hit — rand(0,99) < CritRate; Damage ×= (100+CritDamage)/100
+21. Iron Arrow Falloff — Damage ×= clamp(1 − ConsecutiveHits×0.2, 0, 1)
+22. Shadow Partner — Damage ×= PartnerDamage/100 (second half of hit list)
+23. Clamp — trunc, then clamp(Damage, 1, 99999)
+Damage Taken (9)
+24. Monster Accuracy — MonsterHitScore = MonsterAcc×100/((LevelGap+51)×5); EffectiveAvoid = Avoid/(Avoid/80+1)/(LevelGap/40+1); same Spread/Roll; failed roll still hits 8% (+ separate 2% when avoid out of roll reach)
+25. Guard Immunity — monster flag skips all guard
+26. Shield Guard — only if ShieldDefense > 0; GuardChance = max(0.05, ShieldDefense/(ShieldDefense+500))
+27. Claw Guard — ClawGuardBlockChance/100 > rand(0,1) (Assassin/Hermit/Night Lord, only if shield roll failed)
+28. Incoming Damage — MonsterAttack × (1.1 + 0.4×rand(0,1))
+29. Player Defense — DefenseScale = 5×Level + 200 + 1.2×Incoming; Taken = Incoming/(1 + Defense/DefenseScale)
+30. Invincible (Cleric) — Cleric line, regular attacks only; Taken ×= (1 − Reduction/100), 10% L1 to 30% L20
+31. Elemental Damage Reduction — Taken ×= (1 − ElementResist/100)
+32. Result — clamp(trunc(Taken), 1, 50000000); 0 on miss/guard
+Tables & Progression (3 tables)
+33. Experience — Lv1–5 (floor(Lv²/2)+15)×Lv; Lv6–50 (floor(Lv²/3)+19)×floor(Lv²/3); Lv51–119 trunc(Prev×1.0548); + full 1–120 table, per-level & cumulative chart
+34. Crafting — Lv1 50; Lv2–10 trunc(Prev×1.32)+100; + table with char-level requirement
+35. Citizenship — grade/contribution/level table (grades 1–10, Traveler → Citizen of Honor)
+Calculators / explorers (7 explorers + 4 graphs/calcs)
+36. accuracyHitPercent — closed-form hit chance (auto-hit + miss debuff)
+37. physicalRange / magicalRange — min/max damage graphs
+38. shieldBlockPercent — guard % vs shield defense
+39. damageTaken calc — incoming/(1+def/scale), clamp 1–50,000,000
+40. Explorers: Meso Explosion, Accuracy, Heal, DoT, Bleed, Level Penalty, Player Defense

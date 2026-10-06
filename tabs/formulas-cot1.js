@@ -33,21 +33,21 @@ const EXP_RULES = [
 // with a Bow, Crossbow or Claw keeps a 1.0 multiplier but divides the stat terms
 // by 300 (see the Physical Damage notes); 2.5 is the Shoot value only.
 const WEAPON_MULTS = [
-  ['1H Sword',        1.8, 1.8, '—'],
-  ['2H Sword',        2.5, 2.5, '—'],
-  ['1H Blunt Weapon', 2.4, 1.2, '—'],
-  ['2H Blunt Weapon', 3,   2,   '—'],
-  ['1H Axe',          2.4, 1.2, '—'],
-  ['2H Axe',          3,   2,   '—'],
-  ['Spear',           1.5, 3.5, '—'],
-  ['Polearm',         3.5, 1.5, '—'],
+  ['1H Sword',        1.8, 1.8, '-'],
+  ['2H Sword',        2.5, 2.5, '-'],
+  ['1H Blunt Weapon', 2.4, 1.2, '-'],
+  ['2H Blunt Weapon', 3,   2,   '-'],
+  ['1H Axe',          2.4, 1.2, '-'],
+  ['2H Axe',          3,   2,   '-'],
+  ['Spear',           1.5, 3.5, '-'],
+  ['Polearm',         3.5, 1.5, '-'],
   ['Bow',             1.0, 1.0, 2.5],
   ['Crossbow',        1.0, 1.0, 2.5],
   ['Claw',            1.0, 1.0, 2.5],
-  ['Dagger',          1,   2,   '—'],
-  ['Wand',            1.8, 1.8, '—'],
-  ['Staff',           1.8, 1.8, '—'],
-  ['Barehanded',      1,   1,   '—'],
+  ['Dagger',          1,   2,   '-'],
+  ['Wand',            1.8, 1.8, '-'],
+  ['Staff',           1.8, 1.8, '-'],
+  ['Barehanded',      1,   1,   '-'],
 ];
 
 // How the client picks a basic attack's animation: a uniform draw from the list the
@@ -63,10 +63,10 @@ const ACTION_SPLIT = [
   ['Spear / Polearm',        '60%', '40%'],
   ['Dagger',                 '60%', '40%'],
   ['Crossbow',               '50%', '50%'],
-  ['Bow',                    '100%', '—'],
-  ['Wand / Staff',           '100%', '—'],
-  ['Claw',                   '—',   '100%'],
-  ['Barehanded',             '—',   '100%'],
+  ['Bow',                    '100%', '-'],
+  ['Wand / Staff',           '100%', '-'],
+  ['Claw',                   '-',   '100%'],
+  ['Barehanded',             '-',   '100%'],
 ];
 
 // ─── Accuracy ────────────────────────────────────────────────
@@ -353,7 +353,7 @@ const MOD_PIPELINE_STEPS = [
       'Damage = Damage × (100 + CritDamage) / 100',
     ],
     notes: [
-      'Always-crit is hard-coded for Power Knockback in both lines, Hunter 3101002 and Crossbowman 3201002 — both named Power Knockback in COT1 strings, adjacent in the damage routine.',
+      'Always-crit is hard-coded for Power Knockback in both lines, Hunter 3101002 and Crossbowman 3201002 - both named Power Knockback in COT1 strings, adjacent in the damage routine.',
       'DoT ticks roll crit too, so a burn or a bleed tick can crit',
     ],
   },
@@ -398,7 +398,7 @@ const MOD_PIPELINE_STEPS = [
 const MOD_VARS = [
   { name: 'BaseWeaponDefense', desc: "Enemy's weapon defense stat, before modifiers" },
   { name: 'WeaponDefense',   desc: "Enemy's weapon defense after percent and flat modifiers, floored at 0" },
-  { name: 'PercentEffects',  desc: 'A percentage modifier slot on the monster\'s weapon defense. Threaten (1201004) is flagged for it; Disorder (4001000) is not. Per-skill values unchecked — slot attribution unestablished' },
+  { name: 'PercentEffects',  desc: 'A percentage modifier slot on the monster\'s weapon defense. Threaten (1201004) is flagged for it; Disorder (4001000) is not. Per-skill values unchecked - slot attribution unestablished' },
   { name: 'FlatEffects',     desc: 'A flat modifier slot the monster carries for its weapon defense, added after the percentage' },
   { name: 'MagicDefense',    desc: "Enemy's raw magic defense stat - no modifier slots in COT1" },
   { name: 'ElementalMult',   desc: 'Elemental modifier: 0.0, 0.75, 1.0, or 1.25' },
@@ -726,7 +726,7 @@ function buildWeaponMultTable() {
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing and Stab are the normal melee actions, and Shoot covers bow, crossbow and claw attacks. There is no Other column here - the COT1 classifier never returns it.' }));
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The Swing/Stab ratio above is the melee animation list, read from the same tables COT2 uses. Bows, Crossbows and Claws normally fire instead, drawing from a separate ranged list that always resolves to Shoot. Their Swing and Stab columns are only reached when meleeing without ammo.' }));
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: '* Bow, Crossbow and Claw melee values: a normal shot lands on Shoot (2.5) - the 1.0 rows are what you get meleeing with them, with the stat terms divided by 300 (see Advanced under Physical Damage).' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll swing/stab like a plain attack. The groups below never roll: Stab and Shoot use the shown multiplier; the last group takes the weapon default (Swing: axes/blunts/polearms; Stab: daggers/spears; Shoot: bow/xbow/claw — other weapons roll, all columns equal). 3101005 is live skill data with no String entry. Magic skills never use a weapon multiplier.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll swing/stab like a plain attack. The groups below never roll: Stab and Shoot use the shown multiplier; the last group takes the weapon default (Swing: axes/blunts/polearms; Stab: daggers/spears; Shoot: bow/xbow/claw - other weapons roll, all columns equal). 3101005 is live skill data with no String entry. Magic skills never use a weapon multiplier.' }));
 
   const exceptions = el('div', { className: 'formulas-exceptions' });
   ACTION_EXCEPTIONS.forEach(([column, skills]) => {

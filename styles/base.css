@@ -616,7 +616,7 @@ a.tab-link:focus-visible {
 .search-box--regex .search-icon { color: var(--accent); }
 .search-box--regex input { border-color: var(--accent); }
 
-/* Invalid regex (e.g. a half-typed "/foo(") — reads as a typo, not as "no results". */
+/* Invalid regex (e.g. a half-typed "/foo(") - reads as a typo, not as "no results". */
 .search-box--invalid .search-icon { color: #e5534b; }
 .search-box--invalid input,
 .search-box--invalid input:focus {

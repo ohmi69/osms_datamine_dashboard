@@ -32,6 +32,7 @@ import { renderBeautyStyles } from './tabs/beauty.js';
 import { renderQuests }    from './tabs/quests.js';
 import { renderFormulas }  from './tabs/formulas.js';
 import { renderFormulasCot1 } from './tabs/formulas-cot1.js';
+import { renderFormulasCot2 } from './tabs/formulas-cot2.js';
 import { renderNavigatorGame } from './tabs/navigator-game.js';
 import { renderPatchNotes } from './tabs/patch-notes.js';
 import { buildGlobalSearchIndex } from './lib/global-search.js';
@@ -201,11 +202,20 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
     },
   ];
   if (!isTimeTravelMode) return tabs;
-  // cot1 keeps its own frozen snapshot of the formulas page; older patches have none.
+  // cot1 and cot2 keep frozen snapshots of the formulas page; older patches have none.
   if (patchVersion === 'cot1') {
     return tabs.map(t => (t.id === 'formulas' ? {
       ...t,
       render: ({ setNavigate }) => renderFormulasCot1(appData, {
+        setNavigate,
+        initialParams: onceParams('formulas'),
+      }),
+    } : t));
+  }
+  if (patchVersion === 'cot2') {
+    return tabs.map(t => (t.id === 'formulas' ? {
+      ...t,
+      render: ({ setNavigate }) => renderFormulasCot2(appData, {
         setNavigate,
         initialParams: onceParams('formulas'),
       }),
@@ -295,7 +305,7 @@ async function buildPatchSelector() {
     const oldPatches = sortedPatches.filter(p => OLD_PATCHES.has(p.version));
 
     const classicGroup = el('optgroup', { label: 'Classic World' });
-    const currentOpt = el('option', { value: '', textContent: 'Closed Online Test 2' });
+    const currentOpt = el('option', { value: '', textContent: 'Public Release' });
     if (!currentPatch) currentOpt.selected = true;
     classicGroup.appendChild(currentOpt);
     for (const p of classicPatches) {
@@ -652,7 +662,7 @@ window.closeImageModal = closeImageModal;
 (function () {
   const header = document.querySelector('.site-header');
   if (!header) return;
-  // Sticky toolbars pin below the header, so they need its current height —
+  // Sticky toolbars pin below the header, so they need its current height:
   // 0 while it's slid away, so they take over the top of the viewport.
   // Sticky table heads pin below both, so they also need the height of
   // whichever tab's toolbar is currently on screen (0 if the tab has none).

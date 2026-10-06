@@ -1,6 +1,7 @@
 import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, makeMatcher, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
+import { makeQuestRewardContext, makeQuestRewardPanel, makeCraftingResultPanel } from './quest-rewards.js';
 
 const STAT_LABELS = {
   price:       ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
@@ -29,7 +30,7 @@ function buildDetailPanel(item) {
   });
 }
 
-function renderItemRow(item) {
+function renderItemRow(item, questRewards) {
   const row = el('div', { className: 'item-row' });
   const topLine = el('div', { className: 'top-line' });
   const nameWrap = el('span', { className: 'item-name-wrap' });
@@ -50,9 +51,11 @@ function renderItemRow(item) {
 
   topLine.appendChild(rightWrap);
   row.appendChild(topLine);
-  let expanded = false;
+let expanded = false;
   let specEl = null;
   let compare = null;
+  let rewardPanel = null;
+  let craftingPanel = null;
 
   row.addEventListener('click', (e) => {
     if (e.target.closest('button, input')) return;
@@ -72,6 +75,17 @@ function renderItemRow(item) {
       specEl.classList.toggle('item-spec-panel--open', expanded);
       row.classList.toggle('item-row--spec-open', expanded);
     }
+    // Built on the first expand, so the row's search text stays free of quest names.
+    if (!rewardPanel) {
+      rewardPanel = makeQuestRewardPanel(item.id, questRewards);
+      if (rewardPanel) row.insertBefore(rewardPanel, compare || null);
+    }
+    if (rewardPanel) rewardPanel.hidden = !expanded;
+    if (!craftingPanel) {
+      craftingPanel = makeCraftingResultPanel(item.id, questRewards);
+      if (craftingPanel) row.insertBefore(craftingPanel, compare || null);
+    }
+    if (craftingPanel) craftingPanel.hidden = !expanded;
     if (compare) compare.hidden = !expanded;
     history.replaceState(null, '', `#items?q=${encodeURIComponent('id:' + padItemId(item.id))}`);
     document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
@@ -103,6 +117,8 @@ export function renderItems(data, options = {}) {
   let autoExpandAfterId = null;
   const container = el('div');
   const scrollIdSet = new Set(items.scrolls.map((scroll) => String(scroll.id)));
+  // Which quests hand each item out, shown when a row is expanded.
+  const questRewards = makeQuestRewardContext(data);
 
   // Search and filters stay pinned at the top while the list scrolls past.
   const toolbar = el('div', { className: 'sticky-toolbar' });
@@ -203,7 +219,7 @@ export function renderItems(data, options = {}) {
               .filter(Boolean)
               .join(' · '),
           };
-          scrollContent.appendChild(renderItemRow(item));
+          scrollContent.appendChild(renderItemRow(item, questRewards));
         });
         dataDiv.appendChild(
           makeCollapsible('Scrolls', allScrolls.length, true, null, scrollContent)
@@ -214,7 +230,7 @@ export function renderItems(data, options = {}) {
     if (!selectedCategory || selectedCategory === 'Consumables') {
       if (consumables.length > 0) {
         const conContent = el('div');
-        consumables.forEach((item) => conContent.appendChild(renderItemRow(item)));
+        consumables.forEach((item) => conContent.appendChild(renderItemRow(item, questRewards)));
         dataDiv.appendChild(
           makeCollapsible('Consumables', consumables.length, true, null, conContent)
         );
@@ -224,7 +240,7 @@ export function renderItems(data, options = {}) {
     if (!selectedCategory || selectedCategory === 'Etc') {
       if (etcItems.length > 0) {
         const etcContent = el('div');
-        etcItems.forEach((item) => etcContent.appendChild(renderItemRow(item)));
+        etcItems.forEach((item) => etcContent.appendChild(renderItemRow(item, questRewards)));
         dataDiv.appendChild(makeCollapsible('Etc', etcItems.length, true, null, etcContent));
       }
     }
@@ -232,7 +248,7 @@ export function renderItems(data, options = {}) {
     if (!selectedCategory || selectedCategory === 'Setup') {
       if (setupItems.length > 0) {
         const setupContent = el('div');
-        setupItems.forEach((item) => setupContent.appendChild(renderItemRow(item)));
+        setupItems.forEach((item) => setupContent.appendChild(renderItemRow(item, questRewards)));
         dataDiv.appendChild(
           makeCollapsible('Setup', setupItems.length, true, null, setupContent)
         );

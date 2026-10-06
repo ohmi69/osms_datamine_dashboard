@@ -431,12 +431,8 @@ export function renderQuestTooltip(tip, quest, itemById, npcByName, monsterById 
   return true;
 }
 
-export function renderQuestCard(quest, completionState, onToggleCompletion, itemById, monsterById, npcByName, expandedIds, searchState = null, questGraph = null) {
+export function renderQuestCard(quest, completionState, onToggleCompletion, itemById, monsterById, npcByName, expandedIds, questGraph = null) {
   const card = el('div', { className: 'quest-card' });
-  const isDirectMatch = Boolean(searchState?.isActive && searchState?.directIds?.has(normalizeQuestId(quest.id)));
-  if (searchState?.isActive) {
-    card.classList.add(isDirectMatch ? 'quest-match' : 'quest-context');
-  }
   const nameRow = el('div', { className: 'quest-name' });
 
   const completionControl = el('label', { className: 'quest-complete-control' });
@@ -454,15 +450,6 @@ export function renderQuestCard(quest, completionState, onToggleCompletion, item
   nameRow.appendChild(completionControl);
 
   nameRow.appendChild(document.createTextNode(quest.name));
-  if (isDirectMatch) {
-    nameRow.appendChild(
-      el('span', {
-        className: 'badge badge-match',
-        textContent: 'MATCH',
-        title: 'Direct search match — rest of chain shown for context',
-      })
-    );
-  }
   if (quest.level_min > 0) {
     nameRow.appendChild(
       el('span', { className: 'badge level-badge', textContent: `Lv.${quest.level_min}+` })
@@ -480,7 +467,7 @@ export function renderQuestCard(quest, completionState, onToggleCompletion, item
   // from that pool is not known, so the group is surfaced only as hover detail.
   const rot = quest.rotation;
   const rotTitle = rot
-    ? `${rot.group} — ${rot.select_count} of ${rot.pool_size} offered per ${rot.cadence} rotation`
+    ? `${rot.group} - ${rot.select_count} of ${rot.pool_size} offered per ${rot.cadence} rotation`
     : '';
   if (quest.is_daily) {
     nameRow.appendChild(el('span', {
@@ -497,7 +484,7 @@ export function renderQuestCard(quest, completionState, onToggleCompletion, item
       nameRow.appendChild(el('span', {
         className: 'badge badge-onetime',
         textContent: 'ONE-TIME',
-        title: `${rot.group} — drawn from the pool at most once, then never again`,
+        title: `${rot.group} - drawn from the pool at most once, then never again`,
       }));
     }
   }
@@ -744,30 +731,6 @@ export function renderQuests(data, options = {}) {
       : []
   );
 
-  // Connect named chains and dependency links once; searching any member
-  // includes the entire connected chain, even across region boundaries.
-  const normalizeId = id => String(Number(id));
-  const questById = new Map(quests.quests.map(q => [normalizeId(q.id), q]));
-  const relatedIds = new Map([...questById.keys()].map(id => [id, new Set()]));
-  function connect(a, b) {
-    a = normalizeId(a);
-    b = normalizeId(b);
-    if (!relatedIds.has(a) || !relatedIds.has(b)) return;
-    relatedIds.get(a).add(b);
-    relatedIds.get(b).add(a);
-  }
-  const firstByParent = new Map();
-  quests.quests.forEach(quest => {
-    if (quest.parent) {
-      if (firstByParent.has(quest.parent)) connect(quest.id, firstByParent.get(quest.parent));
-      else firstByParent.set(quest.parent, quest.id);
-    }
-    if (quest.next_quest != null) connect(quest.id, quest.next_quest);
-    (quest.requirements_list || []).forEach(requirement => {
-      if (requirement.type === 'quest' && requirement.state !== 0) connect(quest.id, requirement.id);
-    });
-  });
-
   // Search and filters stay pinned at the top while the list scrolls past.
   const toolbar = el('div', { className: 'sticky-toolbar' });
   container.appendChild(toolbar);
@@ -967,21 +930,8 @@ export function renderQuests(data, options = {}) {
       );
     });
 
-    const directIds = new Set(matchedQuests.map(q => normalizeId(q.id)));
     const isSearchActive = searchQuery.trim().length > 0;
-    const searchState = isSearchActive ? { isActive: true, directIds } : null;
-    const visibleIds = new Set(directIds);
-    if (isSearchActive) {
-      const pending = [...visibleIds];
-      while (pending.length) {
-        for (const id of relatedIds.get(pending.pop()) || []) {
-          if (visibleIds.has(id)) continue;
-          visibleIds.add(id);
-          pending.push(id);
-        }
-      }
-    }
-    const allQuests = quests.quests.filter(q => visibleIds.has(normalizeId(q.id)));
+    const allQuests = matchedQuests;
 
     const groups = {};
     allQuests.forEach((quest) => {
@@ -1023,7 +973,7 @@ export function renderQuests(data, options = {}) {
     const overallText = allQuests.length === totalQuestCount
       ? ''
       : ` (${totalCompleted}/${totalQuestCount} total)`;
-    const matchText = isSearchActive ? ` · ${directIds.size} match${directIds.size === 1 ? '' : 'es'}` : '';
+    const matchText = isSearchActive ? ` · ${matchedQuests.length} match${matchedQuests.length === 1 ? '' : 'es'}` : '';
     dataDiv.appendChild(
       el('div', { className: 'count-text quest-progress-text', textContent: `${allQuests.length} quests${matchText} · ${progressText}${overallText}` })
     );
@@ -1032,15 +982,13 @@ export function renderQuests(data, options = {}) {
       if (item.type === 'quest') {
         const wrapper = el('div', { className: 'quest-standalone' });
         if (isQuestCompleted(item.quest, completionState)) wrapper.classList.add('quest-group-complete');
-        wrapper.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion, itemById, monsterById, npcByName, expandedIds, searchState, questGraph));
+        wrapper.appendChild(renderQuestCard(item.quest, completionState, toggleQuestCompletion, itemById, monsterById, npcByName, expandedIds, questGraph));
         dataDiv.appendChild(wrapper);
       } else {
         const chain = item.chain;
         const chainDiv = el('div', { className: 'quest-chain' });
         if (chain.quests.every(q => isQuestCompleted(q, completionState))) chainDiv.classList.add('quest-group-complete');
-        const matchCount = isSearchActive
-          ? chain.quests.filter(q => directIds.has(normalizeId(q.id))).length
-          : 0;
+        const matchCount = isSearchActive ? chain.quests.length : 0;
         const matchSuffix = isSearchActive && matchCount > 0 ? ` · ${matchCount} match${matchCount === 1 ? '' : 'es'}` : '';
         const header = el('div', {
           className: 'quest-chain-header',
@@ -1048,7 +996,7 @@ export function renderQuests(data, options = {}) {
         });
         chainDiv.appendChild(header);
         chain.quests.forEach((quest) =>
-          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion, itemById, monsterById, npcByName, expandedIds, searchState, questGraph))
+          chainDiv.appendChild(renderQuestCard(quest, completionState, toggleQuestCompletion, itemById, monsterById, npcByName, expandedIds, questGraph))
         );
         dataDiv.appendChild(chainDiv);
       }

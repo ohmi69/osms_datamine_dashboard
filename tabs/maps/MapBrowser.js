@@ -280,7 +280,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
           : 'var(--dim)';
         const timerSpan = el('span', {
           className: 'map-mob-chip-timer',
-          textContent: `⏱ ${mob.mobTime != null ? formatSpawnTime(mob.mobTime) : '—'}`,
+          textContent: `⏱ ${mob.mobTime != null ? formatSpawnTime(mob.mobTime) : '-'}`,
         });
         timerSpan.style.color = timerColor;
         chip.appendChild(timerSpan);
@@ -507,7 +507,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
           nameLeft.appendChild(el('span', { className: 'map-town-badge', textContent: 'TOWN' }));
         }
         if (mapEntry.street_name) {
-          nameLeft.appendChild(el('span', { className: 'map-street-name', textContent: `— ${mapEntry.street_name}` }));
+          nameLeft.appendChild(el('span', { className: 'map-street-name', textContent: `- ${mapEntry.street_name}` }));
         }
         nameWrap.appendChild(nameLeft);
         nameWrap.appendChild(makeDeepLinkButton('maps', padMapId(mapEntry.id)));
@@ -523,12 +523,12 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
                 td.appendChild(el('div', { textContent: `${stats.unique} unique` }));
                 td.appendChild(el('div', { className: 'map-mobs-total', textContent: `${stats.total} total` }));
               } else {
-                td.appendChild(el('span', { className: 'text-dim', textContent: '—' }));
+                td.appendChild(el('span', { className: 'text-dim', textContent: '-' }));
               }
               break;
             case 'weighted_level':
               td = el('td', { className: 'num' });
-              td.textContent = stats && stats.weightedLevel != null ? Math.round(stats.weightedLevel) : '—';
+              td.textContent = stats && stats.weightedLevel != null ? Math.round(stats.weightedLevel) : '-';
               break;
             case 'common_mob':
               td = el('td');
@@ -538,26 +538,26 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
               } else if (stats && stats.mostCommonMobName) {
                 td.textContent = stats.mostCommonMobName;
               } else {
-                td.textContent = '—';
+                td.textContent = '-';
               }
               break;
             case 'exp_per_mob':
               td = el('td', { className: 'num' });
               td.textContent = stats ? stats.expPerMob.toLocaleString() : '';
-              if (!stats) td.appendChild(el('span', { className: 'text-dim', textContent: '—' }));
+              if (!stats) td.appendChild(el('span', { className: 'text-dim', textContent: '-' }));
               break;
             case 'total_exp':
               td = el('td', { className: 'num' });
               td.textContent = stats ? stats.totalExp.toLocaleString() : '';
-              if (!stats) td.appendChild(el('span', { className: 'text-dim', textContent: '—' }));
+              if (!stats) td.appendChild(el('span', { className: 'text-dim', textContent: '-' }));
               break;
             case 'weighted_exp_hour':
               td = el('td', { className: 'num' });
-              td.textContent = stats ? stats.weightedExpPerHour.toLocaleString() : '—';
+              td.textContent = stats ? stats.weightedExpPerHour.toLocaleString() : '-';
               break;
             default:
               td = el('td');
-              td.textContent = '—';
+              td.textContent = '-';
           }
           tr.appendChild(td);
         }

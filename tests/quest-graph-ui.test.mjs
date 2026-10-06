@@ -130,4 +130,16 @@ const branchPanel = renderQuestGraph(branches[0], buildQuestGraph(branches), {})
 const connectors = walk(branchPanel).filter(node => node.classList.contains('quest-graph-edge'));
 assert.equal(connectors.length, 2);
 assert.notEqual(connectors[0].attrs.d.split(' C ')[0], connectors[1].attrs.d.split(' C ')[0], 'Branch connectors use separate ports on the source card');
+const mob = { id: '100100', name: 'Orange Mushroom', level: 8, hp: 80, exp: 15 };
+const mobQuest = renderQuestCard({ id: '5', name: 'Defeat mushrooms', requirements_list: [{ type: 'mob', id: mob.id, name: mob.name, count: 20 }] }, {}, () => {}, new Map(), new Map([[mob.id, mob]]), new Map(), new Set());
+const mobLink = mobQuest.querySelector('.quest-requirement-chip');
+assert.ok(mobLink.attrs.href.includes('#monsters?q=id%3A100100'));
+mobLink.fire('mouseenter', { clientX: 100, clientY: 100 });
+assert.ok(floating.classList.contains('visible'));
+assert.ok(floating.classList.contains('mob-tooltip'));
+mobLink.fire('click', { stopPropagation() {}, preventDefault() { assert.fail('Keep navigation intact'); } });
+assert.ok(!floating.classList.contains('visible'), 'Clicking Defeat mob clears its tooltip without waiting for mouseleave');
+mobLink.fire('mouseenter', { clientX: 100, clientY: 100 });
+mobLink.fire('auxclick');
+assert.ok(!floating.classList.contains('visible'), 'Middle-click navigation also dismisses tooltips');
 console.log('Quest UI checks passed: NPC thumbnail, collapsed summary, requirements, rewards, hover/focus, and direct quest links.');

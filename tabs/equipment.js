@@ -1,6 +1,7 @@
 import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
+import { makeQuestRewardContext, makeQuestRewardPanel, makeCraftingResultPanel } from './quest-rewards.js';
 
 function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
@@ -9,7 +10,7 @@ function matchesClass(item, classFilter) {
   return (requiredJob & classFilter) !== 0;
 }
 
-function renderEquipRow(item, includeCompare = true) {
+function renderEquipRow(item, includeCompare = true, questRewards = null) {
   const row = el('div', { className: 'item-row' });
   const topLine = el('div', { className: 'top-line' });
   const nameWrap = el('span', { className: 'item-name-wrap' });
@@ -31,10 +32,26 @@ function renderEquipRow(item, includeCompare = true) {
   row.appendChild(topLine);
   let expanded = false;
   let compare = null;
+  let reachPanel = null;
+  let rewardPanel = null;
+  let craftingPanel = null;
   row.addEventListener('click', (e) => {
     if (e.target.closest('button, input')) return;
     expanded = !expanded;
     if (compare) compare.hidden = !expanded;
+    if (reachPanel) reachPanel.hidden = !expanded;
+    // Built on the first expand, so the row text this tab caches for search
+    // stays limited to the item itself.
+    if (!rewardPanel) {
+      rewardPanel = makeQuestRewardPanel(item.id, questRewards);
+      if (rewardPanel) row.insertBefore(rewardPanel, compare || null);
+    }
+    if (rewardPanel) rewardPanel.hidden = !expanded;
+    if (!craftingPanel) {
+      craftingPanel = makeCraftingResultPanel(item.id, questRewards);
+      if (craftingPanel) row.insertBefore(craftingPanel, compare || null);
+    }
+    if (craftingPanel) craftingPanel.hidden = !expanded;
     history.replaceState(null, '', `#equipment?q=${encodeURIComponent('id:' + padItemId(item.id))}`);
     document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
     if (expanded) {
@@ -61,6 +78,21 @@ function renderEquipRow(item, includeCompare = true) {
     if (reqLine) row.appendChild(reqLine);
   }
 
+  // Weapon swing/stab reach from Character.Afterimage hitboxes (per-item
+  // afterImage family, so same-type weapons can differ). Ranged weapons
+  // shoot instead of swinging, so their melee fallback box stays hidden.
+  // Shown only when the row is expanded, like the version comparison.
+  if (item.sub_category === 'Weapon' &&
+      (item.swing_reach_px != null || item.stab_reach_px != null) &&
+      !['Bow', 'Crossbow', 'Claw'].includes(item.weapon_type)) {
+    const reachChips = [];
+    if (item.swing_reach_px != null) reachChips.push({ label: 'Swing reach', value: `${item.swing_reach_px} px` });
+    if (item.stab_reach_px != null) reachChips.push({ label: 'Stab reach', value: `${item.stab_reach_px} px` });
+    reachPanel = makeDetailPanel(reachChips, { noBorder: true });
+    reachPanel.hidden = true;
+    row.appendChild(reachPanel);
+  }
+
   if (includeCompare && canCompareWithOsms()) {
     compare = makeOsmsCompare('item', item);
     compare.hidden = true;
@@ -81,6 +113,8 @@ export function renderEquipment(data, options = {}) {
   const equipTextCache = new Map();
   const container = el('div');
   const equipmentMeta = items.equipment_meta || {};
+  // Which quests hand each equip out, shown when a row is expanded.
+  const questRewards = makeQuestRewardContext(data);
 
   // Search and filters stay pinned at the top while the list scrolls past.
   const toolbar = el('div', { className: 'sticky-toolbar' });
@@ -295,13 +329,13 @@ export function renderEquipment(data, options = {}) {
         })
         .forEach((sub) => {
           const content = el('div');
-          grouped[sub].forEach((item) => content.appendChild(renderEquipRow(item)));
+          grouped[sub].forEach((item) => content.appendChild(renderEquipRow(item, true, questRewards)));
           dataDiv.appendChild(makeCollapsible(sub, grouped[sub].length, true, null, content));
         });
     } else {
       // Specific sub_category selected: wrap in a collapsible like cashshop
       const content = el('div');
-      equips.forEach((item) => content.appendChild(renderEquipRow(item)));
+      equips.forEach((item) => content.appendChild(renderEquipRow(item, true, questRewards)));
       dataDiv.appendChild(makeCollapsible(selectedSubCategory, equips.length, true, null, content));
     }
 

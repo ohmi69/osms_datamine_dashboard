@@ -69,7 +69,7 @@ function buildCraftLevelTable(craftLevels) {
   const ROWS = [
     ['XP to Level Up', ([, exp]) => fmt(exp), 'craft-level-xp'],
     ['Total XP Spent', (_, i) => fmt(accumulatedByLevel[i]), 'craft-num'],
-    ['Character Level', ([, , charLevel]) => (charLevel === null ? '—' : `Lv ${charLevel}`), 'craft-num'],
+    ['Character Level', ([, , charLevel]) => (charLevel === null ? '-' : `Lv ${charLevel}`), 'craft-num'],
   ];
 
   const tbody = el('tbody');
@@ -309,7 +309,7 @@ export function renderCrafting(data, options = {}) {
             row.appendChild(ingCell);
 
             row.appendChild(
-              el('td', { className: 'num hide-mobile craft-num', textContent: recipe.meso_cost > 0 ? fmt(recipe.meso_cost) : '—' })
+              el('td', { className: 'num hide-mobile craft-num', textContent: recipe.meso_cost > 0 ? fmt(recipe.meso_cost) : '-' })
             );
             row.appendChild(
               el('td', { className: 'num hide-mobile craft-num', textContent: recipe.craft_exp })

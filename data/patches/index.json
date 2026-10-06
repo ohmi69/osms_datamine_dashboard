@@ -1,6 +1,11 @@
 {
   "patches": [
     {
+      "version": "cot2",
+      "label": "Closed Online Test 2",
+      "date": "2026-08-11"
+    },
+    {
       "version": "cot1",
       "label": "Closed Online Test 1",
       "date": "2026-04-21"

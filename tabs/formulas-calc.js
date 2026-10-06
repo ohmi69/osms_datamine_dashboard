@@ -1,4 +1,4 @@
-// Damage-taken calculator, shared by the COT2 formulas page and the frozen COT1
+// Damage-taken calculator, shared by the live formulas page and the frozen COT1/COT2
 // snapshot. Everything the two clients disagree on is passed in by the caller -
 // the defense scale, whether the player's level is part of it, and the footnotes -
 // so neither page's numbers can drift by editing this file.
@@ -235,7 +235,7 @@ function buildDamageCalc(config) {
     headText.appendChild(el('div', { className: 'formulas-calc-headline', textContent: Math.round(dmgAvg).toLocaleString() }));
     headText.appendChild(el('div', {
       className: 'formulas-calc-sub',
-      textContent: `average damage per landed ${state.magic ? 'skill' : 'regular'} hit  ·  ${dmgMin.toLocaleString()} – ${dmgMax.toLocaleString()}`,
+      textContent: `average damage per landed ${state.magic ? 'skill' : 'regular'} hit  ·  ${dmgMin.toLocaleString()} - ${dmgMax.toLocaleString()}`,
     }));
     head.appendChild(headText);
     out.appendChild(head);
@@ -251,14 +251,14 @@ function buildDamageCalc(config) {
 
     const stats = el('div', { className: 'formulas-calc-stats' });
     stats.appendChild(statRow(state.magic ? 'Magic Attack' : 'Physical Attack', attack.toLocaleString(), `${mob.name}, Lv ${mob.level}`));
-    stats.appendChild(statRow('IncomingDamage', `${Math.round(incMin).toLocaleString()} – ${Math.round(incMax).toLocaleString()}`, 'attack × 1.1 to 1.5'));
+    stats.appendChild(statRow('IncomingDamage', `${Math.round(incMin).toLocaleString()} - ${Math.round(incMax).toLocaleString()}`, 'attack × 1.1 to 1.5'));
     stats.appendChild(statRow(
       'DefenseScale',
       Math.round(scale(incAvg, state.level)).toLocaleString(),
       scaleTerms(Math.round(incAvg), state.level),
     ));
     if (!state.magic) {
-      stats.appendChild(statRow('Guard Chance', guard ? `${(guard * 100).toFixed(1)}%` : '—', guard ? 'hit negated entirely' : 'no shield equipped'));
+      stats.appendChild(statRow('Guard Chance', guard ? `${(guard * 100).toFixed(1)}%` : '-', guard ? 'hit negated entirely' : 'no shield equipped'));
       stats.appendChild(statRow('Average per Attack', Math.round(dmgAvg * (1 - guard)).toLocaleString(), 'counting guards, but not misses'));
     }
     out.appendChild(stats);

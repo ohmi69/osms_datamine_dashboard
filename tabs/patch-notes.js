@@ -28,7 +28,7 @@ let lookups = null;
 // dash. Collapse both to the same placeholder.
 function shown(value) {
   const text = value === null || value === undefined ? '' : String(value);
-  return text.trim() === '' ? '—' : text;
+  return text.trim() === '' ? '-' : text;
 }
 
 function buildLookups(data) {
@@ -716,6 +716,7 @@ export function renderPatchNotes(notes, options = {}) {
     'all',
     (value) => {
       bucketFilter = value;
+      bucketPills.setActive(value);
       renderData();
     },
     { groupLabel: 'Show:' },
@@ -731,10 +732,17 @@ export function renderPatchNotes(notes, options = {}) {
   pillRow.appendChild(el('span', { className: 'filter-divider' }));
   // Detailed view restores the previous full-row display: every entry
   // renders its stats/diffs inline instead of collapsing to a modal tile.
+  const detailedHintCookie = 'osms-patch-notes-detailed-seen';
+  const hasSeenDetailedHint = document.cookie
+    .split(';')
+    .some((cookie) => cookie.trim().startsWith(`${detailedHintCookie}=`));
   const detailedToggle = makeHideToggle('Detailed view', false, (active) => {
     detailedView = active;
+    detailedToggle.classList.remove('pn-detailed-hint');
+    document.cookie = `${detailedHintCookie}=1; Max-Age=31536000; Path=/; SameSite=Lax`;
     renderData();
   });
+  if (!hasSeenDetailedHint) detailedToggle.classList.add('pn-detailed-hint');
   pillRow.appendChild(detailedToggle);
   toolbar.appendChild(pillRow);
 

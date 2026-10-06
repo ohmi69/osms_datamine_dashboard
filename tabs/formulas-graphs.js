@@ -124,7 +124,7 @@ function buildGraph({ title, note, fields, evaluate, percent = false, extra }) {
     values.forEach(y => svg.append(svgNode('circle', { cx: px(state[axis.key]), cy: py(y), r: 4,
       fill: 'var(--accent)', stroke: 'var(--bg)', 'stroke-width': 2 })));
     output.replaceChildren(el('strong', { className: 'formulas-graph-result',
-      textContent: percent ? `${format(values[0])}% block chance` : `${values.map(format).join(' – ')} damage` }));
+      textContent: percent ? `${format(values[0])}% block chance` : `${values.map(format).join(' - ')} damage` }));
   }
   draw();
   return wrap;
@@ -299,7 +299,7 @@ export function buildDamageGraph(magic = false, graphData) {
     }
     const after = evaluate(current);
     output.replaceChildren(el('span', { className: 'formulas-graph-hint', textContent: 'Damage with your current stats' }),
-      el('strong', { className: 'formulas-graph-result', textContent: `${after.map(format).join(' – ')} damage` }));
+      el('strong', { className: 'formulas-graph-result', textContent: `${after.map(format).join(' - ')} damage` }));
 
     const peak = Math.max(1, ...after);
     const unit = 10 ** Math.floor(Math.log10(peak / 4));

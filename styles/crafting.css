@@ -19,7 +19,7 @@
   font-weight: 600;
 }
 /* Head pins under the site header + the tab's toolbar while the recipes
-   scroll past — same scheme as .data-table thead in monsters.css. The rules
+   scroll past - same scheme as .data-table thead in monsters.css. The rules
    are inset shadows because collapsed borders stay behind when a cell sticks,
    and the cells need an opaque fill of their own. */
 .craft-table thead th {
@@ -123,7 +123,9 @@
   .craft-ingredients { flex-direction: column; gap: 4px; }
 }
 
-/* Item hover tooltip */
+/* Item hover tooltip (body-level floating div). display:none when hidden so a
+   tooltip parked near the bottom of a long page can't inflate the document's
+   scrollable overflow; position:fixed keeps even a visible tooltip out of it. */
 .item-tooltip {
   position: fixed;
   display: none;

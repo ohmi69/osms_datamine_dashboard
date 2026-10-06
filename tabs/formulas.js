@@ -110,10 +110,10 @@ const ACTION_SPLIT = [
   ['Spear / Polearm',        '60%', '40%'],
   ['Dagger',                 '60%', '40%'],
   ['Crossbow',               '50%', '50%'],
-  ['Bow',                    '100%', '—'],
-  ['Wand / Staff',           '100%', '—'],
-  ['Claw',                   '—',   '100%'],
-  ['Barehanded',             '—',   '100%'],
+  ['Bow',                    '100%', '-'],
+  ['Wand / Staff',           '100%', '-'],
+  ['Claw',                   '-',   '100%'],
+  ['Barehanded',             '-',   '100%'],
 ];
 
 // Physical attack skills that never roll for swing or stab, grouped by the multiplier
@@ -140,7 +140,7 @@ const ACCURACY_STEPS = [
   {
     label: 'Base Accuracy & Avoidability',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read from the stat-seeding routine in the client. All five class branches and their constants confirmed; the magician branch reads INT where every other class reads DEX',
     lines: [
       'Common = Dex × 1.2 + Level × 2 + Luk × 0.6',
@@ -165,7 +165,7 @@ const ACCURACY_STEPS = [
   {
     label: 'Physical & Magical Accuracy',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the hit-test routine in the client.',
     lines: [
       'BaseChance = Acc × 100 / ((max(0, LevelDiff) × 2 + 51) × 5)',
@@ -179,7 +179,7 @@ const ACCURACY_STEPS = [
     notes: [
       'exp() is the exponential function',
       'Nine monster debuffs skip the check and always land, using their own success rate instead: Armor Crash, Threaten, Elemental Crash, Power Crash, Doom, and both versions of Slow and Seal. No attack skill is exempt.',
-      'Auto-hits when BaseChance − Avoid ≥ 25 + LevelDiff × (Level / 2 + 15) — unreachable in practice (needs Avoid ~120+; the highest on any live mob is 64).',
+      'Auto-hits when BaseChance − Avoid ≥ 25 + LevelDiff × (Level / 2 + 15) - unreachable in practice (needs Avoid ~120+; the highest on any live mob is 64).',
       'A separate miss-chance debuff is rolled after a successful hit and can still turn it into a miss.',
     ],
     cot1: {
@@ -209,7 +209,7 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Physical Damage',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Derived from the client binary.',
     // Shown by default. StatDiv 100 / AtkDiv 50 covers every attack except Prone Stab
     // and meleeing with a Bow, Crossbow or Claw, so folding them in recovers the plain
@@ -267,7 +267,7 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Magical Damage',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Derived from the client binary. The client seeds MAGIC with floor(TotalInt / 2), then adds equipment and buff Magic Attack. The formula expands that combined stat into player inputs.',
     lines: [
       'MIN = (BasicAttack / 100) × (floor(TotalInt / 2) + MagicAttack) × (TotalInt × MasteryMult / 100 + 1)',
@@ -289,7 +289,7 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Meso Explosion',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Derived from the client binary and skill data; not yet live-tested.',
     lines: [
       'MAX = MasteryPercent × 5 × (1 + MesosPerPile / (MesosPerPile + 10))',
@@ -303,7 +303,7 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Heal',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Undead damage verified in the current client. The live Heal cast sends a recipient mask; HP updates arrive from the server. This formula does not establish HP restored per player.',
     lines: [
       'HealBase = ((TotalInt × Roll + TotalLuk) / 200 + 3) × (floor(TotalInt / 2) + MagicAttack) × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1)',
@@ -320,7 +320,7 @@ const BASE_DAMAGE_STEPS = [
     notes: [
       'This calculates damage against undead, not HP restored to each player. HealBase is an intermediate damage term; the client does not establish how HP recovery is distributed.',
       'RecoveryRate is the recovery rate listed on the skill itself.',
-      'TargetsHit is everyone the cast reaches — up to 15 undead monsters (Heal only targets undead, so other monsters in range neither take hits nor dilute the split) plus up to 6 party members, counting at least 1 since the caster is always in range.',
+      'TargetsHit is everyone the cast reaches - up to 15 undead monsters (Heal only targets undead, so other monsters in range neither take hits nor dilute the split) plus up to 6 party members, counting at least 1 since the caster is always in range.',
       'HealBonus is the bonus from Bless (Cleric skill 2301003), 1% at level 1 rising to 10% at level 20. The undead-damage calculation applies it before the target split.',
       'Heal treats any nonzero undead flag as undead. The template builder stores the flag as (value != 0), so Green Mushroom\'s 25 becomes 1, while a value of 0 or a missing undead entry both become 0 and take no damage from Heal. Every other dataset checked gives Green Mushroom 0, so the 25 looks like a data error.',
     ],
@@ -391,7 +391,7 @@ const BASE_DAMAGE_VARS = [
   { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
   { name: 'BleedPercent', desc: 'The "dealing N% total damage over X sec" value listed on the skill (the dot field): 40 at level 1 rising to 100 at level 20 for Axe Mastery' },
   { name: 'BleedDurationSeconds', desc: 'Duration of the bleed effect in seconds (3 for Axe Mastery, ticking once per second)' },
-  { name: 'MagicAttack',    desc: 'Total Magic Attack from equipment, scrolls and buffs, excluding the contribution from INT. Historical COT1 notes use Magic for the combined MAGIC stat' },
+  { name: 'MagicAttack',    desc: 'Total Magic Attack from equipment, scrolls and buffs, excluding the contribution from INT' },
   { name: 'TotalInt',      desc: 'Total Int, including Equipment and Scrolls' },
   { name: 'TotalLuk',      desc: 'Total Luk, including Equipment and Scrolls' },
   { name: 'MesosPerPile',  desc: 'Mesos in one selected ground pile for Meso Explosion - same value as the calculator Mesos per pile input' },
@@ -408,7 +408,7 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Combo Attack (Crusader)',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the physical damage routine and the combo multiplier function it calls, including the job check and the two Panic/Coma skill IDs.',
     lines: [
       'ComboBonus = 5 × Orbs × (Orbs − 1)   for Panic and Coma',
@@ -432,7 +432,7 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Elemental Charge (White Knight)',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the physical damage routine, including the job check and the read of the active charge skill\'s own damage value.',
     lines: [
       'SkillMult = SkillMult × (ChargeDamage / 100 + 1)',
@@ -453,7 +453,7 @@ const MOD_PIPELINE_STEPS = [
     label: 'Defense Nullified (Armor Crash)',
     wip: false,
     status: 'partial',
-    statusNote: 'Zero-defense branch verified in the client; tying the (server-set) flag to Armor Crash is inference — the only skill described as zeroing physical defense.',
+    statusNote: 'Zero-defense branch verified in the client; tying the (server-set) flag to Armor Crash is inference - the only skill described as zeroing physical defense.',
     lines: [
       'If the monster is flagged, WeaponDefense = 0 and the step below is skipped entirely.',
     ],
@@ -471,7 +471,7 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Weapon Defense',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the physical damage routine and the enemy weapon-defense getter in the client, with both constants resolved.',
     lines: [
       'WeaponDefense = max(0, trunc(BaseWeaponDefense × (PercentEffects / 100 + 1)) + FlatEffects)',
@@ -495,7 +495,7 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Magic Defense',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the magic damage routine and the enemy magic-defense getter in the client.',
     lines: [
       'MagicDefense = max(0, trunc(BaseMagicDefense × (PercentEffects / 100 + 1)) + FlatEffects)',
@@ -518,7 +518,7 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Elemental Modifier',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the elemental multiplier table and the two-element blend table in the client, cross-checked against the monster resistance codes and the skill elements in the game data.',
     lines: [
       'Damage = Damage × ElementalMult',
@@ -535,7 +535,7 @@ const MOD_PIPELINE_STEPS = [
     ],
     notes: [
       'Only two skills carry two elements: both versions of Element Composition, which blends Fire with Poison for the Fire/Poison line and Ice with Lightning for the Ice/Lightning line',
-      'Only the two-element blend reaches 0.25/0.5/1.5 — 1.5 against monsters weak to both elements, 0.0 against those immune to both.',
+      'Only the two-element blend reaches 0.25/0.5/1.5 - 1.5 against monsters weak to both elements, 0.0 against those immune to both.',
       'Anything outside this table falls back to 1.0',
     ],
     cot1: {
@@ -547,7 +547,7 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Level Difference Penalty',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the client - the same code appears in the physical, magic and DoT routines.',
     lines: [
       'LevelDiff = EnemyLevel − PlayerLevel',
@@ -563,13 +563,13 @@ const MOD_PIPELINE_STEPS = [
     ],
     notes: [
       'The two branches meet exactly at LevelDiff 10, where the penalty term is 0.5 either way - the damage is divided by 1.5, so about a third of it is lost',
-      'DoT always uses the linear branch — harsher than direct hits below LevelDiff 10, identical at 10+.',
+      'DoT always uses the linear branch - harsher than direct hits below LevelDiff 10, identical at 10+.',
     ],
   },
   {
     label: 'Element Amplification',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Buff slot named Element Amplification in the client (it also drives the extra MP cost). Its skill is not in the game data, so this never fires.',
     lines: [
       'Damage = Damage × (ElementAmpDamage / 100 + 1)',
@@ -580,7 +580,7 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Critical Hit',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the crit roll in the client, which appears identically in the physical, magic and damage-over-time routines.',
     lines: [
       'IsCrit = rand(0, 99) < CritRate',
@@ -596,7 +596,7 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Iron Arrow Falloff (Crossbow only)',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the client, hard-coded to Iron Arrow: Crossbow by skill ID.',
     lines: [
       'Damage = Damage × clamp(1 − ConsecutiveHits × 0.2, 0, 1)',
@@ -628,7 +628,7 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Clamp',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the client - the same clamp ends both the physical and magic routines.',
     lines: [
       'Damage = trunc(Damage)',
@@ -674,7 +674,7 @@ const GUARD_STEPS = [
   {
     label: 'Monster Accuracy',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the outcome routine in the client, with every constant resolved. This is a different formula from the one your own attacks use',
     lines: [
       'LevelGap = PlayerLevel − MonsterLevel, or 0 if the monster is the higher level',
@@ -713,7 +713,7 @@ const GUARD_STEPS = [
   {
     label: 'Shield Guard',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the damage-taken routine in the client, including the 500 divisor and the 5% floor.',
     lines: [
       'ShieldDefense = Weapon Defense on the item in the shield slot',
@@ -732,7 +732,7 @@ const GUARD_STEPS = [
   {
     label: 'Claw Guard',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the client, hard-coded to Claw Guard by skill ID and to the Assassin job line.',
     lines: [
       'Only rolled for Assassin, Hermit and Night Lord:',
@@ -740,7 +740,7 @@ const GUARD_STEPS = [
     ],
     notes: [
       'ClawGuardBlockChance is the block chance listed on the skill: 3% at levels 1-6, 4% at 7-13, 5% at 14-20',
-      'Shares the Shield Guard roll and only runs if it failed — so with any shield equipped (guard ≥5% vs Claw Guard ≤5%) it can never fire. Only the throwing-star setup benefits.',
+      'Shares the Shield Guard roll and only runs if it failed - so with any shield equipped (guard ≥5% vs Claw Guard ≤5%) it can never fire. Only the throwing-star setup benefits.',
     ],
     cot1: {
       badge: 'New in COT2',
@@ -752,7 +752,7 @@ const GUARD_STEPS = [
   {
     label: 'Incoming Damage',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the two damage-taken routines and the monster attack-value getters in the client.',
     lines: [
       'IncomingDamage = MonsterAttack × (1.1 + 0.4 × rand(0, 1))',
@@ -764,7 +764,7 @@ const GUARD_STEPS = [
   {
     label: 'Player Defense',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from both damage-taken routines in the client, with every constant resolved.',
     lines: [
       'Defense = WeaponDefense for a regular attack, MagicDefense for a skill attack',
@@ -797,7 +797,6 @@ const GUARD_STEPS = [
     notes: [
       'InvincibleReduction is the skill\'s own value, 10% at level 1 rising to 30% at level 20',
       'Regular attacks only. A monster skill attack skips this step, matching the skill description, which says physical damage',
-      'Same branch exists in COT1 — same 230–232 job gate and 0.5 cap',
     ],
   },
   {
@@ -815,7 +814,7 @@ const GUARD_STEPS = [
   {
     label: 'Result',
     wip: false,
-    status: 'ok',
+    status: 'stale',
     statusNote: 'Read directly from the client - the damage is computed and then discarded on anything other than a clean hit.',
     lines: [
       'DamageTaken = clamp(DamageTaken, 1, 50000000), truncated',
@@ -853,13 +852,13 @@ const GUARD_VARS = [
 
 // ─── Shared helpers ───────────────────────────────────────────
 
-const STATUS_LABELS = { ok: 'Code Verified', partial: 'Partly Code Verified', warn: 'Educated Guess' };
+const STATUS_LABELS = { ok: 'Code Verified', partial: 'Partly Code Verified', warn: 'Educated Guess', stale: 'Verified for COT2' };
 
 // Where the formula came from and whether anyone has checked it in-game are two
 // separate questions, so they get two separate tags.
 const VALIDATION_LABELS = { pending: 'Requires Validation', done: 'In-Game Confirmed' };
 const VALIDATION_NOTES = {
-  pending: 'Nobody has confirmed this against live gameplay yet - it is what the game files say, not what anyone has measured.',
+  pending: 'This formula has not been reverified sincE COT2.',
   done: 'Checked against live gameplay and matched.',
 };
 
@@ -869,9 +868,12 @@ const VALIDATION_NOTES = {
 function makeStatusTag(status, statusNote, validated) {
   const frag = document.createDocumentFragment();
 
-  const statusTag = el('span', { className: `formulas-status-tag formulas-status-${status}`, textContent: STATUS_LABELS[status] });
-  attachTooltip(statusTag, statusNote ?? (status === 'ok' ? 'Read straight out of the game files.' : null));
-  frag.appendChild(statusTag);
+  // 'stale' steps show no provenance tag - only the validation tag below.
+  if (status !== 'stale') {
+    const statusTag = el('span', { className: `formulas-status-tag formulas-status-${status}`, textContent: STATUS_LABELS[status] });
+    attachTooltip(statusTag, statusNote ?? (status === 'ok' ? 'Read straight out of the game files.' : status === 'stale' ? 'Read out of the COT2 client binary - not yet re-checked against the Public Release client.' : null));
+    frag.appendChild(statusTag);
+  }
 
   // `validated: null` opts out entirely - used for verbatim lookup tables, where
   // the values are the data itself and there is no behaviour to test against.
@@ -890,7 +892,7 @@ function makeStatusTag(status, statusNote, validated) {
 
 function buildPipeline(steps, chapterStarts = {}) {
   const frag = document.createDocumentFragment();
-  steps.forEach(({ label, wip, status, statusNote, validated, lines, notes, warnings, cot1, simple }, i) => {
+  steps.forEach(({ label, wip, status, statusNote, validated, lines, notes, warnings, simple }, i) => {
     if (chapterStarts[i]) {
       const { key, label: chapterLabel, description } = chapterStarts[i];
       const chapter = el('div', { className: 'formulas-stage-heading' });
@@ -907,14 +909,6 @@ function buildPipeline(steps, chapterStarts = {}) {
     const titleEl = el('span', { className: 'formulas-pipeline-title', textContent: label });
     stepHeader.appendChild(titleEl);
     if (wip) stepHeader.appendChild(el('span', { className: 'formulas-wip-tag', textContent: 'WIP' }));
-    if (cot1) {
-      const cot1Tag = el('span', {
-        className: 'formulas-status-tag formulas-cot1-tag',
-        textContent: cot1.badge ?? 'Changed from COT1',
-      });
-      attachTooltip(cot1Tag, 'This mechanic differs from Closed Online Test 1 - the Δ notes below say how. Both sides are read from the respective client binaries.');
-      stepHeader.appendChild(cot1Tag);
-    }
     if (status) stepHeader.appendChild(makeStatusTag(status, statusNote, validated));
     step.appendChild(stepHeader);
 
@@ -948,12 +942,6 @@ function buildPipeline(steps, chapterStarts = {}) {
         const noteWrap = el('div', { className: 'formulas-pipeline-notes' });
         useNotes.forEach(n => noteWrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
         body.appendChild(noteWrap);
-      }
-
-      if (cot1?.notes?.length) {
-        const cot1Wrap = el('div', { className: 'formulas-cot1-notes' });
-        cot1.notes.forEach(n => cot1Wrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
-        body.appendChild(cot1Wrap);
       }
     };
 
@@ -1183,13 +1171,6 @@ function buildExpTable() {
   formulaWrap.appendChild(block);
   container.appendChild(formulaWrap);
 
-  const cot1Note = el('div', { className: 'formulas-cot1-notes' });
-  cot1Note.appendChild(el('div', {
-    className: 'formulas-note',
-    textContent: 'COT1 used the same two rules but capped at level 50 - the ×1.0548 tail past level 50 is new in COT2, and the 1.0548 constant does not exist in the COT1 client at all.',
-  }));
-  container.appendChild(cot1Note);
-
   const split = el('div', { className: 'formulas-exp-split' });
   const tableWrap = el('div', { className: 'formulas-table-wrap formulas-exp-tablewrap' });
   const table = el('table', { className: 'data-table' });
@@ -1312,7 +1293,7 @@ function buildCraftTable() {
     row.appendChild(el('td', { className: 'num formulas-accum-val formulas-exp-td', textContent: accumulated.toLocaleString() }));
     row.appendChild(el('td', {
       className: 'num formulas-accum-val formulas-exp-td',
-      textContent: charLevel === null ? '—' : `Lv ${charLevel}`,
+      textContent: charLevel === null ? '-' : `Lv ${charLevel}`,
     }));
 
     tbody.appendChild(row);
@@ -1712,7 +1693,7 @@ function buildAttackTypeVisuals(keys = null) {
       addHitvizText(svg, 'first swing hitbox', 99, 56, 'hitviz-svg-text--hitbox');
       addHitvizText(svg, 'extends forward only', 166, 42, 'hitviz-svg-text--secondary-area');
     },
-    'If the first swing finds exactly one monster, Slash Blast keeps the same height and extends only the front edge: 130 px at Lv. 1–10 and 150 px at Lv. 11–20.',
+    'If the first swing finds exactly one monster, Slash Blast keeps the same height and extends only the front edge: 130 px at Lv. 1-10 and 150 px at Lv. 11-20.',
     [
       ['primary', 'First target check'],
       ['secondary', 'Extra forward range after one hit'],
@@ -2069,7 +2050,7 @@ function buildOverlapGuide() {
   ]));
   container.appendChild(el('div', {
     className: 'formulas-note formulas-note--padded',
-    textContent: 'Overlap only makes a monster eligible. Target priority, the skill\'s target cap, and—when used—the terrain check decide whether it stays in the final target list.',
+    textContent: 'Overlap only makes a monster eligible. Target priority, the skill\'s target cap, and, when used, the terrain check decide whether it stays in the final target list.',
   }));
   return container;
 }
@@ -2120,7 +2101,7 @@ function buildTargetSelectionGuide() {
   const intro = el('aside', { className: 'hitviz-terrain-intro' });
   intro.appendChild(el('div', {
     className: 'hitviz-terrain-intro-title',
-    textContent: 'Overlap makes a monster eligible—not guaranteed',
+    textContent: 'Overlap makes a monster eligible, not guaranteed',
   }));
   intro.appendChild(el('p', {
     textContent: 'When more monsters overlap than the skill can hit, target priority decides which ones fill the available slots. Most attacks do not guarantee closest-first targeting.',
@@ -2215,7 +2196,7 @@ function buildWeaponMultTable() {
 
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing/Stab are the normal melee actions, Shoot covers bow, crossbow and claw attacks, and Other applies when a skill uses its own custom animation (e.g. Rush, Assaulter)' }));
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The Swing/Stab ratio above is the melee animation list. Bows, Crossbows and Claws normally fire instead, drawing from a separate ranged list that always resolves to Shoot; a star-throwing Claw rolls swingO1/O2/O3, rewritten to Shoot for claws. Their Swing and Stab columns are only reached when meleeing without ammo.' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll swing/stab like a plain attack. The groups below never roll: the first three use the shown multiplier; the last takes the weapon default — Stab for 1H/2H Swords, Daggers, Spears, Wands, Staves and bare hands; Swing for Axes, Blunt Weapons and Polearms; Shoot for Bows, Crossbows and Claws. Magic skills never use a weapon multiplier.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll swing/stab like a plain attack. The groups below never roll: the first three use the shown multiplier; the last takes the weapon default - Stab for 1H/2H Swords, Daggers, Spears, Wands, Staves and bare hands; Swing for Axes, Blunt Weapons and Polearms; Shoot for Bows, Crossbows and Claws. Magic skills never use a weapon multiplier.' }));
 
   const exceptions = el('div', { className: 'formulas-exceptions' });
   ACTION_EXCEPTIONS.forEach(([column, skills]) => {
@@ -2298,17 +2279,17 @@ export function renderFormulas(data, options = {}) {
   CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]
     .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
 
-  const disclaimer = el('div', { className: 'formulas-disclaimer' });
+  const disclaimer = el('div', { className: 'formulas-disclaimer formulas-disclaimer--stale' });
   const disclaimerText = el('span');
   disclaimerText.appendChild(el('strong', { textContent: 'Warning: ' }));
-  disclaimerText.append('Code Verified: read from the game files. Partly: same, except one detail (usually which skill) is inferred. Requires Validation: untested in-game — report mismatches.');
+  disclaimerText.append('These formulas are from Closed Online Test 2. They have not been confirmed against the live game and may be inaccurate. Check again later!');
   disclaimer.appendChild(disclaimerText);
   const section = (title, key, bodyFn) => markFormulaSection(makeCollapsibleSection(title, '', bodyFn), key);
   const group = (...children) => el('div', { className: 'formulas-full' }, ...children);
 
   const buildAccuracyPage = () => {
     const accuracy = section('Accuracy', 'accuracy-formulas', buildAccuracySection);
-    accuracy.querySelector('.right').appendChild(makeStatusTag('ok', 'Read directly from the client binary'));
+    accuracy.querySelector('.right').appendChild(makeStatusTag('stale', 'Read directly from the client binary'));
     const credit = el('span', { className: 'formulas-credit' });
     credit.innerHTML = 'Reverse engineered by <strong>@Slash</strong> and <strong>@ohmi</strong> on Discord';
     accuracy.querySelector('.left').appendChild(credit);
@@ -2338,7 +2319,7 @@ export function renderFormulas(data, options = {}) {
     base.querySelector('.left').appendChild(baseCredit);
 
     const weapons = section('Weapon Min/Max Multipliers', 'weapon-multipliers', buildWeaponMultTable);
-    weapons.querySelector('.right').appendChild(makeStatusTag('ok', 'Read directly from the weapon multiplier table in the damage routine in the client.', null));
+    weapons.querySelector('.right').appendChild(makeStatusTag('stale', 'Read directly from the weapon multiplier table in the damage routine in the client.', null));
     const weaponCredit = el('span', { className: 'formulas-credit' });
     weaponCredit.innerHTML = 'Reverse engineered by <strong>@kirbypickr, @Slash, @cptbattler, @ohmi</strong> on Discord, confirmed against the client binary';
     weapons.querySelector('.left').appendChild(weaponCredit);
@@ -2352,7 +2333,7 @@ export function renderFormulas(data, options = {}) {
 
   const buildDamageTakenPage = () => {
     const guard = makeCollapsibleSection('Damage Taken Pipeline', '', buildGuardSection);
-    guard.querySelector('.right').appendChild(makeStatusTag('ok', 'Read directly from the damage-taken routine in the client, which resolves every incoming hit as hit, miss or guard.'));
+    guard.querySelector('.right').appendChild(makeStatusTag('stale', 'Read directly from the damage-taken routine in the client, which resolves every incoming hit as hit, miss or guard.'));
     const credit = el('span', { className: 'formulas-credit' });
     credit.innerHTML = 'Reverse engineered by <strong>@ohmi</strong> on Discord';
     guard.querySelector('.left').appendChild(credit);
@@ -2361,16 +2342,16 @@ export function renderFormulas(data, options = {}) {
 
   const buildProgressionPage = () => {
     const exp = section('Experience Table', 'experience', buildExpTable);
-    exp.querySelector('.right').appendChild(makeStatusTag('ok', 'Read directly from the routine in the client that builds the experience table at startup.', null));
+    exp.querySelector('.right').appendChild(makeStatusTag('stale', 'Read directly from the routine in the client that builds the experience table at startup.', null));
     const expCredit = el('span', { className: 'formulas-credit' });
     expCredit.innerHTML = 'Reverse engineered by <strong>@wolffy</strong> and <strong>@ohmi</strong> on Discord';
     exp.querySelector('.left').appendChild(expCredit);
 
     const craft = section('Crafting Levels', 'crafting-levels', buildCraftTable);
-    craft.querySelector('.right').appendChild(makeStatusTag('ok', 'Exp column from the client requirement routine; level column from the crafting window tooltip.'));
+    craft.querySelector('.right').appendChild(makeStatusTag('stale', 'Exp column from the client requirement routine; level column from the crafting window tooltip.'));
 
     const citizenship = section('Citizenship Grades', 'citizenship-grades', buildCitizenshipTable);
-    citizenship.querySelector('.right').appendChild(makeStatusTag('ok', 'The contribution thresholds and character level column come from the client and have been confirmed against the Citizenship window in game.'));
+    citizenship.querySelector('.right').appendChild(makeStatusTag('stale', 'The contribution thresholds and character level column come from the client and have been confirmed against the Citizenship window in game.'));
     return group(exp, craft, citizenship);
   };
 

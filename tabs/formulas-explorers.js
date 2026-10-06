@@ -36,7 +36,7 @@ export const FORMULA_EXPLORERS = {
       // The skill's Mastery percentage is raw x / 10, so x / 2 = Mastery * 5.
       const maximum = s.masteryPercent * 5 * (1 + s.mesosPerPile / (s.mesosPerPile + 10));
       const minimum = maximum / 2;
-      return { headline: `${format(minimum)} – ${format(maximum)} damage per pile`,
+      return { headline: `${format(minimum)} - ${format(maximum)} damage per pile`,
         bars: [{ label: 'Minimum', value: minimum }, { label: 'Maximum', value: maximum }],
         detail: `Average: ${format((minimum + maximum) / 2)} per pile; total is the sum over exploded piles` };
     },
@@ -71,7 +71,7 @@ export const FORMULA_EXPLORERS = {
       const amounts = [0.8, 1].map(roll => Math.trunc(((s.int * roll + s.luk) / 200 + 3)
         * magic(s) * s.recovery / 100 * (targets * 0.1 + 1) * (1 + s.bonus / 100)) / targets * 0.5);
       return { bars: amounts.map((value, i) => ({ label: `${i ? 'Maximum' : 'Minimum'} base damage`, value })),
-        headline: `${amounts.map(format).join(' – ')} damage per undead target`,
+        headline: `${amounts.map(format).join(' - ')} damage per undead target`,
         detail: `${targets} total targets, including the caster. More targets reduce damage per monster.` };
     },
     note: 'Before enemy defense and later modifiers. HP restored per player is not established by this client formula.',
