@@ -1,7 +1,7 @@
 import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, makeMatcher, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
-import { makeQuestRewardContext, makeQuestRewardPanel, makeCraftingResultPanel } from './quest-rewards.js';
+import { makeQuestRewardContext, makeQuestRewardPanel, makeQuestRequirementPanel, makeCraftingResultPanel } from './quest-rewards.js';
 
 const STAT_LABELS = {
   price:       ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
@@ -55,6 +55,7 @@ let expanded = false;
   let specEl = null;
   let compare = null;
   let rewardPanel = null;
+  let requirementPanel = null;
   let craftingPanel = null;
 
   row.addEventListener('click', (e) => {
@@ -81,6 +82,11 @@ let expanded = false;
       if (rewardPanel) row.insertBefore(rewardPanel, compare || null);
     }
     if (rewardPanel) rewardPanel.hidden = !expanded;
+    if (!requirementPanel) {
+      requirementPanel = makeQuestRequirementPanel(item.id, questRewards);
+      if (requirementPanel) row.insertBefore(requirementPanel, compare || null);
+    }
+    if (requirementPanel) requirementPanel.hidden = !expanded;
     if (!craftingPanel) {
       craftingPanel = makeCraftingResultPanel(item.id, questRewards);
       if (craftingPanel) row.insertBefore(craftingPanel, compare || null);
@@ -117,7 +123,7 @@ export function renderItems(data, options = {}) {
   let autoExpandAfterId = null;
   const container = el('div');
   const scrollIdSet = new Set(items.scrolls.map((scroll) => String(scroll.id)));
-  // Which quests hand each item out, shown when a row is expanded.
+  // Quest rewards and requirements, shown when a row is expanded.
   const questRewards = makeQuestRewardContext(data);
 
   // Search and filters stay pinned at the top while the list scrolls past.

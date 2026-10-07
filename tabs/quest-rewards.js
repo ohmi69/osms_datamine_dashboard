@@ -126,9 +126,40 @@ function entryMeta(entry) {
   return parts.join(' · ');
 }
 
-function makeRewardChip(entry, npcByName, tooltip) {
+// Reverse index of the structured item objectives shown in quest details.
+let _requirementQuests = null;
+let _requirementIndex = null;
+
+export function getQuestRequirementIndex(quests) {
+  if (_requirementIndex && _requirementQuests === quests) return _requirementIndex;
+  const index = new Map();
+  for (const quest of quests || []) {
+    if (quest?.id == null) continue;
+    for (const requirement of Array.isArray(quest.requirements_list) ? quest.requirements_list : []) {
+      if (requirement?.type !== 'item' || requirement.id == null) continue;
+      const key = String(requirement.id);
+      if (!index.has(key)) index.set(key, []);
+      const entries = index.get(key);
+      const count = requirement.count ?? 1;
+      const existing = entries.find(entry => String(entry.quest.id) === String(quest.id));
+      if (existing) existing.count = Math.max(existing.count, count);
+      else entries.push({ quest, count });
+    }
+  }
+  for (const entries of index.values()) {
+    entries.sort((a, b) =>
+      (a.quest.level_min || 0) - (b.quest.level_min || 0) ||
+      String(a.quest.name || '').localeCompare(String(b.quest.name || ''))
+    );
+  }
+  _requirementQuests = quests;
+  _requirementIndex = index;
+  return index;
+}
+
+function makeRewardChip(entry, npcByName, tooltip, formatMeta = entryMeta) {
   const quest = entry.quest;
-  const meta = entryMeta(entry);
+  const meta = formatMeta(entry);
   const where = [quest.level_min ? `Lv. ${quest.level_min}+` : '', quest.region].filter(Boolean).join(' · ');
   const npc = npcByName?.get(String(quest.npc_name || '').trim().toLowerCase());
   const chip = makeTabLink('quests', `id:${quest.id}`, {
@@ -153,13 +184,26 @@ function makeRewardChip(entry, npcByName, tooltip) {
 export function makeQuestRewardPanel(itemId, context) {
   const { index, npcByName, tooltip } = context;
   const entries = index?.get(String(itemId));
+  return makeQuestPanel(entries, npcByName, tooltip);
+}
+
+export function makeQuestRequirementPanel(itemId, context) {
+  const { requirementIndex, npcByName, tooltip } = context;
+  return makeQuestPanel(requirementIndex?.get(String(itemId)), npcByName, tooltip, {
+    className: 'item-quest-requirements',
+    label: entries => entries.length === 1 ? 'Required by Quest' : `Required by Quests (${entries.length})`,
+    formatMeta: entry => `Requires ×${entry.count}`,
+  });
+}
+
+function makeQuestPanel(entries, npcByName, tooltip, options = {}) {
   if (!entries || entries.length === 0) return null;
 
-  const panel = el('div', { className: 'item-quest-rewards' });
+  const panel = el('div', { className: ['item-quest-rewards', options.className].filter(Boolean).join(' ') });
   panel.appendChild(
     el('div', {
       className: 'item-quest-rewards-label',
-      textContent: entries.length === 1 ? 'Quest Reward' : `Quest Rewards (${entries.length})`,
+      textContent: options.label ? options.label(entries) : entries.length === 1 ? 'Quest Reward' : `Quest Rewards (${entries.length})`,
     })
   );
   const list = el('div', { className: 'quest-chip-list item-quest-reward-list' });
@@ -167,7 +211,7 @@ export function makeQuestRewardPanel(itemId, context) {
 
   function fill(limit) {
     list.innerHTML = '';
-    entries.slice(0, limit).forEach((entry) => list.appendChild(makeRewardChip(entry, npcByName, tooltip)));
+    entries.slice(0, limit).forEach((entry) => list.appendChild(makeRewardChip(entry, npcByName, tooltip, options.formatMeta)));
   }
   fill(MAX_VISIBLE);
 
@@ -208,6 +252,7 @@ export function makeQuestRewardContext(data) {
   );
   return {
     index: getQuestRewardIndex(data.quests?.quests),
+    requirementIndex: getQuestRequirementIndex(data.quests?.quests),
     craftingIndex: getCraftingResultIndex(data.recipes),
     itemByName,
     npcByName,
