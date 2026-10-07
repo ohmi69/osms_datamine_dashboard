@@ -3,9 +3,10 @@ import { Router } from '../lib/Router.js';
 import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
 import { makeQuestRewardContext, makeQuestRewardPanel, makeCraftingResultPanel } from './quest-rewards.js';
 
-function matchesClass(item, classFilter) {
+export function matchesClass(item, classFilter) {
   if (classFilter === 0 || !item.stats) return true;
-  const requiredJob = item.stats.reqJob || 0;
+  const requiredJob = Number(item.stats.reqJob || 0);
+  if (classFilter === 'beginner') return requiredJob === 0;
   if (requiredJob === 0) return true;
   return (requiredJob & classFilter) !== 0;
 }
@@ -133,6 +134,7 @@ export function renderEquipment(data, options = {}) {
   });
   const classOptions = [
     { label: 'All Classes', value: 0 },
+    { label: 'Beginner', value: 'beginner' },
     ...((equipmentMeta.job_filters || []).map((opt) => ({ label: opt.label, value: opt.value }))),
   ];
   const classPillGroup = makePillGroup(classOptions, classFilter, (value) => {
@@ -365,7 +367,10 @@ export function renderEquipment(data, options = {}) {
     selectedWeaponType = null;
     const hasAny = has('class') || has('gender') || has('type') || has('wtype');
     if (hasAny) {
-      if (has('class')) { classFilter = Number(get('class')); }
+      if (has('class')) {
+        const value = get('class') === 'beginner' ? 'beginner' : Number(get('class'));
+        if (classOptions.some((option) => option.value === value)) classFilter = value;
+      }
       if (has('gender')) { genderFilter = get('gender'); }
       if (has('type')) {
         selectedSubCategory = get('type');
@@ -379,7 +384,7 @@ export function renderEquipment(data, options = {}) {
     if (showBanner && hasAny) {
       const labelParts = [];
       if (has('class')) {
-        const classLabel = classOptions.find(o => o.value === Number(get('class')))?.label;
+        const classLabel = classOptions.find(o => o.value === classFilter)?.label;
         if (classLabel && classLabel !== 'All Classes') labelParts.push(classLabel);
       }
       if (has('gender')) labelParts.push(get('gender') === 'male' ? 'Male' : 'Female');

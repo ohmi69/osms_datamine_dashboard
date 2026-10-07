@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-07T07:56:43Z",
+  "generator": "generate_patch_notes.py",
+  "max_items": 0,
+  "before": {
+    "key": "current",
+    "label": "Pushed dashboard (6e4971f1d5f8)",
+    "date": "2026-10-06",
+    "path": "git:6e4971f1d5f80f7668eb1671834ff23993a5ba24:data/current"
+  },
+  "after": {
+    "key": "current",
+    "label": "Current local minor patch",
+    "date": "2026-10-07",
+    "path": "C:/Users/brian/Documents/osms_extractor/data/current"
+  },
+  "totals": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0
+  },
+  "sections": [],
+  "comparison": {
+    "dashboard_repo": "C:\\Users\\brian\\Documents\\GitHub\\osms_datamine_dashboard",
+    "remote": "origin",
+    "branch": "main",
+    "commit": "6e4971f1d5f80f7668eb1671834ff23993a5ba24",
+    "commit_date": "2026-10-06T22:44:43-07:00",
+    "baseline_data": "data/current",
+    "fetched": false,
+    "files": [
+      {
+        "file": "beauty.json",
+        "status": "unchanged",
+        "before_sha256": "c8ef6567c06e793da3018edd97326a6893c24d29d03a69372f599a01b03e762f",
+        "after_sha256": "c8ef6567c06e793da3018edd97326a6893c24d29d03a69372f599a01b03e762f"
+      },
+      {
+        "file": "cash_shop.json",
+        "status": "unchanged",
+        "before_sha256": "b6a50877788ade8b0d4e45bfda389bd19abafcdf0d558ad5677a5e3fceb0830b",
+        "after_sha256": "b6a50877788ade8b0d4e45bfda389bd19abafcdf0d558ad5677a5e3fceb0830b"
+      },
+      {
+        "file": "crafting.json",
+        "status": "unchanged",
+        "before_sha256": "64f0d0467cc3b2cd45e4752f7919244fa8fcf5efcadc778e272095039131525b",
+        "after_sha256": "64f0d0467cc3b2cd45e4752f7919244fa8fcf5efcadc778e272095039131525b"
+      },
+      {
+        "file": "items.json",
+        "status": "unchanged",
+        "before_sha256": "33f3261c003a435b61cc08c7f5173dae11098ed92ba0391258bff7441e1fe32c",
+        "after_sha256": "33f3261c003a435b61cc08c7f5173dae11098ed92ba0391258bff7441e1fe32c"
+      },
+      {
+        "file": "lookups.json",
+        "status": "unchanged",
+        "before_sha256": "0fad8bb83a124c62b60ce9878e66a0715bb5b086dc231cde6186d694c98af86f",
+        "after_sha256": "0fad8bb83a124c62b60ce9878e66a0715bb5b086dc231cde6186d694c98af86f"
+      },
+      {
+        "file": "map_manifest.json",
+        "status": "unchanged",
+        "before_sha256": "813a810157c661b24b21fff0fb8dd05b03cfaa984ff20c168a771f1710be7510",
+        "after_sha256": "813a810157c661b24b21fff0fb8dd05b03cfaa984ff20c168a771f1710be7510"
+      },
+      {
+        "file": "maps.json",
+        "status": "unchanged",
+        "before_sha256": "d2137737b7b3518ff0c07fa3ed63b7766456ccd95faad110ff73c282e670962c",
+        "after_sha256": "d2137737b7b3518ff0c07fa3ed63b7766456ccd95faad110ff73c282e670962c"
+      },
+      {
+        "file": "monsters.json",
+        "status": "unchanged",
+        "before_sha256": "0216140b164073d39a4b475c68318de14f11cfc9e1166ceddf748c681e57a585",
+        "after_sha256": "0216140b164073d39a4b475c68318de14f11cfc9e1166ceddf748c681e57a585"
+      },
+      {
+        "file": "overview.json",
+        "status": "unchanged",
+        "before_sha256": "9e643d692be2ae5fc1ae53329a6a92d1c60be695a10122d8d5c9229ecdd42d21",
+        "after_sha256": "9e643d692be2ae5fc1ae53329a6a92d1c60be695a10122d8d5c9229ecdd42d21"
+      },
+      {
+        "file": "portals.json",
+        "status": "unchanged",
+        "before_sha256": "61348b6e71c13744787a0038fe0441e8df02a9d0448ab1bb62d453c19f1ab3ad",
+        "after_sha256": "61348b6e71c13744787a0038fe0441e8df02a9d0448ab1bb62d453c19f1ab3ad"
+      },
+      {
+        "file": "quests.json",
+        "status": "unchanged",
+        "before_sha256": "38314e2b7e4296ecb95518cb6c2e86b52ae66067d75cc2ad4ad78154c5b74ba0",
+        "after_sha256": "38314e2b7e4296ecb95518cb6c2e86b52ae66067d75cc2ad4ad78154c5b74ba0"
+      },
+      {
+        "file": "skills.json",
+        "status": "unchanged",
+        "before_sha256": "8f3bc67b6f8fd51ebf88c83beb7c0c53195280816245268750eed6dc48d30d29",
+        "after_sha256": "8f3bc67b6f8fd51ebf88c83beb7c0c53195280816245268750eed6dc48d30d29"
+      },
+      {
+        "file": "tips.json",
+        "status": "unchanged",
+        "before_sha256": "0f632156d6bd47badcb7117a2b04306edc3b6e3fc06c4493baeba26321fc2034",
+        "after_sha256": "0f632156d6bd47badcb7117a2b04306edc3b6e3fc06c4493baeba26321fc2034"
+      }
+    ],
+    "compared_at": "2026-10-07T07:56:43.733420+00:00"
+  }
+}

@@ -387,7 +387,7 @@ function buildRelease(options, data) {
     el('summary', { textContent: 'About this data' }),
     el('div', { className: 'field-guide-release__disclosure' },
       el('p', { textContent: 'Extracted directly from the game client. Content may be cut, delayed, or changed and is not guaranteed to appear in game.' }),
-      el('p', {}, 'Client hash: ', el('code', { textContent: '008afa8c' })),
+      el('p', {}, 'Client hash: ', el('code', { textContent: '6e4971f' })),
     ));
   row.appendChild(details);
   return row;

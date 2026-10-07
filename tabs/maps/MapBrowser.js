@@ -193,7 +193,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         if (window.openImageModal) window.openImageModal(mapImgPath, img.alt);
       });
       imgContainer.appendChild(img);
-      attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate, mapMobs);
+      attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate, mapMobs, maps);
       panel.appendChild(imgContainer);
     }
 

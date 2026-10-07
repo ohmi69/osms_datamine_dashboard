@@ -5,7 +5,8 @@ import { attachTooltip, hideItemTooltip } from '../../lib/tooltip.js';
 
 // Attaches portal circle overlays + intra-map arrows to imgContainer once img loads.
 // getSelfNavigate() is called at click-time to avoid stale closure.
-export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate, mapMobs) {
+export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate, mapMobs, maps) {
+  const availableMapIds = new Set(maps.regions.flatMap(r => r.maps.map(m => Number(m.id))));
   img.addEventListener('load', async () => {
     imgContainer.querySelectorAll('.portal-overlay').forEach(e => e.remove());
 
@@ -83,21 +84,26 @@ export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate
     portals.forEach(portal => {
       const px = portal.x * scaleX;
       const py = portal.y * scaleY;
-      if (portal.dest_map === '999999999') {
+      if (Number(portal.dest_map) === 999999999) {
         if (portal.name) portalOverlayMap.set(portal.name, { overlay: null, boxShadow: null, hoverShadow: null, bgColor: null, isIntra: false, px, py });
         return;
       }
       const isIntra = portal.intra_map;
-      const borderColor = isIntra ? '#2ecc40' : '#3af';
-      const bgColor = isIntra ? 'rgba(46,204,64,0.18)' : 'rgba(0,120,255,0.18)';
-      const boxShadow = isIntra ? '0 0 8px 2px #2ecc4066' : '0 0 8px 2px #3af6';
+      const unavailable = !isIntra && !availableMapIds.has(Number(portal.dest_map));
+      const borderColor = unavailable ? '#999' : isIntra ? '#2ecc40' : '#3af';
+      const bgColor = unavailable ? 'rgba(153,153,153,0.18)' : isIntra ? 'rgba(46,204,64,0.18)' : 'rgba(0,120,255,0.18)';
+      const boxShadow = unavailable ? '0 0 8px 2px #9996' : isIntra ? '0 0 8px 2px #2ecc4066' : '0 0 8px 2px #3af6';
       const hoverShadow = isIntra ? '0 0 16px 4px #2ecc40bb' : '0 0 16px 4px #fff8';
       // Portals that lead somewhere else get a real href, so they can be
       // middle-clicked open in a new tab. Intra-map portals only toggle the
       // arrow overlay, so they stay plain divs.
-      const overlay = isIntra
+      const overlay = isIntra || unavailable
         ? el('div', { className: 'portal-overlay' })
         : makeTabLink('maps', `id:${padMapId(Number(portal.dest_map))}`, { className: 'portal-overlay' });
+      if (unavailable) {
+        overlay.setAttribute('aria-disabled', 'true');
+        overlay.style.cursor = 'help';
+      }
       overlay.dataset.destMap = String(Number(portal.dest_map));
       overlay.style.left = `${px - portalR}px`;
       overlay.style.top = `${py - portalR}px`;
@@ -177,7 +183,7 @@ export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate
               }
             });
           }
-        } else if (portal.dest_map) {
+        } else if (portal.dest_map && !unavailable) {
           // Modifier/middle clicks fall through to the href so the browser opens
           // the destination map in a new tab.
           if (e.defaultPrevented || e.button !== 0
