@@ -381,13 +381,13 @@ function buildHero(data, options, historical) {
 function buildRelease(options, data) {
   const row = el('div', { className: 'field-guide-release' },
     el('span', { className: 'field-guide-release__badge', textContent: 'Public Release' }),
-    el('span', { textContent: 'Updated October 6, 2026 · 11:22 PT' }));
+    el('span', { textContent: 'Updated October 8, 2026 · 19:38 PT' }));
   if (data.patchNotes) row.appendChild(tabLink('patchnotes', options, '', 'Patch notes →'));
   const details = el('details', { className: 'field-guide-release__details' },
     el('summary', { textContent: 'About this data' }),
     el('div', { className: 'field-guide-release__disclosure' },
       el('p', { textContent: 'Extracted directly from the game client. Content may be cut, delayed, or changed and is not guaranteed to appear in game.' }),
-      el('p', {}, 'Client hash: ', el('code', { textContent: '6e4971f' })),
+      el('p', {}, 'Client hash: ', el('code', { textContent: '71eb67bc' })),
     ));
   row.appendChild(details);
   return row;
