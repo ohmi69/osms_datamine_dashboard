@@ -1039,7 +1039,7 @@ function buildExpChart() {
   let mode = 'level';
 
   function draw() {
-    while (svg.childNodes.length > 1) svg.removeChild(svg.lastChild);
+    svg.replaceChildren();
 
     const series = EXP_SERIES[mode];
     const values = series.values;
