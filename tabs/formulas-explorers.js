@@ -97,7 +97,7 @@ export const FORMULA_EXPLORERS = {
         bars: [{ label: 'Total damage', value: total }, { label: 'Estimated damage per tick', value: perTick }],
         detail: `${format(perTick)} estimated damage per tick over ${format(s.duration)} seconds.` };
     },
-    note: 'Before element, level and critical modifiers. Per-tick damage assumes one tick per second, based on the skill descriptions.',
+    note: 'Before element, level and critical modifiers. Current periodic skill data specifies a one-second interval',
   },
   'Bleed (Physical Damage Over Time)': {
     title: 'Explore bleed damage',
@@ -115,7 +115,7 @@ export const FORMULA_EXPLORERS = {
         bars: [{ label: 'Total damage', value: total }, { label: 'Estimated damage per tick', value: perTick }],
         detail: `${format(perTick)} estimated damage per tick over ${format(s.duration)} seconds.` };
     },
-    note: 'Before element, level and critical modifiers. Per-tick damage assumes one tick per second, based on the skill descriptions.',
+    note: 'Before element, level and critical modifiers. Current periodic skill data specifies a one-second interval',
   },
   'Level Difference Penalty': {
     title: 'Explore level penalties',

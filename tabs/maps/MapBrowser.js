@@ -60,6 +60,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
 
   const allCols = [
     { id: 'mobs',              label: 'Mobs',                on: true },
+    { id: 'mob_capacity',      label: 'Mob Capacity',        on: true },
     { id: 'common_mob',        label: 'Most Common Mob',     on: true },
     { id: 'weighted_level',    label: 'Weighted Mob Lv.',    on: true },
     { id: 'exp_per_mob',       label: 'Exp / Mob',           on: true },
@@ -177,6 +178,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     const td = el('td', { colSpan: String(colSpan) });
     const panel = el('div', { className: 'map-detail-panel' });
 
+
     // Full map image with portal overlays
     let imgContainer = null;
     if (mapEntry.id) {
@@ -255,11 +257,22 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     }
 
     // Mob spawns
+    if (mapEntry.mob_capacity != null || mapMobs.get(mapEntry.id)?.length) {
+      const capacityRow = el('div', { className: 'map-capacity-summary' });
+      capacityRow.appendChild(el('span', { className: 'map-capacity-label', textContent: 'Mob Capacity:' }));
+      capacityRow.appendChild(el('strong', {
+        className: 'map-capacity-value',
+        textContent: mapEntry.mob_capacity != null ? `${mapEntry.mob_capacity} mobs` : 'Unavailable',
+      }));
+      capacityRow.appendChild(el('span', { className: 'map-capacity-context', textContent: 'Assuming 1 player on map. More players = more spawns (exact formula not determined yet)' }));
+      panel.appendChild(capacityRow);
+    }
     const mobs = mapMobs.get(mapEntry.id);
     const monsterById = new Map((monsters?.monsters || []).map(mob => [String(mob.id), mob]));
     if (!mobs || mobs.length === 0) {
       panel.appendChild(el('span', { className: 'map-no-spawns', textContent: 'No mob spawns' }));
     } else {
+      panel.appendChild(el('div', { className: 'map-detail-label', textContent: 'Mob spawn points:' }));
       const grid = el('div', { className: 'map-mob-grid' });
       for (const mob of mobs) {
         const chip = onMobClick
@@ -272,7 +285,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
           : el('div', { className: 'map-mob-chip' });
         chip.appendChild(makeThumbnail(getMobThumbUrl(mob.thumbnail), mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
         chip.appendChild(el('span', { textContent: mob.name || `#${padMobId(mob.id)}` }));
-        chip.appendChild(el('span', { className: 'map-mob-chip-count', textContent: `×${mob.count}` }));
+        chip.appendChild(el('span', { className: 'map-mob-chip-count', textContent: `${mob.count} spawn ${mob.count === 1 ? 'point' : 'points'}` }));
         const DEFAULT_SPAWN = 7.56;
         const timerColor = mob.mobTime == null ? 'var(--dim)'
           : mob.mobTime < DEFAULT_SPAWN ? '#9ece6a'
@@ -318,14 +331,10 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         grid.appendChild(chip);
       }
       panel.appendChild(grid);
-      // Spawn points are just possible spawn spots; mobRate is unverified.
-      {
-        let note = '×N is how many spots mobs can spawn in, not how many mobs are actually out on the map at once. We don\'t know the exact formula at this point.';
-        if (mapEntry.mob_rate != null) {
-          note += ` What the Mob Rate number actually does in-game is also still unclear.`;
-        }
-        panel.appendChild(el('div', { className: 'map-spawn-disclaimer', textContent: note }));
-      }
+      panel.appendChild(el('div', {
+        className: 'map-spawn-disclaimer',
+        textContent: 'Spawn points are possible spawn locations. This does not mean there will be that many of the mob spawned at once.',
+      }));
     }
 
     // NPCs
@@ -428,7 +437,8 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     const COLS = [
       { id: 'name', label: 'Map', cls: '', sortVal: m => (m.name || '').toLowerCase() },
       ...allCols.filter(col => colState[col.id]).map(col => {
-        if (col.id === 'mobs') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.total ?? -1 };
+        if (col.id === 'mobs') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.total ?? -1, tooltip: 'Mob types and spawn points in the map data, not the number of live mobs.' };
+        if (col.id === 'mob_capacity') return { ...col, cls: 'num', sortVal: m => m.mob_capacity ?? -1, tooltip: 'Estimated number of mobs on the map at one player on the map. More players = more mobs' };
         if (col.id === 'weighted_level') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.weightedLevel ?? -1, tooltip: 'Weighted average mob level' };
         if (col.id === 'common_mob') return { ...col, cls: '', sortVal: m => mobStats.get(m.id)?.mostCommonMobLevel ?? -1, tooltip: 'Most common mob (Name Lv. X), sorted by level' };
         if (col.id === 'exp_per_mob') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.expPerMob ?? -1 };
@@ -517,11 +527,14 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         for (const col of COLS.slice(1)) {
           let td;
           switch (col.id) {
+            case 'mob_capacity':
+              td = el('td', { className: 'num', textContent: mapEntry.mob_capacity ?? '-' });
+              break;
             case 'mobs':
               td = el('td', { className: 'num' });
               if (stats) {
-                td.appendChild(el('div', { textContent: `${stats.unique} unique` }));
-                td.appendChild(el('div', { className: 'map-mobs-total', textContent: `${stats.total} total` }));
+                td.appendChild(el('div', { textContent: `${stats.unique} ${stats.unique === 1 ? 'type' : 'types'}` }));
+                td.appendChild(el('div', { className: 'map-mobs-total', textContent: `${stats.total} spawn ${stats.total === 1 ? 'point' : 'points'}` }));
               } else {
                 td.appendChild(el('span', { className: 'text-dim', textContent: '-' }));
               }

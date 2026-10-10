@@ -5,6 +5,7 @@ import { deriveGraphData } from './formulas-graph-data.js';
 import { buildFormulaExplorer } from './formulas-explorers.js';
 import { tokenizeLine, attachTooltip, makeCollapsibleSection, buildVarLegend, buildTable } from './formulas-shared.js';
 import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
+import { createMobSpawningPage } from './formulas-mob-spawning.js';
 
 // Experience requirements re-derived from the current version. The startup builder fills
 // levels 1-99; level 100 is the cap. See tmp/steam-tables.md.
@@ -112,7 +113,7 @@ const ACTION_EXCEPTIONS = [
 
 // Read directly from the hit-test routine in MapleStory.exe. Physical and magic
 // share one hit-test routine. Skills whose additional_process list contains 128
-// skip it entirely - that is 9 debuff skills, no attack skills.
+// skip it entirely - the current pack contains Threaten and both versions of Slow.
 const ACCURACY_STEPS = [
   {
     label: 'Base Accuracy & Avoidability',
@@ -122,11 +123,11 @@ const ACCURACY_STEPS = [
     lines: [
       'Common = Dex × 1.2 + Level × 2 + Luk × 0.6',
       '',
-      'Beginner: Acc = Common / 2.5 + 5',
-      'Warrior: Acc = Common / 2.5 + 10',
-      'Magician: Acc = (Int × 1.2 + Level × 2 + Luk × 0.6) / 5.1 + 20',
-      'Bowman: Acc = Common / 4.8 + 20',
-      'Thief: Acc = Common / 4 + 15',
+      'Beginner: Acc = trunc(Common / 2.5 + 5)',
+      'Warrior: Acc = trunc(Common / 2.5 + 10)',
+      'Magician: Acc = trunc((Int × 1.2 + Level × 2 + Luk × 0.6) / 5.1 + 20)',
+      'Bowman: Acc = trunc(Common / 4.8 + 20)',
+      'Thief: Acc = trunc(Common / 4 + 15)',
       '',
       'Avoid = trunc(Luk / 3) + trunc(Dex / 6) + 5',
     ],
@@ -155,8 +156,8 @@ const ACCURACY_STEPS = [
     ],
     notes: [
       'exp() is the exponential function',
-      'Nine monster debuffs skip the check and always land, using their own success rate instead: Armor Crash, Threaten, Elemental Crash, Power Crash, Doom, and both versions of Slow and Seal. No attack skill is exempt.',
-      'Auto-hits when BaseChance − Avoid ≥ 25 + LevelDiff × (Level / 2 + 15) - unreachable in practice (needs Avoid ~120+; the highest on any live mob is 64).',
+      'Threaten and both versions of Slow bypass accuracy and use their own success rate. No currently available attack skill is exempt.',
+      'Auto-hits when BaseChance − Avoid ≥ 25 + LevelDiff × (Level / 2 + 15).',
       'A separate miss-chance debuff is rolled after a successful hit and can still turn it into a miss.',
     ],
     cot1: {
@@ -205,7 +206,7 @@ const BASE_DAMAGE_STEPS = [
       notes: [
         'StatRoll and BaseRoll are two separate draws, so a hit can land low on one and high on the other. MIN and MAX are the corners of that rectangle, not the ends of a single roll',
         'WepMult is chosen by the attack action, not by the skill - see the Weapon Multipliers table. Lucky Seven overrides it to 3.0',
-        'Combo Attack and the Elemental Charge both raise the Skill Damage % before anything else happens - see the Damage Modifications section',
+        'Combo Attack and Elemental Charge raise Skill Damage % before anything else happens - see the Damage Modifications.',
       ],
     },
     lines: [
@@ -235,7 +236,7 @@ const BASE_DAMAGE_STEPS = [
       'Bows, Crossbows and Claws draw their firing animation from a separate ranged action list, so a normal shot lands on Shoot (2.5, StatDiv 100). The StatDiv 300 rows are what you get meleeing with them - a Claw with no stars left stabs for 1.0',
       'Combo Attack and the Elemental Charge both raise the Skill Damage % before anything else happens - see the Damage Modifications section',
     ],
-    cot2: { notes: ['MasteryMult is 12.5% lower at every mastery level (caps at 0.7 instead of 0.8), so minimum physical damage drops slightly'] },
+    cot2: { notes: ['MasteryMult uses a factor of 0.7 instead of 0.8, a 12.5% decrease at every mastery level. At mastery 10, the multiplier is 0.77 instead of 0.88, so minimum physical damage drops slightly'] },
     cot1: {
       notes: [
         'Only Lucky Seven changed: COT1 forced a 2.6 weapon multiplier, raised to 3.0 in COT2.',
@@ -254,7 +255,7 @@ const BASE_DAMAGE_STEPS = [
     warnings: [
       'MagicAttack includes equipment and buffs.',
     ],
-    cot2: { notes: ['MasteryMult is 12.5% lower at every mastery level (caps at 0.7 instead of 0.8), so minimum physical damage drops slightly', 'Compared with the COT2 formula, INT contributes less to both minimum and maximum damage (divisor 125 instead of 100)'] },
+    cot2: { notes: ['MasteryMult uses a factor of 0.7 instead of 0.8, a 12.5% decrease at every mastery level. At mastery 10, the multiplier is 0.77 instead of 0.88, so minimum magical damage drops slightly', 'Compared with the COT2 formula, INT contributes less to both minimum and maximum damage (divisor 125 instead of 100)'] },
     notes: [
       'The roll between MIN and MAX is a single uniform random per hit',
       'BasicAttack is the value listed on the skill. Exceptions: Poison Mist (pure damage over time), Poison Breath (direct hit from a hidden second skill), Heal (own formula outright).',
@@ -282,8 +283,8 @@ const BASE_DAMAGE_STEPS = [
   {
     label: 'Heal',
     wip: false,
-    status: 'stale',
-    statusNote: 'Undead damage formula re-derived from both Heal paths in the current version. This formula does not establish HP restored per player.',
+    status: 'partial',
+    statusNote: 'The undead damage formula is confirmed. HP restored and the exact target-selection rules still need confirmation.',
     lines: [
       'HealBase = ((TotalInt × Roll + TotalLuk) / 1000 + 2.5) × (floor(TotalInt / 2) + MagicAttack) × (RecoveryRate / 100) × ((TargetsHit − 1) × 0.5 + 1)',
       '',
@@ -297,7 +298,7 @@ const BASE_DAMAGE_STEPS = [
     notes: [
       'This calculates damage against undead, not HP restored to each player. HealBase is an intermediate damage term; the client does not establish how HP recovery is distributed.',
       'RecoveryRate is the recovery rate listed on the skill itself.',
-      'TargetsHit counts selected players and undead monsters, sharing 6 total slots. You still count even at full HP, leaving at most 5 undead monsters when solo. Non-undead monsters do not dilute the split.',
+      'TargetsHit counts players and undead monsters hit. The calculator assumes six shared slots, including you; the exact target-selection rules still need confirmation. This does not calculate HP restored.',
     ],
     cot2: {
       notes: [
@@ -497,8 +498,8 @@ const MOD_PIPELINE_STEPS = [
   {
     label: 'Elemental Modifier',
     wip: false,
-    status: 'stale',
-    statusNote: 'Read directly from the elemental multiplier table and the two-element blend table in the client, cross-checked against the monster resistance codes and the skill elements in the game data.',
+    status: 'ok',
+    statusNote: 'Confirmed: elemental damage uses the monster\'s resistance to the attack\'s element.',
     lines: [
       'Damage = Damage × ElementalMult',
       '',
@@ -569,7 +570,7 @@ const MOD_PIPELINE_STEPS = [
     notes: [
       'CritRate and CritDamage are the two values shown in the Stats panel',
       'Power Knockback is hard-coded to always crit, whatever your CritRate is - matching its skill description',
-      'Damage over time rolls this too, so a burn or a bleed tick can crit',
+      'The DoT and bleed total-damage routines also roll critical hits',
     ],
   },
   {
@@ -615,7 +616,6 @@ const MOD_PIPELINE_STEPS = [
       'Damage = clamp(Damage, 1, 99,999)',
     ],
     notes: [
-      'The cap is 99,999. A single hit can never display more than that, whatever the numbers going in',
       'The floor means any hit that passes the accuracy check deals at least 1',
     ],
     cot1: {
@@ -654,8 +654,8 @@ const GUARD_STEPS = [
   {
     label: 'Monster Accuracy',
     wip: false,
-    status: 'stale',
-    statusNote: 'Read directly from the outcome routine in the client, with every constant resolved. This is a different formula from the one your own attacks use',
+    status: 'partial',
+    statusNote: 'The hit formula and extra hit chances are confirmed. When the conditional 50% miss check applies still needs confirmation. Monsters use a different accuracy formula from players.',
     lines: [
       'LevelGap = PlayerLevel − MonsterLevel, or 0 if the monster is the higher level',
       '',
@@ -668,12 +668,18 @@ const GUARD_STEPS = [
       '',
       'Hit if Roll × MonsterHitScore ≥ EffectiveAvoid',
       '',
-      'A failed roll is still a hit 8% of the time.',
+      'If the ordinary roll fails and EffectiveAvoid > (1 + Spread) × MonsterHitScore:',
+      '  Diff = MonsterHitScore − EffectiveAvoid',
+      '  RescueChance = clamp(0.03 × exp(Diff / 18), 0.02, 0.03)',
+      '  Hit if rand(0, 1) < RescueChance',
+      '',
+      'If still missed: a separate fallback hits 8% of the time.',
     ],
     notes: [
       'Avoid has hard diminishing returns. Dividing by Avoid / 80 + 1 means the effective value climbs toward 80 and never passes it, however much Avoid you stack',
-      'Out-levelling a monster helps twice over: it lowers the monster\'s hit score, though it also shrinks your effective Avoid',
-      'A failed roll still hits 8% of the time, plus a separate 2% chance when the avoid is out of roll reach.',
+      'Out-levelling lowers both the monster\'s score and your effective Avoid. It can increase the ordinary hit probability: MonsterAcc 100 and Avoid 100 give approximately 25.44%, 39.88% and 50.49% at level gaps 0, 20 and 50, before the extra branches.',
+      'Beyond roll reach, rescue is tried before the 8% fallback. With independent uniform draws, their combined chance is RescueChance + (1 − RescueChance) × 0.08, between 9.84% and 10.76%.',
+      'Some initially successful rolls face an additional 50% miss check. Which attacks trigger it still needs confirmation. Hits recovered by the extra chances skip this check.',
       'An attack can be flagged unmissable, which skips this whole step - it still has to get past the guard rolls below',
     ],
   },
@@ -681,12 +687,12 @@ const GUARD_STEPS = [
     label: 'Guard Immunity',
     wip: false,
     status: 'ok',
-    statusNote: 'Traced monster info/invincible through the template and runtime monster to the guard-immunity check.',
+    statusNote: 'Monsters with this property skip shield and claw guards after passing accuracy.',
     lines: [
       'Monsters with invincible = 1 bypass guard checks.',
     ],
     notes: [
-      'When that flag is set the attack always resolves as a normal hit and neither roll below is reached',
+      'After the accuracy check succeeds, this flag skips shield and claw guard checks. It does not turn an earlier accuracy miss into a hit.',
       'Current monster data sets this flag on IDs 90–94 (jump-quest obstacles). Their regular attacks cannot be guarded.',
     ],
   },
@@ -767,7 +773,7 @@ const GUARD_STEPS = [
     label: 'Invincible (Cleric)',
     wip: false,
     status: 'ok',
-    statusNote: 'Matched the named Invincible status getters to the physical damage-taken path and skill 2301002. Reductions outside 0–50% are ignored.',
+    statusNote: 'Physical damage reduction confirmed for skill 2301002.',
     lines: [
       'Only for Cleric, Priest and Bishop, and only against a regular attack:',
       '  DamageTaken = DamageTaken × (1 − InvincibleReduction / 100)',
@@ -782,7 +788,7 @@ const GUARD_STEPS = [
     label: 'Elemental Damage Reduction',
     wip: false,
     status: 'partial',
-    statusNote: 'Reverified the four element-specific status values and multiplier in the current client. Which skill supplies these values remains unresolved.',
+    statusNote: 'The elemental reduction formula is confirmed.',
     lines: [
       'DamageTaken = DamageTaken × (1 − ElementResist / 100)',
     ],
@@ -817,6 +823,8 @@ const GUARD_VARS = [
   { name: 'Avoid',         desc: "Your Avoid stat from the Stats panel, before the diminishing-returns step" },
   { name: 'EffectiveAvoid', desc: 'Avoid after diminishing returns and the level-gap term. Climbs toward 80 and never passes it' },
   { name: 'MonsterHitScore', desc: "The monster's accuracy scaled against the level gap - what the roll is measured against" },
+  { name: 'Diff',          desc: 'MonsterHitScore minus EffectiveAvoid, used in the beyond-reach rescue probability' },
+  { name: 'RescueChance',  desc: 'Probability of rescuing a failed accuracy roll when Avoid exceeds maximum roll reach; tried before the 8% fallback' },
   { name: 'InvincibleReduction', desc: "Invincible's damage reduction % for the learned level (1 at level 1, 20 at level 20)" },
   { name: 'ElementResist', desc: 'Percentage reduction for the element of the incoming attack, from one of four buff slots' },
   { name: 'ShieldDefense', desc: 'Weapon Defense of the item equipped in the shield slot, scrolls included. Nothing else feeds this value' },
@@ -2178,7 +2186,7 @@ function buildWeaponMultTable() {
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The client selects the multiplier category from the attack animation and skill flags. Swing and Stab cover normal melee actions; Shoot covers normal bow, crossbow and claw shots. Custom animations such as Rush fall into Other, with explicit exceptions such as Savage Blow, which counts as Stab. Skill flags can force Other or the weapon default before the animation is checked. Lucky Seven separately overrides its claw multiplier to 3.0.' }));
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The Swing/Stab ratio above comes from the melee animation list. Normal bow and crossbow shots use shoot1 and shoot2 from a separate ranged list. Star-throwing claws roll swingO1/O2/O3, which the classifier maps to Shoot for claws. The melee rows describe close-range attacks, including attacks made without ammo.' }));
   container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Skills without a selected skill animation fall back to the weapon animation list. The groups below keep the same multiplier category even when their animations vary. The weapon default is Stab for 1H/2H Swords, Daggers, Spears, Wands, Staves and bare hands; Swing for Axes, Blunt Weapons and Polearms; Shoot for Bows, Crossbows and Claws. Threaten and Slow are debuffs; Poison Breath uses magic damage. Their default classification does not apply a weapon multiplier to their effects. Magic damage does not use a weapon multiplier.' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The installed Steam skill pack contains no third-job skill definitions. COT2 examples such as Avenger, Assaulter, Meso Explosion, Shout and Dragon Fury are therefore omitted from the current skill groups. The compiled classifier still recognizes the avenger animation as Shoot.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The installed Steam skill pack contains no third-job skill definitions. COT2 examples such as Avenger, Assaulter, Meso Explosion, Shout and Dragon Fury are therefore omitted from the current skill groups.' }));
 
   const exceptions = el('div', { className: 'formulas-exceptions' });
   ACTION_EXCEPTIONS.forEach(([column, skills]) => {
@@ -2267,8 +2275,8 @@ export function renderFormulas(data, options = {}) {
 
   const disclaimer = el('div', { className: 'formulas-disclaimer' });
   const disclaimerText = el('span');
-  disclaimerText.appendChild(el('strong', { textContent: 'Verified: ' }));
-  disclaimerText.append('Combat formulas and progression tables were re-derived from the installed current version. Values can change with future client updates.');
+  disclaimerText.appendChild(el('strong', { textContent: 'Updated October 9, 2026: ' }));
+  disclaimerText.append('Core damage formulas and progression numbers are confirmed. Entries marked Partly Verified still have open questions, explained in their notes. Comparisons with earlier versions have not been checked again. Values may change with future updates.');
   disclaimer.appendChild(disclaimerText);
   const section = (title, key, bodyFn) => markFormulaSection(makeCollapsibleSection(title, '', bodyFn), key);
   const group = (...children) => el('div', { className: 'formulas-full' }, ...children);
@@ -2408,6 +2416,7 @@ export function renderFormulas(data, options = {}) {
         ],
         render: buildProgressionPage,
       },
+      createMobSpawningPage(),
     ],
   });
 }

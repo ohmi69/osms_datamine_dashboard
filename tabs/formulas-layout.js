@@ -1,6 +1,6 @@
 import { el, tabHref, startDeepLinkJump } from '../lib/utils.js';
 
-const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression']);
+const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression', 'mob-spawning']);
 
 function routeTarget(page, section = null) {
   const target = page ? { page } : {};
@@ -25,14 +25,14 @@ function buildIndex(pages, archived) {
   intro.appendChild(el('p', {
     textContent: archived
       ? 'Choose a topic to browse the formulas and tables preserved from Closed Online Test 1.'
-      : 'Browse the client formulas by mechanic.',
+      : 'Browse formulas and mechanics by topic.',
   }));
   index.appendChild(intro);
 
   const directory = el('div', { className: 'formulas-index-directory' });
   [
-    { label: 'Combat', pages: pages.filter(page => page.key !== 'progression') },
-    { label: 'Reference', pages: pages.filter(page => page.key === 'progression') },
+    { label: 'Combat', pages: pages.filter(page => !['progression', 'mob-spawning'].includes(page.key)) },
+    { label: 'Reference', pages: pages.filter(page => ['progression', 'mob-spawning'].includes(page.key)) },
   ].forEach((group) => {
     const block = el('div', { className: 'formulas-index-group' });
     block.appendChild(el('div', { className: 'formulas-index-group-label', textContent: group.label }));
@@ -153,10 +153,9 @@ export function createFormulaBrowser({ pages, initialParams, setNavigate, notice
     const page = pageMap.get(pageKey);
     const sectionKey = params.get('section') || '';
 
-    // The verification notice explains formula status tags. Hit Detection is a
-    // visual mechanics guide and has no such tags, so showing it there delays
-    // the page's actual answer and creates a false expectation.
-    notice.classList.toggle('hidden', pageKey === 'hit-detection');
+    // These guides explain their own evidence. The general client-formula
+    // verification notice does not apply to their mechanics or server research.
+    notice.classList.toggle('hidden', ['hit-detection', 'mob-spawning'].includes(pageKey));
 
     nav.classList.toggle('hidden', !page);
 

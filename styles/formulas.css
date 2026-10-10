@@ -426,6 +426,16 @@
 }
 .formulas-note--padded { margin-top: 0.5em; padding: 0.5em 1em; }
 
+/* Mob-spawning reference shares the formula browser's existing sections. */
+.spawn-reference-body { padding: 12px 16px 16px; }
+.spawn-reference-body p { margin: 12px 0; font-size: 14px; line-height: 1.6; }
+.spawn-reference-evidence { color: var(--accent); font-size: 12px; font-weight: 700; margin-bottom: 12px; }
+.spawn-reference-status-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.spawn-reference-formula { white-space: pre-wrap; overflow-wrap: anywhere; padding: 12px 14px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; font-size: 13px; line-height: 1.7; }
+.spawn-reference-diagram { display: block; width: 100%; height: auto; margin: 14px 0; border-radius: 6px; }
+.spawn-reference-body > .tab-link { color: var(--accent); font-size: 13px; }
+.spawn-reference-body .data-table td { white-space: normal; line-height: 1.5; }
+
 /* Hit detection's signature "combat lab" diagrams. SVG viewBox units map directly
    to game pixels; responsive sizing scales every layer together without changing
    their proportions. */
