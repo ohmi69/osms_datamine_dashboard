@@ -85,13 +85,13 @@ function buildGuide() {
       ['Map refill timer (~7s)', 'Wait between mob refills.'],
       ['Spawn-point cooldown', 'Cooldown for when a specific spawn point can be used again'],
     ]);
-    paragraph(body, 'A refill needs the map timer to be ready, room below capacity, and usable spawn points. Each usable point can add one mob per refill.');
+    paragraph(body, 'A refill needs the map timer to be ready, mob count below capacity, and usable spawn points. Each usable point can add one mob per refill.');
     body.appendChild(el('h3', { textContent: 'When a spawn point is ready' }));
     table(body, [['Point type', ''], ['Readiness rule being investigated', '']], [
       ['No specified cooldown', 'A mob can spawn on the next refill pass, with one exception: A nearby mob blocks the point when it is within 100 pixels. Multiple mobs can be spawned from the same spawn point.'],
       ['Specified cooldown', 'A mob can\t spawn until the cooldown has passed since the last spawn from the point. The mob spawned here must be killed before the cooldown starts.'],
     ]);
-    paragraph(body, 'Both types still need room below capacity and a ready map refill timer.');
+    paragraph(body, 'Both types still need mob count below capacity and a ready map refill timer.');
     body.appendChild(createSpawnAnimation());
     body.appendChild(el('h3', { textContent: 'Full maps keep the timer ready' }));
     paragraph(body, 'The refill timer stays ready when the map is full. Killing a mob can then allow a near-instant replacement. That refill restarts the map timer. Spawn-point cooldowns still apply.');
