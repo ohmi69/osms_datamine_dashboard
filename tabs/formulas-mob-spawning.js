@@ -1,9 +1,9 @@
 import { el, tabHref } from '../lib/utils.js';
 import { attachTooltip, buildTable, makeCollapsibleSection } from './formulas-shared.js';
 import { markFormulaSection } from './formulas-layout.js';
+import { createSpawnAnimation } from './spawn-animation.js';
 
-// Historical reconstruction: tmp/spawn_research/README.md and REA evidence.
-// Current measurements and unresolved questions: SPAWN_CAPACITY_RESEARCH.md.
+// Evidence and measurements: docs/SPAWN_CAPACITY_RESEARCH.md.
 function paragraph(parent, text) {
   parent.appendChild(el('p', { textContent: text }));
 }
@@ -16,17 +16,23 @@ function table(parent, columns, rows) {
   parent.appendChild(el('div', { className: 'formulas-table-wrap' }, buildTable(columns, rows)));
 }
 
+
 function section(title, key, status, build) {
   const body = el('div', { className: 'spawn-reference-body' });
-  if (status && status !== 'unverified') {
+  if (status && !['unverified', 'partially-verified', 'verified'].includes(status)) {
     body.appendChild(el('div', { className: 'spawn-reference-evidence', textContent: status }));
   }
   build(body);
   const node = markFormulaSection(makeCollapsibleSection(title, '', () => body), key);
-  if (status === 'unverified') {
+  if (status === 'unverified' || status === 'partially-verified') {
     node.querySelector('.right').appendChild(attachTooltip(el('span', {
-      className: 'formulas-status-tag formulas-status-warn', textContent: 'Unverified',
-    }), 'These refill timings and spawn-point rules have not been verified in current gameplay.'));
+      className: 'formulas-status-tag formulas-status-warn', textContent: status === 'partially-verified' ? 'Partially verified' : 'Unverified',
+    }), 'One gameplay timing test supports the seven-second refill model. The exact timer and spawn-point rules remain unconfirmed.'));
+  }
+  if (status === 'verified') {
+    node.querySelector('.right').appendChild(attachTooltip(el('span', {
+      className: 'formulas-status-tag formulas-status-ok', textContent: 'Verified',
+    }), 'Supported by recorded in-game map counts. Verification covers the tested maps.'));
   }
   return node;
 }
@@ -42,7 +48,7 @@ function buildGuide() {
     body.appendChild(el('a', { className: 'tab-link', href: tabHref('maps', { q: 'id:010003093' }), textContent: 'View Dangerous Croko I on the Maps page →' }));
   }));
 
-  page.appendChild(section('Solo Mob Capacity', 'spawn-capacity', 'Calculation', body => {
+  page.appendChild(section('Solo Mob Capacity', 'spawn-capacity', 'verified', body => {
     paragraph(body, 'Start with the endpoints of horizontal and sloped foothold segments. Exclude vertical segments where x1 = x2.');
     formula(body, 'W = xmax − xmin − 40\nH = ymax − ymin + 330\n\nM = clamp(floor(max(W, 800) × max(H − 450, 600) × mobRate / 128000), 1, 40)');
     table(body, [['Input', ''], ['Meaning', '']], [
@@ -51,7 +57,7 @@ function buildGuide() {
     ]);
   }));
 
-  page.appendChild(section('Why Exclude Vertical Segments?', 'spawn-geometry', 'Geometry hypothesis supported by independent map counts', body => {
+  page.appendChild(section('Why Exclude Vertical Segments?', 'spawn-geometry', 'verified', body => {
     paragraph(body, 'Vertical collision segments at platform edges can extend below the lowest horizontal or sloped platform. The mob capacity calculation does NOT include these in the height/width.');
     body.appendChild(el('img', {
       className: 'spawn-reference-diagram', src: './assets/reference/mob-spawning-bounds.png',
@@ -74,18 +80,21 @@ function buildGuide() {
     ]);
   }));
 
-  page.appendChild(section('How Mobs Refill', 'spawn-refill', 'unverified', body => {
-    paragraph(body, 'Based on the older server; unverified in current Classic World.');
+  page.appendChild(section('How Mobs Refill', 'spawn-refill', 'partially-verified', body => {
     table(body, [['Timing', ''], ['What it controls', '']], [
-      ['Map tick (~4s)', 'When the server checks spawning.'],
-      ['Map refill timer (7s)', 'Minimum time between refill passes.'],
-      ['Spawn-point cooldown', 'Some points have their own wait before they can spawn again. Ordinary points have no timed cooldown, but nearby mobs can block them.'],
+      ['Map refill timer (~7s)', 'Wait between mob refills.'],
+      ['Spawn-point cooldown', 'Cooldown for when a specific spawn point can be used again'],
     ]);
-    paragraph(body, 'On a map tick, spawning needs the refill timer to be ready, room below capacity, and usable spawn points whose cooldowns have ended. Each usable point can add one mob that wave. More points can fill more free slots; they do not shorten either map timer.');
+    paragraph(body, 'A refill needs the map timer to be ready, room below capacity, and usable spawn points. Each usable point can add one mob per refill.');
+    body.appendChild(el('h3', { textContent: 'When a spawn point is ready' }));
+    table(body, [['Point type', ''], ['Readiness rule being investigated', '']], [
+      ['No specified cooldown', 'A mob can spawn on the next refill pass, with one exception: A nearby mob blocks the point when it is within 100 pixels. Multiple mobs can be spawned from the same spawn point.'],
+      ['Specified cooldown', 'A mob can\t spawn until the cooldown has passed since the last spawn from the point. The mob spawned here must be killed before the cooldown starts.'],
+    ]);
+    paragraph(body, 'Both types still need room below capacity and a ready map refill timer.');
+    body.appendChild(createSpawnAnimation());
     body.appendChild(el('h3', { textContent: 'Full maps keep the timer ready' }));
-    paragraph(body, 'Checks at full capacity do not reset the map refill timer. Once 7 seconds have elapsed, killing mobs allows replacements on the next tick. Spawn-point cooldowns still apply.');
-    paragraph(body, 'Example: refill at 0s, kill 5 mobs at 9s, next tick at 12s. If 5 points are usable, up to 5 mobs spawn. If only 2 are usable, up to 2 spawn.');
-    paragraph(body, 'A refill pass resets the timer even if no mobs spawn. A check skipped because the map is full does not.');
+    paragraph(body, 'The refill timer stays ready when the map is full. Killing a mob can then allow a near-instant replacement. That refill restarts the map timer. Spawn-point cooldowns still apply.');
   }));
 
   return page;
@@ -94,7 +103,7 @@ function buildGuide() {
 export function createMobSpawningPage() {
   return {
     key: 'mob-spawning', label: 'Mob Spawning', kicker: 'Reference · map population and refill behavior',
-    description: 'Understand spawn points, solo mob capacity, and the historical refill rules behind the current estimate.',
+    description: 'Understand spawn points, solo mob capacity, and measured refill timing.',
     sections: [
       { key: 'spawn-overview', label: 'Overview' }, { key: 'spawn-capacity', label: 'Solo capacity' },
       { key: 'spawn-geometry', label: 'Map bounds' }, { key: 'spawn-players', label: 'Player bonus' },

@@ -280,6 +280,9 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
   if (spawnMaps.length) {
     const mapsCol = el('div', { className: 'monster-detail-col monster-detail-col-maps' });
     mapsCol.appendChild(el('div', { className: 'monster-stat-group-label', textContent: 'Spawns In' }));
+    const spawnGuide = makeTabLink('formulas', { page: 'mob-spawning', section: 'spawn-refill' });
+    spawnGuide.textContent = 'How spawning works';
+    mapsCol.appendChild(el('p', {}, spawnGuide));
     const mapList = el('div', { className: 'monster-map-list' });
     const sortedSpawnMaps = [...spawnMaps].sort((a, b) => b.count - a.count || a.id - b.id);
     sortedSpawnMaps.forEach((m) => {

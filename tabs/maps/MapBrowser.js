@@ -257,22 +257,27 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     }
 
     // Mob spawns
+    let capacityRow = null;
     if (mapEntry.mob_capacity != null || mapMobs.get(mapEntry.id)?.length) {
-      const capacityRow = el('div', { className: 'map-capacity-summary' });
+      capacityRow = el('div', { className: 'map-capacity-summary' });
       capacityRow.appendChild(el('span', { className: 'map-capacity-label', textContent: 'Mob Capacity:' }));
       capacityRow.appendChild(el('strong', {
         className: 'map-capacity-value',
         textContent: mapEntry.mob_capacity != null ? `${mapEntry.mob_capacity} mobs` : 'Unavailable',
       }));
-      capacityRow.appendChild(el('span', { className: 'map-capacity-context', textContent: 'Assuming 1 player on map. More players = more spawns (exact formula not determined yet)' }));
-      panel.appendChild(capacityRow);
+      capacityRow.appendChild(el('span', { className: 'map-capacity-context', textContent: 'Assuming 1 player on map. More players = more spawns' }));
     }
     const mobs = mapMobs.get(mapEntry.id);
     const monsterById = new Map((monsters?.monsters || []).map(mob => [String(mob.id), mob]));
     if (!mobs || mobs.length === 0) {
       panel.appendChild(el('span', { className: 'map-no-spawns', textContent: 'No mob spawns' }));
+      if (capacityRow) panel.appendChild(capacityRow);
     } else {
-      panel.appendChild(el('div', { className: 'map-detail-label', textContent: 'Mob spawn points:' }));
+      const spawnSection = el('div', { className: 'map-spawns' });
+      panel.appendChild(spawnSection);
+      spawnSection.appendChild(el('div', { className: 'map-detail-label', textContent: 'Mob spawn points' }));
+      const spawnGuide = makeTabLink('formulas', { page: 'mob-spawning', section: 'spawn-refill' });
+      spawnGuide.textContent = 'How spawning works';
       const grid = el('div', { className: 'map-mob-grid' });
       for (const mob of mobs) {
         const chip = onMobClick
@@ -286,17 +291,15 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         chip.appendChild(makeThumbnail(getMobThumbUrl(mob.thumbnail), mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
         chip.appendChild(el('span', { textContent: mob.name || `#${padMobId(mob.id)}` }));
         chip.appendChild(el('span', { className: 'map-mob-chip-count', textContent: `${mob.count} spawn ${mob.count === 1 ? 'point' : 'points'}` }));
-        const DEFAULT_SPAWN = 7.56;
-        const timerColor = mob.mobTime == null ? 'var(--dim)'
-          : mob.mobTime < DEFAULT_SPAWN ? '#9ece6a'
-          : mob.mobTime > DEFAULT_SPAWN ? '#f7768e'
-          : 'var(--dim)';
-        const timerSpan = el('span', {
-          className: 'map-mob-chip-timer',
-          textContent: `⏱ ${mob.mobTime != null ? formatSpawnTime(mob.mobTime) : '-'}`,
-        });
-        timerSpan.style.color = timerColor;
-        chip.appendChild(timerSpan);
+        // Archived data may still contain the old default in a time range.
+        const hasAssumedTime = /(^|-)7\.56(?=$|[- ])/.test(String(mob.mobTime));
+        if (mob.mobTime != null && !hasAssumedTime) {
+          chip.appendChild(el('span', {
+            className: 'map-mob-chip-timer',
+            textContent: `⏱ ${formatSpawnTime(mob.mobTime)}`,
+            title: 'Configured time for timed spawn points; actual respawn timing can differ.',
+          }));
+        }
 
         // Hover highlight: glow dot on map image at mob's canvas position
         let mobHighlightDots = [];
@@ -330,11 +333,12 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         attachTooltip(chip, () => monsterById.get(String(mob.id)) || mob, 'mob');
         grid.appendChild(chip);
       }
-      panel.appendChild(grid);
-      panel.appendChild(el('div', {
-        className: 'map-spawn-disclaimer',
-        textContent: 'Spawn points are possible spawn locations. This does not mean there will be that many of the mob spawned at once.',
-      }));
+      spawnSection.appendChild(grid);
+      if (capacityRow) spawnSection.appendChild(capacityRow);
+      spawnSection.appendChild(el('div', { className: 'map-spawn-disclaimer' },
+        el('p', { textContent: 'Spawn points are possible locations. Mob capacity limits how many mobs can be alive at once.' }),
+        el('p', { textContent: 'No cooldown listed: ready for the next ~7s refill, unless nearby mobs block it.' }),
+        el('p', {}, spawnGuide)));
     }
 
     // NPCs
