@@ -219,9 +219,16 @@ export function renderItems(data, options = {}) {
       if (allScrolls.length > 0) {
         const scrollContent = el('div');
         allScrolls.forEach((scroll) => {
+          // `success_rate` / `destroy_rate` come from the scroll's own WZ info
+          // node. They are per scroll, not per tier, so read them off the entry.
+          const chance =
+            scroll.success_rate != null
+              ? `${scroll.success_rate}% chance` +
+                (scroll.destroy_rate != null ? `, ${scroll.destroy_rate}% destroy on fail` : '')
+              : null;
           const item = {
             ...scroll,
-            sub_category: [scroll.tier, scroll.equip_slot, scroll.stat_type]
+            sub_category: [scroll.tier, chance, scroll.equip_slot, scroll.stat_type]
               .filter(Boolean)
               .join(' · '),
           };

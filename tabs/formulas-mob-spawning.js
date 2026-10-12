@@ -71,12 +71,12 @@ function buildGuide() {
     theoryHeading.appendChild(el('span', { textContent: 'Theorized Current Player Bonus' }));
     theoryHeading.appendChild(attachTooltip(el('span', {
       className: 'formulas-status-tag formulas-status-warn', textContent: 'Unverified',
-    }), 'Based on two multiplayer observations from one map. The general rule has not been verified against the current server or other maps.'));
+    }), 'Based on three multiplayer observations from Sunset Sky. The general rule has not been verified across other maps.'));
     body.appendChild(theoryHeading);
     paragraph(body, 'We know for certain that more players on the map increases the mob capacity, but we\'re not exactly sure on the formula or the cap. Based on a very limited set of observations, we think this is the formula. If you\'re able to find a map with fully AFK people, and you can count the number of mobs on the map without interruption, reach out to @ohmi on the CW Discord!');
     formula(body, 'Target = M + floor(0.75 × max(P − 5, 0))\nM = base mob capacity\nP = players on the map');
     table(body, [['Players', 'num'], ['Reported mobs', 'num'], ['Theorized target (M = 19)', 'num']], [
-      [1, 19, 19], [8, 21, 21], ['21 ±1', 31, '30–31'],
+      [1, 19, 19], ['8 ?1', 21, '20?22'], ['11 ?1', 22, '22?24'], ['21 ±1', 31, '30–31'],
     ]);
   }));
 
