@@ -134,7 +134,7 @@ export function createFormulaBrowser({ pages, initialParams, setNavigate, notice
   nav.appendChild(indexLink);
   pages.forEach(page => nav.appendChild(pageLink(page)));
   wrapper.appendChild(nav);
-  wrapper.appendChild(notice);
+  if (notice) wrapper.appendChild(notice);
 
   const outlet = el('div', { className: 'formulas-page-outlet' });
   wrapper.appendChild(outlet);
@@ -155,7 +155,7 @@ export function createFormulaBrowser({ pages, initialParams, setNavigate, notice
 
     // These guides explain their own evidence. The general client-formula
     // verification notice does not apply to their mechanics or server research.
-    notice.classList.toggle('hidden', ['hit-detection', 'mob-spawning'].includes(pageKey));
+    notice?.classList.toggle('hidden', ['hit-detection', 'mob-spawning'].includes(pageKey));
 
     nav.classList.toggle('hidden', !page);
 

@@ -1636,6 +1636,23 @@
 
 /* ── Monster picker dropdown ─────────────────────────────────── */
 .formulas-calc-picker { position: relative; }
+/* Chevron so the search box reads as a dropdown; clicks pass through to the input. */
+.formulas-calc-picker .formulas-calc-input { padding-right: 34px; cursor: pointer; }
+.formulas-calc-picker::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--dim);
+  border-bottom: 2px solid var(--dim);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform .15s;
+  pointer-events: none;
+}
+.formulas-calc-picker.open::after { transform: translateY(-25%) rotate(-135deg); border-color: var(--accent); }
+.formulas-calc-picker:hover::after { border-color: var(--accent); }
 
 .formulas-calc-options {
   display: none;
@@ -1977,6 +1994,30 @@
   .formulas-calc-stats { grid-template-columns: 1fr; }
   .formulas-calc-notes { margin-right: -12px; margin-left: -12px; padding-right: 12px; padding-left: 12px; }
 }
+
+/* Calculators with a monster dropdown. The shared wrapper clips overflow, which would
+   cut off the dropdown, so these stay visible and round their own head. */
+.formulas-mob-picker-host { overflow: visible; }
+.formulas-mob-picker-host .formulas-chart-head { border-radius: 8px 8px 0 0; }
+.formulas-mob-picker-host .formulas-graph-stat.formulas-mob-picker-field { grid-column: 1 / -1; grid-template-columns: 1fr; }
+/* Inputs split into titled groups, e.g. the monster's stats and yours. */
+.formulas-damage-layout > .formulas-graph-controls.formulas-grouped-controls { grid-template-columns: 1fr; gap: 0; padding: 0; }
+.formulas-calc-group { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; padding: 12px 16px; }
+.formulas-calc-group + .formulas-calc-group { border-top: 1px solid var(--border); }
+.formulas-calc-group-title { grid-column: 1 / -1; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .6px; color: var(--accent); }
+@media (max-width: 480px) { .formulas-calc-group { gap: 8px 12px; } }
+.formulas-mob-hit-head { display: flex; align-items: center; gap: 12px; }
+.formulas-mob-hit-head > div { display: grid; gap: 2px; min-width: 0; }
+.formulas-mob-hit-track { display: flex; }
+.formulas-mob-hit-seg { height: 100%; }
+.formulas-mob-hit-seg.is-hit { background: var(--accent); }
+.formulas-mob-hit-seg.is-guard { background: var(--accent); opacity: 0.45; }
+.formulas-mob-hit-seg.is-miss { background: transparent; }
+.formulas-mob-hit-key.is-miss { margin-left: auto; }
+.formulas-mob-hit-rows { display: grid; border-top: 1px solid var(--border); }
+.formulas-mob-hit-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 12px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+.formulas-mob-hit-row-label { color: var(--text); }
+.formulas-mob-hit-row strong { font-variant-numeric: tabular-nums; text-align: right; }
 
 .formulas-meso-calc .formulas-graph-stat { grid-template-columns: minmax(0, 1fr) 120px; }
 @media (max-width: 640px) {

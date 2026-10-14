@@ -1,4 +1,6 @@
 import { el } from '../lib/utils.js';
+import { getMobThumbUrl, getMobGifUrl } from '../lib/data.js';
+import { buildMobPicker, buildCalcGroup } from './formulas-calc.js';
 
 const format = value => value.toLocaleString(undefined, { maximumFractionDigits: 2 });
 const field = (key, label, value, range = 1000, min = 0, max = 100000, hint = '') =>
@@ -18,7 +20,7 @@ export function accuracyHitPercent(s) {
   const autoHit = base - s.avoid >= 25 + gap * (s.playerLevel / 2 + 15);
   const chance = autoHit || s.avoid === 0 ? 1 : base === 0 ? 0
     : Math.max(0, Math.min(1, (1 + spread - s.avoid / base) / (2 * spread)));
-  return 100 * chance * (1 - s.missRate / 100);
+  return 100 * chance;
 }
 
 const percent = value => `${value > 0 && value < 0.005 ? '<0.01'
@@ -45,9 +47,12 @@ export const FORMULA_EXPLORERS = {
   'Physical & Magical Accuracy': {
     title: 'Explore hit chance',
     fields: [field('accuracy', 'Your Accuracy', 100, 500, 0, 100000, 'Use Accuracy from your Stats panel.'),
-      field('avoid', 'Enemy Avoid', 30, 100, 0, 10000, 'Enemy Avoid after any avoidability modifiers.'),
-      level('playerLevel', 'Your level', 30), level('enemyLevel', 'Enemy level', 35),
-      field('missRate', 'Miss-chance debuff (%)', 0, 100, 0, 100, 'Leave at 0 without a forced-miss debuff.')],
+      field('avoid', 'Monster Avoid', 30, 100, 0, 10000, 'Monster Avoid after any avoidability modifiers.'),
+      level('playerLevel', 'Your level', 30), level('enemyLevel', 'Monster level', 35)],
+    // Same Monster / You split as the monster hit chance calculator; labels shorten
+    // inside a titled group but keep their full names for screen readers and errors.
+    groups: [['Monster', { enemyLevel: 'Level', avoid: 'Avoid' }],
+      ['You', { playerLevel: 'Level', accuracy: 'Accuracy' }]],
     scale: 100,
     stacked: true,
     formatValue: percent,
@@ -57,7 +62,8 @@ export const FORMULA_EXPLORERS = {
         bars: [{ label: 'Hit', value: hit }, { label: 'Miss', value: 100 - hit }],
         detail: 'The same chance applies to physical and magical attacks.' };
     },
-    note: 'Includes the normal auto-hit shortcut and applies the miss-chance debuff afterward. Debuff skills that bypass accuracy use their own success rate.',
+    // Picking a monster fills these fields; mobs with no eva in their data have 0 Avoid.
+    mobFields: mob => ({ avoid: mob.eva ?? 0, enemyLevel: mob.level }),
   },
   Heal: {
     title: 'Explore Heal damage',
@@ -155,7 +161,7 @@ export const FORMULA_EXPLORERS = {
   },
 };
 
-export function buildFormulaExplorer(label, { revision = 'steam' } = {}) {
+export function buildFormulaExplorer(label, { revision = 'steam', monsters } = {}) {
   const config = FORMULA_EXPLORERS[label];
   if (!config) return null;
   const fields = config.fields
@@ -178,6 +184,8 @@ export function buildFormulaExplorer(label, { revision = 'steam' } = {}) {
   const inputs = new Map();
   const sliders = new Map();
   let scale = 1;
+  let pickedMob = null;
+  const fieldEls = new Map();
   fields.forEach(f => {
     const input = el('input', { type: 'number', className: 'formulas-calc-input', value: f.value,
       min: f.min, max: f.max, step: 1, 'aria-label': f.label, title: f.hint });
@@ -187,14 +195,35 @@ export function buildFormulaExplorer(label, { revision = 'steam' } = {}) {
     sliders.set(f.key, slider);
     input.addEventListener('input', draw);
     slider.addEventListener('input', () => { input.value = slider.value; draw(); });
-    controls.append(el('div', { className: 'formulas-graph-stat' },
-      el('span', { className: 'formulas-calc-label', textContent: f.label }), input, slider));
+    const short = config.groups?.map(([, labels]) => labels[f.key]).find(Boolean);
+    fieldEls.set(f.key, el('div', { className: 'formulas-graph-stat' },
+      el('span', { className: 'formulas-calc-label', textContent: short ?? f.label }), input, slider));
   });
+  let pickerField = null;
+  if (config.mobFields && monsters?.length) {
+    wrap.classList.add('formulas-mob-picker-host');
+    const picker = buildMobPicker(monsters, (mob) => {
+      pickedMob = mob;
+      Object.entries(config.mobFields(mob)).forEach(([key, value]) => { inputs.get(key).value = value; });
+      draw();
+    });
+    pickerField = el('div', { className: 'formulas-graph-stat formulas-mob-picker-field' }, picker);
+  }
+  if (config.groups) {
+    // The monster dropdown heads the first group, as in the monster hit chance calculator.
+    controls.classList.add('formulas-grouped-controls');
+    controls.append(...config.groups.map(([title, labels], i) => buildCalcGroup(title,
+      ...(i === 0 && pickerField ? [pickerField] : []),
+      ...Object.keys(labels).map(key => fieldEls.get(key)).filter(Boolean))));
+  } else {
+    if (pickerField) controls.append(pickerField);
+    controls.append(...fieldEls.values());
+  }
   wrap.append(el('div', { className: 'formulas-chart-head' }, el('strong', { textContent: config.title })),
     el('div', { className: 'formulas-damage-layout' }, controls,
       el('div', { className: 'formulas-damage-result' }, output, bars,
-        el('p', { className: 'formulas-graph-note', textContent:
-          typeof config.note === 'function' ? config.note(revision) : config.note }))));
+        config.note ? el('p', { className: 'formulas-graph-note', textContent:
+          typeof config.note === 'function' ? config.note(revision) : config.note }) : null)));
   function draw() {
     let invalid;
     fields.forEach(f => {
@@ -225,8 +254,13 @@ export function buildFormulaExplorer(label, { revision = 'steam' } = {}) {
     const result = config.evaluate(state, revision);
     scale = config.scale ?? Math.max(scale, ...result.bars.map(bar => bar.value));
     const formatValue = config.formatValue ?? format;
-    output.replaceChildren(el('strong', { className: 'formulas-graph-result', textContent: result.headline }),
-      el('span', { className: 'formulas-graph-hint', textContent: result.detail }));
+    const headline = [el('strong', { className: 'formulas-graph-result', textContent: result.headline }),
+      el('span', { className: 'formulas-graph-hint', textContent: result.detail })];
+    const art = pickedMob && (getMobGifUrl(pickedMob.gif) || getMobThumbUrl(pickedMob.thumbnail));
+    output.replaceChildren(...(art
+      ? [el('div', { className: 'formulas-mob-hit-head' }, el('img', { className: 'formulas-calc-hero', src: art, alt: '' }),
+        el('div', {}, ...headline))]
+      : headline));
     bars.replaceChildren();
     const accessible = el('span', { className: 'formulas-explorer-sr' });
     accessible.textContent = result.bars.map(bar => `${bar.label}: ${formatValue(bar.value)}.`).join(' ');

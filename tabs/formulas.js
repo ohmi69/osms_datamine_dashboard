@@ -3,6 +3,7 @@ import { buildCalcLauncher } from './formulas-calc.js';
 import { buildShieldGraph, buildDamageGraph } from './formulas-graphs.js';
 import { deriveGraphData } from './formulas-graph-data.js';
 import { buildFormulaExplorer } from './formulas-explorers.js';
+import { buildMonsterHitCalc } from './formulas-mob-hit.js';
 import { tokenizeLine, attachTooltip, makeCollapsibleSection, buildVarLegend, buildTable } from './formulas-shared.js';
 import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
 import { createMobSpawningPage } from './formulas-mob-spawning.js';
@@ -648,8 +649,8 @@ const GUARD_STEPS = [
   {
     label: 'Monster Accuracy',
     wip: false,
-    status: 'partial',
-    statusNote: 'The hit formula and extra hit chances are confirmed. When the conditional 50% miss check applies still needs confirmation. Monsters use a different accuracy formula from players.',
+    status: 'stale',
+    statusNote: 'Read directly from the hit check in the client',
     lines: [
       'LevelGap = PlayerLevel − MonsterLevel, or 0 if the monster is the higher level',
       '',
@@ -953,8 +954,9 @@ function buildPipeline(steps, chapterStarts = {}) {
     if (label === 'Shield Guard') step.appendChild(buildShieldGraph(GRAPH_ITEMS, GRAPH_DATA));
     if (label === 'Physical Damage') step.appendChild(buildDamageGraph(false, GRAPH_DATA, 0.7));
     if (label === 'Magical Damage') step.appendChild(buildDamageGraph(true, GRAPH_DATA, 0.7, 125));
-    const explorer = buildFormulaExplorer(label);
+    const explorer = buildFormulaExplorer(label, { monsters: CALC_MONSTERS });
     if (explorer) step.appendChild(explorer);
+    if (label === 'Monster Accuracy' && CALC_MONSTERS.length) step.appendChild(buildMonsterHitCalc(CALC_MONSTERS));
 
     frag.appendChild(step);
   });
@@ -2266,11 +2268,6 @@ export function renderFormulas(data, options = {}) {
   CALC_MONSTERS = [...(data?.monsters?.monsters ?? [])]
     .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
 
-  const disclaimer = el('div', { className: 'formulas-disclaimer' });
-  const disclaimerText = el('span');
-  disclaimerText.appendChild(el('strong', { textContent: 'Updated October 9, 2026: ' }));
-  disclaimerText.append('Core damage formulas and progression numbers are confirmed. Entries marked Partly Verified still have open questions, explained in their notes. Comparisons with earlier versions have not been checked again. Values may change with future updates.');
-  disclaimer.appendChild(disclaimerText);
   const section = (title, key, bodyFn) => markFormulaSection(makeCollapsibleSection(title, '', bodyFn), key);
   const group = (...children) => el('div', { className: 'formulas-full' }, ...children);
 
@@ -2355,7 +2352,7 @@ export function renderFormulas(data, options = {}) {
   };
 
   return createFormulaBrowser({
-    notice: disclaimer,
+    notice: null,
     initialParams: options.initialParams,
     setNavigate: options.setNavigate,
     pages: [

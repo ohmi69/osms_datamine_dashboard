@@ -12,12 +12,16 @@ function mobAttackStat(mob, magic) {
   return (magic ? mob?.MADamage : mob?.PADamage) ?? 0;
 }
 
+let pickerCount = 0;
+
 // Type-to-filter monster picker. A plain <select> would work, but a couple of hundred
 // mobs with duplicate names are much easier to pick from with a thumbnail next to each.
-function buildMobPicker(monsters, onPick) {
+export function buildMobPicker(monsters, onPick) {
   const wrap = el('div', { className: 'formulas-calc-picker' });
-  const input = el('input', { type: 'text', className: 'formulas-calc-input', placeholder: 'Search a monster…', autocomplete: 'off' });
-  const panel = el('div', { className: 'formulas-calc-options' });
+  const panelId = `mob-picker-${++pickerCount}`;
+  const input = el('input', { type: 'text', className: 'formulas-calc-input', placeholder: 'Search a monster…', autocomplete: 'off',
+    role: 'combobox', 'aria-expanded': 'false', 'aria-controls': panelId, 'aria-autocomplete': 'list' });
+  const panel = el('div', { className: 'formulas-calc-options', id: panelId, role: 'listbox' });
   wrap.appendChild(input);
   wrap.appendChild(panel);
 
@@ -30,8 +34,15 @@ function buildMobPicker(monsters, onPick) {
     rows[i]?.scrollIntoView({ block: 'nearest' });
   }
 
+  // The wrapper's class drives the chevron, so it flips with the list.
+  function setOpen(open) {
+    panel.classList.toggle('open', open);
+    wrap.classList.toggle('open', open);
+    input.setAttribute('aria-expanded', String(open));
+  }
+
   function close() {
-    panel.classList.remove('open');
+    setOpen(false);
     active = -1;
   }
 
@@ -49,7 +60,7 @@ function buildMobPicker(monsters, onPick) {
       panel.appendChild(el('div', { className: 'formulas-calc-empty', textContent: 'No monster matches' }));
     }
     matches.forEach((mob) => {
-      const row = el('div', { className: 'formulas-calc-option' });
+      const row = el('div', { className: 'formulas-calc-option', role: 'option' });
       // Static thumb in the list - 80 animated webps at once is a lot of decoding.
       const thumb = getMobThumbUrl(mob.thumbnail) || getMobGifUrl(mob.gif);
       if (thumb) row.appendChild(el('img', { className: 'formulas-calc-thumb', src: thumb, alt: '', loading: 'lazy' }));
@@ -60,10 +71,13 @@ function buildMobPicker(monsters, onPick) {
       panel.appendChild(row);
       rows.push(row);
     });
-    panel.classList.add('open');
+    setOpen(true);
   }
 
-  input.addEventListener('focus', () => { input.select(); render(''); });
+  const openList = () => { input.select(); render(''); };
+  input.addEventListener('focus', openList);
+  // Picking a row keeps focus in the input, so a later click fires no focus event.
+  input.addEventListener('click', () => { if (!panel.classList.contains('open')) openList(); });
   input.addEventListener('input', () => render(input.value.trim()));
   input.addEventListener('blur', () => setTimeout(close, 0));
   input.addEventListener('keydown', (e) => {
@@ -279,6 +293,12 @@ function buildDamageCalc(config) {
   syncMode();
   update();
   return wrap;
+}
+
+// A titled block of inputs, so a calculator can separate the monster's stats from yours.
+export function buildCalcGroup(title, ...fields) {
+  return el('div', { className: 'formulas-calc-group', role: 'group', 'aria-label': title },
+    el('span', { className: 'formulas-calc-group-title', textContent: title }), ...fields);
 }
 
 // The calculator stays out of the way until asked for - the section is a reference
