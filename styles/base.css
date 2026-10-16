@@ -1102,6 +1102,30 @@ body.hide-ids .id-col { display: none !important; }
 .item-spec-key { color: var(--dim); }
 .item-spec-val { color: var(--text); font-weight: 600; }
 
+/* ── Housing sprite expand panel ────────────────────────────── */
+.item-sprite-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.item-sprite-panel[hidden] { display: none; }
+.item-sprite {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  min-width: 88px;
+  padding: 8px 10px 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-2);
+}
+.item-sprite img { max-width: 100%; image-rendering: pixelated; }
+.item-sprite figcaption { font-size: 11px; color: var(--dim); }
+
 /* ── Equipment stat / req lines (shared: equipment page + crafting tooltip) ── */
 .equip-stat-line {
   display: flex;

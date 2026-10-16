@@ -382,7 +382,7 @@ function buildRelease(options, data) {
   const row = el('div', { className: 'field-guide-release' },
     el('span', { className: 'field-guide-release__badge', textContent: 'Public Release' }),
     el('span', { textContent: 'Updated October 15, 2026 · 18:22 PT' }));
-  if (data.patchNotes) row.appendChild(tabLink('patchnotes', options, '', 'Patch notes →'));
+  // if (data.patchNotes) row.appendChild(tabLink('patchnotes', options, '', 'Patch notes →'));
   const details = el('details', { className: 'field-guide-release__details' },
     el('summary', { textContent: 'About this data' }),
     el('div', { className: 'field-guide-release__disclosure' },

@@ -1,4 +1,4 @@
-import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, makeMatcher, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
+import { el, makeCollapsible, makeThumbnail, makeDeepLinkButton, makeDetailPanel, parseIdFilter, makeMatcher, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer, normalizeAssetPath } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
 import { makeQuestRewardContext, makeQuestRewardPanel, makeQuestRequirementPanel, makeCraftingResultPanel } from './quest-rewards.js';
@@ -14,6 +14,33 @@ const STAT_LABELS = {
   recovery:    ['Recovery',        (v) => `+${v}`],
   useCooldown: ['Cooldown',        (v) => `${v}s`],
 };
+
+// Housing furniture is identified by its Install sub-category (item ID / 10000).
+// The WZ data carries no housing flag, and 301 is ordinary chairs.
+const HOUSING_TYPES = { 300: 'Decor', 302: 'Storage', 303: 'Crafting', 304: 'Training' };
+
+function housingType(item) {
+  return HOUSING_TYPES[Math.floor(Number(item.id) / 10000)] || null;
+}
+
+// Housing decor's in-home sprites, written by the pipeline as
+// images/items/{id}.{state}.webp (`effect` placed, `effectOn` switched on / opened).
+const SPRITE_LABELS = { effect: 'Placed', effectOn: 'On / Open' };
+
+function makeSpritePanel(item) {
+  if (!item.sprites?.length) return null;
+  const panel = el('div', { className: 'item-sprite-panel' });
+  item.sprites.forEach((state) => {
+    const label = SPRITE_LABELS[state] || state;
+    const figure = el('figure', { className: 'item-sprite' });
+    const img = el('img', { loading: 'lazy', decoding: 'async', alt: `${item.name} (${label})` });
+    img.setAttribute('src', normalizeAssetPath(`images/items/${padItemId(item.id)}.${state}.webp`));
+    figure.appendChild(img);
+    figure.appendChild(el('figcaption', { textContent: label }));
+    panel.appendChild(figure);
+  });
+  return panel;
+}
 
 function buildDetailPanel(item) {
   const stats = item.stats || {};
@@ -41,6 +68,8 @@ function renderItemRow(item, questRewards) {
     })
   );
   nameWrap.appendChild(el('span', { className: 'name', textContent: item.name }));
+  const housing = housingType(item);
+  if (housing) nameWrap.appendChild(el('span', { className: 'equip-type-badge', textContent: housing }));
   const questFlag = item.stats?.pquest ? 'Party Quest Item' : item.stats?.quest ? 'Quest Item' : null;
   if (questFlag) nameWrap.appendChild(el('span', { className: 'item-quest-badge', textContent: questFlag }));
   topLine.appendChild(nameWrap);
@@ -53,6 +82,7 @@ function renderItemRow(item, questRewards) {
   row.appendChild(topLine);
 let expanded = false;
   let specEl = null;
+  let spritePanel = null;
   let compare = null;
   let rewardPanel = null;
   let requirementPanel = null;
@@ -76,6 +106,11 @@ let expanded = false;
       specEl.classList.toggle('item-spec-panel--open', expanded);
       row.classList.toggle('item-row--spec-open', expanded);
     }
+    if (!spritePanel) {
+      spritePanel = makeSpritePanel(item);
+      if (spritePanel) row.insertBefore(spritePanel, compare || null);
+    }
+    if (spritePanel) spritePanel.hidden = !expanded;
     // Built on the first expand, so the row's search text stays free of quest names.
     if (!rewardPanel) {
       rewardPanel = makeQuestRewardPanel(item.id, questRewards);
@@ -145,7 +180,7 @@ export function renderItems(data, options = {}) {
   const pillRow = el('div', { className: 'filter-row' });
   const allTab = el('button', { className: 'pill active', textContent: 'All' });
   pillRow.appendChild(allTab);
-  const categories = ['Scrolls', 'Consumables', 'Etc', 'Setup'];
+  const categories = ['Scrolls', 'Consumables', 'Etc', 'Setup', 'Housing'];
   const categoryTabs = categories.map((cat) => {
     const btn = el('button', { className: 'pill', textContent: cat });
     pillRow.appendChild(btn);
@@ -213,7 +248,8 @@ export function renderItems(data, options = {}) {
       (item) => item.category === 'Consumable' && !scrollIdSet.has(String(item.id))
     );
     const etcItems = allItems.filter((item) => item.category === 'Etc');
-    const setupItems = allItems.filter((item) => item.category === 'Setup');
+    const setupItems = allItems.filter((item) => item.category === 'Setup' && !housingType(item));
+    const housingItems = allItems.filter((item) => item.category === 'Setup' && housingType(item));
 
     if (!selectedCategory || selectedCategory === 'Scrolls') {
       if (allScrolls.length > 0) {
@@ -264,6 +300,16 @@ export function renderItems(data, options = {}) {
         setupItems.forEach((item) => setupContent.appendChild(renderItemRow(item, questRewards)));
         dataDiv.appendChild(
           makeCollapsible('Setup', setupItems.length, true, null, setupContent)
+        );
+      }
+    }
+
+    if (!selectedCategory || selectedCategory === 'Housing') {
+      if (housingItems.length > 0) {
+        const housingContent = el('div');
+        housingItems.forEach((item) => housingContent.appendChild(renderItemRow(item, questRewards)));
+        dataDiv.appendChild(
+          makeCollapsible('Housing', housingItems.length, true, null, housingContent)
         );
       }
     }
