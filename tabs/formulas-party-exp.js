@@ -50,7 +50,6 @@ function buildGuide(monsters) {
         ['YourDamage', 'Your own counted damage.'],
         ['EligibleLevels', 'Sum of the levels of the eligible party members, including yours (see below)'],
       ]);
-      paragraph(body, 'Solo, the pool is the full mob EXP and the share is all of it.');
     }));
 
   page.appendChild(section('Who Counts as Eligible', 'party-exp-eligible', 'verified',
