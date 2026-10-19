@@ -1034,6 +1034,24 @@
   font-weight: 700;
 }
 
+/* Page-level credit, for a page one person worked out end to end. */
+.formulas-subpage-credit {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 8px 14px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  background: var(--accent-bg);
+  font-size: 14px;
+  color: var(--text);
+}
+
+.formulas-subpage-credit strong {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 800;
+}
+
 /* ── Damage pipeline ─────────────────────────────────────────── */
 .formulas-pipeline-step {
   border: 1px solid var(--border);
@@ -1897,6 +1915,12 @@
 .formulas-graph-preset:hover { background: var(--accent-bg); }
 .formulas-graph :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .formulas-graph input[aria-invalid="true"] { border-color: var(--text); }
+/* Same colours as the warning status tag, so a bad input reads as an error rather than a note. */
+.formulas-calc-error { padding: 10px 12px; border-radius: 6px; font-size: 13px; font-weight: 700; line-height: 1.5;
+  color: #ff9060; background: rgba(255, 120, 60, 0.15); border: 1px solid rgba(255, 120, 60, 0.3); }
+.formulas-party-exp-calc input[aria-invalid="true"] { border-color: #ff9060; }
+[data-theme="mapletip"] .formulas-calc-error { color: #c04a10; background: rgba(192, 74, 16, 0.1); border-color: rgba(192, 74, 16, 0.3); }
+[data-theme="mapletip"] .formulas-party-exp-calc input[aria-invalid="true"] { border-color: #c04a10; }
 /* Compact damage controls and chart sit beside the formula. */
 .formulas-damage-layout { display: block; }
 .formulas-damage-weapon { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }

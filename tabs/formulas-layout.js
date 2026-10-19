@@ -1,6 +1,7 @@
 import { el, tabHref, startDeepLinkJump } from '../lib/utils.js';
 
-const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression', 'mob-spawning']);
+const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression', 'mob-spawning', 'party-exp']);
+const REFERENCE_PAGE_KEYS = ['progression', 'mob-spawning', 'party-exp'];
 
 function routeTarget(page, section = null) {
   const target = page ? { page } : {};
@@ -31,8 +32,8 @@ function buildIndex(pages, archived) {
 
   const directory = el('div', { className: 'formulas-index-directory' });
   [
-    { label: 'Combat', pages: pages.filter(page => !['progression', 'mob-spawning'].includes(page.key)) },
-    { label: 'Reference', pages: pages.filter(page => ['progression', 'mob-spawning'].includes(page.key)) },
+    { label: 'Combat', pages: pages.filter(page => !REFERENCE_PAGE_KEYS.includes(page.key)) },
+    { label: 'Reference', pages: pages.filter(page => REFERENCE_PAGE_KEYS.includes(page.key)) },
   ].forEach((group) => {
     const block = el('div', { className: 'formulas-index-group' });
     block.appendChild(el('div', { className: 'formulas-index-group-label', textContent: group.label }));
@@ -155,7 +156,7 @@ export function createFormulaBrowser({ pages, initialParams, setNavigate, notice
 
     // These guides explain their own evidence. The general client-formula
     // verification notice does not apply to their mechanics or server research.
-    notice?.classList.toggle('hidden', ['hit-detection', 'mob-spawning'].includes(pageKey));
+    notice?.classList.toggle('hidden', ['hit-detection', 'mob-spawning', 'party-exp'].includes(pageKey));
 
     nav.classList.toggle('hidden', !page);
 
@@ -177,6 +178,8 @@ export function createFormulaBrowser({ pages, initialParams, setNavigate, notice
         head.appendChild(el('div', { className: 'formulas-subpage-kicker', textContent: page.kicker }));
         head.appendChild(el('h1', { textContent: page.label }));
         head.appendChild(el('p', { textContent: page.description }));
+        // A credit for the whole page, where per-section credits would repeat.
+        if (page.credit) head.appendChild(el('div', { className: 'formulas-subpage-credit' }, ...page.credit()));
         pageWrap.appendChild(head);
         if (page.flow) pageWrap.appendChild(page.flow());
         const jumpNav = buildJumpNav(page);

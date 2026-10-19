@@ -38,7 +38,7 @@ export function monsterHitOdds(s) {
     passes, shield, claw, guard, hit: passes * (1 - guard), guarded: passes * guard, miss: 1 - passes };
 }
 
-function numberField(label, value, { min, max, range, hint, onChange, short = label }) {
+export function numberField(label, value, { min, max, range, hint, onChange, short = label }) {
   const input = el('input', { type: 'number', className: 'formulas-calc-input', value: String(value),
     min: String(min), max: String(max), step: '1', 'aria-label': label, title: hint ?? '' });
   const slider = el('input', { type: 'range', value: String(value), min: String(min),
