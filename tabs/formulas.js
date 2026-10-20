@@ -8,6 +8,7 @@ import { tokenizeLine, attachTooltip, makeCollapsibleSection, buildVarLegend, bu
 import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
 import { createMobSpawningPage } from './formulas-mob-spawning.js';
 import { createPartyExpPage } from './formulas-party-exp.js';
+import { createMesoPage } from './formulas-mesos.js';
 
 // Experience requirements re-derived from the current version. The startup builder fills
 // levels 1-99; level 100 is the cap. See tmp/steam-tables.md.
@@ -2409,6 +2410,7 @@ export function renderFormulas(data, options = {}) {
       },
       createMobSpawningPage(),
       createPartyExpPage(CALC_MONSTERS),
+      createMesoPage(CALC_MONSTERS),
     ],
   });
 }

@@ -1,7 +1,7 @@
 import { el, tabHref, startDeepLinkJump } from '../lib/utils.js';
 
-const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression', 'mob-spawning', 'party-exp']);
-const REFERENCE_PAGE_KEYS = ['progression', 'mob-spawning', 'party-exp'];
+const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression', 'mob-spawning', 'party-exp', 'mesos']);
+const REFERENCE_PAGE_KEYS = ['progression', 'mob-spawning', 'party-exp', 'mesos'];
 
 function routeTarget(page, section = null) {
   const target = page ? { page } : {};
@@ -156,7 +156,7 @@ export function createFormulaBrowser({ pages, initialParams, setNavigate, notice
 
     // These guides explain their own evidence. The general client-formula
     // verification notice does not apply to their mechanics or server research.
-    notice?.classList.toggle('hidden', ['hit-detection', 'mob-spawning', 'party-exp'].includes(pageKey));
+    notice?.classList.toggle('hidden', ['hit-detection', 'mob-spawning', 'party-exp', 'mesos'].includes(pageKey));
 
     nav.classList.toggle('hidden', !page);
 

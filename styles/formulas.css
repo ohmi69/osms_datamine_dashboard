@@ -1350,6 +1350,8 @@
 }
 
 [data-theme="mapletip"] .formulas-warn-notes::before { color: #a8620a; }
+/* Reference guides already pad their body, so the warning sits flush with the text. */
+.spawn-reference-body > .formulas-warn-notes { margin: 0 0 12px; }
 
 /* ── Variable legend ─────────────────────────────────────────── */
 .formulas-var-section {
@@ -2043,10 +2045,9 @@
 .formulas-mob-hit-row-label { color: var(--text); }
 .formulas-mob-hit-row strong { font-variant-numeric: tabular-nums; text-align: right; }
 
-.formulas-meso-calc .formulas-graph-stat { grid-template-columns: minmax(0, 1fr) 120px; }
-@media (max-width: 640px) {
-  .formulas-meso-calc .formulas-graph-controls { grid-template-columns: 1fr; }
-}
+/* Meso calculator: the pick-up choice spans its group so the pills sit in one row. */
+.formulas-meso-role { grid-column: 1 / -1; display: grid; gap: 6px; }
+.formulas-meso-role .pill-group { margin-bottom: 0; }
 .formulas-cot2-tag {
   color: #6fc8df;
   background: rgba(80, 180, 220, 0.12);
