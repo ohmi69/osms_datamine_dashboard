@@ -7,6 +7,17 @@ import { makeOsmsCompare, canCompareWithOsms } from '../../lib/compare-osms.js';
 import { showNavigateModal } from './MapNavigator.js';
 import { attachPortalOverlay } from './MapPortalOverlay.js';
 
+function formatDuration(seconds) {
+  if (seconds < 60) {
+    const s = Number.isInteger(seconds) ? seconds : seconds.toFixed(2).replace(/\.?0+$/, '');
+    return `${s}s`;
+  }
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = Math.round(seconds % 60);
+  return [h && `${h}h`, m && `${m}m`, s && `${s}s`].filter(Boolean).join(' ');
+}
+
 function formatSpawnTime(seconds) {
   if (typeof seconds === 'string') {
     const rangeMatch = seconds.match(/^([\d.]+)-(\d+\.\d+|\d+)(?: \[(\d+\.\d+|\d+)\])?$/);
@@ -15,25 +26,16 @@ function formatSpawnTime(seconds) {
       const min = parseFloat(rangeMatch[1]);
       const max = parseFloat(rangeMatch[2]);
       const avg = rangeMatch[3];
-      if (min === max) {
-        return avg ? `${min}s [${avg}s]` : `${min}s`;
-      } else {
-        return avg ? `${min}s-${max}s [${avg}s]` : `${min}s-${max}s`;
-      }
+      const range = min === max ? formatDuration(min) : `${formatDuration(min)}–${formatDuration(max)}`;
+      return avg ? `${range} (avg ${formatDuration(parseFloat(avg))})` : range;
     } else if (singleMatch) {
-      const val = parseFloat(singleMatch[1]);
+      const val = formatDuration(parseFloat(singleMatch[1]));
       const avg = singleMatch[2];
-      return avg ? `${val}s [${avg}s]` : `${val}s`;
+      return avg ? `${val} (avg ${formatDuration(parseFloat(avg))})` : val;
     }
     return seconds;
   }
-  if (seconds < 60) {
-    const s = Number.isInteger(seconds) ? seconds : seconds.toFixed(2).replace(/\.?0+$/, '');
-    return `${s}s`;
-  }
-  const m = Math.floor(seconds / 60);
-  const s = Math.round(seconds % 60);
-  return s > 0 ? `${m}m ${s}s` : `${m}m`;
+  return formatDuration(seconds);
 }
 
 function getAvgSpawnTime(mobTime) {
@@ -276,8 +278,6 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       const spawnSection = el('div', { className: 'map-spawns' });
       panel.appendChild(spawnSection);
       spawnSection.appendChild(el('div', { className: 'map-detail-label', textContent: 'Mob spawn points' }));
-      const spawnGuide = makeTabLink('formulas', { page: 'mob-spawning', section: 'spawn-refill' });
-      spawnGuide.textContent = 'How spawning works';
       const grid = el('div', { className: 'map-mob-grid' });
       for (const mob of mobs) {
         const chip = onMobClick
@@ -290,14 +290,18 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
           : el('div', { className: 'map-mob-chip' });
         chip.appendChild(makeThumbnail(getMobThumbUrl(mob.thumbnail), mob.name, { className: 'mob-mini-thumb', fallbackText: 'MOB' }));
         chip.appendChild(el('span', { textContent: mob.name || `#${padMobId(mob.id)}` }));
-        chip.appendChild(el('span', { className: 'map-mob-chip-count', textContent: `${mob.count} spawn ${mob.count === 1 ? 'point' : 'points'}` }));
+        chip.appendChild(el('span', {
+          className: 'map-mob-chip-count',
+          textContent: `×${mob.count}`,
+          title: `${mob.count} spawn ${mob.count === 1 ? 'point' : 'points'} on this map (not a live mob count)`,
+        }));
         // Archived data may still contain the old default in a time range.
         const hasAssumedTime = /(^|-)7\.56(?=$|[- ])/.test(String(mob.mobTime));
         if (mob.mobTime != null && !hasAssumedTime) {
           chip.appendChild(el('span', {
             className: 'map-mob-chip-timer',
-            textContent: `⏱ ${formatSpawnTime(mob.mobTime)}`,
-            title: 'Configured time for timed spawn points; actual respawn timing can differ.',
+            textContent: `respawns every ${formatSpawnTime(mob.mobTime)}`,
+            title: 'Configured respawn timer; actual timing can differ.',
           }));
         }
 
@@ -337,8 +341,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       if (capacityRow) spawnSection.appendChild(capacityRow);
       spawnSection.appendChild(el('div', { className: 'map-spawn-disclaimer' },
         el('p', { textContent: 'Spawn points are possible locations. Mob capacity limits how many mobs can be alive at once.' }),
-        el('p', { textContent: 'No cooldown listed: ready for the next ~7s refill, unless nearby mobs block it.' }),
-        el('p', {}, spawnGuide)));
+        el('p', { textContent: 'If no cooldown listed for the spawn point, it will be ready for the next ~7s map respawn.' })));
     }
 
     // NPCs

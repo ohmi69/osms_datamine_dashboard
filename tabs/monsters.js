@@ -2,6 +2,7 @@ import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath,
 import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL, ELEMENT_META, describeElements } from '../lib/constants.js';
 import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
+import { mesoAmount } from './formulas-mesos.js';
 
 const DEFENSE_RATIO_COLUMNS = [
   { id: 'exp_ehp_p', label: 'EXP/eHP (P)', toggleLabel: 'EXP/Effective Physical HP', defenseField: 'PDDamage',
@@ -207,6 +208,7 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
   // Stats column
   const statsCol = el('div', { className: 'monster-detail-col' });
 
+  const meso = monster.level > 0 ? mesoAmount(monster.level) : null;
   const statGroups = [
     {
       label: 'Base',
@@ -242,6 +244,18 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
       ],
     },
     {
+      label: 'Meso Drop',
+      stats: [
+        {
+          label: 'Amount',
+          value: meso ? `${meso.min.toLocaleString()}–${meso.max.toLocaleString()}` : null,
+          accent: true,
+          title: 'Each drop is a random 90–110% of floor(2.1 × Level) + 3, rounded down.',
+        },
+      ],
+      link: ['mesos', 'meso-amount', 'How meso drops work'],
+    },
+    {
       label: 'Regen (per tick)',
       stats: [
         { label: 'HP', value: monster.hp_recovery, accent: true },
@@ -250,7 +264,7 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
     },
   ];
 
-  statGroups.forEach(({ label, stats }) => {
+  statGroups.forEach(({ label, stats, link }) => {
     const visible = stats.filter(({ value, showZero }) => value != null && (value !== 0 || showZero));
     if (!visible.length) return;
     const group = el('div', { className: 'monster-stat-group' });
@@ -266,6 +280,12 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
       grid.appendChild(cell);
     });
     group.appendChild(grid);
+    if (link) {
+      const [page, section, text] = link;
+      const guide = makeTabLink('formulas', { page, section });
+      guide.textContent = text;
+      group.appendChild(el('p', {}, guide));
+    }
     statsCol.appendChild(group);
   });
 
