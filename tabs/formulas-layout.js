@@ -1,7 +1,7 @@
 import { el, tabHref, startDeepLinkJump } from '../lib/utils.js';
 
-const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression', 'mob-spawning', 'party-exp', 'mesos']);
-const REFERENCE_PAGE_KEYS = ['progression', 'mob-spawning', 'party-exp', 'mesos'];
+const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression', 'mob-spawning', 'exp', 'mesos']);
+const REFERENCE_PAGE_KEYS = ['progression', 'mob-spawning', 'exp', 'mesos'];
 
 function routeTarget(page, section = null) {
   const target = page ? { page } : {};
@@ -149,14 +149,15 @@ export function createFormulaBrowser({ pages, initialParams, setNavigate, notice
     const params = route instanceof URLSearchParams
       ? route
       : new URLSearchParams(route && typeof route === 'object' ? route : undefined);
-    const requestedPage = params.get('page') || '';
+    // The EXP page was called Party EXP; keep old links working.
+    const requestedPage = params.get('page') === 'party-exp' ? 'exp' : params.get('page') || '';
     const pageKey = PAGE_KEYS.has(requestedPage) && pageMap.has(requestedPage) ? requestedPage : '';
     const page = pageMap.get(pageKey);
     const sectionKey = params.get('section') || '';
 
     // These guides explain their own evidence. The general client-formula
     // verification notice does not apply to their mechanics or server research.
-    notice?.classList.toggle('hidden', ['hit-detection', 'mob-spawning', 'party-exp', 'mesos'].includes(pageKey));
+    notice?.classList.toggle('hidden', ['hit-detection', 'mob-spawning', 'exp', 'mesos'].includes(pageKey));
 
     nav.classList.toggle('hidden', !page);
 

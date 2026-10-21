@@ -1565,6 +1565,56 @@
   font-family: 'Consolas', 'Fira Mono', monospace;
 }
 
+/* ── Monster EXP chart ───────────────────────────────────────── */
+.formulas-mob-exp-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+  margin: 12px 0;
+}
+.formulas-mob-exp-row > .spawn-reference-formula { margin: 0; }
+.formulas-mob-exp-chart { margin: 0; min-width: 0; }
+@media (max-width: 800px) {
+  .formulas-mob-exp-row { grid-template-columns: minmax(0, 1fr); }
+}
+.formulas-mob-exp-svg { aspect-ratio: 440 / 300; }
+.formulas-mob-exp-svg .formulas-chart-axis-label { font-size: 11px; }
+
+.formulas-mob-exp-split {
+  stroke: var(--dim);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.formulas-mob-exp-dot {
+  fill: var(--accent);
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+
+.formulas-mob-exp-ring {
+  fill: var(--bg);
+  stroke: var(--text);
+  stroke-width: 2;
+}
+
+.formulas-mob-exp-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  padding: 8px 10px 4px;
+  font-size: 12px;
+  color: var(--dim);
+}
+
+.formulas-mob-exp-key { display: inline-flex; align-items: center; gap: 6px; }
+
+.formulas-mob-exp-swatch { display: inline-block; flex: none; }
+.formulas-mob-exp-swatch.is-line { width: 16px; height: 2px; border-radius: 1px; background: var(--accent); }
+.formulas-mob-exp-swatch.is-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.formulas-mob-exp-swatch.is-ring { width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--text); box-sizing: border-box; }
+
 /* ── Damage taken calculator ─────────────────────────────────── */
 .formulas-calc-launcher { margin-bottom: 20px; }
 

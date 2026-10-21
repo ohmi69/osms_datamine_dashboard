@@ -7,7 +7,7 @@ import { buildMonsterHitCalc } from './formulas-mob-hit.js';
 import { tokenizeLine, attachTooltip, makeCollapsibleSection, buildVarLegend, buildTable } from './formulas-shared.js';
 import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './formulas-layout.js';
 import { createMobSpawningPage } from './formulas-mob-spawning.js';
-import { createPartyExpPage } from './formulas-party-exp.js';
+import { createExpPage } from './formulas-exp.js';
 import { createMesoPage } from './formulas-mesos.js';
 
 // Experience requirements re-derived from the current version. The startup builder fills
@@ -2409,7 +2409,7 @@ export function renderFormulas(data, options = {}) {
         render: buildProgressionPage,
       },
       createMobSpawningPage(),
-      createPartyExpPage(CALC_MONSTERS),
+      createExpPage(CALC_MONSTERS),
       createMesoPage(CALC_MONSTERS),
     ],
   });
