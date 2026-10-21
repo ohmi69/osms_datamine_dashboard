@@ -51,8 +51,8 @@ function buildGuide(monsters) {
       if (monsters.length) row.appendChild(buildMobExpChart(monsters));
       body.appendChild(row);
       table(body, [['Kind', ''], ['Monsters', '']], [
-        ['Boss', 'Mano, Mushmom, Shade, Zombie Mushmom, Rotten Mushmom, Jr. Balrog'],
-        ['Special (Event/PQ Mobs)', 'Orange Slime, and the KPQ Ligator, Jr. Necki'],
+        ['Boss', 'Mano, Stumpy, Mushmom, Shade, Zombie Mushmom, Rotten Mushmom, Faust, Jr. Balrog'],
+        ['Special (Event/PQ Mobs)', 'Orange Slime, the KPQ Ligator, Jr. Necki and Curse Eye, and the Primrose Hill Stirge, Flyeye and Goblin Fire'],
       ]);
       table(body, [['Exception', ''], ['EXP', 'num'], ['Note', '']], [
         ['Rotten Mushroom (level 56)', 183, ''],
@@ -110,7 +110,7 @@ export function mobBaseExp(level) {
 }
 
 const BOSS_IDS = new Set([800003]);
-const SPECIAL_IDS = new Set([800000, 800001, 800002, 900000]);
+const SPECIAL_IDS = new Set([800000, 800001, 800002, 800020, 800021, 800022, 800024, 900000]);
 
 // The unrounded base, for drawing a smooth line; the rounded values are integer
 // steps that zigzag visibly on a short range.

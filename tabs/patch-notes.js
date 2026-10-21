@@ -2,6 +2,7 @@ import { el, makeCollapsible, makeCopyableId, makeThumbnail,
          makeDeepLinkButton, makeSearchBox, makePillGroup, makeMatcher, makeHideToggle,
          enableMobileFilterDrawer } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
+import { loadPatchNotesFile } from '../lib/data.js';
 import { startDeepLinkJump } from '../lib/utils.js';
 
 const BUCKETS = [
@@ -695,12 +696,51 @@ function buildSectionBody(section, entries, onNavigate, ctx) {
   return body;
 }
 
-export function renderPatchNotes(notes, options = {}) {
+// `patchNotes` is either one notes object or { diffs, initial } from
+// loadPatchNotes when the dataset carries several diffs. In the latter case a
+// picker above the header swaps the page between them; `?diff=<id>` in the
+// tab's deep link selects one.
+export function renderPatchNotes(patchNotes, options = {}) {
   lookups = buildLookups(options.data);
+  const diffs = patchNotes?.diffs;
+  if (!diffs) return buildNotesPage(patchNotes, options);
+
+  const cache = new Map([[diffs[0].id, patchNotes.initial]]);
+  const host = el('div', { className: 'pn-host' });
+  let picker = null;
+
+  const show = async (id, { push = false, params = null } = {}) => {
+    const diff = diffs.find((d) => d.id === id) || diffs[0];
+    picker.setActive(diff.id);
+    if (push) {
+      const hash = diff.id === diffs[0].id ? '#patchnotes' : `#patchnotes?diff=${encodeURIComponent(diff.id)}`;
+      history.replaceState(history.state, '', `${location.pathname}${location.search}${hash}`);
+    }
+    if (!cache.has(diff.id)) {
+      host.replaceChildren(el('div', { className: 'empty-state', textContent: 'Loading patch notes…' }));
+      cache.set(diff.id, await loadPatchNotesFile(diff.file));
+    }
+    host.replaceChildren(buildNotesPage(cache.get(diff.id), { ...options, initialParams: params }, picker));
+  };
+
+  picker = makePillGroup(
+    diffs.map((d) => ({ label: d.label, value: d.id })),
+    diffs[0].id,
+    (id) => show(id, { push: true }),
+    { groupLabel: 'Update:', className: 'pn-diff-picker' },
+  );
+
+  const params = options.initialParams;
+  show(params?.get?.('diff') || diffs[0].id, { params });
+  return host;
+}
+
+function buildNotesPage(notes, options = {}, picker = null) {
   const frag = document.createDocumentFragment();
   const page = el('div', { className: 'patch-notes-page' });
 
   page.appendChild(el('div', { className: 'section-heading', textContent: 'Patch Notes' }));
+  if (picker) page.appendChild(picker);
 
   if (!notes) {
     page.appendChild(el('div', {

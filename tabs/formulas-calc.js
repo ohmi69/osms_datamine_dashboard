@@ -4,8 +4,9 @@
 import { el, matchSearch } from '../lib/utils.js';
 import { getMobThumbUrl, getMobGifUrl } from '../lib/data.js';
 
-// Even sampling of the 1.1-1.5 roll. The roll is uniform but the defense step is
-// not linear in it, so the average has to be sampled rather than taken at the midpoint.
+// Even sampling of the incoming roll (1.1-1.5 in the archived clients, 1.2-1.4 in the
+// current one). The roll is uniform but the defense step is not linear in it, so the
+// average has to be sampled rather than taken at the midpoint.
 const ROLL_SAMPLES = 401;
 
 function mobAttackStat(mob, magic) {
@@ -120,7 +121,7 @@ ${min} to ${max}` : `${min} to ${max}`,
 
 function buildDamageCalc(config) {
   const { monsters, scale, scaleTerms, damageFormula, defenseLabel = 'DefenseScale',
-    maxLevel = 120, useLevel = true, notes } = config;
+    maxLevel = 120, useLevel = true, notes, rollMin = 1.1, rollMax = 1.5 } = config;
 
   // Archived clients use their scale formula; the live current version supplies its
   // separate Defense adjustment formula. All displayed regular results are clamped.
@@ -229,18 +230,18 @@ function buildDamageCalc(config) {
       return;
     }
 
-    const incMin = attack * 1.1;
-    const incMax = attack * 1.5;
+    const incMin = attack * rollMin;
+    const incMax = attack * rollMax;
     const dmgMin = damageTaken(incMin, state.defense, state.level);
     const dmgMax = damageTaken(incMax, state.defense, state.level);
 
     let sum = 0;
     for (let i = 0; i < ROLL_SAMPLES; i++) {
-      sum += damageTaken(attack * (1.1 + 0.4 * (i / (ROLL_SAMPLES - 1))), state.defense, state.level);
+      sum += damageTaken(attack * (rollMin + (rollMax - rollMin) * (i / (ROLL_SAMPLES - 1))), state.defense, state.level);
     }
     const dmgAvg = sum / ROLL_SAMPLES;
 
-    const incAvg = attack * 1.3;
+    const incAvg = attack * (rollMin + rollMax) / 2;
     const reduction = 1 - dmgAvg / incAvg;
     const guard = !state.magic && state.shield > 0 ? Math.max(0.05, state.shield / (state.shield + 500)) : 0;
 

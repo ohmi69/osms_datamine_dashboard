@@ -30,7 +30,8 @@ const EXP_TABLE = (() => {
 
 // Current version citizenship thresholds from NeedContribution / NeedLevel. Contribution
 // is the price of one grade; the counter resets on promotion.
-// Grade names decoded from current message IDs 6073-6082; see tmp/steam-citizenship-names-binary.md.
+// Grade names decoded from Grand Launch message IDs 6063-6072 (unchanged text; the IDs moved
+// down by ten); see tmp/grand-launch-formulas-reverify-binary.md.
 const CITIZENSHIP_GRADES = [
   [1, 0, 12, 'Traveler'], [2, 1500, 17, 'Visitor'], [3, 3500, 22, 'Helpful Stranger'],
   [4, 6000, 27, 'Recognized Guest'], [5, 9000, 32, 'Town Resident'],
@@ -604,6 +605,23 @@ const MOD_PIPELINE_STEPS = [
     },
   },
   {
+    label: 'Physical Immunity',
+    wip: false,
+    status: 'partial',
+    statusNote: 'Read from the Grand Launch client: the mob template loader reads PImmune and PImmuneDamage, and every physical damage routine, Meso Explosion and the damage-over-time routine run the same check per hit. The two buffs that bypass it are not identified.',
+    lines: [
+      'If the monster is physically immune and you have neither bypass buff:',
+      '  Damage = PImmuneDamage',
+    ],
+    notes: [
+      'A monster is physically immune while its physical-immunity skill (monster skill 140) is active, or permanently if its game data marks it as immune. Faust is the only monster with the skill: it lasts 5 seconds and Faust can use it once a minute. No monster is permanently immune',
+      'Each hit deals exactly PImmuneDamage. No monster sets it, so every hit deals 1 damage. Criticals, Iron Arrow falloff, Shadow Partner and the clamp are all skipped',
+      'Against the skill version of the immunity, a player stat gives a percentage chance for each hit to go through normally. Which buff provides that stat is not identified',
+      'Magic attacks are not affected - the magic damage routines never run this check',
+    ],
+    cot2: { notes: ['New in the Grand Launch client. Earlier clients did not check physical immunity when calculating damage.'] },
+  },
+  {
     label: 'Clamp',
     wip: false,
     status: 'stale',
@@ -643,6 +661,7 @@ const MOD_VARS = [
   { name: 'ComboDamage',     desc: "Combo Attack's damage bonus % for the learned level (5 at level 1, 20 at level 30)" },
   { name: 'ChargeDamage',    desc: "The active elemental charge's damage bonus % for the learned level (2 at level 1, 20 at level 30)" },
   { name: 'ElementAmpDamage', desc: "Damage bonus % from the Element Amplification buff, taken as the y value of whichever skill fills the slot. Magic and DoT only. The client supports it, but the skill is not in this game's data, so it never fires" },
+  { name: 'PImmuneDamage',   desc: "Damage a physically immune monster takes per hit, from its game data. It defaults to 1 and is never below 1" },
 ];
 
 // ─── Damage taken ─────────────────────────────────────────────
@@ -736,13 +755,15 @@ const GUARD_STEPS = [
     label: 'Incoming Damage',
     wip: false,
     status: 'stale',
-    statusNote: 'Read directly from the two damage-taken routines and the monster attack-value getters in the client.',
+    statusNote: 'Read directly from all four damage-taken routines and the monster attack-value getters in the Grand Launch client.',
     lines: [
-      'IncomingDamage = MonsterAttack × (1.1 + 0.4 × rand(0, 1))',
+      'IncomingDamage = MonsterAttack × (1.2 + 0.2 × rand(0, 1))',
     ],
     notes: [
       "MonsterAttack is the monster's physical attack for a regular attack, its magic attack for a skill attack, after its own percent modifiers",
+      'Every hit lands between 1.2 and 1.4 times the monster\'s attack',
     ],
+    cot2: { notes: ['The roll is narrower: hits used to land between 1.1 and 1.5 times the monster\'s attack. The average hit is unchanged at 1.3 times, but the weakest and strongest hits are closer to it.'] },
   },
   {
     label: 'Player Defense',
@@ -2215,7 +2236,7 @@ function buildModsSection() {
     0: { key: 'opening-modifiers', label: 'Opening Modifiers', description: 'Class buffs and defense-breaking effects applied before ordinary defense.' },
     3: { key: 'defense-elements', label: 'Defense & Elements', description: 'The target’s defenses, elemental response, and level-based scaling.' },
     8: { key: 'hit-effects', label: 'Hit Effects', description: 'Criticals and skill-specific effects that shape individual hits.' },
-    11: { key: 'final-result', label: 'Final Result', description: 'The client’s final lower bound before the hit is applied.' },
+    11: { key: 'final-result', label: 'Final Result', description: 'Immunity overrides and the client’s final bounds before the hit is applied.' },
   }));
   container.appendChild(buildVarLegend(MOD_VARS));
   return container;
@@ -2239,6 +2260,8 @@ const CALC_CONFIG = {
   defenseLabel: 'Defense denominator',
   maxLevel: 100,
   useLevel: true,
+  rollMin: 1.2,
+  rollMax: 1.4,
   notes: (magic) => [
     'Assumes the attack lands. A miss deals 0, and the accuracy roll is not modelled here, see the Monster Accuracy step for what decides that',
     magic

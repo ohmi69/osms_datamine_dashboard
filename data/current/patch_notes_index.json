@@ -1,0 +1,6 @@
+{
+  "diffs": [
+    { "id": "public-release", "file": "patch_notes.json", "label": "Founders Access → Public Release" },
+    { "id": "founders-access", "file": "patch_notes_cot2.json", "label": "COT2 → Founders Access" }
+  ]
+}
