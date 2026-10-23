@@ -20,6 +20,7 @@ import { TabManager } from './lib/TabManager.js';
 import { ThemeManager } from './lib/ThemeManager.js';
 import { Router } from './lib/Router.js';
 import { createToggleButton } from './lib/ButtonFactory.js';
+import { hideItemTooltip } from './lib/tooltip.js';
 import { renderOverview }  from './tabs/overview.js';
 import { renderMonsters }  from './tabs/monsters.js';
 import { renderMaps }      from './tabs/maps.js';
@@ -253,9 +254,12 @@ Router.onRouteChange((tab, query, params) => {
     tabManager.switchTab(tabId, false, query);
     return;
   }
-  tabManager.switchTab(tabId, false, query);
+  // A bare `q` (deep link) goes through the search navigator; anything richer
+  // (filters, `open` row) is a saved list state, so re-apply the full params.
+  const fullParams = FILTER_TABS.has(tabId) && [...params.keys()].some(k => k !== 'q');
+  tabManager.switchTab(tabId, false, fullParams ? null : query);
   if (tabId === 'formulas') tabManager.navigators.formulas?.(params);
-  else if (FILTER_TABS.has(tabId) && !query) tabManager.navigators[tabId]?.(params);
+  else if (FILTER_TABS.has(tabId) && (fullParams || !query)) tabManager.navigators[tabId]?.(params);
 });
 
 async function showMapleTip() {
@@ -465,6 +469,9 @@ async function init() {
     onTabSwitch: (() => {
       let prev = null;
       return (id) => {
+        // A hover tooltip is a body-level div, so it survives the panel swap
+        // (and on touch there may never have been a mouseleave). Dismiss it.
+        hideItemTooltip();
         if (prev !== null && prev !== id) {
           hideFilterBanner();
           if (tabManager?.panelCache[prev]) {

@@ -56,10 +56,44 @@ function hideStatusTooltip() {
   _statusTip?.classList.remove('visible');
 }
 
+// Touch browsers synthesize mouseenter on tap without a matching mouseleave
+// (and on iOS often without a click), so a tapped status tag would stick
+// around while scrolling and across tab switches. Mirror the global dismiss
+// in lib/tooltip.js for this separate body-level div.
+let _dismissInstalled = false;
+function installGlobalDismiss() {
+  if (_dismissInstalled) return;
+  _dismissInstalled = true;
+  document.addEventListener('scroll', hideStatusTooltip, { capture: true, passive: true });
+  window.addEventListener('resize', hideStatusTooltip);
+  window.addEventListener('orientationchange', hideStatusTooltip);
+  // pointerdown fires before the tap-synthesized mouseenter, so hiding here
+  // still lets a tap on a new tag show its tooltip right after.
+  document.addEventListener('pointerdown', hideStatusTooltip, { capture: true, passive: true });
+  document.addEventListener('touchmove', hideStatusTooltip, { capture: true, passive: true });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideStatusTooltip(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) hideStatusTooltip(); });
+  window.addEventListener('hashchange', hideStatusTooltip);
+  window.addEventListener('pagehide', hideStatusTooltip);
+}
+
 export function attachTooltip(tag, text) {
   if (!text) return tag;
+  installGlobalDismiss();
   tag.addEventListener('mouseenter', () => showStatusTooltip(tag, text));
   tag.addEventListener('mouseleave', hideStatusTooltip);
+  tag.addEventListener('focus', () => showStatusTooltip(tag, text));
+  tag.addEventListener('blur', hideStatusTooltip);
+  // Tap toggles: a tap that opened the tooltip (pressed while hidden) leaves
+  // it readable until the next tap/scroll, while tapping an already-open tag
+  // dismisses it.
+  let pressedWithTipVisible = false;
+  tag.addEventListener('pointerdown', () => {
+    pressedWithTipVisible = !!_statusTip?.classList.contains('visible');
+  }, { capture: true });
+  tag.addEventListener('click', () => {
+    if (pressedWithTipVisible) hideStatusTooltip();
+  }, true);
   return tag;
 }
 

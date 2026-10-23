@@ -231,6 +231,8 @@ export function renderSkills(data, options = {}) {
   let searchBox;
   searchBox = wireSearch(toolbar, 'Search all skills by name, description, or mechanic...', options, (query) => {
     searchQuery = query;
+    // Typing replaces the current entry, so Back returns to this search.
+    Router.updateFilter('skills', currentFilterParams());
     renderData();
   }, (id) => {
     classFilter = '';
@@ -599,9 +601,10 @@ export function renderSkills(data, options = {}) {
         if (skill.id != null) {
           card.addEventListener('click', (event) => {
             if (event.target.closest('button, input, a, .skill-advanced')) return;
-            history.replaceState(null, '', `#skills?q=${encodeURIComponent('id:' + padSkillId(skill.id))}`);
             const levelsList = card.querySelector('.all-levels-list');
             const arrow = card.querySelector('.all-levels-arrow');
+            const willExpand = levelsList ? levelsList.hidden : advanced.hidden;
+            Router.setOpenRow('skills', willExpand ? padSkillId(skill.id) : null);
             if (levelsList) {
               levelsList.hidden = !levelsList.hidden;
               if (arrow) arrow.textContent = levelsList.hidden ? '▼' : '▲';
@@ -668,7 +671,8 @@ export function renderSkills(data, options = {}) {
     viewAll = get('view') === 'all' && !classFilter;
     const q = get('q') || '';
     const exactId = parseIdFilter(q);
-    autoExpandAfterId = exactId != null ? exactId : null;
+    // `open` is the row that was expanded when this entry was left.
+    autoExpandAfterId = exactId != null ? exactId : (get('open') ? Number(get('open')) : null);
     searchQuery = q;
     if (searchBox) {
       searchBox._input.value = q;

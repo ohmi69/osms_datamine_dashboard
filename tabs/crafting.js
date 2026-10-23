@@ -134,6 +134,8 @@ export function renderCrafting(data, options = {}) {
   let searchNavigate = null;
   const searchBox = wireSearch(toolbar, 'Search by result or ingredient...', { ...options, setNavigate: (fn) => { searchNavigate = fn; } }, (query) => {
     searchQuery = query;
+    // Typing replaces the current entry, so Back returns to this search.
+    Router.updateFilter('crafting', currentFilterParams());
     renderData();
   }, (id) => {
     autoExpandAfterId = id;
@@ -145,7 +147,10 @@ export function renderCrafting(data, options = {}) {
     ...recipes.disciplines.map((discipline) => ({ label: discipline.discipline, value: discipline.discipline }))
   ];
   function currentFilterParams() {
-    return selectedDiscipline ? { discipline: selectedDiscipline } : {};
+    return {
+      ...(searchQuery && { q: searchQuery }),
+      ...(selectedDiscipline && { discipline: selectedDiscipline }),
+    };
   }
 
   // Discrete pill navigation gets its own history entry so Back walks back
@@ -277,7 +282,7 @@ export function renderCrafting(data, options = {}) {
             if (recipe.output_id != null) {
               row.addEventListener('click', (e) => {
                 if (e.target.closest('button, input')) return;
-                history.replaceState(null, '', `#crafting?q=${encodeURIComponent('id:' + padItemId(recipe.output_id))}`);
+                Router.setOpenRow('crafting', padItemId(recipe.output_id));
                 document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
                 row.classList.add('row-hotlink');
                 scrollToDetailRow(row, row);
@@ -364,7 +369,8 @@ export function renderCrafting(data, options = {}) {
     }
     const q = get('q') || '';
     const exactId = parseIdFilter(q);
-    autoExpandAfterId = exactId != null ? exactId : null;
+    // `open` is the row that was expanded when this entry was left.
+    autoExpandAfterId = exactId != null ? exactId : (get('open') ? Number(get('open')) : null);
     searchQuery = q;
     if (searchBox) {
       searchBox._input.value = q;

@@ -548,7 +548,7 @@ export function renderQuestCard(quest, completionState, onToggleCompletion, item
           if (descEl) descEl.hidden = false;
           card.classList.remove('quest-expanded', 'row-hotlink');
           if (expandedIds) expandedIds.delete(String(quest.id));
-          history.replaceState(null, '', '#quests');
+          Router.setOpenRow('quests', null);
           return;
         }
         detailSection.hidden = false;
@@ -557,7 +557,7 @@ export function renderQuestCard(quest, completionState, onToggleCompletion, item
         card.classList.add('quest-expanded');
         if (expandedIds) expandedIds.add(String(quest.id));
       }
-      history.replaceState(null, '', `#quests?q=${encodeURIComponent('id:' + padQuestId(quest.id))}`);
+      Router.setOpenRow('quests', padQuestId(quest.id));
       document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
       card.classList.add('row-hotlink');
       scrollToDetailRow(card, detailSection || card);
@@ -741,6 +741,8 @@ export function renderQuests(data, options = {}) {
   let searchNavigate = null;
   const searchBox = wireSearch(toolbar, 'Search by name, NPC, or reward...', { ...options, setNavigate: (fn) => { searchNavigate = fn; } }, (query) => {
     searchQuery = query;
+    // Typing replaces the current entry, so Back returns to this search.
+    Router.updateFilter('quests', currentFilterParams());
     renderData();
   }, (id) => {
     autoExpandAfterId = id;
@@ -1066,7 +1068,8 @@ export function renderQuests(data, options = {}) {
     }
     const q = get('q') || '';
     const exactId = parseIdFilter(q);
-    autoExpandAfterId = exactId != null ? exactId : null;
+    // `open` is the row that was expanded when this entry was left.
+    autoExpandAfterId = exactId != null ? exactId : (get('open') ? Number(get('open')) : null);
     searchQuery = q;
     if (searchBox) {
       searchBox._input.value = q;

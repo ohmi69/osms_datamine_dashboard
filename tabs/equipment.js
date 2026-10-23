@@ -53,7 +53,7 @@ function renderEquipRow(item, includeCompare = true, questRewards = null) {
       if (craftingPanel) row.insertBefore(craftingPanel, compare || null);
     }
     if (craftingPanel) craftingPanel.hidden = !expanded;
-    history.replaceState(null, '', `#equipment?q=${encodeURIComponent('id:' + padItemId(item.id))}`);
+    Router.setOpenRow('equipment', expanded ? padItemId(item.id) : null);
     document.querySelectorAll('.row-hotlink').forEach(r => r.classList.remove('row-hotlink'));
     if (expanded) {
       row.classList.add('row-hotlink');
@@ -127,6 +127,8 @@ export function renderEquipment(data, options = {}) {
   let searchNavigate = null;
   const searchBox = wireSearch(toolbar, 'Search by name or description...', { ...options, setNavigate: (fn) => { searchNavigate = fn; } }, (query) => {
     searchQuery = query;
+    // Typing replaces the current entry, so Back returns to this search.
+    Router.updateFilter('equipment', currentFilterParams());
     renderData();
   }, (id) => {
     autoExpandAfterId = id;
@@ -165,6 +167,7 @@ export function renderEquipment(data, options = {}) {
 
   function currentFilterParams() {
     return {
+      ...(searchQuery && { q: searchQuery }),
       ...(classFilter !== 0 && { class: String(classFilter) }),
       ...(genderFilter && { gender: genderFilter }),
       ...(selectedSubCategory && { type: selectedSubCategory }),
@@ -406,7 +409,8 @@ export function renderEquipment(data, options = {}) {
     }
     const q = get('q') || '';
     const exactId = parseIdFilter(q);
-    autoExpandAfterId = exactId != null ? exactId : null;
+    // `open` is the row that was expanded when this entry was left.
+    autoExpandAfterId = exactId != null ? exactId : (get('open') ? Number(get('open')) : null);
     searchQuery = q;
     if (searchBox) {
       searchBox._input.value = q;
