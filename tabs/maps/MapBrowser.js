@@ -122,7 +122,15 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
   let autoExpandAfterId = null;
   let renderGen = 0;
   let selfNavigate = null;
-  const getSelfNavigate = () => selfNavigate;
+  // In-tab jumps (portals, exit chips) push their own entry so Back returns to
+  // the map the link was on; expanding the destination row only replaces it.
+  const jumpToMap = (id) => {
+    if (!selfNavigate) return;
+    const hash = `#maps?q=${encodeURIComponent('id:' + padMapId(id))}`;
+    if (window.location.hash !== hash) history.pushState(null, '', hash);
+    selfNavigate({ id, autoExpand: true });
+  };
+  const getSelfNavigate = () => selfNavigate && jumpToMap;
 
   const searchBox = makeSearchBox('Search by name, mob, or NPC...', (value) => {
     searchQuery = value;
@@ -232,7 +240,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         const chip = makeTabLink('maps', `id:${padMapId(exit.id)}`, {
           className: 'map-exit-chip',
           title: `Go to map: ${exit.name}`,
-          onActivate: () => { if (selfNavigate) selfNavigate({ id: exit.id, autoExpand: true }); },
+          onActivate: () => jumpToMap(exit.id),
           stopPropagation: true,
         });
         chip.appendChild(el('span', { className: 'map-exit-chip-arrow', textContent: '→' }));

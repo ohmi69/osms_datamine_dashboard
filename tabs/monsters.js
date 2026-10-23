@@ -486,8 +486,12 @@ export function renderMonsters(data, options = {}) {
     { groupLabel: 'Mob Type:' }
   );
 
-  // Death-spawn chips jump between mobs without leaving the tab.
+  // Death-spawn chips jump between mobs without leaving the tab. Push an entry
+  // so Back returns to the mob the chip was on; expanding the row only
+  // replaces it.
   function focusMonster(id) {
+    const hash = `#monsters?q=${encodeURIComponent('id:' + padMobId(id))}`;
+    if (window.location.hash !== hash) history.pushState(null, '', hash);
     autoExpandAfterId = id;
     filter = '';
     searchBox._input.value = '';

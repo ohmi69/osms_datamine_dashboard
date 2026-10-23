@@ -189,8 +189,8 @@ export function attachPortalOverlay(imgContainer, img, mapEntry, getSelfNavigate
           if (e.defaultPrevented || e.button !== 0
               || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
           e.preventDefault();
-          const selfNavigate = getSelfNavigate();
-          if (selfNavigate) selfNavigate({ id: Number(portal.dest_map), autoExpand: true });
+          const jumpToMap = getSelfNavigate();
+          if (jumpToMap) jumpToMap(Number(portal.dest_map));
         }
       });
       attachTooltip(overlay, () => ({ portal, mapEntry, mobs: mapMobs.get(mapEntry.id), showAllIntra }), 'portal');
