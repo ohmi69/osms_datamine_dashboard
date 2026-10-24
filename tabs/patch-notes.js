@@ -696,6 +696,140 @@ function buildSectionBody(section, entries, onNavigate, ctx) {
   return body;
 }
 
+// Patch picker: a custom listbox rather than a <select>, so each entry can show its
+// step name, date and build hashes at different weights, grouped by game phase.
+// Index labels read "<step> · <Mon d>" (see publish_patch_notes in run_pipeline.py).
+const PHASE_GROUPS = {
+  'Founders Access': 'Founders Access & Public Release',
+  'Public Release': 'Founders Access & Public Release',
+};
+
+function splitDiffLabel(d) {
+  const [title, ...rest] = String(d.label || d.id).split(' · ');
+  // "COT2 → Founders Access" belongs to the phase it enters; "COT1 patch" to COT1.
+  const raw = title.split('→').pop().replace(/\s+(patch|launch)$/i, '').trim();
+  // Founders Access was the same live game, opened early; list it with Public Release.
+  const phase = PHASE_GROUPS[raw] || raw;
+  let date = rest.join(' · ');
+  if (d.date) {
+    const parsed = new Date(`${d.date}T00:00:00`);
+    if (!Number.isNaN(parsed.getTime())) {
+      date = parsed.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+  }
+  return { title, phase, date, crossing: title.includes('→') };
+}
+
+let diffPickerCount = 0;
+
+function makeDiffPicker(diffs, activeId, onChange) {
+  const id = `pn-patch-list-${++diffPickerCount}`;
+  const items = diffs.map((d) => ({ diff: d, ...splitDiffLabel(d) }));
+  const wrap = el('div', { className: 'pn-patch-picker' });
+  wrap.appendChild(el('span', { className: 'pill-group-label', textContent: 'Patch:' }));
+
+  const trigger = el('button', {
+    type: 'button', className: 'pn-patch-trigger',
+    'aria-haspopup': 'listbox', 'aria-expanded': 'false', 'aria-controls': id,
+  });
+  const triggerTitle = el('span', { className: 'pn-patch-trigger-title' });
+  const triggerMeta = el('span', { className: 'pn-patch-trigger-meta' });
+  trigger.append(
+    el('span', { className: 'pn-patch-trigger-text' }, triggerTitle, triggerMeta),
+    el('span', { className: 'pn-patch-chevron', 'aria-hidden': 'true' }),
+  );
+
+  const panel = el('div', { className: 'pn-patch-panel', id, role: 'listbox', tabindex: '-1', 'aria-label': 'Patch' });
+  const options = [];
+  let lastPhase = null;
+  items.forEach((item, i) => {
+    if (item.phase !== lastPhase) {
+      panel.appendChild(el('div', { className: 'pn-patch-group', role: 'presentation', textContent: item.phase }));
+      lastPhase = item.phase;
+    }
+    const builds = item.diff.before && item.diff.after ? `${item.diff.before} → ${item.diff.after}` : '';
+    const option = el('div', {
+      className: `pn-patch-option${item.crossing ? ' pn-patch-option-major' : ''}`,
+      role: 'option', id: `${id}-${i}`, 'aria-selected': 'false',
+    },
+    el('span', { className: 'pn-patch-option-main' },
+      el('span', { className: 'pn-patch-option-title', textContent: item.title }),
+      el('span', { className: 'pn-patch-option-date', textContent: item.date })),
+    builds ? el('span', { className: 'pn-patch-option-builds', textContent: builds }) : null);
+    option.addEventListener('mousedown', (e) => e.preventDefault()); // keep focus on the list
+    option.addEventListener('click', () => choose(i));
+    panel.appendChild(option);
+    options.push(option);
+  });
+  // The list hangs from the button, not the "Patch:" label beside it.
+  wrap.appendChild(el('div', { className: 'pn-patch-anchor' }, trigger, panel));
+
+  let selected = Math.max(0, items.findIndex((it) => it.diff.id === activeId));
+  let active = selected;
+
+  function paint() {
+    const item = items[selected];
+    triggerTitle.textContent = item.title;
+    triggerMeta.textContent = [item.date, item.diff.before && item.diff.after
+      ? `${item.diff.before} → ${item.diff.after}` : ''].filter(Boolean).join(' · ');
+    options.forEach((o, i) => {
+      o.setAttribute('aria-selected', String(i === selected));
+      o.classList.toggle('active', i === active);
+    });
+    panel.setAttribute('aria-activedescendant', options[active]?.id || '');
+  }
+  function setOpen(open) {
+    wrap.classList.toggle('open', open);
+    trigger.setAttribute('aria-expanded', String(open));
+    if (open) {
+      active = selected;
+      paint();
+      panel.focus();
+      options[active]?.scrollIntoView({ block: 'nearest' });
+    }
+  }
+  function choose(i) {
+    const changed = i !== selected;
+    selected = active = i;
+    paint();
+    setOpen(false);
+    trigger.focus();
+    if (changed) onChange(items[i].diff.id);
+  }
+
+  trigger.addEventListener('click', () => setOpen(!wrap.classList.contains('open')));
+  trigger.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); setOpen(true); }
+  });
+  panel.addEventListener('keydown', (e) => {
+    const last = options.length - 1;
+    const move = { ArrowDown: active + 1, ArrowUp: active - 1, Home: 0, End: last, PageDown: active + 5, PageUp: active - 5 }[e.key];
+    if (move !== undefined) {
+      e.preventDefault();
+      active = Math.min(last, Math.max(0, move));
+      paint();
+      options[active].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      choose(active);
+    } else if (e.key === 'Escape' || e.key === 'Tab') {
+      if (e.key === 'Escape') { e.preventDefault(); trigger.focus(); }
+      setOpen(false);
+    }
+  });
+  panel.addEventListener('focusout', (e) => {
+    if (!wrap.contains(e.relatedTarget)) setOpen(false);
+  });
+
+  paint();
+  const host = el('div', { className: 'pn-diff-picker-wrap' }, wrap);
+  host.setActive = (diffId) => {
+    const i = items.findIndex((it) => it.diff.id === diffId);
+    if (i >= 0) { selected = active = i; paint(); }
+  };
+  return host;
+}
+
 // `patchNotes` is either one notes object or { diffs, initial } from
 // loadPatchNotes when the dataset carries several diffs. In the latter case a
 // picker above the header swaps the page between them; `?diff=<id>` in the
@@ -710,7 +844,8 @@ export function renderPatchNotes(patchNotes, options = {}) {
   let picker = null;
 
   const show = async (id, { push = false, params = null } = {}) => {
-    const diff = diffs.find((d) => d.id === id) || diffs[0];
+    // `aliases` keeps links to retired diff ids (the old milestone pills) working.
+    const diff = diffs.find((d) => d.id === id || d.aliases?.includes(id)) || diffs[0];
     picker.setActive(diff.id);
     if (push) {
       const hash = diff.id === diffs[0].id ? '#patchnotes' : `#patchnotes?diff=${encodeURIComponent(diff.id)}`;
@@ -723,12 +858,7 @@ export function renderPatchNotes(patchNotes, options = {}) {
     host.replaceChildren(buildNotesPage(cache.get(diff.id), { ...options, initialParams: params }, picker));
   };
 
-  picker = makePillGroup(
-    diffs.map((d) => ({ label: d.label, value: d.id })),
-    diffs[0].id,
-    (id) => show(id, { push: true }),
-    { groupLabel: 'Update:', className: 'pn-diff-picker' },
-  );
+  picker = makeDiffPicker(diffs, diffs[0].id, (id) => show(id, { push: true }));
 
   const params = options.initialParams;
   show(params?.get?.('diff') || diffs[0].id, { params });

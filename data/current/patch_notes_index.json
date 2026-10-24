@@ -1,6 +1,109 @@
 {
   "diffs": [
-    { "id": "public-release", "file": "patch_notes.json", "label": "Founders Access → Public Release" },
-    { "id": "founders-access", "file": "patch_notes_cot2.json", "label": "COT2 → Founders Access" }
+    {
+      "id": "patch-53df5677",
+      "file": "patch_notes/9e08237e_to_53df5677.json",
+      "label": "Public Release patch · Oct 22",
+      "kind": "patch",
+      "date": "2026-10-22",
+      "before": "9e08237e",
+      "after": "53df5677"
+    },
+    {
+      "id": "patch-9e08237e",
+      "file": "patch_notes/eedf4bf1_to_9e08237e.json",
+      "label": "Founders Access → Public Release · Oct 20",
+      "kind": "patch",
+      "date": "2026-10-20",
+      "before": "eedf4bf1",
+      "after": "9e08237e",
+      "aliases": [
+        "public-release"
+      ]
+    },
+    {
+      "id": "patch-eedf4bf1",
+      "file": "patch_notes/71eb67bc_to_eedf4bf1.json",
+      "label": "Founders Access patch · Oct 14",
+      "kind": "patch",
+      "date": "2026-10-14",
+      "before": "71eb67bc",
+      "after": "eedf4bf1"
+    },
+    {
+      "id": "patch-71eb67bc",
+      "file": "patch_notes/3b176a48_to_71eb67bc.json",
+      "label": "Founders Access patch · Oct 8",
+      "kind": "patch",
+      "date": "2026-10-08",
+      "before": "3b176a48",
+      "after": "71eb67bc"
+    },
+    {
+      "id": "patch-3b176a48",
+      "file": "patch_notes/008afa8c_to_3b176a48.json",
+      "label": "Founders Access patch · Oct 6",
+      "kind": "patch",
+      "date": "2026-10-06",
+      "before": "008afa8c",
+      "after": "3b176a48"
+    },
+    {
+      "id": "patch-008afa8c",
+      "file": "patch_notes/321d2f36_to_008afa8c.json",
+      "label": "COT2 → Founders Access · Oct 5",
+      "kind": "patch",
+      "date": "2026-10-05",
+      "before": "321d2f36",
+      "after": "008afa8c",
+      "aliases": [
+        "founders-access"
+      ]
+    },
+    {
+      "id": "patch-321d2f36",
+      "file": "patch_notes/0a8ccb68_to_321d2f36.json",
+      "label": "COT2 patch · Aug 11",
+      "kind": "patch",
+      "date": "2026-08-11",
+      "before": "0a8ccb68",
+      "after": "321d2f36"
+    },
+    {
+      "id": "patch-0a8ccb68",
+      "file": "patch_notes/c80c0a8a_to_0a8ccb68.json",
+      "label": "COT1 → COT2 · Aug 3",
+      "kind": "patch",
+      "date": "2026-08-03",
+      "before": "c80c0a8a",
+      "after": "0a8ccb68"
+    },
+    {
+      "id": "patch-c80c0a8a",
+      "file": "patch_notes/903789f6_to_c80c0a8a.json",
+      "label": "COT1 patch · Apr 20",
+      "kind": "patch",
+      "date": "2026-04-20",
+      "before": "903789f6",
+      "after": "c80c0a8a"
+    },
+    {
+      "id": "patch-903789f6",
+      "file": "patch_notes/4237b973_to_903789f6.json",
+      "label": "COT1 patch · Apr 16",
+      "kind": "patch",
+      "date": "2026-04-16",
+      "before": "4237b973",
+      "after": "903789f6"
+    },
+    {
+      "id": "patch-4237b973",
+      "file": "patch_notes/1e3d2d3b_to_4237b973.json",
+      "label": "COT1 patch · Apr 13",
+      "kind": "patch",
+      "date": "2026-04-13",
+      "before": "1e3d2d3b",
+      "after": "4237b973"
+    }
   ]
 }
