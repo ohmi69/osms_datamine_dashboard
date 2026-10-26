@@ -36,6 +36,7 @@ import { renderFormulasCot1 } from './tabs/formulas-cot1.js';
 import { renderFormulasCot2 } from './tabs/formulas-cot2.js';
 import { renderNavigatorGame } from './tabs/navigator-game.js';
 import { renderPatchNotes } from './tabs/patch-notes.js';
+import { renderApi }       from './tabs/api.js';
 import { buildGlobalSearchIndex } from './lib/global-search.js';
 
 
@@ -201,8 +202,16 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
       icon: ICONS.sparkles,
       render: ({ setNavigate }) => renderBeautyStyles(appData, { setNavigate })
     },
+    {
+      id: 'api',
+      label: 'API',
+      icon: ICONS.code,
+      render: () => renderApi()
+    },
   ];
   if (!isTimeTravelMode) return tabs;
+  // The API page describes the current dataset only.
+  tabs.splice(tabs.findIndex(t => t.id === 'api'), 1);
   // cot1 and cot2 keep frozen snapshots of the formulas page; older patches have none.
   if (patchVersion === 'cot1') {
     return tabs.map(t => (t.id === 'formulas' ? {
