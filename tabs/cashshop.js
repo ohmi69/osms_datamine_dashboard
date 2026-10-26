@@ -1,6 +1,5 @@
-import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeHideToggle, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
+import { el, matchSearch, makeCollapsible, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
-import state from '../lib/data.js';
 
 export function renderCashShop(data, options = {}) {
   const { cashShop } = data;
@@ -72,18 +71,6 @@ export function renderCashShop(data, options = {}) {
   const subPillRow = el('div', { className: 'sub-pill-row hidden' });
   toolbar.appendChild(subPillRow);
 
-  // Hide unavailable toggle
-  // Use StateManager for hideUnavailable
-  let hideUnavailable = state.get('cashshop_hide_unavailable', false);
-
-  const SHOW_PRICE = true;
-  const toggleRow = el('div', { className: 'cashshop-toggle-row' });
-  toggleRow.appendChild(makeHideToggle('Hide Unavailable', hideUnavailable, (active) => {
-    hideUnavailable = active;
-    state.set('cashshop_hide_unavailable', hideUnavailable);
-    renderData();
-  }));
-  toolbar.appendChild(toggleRow);
   enableMobileFilterDrawer(toolbar, { keep: [searchBox] });
   container.appendChild(toolbar);
 
@@ -137,14 +124,10 @@ export function renderCashShop(data, options = {}) {
       })
     );
     nameWrap.appendChild(el('span', { className: 'name', textContent: item.name || fallbackLabel || '' }));
-    if (item.on_sale === false) {
-      nameWrap.appendChild(el('span', { className: 'cashshop-badge--unavailable', textContent: 'Unavailable' }));
-    }
     if (item.period && item.period > 0) {
       nameWrap.appendChild(el('span', { className: 'cashshop-badge--period', textContent: `${item.period}d` }));
     }
-    // Show price only if available and internal flag is true
-    if (SHOW_PRICE && item.price != null && item.on_sale !== false) {
+    if (item.price != null) {
       const priceLabel = el('span', { className: 'cashshop-badge--price', textContent: `${item.price} NX` });
       nameWrap.appendChild(priceLabel);
     }
@@ -211,7 +194,6 @@ export function renderCashShop(data, options = {}) {
         .map((category) => ({
           ...category,
           items: category.items.filter((item) => {
-            if (hideUnavailable && item.on_sale === false) return false;
             if (exactId != null) return Number(item.id) === exactId;
             return matchSearch(item.name, searchQuery) || matchSearch(item.description, searchQuery);
           }),
@@ -223,7 +205,6 @@ export function renderCashShop(data, options = {}) {
         .map((category) => ({
           ...category,
           items: category.items.filter((item) => {
-            if (hideUnavailable && item.on_sale === false) return false;
             if (exactId != null) return Number(item.id) === exactId;
             if (!matchSearch(item.name, searchQuery) && !matchSearch(item.description, searchQuery)) return false;
             if (selectedSubCategory && item.sub_category !== selectedSubCategory) return false;

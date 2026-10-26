@@ -7,26 +7,12 @@
   flex-wrap: wrap;
 }
 
-.cashshop-toggle-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 8px 0;
-}
-
-.cashshop-badge--unavailable,
 .cashshop-badge--period,
 .cashshop-badge--pet {
   font-size: 11px;
   padding: 1px 6px;
   border-radius: 3px;
   white-space: nowrap;
-}
-
-.cashshop-badge--unavailable {
-  background: #ef444422;
-  color: #ef4444;
-  border: 1px solid #ef444444;
 }
 
 .cashshop-badge--period {
@@ -66,7 +52,6 @@
 }
 
 @media (max-width: 640px) {
-  .cashshop-toggle-row { align-items: flex-start; flex-wrap: wrap; }
   .cashshop-name-wrap { min-width: 0; }
   .cashshop-badge--price { margin-left: 0; }
 }
