@@ -575,16 +575,19 @@ const MOD_PIPELINE_STEPS = [
     label: 'Iron Arrow Falloff (Crossbow only)',
     wip: false,
     status: 'stale',
-    statusNote: 'Re-derived from the current version, hard-coded to Iron Arrow: Crossbow by skill ID.',
+    statusNote: 'Re-derived from the current version, hard-coded to Iron Arrow: Crossbow by skill ID. The client applies no target cap of its own, so the cap is the skill data mobCount.',
     lines: [
       'Damage = Damage × 0.8^ConsecutiveHits',
-      '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.64,  4th: ×0.512',
+      '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.64,  4th: ×0.512,  5th: ×0.4096,  6th: ×0.32768',
     ],
     notes: [
       'No other skill in the game uses this step',
-      'The skill caps at 4 targets. This geometric falloff differs from the earlier linear formula starting at the third target.',
+      'The skill hits up to 6 targets at every level. This geometric falloff differs from the earlier linear formula starting at the third target.',
     ],
-    cot2: { notes: ['The 3rd and 4th targets take more damage: their falloff rises from ×0.60 to ×0.64 and from ×0.40 to ×0.512.'] },
+    cot2: { notes: [
+      'The target cap rose from 4 to 6, so the 5th and 6th monsters are now hit as well.',
+      'The 3rd and 4th targets take more damage: their falloff rises from ×0.60 to ×0.64 and from ×0.40 to ×0.512.',
+    ] },
   },
   {
     label: 'Shadow Partner (Hermit)',
