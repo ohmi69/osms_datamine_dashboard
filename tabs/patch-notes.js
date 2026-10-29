@@ -112,7 +112,10 @@ function buildHeader(notes) {
 
   const side = (meta) => {
     const wrap = el('div', { className: 'pn-side' });
-    wrap.appendChild(el('div', { className: 'pn-side-label', textContent: meta.label }));
+    // version is the client's "Ver." label; it doesn't change every patch, so the
+    // build label stays beside it.
+    const label = meta.version ? `v${meta.version} · ${meta.label}` : meta.label;
+    wrap.appendChild(el('div', { className: 'pn-side-label', textContent: label }));
     if (meta.date) {
       wrap.appendChild(el('div', { className: 'pn-side-date', textContent: formatDate(meta.date) }));
     }
@@ -705,19 +708,14 @@ function buildSectionBody(section, entries, onNavigate, ctx) {
 }
 
 // Patch picker: a custom listbox rather than a <select>, so each entry can show its
-// step name, date and build hashes at different weights, grouped by game phase.
-// Index labels read "<step> · <Mon d>" (see publish_patch_notes in run_pipeline.py).
-const PHASE_GROUPS = {
-  'Founders Access': 'Founders Access & Public Release',
-  'Public Release': 'Founders Access & Public Release',
-};
-
+// title and date at different weights, grouped by game phase. Index labels read
+// "<title> · <Mon d>", the title being the new client version, or "Patch <hash>" when
+// the version didn't change (see patch_label in run_pipeline.py).
 function splitDiffLabel(d) {
   const [title, ...rest] = String(d.label || d.id).split(' · ');
   // "COT2 → Founders Access" belongs to the phase it enters; "COT1 patch" to COT1.
-  const raw = title.split('→').pop().replace(/\s+(patch|launch)$/i, '').trim();
-  // Founders Access was the same live game, opened early; list it with Public Release.
-  const phase = PHASE_GROUPS[raw] || raw;
+  // Titles are versions ("v1.1.0 · Oct 28"), so entries carry their phase explicitly.
+  const phase = d.phase || title.split('→').pop().replace(/\s+(patch|launch)$/i, '').trim();
   let date = rest.join(' · ');
   if (d.date) {
     const parsed = new Date(`${d.date}T00:00:00`);
@@ -725,7 +723,16 @@ function splitDiffLabel(d) {
       date = parsed.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     }
   }
-  return { title, phase, date, crossing: title.includes('→') };
+  // Versioned entries already name the build in their title ("v1.1.0" or
+  // "Patch 71eb67bc"), so only unversioned ones get a builds line.
+  const builds = d.after_version ? '' : buildsText(d);
+  return { title, phase, date, builds, crossing: d.phase_change ?? title.includes('→') };
+}
+
+// "v1.0.1 → v1.1.0"; build hashes only for entries without versions.
+function buildsText(d) {
+  if (d.before_version && d.after_version) return `v${d.before_version} → v${d.after_version}`;
+  return d.before && d.after ? `${d.before} → ${d.after}` : '';
 }
 
 let diffPickerCount = 0;
@@ -755,7 +762,7 @@ function makeDiffPicker(diffs, activeId, onChange) {
       panel.appendChild(el('div', { className: 'pn-patch-group', role: 'presentation', textContent: item.phase }));
       lastPhase = item.phase;
     }
-    const builds = item.diff.before && item.diff.after ? `${item.diff.before} → ${item.diff.after}` : '';
+    const { builds } = item;
     const option = el('div', {
       className: `pn-patch-option${item.crossing ? ' pn-patch-option-major' : ''}`,
       role: 'option', id: `${id}-${i}`, 'aria-selected': 'false',
@@ -778,8 +785,7 @@ function makeDiffPicker(diffs, activeId, onChange) {
   function paint() {
     const item = items[selected];
     triggerTitle.textContent = item.title;
-    triggerMeta.textContent = [item.date, item.diff.before && item.diff.after
-      ? `${item.diff.before} → ${item.diff.after}` : ''].filter(Boolean).join(' · ');
+    triggerMeta.textContent = [item.date, item.builds].filter(Boolean).join(' · ');
     options.forEach((o, i) => {
       o.setAttribute('aria-selected', String(i === selected));
       o.classList.toggle('active', i === active);

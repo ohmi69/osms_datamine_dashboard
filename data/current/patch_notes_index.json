@@ -3,116 +3,155 @@
     {
       "id": "patch-5236f08e",
       "file": "patch_notes/53df5677_to_5236f08e.json",
-      "label": "Public Release patch \u00b7 Oct 28",
+      "label": "v1.1.0 \u00b7 Oct 28",
       "kind": "patch",
       "date": "2026-10-28",
       "before": "53df5677",
-      "after": "5236f08e"
+      "after": "5236f08e",
+      "before_version": "1.0.1",
+      "after_version": "1.1.0",
+      "phase": "Public Release"
     },
     {
       "id": "patch-53df5677",
       "file": "patch_notes/9e08237e_to_53df5677.json",
-      "label": "Public Release patch \u00b7 Oct 22",
+      "label": "v1.0.1 \u00b7 Oct 22",
       "kind": "patch",
       "date": "2026-10-22",
       "before": "9e08237e",
-      "after": "53df5677"
+      "after": "53df5677",
+      "before_version": "1.0.0",
+      "after_version": "1.0.1",
+      "phase": "Public Release"
     },
     {
       "id": "patch-9e08237e",
       "file": "patch_notes/eedf4bf1_to_9e08237e.json",
-      "label": "Founders Access \u2192 Public Release \u00b7 Oct 20",
+      "label": "v1.0.0 \u00b7 Oct 20",
       "kind": "patch",
       "date": "2026-10-20",
       "before": "eedf4bf1",
       "after": "9e08237e",
       "aliases": [
         "public-release"
-      ]
+      ],
+      "before_version": "0.9.1",
+      "after_version": "1.0.0",
+      "phase": "Public Release",
+      "phase_change": true
     },
     {
       "id": "patch-eedf4bf1",
       "file": "patch_notes/71eb67bc_to_eedf4bf1.json",
-      "label": "Founders Access patch \u00b7 Oct 14",
+      "label": "v0.9.1 \u00b7 Oct 14",
       "kind": "patch",
       "date": "2026-10-14",
       "before": "71eb67bc",
-      "after": "eedf4bf1"
+      "after": "eedf4bf1",
+      "before_version": "0.9.0",
+      "after_version": "0.9.1",
+      "phase": "Founders Access"
     },
     {
       "id": "patch-71eb67bc",
       "file": "patch_notes/3b176a48_to_71eb67bc.json",
-      "label": "Founders Access patch \u00b7 Oct 8",
+      "label": "Patch 71eb67bc \u00b7 Oct 8",
       "kind": "patch",
       "date": "2026-10-08",
       "before": "3b176a48",
-      "after": "71eb67bc"
+      "after": "71eb67bc",
+      "before_version": "0.9.0",
+      "after_version": "0.9.0",
+      "phase": "Founders Access"
     },
     {
       "id": "patch-3b176a48",
       "file": "patch_notes/008afa8c_to_3b176a48.json",
-      "label": "Founders Access patch \u00b7 Oct 6",
+      "label": "Patch 3b176a48 \u00b7 Oct 6",
       "kind": "patch",
       "date": "2026-10-06",
       "before": "008afa8c",
-      "after": "3b176a48"
+      "after": "3b176a48",
+      "before_version": "0.9.0",
+      "after_version": "0.9.0",
+      "phase": "Founders Access"
     },
     {
       "id": "patch-008afa8c",
       "file": "patch_notes/321d2f36_to_008afa8c.json",
-      "label": "COT2 \u2192 Founders Access \u00b7 Oct 5",
+      "label": "v0.9.0 \u00b7 Oct 5",
       "kind": "patch",
       "date": "2026-10-05",
       "before": "321d2f36",
       "after": "008afa8c",
       "aliases": [
         "founders-access"
-      ]
+      ],
+      "before_version": "0.3.0",
+      "after_version": "0.9.0",
+      "phase": "Founders Access",
+      "phase_change": true
     },
     {
       "id": "patch-321d2f36",
       "file": "patch_notes/0a8ccb68_to_321d2f36.json",
-      "label": "COT2 patch \u00b7 Aug 11",
+      "label": "Patch 321d2f36 \u00b7 Aug 11",
       "kind": "patch",
       "date": "2026-08-11",
       "before": "0a8ccb68",
-      "after": "321d2f36"
+      "after": "321d2f36",
+      "before_version": "0.3.0",
+      "after_version": "0.3.0",
+      "phase": "COT2"
     },
     {
       "id": "patch-0a8ccb68",
       "file": "patch_notes/c80c0a8a_to_0a8ccb68.json",
-      "label": "COT1 \u2192 COT2 \u00b7 Aug 3",
+      "label": "v0.3.0 \u00b7 Aug 3",
       "kind": "patch",
       "date": "2026-08-03",
       "before": "c80c0a8a",
-      "after": "0a8ccb68"
+      "after": "0a8ccb68",
+      "before_version": "0.1.0",
+      "after_version": "0.3.0",
+      "phase": "COT2",
+      "phase_change": true
     },
     {
       "id": "patch-c80c0a8a",
       "file": "patch_notes/903789f6_to_c80c0a8a.json",
-      "label": "COT1 patch \u00b7 Apr 20",
+      "label": "Patch c80c0a8a \u00b7 Apr 20",
       "kind": "patch",
       "date": "2026-04-20",
       "before": "903789f6",
-      "after": "c80c0a8a"
+      "after": "c80c0a8a",
+      "before_version": "0.1.0",
+      "after_version": "0.1.0",
+      "phase": "COT1"
     },
     {
       "id": "patch-903789f6",
       "file": "patch_notes/4237b973_to_903789f6.json",
-      "label": "COT1 patch \u00b7 Apr 16",
+      "label": "Patch 903789f6 \u00b7 Apr 16",
       "kind": "patch",
       "date": "2026-04-16",
       "before": "4237b973",
-      "after": "903789f6"
+      "after": "903789f6",
+      "before_version": "0.1.0",
+      "after_version": "0.1.0",
+      "phase": "COT1"
     },
     {
       "id": "patch-4237b973",
       "file": "patch_notes/1e3d2d3b_to_4237b973.json",
-      "label": "COT1 patch \u00b7 Apr 13",
+      "label": "Patch 4237b973 \u00b7 Apr 13",
       "kind": "patch",
       "date": "2026-04-13",
       "before": "1e3d2d3b",
-      "after": "4237b973"
+      "after": "4237b973",
+      "before_version": "0.1.0",
+      "after_version": "0.1.0",
+      "phase": "COT1"
     }
   ]
 }
