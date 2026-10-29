@@ -623,7 +623,7 @@ function buildGroupedList(rows, section, onNavigate, opts = {}) {
       // The rows are passed as a node rather than a builder, so they are in the
       // DOM even while the block is closed -- reveal() finds a deep-linked row
       // by query and then opens its block, which a lazy body would defeat.
-      const block = makeCollapsible(key, groupRows.length, false, null, list);
+      const block = makeCollapsible(key, groupRows.length, !!opts.expand, null, list);
       block.classList.add('pn-group');
       const counts = {};
       groupRows.forEach(({ bucket }) => {
@@ -642,15 +642,23 @@ function buildGroupedList(rows, section, onNavigate, opts = {}) {
 // hiding them by default keeps the section glanceable and prioritises new
 // content. Buckets with no entries are skipped; when a section has no Added
 // rows the first non-empty bucket opens instead, so it never lands empty.
+// A bucket this small reads fine fully expanded: tiles render as inline rows
+// (the Detailed view layout) and Skills' class groups start open. Bigger
+// buckets keep the tiles and closed groups that keep a large patch glanceable.
+const PN_EXPAND_LIMIT = 12;
+
 function buildBucketBlock(bucket, entries, section, onNavigate, defaultOpen, isFiltering, opts = {}) {
   if (!entries?.length) return null;
   const rows = entries.map((entry) => ({ entry, bucket }));
+  const expand = entries.length <= PN_EXPAND_LIMIT;
+  if (expand) opts = { ...opts, detailed: true, expand: true };
   const grouped = section.groups?.length || rows.some((r) => r.entry.group);
   const list = grouped
     ? buildGroupedList(rows, section, onNavigate, opts)
     : buildList(rows, section, onNavigate, opts);
 
-  const wrap = el('div', { className: 'pn-bucket-list' });
+  // pn-detailed reuses the page-level Detailed view styles for this bucket only.
+  const wrap = el('div', { className: `pn-bucket-list${expand ? ' pn-detailed' : ''}` });
   wrap.appendChild(list);
 
   // The generator's --max-items can cap each bucket. Say so: a silently short
