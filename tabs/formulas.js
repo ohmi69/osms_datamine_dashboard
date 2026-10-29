@@ -29,15 +29,17 @@ const EXP_TABLE = (() => {
 })();
 
 // Current version citizenship thresholds from NeedContribution / NeedLevel. Contribution
-// is the price of one grade; the counter resets on promotion.
+// is the price of one grade; the counter resets on promotion. v1.1.0 replaced the
+// NeedContribution formula with a lookup table (sub_1403166E0); see
+// tmp/patch-2026-10-29-binary-diff.md.
 // Grade names decoded from Grand Launch message IDs 6063-6072 (unchanged text; the IDs moved
 // down by ten); see tmp/grand-launch-formulas-reverify-binary.md.
 const CITIZENSHIP_GRADES = [
   [1, 0, 12, 'Traveler'], [2, 1500, 17, 'Visitor'], [3, 3500, 22, 'Helpful Stranger'],
-  [4, 6000, 27, 'Recognized Guest'], [5, 9000, 32, 'Town Resident'],
-  [6, 12500, 37, 'Trusted Neighbor'], [7, 16500, 42, 'Distinguished Citizen'],
-  [8, 21000, 47, 'Town Patron'], [9, 26000, 52, 'Guardian of the Village'],
-  [10, 32000, 57, 'Citizen of Honor'],
+  [4, 4000, 27, 'Recognized Guest'], [5, 4500, 32, 'Town Resident'],
+  [6, 5000, 37, 'Trusted Neighbor'], [7, 5500, 42, 'Distinguished Citizen'],
+  [8, 6000, 47, 'Town Patron'], [9, 6500, 52, 'Guardian of the Village'],
+  [10, 8500, 57, 'Citizen of Honor'],
 ];
 
 // Craft level, craft exp needed to finish that level, character level needed to move on
@@ -1257,7 +1259,7 @@ function buildCitizenshipTable() {
 
   container.appendChild(el('div', {
     className: 'formulas-note formulas-note--padded',
-    textContent: 'Each figure buys one grade (counter resets on grade-up). Grade 1 comes from the citizenship quest; the full climb costs 128,000 contribution.',
+    textContent: 'Each figure buys one grade (counter resets on grade-up). Grade 1 comes from the citizenship quest; the full climb costs 45,000 contribution.',
   }));
 
   return container;
@@ -2374,7 +2376,7 @@ export function renderFormulas(data, options = {}) {
     citizenship.querySelector('.right').appendChild(makeStatusTag('ok', 'Current version contribution thresholds and character-level requirements were read from the client binary. Grade names were decoded from its built-in English message table.'));
     citizenship.querySelector('.right').appendChild(buildComparisonTag());
     citizenship.querySelector('.collapsible-body').appendChild(buildComparisonNotes([
-      'Higher grades require more contribution: the full climb rises from 46,000 to 128,000 total',
+      'Grades 2-5 cost more contribution and grades 7-10 cost less; the full climb drops from 46,000 to 45,000 total',
     ]));
     return group(exp, craft, citizenship);
   };
