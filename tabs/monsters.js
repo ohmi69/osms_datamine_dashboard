@@ -215,7 +215,7 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
       stats: [
         { label: 'Level', value: monster.level, accent: true },
         { label: 'HP',    value: monster.hp },
-        { label: 'MP',    value: monster.mp },
+        { label: 'MP',    value: monster.mp ?? 0 },
         { label: 'EXP',   value: monster.exp },
         { label: 'EXP/HP', value: getExpHpRatio(monster)?.toFixed(3) ?? null },
         ...(showDefenseRatios ? DEFENSE_RATIO_COLUMNS.map(col => ({
@@ -228,14 +228,14 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
     {
       label: 'Combat',
       stats: [
-        { label: 'P.ATK', value: monster.PADamage },
-        { label: 'P.DEF', value: monster.PDDamage, showZero: true },
-        { label: 'M.ATK', value: monster.MADamage },
-        { label: 'M.DEF', value: monster.MDDamage, showZero: true },
-        { label: 'ACC',   value: monster.acc },
-        { label: 'AVOID', value: monster.eva },
-        { label: 'Speed', value: monster.speed },
-        { label: 'KB',    value: monster.pushed },
+        { label: 'P.ATK', value: monster.PADamage ?? 0 },
+        { label: 'P.DEF', value: monster.PDDamage ?? 0 },
+        { label: 'M.ATK', value: monster.MADamage ?? 0 },
+        { label: 'M.DEF', value: monster.MDDamage ?? 0 },
+        { label: 'ACC',   value: monster.acc ?? 0 },
+        { label: 'AVOID', value: monster.eva ?? 0 },
+        { label: 'Speed', value: monster.speed ?? 0 },
+        { label: 'KB',    value: monster.pushed ?? 0 },
         {
           label: 'Stagger',
           value: monster.stagger ? `${(monster.stagger / 1000).toFixed(2)}s` : null,
@@ -258,14 +258,16 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
     {
       label: 'Regen (per tick)',
       stats: [
-        { label: 'HP', value: monster.hp_recovery, accent: true },
-        { label: 'MP', value: monster.mp_recovery },
+        { label: 'HP', value: monster.hp_recovery ?? 0, accent: true },
+        { label: 'MP', value: monster.mp_recovery ?? 0 },
       ],
     },
   ];
 
+  // The extractor omits zero-valued WZ stats, so raw fields default to 0 above;
+  // only derived values (EXP/HP, stagger, meso) are hidden when absent.
   statGroups.forEach(({ label, stats, link }) => {
-    const visible = stats.filter(({ value, showZero }) => value != null && (value !== 0 || showZero));
+    const visible = stats.filter(({ value }) => value != null);
     if (!visible.length) return;
     const group = el('div', { className: 'monster-stat-group' });
     group.appendChild(el('div', { className: 'monster-stat-group-label', textContent: label }));
