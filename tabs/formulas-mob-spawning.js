@@ -48,22 +48,21 @@ function buildGuide() {
     body.appendChild(el('a', { className: 'tab-link', href: tabHref('maps', { q: 'id:010003093' }), textContent: 'View Dangerous Croko I on the Maps page →' }));
   }));
 
-  page.appendChild(section('Solo Mob Capacity', 'spawn-capacity', 'verified', body => {
+  page.appendChild(section('Mob Capacity', 'spawn-capacity', 'verified', body => {
     paragraph(body, 'Start with the endpoints of horizontal and sloped foothold segments. Exclude vertical segments where x1 = x2.');
     formula(body, 'W = xmax − xmin − 40\nH = ymax − ymin + 330\n\nM = clamp(floor(max(W, 800) × max(H − 450, 600) × mobRate / 128000), 1, 40)');
     table(body, [['Input', ''], ['Meaning', '']], [
       ['W and H', 'Derived map width and height in game-coordinate pixels'],
       ['mobRate', 'The map’s mobRate multiplier, defaulting to 1.0. It affects the capacity calculation'],
     ]);
-  }));
-
-  page.appendChild(section('Why Exclude Vertical Segments?', 'spawn-geometry', 'verified', body => {
-    paragraph(body, 'Vertical collision segments at platform edges can extend below the lowest horizontal or sloped platform. The mob capacity calculation does NOT include these in the height/width.');
-    body.appendChild(el('img', {
+    const geometry = el('div', { className: 'hitviz-details-body' });
+    body.appendChild(el('details', { className: 'hitviz-details hitviz-details--content' },
+      el('summary', { textContent: 'Why exclude vertical segments?' }), geometry));
+    paragraph(geometry, 'Vertical collision segments at platform edges can extend below the lowest horizontal or sloped platform. The mob capacity calculation does NOT include these in the height/width.');
+    geometry.appendChild(el('img', {
       className: 'spawn-reference-diagram', src: './assets/reference/mob-spawning-bounds.png',
       alt: 'Actual Kerning City Middle Forest III geometry. Including vertical walls sets the bottom boundary at their ends; excluding them sets the boundary at the lowest platform endpoints.', loading: 'lazy',
     }));
-   
   }));
 
   page.appendChild(section('Player-Based Spawn Bonus', 'spawn-players', 'verified', body => {
@@ -107,7 +106,7 @@ export function createMobSpawningPage() {
     description: 'Understand spawn points, solo mob capacity, and measured refill timing.',
     sections: [
       { key: 'spawn-overview', label: 'Overview' }, { key: 'spawn-capacity', label: 'Solo capacity' },
-      { key: 'spawn-geometry', label: 'Map bounds' }, { key: 'spawn-players', label: 'Player bonus' },
+      { key: 'spawn-players', label: 'Player bonus' },
       { key: 'spawn-refill', label: 'Refill waves' },
     ],
     render: buildGuide,
