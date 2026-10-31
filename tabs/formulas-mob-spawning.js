@@ -66,7 +66,7 @@ function buildGuide() {
    
   }));
 
-  page.appendChild(section('Players in Active Combat', 'spawn-players', 'verified', body => {
+  page.appendChild(section('Player-Based Spawn Bonus', 'spawn-players', 'verified', body => {
     body.appendChild(el('p', {},
       'Mob capacity increases with the number of players in ', el('strong', { textContent: 'active combat' }),
       ' on the map. AFK/dead players do not count. We aren\'t sure what defines ', el('strong', { textContent: 'active combat' }), ' quite yet'));
