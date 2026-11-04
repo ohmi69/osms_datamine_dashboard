@@ -29,6 +29,7 @@
   border: 1px solid var(--border);
   display: block;
   background: var(--surface);
+  cursor: zoom-in;
 }
 .navigate-step-img-wrap {
   position: relative;

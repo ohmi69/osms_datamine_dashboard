@@ -135,9 +135,14 @@ function makeMapAutocomplete(input, allMaps, mapNames) {
       activeIdx = (activeIdx - 1 + items.length) % items.length;
       updateActive();
       e.preventDefault();
-    } else if (e.key === 'Enter' && activeIdx >= 0) {
-      items[activeIdx].dispatchEvent(new MouseEvent('mousedown'));
-      e.preventDefault();
+    } else if (e.key === 'Enter') {
+      if (activeIdx >= 0) {
+        items[activeIdx].dispatchEvent(new MouseEvent('mousedown'));
+        e.preventDefault();
+      } else {
+        // Enter also submits the route, and an open list would cover the results.
+        hideList();
+      }
     }
   }
   function updateActive() {
@@ -257,24 +262,28 @@ export function showNavigateModal(data, defaultToId) {
       stepDiv.appendChild(el('div', { className: 'navigate-step-header', textContent: `Step ${i + 1}: ${map.name}` }));
 
       const imgPath = getMapUrl(map.id);
+      const portals = allPortals[padMapId(map.id)] || [];
+      const portal = i < path.length - 1
+        ? portals.find(p => String(p.dest_map) === String(path[i + 1]))
+        : null;
       const img = el('img', { src: imgPath, alt: map.name, className: 'navigate-step-img' });
+      img.title = 'Click to view fullscreen';
+      img.addEventListener('click', () => {
+        if (window.openImageModal) window.openImageModal(imgPath, img.alt, portal ? [portal] : []);
+      });
       img.addEventListener('load', () => {
         stepDiv.querySelectorAll('.portal-highlight').forEach(o => o.remove());
-        if (i < path.length - 1) {
-          const portals = allPortals[padMapId(map.id)] || [];
-          const portal = portals.find(p => String(p.dest_map) === String(path[i + 1]));
-          if (portal) {
-            const scaleX = img.width / img.naturalWidth;
-            const scaleY = img.height / img.naturalHeight;
-            const navR = Math.max(7, Math.min(16, Math.round(8 + 14 * Math.min(scaleX, scaleY))));
-            const overlay = el('div', { className: 'portal-highlight' });
-            overlay.style.left = `${img.offsetLeft + portal.x * scaleX - navR}px`;
-            overlay.style.top = `${img.offsetTop + portal.y * scaleY - navR}px`;
-            overlay.style.width = `${navR * 2}px`;
-            overlay.style.height = `${navR * 2}px`;
-            overlay.style.border = `${Math.max(1, Math.round(3 * Math.min(scaleX, scaleY)))}px solid #00e0ff`;
-            img.parentElement.appendChild(overlay);
-          }
+        if (portal) {
+          const scaleX = img.width / img.naturalWidth;
+          const scaleY = img.height / img.naturalHeight;
+          const navR = Math.max(7, Math.min(16, Math.round(8 + 14 * Math.min(scaleX, scaleY))));
+          const overlay = el('div', { className: 'portal-highlight' });
+          overlay.style.left = `${img.offsetLeft + portal.x * scaleX - navR}px`;
+          overlay.style.top = `${img.offsetTop + portal.y * scaleY - navR}px`;
+          overlay.style.width = `${navR * 2}px`;
+          overlay.style.height = `${navR * 2}px`;
+          overlay.style.border = `${Math.max(1, Math.round(3 * Math.min(scaleX, scaleY)))}px solid #00e0ff`;
+          img.parentElement.appendChild(overlay);
         }
       });
 

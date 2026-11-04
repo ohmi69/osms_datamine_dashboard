@@ -578,7 +578,9 @@ function injectImageModal() {
     <div class="image-modal-overlay"></div>
     <div class="image-modal-content">
       <button class="image-modal-close" title="Close">&times;</button>
-      <img src="" alt="Full Image" />
+      <div class="image-modal-stage">
+        <img src="" alt="Full Image" />
+      </div>
     </div>
   `;
   document.body.appendChild(modal);
@@ -587,23 +589,36 @@ function injectImageModal() {
   modal.querySelector('.image-modal-close').addEventListener('click', closeImageModal);
 }
 
-function openImageModal(src, alt) {
+// markers: optional [{ x, y }] in the image's natural pixels, drawn over the image.
+function openImageModal(src, alt, markers = []) {
     // Show tip only on first map image click after page load
     showZoomTipModal();
   injectImageModal();
   const modal = document.getElementById('imageModal');
+  const stage = modal.querySelector('.image-modal-stage');
   const img = modal.querySelector('img');
+  clearImageModalMarkers(stage);
+  img.onload = () => {
+    for (const { x, y } of markers) {
+      const marker = el('div', { className: 'image-modal-marker' });
+      marker.style.left = `${(x / img.naturalWidth) * 100}%`;
+      marker.style.top = `${(y / img.naturalHeight) * 100}%`;
+      stage.appendChild(marker);
+    }
+  };
   img.src = src;
   img.alt = alt || '';
   img.classList.remove('magnify');
-  img.style.transform = '';
-  img.style.transformOrigin = '';
+  stage.style.transform = '';
+  stage.style.transformOrigin = '';
   let zoomLevels = [1, 2, 4, 8];
   let zoomIdx = 0;
   let lastOrigin = '50% 50%';
   function setZoom(level, origin) {
-    img.style.transform = `scale(${level})`;
-    img.style.transformOrigin = origin;
+    stage.style.transform = `scale(${level})`;
+    stage.style.transformOrigin = origin;
+    // Markers cancel the zoom so they stay the same size on screen.
+    stage.style.setProperty('--image-modal-zoom', level);
     img.style.cursor = level > 1 ? 'zoom-out' : 'zoom-in';
   }
   img.onclick = (e) => {
@@ -666,11 +681,16 @@ function openImageModal(src, alt) {
   document.body.style.overflow = 'hidden';
 }
 
+function clearImageModalMarkers(stage) {
+  stage.querySelectorAll('.image-modal-marker').forEach(m => m.remove());
+}
+
 function closeImageModal() {
   const modal = document.getElementById('imageModal');
   if (modal) {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    clearImageModalMarkers(modal.querySelector('.image-modal-stage'));
     // Optionally clear src for privacy
     modal.querySelector('img').src = '';
   }
