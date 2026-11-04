@@ -465,14 +465,18 @@ a.tab-link:focus-visible {
 
 .theme-toggle.active { background: var(--accent-bg); border-color: var(--accent); }
 
-.toggle-dock {
-  position: fixed;
-  right: 16px;
-  bottom: 24px;
+.header-controls {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  z-index: 1000;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px 8px;
+  margin-bottom: 6px;
+}
+
+.toggle-dock {
+  display: flex;
+  gap: 6px;
 }
 
 .scroll-top-btn {
@@ -1366,7 +1370,6 @@ body.time-travel .site-header {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 6px;
 }
 .patch-selector-label {
   font-size: 11px;
@@ -1443,7 +1446,6 @@ body.time-travel .site-header {
   .brand-title { font-size: 17px; }
   .brand-sub { display: none; }
   .site-header-badge { display: none; }
-  .patch-selector-wrap { margin-bottom: 4px; }
 }
 
 /* ── Map Navigation Modal ─────────────────────────────── */
@@ -1488,6 +1490,49 @@ body.time-travel .site-header {
   color: var(--accent);
   letter-spacing: 0.01em;
   text-shadow: 0 1px 0 #fff4, 0 2px 8px #cc550022;
+}
+
+.mapnav-field-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dim);
+}
+.mapnav-from-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.mapnav-from-row .mapnav-input-wrap { flex: 1; min-width: 0; }
+.mapnav-from-row .mapnav-modal-input { margin-bottom: 0; }
+.mapnav-nearest-btn {
+  flex: none;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1.5px solid var(--accent);
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.mapnav-nearest-btn:hover:not(:disabled) {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+.mapnav-nearest-btn:disabled {
+  border-color: var(--border);
+  background: var(--surface-2);
+  color: var(--dim);
+  box-shadow: none;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .mapnav-modal-input {
@@ -1654,7 +1699,8 @@ body.time-travel .site-header {
   .brand-title-full { display: none; }
   .brand-title-mobile { display: inline; }
 
-  .site-header-extras { display: contents; }
+  .site-header-extras,
+  .header-controls { display: contents; }
 
   .patch-selector-wrap {
     grid-column: 2;
@@ -1749,11 +1795,7 @@ body.time-travel .site-header {
   .tab-btn svg { width: 16px; height: 16px; }
 
   .toggle-dock {
-    position: static;
-    display: flex;
-    flex-direction: row;
     justify-content: flex-end;
-    gap: 6px;
     margin: -8px 0 12px;
   }
   .toggle-dock .id-toggle {

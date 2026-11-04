@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padQuestId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeThumbnail, makeDeepLinkButton, parseIdFilter, makePillGroup, makeHideToggle, wireSearch, toItemThumbPath, makeCopyableId, makeTabLink, padQuestId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { attachTooltip, attachCustomTooltip } from '../lib/tooltip.js';
 import state, { getMobThumbUrl } from '../lib/data.js';
@@ -721,6 +721,7 @@ export function renderQuests(data, options = {}) {
   let jobFilter = 'All';
   const sortByLevel = true;
   const completionState = loadCompletionState();
+  let hideCompleted = state.get('questsHideCompleted', false) === true;
   const expandedIds = new Set();
   const questGraph = buildQuestGraph(quests.quests);
   const container = el('div');
@@ -830,6 +831,8 @@ export function renderQuests(data, options = {}) {
     renderData();
   }
 
+  let hideToggleRow = null;
+
   if (hasRegions) {
     const filterRow = el('div', { className: 'filter-row' });
     regionPillGroup = makePillGroup(
@@ -839,6 +842,7 @@ export function renderQuests(data, options = {}) {
     );
     filterRow.appendChild(regionPillGroup);
     toolbar.appendChild(filterRow);
+    hideToggleRow = filterRow;
 
     if (systemRegions.length) {
       const systemRow = el('div', { className: 'filter-row' });
@@ -850,6 +854,7 @@ export function renderQuests(data, options = {}) {
       );
       systemRow.appendChild(systemPillGroup);
       toolbar.appendChild(systemRow);
+      hideToggleRow = systemRow;
     }
   }
 
@@ -886,6 +891,17 @@ export function renderQuests(data, options = {}) {
     townFilterRow.appendChild(townPillGroup);
     toolbar.appendChild(townFilterRow);
   }
+
+  // A personal preference rather than part of the view, so it is remembered
+  // across visits instead of living in shareable URLs.
+  const hideCompletedToggle = makeHideToggle('Hide completed', hideCompleted, (active) => {
+    hideCompleted = active;
+    state.set('questsHideCompleted', active);
+    renderData();
+  });
+  hideCompletedToggle.classList.add('quest-hide-completed');
+  if (!hideToggleRow) hideToggleRow = toolbar.appendChild(el('div', { className: 'filter-row' }));
+  hideToggleRow.appendChild(hideCompletedToggle);
 
   syncSubFilterRows();
   enableMobileFilterDrawer(toolbar, { keep: [searchBox] });
@@ -933,7 +949,11 @@ export function renderQuests(data, options = {}) {
     });
 
     const isSearchActive = searchQuery.trim().length > 0;
-    const allQuests = matchedQuests;
+    // Progress counts cover everything matched; only the list drops completed
+    // quests. A quest linked to directly stays visible even when completed.
+    const allQuests = hideCompleted
+      ? matchedQuests.filter(quest => !isQuestCompleted(quest, completionState) || exactId != null || Number(quest.id) === autoExpandAfterId)
+      : matchedQuests;
 
     const groups = {};
     allQuests.forEach((quest) => {
@@ -970,12 +990,12 @@ export function renderQuests(data, options = {}) {
 
     const totalQuestCount = Array.isArray(quests.quests) ? quests.quests.length : 0;
     const totalCompleted = getCompletedCount(Array.isArray(quests.quests) ? quests.quests : []);
-    const visibleCompleted = getCompletedCount(allQuests);
-    const progressText = `${visibleCompleted}/${allQuests.length} completed`;
-    const overallText = allQuests.length === totalQuestCount
+    const visibleCompleted = getCompletedCount(matchedQuests);
+    const progressText = `${visibleCompleted}/${matchedQuests.length} completed`;
+    const overallText = matchedQuests.length === totalQuestCount
       ? ''
       : ` (${totalCompleted}/${totalQuestCount} total)`;
-    const matchText = isSearchActive ? ` · ${matchedQuests.length} match${matchedQuests.length === 1 ? '' : 'es'}` : '';
+    const matchText = isSearchActive ? ` · ${allQuests.length} match${allQuests.length === 1 ? '' : 'es'}` : '';
     dataDiv.appendChild(
       el('div', { className: 'count-text quest-progress-text', textContent: `${allQuests.length} quests${matchText} · ${progressText}${overallText}` })
     );

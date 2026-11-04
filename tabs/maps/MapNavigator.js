@@ -38,6 +38,49 @@ function findShortestPath(graph, fromId, toId) {
   return null;
 }
 
+// The is_town flag also covers shops, Free Market rooms and event maps, so a
+// nearest-town candidate must also be a map the game sends field maps back to.
+function getReturnTowns(allMaps) {
+  const returnTargets = new Set(allMaps.filter(m => !m.is_town && m.return_map_id).map(m => m.return_map_id));
+  return allMaps.filter(m => m.is_town && !m.return_map_id && returnTargets.has(m.id));
+}
+
+// Walks portals backwards from the destination, so the town returned can really
+// walk there (portals can be one-way). Ties go to the destination's return map.
+export function findNearestTown(data, toId) {
+  const allMaps = getAllMapsFlat(data);
+  const target = allMaps.find(m => m.id === toId);
+  if (!target) return null;
+  const towns = new Map(getReturnTowns(allMaps).map(m => [m.id, m]));
+  const entrances = new Map();
+  for (const m of allMaps) {
+    for (const exit of m.exits || []) {
+      if (!entrances.has(exit)) entrances.set(exit, []);
+      entrances.get(exit).push(m.id);
+    }
+  }
+  const visited = new Set([toId]);
+  let level = [toId];
+  for (let hops = 1; level.length; hops++) {
+    const next = [];
+    for (const id of level) {
+      for (const prev of entrances.get(id) || []) {
+        if (!visited.has(prev)) {
+          visited.add(prev);
+          next.push(prev);
+        }
+      }
+    }
+    const found = next.filter(id => towns.has(id));
+    if (found.length) {
+      const townId = found.includes(target.return_map_id) ? target.return_map_id : found[0];
+      return { town: towns.get(townId), hops };
+    }
+    level = next;
+  }
+  return null;
+}
+
 function makeMapAutocomplete(input, allMaps, mapNames) {
   let listDiv = null;
   let activeIdx = -1;
@@ -119,20 +162,51 @@ export function showNavigateModal(data, defaultToId) {
   box.appendChild(xBtn);
   box.appendChild(el('h2', { textContent: 'Navigate Maps', className: 'mapnav-modal-title' }));
 
+  const fromRow = el('div', { className: 'mapnav-from-row' });
   const fromWrap = el('div', { className: 'mapnav-input-wrap' });
   const toWrap = el('div', { className: 'mapnav-input-wrap' });
-  const fromInput = el('input', { type: 'text', placeholder: 'From map name or ID', className: 'mapnav-modal-input' });
-  const toInput = el('input', { type: 'text', placeholder: 'To map name or ID', className: 'mapnav-modal-input' });
+  const fromInput = el('input', { type: 'text', id: 'mapnav-from', placeholder: 'Map name or ID', className: 'mapnav-modal-input' });
+  const toInput = el('input', { type: 'text', id: 'mapnav-to', placeholder: 'Map name or ID', className: 'mapnav-modal-input' });
+  const nearestBtn = el('button', { textContent: 'Nearest Town', className: 'mapnav-nearest-btn' });
+  const fieldLabel = (text, input) => {
+    const label = el('label', { textContent: text, className: 'mapnav-field-label' });
+    label.htmlFor = input.id;
+    return label;
+  };
   fromWrap.appendChild(fromInput);
   toWrap.appendChild(toInput);
-  box.appendChild(fromWrap);
+  fromRow.appendChild(fromWrap);
+  fromRow.appendChild(nearestBtn);
+  box.appendChild(fieldLabel('From', fromInput));
+  box.appendChild(fromRow);
+  box.appendChild(fieldLabel('To', toInput));
   box.appendChild(toWrap);
   makeMapAutocomplete(fromInput, allMaps, mapNames);
   makeMapAutocomplete(toInput, allMaps, mapNames);
-  if (defaultToId) {
-    const m = allMaps.find(m => m.id === defaultToId);
-    if (m) toInput.value = m.name;
-  }
+  const defaultTo = defaultToId ? allMaps.find(m => m.id === defaultToId) : null;
+  if (defaultTo) toInput.value = defaultTo.name;
+
+  // Some map names repeat, so the preselected map keeps its id until the text is edited.
+  const resolveTo = () => {
+    const query = toInput.value.trim();
+    return defaultTo && query === defaultTo.name ? defaultTo : findMapInData(data, query);
+  };
+
+  let nearest = null;
+  const refreshNearest = () => {
+    const to = resolveTo();
+    nearest = to ? findNearestTown(data, to.id) : null;
+    nearestBtn.disabled = !nearest;
+    if (nearest) {
+      nearestBtn.title = `${nearest.town.name}, ${nearest.hops} ${nearest.hops === 1 ? 'map' : 'maps'} away`;
+    } else {
+      nearestBtn.title = to ? 'No town connects to this map' : 'Enter a destination first';
+    }
+  };
+  nearestBtn.onclick = () => { fromInput.value = nearest.town.name; };
+  toInput.addEventListener('input', refreshNearest);
+  toInput.addEventListener('change', refreshNearest);
+  refreshNearest();
 
   const btnRow = el('div', { className: 'mapnav-modal-btnrow' });
   const goBtn = el('button', { textContent: 'Find Route', className: 'mapnav-modal-find' });
@@ -151,8 +225,9 @@ export function showNavigateModal(data, defaultToId) {
   toInput.addEventListener('keydown', e => { if (e.key === 'Enter') goBtn.click(); });
 
   goBtn.onclick = async () => {
-    const from = findMapInData(data, fromInput.value.trim());
-    const to = findMapInData(data, toInput.value.trim());
+    const fromQuery = fromInput.value.trim();
+    const from = nearest && fromQuery === nearest.town.name ? nearest.town : findMapInData(data, fromQuery);
+    const to = resolveTo();
     if (!from || !to) {
       resultDiv.textContent = 'Please enter valid map names or IDs.';
       return;

@@ -410,8 +410,8 @@ async function init() {
   // Inject patch selector into header (doesn't need appData)
   buildPatchSelector().then((selector) => {
     if (!selector) return;
-    const extras = document.querySelector('.site-header-extras');
-    if (extras) extras.prepend(selector);
+    const controls = document.querySelector('.header-controls');
+    if (controls) controls.prepend(selector);
   });
 
   const panels = $('#tabPanels');
@@ -553,9 +553,15 @@ async function init() {
   const toggleDock = el('div', { className: 'toggle-dock' });
   toggleDock.appendChild(idToggle);
   toggleDock.appendChild(themeToggle);
-  // Keep utility controls in the page flow on phones; desktop CSS still docks
-  // this element to the viewport edge.
-  nav.insertAdjacentElement('afterend', toggleDock);
+  // Header row on desktop; in the page flow under the nav on phones, where the
+  // header grid has no room for it. Keep the query in sync with base.css.
+  const phoneLayout = window.matchMedia('(max-width: 640px)');
+  const placeToggleDock = () => {
+    if (phoneLayout.matches) nav.insertAdjacentElement('afterend', toggleDock);
+    else document.querySelector('.header-controls')?.appendChild(toggleDock);
+  };
+  placeToggleDock();
+  phoneLayout.addEventListener('change', placeToggleDock);
 
 
 
