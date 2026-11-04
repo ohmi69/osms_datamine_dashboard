@@ -159,6 +159,8 @@ const ACCURACY_STEPS = [
       'Roll = rand(1 − Spread, 1 + Spread)',
       '',
       'DidHit = Roll × BaseChance ≥ Avoid',
+      '',
+      'HitChance = clamp(((1 + Spread) − (Avoid / BaseChance)) / (2 × Spread), 0, 1)',
     ],
     notes: [
       'exp() is the exponential function',
@@ -688,6 +690,7 @@ const GUARD_STEPS = [
       'Roll   = rand(1 − Spread, 1 + Spread)',
       '',
       'Hit if Roll × MonsterHitScore ≥ EffectiveAvoid',
+      'RollHitChance = clamp(((1 + Spread) − (EffectiveAvoid / MonsterHitScore)) / (2 × Spread), 0, 1)',
       '',
       'If the ordinary roll fails and EffectiveAvoid > (1 + Spread) × MonsterHitScore:',
       '  Diff = MonsterHitScore − EffectiveAvoid',
@@ -699,6 +702,7 @@ const GUARD_STEPS = [
     notes: [
       'Avoid has hard diminishing returns. Dividing by Avoid / 80 + 1 means the effective value climbs toward 80 and never passes it, however much Avoid you stack',
       'Out-levelling lowers both the monster\'s score and your effective Avoid. It can increase the ordinary hit probability: MonsterAcc 100 and Avoid 100 give approximately 25.44%, 39.88% and 50.49% at level gaps 0, 20 and 50, before the extra branches.',
+      'RollHitChance is the share of the Roll band at or above EffectiveAvoid / MonsterHitScore. EffectiveAvoid = 0 gives 100%. The overall chance before guards is RollHitChance + (1 − RollHitChance) × (RescueChance + (1 − RescueChance) × 0.08), with RescueChance = 0 unless the beyond-reach condition holds.',
       'Beyond roll reach, rescue is tried before the 8% fallback. With independent uniform draws, their combined chance is RescueChance + (1 − RescueChance) × 0.08, between 9.84% and 10.76%.',
       'Some initially successful rolls face an additional 50% miss check. Which attacks trigger it still needs confirmation. Hits recovered by the extra chances skip this check.',
       'An attack can be flagged unmissable, which skips this whole step - it still has to get past the guard rolls below',
