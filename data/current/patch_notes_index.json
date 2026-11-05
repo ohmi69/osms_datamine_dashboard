@@ -1,6 +1,18 @@
 {
   "diffs": [
     {
+      "id": "patch-ff3827e3",
+      "file": "patch_notes/5236f08e_to_ff3827e3.json",
+      "label": "v1.2.0 \u00b7 Nov 4",
+      "kind": "patch",
+      "phase": "Public Release",
+      "date": "2026-11-04",
+      "before": "5236f08e",
+      "after": "ff3827e3",
+      "before_version": "1.1.0",
+      "after_version": "1.2.0"
+    },
+    {
       "id": "patch-5236f08e",
       "file": "patch_notes/53df5677_to_5236f08e.json",
       "label": "v1.1.0 \u00b7 Oct 28",

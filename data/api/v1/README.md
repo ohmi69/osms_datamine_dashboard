@@ -5,7 +5,7 @@ This is an unofficial dataset and is not affiliated with Nexon.
 
 | | |
 | --- | --- |
-| Client build | `5236f08ecbb6e3f440ea49165834ecbe9927528e` |
+| Client build | `ff3827e3105012aca0a590cda46d17f356001fad` |
 | Data last modified | 2026-10-29T15:56:20Z (UTC) |
 
 These match `client_build` and `data_updated_at` in `meta.json`, which also has
