@@ -694,6 +694,30 @@ a.tab-link:focus-visible {
 
 /* ── Pills ──────────────────────────────────────────────────── */
 .pill-group { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+.level-range { display: flex; gap: 6px; align-items: center; margin-bottom: 14px; }
+/* Every item carries a left divider; the line is shifted left and clipped so
+   the divider on whichever item starts a (wrapped) row is hidden. */
+.filter-line {
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: 19px; row-gap: 10px;
+  margin: 0 0 12px -20px;
+  clip-path: inset(-8px -8px -8px 20px);
+}
+.filter-line > * { padding-left: 20px; border-left: 1px solid var(--border); }
+.filter-line > .pill-group,
+.filter-line > .level-range { margin-bottom: 0; }
+.level-range-sep { color: var(--dim); }
+.level-range-input {
+  width: 72px;
+  padding: 5px 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  outline: 0;
+}
+.level-range-input::placeholder { color: var(--dim); }
+.level-range-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
 .pill-group-label { font-size: 11px; font-weight: 600; color: var(--dim); text-transform: uppercase; letter-spacing: .5px; margin-right: 2px; }
 .pill,
 .col-toggle {
@@ -1905,6 +1929,11 @@ body.time-travel .site-header {
     padding-bottom: 10px;
     font-size: 16px;
   }
+
+  .level-range-input { min-height: 36px; font-size: 16px; }
+  .filter-line { flex-direction: column; align-items: flex-start; }
+  .filter-line { margin-left: 0; clip-path: none; }
+  .filter-line > * { padding-left: 0; border-left: 0; }
 
   .filter-row,
   .pill-group,

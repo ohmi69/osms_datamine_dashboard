@@ -1,4 +1,4 @@
-import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer } from '../lib/utils.js';
+import { el, fmt, makeCollapsible, makeThumbnail, makeEquipStatLine, makeEquipReqLine, makeDeepLinkButton, parseIdFilter, makeMatcher, makePillGroup, wireSearch, makeDetailPanel, makeCopyableId, padItemId, scrollToDetailRow, autoExpandById, showFilterBanner, hideFilterBanner, enableMobileFilterDrawer, makeLevelRange } from '../lib/utils.js';
 import { Router } from '../lib/Router.js';
 import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
 import { makeQuestRewardContext, makeQuestRewardPanel, makeCraftingResultPanel } from './quest-rewards.js';
@@ -147,8 +147,10 @@ export function renderEquipment(data, options = {}) {
     pushFilterUrl();
     renderData();
   }, { groupLabel: 'Class:' });
-  toolbar.appendChild(classPillGroup);
-  toolbar.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
+  // Class, gender and level share one wrapping line to keep the toolbar short.
+  const filterLine = el('div', { className: 'filter-line' });
+  toolbar.appendChild(filterLine);
+  filterLine.appendChild(classPillGroup);
 
   const genderOptions = [
     { label: 'All Genders', value: null },
@@ -162,8 +164,15 @@ export function renderEquipment(data, options = {}) {
     pushFilterUrl();
     renderData();
   }, { groupLabel: 'Gender:' });
-  toolbar.appendChild(genderPillGroup);
-  toolbar.appendChild(el('hr', { style: { border: 'none', borderTop: '1px solid var(--border)', margin: '4px 0 10px 0' } }));
+  filterLine.appendChild(genderPillGroup);
+
+  // Required-level range. Equips with no reqLevel count as level 0.
+  const levelRange = makeLevelRange(() => {
+    // Typing replaces the current entry, like the search box.
+    Router.updateFilter('equipment', currentFilterParams());
+    renderData();
+  }, { noun: 'required level' });
+  filterLine.appendChild(levelRange);
 
   function currentFilterParams() {
     return {
@@ -172,6 +181,8 @@ export function renderEquipment(data, options = {}) {
       ...(genderFilter && { gender: genderFilter }),
       ...(selectedSubCategory && { type: selectedSubCategory }),
       ...(selectedWeaponType && { wtype: selectedWeaponType }),
+      ...(levelRange.range.min != null && { lvmin: String(levelRange.range.min) }),
+      ...(levelRange.range.max != null && { lvmax: String(levelRange.range.max) }),
     };
   }
 
@@ -306,6 +317,8 @@ export function renderEquipment(data, options = {}) {
       equips = equips.filter((equip) => equip.weapon_type === selectedWeaponType);
     }
 
+    equips = equips.filter((equip) => levelRange.inRange(equip.stats?.reqLevel));
+
     equips = equips.sort((a, b) => (a.stats?.reqLevel || 0) - (b.stats?.reqLevel || 0));
 
     if (equips.length === 0) {
@@ -368,6 +381,7 @@ export function renderEquipment(data, options = {}) {
     genderFilter = null;
     selectedSubCategory = null;
     selectedWeaponType = null;
+    levelRange.setRange(get('lvmin'), get('lvmax'));
     const hasAny = has('class') || has('gender') || has('type') || has('wtype');
     if (hasAny) {
       if (has('class')) {

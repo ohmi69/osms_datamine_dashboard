@@ -1,4 +1,4 @@
-import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById, makeElementBadge, enableMobileFilterDrawer } from '../lib/utils.js';
+import { el, fmt, matchSearch, makeSearchBox, makeThumbnail, normalizeAssetPath, makeDeepLinkButton, parseIdFilter, makePillGroup, makeCopyableId, padMapId, padMobId, makeTabLink, scrollToDetailRow, autoExpandById, makeElementBadge, enableMobileFilterDrawer, makeLevelRange } from '../lib/utils.js';
 import state, { getMobGifUrl, getMobThumbUrl } from '../lib/data.js';
 import { MOB_STATE_ORDER, MOB_STATE_LABEL, ELEMENT_META, describeElements } from '../lib/constants.js';
 import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
@@ -522,9 +522,13 @@ export function renderMonsters(data, options = {}) {
   const toolbar = el('div', { className: 'sticky-toolbar' });
   toolbar.appendChild(topRow);
 
-  const filterRow = el('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '12px', marginBottom: '12px' } });
+  const levelRange = makeLevelRange(() => renderData(), { noun: 'monster level' });
+
+  // Type, weakness and level share one wrapping line to keep the toolbar short.
+  const filterRow = el('div', { className: 'filter-line' });
   filterRow.appendChild(typePills);
   filterRow.appendChild(elemPills);
+  filterRow.appendChild(levelRange);
   toolbar.appendChild(filterRow);
 
   const toggles = el('div', { className: 'col-toggles' });
@@ -575,6 +579,7 @@ export function renderMonsters(data, options = {}) {
       if (typeFilter === 'boss' && !monster.is_boss) return false;
       if (typeFilter === 'nonboss' && monster.is_boss) return false;
       if (elemWeakFilter && monster.elements?.[elemWeakFilter] !== 'Weak') return false;
+      if (!levelRange.inRange(monster.level)) return false;
       return true;
     });
 
