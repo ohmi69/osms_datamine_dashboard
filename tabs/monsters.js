@@ -116,7 +116,7 @@ function buildCombatSection(monster, focusMonster) {
   return col;
 }
 
-function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseRatios) {
+function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseRatios, mapSpawnTotals) {
   const detailTr = el('tr', { className: 'monster-detail-row' });
   const detailTd = el('td', { colSpan: String(colSpan) });
 
@@ -284,7 +284,7 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
     group.appendChild(grid);
     if (link) {
       const [page, section, text] = link;
-      const guide = makeTabLink('formulas', { page, section });
+      const guide = makeTabLink('formulas', { page, section }, { className: 'monster-guide-link' });
       guide.textContent = text;
       group.appendChild(el('p', {}, guide));
     }
@@ -302,9 +302,6 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
   if (spawnMaps.length) {
     const mapsCol = el('div', { className: 'monster-detail-col monster-detail-col-maps' });
     mapsCol.appendChild(el('div', { className: 'monster-stat-group-label', textContent: 'Spawns In' }));
-    const spawnGuide = makeTabLink('formulas', { page: 'mob-spawning', section: 'spawn-refill' });
-    spawnGuide.textContent = 'How spawning works';
-    mapsCol.appendChild(el('p', {}, spawnGuide));
     const mapList = el('div', { className: 'monster-map-list' });
     const sortedSpawnMaps = [...spawnMaps].sort((a, b) => b.count - a.count || a.id - b.id);
     sortedSpawnMaps.forEach((m) => {
@@ -319,9 +316,19 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
         : el('span', { className: 'monster-map-chip' });
       chip.appendChild(el('span', { textContent: label }));
       chip.appendChild(el('span', { className: 'monster-map-chip-count', textContent: `×${m.count}` }));
+      const mapTotal = mapSpawnTotals?.get(m.id);
+      if (mapTotal) {
+        const pct = Math.round((m.count / mapTotal) * 100);
+        const share = el('span', { className: 'monster-map-chip-share', textContent: `${pct}%` });
+        share.title = `${m.count} of ${mapTotal} spawn points on this map`;
+        chip.appendChild(share);
+      }
       mapList.appendChild(chip);
     });
     mapsCol.appendChild(mapList);
+    const spawnGuide = makeTabLink('formulas', { page: 'mob-spawning', section: 'spawn-refill' }, { className: 'monster-guide-link' });
+    spawnGuide.textContent = 'How spawning works';
+    mapsCol.appendChild(el('p', {}, spawnGuide));
     body.appendChild(mapsCol);
   }
 
@@ -391,6 +398,11 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
 export function renderMonsters(data, options = {}) {
   const { monsters } = data;
   const { onMapClick, patchVersion = null } = options;
+  // Spawn points per map, summed across every monster that spawns there.
+  const mapSpawnTotals = new Map();
+  monsters.monsters.forEach((mob) => {
+    (mob.maps || []).forEach(({ id, count }) => mapSpawnTotals.set(id, (mapSpawnTotals.get(id) || 0) + count));
+  });
   const showDefenseRatios = patchVersion == null || patchVersion === 'cot1' || patchVersion === 'cot2';
 
   const allCols = [
@@ -778,7 +790,7 @@ export function renderMonsters(data, options = {}) {
           row.classList.remove('expanded', 'row-hotlink');
           history.replaceState(null, '', '#monsters');
         } else {
-          detailRow = buildDetailRow(monster, totalCols, onMapClick, focusMonster, showDefenseRatios);
+          detailRow = buildDetailRow(monster, totalCols, onMapClick, focusMonster, showDefenseRatios, mapSpawnTotals);
           row.after(detailRow);
           row.classList.add('expanded');
           history.replaceState(null, '', `#monsters?q=${encodeURIComponent('id:' + padMobId(monster.id))}`);

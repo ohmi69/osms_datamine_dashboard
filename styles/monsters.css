@@ -396,6 +396,25 @@
   color: var(--accent);
 }
 .monster-map-chip--clickable { cursor: pointer; }
+.monster-map-chip-share {
+  margin-left: 2px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.monster-guide-link {
+  color: var(--accent);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.monster-guide-link:hover { text-decoration-thickness: 2px; }
 .monster-map-chip-count {
   font-size: 11px;
   font-weight: 700;
