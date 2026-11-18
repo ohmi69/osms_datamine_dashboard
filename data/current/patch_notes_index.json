@@ -1,6 +1,18 @@
 {
   "diffs": [
     {
+      "id": "patch-9edb6979",
+      "file": "patch_notes/ff3827e3_to_9edb6979.json",
+      "label": "v2.0.0 \u00b7 Nov 17",
+      "kind": "patch",
+      "phase": "Public Release",
+      "date": "2026-11-17",
+      "before": "ff3827e3",
+      "after": "9edb6979",
+      "before_version": "1.2.0",
+      "after_version": "2.0.0"
+    },
+    {
       "id": "patch-ff3827e3",
       "file": "patch_notes/5236f08e_to_ff3827e3.json",
       "label": "v1.2.0 \u00b7 Nov 4",

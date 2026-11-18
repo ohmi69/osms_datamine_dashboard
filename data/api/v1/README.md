@@ -5,8 +5,8 @@ This is an unofficial dataset and is not affiliated with Nexon.
 
 | | |
 | --- | --- |
-| Client build | `ff3827e3105012aca0a590cda46d17f356001fad` |
-| Data last modified | 2026-10-29T15:56:20Z (UTC) |
+| Client build | `9edb6979db11216d5d887700de1ab91d1373ea19` |
+| Data last modified | 2026-11-18T18:54:44Z (UTC) |
 
 These match `client_build` and `data_updated_at` in `meta.json`, which also has
 a hash and modified time for each file.
