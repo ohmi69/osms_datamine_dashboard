@@ -43,19 +43,20 @@ const CITIZENSHIP_GRADES = [
 ];
 
 // Craft level, craft exp needed to finish that level, character level needed to move on
-// to it. The exp column is GetCraftNeedEXP (sub_1401D2690), which takes only a level, so
+// to it. The exp column is GetCraftNeedEXP (0x14021C820 in v2.0.0), which takes only a level, so
 // every discipline shares it; the character level column is the 5 x nextLevel the
-// crafting window prints in its own tooltip (sub_1410F6F80). Level 1 comes from the
+// crafting window prints in its own tooltip (0x141188E00). Level 1 comes from the
 // quest, so it has no character level of its own.
-// Current version caps crafting at level 8. See tmp/steam-tables.md.
+// Current version caps crafting at level 9 (raised from 8 in the 2026-11-17 v2.0.0 patch:
+// GetCraftNeedEXP's bound went from 8 to 9 and the tooltip's level range from 1-7 to 1-8).
 const CRAFT_LEVELS = [
   [1, 50, null], [2, 166, 10], [3, 319, 15], [4, 521, 20], [5, 787, 25],
-  [6, 1138, 30], [7, 1602, 35], [8, 2214, 40],
+  [6, 1138, 30], [7, 1602, 35], [8, 2214, 40], [9, 3022, 45],
 ];
 
 const CRAFT_RULES = [
   ['Level 1', 'CraftExp = 50'],
-  ['Level 2 to 8', 'CraftExp = trunc(PreviousLevelExp × 1.32) + 100'],
+  ['Level 2 to 9', 'CraftExp = trunc(PreviousLevelExp × 1.32) + 100'],
 ];
 
 // Swing / Stab / Shoot / Other, read directly from the damage function in
@@ -330,7 +331,7 @@ const BASE_DAMAGE_STEPS = [
     notes: [
       'DoT damage ignores all Defense reductions - the routine never reads the enemy\'s weapon or magic defense at all',
       'Current periodic DoT skill data specifies a 1-second interval. The per-tick line estimates an even split; server tick amounts and rounding are not established by the client.',
-      'Level penalty is applied differently for DoT calculations',
+      'The Level Difference Penalty applies the same way as for direct hits',
     ],
     cot1: {
       notes: [
@@ -350,7 +351,7 @@ const BASE_DAMAGE_STEPS = [
     ],
     notes: [
       'Bleed ignores all Defense reductions, the routine never reads the enemy weapon or magic defense at all',
-      'Level penalty is applied differently for DoT calculations',
+      'The Level Difference Penalty applies the same way as for direct hits',
     ],
     cot1: {
       notes: [
@@ -530,22 +531,18 @@ const MOD_PIPELINE_STEPS = [
     label: 'Level Difference Penalty',
     wip: false,
     status: 'stale',
-    statusNote: 'Read directly from the client - the same code appears in the physical, magic and DoT routines.',
+    statusNote: 'Read directly from the client - the same rule appears in the physical, magic, DoT and Bleed routines (the magic DoT routine calls the shared penalty routine; Bleed inlines the same code).',
     lines: [
       'LevelDiff = EnemyLevel − PlayerLevel',
       '',
       'No penalty if LevelDiff ≤ 0',
       '',
-      'Direct hits:',
-      '  LevelDiff < 10:  Damage = Damage / (LevelDiff² × 0.005 + 1)',
-      '  LevelDiff ≥ 10:  Damage = Damage / (LevelDiff × 0.05 + 1)',
-      '',
-      'Damage over time and bleed, at any LevelDiff ≥ 1:',
-      '  Damage = Damage / (LevelDiff × 0.05 + 1)',
+      'LevelDiff < 10:  Damage = Damage / (LevelDiff² × 0.005 + 1)',
+      'LevelDiff ≥ 10:  Damage = Damage / (LevelDiff × 0.05 + 1)',
     ],
     notes: [
       'The two branches meet exactly at LevelDiff 10, where the penalty term is 0.5 either way - the damage is divided by 1.5, so about a third of it is lost',
-      'DoT and Bleed use the linear branch - harsher than direct hits below LevelDiff 10, identical at 10+.',
+      'Applies to direct hits, DoT and Bleed alike. Before the November 17, 2026 patch, DoT and Bleed used the LevelDiff × 0.05 line at every level difference, which cost them more damage against enemies 1-9 levels above you.',
     ],
   },
   {
@@ -2373,7 +2370,7 @@ export function renderFormulas(data, options = {}) {
     craft.querySelector('.right').appendChild(makeStatusTag('stale', 'Exp column from the client requirement routine; level column from the crafting window tooltip.'));
     craft.querySelector('.right').appendChild(buildComparisonTag());
     craft.querySelector('.collapsible-body').appendChild(buildComparisonNotes([
-      'Crafting now stops at level 8, so levels 9-10 are unavailable. Levels 1-8 keep the same EXP requirements and character-level gates.',
+      'Crafting now stops at level 9, so level 10 is unavailable. Levels 1-9 keep the same EXP requirements and character-level gates.',
     ]));
 
     const citizenship = section('Citizenship Grades', 'citizenship-grades', buildCitizenshipTable);

@@ -126,15 +126,22 @@ export const FORMULA_EXPLORERS = {
   'Level Difference Penalty': {
     title: 'Explore level penalties',
     fields: [damage(), level('playerLevel', 'Your level', 30), level('enemyLevel', 'Enemy level', 35)],
-    evaluate: s => {
+    evaluate: (s, revision = 'steam') => {
       const diff = Math.max(0, s.enemyLevel - s.playerLevel);
       const direct = s.damage / (1 + (diff < 10 ? diff * diff * 0.005 : diff * 0.05));
+      const detail = diff ? `Enemy is ${diff} levels higher.` : 'No level penalty.';
+      // Since the 2026-11-17 patch, DoT and Bleed use the same penalty as direct hits;
+      // COT2 still applied the linear branch to DoT at every level difference.
+      if (revision !== 'cot2') {
+        return { headline: `${format(direct)} damage`, bars: [
+          { label: 'Before level penalty', value: s.damage },
+          { label: 'After penalty', value: direct }], detail };
+      }
       const dot = s.damage / (1 + diff * 0.05);
       return { headline: `${format(direct)} direct-hit damage`, bars: [
         { label: 'Before level penalty', value: s.damage },
         { label: 'Direct hit after penalty', value: direct },
-        { label: 'DoT after penalty', value: dot }],
-      detail: diff ? `Enemy is ${diff} levels higher.` : 'No level penalty.' };
+        { label: 'DoT after penalty', value: dot }], detail };
     },
     note: 'Applies only the level penalty to the damage you enter.',
   },

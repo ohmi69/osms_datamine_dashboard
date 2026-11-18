@@ -35,8 +35,15 @@ const CRAFT_LEVELS_COT2 = [
   [6, 1138, 30], [7, 1602, 35], [8, 2214, 40], [9, 3022, 45], [10, 4089, 50],
 ];
 
-// The current version keeps COT2's requirements through level 8 and caps there.
-const CRAFT_LEVELS_CURRENT = CRAFT_LEVELS_COT2.slice(0, 8);
+// Current version (v2.0.0, build 2470b666), read from the client: the exp column is
+// GetCraftNeedEXP (0x14021C820): 50 at level 1, then floor(prev x 1.32) + 100 per level,
+// returning 0 above level 9, so crafting caps at 9 (was 8 before the 2026-11-17 patch).
+// The character level column is the 5 x nextLevel gate the crafting tooltip
+// (0x141188E00) prints for craft levels 1-8.
+const CRAFT_LEVELS_CURRENT = [
+  [1, 50, null], [2, 166, 10], [3, 319, 15], [4, 521, 20], [5, 787, 25],
+  [6, 1138, 30], [7, 1602, 35], [8, 2214, 40], [9, 3022, 45],
+];
 
 const CRAFT_LEVELS_COT1 = [
   [1, 50, null], [2, 115, 10], [3, 199, 15], [4, 308, 20], [5, 450, 25],
