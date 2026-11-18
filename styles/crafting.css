@@ -215,6 +215,25 @@
 .item-tooltip-change-value .item-tooltip-new {
   font-weight: 700;
 }
+/* Long text change (patch notes): label on top, the edited paragraph below. */
+.item-tooltip.item-tooltip-wide { max-width: 360px; }
+.item-tooltip-change-text { display: block; }
+.item-tooltip-worddiff {
+  margin-top: 2px;
+  color: var(--text);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.item-tooltip-worddiff del {
+  color: var(--boss-badge, #f87171);
+  background: color-mix(in srgb, var(--boss-badge, #f87171) 14%, transparent);
+}
+.item-tooltip-worddiff ins {
+  color: var(--new-badge, #4ade80);
+  background: color-mix(in srgb, var(--new-badge, #4ade80) 14%, transparent);
+  text-decoration: none;
+}
 .item-tooltip-changes-more {
   font-size: 10px;
   color: var(--dim);

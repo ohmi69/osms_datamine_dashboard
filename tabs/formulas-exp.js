@@ -158,6 +158,11 @@ function buildMobExpChart(monsters) {
     el('span', { className: `formulas-mob-exp-swatch ${cls}` }), text);
   const legend = el('div', { className: 'formulas-mob-exp-legend' },
     legendItem('is-line', 'Formula'), legendItem('is-dot', 'Monster'), legendItem('is-ring', 'Exception'));
+  const offKey = el('span', { className: 'formulas-mob-exp-key' });
+  const offSwatch = svgEl('svg', { viewBox: '0 0 10 10', class: 'formulas-mob-exp-swatch is-arrow' });
+  offSwatch.appendChild(svgEl('path', { d: 'M5 1.5 L8.8 8.5 L1.2 8.5 Z', class: 'formulas-mob-exp-ring' }));
+  offKey.append(offSwatch, 'Exception, off scale');
+  legend.appendChild(offKey);
   wrap.append(head, plot, legend);
 
   let mode = 'regular';
@@ -171,7 +176,9 @@ function buildMobExpChart(monsters) {
     const curve = Array.from({ length: maxLevel }, (_, i) => kind.exp(mobBaseExp(i + 1)));
     const dots = mobs.filter(m => mobExpKind(m) === mode && m.level <= maxLevel);
 
-    const peak = Math.max(...curve, ...dots.map(m => m.exp));
+    // Scale to the curve and the monsters near it; far outliers (King Slime and
+    // the like) would flatten the curve, so they pin to the top edge instead.
+    const peak = Math.max(...curve, ...dots.filter(m => m.exp <= 2 * curve[m.level - 1]).map(m => m.exp));
     // Smallest 1/2/2.5/5 × 10^k step that covers the peak in at most six gridlines.
     const mag = 10 ** Math.floor(Math.log10(peak / 6));
     const tick = [1, 2, 2.5, 5, 10].map(f => f * mag).find(t => 6 * t >= peak);
@@ -199,7 +206,8 @@ function buildMobExpChart(monsters) {
     // Where the linear rule hands over to the curve.
     const split = xOf(31.5);
     svg.appendChild(svgEl('line', { x1: split, x2: split, y1: M.t, y2: M.t + plotH, class: 'formulas-mob-exp-split' }));
-    const splitLabel = svgEl('text', { x: split + 4, y: M.t + 10, class: 'formulas-chart-axis-label', 'text-anchor': 'start' });
+    // Below the top edge, clear of any off-scale arrowheads.
+    const splitLabel = svgEl('text', { x: split + 4, y: M.t + 22, class: 'formulas-chart-axis-label', 'text-anchor': 'start' });
     splitLabel.textContent = 'curve from 32';
     svg.appendChild(splitLabel);
 
@@ -219,10 +227,24 @@ function buildMobExpChart(monsters) {
     // Exceptions last, so a matching neighbour never hides them.
     const points = [...byPoint.values()]
       .sort((a, b) => (a.exp !== curve[a.level - 1]) - (b.exp !== curve[b.level - 1]));
-    points.forEach(p => svg.appendChild(svgEl('circle', {
-      cx: xOf(p.level), cy: yOf(p.exp), r: 4,
-      class: p.exp === curve[p.level - 1] ? 'formulas-mob-exp-dot' : 'formulas-mob-exp-ring',
-    })));
+    let offScale = 0;
+    points.forEach(p => {
+      const x = xOf(p.level);
+      if (p.exp > ymax) {
+        // Upward arrowhead on the top edge; the tooltip still gives the real value.
+        offScale++;
+        const y = M.t;
+        svg.appendChild(svgEl('path', {
+          d: `M${x} ${y - 1} L${x + 4.5} ${y + 7} L${x - 4.5} ${y + 7} Z`, class: 'formulas-mob-exp-ring',
+        }));
+        return;
+      }
+      svg.appendChild(svgEl('circle', {
+        cx: x, cy: yOf(p.exp), r: 4,
+        class: p.exp === curve[p.level - 1] ? 'formulas-mob-exp-dot' : 'formulas-mob-exp-ring',
+      }));
+    });
+    offKey.hidden = !offScale;
 
     const focus = svgEl('g', { class: 'formulas-chart-focus' });
     const crosshair = svgEl('line', { y1: M.t, y2: M.t + plotH });

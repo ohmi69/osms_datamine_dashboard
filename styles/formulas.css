@@ -1614,6 +1614,8 @@
 .formulas-mob-exp-swatch.is-line { width: 16px; height: 2px; border-radius: 1px; background: var(--accent); }
 .formulas-mob-exp-swatch.is-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
 .formulas-mob-exp-swatch.is-ring { width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--text); box-sizing: border-box; }
+.formulas-mob-exp-swatch.is-arrow { width: 10px; height: 10px; overflow: visible; }
+.formulas-mob-exp-key[hidden] { display: none; }
 
 /* ── Damage taken calculator ─────────────────────────────────── */
 .formulas-calc-launcher { margin-bottom: 20px; }

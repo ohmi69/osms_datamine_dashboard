@@ -52,19 +52,252 @@
 }
 .pn-body { padding: 4px 0; }
 
-/* Bucket blocks (Added / Removed / Changed) inside a section. Nested
-   collapsibles, so they inherit base.css's nested look; these rules only add
-   the colour coding and spacing that names which bucket each block is. */
-.pn-buckets { display: flex; flex-direction: column; gap: 8px; }
-.pn-bucket > .collapsible-body { padding: 6px; }
-.pn-bucket-list { display: flex; flex-direction: column; gap: 4px; }
-.pn-sections .pn-bucket > .collapsible-header .title {
-  color: var(--text);
-  font-weight: 600;
+/* Bucket blocks (Added / Removed / Changed) inside a section: flat, under a
+   small coloured heading, so the first entry sits one level below the
+   section title. */
+.pn-buckets { display: flex; flex-direction: column; gap: 14px; padding: 4px 6px 6px; }
+.pn-bucket[hidden] { display: none; }
+.pn-bucket-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
 }
-.pn-bucket-added > .collapsible-header .title { color: var(--new-badge, #4ade80); }
-.pn-bucket-removed > .collapsible-header .title { color: var(--boss-badge, #f87171); }
-.pn-bucket-changed > .collapsible-header .title { color: var(--accent); }
+.pn-bucket-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.pn-bucket-title.pn-added   { color: var(--new-badge, #4ade80); }
+.pn-bucket-title.pn-removed { color: var(--boss-badge, #f87171); }
+.pn-bucket-title.pn-changed { color: var(--accent); }
+.pn-bucket-count { font-size: 11px; color: var(--dim); font-variant-numeric: tabular-nums; }
+.pn-bucket-list { display: flex; flex-direction: column; gap: 4px; }
+.pn-bucket-parts { display: flex; flex-direction: column; gap: 8px; }
+
+/* Per-section bucket switch: All / Added / Removed / Changed. */
+.pn-seg {
+  display: inline-flex;
+  margin: 6px 6px 4px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.pn-seg-btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 4px 11px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--dim);
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--border);
+  cursor: pointer;
+}
+.pn-seg-btn:last-child { border-right: 0; }
+.pn-seg-btn:hover { color: var(--text); background: var(--surface-2); }
+.pn-seg-btn.active { color: var(--text); font-weight: 600; background: var(--accent-bg); }
+.pn-seg-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.pn-seg-count { font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pn-seg-count.pn-added   { color: var(--new-badge, #4ade80); }
+.pn-seg-count.pn-removed { color: var(--boss-badge, #f87171); }
+.pn-seg-count.pn-changed { color: var(--accent); }
+
+/* Overview: one card per section above the toolbar. */
+.pn-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.pn-ov-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
+  padding: 8px 10px 9px;
+  font: inherit;
+  text-align: left;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color .15s, box-shadow .15s;
+}
+.pn-ov-card:hover { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
+.pn-ov-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pn-ov-name { font-size: 13px; font-weight: 700; }
+.pn-ov-card .pn-tally { margin-left: 0; }
+.pn-ov-bar {
+  display: flex;
+  width: 100%;
+  height: 4px;
+  margin-top: 3px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.pn-ov-bar i { display: block; flex-basis: 0; }
+.pn-ov-bar i.pn-added   { background: var(--new-badge, #4ade80); }
+.pn-ov-bar i.pn-removed { background: var(--boss-badge, #f87171); }
+.pn-ov-bar i.pn-changed { background: var(--accent); }
+.pn-ov-hint {
+  max-width: 100%;
+  font-size: 11px;
+  color: var(--dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Section jump bar inside the sticky toolbar. */
+.pn-jump {
+  display: flex;
+  gap: 4px;
+  padding: 8px 0 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.pn-jump[hidden] { display: none; }
+.pn-jump::-webkit-scrollbar { display: none; }
+.pn-jump-btn {
+  flex: none;
+  padding: 2px 9px;
+  font: inherit;
+  font-size: 11px;
+  color: var(--dim);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  cursor: pointer;
+}
+.pn-jump-btn:hover { color: var(--accent); border-color: var(--accent); }
+.pn-jump-btn.active { color: #fff; background: var(--accent); border-color: var(--accent); }
+.pn-jump-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Changed tiles: the first few diffs under the name. */
+.pn-tile-diffs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px 9px;
+  margin-top: 3px;
+  padding-left: 16px;
+  font-size: 10.5px;
+  line-height: 1.45;
+  color: var(--text);
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.pn-tile-diff { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pn-tile-diff-label { color: var(--dim); font-weight: 600; }
+.pn-tile-diff-more { color: var(--dim); font-style: italic; }
+.pn-dir { margin-left: 2px; font-size: 8px; color: var(--dim); vertical-align: 1px; }
+
+/* Shape groups inside a summary-mode Changed bucket. Nested collapsibles
+   (base.css look); these only tune the header and the closed preview. */
+.pn-shapes { display: block; }
+.pn-shape > .collapsible-body { padding: 6px; }
+.pn-sections .pn-shape > .collapsible-header .title { color: var(--text); font-weight: 600; }
+.pn-shape-other > .collapsible-header .title { color: var(--dim); }
+.pn-shape-tag {
+  margin-left: 8px;
+  padding: 1px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--dim);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Diff and stat tables. */
+.pn-table-wrap { overflow-x: auto; }
+.pn-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.pn-table th {
+  padding: 0;
+  text-align: right;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.pn-table th:first-child { text-align: left; }
+.pn-th-btn {
+  width: 100%;
+  padding: 5px 9px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: inherit;
+  color: var(--dim);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.pn-th-btn:hover { color: var(--accent); }
+.pn-th-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.pn-table th[aria-sort="ascending"] .pn-th-btn::after { content: " ▲"; font-size: 8px; }
+.pn-table th[aria-sort="descending"] .pn-th-btn::after { content: " ▼"; font-size: 8px; }
+.pn-table td {
+  padding: 4px 9px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  white-space: nowrap;
+}
+.pn-table tbody tr:hover { background: var(--surface-2); }
+.pn-td-name { min-width: 180px; }
+.pn-td-name-inner { display: flex; align-items: center; gap: 7px; }
+.pn-td-name .pn-thumb.is-placeholder { display: none; }
+.pn-td-name .pn-thumb img { object-fit: contain; }
+.pn-td-num { text-align: right; }
+.pn-td-same { text-align: right; color: var(--dim); opacity: .45; }
+/* Member chips (spawn maps added/removed): left-aligned and allowed to wrap,
+   so they fill the gap between the name and the counts. */
+.pn-table th.pn-td-members { text-align: left; width: 100%; }
+.pn-table td.pn-td-members { white-space: normal; }
+.pn-cell-members { display: flex; flex-wrap: wrap; gap: 3px; }
+.pn-chip-more { cursor: help; }
+.pn-td-text { color: var(--dim); font-size: 11px; }
+.pn-cell-diff { display: inline-flex; gap: 5px; align-items: baseline; }
+.pn-delta { font-size: 10.5px; font-weight: 600; min-width: 3.2em; text-align: right; }
+.pn-delta.pn-up   { color: var(--new-badge, #4ade80); }
+.pn-delta.pn-down { color: var(--boss-badge, #f87171); }
+.pn-table-more td { border-bottom: 0; padding-top: 6px; }
+.pn-table-more .pn-show-more { width: 100%; }
+.pn-table tr.row-hotlink { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Long text diffs: one paragraph with edits marked inline. */
+.pn-worddiff {
+  grid-column: 1 / -1;
+  max-width: 88ch;
+  padding: 6px 9px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+  color: var(--text);
+  border-left: 3px solid var(--accent);
+  background: var(--surface-2);
+}
+.pn-worddiff del {
+  color: var(--boss-badge, #f87171);
+  background: color-mix(in srgb, var(--boss-badge, #f87171) 14%, transparent);
+  text-decoration: line-through;
+}
+.pn-worddiff ins {
+  color: var(--new-badge, #4ade80);
+  background: color-mix(in srgb, var(--new-badge, #4ade80) 14%, transparent);
+  text-decoration: none;
+}
 .pn-note {
   font-size: 12px;
   color: var(--dim);
@@ -513,8 +746,11 @@ a.pn-chip-link:focus-visible { outline: 2px solid var(--accent); outline-offset:
   .pn-filter-row { gap: 6px; }
   .pn-sections { margin-top: 10px; }
   .pn-sections > .collapsible > .collapsible-header { position: static; }
-  .pn-bucket > .collapsible-body,
+  .pn-buckets { padding: 4px 2px; }
+  .pn-shape > .collapsible-body,
   .pn-group > .collapsible-body { padding: 4px; }
+  .pn-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pn-td-name { min-width: 140px; }
   .pn-entry { padding: 7px 8px; }
   .pn-entry-head { min-width: 0; }
   .pn-name { min-width: 0; overflow-wrap: anywhere; }

@@ -141,12 +141,61 @@ function buildHeader(notes) {
   return card;
 }
 
+// One card per section: tally, a proportional added/removed/changed bar, and,
+// when one change shape dominates the Changed bucket, a "N × Field" line so a
+// reader knows what kind of changes it holds before scrolling there.
+function buildOverview(notes, onJump) {
+  const grid = el('div', { className: 'pn-overview' });
+  notes.sections.forEach((section) => {
+    const counts = section.counts || {};
+    const total = BUCKETS.reduce((sum, b) => sum + (counts[b.key] || 0), 0);
+    if (!total) return;
+    const card = el('button', { type: 'button', className: 'pn-ov-card' });
+    card.appendChild(el('span', { className: 'pn-ov-name', textContent: section.label }));
+    card.appendChild(buildTally(counts));
+    const bar = el('span', { className: 'pn-ov-bar', 'aria-hidden': 'true' });
+    BUCKETS.forEach((b) => {
+      if (!counts[b.key]) return;
+      bar.appendChild(el('i', { className: b.cls, style: { flexGrow: String(counts[b.key]) } }));
+    });
+    card.appendChild(bar);
+
+    const changed = section.changed || [];
+    const groups = changed.length >= PN_PATTERN_MIN ? groupByShape(changed) : null;
+    const top = groups?.find((g) => !g.other);
+    if (top && top.entries.length >= Math.max(PN_PATTERN_MIN, changed.length * 0.4)) {
+      const { label } = describeGroup(top);
+      card.appendChild(el('span', {
+        className: 'pn-ov-hint',
+        textContent: `${top.entries.length} × ${label}`,
+      }));
+    }
+    card.addEventListener('click', () => onJump(section.key));
+    grid.appendChild(card);
+  });
+  return grid;
+}
 
 function buildFieldRow(field, onNavigate) {
   // Long prose (descriptions) stacks vertically so neither side is clipped.
   if (field.long) {
     const block = el('div', { className: 'pn-field pn-field-long' });
-    block.appendChild(el('div', { className: 'pn-field-label', textContent: field.label }));
+    const label = el('div', { className: 'pn-field-label', textContent: field.label });
+    block.appendChild(label);
+    // Both sides present: one paragraph with the edits marked inline, so the
+    // reader doesn't have to compare two paragraphs word by word.
+    const before = field.before === null || field.before === undefined ? '' : String(field.before);
+    const after = field.after === null || field.after === undefined ? '' : String(field.after);
+    const ops = before.trim() && after.trim() ? wordDiff(before, after) : null;
+    if (ops) {
+      const para = el('div', { className: 'pn-worddiff' });
+      ops.forEach(([op, text]) => {
+        if (op === '=') para.appendChild(document.createTextNode(text));
+        else para.appendChild(el(op === '-' ? 'del' : 'ins', { textContent: text }));
+      });
+      block.appendChild(para);
+      return block;
+    }
     const pair = el('div', { className: 'pn-longpair' });
     pair.appendChild(el('div', { className: 'pn-long-before', textContent: shown(field.before) }));
     pair.appendChild(el('div', { className: 'pn-long-after', textContent: shown(field.after) }));
@@ -406,25 +455,9 @@ function openEntryModal(entry, bucket, section, onNavigate, opener) {
   closeBtn.focus();
 }
 
-function buildEntry(entry, bucket, section, onNavigate, opts = {}) {
-  const row = el('div', {
-    className: `pn-entry ${bucket.cls}`,
-    'data-pn-key': `${section.key}:${entry.id}`,
-  });
-
-  const head = el('div', { className: 'pn-entry-head' });
-  head.appendChild(el('span', { className: `pn-sign ${bucket.cls}`, textContent: bucket.sign }));
-
-  // makeThumbnail resolves the path per-dataset and swaps in a placeholder if
-  // the asset is missing, so a bad path degrades rather than showing a broken image.
-  if (entry.image) {
-    head.appendChild(makeThumbnail(entry.image, `${entry.name} thumbnail`, {
-      className: `pn-thumb pn-thumb-${section.key}`, fallbackText: '',
-    }));
-  }
-
-  // Removed entries no longer exist in the current dataset, so there is
-  // nothing to navigate to -- render those as plain text.
+// Entry name: a link to the entity's own tab (with the shared hover tooltip),
+// or plain text for removed entries, which no longer exist to navigate to.
+function buildEntryName(entry, bucket, section, onNavigate) {
   const canNavigate = section.tab && bucket.key !== 'removed' && onNavigate;
   const name = canNavigate
     ? el('a', {
@@ -445,13 +478,500 @@ function buildEntry(entry, bucket, section, onNavigate, opts = {}) {
       onNavigate(section.tab, entry.id);
     });
   }
-  head.appendChild(name);
-  // Changed tile entries feed their diff fields into the hover tooltip, so
-  // it reads "what changed" (before → after) on top of the live record.
-  const tooltipExtra = isTileSection(section) && bucket.key === 'changed'
-    ? entry.fields || null
-    : null;
-  attachEntityTooltip(name, section.tab, entry.id, tooltipExtra);
+  attachEntityTooltip(name, section.tab, entry.id, tooltipChanges(entry, bucket, section));
+  return name;
+}
+
+// Changed tile entries feed their diff fields into the hover tooltip, so it
+// reads "what changed" on top of the live record. Long text fields carry a
+// word diff, so a description edit shows up marked inline in the tooltip.
+function tooltipChanges(entry, bucket, section) {
+  if (!isTileSection(section) || bucket.key !== 'changed' || !entry.fields) return null;
+  if (!entry._tipFields) {
+    entry._tipFields = entry.fields.map((f) => {
+      if (!f.long || !f.before || !f.after) return f;
+      const ops = wordDiff(String(f.before), String(f.after));
+      return ops ? { ...f, wordDiff: ops } : f;
+    });
+  }
+  return entry._tipFields;
+}
+
+// ---- Change-shape helpers ----
+// Everything below is mechanical: grouping keys, number parsing, and word
+// diffs over the generator's before/after strings. No prose is generated.
+
+const normWs = (value) => String(value ?? '').replace(/\s+/g, ' ').trim();
+
+// A text edit that only moved whitespace around ("over\r\nany" -> "over any").
+function isWhitespaceOnly(field) {
+  return typeof field.before === 'string' && typeof field.after === 'string'
+    && field.before !== field.after && normWs(field.before) === normWs(field.after);
+}
+
+const hasMembers = (field) => Boolean(field.added?.length || field.removed?.length);
+
+// "1,000 mesos", "×0.8", "45", "12%" -> number. Blank -> null (a field that
+// didn't exist on one side). Anything else -> NaN (not a numeric field).
+const NUM_RE = /^[×x]?\s*(-?[\d,]*\.?\d+)\s*(mesos|%)?$/;
+function parseNum(value) {
+  if (value === null || value === undefined) return null;
+  if (typeof value === 'number') return value;
+  const text = String(value).trim();
+  if (!text) return null;
+  const m = NUM_RE.exec(text);
+  return m ? Number(m[1].replace(/,/g, '')) : NaN;
+}
+
+// A field that reads cleanly as one table cell: a number (or blank) on both
+// sides. Set-valued fields carry before/after member counts; `allowMembers`
+// decides whether those counts are enough or the member chips are needed.
+function isNumericField(field, { allowMembers = false } = {}) {
+  if (field.long || field.unchanged) return false;
+  if (hasMembers(field) && !allowMembers) return false;
+  const b = parseNum(field.before);
+  const a = parseNum(field.after);
+  return !Number.isNaN(b) && !Number.isNaN(a) && (b !== null || a !== null);
+}
+
+const entrySignature = (entry) => (entry.fields || []).map((f) => f.label).sort().join('|');
+
+// Groups a Changed bucket by which fields changed. Returns null when grouping
+// would not shorten the list: every entry its own shape, or no shape shared by
+// at least three entries. Shapes with fewer than three entries pool into one
+// trailing "other" group.
+const PN_PATTERN_MIN = 3;
+function groupByShape(entries) {
+  const bySig = new Map();
+  entries.forEach((entry) => {
+    const sig = entrySignature(entry);
+    if (!bySig.has(sig)) bySig.set(sig, []);
+    bySig.get(sig).push(entry);
+  });
+  const sorted = [...bySig.values()].sort((a, b) => b.length - a.length);
+  if (!sorted.length || sorted[0].length < PN_PATTERN_MIN) return null;
+  if (bySig.size > entries.length / 2) return null;
+  const groups = [];
+  const other = [];
+  sorted.forEach((list) => {
+    if (list.length >= PN_PATTERN_MIN) groups.push({ entries: list, other: false });
+    else other.push(...list);
+  });
+  if (other.length) groups.push({ entries: other, other: true });
+  return groups;
+}
+
+// Facts about a shape group, all derived from the values themselves.
+function describeGroup(group) {
+  const first = group.entries[0];
+  const fields = first.fields || [];
+  const label = group.other
+    ? 'Other changes'
+    : fields.map((f) => f.label).join(' · ') || 'Changed';
+  let direction = null;
+  if (!group.other && fields.length === 1) {
+    const deltas = group.entries.map((e) => {
+      const f = e.fields[0];
+      const b = parseNum(f.before);
+      const a = parseNum(f.after);
+      return typeof b === 'number' && typeof a === 'number' && !Number.isNaN(b) && !Number.isNaN(a)
+        ? a - b : NaN;
+    });
+    if (deltas.every((d) => d < 0)) direction = 'all lowered';
+    else if (deltas.every((d) => d > 0)) direction = 'all raised';
+  }
+  return { label, direction };
+}
+
+// Word-level diff of two strings: [['=', text] | ['-', text] | ['+', text]].
+// Whitespace runs compare equal to each other, so a reflowed line break
+// doesn't read as an edit. Returns null when the inputs are too large for the
+// quadratic LCS, or so different that a word diff would be confetti -- the
+// caller then falls back to the stacked before/after layout.
+function wordDiff(before, after) {
+  const tokenize = (s) => s.split(/(\s+)/).filter(Boolean);
+  const key = (t) => (/^\s+$/.test(t) ? ' ' : t);
+  const a = tokenize(before);
+  const b = tokenize(after);
+  let start = 0;
+  while (start < a.length && start < b.length && key(a[start]) === key(b[start])) start++;
+  let endA = a.length;
+  let endB = b.length;
+  while (endA > start && endB > start && key(a[endA - 1]) === key(b[endB - 1])) { endA--; endB--; }
+  const midA = a.slice(start, endA);
+  const midB = b.slice(start, endB);
+  const n = midA.length;
+  const m = midB.length;
+  if (n * m > 4e6) return null;
+
+  // LCS table, flattened, (n+1) x (m+1).
+  const w = m + 1;
+  const dp = new Uint32Array((n + 1) * w);
+  for (let i = n - 1; i >= 0; i--) {
+    for (let j = m - 1; j >= 0; j--) {
+      dp[i * w + j] = key(midA[i]) === key(midB[j])
+        ? dp[(i + 1) * w + j + 1] + 1
+        : Math.max(dp[(i + 1) * w + j], dp[i * w + j + 1]);
+    }
+  }
+  // Segments: { eq } runs and { del, ins } change runs.
+  const segs = [];
+  const eq = (t) => {
+    const last = segs[segs.length - 1];
+    if (last && 'eq' in last) last.eq += t;
+    else segs.push({ eq: t });
+  };
+  const change = (del, ins) => {
+    const last = segs[segs.length - 1];
+    if (last && !('eq' in last)) { last.del += del; last.ins += ins; }
+    else segs.push({ del, ins });
+  };
+  b.slice(0, start).forEach(eq);
+  let i = 0;
+  let j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && key(midA[i]) === key(midB[j])) { eq(midB[j]); i++; j++; }
+    else if (j < m && (i >= n || dp[i * w + j + 1] >= dp[(i + 1) * w + j])) { change('', midB[j]); j++; }
+    else { change(midA[i], ''); i++; }
+  }
+  b.slice(endB).forEach(eq);
+
+  const words = (list) => list.filter((t) => !/^\s+$/.test(t)).length;
+  const shared = words(b) - words(midB) + (n && m ? dp[0] : 0);
+  if (shared / Math.max(words(a), words(b), 1) < 0.35) return null;
+
+  // Semantic cleanup: a short equal run (a space, "the", "of the") between
+  // two changes is a coincidental match, not a kept phrase. Fold it into both
+  // sides so the edit reads as one deletion and one insertion.
+  for (let k = 1; k < segs.length - 1; k++) {
+    const mid = segs[k];
+    if (!('eq' in mid) || 'eq' in segs[k - 1] || 'eq' in segs[k + 1]) continue;
+    if (words(tokenize(mid.eq)) > 2) continue;
+    const prev = segs[k - 1];
+    const next = segs[k + 1];
+    segs.splice(k - 1, 3, { del: prev.del + mid.eq + next.del, ins: prev.ins + mid.eq + next.ins });
+    k = Math.max(0, k - 2);
+  }
+
+  const ops = [];
+  segs.forEach((s) => {
+    if ('eq' in s) { ops.push(['=', s.eq]); return; }
+    if (s.del) ops.push(['-', s.del]);
+    if (s.ins) ops.push(['+', s.ins]);
+  });
+  return ops;
+}
+
+// Compact "what changed" line for a collapsed tile: the first few diffs as
+// `Label before→after`, with a neutral direction mark on numeric changes.
+const PN_TILE_DIFFS = 3;
+function buildTileDiffs(fields) {
+  const wrap = el('div', { className: 'pn-tile-diffs' });
+  fields.slice(0, PN_TILE_DIFFS).forEach((f) => {
+    const item = el('span', { className: 'pn-tile-diff' });
+    item.appendChild(el('span', { className: 'pn-tile-diff-label', textContent: f.label }));
+    if (f.long) {
+      // Prose doesn't fit a tile; the word diff lives in the modal and in
+      // Detailed view. The tile only says that the text changed.
+      item.appendChild(document.createTextNode(' changed'));
+    } else if (hasMembers(f) && f.before === f.after) {
+      const parts = [];
+      if (f.added?.length) parts.push(`+${f.added.length}`);
+      if (f.removed?.length) parts.push(`−${f.removed.length}`);
+      item.appendChild(document.createTextNode(` ${parts.join(' ')}`));
+    } else {
+      item.appendChild(document.createTextNode(` ${shown(f.before)}→${shown(f.after)}`));
+      const b = parseNum(f.before);
+      const a = parseNum(f.after);
+      if (typeof b === 'number' && typeof a === 'number' && !Number.isNaN(b) && !Number.isNaN(a) && a !== b) {
+        item.appendChild(el('span', { className: 'pn-dir', textContent: a > b ? '▲' : '▼' }));
+      }
+    }
+    wrap.appendChild(item);
+  });
+  if (fields.length > PN_TILE_DIFFS) {
+    wrap.appendChild(el('span', {
+      className: 'pn-tile-diff pn-tile-diff-more',
+      textContent: `+${fields.length - PN_TILE_DIFFS} more`,
+    }));
+  }
+  return wrap;
+}
+
+// ---- Tables ----
+// One row per entry, one column per field. `rows` are { entry, cells } where
+// cells maps column label -> { node, sort }. Headers sort on click; rows past
+// the cap sit behind a "Show N more" row like the lists.
+const PN_TABLE_LIMIT = 50;
+// `columnMeta` (optional) maps a column key to { label, cls }: a display label
+// other than the key, and a class for its cells and header (default numeric).
+function buildEntryTable(rows, columns, section, bucket, onNavigate,
+  { defaultSort = null, columnMeta = null } = {}) {
+  const metaFor = (col) => columnMeta?.get(col) || {};
+  const wrap = el('div', { className: 'pn-table-wrap' });
+  const table = el('table', { className: 'pn-table' });
+  const thead = el('thead');
+  const headRow = el('tr');
+  const tbody = el('tbody');
+  // sortCol: null = Name column. `sorted` false = generator order.
+  let sorted = Boolean(defaultSort);
+  let sortCol = defaultSort?.col ?? null;
+  let sortDir = defaultSort?.dir ?? 1;
+  let expanded = false;
+
+  const nameCell = (entry) => {
+    // Flex on an inner span: flex on the <td> itself breaks the row borders.
+    const inner = el('span', { className: 'pn-td-name-inner' });
+    if (entry.image) {
+      inner.appendChild(makeThumbnail(entry.image, `${entry.name} thumbnail`, {
+        className: `pn-thumb pn-thumb-${section.key}`, fallbackText: '',
+      }));
+    }
+    inner.appendChild(buildEntryName(entry, bucket, section, onNavigate));
+    return el('td', { className: 'pn-td-name' }, inner);
+  };
+  // Built once; sorting only reorders the same nodes.
+  const built = rows.map((row) => {
+    const tr = el('tr', {
+      className: `pn-entry-row ${bucket.cls}`,
+      'data-pn-key': `${section.key}:${row.entry.id}`,
+    });
+    tr.appendChild(nameCell(row.entry));
+    columns.forEach((col) => {
+      const cell = row.cells.get(col);
+      const cls = metaFor(col).cls;
+      tr.appendChild(cell
+        ? el('td', { className: cls || 'pn-td-num' }, cell.node)
+        : el('td', { className: cls || 'pn-td-same', textContent: cls ? '' : '·' }));
+    });
+    return { row, tr };
+  });
+
+  const sortValue = (item) => (sortCol === null
+    ? item.row.entry.name || ''
+    : item.row.cells.get(sortCol)?.sort);
+  // Single-column default sort ranks by size of the move, not signed value.
+  const rankByMagnitude = () => defaultSort && sortCol === defaultSort.col && sortDir === defaultSort.dir;
+  const paint = () => {
+    const order = built.slice();
+    if (sorted) {
+      order.sort((x, y) => {
+        const a = sortValue(x);
+        const b = sortValue(y);
+        // Blank cells sink regardless of direction.
+        if (a === undefined || a === null || Number.isNaN(a)) return 1;
+        if (b === undefined || b === null || Number.isNaN(b)) return -1;
+        if (typeof a === 'string') return a.localeCompare(b) * sortDir;
+        if (rankByMagnitude()) return Math.abs(b) - Math.abs(a);
+        return (a - b) * sortDir;
+      });
+    }
+    tbody.replaceChildren();
+    const limit = expanded ? order.length : PN_TABLE_LIMIT;
+    order.slice(0, limit).forEach((item) => tbody.appendChild(item.tr));
+    if (order.length > limit) {
+      const more = el('button', {
+        type: 'button', className: 'pn-show-more', textContent: `Show ${order.length - limit} more`,
+      });
+      more.addEventListener('click', () => { expanded = true; paint(); });
+      tbody.appendChild(el('tr', { className: 'pn-table-more' },
+        el('td', { colspan: columns.length + 1 }, more)));
+    }
+    headers.forEach(({ th, col }) => {
+      const active = sorted && sortCol === col;
+      th.setAttribute('aria-sort', active ? (sortDir > 0 ? 'ascending' : 'descending') : 'none');
+    });
+  };
+
+  const headers = [];
+  const header = (label, col) => {
+    const th = el('th', { scope: 'col', className: col === null ? '' : metaFor(col).cls || '' });
+    const btn = el('button', { type: 'button', className: 'pn-th-btn', textContent: label });
+    btn.addEventListener('click', () => {
+      if (sorted && sortCol === col) sortDir = -sortDir;
+      else { sortCol = col; sortDir = col === null ? 1 : -1; }
+      sorted = true;
+      paint();
+    });
+    th.appendChild(btn);
+    headers.push({ th, col });
+    headRow.appendChild(th);
+  };
+  header('Name', null);
+  columns.forEach((col) => header(metaFor(col).label || col, col));
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+  table.appendChild(tbody);
+  wrap.appendChild(table);
+  paint();
+  return wrap;
+}
+
+// Diff cell: struck before, bold after, signed delta when both are numbers.
+function diffCell(field) {
+  const node = el('span', { className: 'pn-cell-diff' });
+  // Set-valued fields carry member counts; a missing side had no members
+  // (a monster with no spawn maps before), so it reads 0, not a dash.
+  const counted = hasMembers(field);
+  const before = counted && (field.before === null || field.before === undefined) ? 0 : field.before;
+  const after = counted && (field.after === null || field.after === undefined) ? 0 : field.after;
+  const b = parseNum(before);
+  const a = parseNum(after);
+  node.appendChild(el('span', { className: 'pn-field-before', textContent: shown(before) }));
+  node.appendChild(el('span', { className: 'pn-field-after', textContent: shown(after) }));
+  let sort = typeof a === 'number' && !Number.isNaN(a) ? a : undefined;
+  if (typeof b === 'number' && typeof a === 'number' && !Number.isNaN(b) && !Number.isNaN(a) && a !== b) {
+    const delta = a - b;
+    sort = delta;
+    const digits = Math.max(...[before, after]
+      .map((v) => (String(v).split('.')[1] || '').replace(/\D.*$/, '').length));
+    const text = `${delta > 0 ? '+' : '−'}${Math.abs(delta).toLocaleString('en-US', {
+      minimumFractionDigits: digits, maximumFractionDigits: digits,
+    })}`;
+    node.appendChild(el('span', { className: `pn-delta ${delta > 0 ? 'pn-up' : 'pn-down'}`, textContent: text }));
+  }
+  return { node, sort };
+}
+
+// Changed entries whose fields are all numeric, as one table. Column order is
+// first appearance, so the most common leading field reads first.
+function buildDiffTable(entries, section, bucket, onNavigate) {
+  const columns = [];
+  const memberCols = new Set();
+  const rows = entries.map((entry) => {
+    const cells = new Map();
+    mergeColumns(columns, (entry.fields || []).map((f) => f.label));
+    (entry.fields || []).forEach((f) => {
+      cells.set(f.label, diffCell(f));
+      if (hasMembers(f)) {
+        memberCols.add(f.label);
+        cells.set(`${f.label}\u0000members`, memberCell(f, onNavigate));
+      }
+    });
+    return { entry, cells };
+  });
+  // Set-valued fields (spawn maps, NPCs) get a column naming the members
+  // that came and went, just before the count -- the count alone doesn't say
+  // which map a monster moved into.
+  const columnMeta = new Map();
+  const ordered = [];
+  columns.forEach((col) => {
+    if (memberCols.has(col)) {
+      const key = `${col}\u0000members`;
+      ordered.push(key);
+      columnMeta.set(key, { label: `${col} added / removed`, cls: 'pn-td-members' });
+    }
+    ordered.push(col);
+  });
+  // A single-field table is a ranking: biggest move first.
+  const defaultSort = columns.length === 1 ? { col: columns[0], dir: 1 } : null;
+  return buildEntryTable(rows, ordered, section, bucket, onNavigate, { defaultSort, columnMeta });
+}
+
+// Member chips for a set-valued field: "+ Primeval Forest I", linked to the
+// map with its usual hover card. Past PN_CELL_CHIPS the rest fold into a
+// "+N more" chip whose hover lists them.
+const PN_CELL_CHIPS = 3;
+function memberCell(field, onNavigate) {
+  const node = el('span', { className: 'pn-cell-members' });
+  const all = [
+    ...(field.added || []).map((item) => ({ item, cls: 'pn-added', sign: '+' })),
+    ...(field.removed || []).map((item) => ({ item, cls: 'pn-removed', sign: '−' })),
+  ];
+  const label = (item) => (typeof item === 'string' ? item : item.name);
+  all.slice(0, PN_CELL_CHIPS).forEach(({ item, cls, sign }) => {
+    const labelled = typeof item === 'string' ? `${sign} ${item}` : { ...item, name: `${sign} ${item.name}` };
+    node.appendChild(buildChip(labelled, cls, field.tab, onNavigate));
+  });
+  if (all.length > PN_CELL_CHIPS) {
+    const rest = all.slice(PN_CELL_CHIPS);
+    node.appendChild(el('span', {
+      className: 'pn-chip pn-chip-neutral pn-chip-more',
+      textContent: `+${rest.length} more`,
+      title: rest.map(({ item, sign }) => `${sign} ${label(item)}`).join('\n'),
+    }));
+  }
+  // Sorts by how many members moved.
+  return { node, sort: all.length };
+}
+
+// Adds one entry's ordered labels to the shared column list, keeping each new
+// label next to the one it followed in that entry -- so a stat missing from
+// the first row (Turkey has no M.DEF) still lands beside P.DEF, not at the end.
+function mergeColumns(columns, labels) {
+  labels.forEach((label, i) => {
+    if (columns.includes(label)) return;
+    const prev = labels.slice(0, i).reverse().find((l) => columns.includes(l));
+    columns.splice(prev === undefined ? 0 : columns.indexOf(prev) + 1, 0, label);
+  });
+}
+
+// Added monsters carry their stats as "Lv.20 · HP 18,550 · ..." meta strings.
+// Rows of such tokens split into one numeric column per stat; any other meta
+// row (Elements chips) becomes one text column. An entry needs at least one
+// stat row to qualify, and entries with prose stay as normal rows.
+const STAT_TOKEN = /^(?:(Lv)\.\s*(-?[\d,]+)|([A-Za-z][A-Za-z.]*(?: [A-Za-z.]+)*) (-?[\d,]+))$/;
+function parseStatMeta(entry) {
+  const meta = entry.meta || [];
+  if (!meta.length || entry.description || entry.fields?.length) return null;
+  const cells = new Map();
+  let statRows = 0;
+  for (const m of meta) {
+    if (m.items?.length) {
+      cells.set(m.label, { text: m.items.map((it) => (typeof it === 'string' ? it : it.name)).join(', ') });
+      continue;
+    }
+    if (typeof m.value !== 'string') return null;
+    const hits = m.value.split(' · ').map((token) => STAT_TOKEN.exec(token.trim()));
+    if (hits.every(Boolean)) {
+      statRows += 1;
+      hits.forEach((hit) => cells.set(hit[1] || hit[3], { num: hit[2] || hit[4] }));
+    } else {
+      cells.set(m.label, { text: m.value });
+    }
+  }
+  return statRows ? cells : null;
+}
+
+function buildStatTable(entries, section, bucket, onNavigate) {
+  const columns = [];
+  const rows = entries.map((entry) => {
+    const parsed = parseStatMeta(entry);
+    mergeColumns(columns, [...parsed.keys()]);
+    const cells = new Map();
+    parsed.forEach((value, label) => {
+      cells.set(label, value.num !== undefined
+        ? { node: document.createTextNode(value.num), sort: Number(value.num.replace(/,/g, '')) }
+        : { node: el('span', { className: 'pn-td-text', textContent: value.text }), sort: value.text });
+    });
+    return { entry, cells };
+  });
+  return buildEntryTable(rows, columns, section, bucket, onNavigate);
+}
+
+function buildEntry(entry, bucket, section, onNavigate, opts = {}) {
+  const row = el('div', {
+    className: `pn-entry ${bucket.cls}`,
+    'data-pn-key': `${section.key}:${entry.id}`,
+  });
+
+  const head = el('div', { className: 'pn-entry-head' });
+  head.appendChild(el('span', { className: `pn-sign ${bucket.cls}`, textContent: bucket.sign }));
+
+  // makeThumbnail resolves the path per-dataset and swaps in a placeholder if
+  // the asset is missing, so a bad path degrades rather than showing a broken image.
+  if (entry.image) {
+    const thumb = makeThumbnail(entry.image, `${entry.name} thumbnail`, {
+      className: `pn-thumb pn-thumb-${section.key}`, fallbackText: '',
+    });
+    // The icon is half the tile; it gets the same hover as the name.
+    if (bucket.key !== 'removed') {
+      attachEntityTooltip(thumb, section.tab, entry.id, tooltipChanges(entry, bucket, section));
+    }
+    head.appendChild(thumb);
+  }
+
+  head.appendChild(buildEntryName(entry, bucket, section, onNavigate));
 
   if (entry.id) {
     head.appendChild(makeCopyableId(`#${entry.id}`));
@@ -538,6 +1058,12 @@ function buildEntry(entry, bucket, section, onNavigate, opts = {}) {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       open(event);
     });
+    // Changed tiles show what changed without opening the modal.
+    if (bucket.key === 'changed' && entry.fields?.length && !opts.noTileDiffs) {
+      const diffs = buildTileDiffs(entry.fields);
+      diffs.addEventListener('click', open);
+      row.appendChild(diffs);
+    }
   }
   if (details.childElementCount) row.appendChild(details);
   return row;
@@ -638,27 +1164,110 @@ function buildGroupedList(rows, section, onNavigate, opts = {}) {
   return wrap;
 }
 
-// Sections open as three bucket blocks -- Added / Removed / Changed -- rather
-// than one continuous run. Added reads first and stays open while Changed and
-// Removed start collapsed: Changed rows carry the full field diff and dominate
-// the page (e.g. Equipment's ~800 changed rows bury its 230 added ones), so
-// hiding them by default keeps the section glanceable and prioritises new
-// content. Buckets with no entries are skipped; when a section has no Added
-// rows the first non-empty bucket opens instead, so it never lands empty.
+// Sections render their non-empty buckets -- Added / Removed / Changed -- as
+// flat blocks under a small heading, with a segmented control above them to
+// show one bucket at a time. (They used to be nested collapsibles, which put
+// three levels of boxes between the section title and its first entry.)
+//
 // A bucket this small reads fine fully expanded: tiles render as inline rows
 // (the Detailed view layout) and Skills' class groups start open. Bigger
 // buckets keep the tiles and closed groups that keep a large patch glanceable.
 const PN_EXPAND_LIMIT = 12;
 
-function buildBucketBlock(bucket, entries, section, onNavigate, defaultOpen, isFiltering, opts = {}) {
+function rowsOf(entries, bucket) {
+  return entries.map((entry) => ({ entry, bucket }));
+}
+
+// Inline (full-row) Changed bucket: entries whose every field is a number go
+// into one diff table; the rest keep their rows. Only worth it with two or more
+// table rows -- a one-row table is just a worse row.
+function buildChangedInline(entries, bucket, section, onNavigate, opts) {
+  const numeric = entries.filter((e) => e.fields?.length
+    && e.fields.every((f) => isNumericField(f)));
+  if (numeric.length < 2) return buildList(rowsOf(entries, bucket), section, onNavigate, opts);
+  const wrap = el('div', { className: 'pn-bucket-parts' });
+  wrap.appendChild(buildDiffTable(numeric, section, bucket, onNavigate));
+  const rest = entries.filter((e) => !numeric.includes(e));
+  if (rest.length) wrap.appendChild(buildList(rowsOf(rest, bucket), section, onNavigate, opts));
+  return wrap;
+}
+
+// Inline Added bucket: stat-line entries (monsters) as one sortable table.
+function buildAddedInline(entries, bucket, section, onNavigate, opts) {
+  const parsed = entries.filter((e) => parseStatMeta(e));
+  if (parsed.length < 2) return buildList(rowsOf(entries, bucket), section, onNavigate, opts);
+  const wrap = el('div', { className: 'pn-bucket-parts' });
+  wrap.appendChild(buildStatTable(parsed, section, bucket, onNavigate));
+  const rest = entries.filter((e) => !parsed.includes(e));
+  if (rest.length) wrap.appendChild(buildList(rowsOf(rest, bucket), section, onNavigate, opts));
+  return wrap;
+}
+
+// Summary-mode Changed bucket, grouped by which fields changed: one nested
+// block per shape with its count and a mechanical fact where one holds (all
+// lowered / all raised). All-numeric shapes render as a table; others as the
+// usual list.
+function buildShapeGroups(groups, bucket, section, onNavigate, opts) {
+  const wrap = el('div', { className: 'pn-shapes' });
+  groups.forEach((group) => {
+    const { label, direction } = describeGroup(group);
+    const numeric = !group.other && group.entries.every((e) => e.fields?.length
+      && e.fields.every((f) => isNumericField(f, { allowMembers: true })));
+    // Text-only groups (descriptions, game text): the header already names the
+    // field and prose doesn't fit a tile, so their tiles skip the diff line.
+    // The edit shows on hover, in the modal, and inline in Detailed view.
+    const textOnly = !group.other && group.entries.every((e) => e.fields?.length
+      && e.fields.every((f) => f.long));
+    const content = numeric
+      ? buildDiffTable(group.entries, section, bucket, onNavigate)
+      : buildList(rowsOf(group.entries, bucket), section, onNavigate,
+        textOnly ? { ...opts, noTileDiffs: true } : opts);
+    // Content is a node, not a builder: reveal() finds a deep-linked row by
+    // query and then opens its block, which a lazy body would defeat.
+    const block = makeCollapsible(label, group.entries.length, true, null, content);
+    block.classList.add('pn-shape');
+    if (group.other) block.classList.add('pn-shape-other');
+    if (direction) {
+      block.querySelector('.collapsible-header .left')
+        ?.appendChild(el('span', { className: 'pn-shape-tag', textContent: direction }));
+    }
+    wrap.appendChild(block);
+  });
+  return wrap;
+}
+
+function buildBucketBlock(bucket, entries, section, onNavigate, isFiltering, opts = {}) {
   if (!entries?.length) return null;
-  const rows = entries.map((entry) => ({ entry, bucket }));
+  const rows = rowsOf(entries, bucket);
   const expand = entries.length <= PN_EXPAND_LIMIT;
   if (expand) opts = { ...opts, detailed: true, expand: true };
   const grouped = section.groups?.length || rows.some((r) => r.entry.group);
-  const list = grouped
-    ? buildGroupedList(rows, section, onNavigate, opts)
-    : buildList(rows, section, onNavigate, opts);
+  const inline = expand || opts.detailed;
+
+  let list;
+  if (grouped) {
+    list = buildGroupedList(rows, section, onNavigate, opts);
+  } else if (bucket.key === 'changed' && inline) {
+    list = buildChangedInline(entries, bucket, section, onNavigate, opts);
+  } else if (bucket.key === 'changed') {
+    const groups = groupByShape(entries);
+    list = groups
+      ? buildShapeGroups(groups, bucket, section, onNavigate, opts)
+      : buildList(rows, section, onNavigate, opts);
+  } else if (bucket.key === 'added' && inline) {
+    list = buildAddedInline(entries, bucket, section, onNavigate, opts);
+  } else {
+    list = buildList(rows, section, onNavigate, opts);
+  }
+
+  const block = el('div', {
+    className: `pn-bucket pn-bucket-${bucket.key}`,
+    'data-bucket': bucket.key,
+  });
+  const head = el('div', { className: 'pn-bucket-head' });
+  head.appendChild(el('span', { className: `pn-bucket-title ${bucket.cls}`, textContent: bucket.label }));
+  head.appendChild(el('span', { className: 'pn-bucket-count', textContent: entries.length }));
+  block.appendChild(head);
 
   // pn-detailed reuses the page-level Detailed view styles for this bucket only.
   const wrap = el('div', { className: `pn-bucket-list${expand ? ' pn-detailed' : ''}` });
@@ -676,10 +1285,41 @@ function buildBucketBlock(bucket, entries, section, onNavigate, defaultOpen, isF
       textContent: `Not listed: ${hidden} more ${bucket.label.toLowerCase()}.`,
     }));
   }
-
-  const block = makeCollapsible(bucket.label, entries.length, defaultOpen, null, wrap);
-  block.classList.add('pn-bucket', `pn-bucket-${bucket.key}`);
+  block.appendChild(wrap);
   return block;
+}
+
+// All / Added / Removed / Changed for one section. Toggles visibility only,
+// so every row stays in the DOM for deep links (reveal() resets it to All).
+function buildBucketSeg(buckets, entries, blocks) {
+  const seg = el('div', { className: 'pn-seg', role: 'group', 'aria-label': 'Change type' });
+  const total = buckets.reduce((sum, b) => sum + entries[b.key].length, 0);
+  const options = [{ key: 'all', label: 'All', count: total, cls: '' },
+    ...buckets.map((b) => ({ key: b.key, label: b.label, count: entries[b.key].length, cls: b.cls }))];
+  const buttons = [];
+  options.forEach((o) => {
+    const btn = el('button', {
+      type: 'button',
+      className: `pn-seg-btn${o.key === 'all' ? ' active' : ''}`,
+      'data-bucket': o.key,
+      'aria-pressed': String(o.key === 'all'),
+    });
+    btn.appendChild(el('span', { textContent: o.label }));
+    btn.appendChild(el('span', { className: `pn-seg-count ${o.cls}`, textContent: o.count }));
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+      blocks.forEach((block) => {
+        block.hidden = o.key !== 'all' && block.dataset.bucket !== o.key;
+      });
+    });
+    buttons.push(btn);
+    seg.appendChild(btn);
+  });
+  return seg;
 }
 
 // `entries` is the bucket -> row subset to show: the full section when idle,
@@ -693,15 +1333,17 @@ function buildSectionBody(section, entries, onNavigate, ctx) {
 
   const buckets = el('div', { className: 'pn-buckets' });
   const nonEmpty = BUCKETS.filter((b) => (entries[b.key] || []).length);
+  const blocks = [];
   nonEmpty.forEach((bucket) => {
-    // Tiles and the render cap keep even the biggest buckets cheap, so every
-    // bucket starts open. Collapse all in the toolbar puts the wall away;
-    // Skills keeps its per-class groups closed as an index.
-    const block = buildBucketBlock(bucket, entries[bucket.key] || [], section, onNavigate, true, ctx.isFiltering, {
+    const block = buildBucketBlock(bucket, entries[bucket.key] || [], section, onNavigate, ctx.isFiltering, {
       detailed: ctx.detailed,
     });
-    if (block) buckets.appendChild(block);
+    if (block) {
+      blocks.push(block);
+      buckets.appendChild(block);
+    }
   });
+  if (blocks.length > 1) body.appendChild(buildBucketSeg(nonEmpty, entries, blocks));
   body.appendChild(buckets);
 
   return body;
@@ -879,6 +1521,33 @@ export function renderPatchNotes(patchNotes, options = {}) {
   return host;
 }
 
+// Whitespace-only edits ("over\r\nany" -> "over any") change nothing a player
+// reads. The generator skips them now (same_text in generate_patch_notes.py);
+// this drops them from files generated before that, and corrects the counts so
+// headings and the overview agree with what's listed. Runs once per notes
+// object -- renderPatchNotes caches and re-renders the same one.
+function dropWhitespaceOnly(notes) {
+  if (notes._wsDropped) return;
+  notes._wsDropped = true;
+  let dropped = 0;
+  (notes.sections || []).forEach((section) => {
+    if (!section.changed?.length) return;
+    const kept = [];
+    section.changed.forEach((entry) => {
+      if (!entry.fields?.length) { kept.push(entry); return; }
+      const fields = entry.fields.filter((f) => !isWhitespaceOnly(f));
+      if (!fields.length) return;
+      kept.push(fields.length === entry.fields.length ? entry : { ...entry, fields });
+    });
+    const removed = section.changed.length - kept.length;
+    if (!removed) return;
+    section.changed = kept;
+    if (section.counts?.changed) section.counts.changed -= removed;
+    dropped += removed;
+  });
+  if (dropped && notes.totals?.changed) notes.totals.changed -= dropped;
+}
+
 function buildNotesPage(notes, options = {}, picker = null) {
   const frag = document.createDocumentFragment();
   const page = el('div', { className: 'patch-notes-page' });
@@ -895,6 +1564,7 @@ function buildNotesPage(notes, options = {}, picker = null) {
     return frag;
   }
 
+  dropWhitespaceOnly(notes);
   page.appendChild(buildHeader(notes));
 
   const totals = notes.totals || {};
@@ -989,14 +1659,83 @@ function buildNotesPage(notes, options = {}, picker = null) {
   pillRow.appendChild(detailedToggle);
   toolbar.appendChild(pillRow);
 
+  // Section jump bar: stays pinned with the toolbar and marks the section
+  // currently under it.
+  const jumpRow = el('div', { className: 'pn-jump', role: 'navigation', 'aria-label': 'Sections' });
+  toolbar.appendChild(jumpRow);
+
   const statusLine = el('div', { className: 'pn-status', hidden: true });
   toolbar.appendChild(statusLine);
   enableMobileFilterDrawer(toolbar, { keep: [searchBox, statusLine] });
-  page.appendChild(toolbar);
 
   const sectionsWrap = el('div', { className: 'pn-sections' });
   const sectionEls = new Map();
+
+  // Where the pinned toolbar ends right now (it slides with the site header).
+  const toolbarBottom = () => toolbar.getBoundingClientRect().bottom;
+  const jumpTo = (key) => {
+    // A filter can hide the section; a jump means "show me it", so clear it.
+    if (!sectionEls.has(key) && isFiltering()) {
+      searchQuery = '';
+      bucketFilter = 'all';
+      searchBox._input.value = '';
+      searchBox._sync();
+      bucketPills.setActive('all');
+      renderData();
+    }
+    const target = sectionEls.get(key);
+    if (!target) return;
+    target.classList.add('open');
+    // Same convention as scrollRowToTop's instant mode: the jump hides the
+    // site header (--sticky-offset drops to 0), so only the toolbar pins above.
+    startDeepLinkJump();
+    window.scrollTo({
+      top: window.scrollY + target.getBoundingClientRect().top - toolbar.offsetHeight - 4,
+      behavior: 'instant',
+    });
+  };
+
+  page.appendChild(buildOverview(notes, jumpTo));
+  page.appendChild(toolbar);
   page.appendChild(sectionsWrap);
+
+  const jumpButtons = new Map();
+  const paintJump = () => {
+    jumpRow.replaceChildren();
+    jumpButtons.clear();
+    sectionEls.forEach((_, key) => {
+      const section = notes.sections.find((s) => s.key === key);
+      const btn = el('button', { type: 'button', className: 'pn-jump-btn', textContent: section.label });
+      btn.addEventListener('click', () => jumpTo(key));
+      jumpButtons.set(key, btn);
+      jumpRow.appendChild(btn);
+    });
+    jumpRow.hidden = jumpButtons.size < 2;
+    markCurrent();
+  };
+  // The current section is the last one whose top has passed under the
+  // toolbar. A dozen rect reads per scroll event; cheap enough unthrottled.
+  let wasConnected = false;
+  function markCurrent() {
+    if (!page.isConnected) return;
+    const line = toolbarBottom() + 12;
+    let current = null;
+    sectionEls.forEach((node, key) => {
+      if (node.getBoundingClientRect().top <= line) current = key;
+    });
+    jumpButtons.forEach((btn, key) => btn.classList.toggle('active', key === current));
+  }
+  function onScroll() {
+    // Switching patches replaces the page; once a page that was on screen has
+    // left the document, drop its listener.
+    if (page.isConnected) wasConnected = true;
+    else if (wasConnected) {
+      window.removeEventListener('scroll', onScroll);
+      return;
+    }
+    markCurrent();
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   // Tiles and the render cap keep the full page cheap, so every section
   // lands open. (Skills still indexes its classes behind closed groups.)
@@ -1016,7 +1755,8 @@ function buildNotesPage(notes, options = {}, picker = null) {
             changed: section.changed || [],
           };
       const total = BUCKETS.reduce((sum, b) => sum + entries[b.key].length, 0);
-      if (filtering && total === 0) return;
+      // Empty while filtering, or emptied by dropWhitespaceOnly.
+      if (total === 0) return;
       matchEntries += total;
       matchSections += 1;
       // While filtering, headings count the matches; idle, the generator's
@@ -1057,6 +1797,7 @@ function buildNotesPage(notes, options = {}, picker = null) {
         textContent: 'No entries match the current filter.',
       }));
     }
+    paintJump();
   }
   renderData();
 
@@ -1070,6 +1811,9 @@ function buildNotesPage(notes, options = {}, picker = null) {
     collapsible.classList.add('open');
 
     const attempt = (tries) => requestAnimationFrame(() => {
+      // A per-section bucket filter hides other buckets' rows; reset to All.
+      collapsible.querySelectorAll('.pn-seg-btn[data-bucket="all"]:not(.active)')
+        .forEach((b) => b.click());
       // Compare attributes directly rather than building an escaped attribute
       // selector -- the keys contain colons, which need CSS escaping to be
       // matched reliably.
