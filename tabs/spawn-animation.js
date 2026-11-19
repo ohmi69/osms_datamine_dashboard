@@ -37,7 +37,7 @@ export function createSpawnAnimation() {
   const replay = el('button', { type: 'button', className: 'spawn-demo-button', textContent: 'Replay' });
   const controls = el('div', { className: 'spawn-demo-controls' }, play, replay);
   root.append(scene, status, timers, controls,
-    el('figcaption', { textContent: 'Illustrative timing, with space to spawn. The point cooldown shown is an example.' }));
+    el('figcaption', { textContent: 'Example timing when the map has room to spawn.' }));
 
   let elapsed = 0;
   let playing = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -58,21 +58,21 @@ export function createSpawnAnimation() {
     const removedAt = firstKill + 0.6;
     const cooldown = elapsed >= removedAt && elapsed < firstRefill
       ? Math.max(0, 10 - (elapsed - removedAt)) : 0;
-    const pointText = !dead || dying ? 'Occupied by its mob' : cooldown > 0 ? `${cooldown.toFixed(1)}s cooldown` : 'Ready ✅';
-    const message = elapsed < firstKill ? 'Iron Hog has a point cooldown. Slime has none.'
-        : dying ? 'Iron Hog killed.'
-        : elapsed < 3 ? 'Iron Hog removed. Its point cooldown starts.'
-        : slimeDying ? 'Slime killed. Its point has no cooldown.'
-        : elapsed < 7 ? 'Both are gone. Only the Iron Hog point has a cooldown.'
-        : elapsed < 12.1 ? 'Slime returns on the refill. Iron Hog is still cooling down.'
-        : elapsed < 14 ? 'Iron Hog point is ready. Waiting for the next map refill.'
-        : 'Iron Hog returns on the next refill.';
+    const pointText = !dead || dying ? 'Occupied' : cooldown > 0 ? `${cooldown.toFixed(1)}s cooldown` : 'Ready';
+    const message = elapsed < firstKill ? 'Iron Hog has a spawn cooldown; Slime does not.'
+        : dying ? 'Iron Hog defeated.'
+        : elapsed < 3 ? 'Iron Hog is gone, starting its spawn cooldown.'
+        : slimeDying ? 'Slime defeated. Its spawn point has no cooldown.'
+        : elapsed < 7 ? 'Both monsters are gone. Only Iron Hog is on cooldown.'
+        : elapsed < 12.1 ? 'Slime respawns on the map cycle while Iron Hog is still on cooldown.'
+        : elapsed < 14 ? 'Iron Hog is off cooldown and waiting for the next respawn cycle.'
+        : 'Iron Hog respawns on the next cycle.';
     if (status.textContent !== message) status.textContent = message;
     population.textContent = `${2 - Number(dead) - Number(slimeDead)} / 2 mobs`;
-    mapValue.textContent = justRefilled ? 'Refill ✅' : remaining > 0 ? `In ${remaining.toFixed(1)}s` : 'Ready';
+    mapValue.textContent = justRefilled ? 'Respawning' : remaining > 0 ? `In ${remaining.toFixed(1)}s` : 'Ready';
     mapValue.parentElement.classList.toggle('is-refilling', justRefilled);
     pointValue.textContent = pointText;
-    slimePointValue.textContent = slimeDead ? 'Ready ✅' : 'Blocked by nearby mob';
+    slimePointValue.textContent = slimeDead ? 'Ready' : 'Occupied';
     slimePoint.classList.toggle('is-ready', slimeDead && !slimeDying);
     point.classList.toggle('is-ready', dead && !dying && cooldown === 0);
     const flashPoint = (timer, killedAt, spawnedAt) => {

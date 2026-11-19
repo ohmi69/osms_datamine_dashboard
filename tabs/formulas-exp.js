@@ -43,8 +43,8 @@ function buildGuide(monsters) {
   const page = el('div', { className: 'formulas-full spawn-reference' });
 
   page.appendChild(section('Monster EXP', 'exp-monster', 'partially-verified',
-    'The level 31 and below rule and the boss and special multipliers match every monster\'s EXP in the game data. The curve from level 32 is fitted; other constants fit equally well.', body => {
-      paragraph(body, 'A monster\'s EXP scales based off its level, scaling linearly through level 31, then curving upward. Bosses and special event and PQ monsters have bonus scaling on top.');
+    'Matches monster EXP values up to level 31 and boss/special multipliers; the level 32+ curve is an approximation.', body => {
+      paragraph(body, 'Monster EXP grows linearly with level up to level 31, then curves upward. Bosses and special event or PQ monsters receive an additional multiplier.');
       // Formula and chart side by side; the row stacks on narrow screens.
       const row = el('div', { className: 'formulas-mob-exp-row' });
       formula(row, 'Level ≤ 31:\n  Base = ceil(1.84 × Level)\nLevel ≥ 32:\n  Base = round(7.74 × 1.0536^Level\n               + 0.5 × Level + 3)\n\nBoss    = 4 × Base\nSpecial = floor(1.75 × Base)');
@@ -63,19 +63,19 @@ function buildGuide(monsters) {
     }));
 
   page.appendChild(section('EXP Share', 'party-exp-share', 'verified',
-    'Confirmed against the EXP the server sends for solo and party kills.', body => {
-      paragraph(body, 'The mob\'s EXP becomes a shared pool, scaled by how much of its HP your party took off. 80% of the pool is split by level across the eligible party members and 20% by the share of the damage each member dealt.');
+    'Verified in-game for solo and party kills.', body => {
+      paragraph(body, 'A monster\'s EXP becomes a shared pool scaled by how much of its HP your party dealt. 80% of the pool is split by level across eligible party members, and 20% by each member\'s share of the damage.');
       formula(body, 'Pool  = MobEXP × PartyDamage / MobMaxHP\nShare = max(1, round(Pool × (0.8 × YourLevel / EligibleLevels\n                            + 0.2 × YourDamage / PartyDamage)))');
       table(body, [['Input', ''], ['Meaning', '']], [
-        ['MobEXP, MobMaxHP', 'The mob\'s EXP and max HP'],
-        ['PartyDamage', 'Damage dealt by party members, including you.'],
-        ['YourDamage', 'Your own counted damage.'],
-        ['EligibleLevels', 'Sum of the levels of the eligible party members, including yours (see below)'],
+        ['MobEXP, MobMaxHP', 'The monster\'s EXP and max HP'],
+        ['PartyDamage', 'Total damage dealt by party members, including you (up to the monster\'s HP)'],
+        ['YourDamage', 'Damage you dealt to the monster (up to its remaining HP)'],
+        ['EligibleLevels', 'Sum of the levels of all eligible party members, including yours (see below)'],
       ]);
     }));
 
   page.appendChild(section('Who Counts as Eligible', 'party-exp-eligible', 'verified',
-    'Confirmed against the EXP the server sends for party kills.', body => {
+    'Verified in-game for party kills.', body => {
       table(body, [['Case', ''], ['Counts?', '']], [
         ['On your map, attacked, took damage, or used a skill within 10 s', 'Yes'],
         ['On your map, no activity within 10 s', 'No'],
@@ -84,8 +84,8 @@ function buildGuide(monsters) {
     }));
 
   page.appendChild(section('Party Bonus', 'party-exp-bonus', 'verified',
-    'Confirmed against the EXP the server sends for party kills.', body => {
-      paragraph(body, 'A party kill pays a bonus on top of your share. It grows with the number of eligible members and with the number of party members who damaged the mob.');
+    'Verified in-game for party kills.', body => {
+      paragraph(body, 'A party kill pays a bonus on top of your share. It grows with the number of eligible members and with the number of party members who damaged the monster.');
       formula(body, 'Bonus    = min(0.3, 0.1 × (EligibleMembers − 1))\n         + 0.05 × (MembersWhoDamagedIt − 1)\nBonusEXP = max(1, round(Share × Bonus))');
       // Whole percents: 10 × (eligible − 1) capped at 30, plus 5 per extra attacker.
       const attackers = [1, 2, 3, 4, 5, 6];
@@ -161,7 +161,7 @@ function buildMobExpChart(monsters) {
   const offKey = el('span', { className: 'formulas-mob-exp-key' });
   const offSwatch = svgEl('svg', { viewBox: '0 0 10 10', class: 'formulas-mob-exp-swatch is-arrow' });
   offSwatch.appendChild(svgEl('path', { d: 'M5 1.5 L8.8 8.5 L1.2 8.5 Z', class: 'formulas-mob-exp-ring' }));
-  offKey.append(offSwatch, 'Exception, off scale');
+  offKey.append(offSwatch, 'Off-scale exception');
   legend.appendChild(offKey);
   wrap.append(head, plot, legend);
 
@@ -208,7 +208,7 @@ function buildMobExpChart(monsters) {
     svg.appendChild(svgEl('line', { x1: split, x2: split, y1: M.t, y2: M.t + plotH, class: 'formulas-mob-exp-split' }));
     // Below the top edge, clear of any off-scale arrowheads.
     const splitLabel = svgEl('text', { x: split + 4, y: M.t + 22, class: 'formulas-chart-axis-label', 'text-anchor': 'start' });
-    splitLabel.textContent = 'curve from 32';
+    splitLabel.textContent = 'Lv. 32+ curve';
     svg.appendChild(splitLabel);
 
     // Sampled every tenth of a level; the 31 → 32 rule change shows as a small jump.
@@ -255,7 +255,7 @@ function buildMobExpChart(monsters) {
     svg.appendChild(hit);
 
     const exceptions = points.filter(p => p.exp !== curve[p.level - 1]).length;
-    svg.setAttribute('aria-label', `${kind.label} monster EXP from level 1 to ${maxLevel}: the formula curve and ${points.length} monster values, ${exceptions} off the curve.`);
+    svg.setAttribute('aria-label', `${kind.label} monster EXP from level 1 to ${maxLevel}, comparing the formula curve with ${points.length} monster values (${exceptions} exceptions).`);
 
     hit.addEventListener('pointermove', e => {
       const rect = svg.getBoundingClientRect();
@@ -343,7 +343,7 @@ function buildPartyExpCalc(monsters) {
 
   const setMobExp = setter('mobExp', () => mobExpField);
   const mobExpField = numberField('Monster EXP', state.mobExp, { short: 'EXP', min: 0, max: 9999999, range: 500,
-    hint: 'Picking a monster fills this in.',
+    hint: 'Auto-filled when you pick a monster.',
     onChange: (v) => {
       // A typed EXP no longer describes the picked monster, so drop the pick.
       if (mob && v !== mob.exp) { mob = null; picker._setValue(null); }
@@ -351,17 +351,17 @@ function buildPartyExpCalc(monsters) {
     } });
   const levelField = numberField('Your level', state.level, { short: 'Level', min: 1, max: 200, range: 100,
     onChange: setter('level', () => levelField) });
-  const damageField = numberField('Damage you dealt', state.damagePct, { short: 'Damage you dealt (% of its HP)', min: 0, max: 100, range: 100,
-    hint: 'How much of the monster\'s HP you took off yourself. Your party dealt the rest.', onChange: setter('damagePct', () => damageField) });
+  const damageField = numberField('Damage you dealt', state.damagePct, { short: 'Damage dealt (% of HP)', min: 0, max: 100, range: 100,
+    hint: 'Percentage of the monster\'s HP you dealt yourself. Your party dealt the rest.', onChange: setter('damagePct', () => damageField) });
   const eligibleField = numberField('Eligible members', state.eligible, { short: 'Eligible members (incl. you)', min: 1, max: 6, range: 6,
-    hint: 'You, plus party members on your map who attacked, took damage or used a skill in the 10 seconds before the kill.',
+    hint: 'You, plus party members on your map who attacked, took damage, or used a skill in the 10 seconds before the kill.',
     // Cap the attackers before setEligible redraws, so the result never shows the old count.
     onChange: (v) => { if (v !== null) { state.eligible = v; limitAttackers(); } setEligible(v); } });
   const setEligible = setter('eligible', () => eligibleField);
-  const otherLevelsField = numberField('Combined level of the others', state.otherLevels, { min: 0, max: 1000, range: 500,
-    hint: 'The levels of the other eligible members added together, not counting yours.', onChange: setter('otherLevels', () => otherLevelsField) });
+  const otherLevelsField = numberField('Combined level of other members', state.otherLevels, { min: 0, max: 1000, range: 500,
+    hint: 'Sum of the levels of the other eligible party members, excluding yours.', onChange: setter('otherLevels', () => otherLevelsField) });
   const attackersField = numberField('Members who damaged it', state.attackers, { short: 'Members who damaged it (incl. you)', min: 1, max: 6, range: 6,
-    hint: 'Eligible members, including you, who dealt damage to this monster. Always part of the eligible members. Each one after the first adds 5% to the party bonus.', onChange: setter('attackers', () => attackersField) });
+    hint: 'Eligible members (including you) who dealt damage to this monster. Each one after the first adds 5% to the party bonus.', onChange: setter('attackers', () => attackersField) });
 
   // Anyone who hit the monster was active, so "damaged it" can never exceed "eligible".
   // Cap the field at the eligible count instead of letting the inputs disagree.
@@ -401,7 +401,7 @@ function buildPartyExpCalc(monsters) {
     const others = state.eligible - 1;
     const problem = bad
       ? `Enter ${bad._label.toLowerCase()} from ${bad._min} to ${bad._max}, using whole numbers.`
-      : others && state.otherLevels < others ? 'The combined level must be at least 1 per other eligible member.' : '';
+      : others && state.otherLevels < others ? 'Combined level must be at least 1 per other eligible member.' : '';
     if (problem) {
       // The rows' display: grid overrides the hidden attribute, so empty them instead.
       breakdown.replaceChildren();
@@ -416,12 +416,12 @@ function buildPartyExpCalc(monsters) {
     head.appendChild(el('div', {},
       el('strong', { className: 'formulas-graph-result', textContent: `${r.total.toLocaleString()} EXP` }),
       el('span', { className: 'formulas-graph-hint', textContent:
-        r.bonus ? `${r.share.toLocaleString()} + ${r.bonus.toLocaleString()} party bonus` : 'no party bonus' })));
+        r.bonus ? `${r.share.toLocaleString()} + ${r.bonus.toLocaleString()} party bonus` : 'No party bonus' })));
     output.replaceChildren(head);
 
     breakdown.replaceChildren(
-      row('Level part', `0.8 × ${state.level} / ${state.level + (others ? state.otherLevels : 0)} = ${pct(r.levelPart)}`),
-      row('Damage part', `0.2 × ${others ? state.damagePct : 100}% = ${pct(r.damagePart)}`),
+      row('Level share', `0.8 × ${state.level} / ${state.level + (others ? state.otherLevels : 0)} = ${pct(r.levelPart)}`),
+      row('Damage share', `0.2 × ${others ? state.damagePct : 100}% = ${pct(r.damagePart)}`),
       row('Your share', r.share.toLocaleString()),
       row('Party bonus', `${pct(r.bonusPct)} → ${r.bonus.toLocaleString()}`));
   }
@@ -433,7 +433,7 @@ function buildPartyExpCalc(monsters) {
 export function createExpPage(monsters = []) {
   return {
     key: 'exp', label: 'EXP', kicker: 'Reference · EXP from kills and party sharing',
-    description: 'See how much EXP each monster is worth, how a kill\'s EXP is split across a party, and how the party bonus is added.',
+    description: 'Monster EXP by level, how kills split EXP across a party, and how the party bonus is calculated.',
     credit: () => ['Party sharing derived by ', el('strong', { textContent: 'azzy' }), ' on Discord'],
     sections: [
       { key: 'exp-monster', label: 'Monster EXP' }, { key: 'party-exp-share', label: 'Your share' }, { key: 'party-exp-eligible', label: 'Eligibility' },

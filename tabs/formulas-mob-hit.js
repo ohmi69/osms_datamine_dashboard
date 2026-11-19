@@ -117,12 +117,12 @@ export function buildMonsterHitCalc(monsters) {
   const mobLevelField = numberField('Monster level', state.mobLevel, { short: 'Level', min: 1, max: 255, range: 120,
     onChange: setter('mobLevel', () => mobLevelField) });
   const mobAccField = numberField('Monster accuracy', state.mobAcc, { short: 'Accuracy', min: 0, max: 99999, range: 300,
-    hint: 'The acc value from the monster data. Picking a monster fills this in.',
+    hint: 'Monster accuracy (auto-filled when you pick a monster).',
     onChange: setter('mobAcc', () => mobAccField) });
   const levelField = numberField('Your level', state.playerLevel, { short: 'Level', min: 1, max: 200, range: 100,
     onChange: setter('playerLevel', () => levelField) });
   const avoidField = numberField('Your Avoid', state.avoid, { short: 'Avoid', min: 0, max: 99999, range: 300,
-    hint: 'Avoid from your Stats panel, before the diminishing-returns step.',
+    hint: 'Your Avoidability from the Stats panel.',
     onChange: setter('avoid', () => avoidField) });
   const shieldField = numberField('Shield Weapon Def', state.shieldDef, { min: 0, max: 9999, range: 300,
     hint: 'Weapon Defense on the shield itself, not your Stats panel total. 0 without a shield.',
@@ -164,7 +164,7 @@ export function buildMonsterHitCalc(monsters) {
         `${percent(r.miss)} miss${r.guard ? `, ${percent(r.guarded)} guarded` : ''} per regular attack` })));
     output.replaceChildren(head);
     if (mob?.passive && mob.acc === state.mobAcc && mob.level === state.mobLevel) {
-      output.appendChild(el('span', { className: 'formulas-graph-hint', textContent: `${mob.name} does not attack, so these odds never come up.` }));
+      output.appendChild(el('span', { className: 'formulas-graph-hint', textContent: `${mob.name} is passive and does not attack.` }));
     }
 
     const segments = [['Hit', r.hit, 'is-hit'], ['Guarded', r.guarded, 'is-guard'], ['Miss', r.miss, 'is-miss']];
@@ -177,8 +177,8 @@ export function buildMonsterHitCalc(monsters) {
       track));
 
     breakdown.replaceChildren(
-      row('Accuracy check passes', percent(r.passes)),
-      row('Guard chance', state.guardImmune ? 'immune' : percent(r.guard)));
+      row('Chance to land', percent(r.passes)),
+      row('Guard chance', state.guardImmune ? 'Cannot be guarded' : percent(r.guard)));
   }
 
   draw();

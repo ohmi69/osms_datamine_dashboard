@@ -275,7 +275,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         className: 'map-capacity-value',
         textContent: mapEntry.mob_capacity != null ? `${mapEntry.mob_capacity} mobs` : 'Unavailable',
       }));
-      capacityRow.appendChild(el('span', { className: 'map-capacity-context', textContent: 'Assuming 1 player on map. More players = more spawns' }));
+      capacityRow.appendChild(el('span', { className: 'map-capacity-context', textContent: 'Estimated for 1 player. Scales up with more players.' }));
     }
     const mobs = mapMobs.get(mapEntry.id);
     const monsterById = new Map((monsters?.monsters || []).map(mob => [String(mob.id), mob]));
@@ -301,7 +301,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
         chip.appendChild(el('span', {
           className: 'map-mob-chip-count',
           textContent: `×${mob.count}`,
-          title: `${mob.count} spawn ${mob.count === 1 ? 'point' : 'points'} on this map (not a live mob count)`,
+          title: `${mob.count} spawn ${mob.count === 1 ? 'point' : 'points'} on this map`,
         }));
         // Archived data may still contain the old default in a time range.
         const hasAssumedTime = /(^|-)7\.56(?=$|[- ])/.test(String(mob.mobTime));
@@ -309,7 +309,7 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
           chip.appendChild(el('span', {
             className: 'map-mob-chip-timer',
             textContent: `respawns every ${formatSpawnTime(mob.mobTime)}`,
-            title: 'Configured respawn timer; actual timing can differ.',
+            title: 'Approximate respawn timer.',
           }));
         }
 
@@ -348,8 +348,8 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
       spawnSection.appendChild(grid);
       if (capacityRow) spawnSection.appendChild(capacityRow);
       spawnSection.appendChild(el('div', { className: 'map-spawn-disclaimer' },
-        el('p', { textContent: 'Spawn points are possible locations. Mob capacity limits how many mobs can be alive at once.' }),
-        el('p', { textContent: 'If no cooldown listed for the spawn point, it will be ready for the next ~7s map respawn.' })));
+        el('p', { textContent: 'Spawn points are possible spawn locations; mob capacity caps how many can be alive at once.' }),
+        el('p', { textContent: 'Points without a listed timer respawn on the regular ~7s map cycle.' })));
     }
 
     // NPCs
@@ -452,13 +452,13 @@ export function renderMapBrowser(data, mapMobs, options = {}) {
     const COLS = [
       { id: 'name', label: 'Map', cls: '', sortVal: m => (m.name || '').toLowerCase() },
       ...allCols.filter(col => colState[col.id]).map(col => {
-        if (col.id === 'mobs') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.total ?? -1, tooltip: 'Mob types and spawn points in the map data, not the number of live mobs.' };
-        if (col.id === 'mob_capacity') return { ...col, cls: 'num', sortVal: m => m.mob_capacity ?? -1, tooltip: 'Estimated number of mobs on the map at one player on the map. More players = more mobs' };
+        if (col.id === 'mobs') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.total ?? -1, tooltip: 'Mob types and spawn points on this map (not the live mob count).' };
+        if (col.id === 'mob_capacity') return { ...col, cls: 'num', sortVal: m => m.mob_capacity ?? -1, tooltip: 'Estimated max live mobs for 1 player. Scales up with more players.' };
         if (col.id === 'weighted_level') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.weightedLevel ?? -1, tooltip: 'Weighted average mob level' };
         if (col.id === 'common_mob') return { ...col, cls: '', sortVal: m => mobStats.get(m.id)?.mostCommonMobLevel ?? -1, tooltip: 'Most common mob (Name Lv. X), sorted by level' };
         if (col.id === 'exp_per_mob') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.expPerMob ?? -1 };
-        if (col.id === 'total_exp') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.totalExp ?? -1, tooltip: 'Sum of the EXP of all mobs on this map at max capacity' };
-        if (col.id === 'weighted_exp_hour') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.weightedExpPerHour ?? -1, tooltip: 'Mob spawn-time adjusted and map mob-rate adjusted EXP per hour' };
+        if (col.id === 'total_exp') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.totalExp ?? -1, tooltip: 'Total EXP across all spawn points on this map' };
+        if (col.id === 'weighted_exp_hour') return { ...col, cls: 'num', sortVal: m => mobStats.get(m.id)?.weightedExpPerHour ?? -1, tooltip: 'Estimated EXP per hour, adjusted for respawn times and map spawn rate' };
         return col;
       })
     ];

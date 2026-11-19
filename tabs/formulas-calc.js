@@ -120,7 +120,7 @@ ${min} to ${max}` : `${min} to ${max}`,
 }
 
 function buildDamageCalc(config) {
-  const { monsters, scale, scaleTerms, damageFormula, defenseLabel = 'DefenseScale',
+  const { monsters, scale, scaleTerms, damageFormula, defenseLabel = 'Defense Scale',
     maxLevel = 120, useLevel = true, notes, rollMin = 1.1, rollMax = 1.5 } = config;
 
   // Archived clients use their scale formula; the live current version supplies its
@@ -179,7 +179,7 @@ function buildDamageCalc(config) {
   // The same shield feeds both fields - see the footnote in update().
   const shieldField = makeNumberField('Shield Weapon Def', state.shield, {
     min: 0, max: 9999,
-    hint: 'Weapon Defense on the shield itself. Already part of the total above - this only sets the guard chance',
+    hint: 'Weapon Defense on your shield (sets guard chance)',
     onChange: (v) => { state.shield = v; update(); },
   });
   controls.appendChild(shieldField);
@@ -268,7 +268,7 @@ function buildDamageCalc(config) {
 
     const stats = el('div', { className: 'formulas-calc-stats' });
     stats.appendChild(statRow(state.magic ? 'Magic Attack' : 'Physical Attack', attack.toLocaleString(), `${mob.name}, Lv ${mob.level}`));
-    stats.appendChild(statRow('IncomingDamage', `${Math.round(incMin).toLocaleString()} - ${Math.round(incMax).toLocaleString()}`, 'attack × 1.1 to 1.5'));
+    stats.appendChild(statRow('Incoming Damage', `${Math.round(incMin).toLocaleString()} - ${Math.round(incMax).toLocaleString()}`, `attack × ${rollMin} to ${rollMax}`));
     stats.appendChild(statRow(
       defenseLabel,
       Math.round(scale(incAvg, state.level, state.defense)).toLocaleString(),
@@ -285,7 +285,7 @@ function buildDamageCalc(config) {
     // Both clients read the shield twice, so this note belongs to the widget rather
     // than to either page's config.
     if (!state.magic) {
-      lines.push('Your shield counts in both fields on purpose: its Weapon Defense is part of the total that shrinks the hit, and it is separately the only thing that sets your guard chance. Weapon Defense here is your Stats panel number, shield included');
+      lines.push('Your shield counts in both fields: its Weapon Defense is already part of your Stats total for damage reduction, and separately determines your guard chance.');
     }
     lines.forEach(n => noteWrap.appendChild(el('div', { className: 'formulas-note', textContent: n })));
     out.appendChild(noteWrap);

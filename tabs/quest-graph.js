@@ -148,14 +148,14 @@ export function renderQuestGraph(root, graph, completionState, buildTooltip, npc
   panel.addEventListener('click', event => event.stopPropagation());
   const toolbar = el('div', { className: 'quest-graph-toolbar' },
     el('div', { className: 'quest-graph-heading' },
-      el('span', { className: 'quest-graph-eyebrow', textContent: 'Quest dependencies' }),
+      el('span', { className: 'quest-graph-eyebrow', textContent: 'Quest chain' }),
       el('strong', { textContent: root.parent || root.name })));
   const controls = el('div', { className: 'quest-graph-controls' });
   toolbar.appendChild(controls);
   panel.appendChild(toolbar);
   const workspace = el('div', { className: 'quest-graph-workspace' });
   panel.appendChild(workspace);
-  const viewport = el('div', { className: 'quest-graph-viewport', tabIndex: 0, 'aria-label': 'Quest dependency graph; drag to pan' });
+  const viewport = el('div', { className: 'quest-graph-viewport', tabIndex: 0, 'aria-label': 'Quest chain map; drag to pan' });
   viewport.addEventListener('scroll', hideItemTooltip);
   let drag = null;
   let suppressClick = false;
@@ -208,7 +208,7 @@ export function renderQuestGraph(root, graph, completionState, buildTooltip, npc
   const markerId = `quest-arrow-${++graphNumber}`;
   const defs = svgEl('defs', {}), marker = svgEl('marker', { id: markerId, viewBox: '0 0 12 12', refX: 11, refY: 6, markerWidth: 12, markerHeight: 12, markerUnits: 'userSpaceOnUse', orient: 'auto' });
   marker.appendChild(svgEl('path', { d: 'M 1 1 L 11 6 L 1 11 Z', fill: 'context-stroke' })); defs.appendChild(marker); svg.appendChild(defs); canvas.appendChild(svg);
-  const labels = { complete: 'Complete prerequisite', next: 'Follow-up quest', 'in-progress': 'Must be in progress', 'not-started': 'Must not be started', chain: 'Same named chain; no dependency implied' };
+  const labels = { complete: 'Complete prerequisite', next: 'Follow-up quest', 'in-progress': 'Must be in progress', 'not-started': 'Must not be started', chain: 'Part of the same quest series' };
   const paths = [];
   for (const edge of component.links) {
     const a = layout.positions.get(edge.from), b = layout.positions.get(edge.to);
@@ -238,10 +238,10 @@ export function renderQuestGraph(root, graph, completionState, buildTooltip, npc
   }
   const nodes = new Map();
   const legend = el('div', { className: 'quest-graph-legend' });
-  for (const [kind, label] of [['dependency', 'Prerequisite / follow-up'], ['condition', 'State condition'], ['chain', 'Same chain']]) {
+  for (const [kind, label] of [['dependency', 'Prerequisite / follow-up'], ['condition', 'Quest condition'], ['chain', 'Same series']]) {
     legend.appendChild(el('span', null, el('i', { className: `quest-graph-line quest-graph-line--${kind}`, 'aria-hidden': 'true' }), document.createTextNode(label)));
   }
-  legend.appendChild(el('span', { className: 'quest-graph-hint', textContent: component.links.length ? 'Drag to pan \u00b7 Hover for details \u00b7 Click to open quest' : 'No linked quests in this dataset' }));
+  legend.appendChild(el('span', { className: 'quest-graph-hint', textContent: component.links.length ? 'Drag to pan \u00b7 Hover for details \u00b7 Click to open quest' : 'No linked quests' }));
   panel.appendChild(legend);
   function highlight(id) {
     for (const [nodeId, node] of nodes) node.classList.toggle('is-selected', nodeId === id);
@@ -253,7 +253,7 @@ export function renderQuestGraph(root, graph, completionState, buildTooltip, npc
     node.style.left = `${pos.x}px`; node.style.top = `${pos.y}px`;
     node.setAttribute('aria-label', `Open ${quest.name}`);
     const identity = el('span', { className: 'quest-graph-node-meta quest-graph-node-identity' });
-    if (key(root.id) === id) identity.appendChild(el('span', { textContent: 'Opened quest' }));
+    if (key(root.id) === id) identity.appendChild(el('span', { textContent: 'Current quest' }));
     identity.appendChild(el('span', { className: 'id', textContent: `#${padQuestId(id)}` }));
     if (completionState[String(quest.id)]) identity.appendChild(el('span', { textContent: 'Completed' }));
     const npc = npcByName.get(String(quest.npc_name || '').trim().toLowerCase());
@@ -289,7 +289,7 @@ export function renderQuestGraph(root, graph, completionState, buildTooltip, npc
     viewport.scrollLeft = (pos.x + 116) * zoom - viewport.clientWidth / 2;
     viewport.scrollTop = (pos.y + 44) * zoom - viewport.clientHeight / 2;
   }
-  for (const [label, title, action] of [ ['−', 'Zoom out', () => { setZoom(zoom - 0.15); center(); }], ['+', 'Zoom in', () => { setZoom(zoom + 0.15); center(); }], ['Fit', 'Fit all linked quests', () => { setZoom(Math.min(1, viewport.clientWidth / layout.width, viewport.clientHeight / layout.height)); viewport.scrollLeft = 0; viewport.scrollTop = 0; }], ['Focus', 'Focus opened quest', () => { setZoom(1); center(); }] ]) {
+  for (const [label, title, action] of [ ['−', 'Zoom out', () => { setZoom(zoom - 0.15); center(); }], ['+', 'Zoom in', () => { setZoom(zoom + 0.15); center(); }], ['Fit', 'Fit all linked quests', () => { setZoom(Math.min(1, viewport.clientWidth / layout.width, viewport.clientHeight / layout.height)); viewport.scrollLeft = 0; viewport.scrollTop = 0; }], ['Focus', 'Center on current quest', () => { setZoom(1); center(); }] ]) {
     const button = el('button', { type: 'button', textContent: label, title, 'aria-label': title }); button.addEventListener('click', action); controls.appendChild(button);
   }
   controls.appendChild(zoomLabel); setZoom(1); highlight(key(root.id));

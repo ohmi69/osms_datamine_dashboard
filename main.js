@@ -191,7 +191,7 @@ function getTabConfigs(appData, isTimeTravelMode = false, initialRoute = null, i
     },
     {
       id: 'portal-runner',
-      label: '🗺️ Portal Runner',
+      label: 'Portal Runner',
       icon: ICONS.map,
       hidden: true,
       render: ({ setNavigate }) => renderNavigatorGame(appData, { setNavigate })
@@ -368,7 +368,7 @@ async function init() {
       sessionStorage.removeItem('tt_intentional');
       const overlay = el('div', { className: 'tt-overlay' });
       const monster = el('img', { className: 'tt-monster', src: './data/images/monsters/dfa7cc8dc3a3d612d44510bcf0b30401.webp', alt: '' });
-      const ttText = el('div', { className: 'tt-text', textContent: `Timetravelling back to ${patchVersion}` });
+      const ttText = el('div', { className: 'tt-text', textContent: `Time travelling back to ${patchVersion}` });
       overlay.appendChild(monster);
       overlay.appendChild(ttText);
       document.body.appendChild(overlay);

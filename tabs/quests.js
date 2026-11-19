@@ -265,8 +265,8 @@ function renderRewardContent(quest, itemById) {
       el('div', {
         className: 'quest-reward-heading',
         textContent: weighted.class_specific
-          ? 'Weighted random (class-specific):'
-          : 'Weighted random:',
+          ? 'Random reward (class-specific):'
+          : 'Random reward:',
       })
     );
 
@@ -369,7 +369,7 @@ function renderContributionTooltip(tip, contribution) {
   } else {
     tip.appendChild(el('p', {
       className: 'item-tooltip-desc',
-      textContent: `${fmt(contribution.amount)} at every grade, this quest does not scale with level.`,
+      textContent: `Fixed ${fmt(contribution.amount)} points at every grade.`,
     }));
   }
   return true;
@@ -425,7 +425,7 @@ export function renderQuestTooltip(tip, quest, itemById, npcByName, monsterById 
   if (contribution) stats.push(`${contribution.amount != null ? fmt(contribution.amount) : contribution.formula} contribution${contribution.town_name ? ` (${contribution.town_name})` : ''}`);
   if (stats.length) rewards.appendChild(el('p', { textContent: stats.join(' · ') }));
   if (!stats.length && !rewardContent) rewards.appendChild(el('p', { textContent: 'None' }));
-  if (quest.unavailable) content.appendChild(el('p', { textContent: 'Details unavailable in this dataset.' }));
+  if (quest.unavailable) content.appendChild(el('p', { textContent: 'Quest details unavailable.' }));
   content.appendChild(el('div', { className: 'quest-tooltip-hint', textContent: 'Click to open this quest' }));
   tip.appendChild(content);
   return true;
@@ -467,7 +467,7 @@ export function renderQuestCard(quest, completionState, onToggleCompletion, item
   // from that pool is not known, so the group is surfaced only as hover detail.
   const rot = quest.rotation;
   const rotTitle = rot
-    ? `${rot.group} - ${rot.select_count} of ${rot.pool_size} offered per ${rot.cadence} rotation`
+    ? `${rot.select_count} of ${rot.pool_size} quests offered per ${rot.cadence} rotation`
     : '';
   if (quest.is_daily) {
     nameRow.appendChild(el('span', {
@@ -484,7 +484,7 @@ export function renderQuestCard(quest, completionState, onToggleCompletion, item
       nameRow.appendChild(el('span', {
         className: 'badge badge-onetime',
         textContent: 'ONE-TIME',
-        title: `${rot.group} - drawn from the pool at most once, then never again`,
+        title: 'Can only be completed once from this rotation pool.',
       }));
     }
   }
@@ -850,7 +850,7 @@ export function renderQuests(data, options = {}) {
         systemRegions.map((r) => ({ label: r, value: r })),
         regionFilter,
         selectRegion,
-        { groupLabel: 'Systems' }
+        { groupLabel: 'Categories' }
       );
       systemRow.appendChild(systemPillGroup);
       toolbar.appendChild(systemRow);

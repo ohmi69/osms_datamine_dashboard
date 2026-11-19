@@ -1282,7 +1282,7 @@ function buildBucketBlock(bucket, entries, section, onNavigate, isFiltering, opt
   if (hidden > 0 && !section.note && !isFiltering) {
     wrap.appendChild(el('div', {
       className: 'pn-more',
-      textContent: `Not listed: ${hidden} more ${bucket.label.toLowerCase()}.`,
+      textContent: `+${hidden} more ${bucket.label.toLowerCase()} items not shown.`,
     }));
   }
   block.appendChild(wrap);
@@ -1558,7 +1558,7 @@ function buildNotesPage(notes, options = {}, picker = null) {
   if (!notes) {
     page.appendChild(el('div', {
       className: 'empty-state',
-      textContent: 'No patch notes are available for this dataset.',
+      textContent: 'No patch notes available.',
     }));
     frag.appendChild(page);
     return frag;
@@ -1573,7 +1573,7 @@ function buildNotesPage(notes, options = {}, picker = null) {
   if (!hasChanges) {
     page.appendChild(el('div', {
       className: 'empty-state',
-      textContent: `No player-facing changes detected between ${notes.before.label} and ${notes.after.label}.`,
+      textContent: `No changes between ${notes.before.label} and ${notes.after.label}.`,
     }));
     frag.appendChild(page);
     return frag;
@@ -1616,7 +1616,7 @@ function buildNotesPage(notes, options = {}, picker = null) {
   };
 
   const toolbar = el('div', { className: 'sticky-toolbar pn-toolbar' });
-  const searchBox = makeSearchBox('Search by name or id...', (value) => {
+  const searchBox = makeSearchBox('Search by name or ID...', (value) => {
     searchQuery = value;
     renderData();
   });
@@ -1786,15 +1786,15 @@ function buildNotesPage(notes, options = {}, picker = null) {
       statusLine.textContent = matchEntries
         ? q
           ? `${matchEntries} match${matchEntries === 1 ? '' : 'es'} for "${q}" across ${matchSections} section${matchSections === 1 ? '' : 's'}`
-          : `${matchEntries} ${bucketFilter} across ${matchSections} section${matchSections === 1 ? '' : 's'}`
-        : 'No entries match the current filter.';
+          : `${matchEntries} ${bucketFilter} item${matchEntries === 1 ? '' : 's'} across ${matchSections} section${matchSections === 1 ? '' : 's'}`
+        : 'No matching changes.';
     } else {
       statusLine.hidden = true;
     }
     if (filtering && matchEntries === 0) {
       sectionsWrap.appendChild(el('div', {
         className: 'empty-state',
-        textContent: 'No entries match the current filter.',
+        textContent: 'No matching changes.',
       }));
     }
     paintJump();
@@ -1908,7 +1908,7 @@ function buildNotesPage(notes, options = {}, picker = null) {
   if (generated) {
     page.appendChild(el('div', {
       className: 'pn-generated',
-      textContent: `Generated ${generated}`,
+      textContent: `Updated ${generated}`,
     }));
   }
 

@@ -57,7 +57,7 @@ function buildHowToUse() {
     el('div', { className: 'api-callout' },
       el('strong', { textContent: 'Start with the README. ' }),
       link(`${API_BASE}README.md`, `${API_BASE}README.md`),
-      el('div', { className: 'api-callout-sub', textContent: 'It describes every file, field, unit and ID convention. Developers and AI agents should read it before using the data.' })));
+      el('div', { className: 'api-callout-sub', textContent: 'Covers every file, field, unit, and ID format in this API.' })));
 }
 
 function buildFiles(meta) {
@@ -90,6 +90,6 @@ export function renderApi() {
       container.appendChild(makeCollapsible('Data API', null, true, null, buildOverview(meta)));
       container.appendChild(makeCollapsible('Files', Object.keys(meta.files || {}).length, true, null, buildFiles(meta)));
     })
-    .catch((err) => { status.textContent = `Could not load meta.json (${err.message}).`; });
+    .catch(() => { status.textContent = 'Could not load API details right now. Please try again later.'; });
   return container;
 }

@@ -5,7 +5,7 @@ import { buildMobPicker, buildCalcGroup } from './formulas-calc.js';
 const format = value => value.toLocaleString(undefined, { maximumFractionDigits: 2 });
 const field = (key, label, value, range = 1000, min = 0, max = 100000, hint = '') =>
   ({ key, label, value, range, min, max, hint });
-const damage = () => field('damage', 'Damage before this step', 1000, 5000);
+const damage = () => field('damage', 'Base damage', 1000, 5000);
 const int = () => field('int', 'Total INT', 200, 1000);
 const magicAttack = () => field('magicAttack', 'Magic Attack', 80, 300, 0, 10000, 'Equipment, scrolls and buffs; excludes INT.');
 const level = (key, label, value) => field(key, label, value, 120, 1, 200);
@@ -40,14 +40,14 @@ export const FORMULA_EXPLORERS = {
       const minimum = maximum / 2;
       return { headline: `${format(minimum)} - ${format(maximum)} damage per pile`,
         bars: [{ label: 'Minimum', value: minimum }, { label: 'Maximum', value: maximum }],
-        detail: `Average: ${format((minimum + maximum) / 2)} per pile; total is the sum over exploded piles` };
+        detail: `Average: ${format((minimum + maximum) / 2)} per pile; total damage is the sum across all exploded piles.` };
     },
-    note: 'Same MasteryPercent and MesosPerPile as the formula. Before defense and other modifiers. Tooltip correction: Lv.28 = 144%, Lv.29 = 146%.',
+    note: 'Before defense and other modifiers. Tooltip note: actual mastery is 144% at Lv. 28 and 146% at Lv. 29.',
   },
   'Physical & Magical Accuracy': {
-    title: 'Explore hit chance',
+    title: 'Hit chance calculator',
     fields: [field('accuracy', 'Your Accuracy', 100, 500, 0, 100000, 'Use Accuracy from your Stats panel.'),
-      field('avoid', 'Monster Avoid', 30, 100, 0, 10000, 'Monster Avoid after any avoidability modifiers.'),
+      field('avoid', 'Monster Avoid', 30, 100, 0, 10000, 'Monster Avoid, including any buffs or debuffs.'),
       level('playerLevel', 'Your level', 30), level('enemyLevel', 'Monster level', 35)],
     // Same Monster / You split as the monster hit chance calculator; labels shorten
     // inside a titled group but keep their full names for screen readers and errors.
@@ -66,17 +66,17 @@ export const FORMULA_EXPLORERS = {
     mobFields: mob => ({ avoid: mob.eva ?? 0, enemyLevel: mob.level }),
   },
   Heal: {
-    title: 'Explore Heal damage',
+    title: 'Heal damage calculator',
     fields: [int(), magicAttack(), field('luk', 'Total LUK', 30),
       field('recovery', 'Skill recovery (%)', 100, 300, 0, 1000),
-      field('players', 'Players (including you)', 1, 6, 1, 6, 'Includes the caster, even at full HP; up to 6 players total.'),
-      field('monsters', 'Undead monsters hit', 1, 15, 0, 15, 'Other monsters do not count toward this target split.'),
+      field('players', 'Players (including you)', 1, 6, 1, 6, 'Includes you, even at full HP; up to 6 players total.'),
+      field('monsters', 'Undead monsters hit', 1, 15, 0, 15, 'Non-undead monsters do not affect the target split.'),
       field('bonus', 'Bless heal bonus (%)', 0, 10, 0, 10)],
     evaluate: (s, revision = 'steam') => {
       const targets = Math.min(6, Math.max(1, s.players)) + Math.min(15, Math.max(0, s.monsters));
       if (revision === 'steam' && s.monsters === 0) return {
         headline: 'No undead targets hit', bars: [{ label: 'Damage', value: 0 }],
-        detail: `${targets} player recipients. No undead damage is dealt.`,
+        detail: `${targets} player ${targets === 1 ? 'target' : 'targets'}. No undead damage is dealt.`,
       };
       const amounts = (revision === 'cot2' ? [0.8, 1] : [0.1, 1.2]).map(roll => revision === 'cot2'
         ? Math.trunc(((s.int * roll + s.luk) / 200 + 3) * magic(s) * s.recovery / 100
@@ -85,14 +85,14 @@ export const FORMULA_EXPLORERS = {
           * ((targets - 1) * 0.5 + 1)) / targets / 1.5);
       return { bars: amounts.map((value, i) => ({ label: `${i ? 'Maximum' : 'Minimum'} base damage`, value })),
         headline: `${amounts.map(format).join(' - ')} damage per undead target`,
-        detail: `${targets} total recipients. More recipients reduce damage per undead target.` };
+        detail: `${targets} total targets. More targets reduce damage per undead monster.` };
     },
     note: revision => revision === 'cot2'
-      ? 'Archived COT2 formula. Before enemy defense and later modifiers; HP restored per player is not established by this formula.'
-      : 'Current version formula for undead damage, before enemy defense and later modifiers. HP restored per player is not established by this formula.',
+      ? 'COT2 formula. Before defense and other modifiers; HP healed per player is separate.'
+      : 'Undead damage only, before defense and other modifiers. HP healed per player is separate.',
   },
   'Damage Over Time (DoT)': {
-    title: 'Explore damage over time',
+    title: 'Damage over time calculator',
     fields: [int(), magicAttack(), field('basic', 'DoT Basic Attack', 100, 500, 0, 10000,
       'The Basic Attack listed for the full damage-over-time effect.'),
       field('duration', 'Duration (seconds)', 10, 60, 1, 3600)],
@@ -103,10 +103,10 @@ export const FORMULA_EXPLORERS = {
         bars: [{ label: 'Total damage', value: total }, { label: 'Estimated damage per tick', value: perTick }],
         detail: `${format(perTick)} estimated damage per tick over ${format(s.duration)} seconds.` };
     },
-    note: 'Before element, level and critical modifiers. Current periodic skill data specifies a one-second interval',
+    note: 'Before element, level, and critical modifiers. Ticks every second.',
   },
   'Bleed (Physical Damage Over Time)': {
-    title: 'Explore bleed damage',
+    title: 'Bleed damage calculator',
     fields: [field('primary', 'Primary Stat (STR for axes)', 100, 500),
       field('secondary', 'Secondary Stat (DEX for axes)', 50, 500),
       field('attackPower', 'Attack Power', 20, 300, 0, 10000, 'Attack from gear other than the weapon and shield, plus buffs.'),
@@ -121,10 +121,10 @@ export const FORMULA_EXPLORERS = {
         bars: [{ label: 'Total damage', value: total }, { label: 'Estimated damage per tick', value: perTick }],
         detail: `${format(perTick)} estimated damage per tick over ${format(s.duration)} seconds.` };
     },
-    note: 'Before element, level and critical modifiers. Current periodic skill data specifies a one-second interval',
+    note: 'Before element, level, and critical modifiers. Ticks every second.',
   },
   'Level Difference Penalty': {
-    title: 'Explore level penalties',
+    title: 'Level penalty calculator',
     fields: [damage(), level('playerLevel', 'Your level', 30), level('enemyLevel', 'Enemy level', 35)],
     evaluate: (s, revision = 'steam') => {
       const diff = Math.max(0, s.enemyLevel - s.playerLevel);
@@ -143,10 +143,9 @@ export const FORMULA_EXPLORERS = {
         { label: 'Direct hit after penalty', value: direct },
         { label: 'DoT after penalty', value: dot }], detail };
     },
-    note: 'Applies only the level penalty to the damage you enter.',
   },
   'Player Defense': {
-    title: 'Explore damage taken',
+    title: 'Damage taken calculator',
     fields: [field('incoming', 'Incoming damage', 100, 1000),
       field('defense', 'Your defense', 300, 1000), level('playerLevel', 'Your level', 30)],
     evaluate: (s, revision = 'steam') => {
@@ -160,10 +159,10 @@ export const FORMULA_EXPLORERS = {
         { label: 'Before your defense', value: s.incoming }, { label: 'After your defense', value: taken }],
       detail: revision === 'cot2'
         ? `${format(100 * s.defense / (scale + s.defense))}% reduced by defense.`
-        : 'Incoming fraction minus Defense/25 and level/10; final client result is truncated and clamped to 1-50,000,000.' };
+        : 'Percentage reduction minus Defense/25 and Level/10, rounded down (minimum 1 damage).' };
     },
     note: revision => revision === 'cot2'
-      ? 'Archived COT2 formula. Use Weapon Defense for regular attacks or Magic Defense for skill attacks.'
+      ? 'COT2 formula. Use Weapon Defense for regular attacks or Magic Defense for skill attacks.'
       : 'Use Weapon Defense for regular attacks or Magic Defense for skill attacks. Before Invincible and elemental reductions.',
   },
 };
@@ -175,12 +174,12 @@ export function buildFormulaExplorer(label, { revision = 'steam', monsters } = {
     .filter(f => !(label === 'Heal' && revision !== 'cot2' && f.key === 'bonus'))
     .map(f => {
       if (label === 'Heal' && revision === 'steam') {
-        if (f.key === 'players') return { ...f, hint: 'Players and undead monsters share 6 total slots. Includes you, even at full HP.' };
+        if (f.key === 'players') return { ...f, hint: 'Players and undead monsters share 6 total targets. Includes you, even at full HP.' };
         if (f.key === 'monsters') return { ...f, range: 5, max: 5,
-          hint: 'At most 6 minus the selected player count. Non-undead monsters do not dilute the split.' };
+          hint: 'Up to 6 minus the selected player count. Non-undead monsters do not affect the split.' };
       }
       return label === 'Heal' && revision === 'cot2' && f.key === 'players'
-        ? { ...f, min: 1, label: 'Players in range', hint: 'Includes the caster, even when at full HP.' } : f;
+        ? { ...f, min: 1, label: 'Players in range', hint: 'Includes you, even at full HP.' } : f;
     });
   const state = Object.fromEntries(fields.map(f => [f.key, f.value]));
   const wrap = el('section', { className: 'formulas-graph formulas-chart-wrap formulas-damage-graph', 'aria-label': config.title });
@@ -255,7 +254,7 @@ export function buildFormulaExplorer(label, { revision = 'steam', monsters } = {
     if (label === 'Heal' && revision === 'steam' && state.players + state.monsters > 6) {
       bars.hidden = true;
       inputs.get('monsters').setAttribute('aria-invalid', 'true');
-      output.textContent = `Heal shares 6 recipient slots. With ${state.players} players selected, at most ${6 - state.players} undead monsters can be hit.`;
+      output.textContent = `Heal can hit up to 6 targets total. With ${state.players} ${state.players === 1 ? 'player' : 'players'} selected, at most ${6 - state.players} undead monsters can be hit.`;
       return;
     }
     const result = config.evaluate(state, revision);

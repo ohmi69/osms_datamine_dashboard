@@ -3,6 +3,37 @@ import { Router } from '../lib/Router.js';
 import { makeOsmsCompare, canCompareWithOsms } from '../lib/compare-osms.js';
 import { makeQuestRewardContext, makeQuestRewardPanel, makeQuestRequirementPanel, makeCraftingResultPanel } from './quest-rewards.js';
 
+const signedNum = (v) => (typeof v === 'number' && v > 0 ? `+${v.toLocaleString()}` : String(v));
+const formatSpecDuration = (ms) => {
+  const sec = Math.round(Number(ms) / 1000);
+  if (!Number.isFinite(sec) || sec <= 0) return String(ms);
+  return sec >= 60 && sec % 60 === 0 ? `${sec / 60} min` : `${sec}s`;
+};
+
+const SPEC_LABELS = {
+  hp:       ['HP',              signedNum],
+  mp:       ['MP',              signedNum],
+  hpR:      ['HP Recovery',     (v) => `${v}%`],
+  mpR:      ['MP Recovery',     (v) => `${v}%`],
+  pad:      ['Weapon Attack',   signedNum],
+  mad:      ['Magic Attack',    signedNum],
+  pdd:      ['Weapon Defense',  signedNum],
+  mdd:      ['Magic Defense',   signedNum],
+  acc:      ['Accuracy',        signedNum],
+  eva:      ['Avoidability',    signedNum],
+  speed:    ['Speed',           signedNum],
+  jump:     ['Jump',            signedNum],
+  time:     ['Duration',        formatSpecDuration],
+  thaw:     ['Cold Resistance', (v) => String(v)],
+  morph:    ['Morph',           (v) => `#${v}`],
+  moveTo:   ['Destination Map', (v) => `#${v}`],
+  poison:   ['Cures Poison',    ()  => 'Yes'],
+  curse:    ['Cures Curse',     ()  => 'Yes'],
+  seal:     ['Cures Seal',      ()  => 'Yes'],
+  weakness: ['Cures Weakness',  ()  => 'Yes'],
+  darkness: ['Cures Darkness',  ()  => 'Yes'],
+};
+
 const STAT_LABELS = {
   price:       ['Sell Price',      (v) => v.toLocaleString() + ' mesos'],
   unitPrice:   ['Recharge Price',  (v) => v.toLocaleString() + ' mesos per unit'],
@@ -95,9 +126,12 @@ let expanded = false;
       specEl = el('div', { className: 'item-spec-panel' });
       const entries = Object.entries(item.spec);
       entries.forEach(([k, v]) => {
+        const specDef = SPEC_LABELS[k];
+        const label = specDef ? specDef[0] : k;
+        const val = specDef ? specDef[1](v) : String(v);
         const line = el('div', { className: 'item-spec-row' });
-        line.appendChild(el('span', { className: 'item-spec-key', textContent: k }));
-        line.appendChild(el('span', { className: 'item-spec-val', textContent: v }));
+        line.appendChild(el('span', { className: 'item-spec-key', textContent: label }));
+        line.appendChild(el('span', { className: 'item-spec-val', textContent: val }));
         specEl.appendChild(line);
       });
       row.appendChild(specEl);

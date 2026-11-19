@@ -67,9 +67,9 @@ export function deriveGraphData(data, weaponMultipliers) {
       basic: field(max(matches(last(magicClaw), /Basic Attack (\d+)/g), 1), max(matches(lines, /Basic Attack (\d+)/g), 100)),
       mastery: field(spellMastery, masteryMax, masteryMax),
     },
-    physicalSource: `${sword?.name ?? 'Sword'} equip requirements and attack; max-level Power Strike and Sword Mastery. Stat ranges are estimates, not player caps.`,
-    magicalSource: `${wand?.name ?? 'Wand'} equip INT and Magic Attack; max-level Magic Claw. Stat ranges are estimates, not player caps.`,
-    physicalExample: `Starting example: ${sword?.name ?? 'Sword'} minimum stats + Power Strike.`,
-    magicalExample: `Starting example: ${wand?.name ?? 'Wand'} minimum INT + Magic Claw.`,
+    physicalSource: `Defaults based on ${sword?.name ?? 'Sword'} with max-level Power Strike and Sword Mastery.`,
+    magicalSource: `Defaults based on ${wand?.name ?? 'Wand'} with max-level Magic Claw.`,
+    physicalExample: `Example: ${sword?.name ?? 'Sword'} + Power Strike`,
+    magicalExample: `Example: ${wand?.name ?? 'Wand'} + Magic Claw`,
   };
 }

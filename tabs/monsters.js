@@ -6,9 +6,9 @@ import { mesoAmount } from './formulas-mesos.js';
 
 const DEFENSE_RATIO_COLUMNS = [
   { id: 'exp_ehp_p', label: 'EXP/eHP (P)', toggleLabel: 'EXP/Effective Physical HP', defenseField: 'PDDamage',
-    title: 'EXP / (HP × (1 + WDEF / 100)). Higher is better.' },
+    title: 'EXP / (HP × (1 + P.DEF / 100))' },
   { id: 'exp_ehp_m', label: 'EXP/eHP (M)', toggleLabel: 'EXP/Effective Magic HP', defenseField: 'MDDamage',
-    title: 'EXP / (HP × (1 + MDEF / 100)). Higher is better.' },
+    title: 'EXP / (HP × (1 + M.DEF / 100))' },
 ].map(col => ({ ...col, on: false, ratio: true }));
 
 function getExpHpRatio(monster, defenseField) {
@@ -25,15 +25,13 @@ function getMonsterElements(monster) {
 
 // Header flags that describe how a mob behaves rather than what it is made of.
 const BEHAVIOUR_BADGES = [
-  { key: 'aggro',     label: 'Aggro',      cls: 'elem-aggro',      title: 'Attacks on sight (firstAttack)' },
+  { key: 'aggro',     label: 'Aggro',      cls: 'elem-aggro',      title: 'Attacks on sight' },
   { key: 'invincible', label: 'Invincible', cls: 'elem-invincible', title: 'Cannot be damaged' },
   { key: 'no_regen',   label: 'No Regen',   cls: 'elem-noregen',    title: 'Does not regenerate HP or MP' },
 ];
 
 const STAGGER_TOOLTIP =
-  'How long the mob is staggered after being hit. It cannot move, turn or start an attack ' +
-  'until this expires. Most mobs are 0.60s or 0.30s; the shorter ones re-engage twice as ' +
-  'fast. Taken from the length of the mob’s hit animation in the game data.';
+  'How long the monster flinches after being hit. It cannot move, turn, or attack until this ends.';
 
 function describeAttack(attack) {
   const parts = [{
@@ -42,7 +40,7 @@ function describeAttack(attack) {
     title: attack.magic ? 'Uses the monster’s magic attack' : 'Uses the monster’s physical attack',
   }];
   if (attack.bullet_speed) parts.push({
-    label: 'Ranged', kind: 'ranged', title: `Launches a projectile (speed ${attack.bullet_speed})`,
+    label: 'Ranged', kind: 'ranged', title: 'Launches a ranged projectile',
   });
   if (attack.element) parts.push({
     label: attack.element, kind: 'element', title: `${attack.element}-element attack`,
@@ -191,7 +189,7 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
       el('span', {
         className: 'elem-badge elem-selfdestruct',
         textContent: 'Self-Destruct',
-        title: `selfDestruction HP value: ${fmt(monster.self_destruct_hp)}`,
+        title: `Self-destructs at ${fmt(monster.self_destruct_hp)} HP`,
       })
     );
   }
@@ -250,7 +248,7 @@ function buildDetailRow(monster, colSpan, onMapClick, focusMonster, showDefenseR
           label: 'Amount',
           value: meso ? `${meso.min.toLocaleString()}–${meso.max.toLocaleString()}` : null,
           accent: true,
-          title: 'Each drop is a random 90–110% of floor(2.1 × Level) + 3, rounded down.',
+          title: 'Each drop is 90–110% of (2.1 × Level + 3), rounded down.',
         },
       ],
       link: ['mesos', 'meso-amount', 'How meso drops work'],
@@ -698,7 +696,7 @@ export function renderMonsters(data, options = {}) {
           'Jump Quest': 'This mob appears only in jump quest maps.',
           'KPQ': 'This mob appears only in the Kerning Party Quest.',
         };
-        const desc = SPECIAL_DESCRIPTIONS[monster.special] || 'This mob is considered special.';
+        const desc = SPECIAL_DESCRIPTIONS[monster.special] || 'Special quest or event monster.';
         const q = el('span', {
           className: 'special-tooltip-icon',
           textContent: ' (?)',

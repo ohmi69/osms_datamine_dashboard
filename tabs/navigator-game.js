@@ -352,8 +352,8 @@ export function renderNavigatorGame(data, options = {}) {
 
   /* ── start screen ─── */
   const titleWrap = el('div', { className: 'navgame-title-wrap' });
-  titleWrap.appendChild(el('h1', { className: 'navgame-title', textContent: '🗺️ Portal Runner' }));
-  titleWrap.appendChild(el('p', { className: 'navgame-subtitle', textContent: 'Navigate between maps using portals. Find your way from start to finish as fast as you can!' }));
+  titleWrap.appendChild(el('h1', { className: 'navgame-title', textContent: 'Portal Runner' }));
+  titleWrap.appendChild(el('p', { className: 'navgame-subtitle', textContent: 'Travel from start to finish through map portals in as few moves as possible.' }));
   startScreen.appendChild(titleWrap);
 
   // Linked challenge card (hidden until a challenge link is opened)
@@ -361,7 +361,7 @@ export function renderNavigatorGame(data, options = {}) {
   const challengeRouteEl = el('span', { className: 'navgame-challenge-route' });
   const challengeBeatEl = el('span', { className: 'navgame-challenge-beat' });
   const challengeCardTop = el('div', { className: 'navgame-challenge-card-top' });
-  challengeCardTop.appendChild(el('span', { className: 'navgame-challenge-label', textContent: "🔗 Friend's Challenge" }));
+  challengeCardTop.appendChild(el('span', { className: 'navgame-challenge-label', textContent: "Friend's Challenge" }));
   challengeCardTop.appendChild(challengeRouteEl);
   challengeCard.appendChild(challengeCardTop);
   challengeCard.appendChild(challengeBeatEl);
@@ -380,7 +380,7 @@ export function renderNavigatorGame(data, options = {}) {
   const di = getDailyInfo();
   const dailyCard = el('div', { className: 'navgame-daily-card' });
   const dailyCardTop = el('div', { className: 'navgame-daily-card-top' });
-  dailyCardTop.appendChild(el('span', { className: 'navgame-daily-label', textContent: '🗓️ Daily Puzzle' }));
+  dailyCardTop.appendChild(el('span', { className: 'navgame-daily-label', textContent: 'Daily Puzzle' }));
   const dailyMeta = el('span', { className: 'navgame-daily-meta' });
   dailyMeta.appendChild(el('span', { className: 'navgame-daily-num', textContent: `#${di.puzzleNum}` }));
   dailyMeta.appendChild(el('span', { className: 'navgame-daily-date', textContent: di.dateStr }));
@@ -407,10 +407,10 @@ export function renderNavigatorGame(data, options = {}) {
     if (streakCount > 0 || totalPlayed > 0) {
       const statsRow = el('div', { className: 'navgame-daily-stats-row' });
       if (streakCount > 0) {
-        statsRow.appendChild(el('span', { className: 'navgame-streak-badge', textContent: `🔥 ${streakCount}-day streak` }));
+        statsRow.appendChild(el('span', { className: 'navgame-streak-badge', textContent: `${streakCount}-day streak` }));
       }
       if (totalPlayed > 0) {
-        statsRow.appendChild(el('span', { className: 'navgame-streak-badge navgame-streak-badge--total', textContent: `📅 ${totalPlayed} day${totalPlayed !== 1 ? 's' : ''} played` }));
+        statsRow.appendChild(el('span', { className: 'navgame-streak-badge navgame-streak-badge--total', textContent: `${totalPlayed} day${totalPlayed !== 1 ? 's' : ''} played` }));
       }
       dailyStreakEl.appendChild(statsRow);
     }
@@ -419,7 +419,7 @@ export function renderNavigatorGame(data, options = {}) {
     if (saved) {
       dailyBtn.textContent = '▶ Play Again';
       const row = el('div', { className: 'navgame-daily-completed' });
-      row.appendChild(el('span', { className: 'navgame-daily-check', textContent: '✓ Completed!' }));
+      row.appendChild(el('span', { className: 'navgame-daily-check', textContent: '✓ Completed' }));
       row.appendChild(el('span', { className: `navgame-daily-grade navgame-daily-grade--${saved.gradeCls}`, textContent: `${saved.grade} (${saved.score}/1000)` }));
       row.appendChild(el('span', { className: 'navgame-daily-stats-inline', textContent: `${saved.moves} move${saved.moves !== 1 ? 's' : ''} · ${formatTime(saved.elapsed)}` }));
       dailyStatus.appendChild(row);
@@ -433,9 +433,9 @@ export function renderNavigatorGame(data, options = {}) {
 
   const rulesBox = el('div', { className: 'navgame-rules' });
   rulesBox.innerHTML = `
-    <div class="navgame-rule"><span class="navgame-rule-icon">🔵</span> Click blue portal circles to travel to connected maps</div>
-    <div class="navgame-rule"><span class="navgame-rule-icon">⏱️</span> Timer starts when the game begins</div>
-    <div class="navgame-rule"><span class="navgame-rule-icon">🏆</span> Reach the destination in as few moves as possible</div>
+    <div class="navgame-rule">Click blue portals on the map to travel to connected areas.</div>
+    <div class="navgame-rule">Your score starts at 1,000 and drops for detours and hints.</div>
+    <div class="navgame-rule">Reach the destination in as few moves as possible.</div>
   `;
   startScreen.appendChild(rulesBox);
 
@@ -489,8 +489,8 @@ export function renderNavigatorGame(data, options = {}) {
 
   // hint buttons
   const hintRow = el('div', { className: 'navgame-hint-row' });
-  const peekBtn   = el('button', { className: 'navgame-hint-btn', textContent: '🗺️ Peek Destination  (−100pts)' });
-  const revealBtn = el('button', { className: 'navgame-hint-btn', textContent: '💡 Reveal Next Portal (−100pts)' });
+  const peekBtn   = el('button', { className: 'navgame-hint-btn', textContent: 'Peek Destination (−100 pts)' });
+  const revealBtn = el('button', { className: 'navgame-hint-btn', textContent: 'Reveal Next Portal (−100 pts)' });
   hintRow.appendChild(peekBtn);
   hintRow.appendChild(revealBtn);
   gameScreen.appendChild(hintRow);
@@ -501,7 +501,7 @@ export function renderNavigatorGame(data, options = {}) {
 
   const gameFooter = el('div', { className: 'navgame-game-footer' });
   const backBtn = el('button', { className: 'navgame-back-btn', textContent: '← Back', disabled: true });
-  const giveUpBtn = el('button', { className: 'navgame-giveup-btn', textContent: '🏳️ Give Up' });
+  const giveUpBtn = el('button', { className: 'navgame-giveup-btn', textContent: 'Give Up' });
   gameFooter.appendChild(backBtn);
   gameFooter.appendChild(giveUpBtn);
   gameScreen.appendChild(gameFooter);
@@ -537,7 +537,7 @@ export function renderNavigatorGame(data, options = {}) {
 
   function buildDestPreview(endId, endName) {
     const wrap = el('div', { className: 'navgame-result-dest-preview' });
-    wrap.appendChild(el('div', { className: 'navgame-result-dest-label', textContent: `🎯 Destination: ${endName}` }));
+    wrap.appendChild(el('div', { className: 'navgame-result-dest-label', textContent: `Destination: ${endName}` }));
     wrap.appendChild(el('img', { src: getMapUrl(endId), alt: endName, className: 'navgame-result-dest-img' }));
     return wrap;
   }
@@ -574,7 +574,7 @@ export function renderNavigatorGame(data, options = {}) {
     modal.className = 'navgame-peek-modal';
 
     const inner = el('div', { className: 'navgame-peek-modal-inner' });
-    inner.appendChild(el('div', { className: 'navgame-peek-modal-label', textContent: `🎯 Destination: ${name}` }));
+    inner.appendChild(el('div', { className: 'navgame-peek-modal-label', textContent: `Destination: ${name}` }));
     inner.appendChild(el('img', { src: imgPath, alt: name, className: 'navgame-peek-modal-img' }));
     const bar = el('div', { className: 'navgame-peek-modal-bar' });
     inner.appendChild(bar);
@@ -600,7 +600,7 @@ export function renderNavigatorGame(data, options = {}) {
       destPeeked = true;
       hintsUsed++;
       updateScoreDisplay();
-      peekBtn.textContent = '🗺️ Peek Again';
+      peekBtn.textContent = 'Peek Again';
       peekBtn.classList.add('navgame-hint-btn--used');
     }
     showPeekModal();
@@ -623,7 +623,7 @@ export function renderNavigatorGame(data, options = {}) {
     currentMapId = mapId;
     // Re-enable reveal hint for the new map
     revealBtn.disabled = false;
-    revealBtn.textContent = '💡 Reveal Next Portal (−100pts)';
+    revealBtn.textContent = 'Reveal Next Portal (−100 pts)';
     revealBtn.classList.remove('navgame-hint-btn--used');
     mapArea.innerHTML = '';
     mapArea.classList.remove('navgame-transition');
@@ -634,11 +634,11 @@ export function renderNavigatorGame(data, options = {}) {
     const m = mapLookup[mapId];
     const name = m ? m.name : `Map ${mapId}`;
     currentLabel.innerHTML = '';
-    currentLabel.appendChild(el('span', { textContent: '📍 Current: ' }));
+    currentLabel.appendChild(el('span', { textContent: 'Current: ' }));
     currentLabel.appendChild(el('strong', { textContent: name }));
 
     if (mapId === challenge.endId) {
-      currentLabel.appendChild(el('span', { className: 'navgame-dest-badge', textContent: ' - DESTINATION!' }));
+      currentLabel.appendChild(el('span', { className: 'navgame-dest-badge', textContent: ' · Destination' }));
     }
 
     const imgPath = getMapUrl(mapId);
@@ -718,12 +718,12 @@ export function renderNavigatorGame(data, options = {}) {
       const s = loadStreak();
       const streakCount = s.lastPuzzleNum === activeDailyInfo.puzzleNum ? s.streak : 0;
       if (streakCount > 0) {
-        dailyHeader.appendChild(el('span', { className: 'navgame-streak-badge', textContent: `🔥 ${streakCount}-day streak` }));
+        dailyHeader.appendChild(el('span', { className: 'navgame-streak-badge', textContent: `${streakCount}-day streak` }));
       }
       resultContent.appendChild(dailyHeader);
     }
 
-    resultContent.appendChild(el('h2', { className: 'navgame-result-title', textContent: '🎉 Destination Reached!' }));
+    resultContent.appendChild(el('h2', { className: 'navgame-result-title', textContent: 'Destination Reached' }));
     resultContent.appendChild(buildDestPreview(challenge.endId, endName));
 
     const scoreBadge = el('div', { className: `navgame-score-badge navgame-score-badge--${gradeClass}` });
@@ -736,8 +736,8 @@ export function renderNavigatorGame(data, options = {}) {
       ['Route', `${startName} → ${endName}`],
       ['Time', formatTime(elapsed)],
       ['Your Moves', `${moves}`],
-      ['Optimal Path', `${optimal} move${optimal !== 1 ? 's' : ''}`],
-      ['Detour Maps', detourMaps > 0 ? `${detourMaps} (−${detourPenalty} pts each)` : 'None'],
+      ['Shortest Path', `${optimal} move${optimal !== 1 ? 's' : ''}`],
+      ['Extra Maps', detourMaps > 0 ? `${detourMaps} (−${detourPenalty} pts each)` : 'None'],
       ['Hints Used', hintsUsed > 0 ? `${hintsUsed} (−${hintsUsed * 100} pts)` : 'None'],
     ];
     stats.forEach(([label, value]) => {
@@ -764,10 +764,10 @@ export function renderNavigatorGame(data, options = {}) {
     actualWrap.appendChild(actualSteps);
     resultContent.appendChild(actualWrap);
 
-    // Show optimal path if they took a detour
+    // Show shortest path if they took a detour
     if (bfsPath && moves > optimal) {
       const optWrap = el('div', { className: 'navgame-optimal-path' });
-      optWrap.appendChild(el('div', { className: 'navgame-optimal-label', textContent: 'Optimal Route:' }));
+      optWrap.appendChild(el('div', { className: 'navgame-optimal-label', textContent: 'Shortest Route:' }));
       const optSteps = el('div', { className: 'navgame-optimal-steps' });
       bfsPath.forEach((mid, i) => {
         const name = mapLookup[mid]?.name || `Map ${mid}`;
@@ -786,7 +786,7 @@ export function renderNavigatorGame(data, options = {}) {
     });
     btnRow.appendChild(playAgain);
 
-    const shareBtn = el('button', { className: 'navgame-share-btn', textContent: '📋 Share Result' });
+    const shareBtn = el('button', { className: 'navgame-share-btn', textContent: 'Share Result' });
     shareBtn.addEventListener('click', () => {
       const base = window.location.href.split('#')[0];
       const challengeUrl = isDailyMode && activeDailyInfo
@@ -799,13 +799,13 @@ export function renderNavigatorGame(data, options = {}) {
       const shareText = [
         header,
         `${startName} → ${endName}`,
-        `${rating}: ${moves} move${moves !== 1 ? 's' : ''} (optimal: ${optimal}, efficiency: ${efficiency})`,
-        `⏱ ${formatTime(elapsed)}`,
+        `${rating}: ${moves} move${moves !== 1 ? 's' : ''} (shortest: ${optimal}, efficiency: ${efficiency})`,
+        `Time: ${formatTime(elapsed)}`,
         `\n${challengeUrl}`,
       ].join('\n');
       navigator.clipboard?.writeText(shareText).catch(() => {});
       shareBtn.textContent = '✓ Copied!';
-      setTimeout(() => { shareBtn.textContent = '📋 Share Result'; }, 2000);
+      setTimeout(() => { shareBtn.textContent = 'Share Result'; }, 2000);
     });
     btnRow.appendChild(shareBtn);
     resultContent.appendChild(btnRow);
@@ -824,16 +824,16 @@ export function renderNavigatorGame(data, options = {}) {
     const startName = mapLookup[challenge.startId]?.name || `Map ${challenge.startId}`;
     const endName = mapLookup[challenge.endId]?.name || `Map ${challenge.endId}`;
 
-    resultContent.appendChild(el('h2', { className: 'navgame-result-title', textContent: '🏳️ You gave up!' }));
+    resultContent.appendChild(el('h2', { className: 'navgame-result-title', textContent: 'Run Ended' }));
     resultContent.appendChild(buildDestPreview(challenge.endId, endName));
-    resultContent.appendChild(el('div', { className: 'navgame-rating navgame-rating--grind', textContent: 'Better luck next time! 💪' }));
+    resultContent.appendChild(el('div', { className: 'navgame-rating navgame-rating--grind', textContent: 'Better luck next time.' }));
 
     const statsGrid = el('div', { className: 'navgame-stats' });
     const stats = [
       ['Route', `${startName} → ${endName}`],
       ['Time', formatTime(elapsed)],
       ['Moves Made', `${moves}`],
-      ['Optimal Path', `${optimal} move${optimal !== 1 ? 's' : ''}`],
+      ['Shortest Path', `${optimal} move${optimal !== 1 ? 's' : ''}`],
     ];
     stats.forEach(([label, value]) => {
       const row = el('div', { className: 'navgame-stat-row' });
@@ -843,11 +843,11 @@ export function renderNavigatorGame(data, options = {}) {
     });
     resultContent.appendChild(statsGrid);
 
-    // Show optimal path
+    // Show shortest path
     const bfsPath = findShortestPath(graph, challenge.startId, challenge.endId);
     if (bfsPath) {
       const optWrap = el('div', { className: 'navgame-optimal-path' });
-      optWrap.appendChild(el('div', { className: 'navgame-optimal-label', textContent: 'Optimal Route:' }));
+      optWrap.appendChild(el('div', { className: 'navgame-optimal-label', textContent: 'Shortest Route:' }));
       const optSteps = el('div', { className: 'navgame-optimal-steps' });
       bfsPath.forEach((mid, i) => {
         const name = mapLookup[mid]?.name || `Map ${mid}`;
@@ -905,9 +905,9 @@ export function renderNavigatorGame(data, options = {}) {
     navStack = [challenge.startId];
     gameActive = true;
     // Reset hint UI
-    peekBtn.textContent = '🗺️ Peek Destination (−100pts)';
+    peekBtn.textContent = 'Peek Destination (−100 pts)';
     peekBtn.classList.remove('navgame-hint-btn--used');
-    revealBtn.textContent = '💡 Reveal Next Portal (−100pts)';
+    revealBtn.textContent = 'Reveal Next Portal (−100 pts)';
     revealBtn.disabled = false;
     revealBtn.classList.remove('navgame-hint-btn--used');
     hintPanel.classList.add('hidden');
@@ -956,7 +956,7 @@ export function renderNavigatorGame(data, options = {}) {
       if (query.startsWith('daily:')) {
         const perf = decodeDailyPerf(query.slice('daily:'.length));
         dailyChallengeBeat.textContent = (perf?.elapsed && perf?.moves)
-          ? `Can you beat your friend's time of ${formatTime(perf.elapsed)} in ${perf.moves} move${perf.moves !== 1 ? 's' : ''}?`
+          ? `Can you beat their time of ${formatTime(perf.elapsed)} in ${perf.moves} move${perf.moves !== 1 ? 's' : ''}?`
           : '';
         clearInterval(timerInterval);
         gameActive = false;

@@ -42,7 +42,7 @@ export function renderCashShop(data, options = {}) {
   const CATEGORY_PILLS = [
     { label: 'All', value: null },
     ...namedCategories.map((cat) => ({ label: cat.category, value: cat.category })),
-    ...(unnamedItems.length > 0 ? [{ label: 'Unnamed Unavailable Items', value: '__unnamed__' }] : [])
+    ...(unnamedItems.length > 0 ? [{ label: 'Unreleased / Unnamed', value: '__unnamed__' }] : [])
   ];
   function currentFilterParams() {
     return {
@@ -164,7 +164,7 @@ export function renderCashShop(data, options = {}) {
 
     const disclaimer = el('p', {
       className: 'cashshop-disclaimer',
-      textContent: 'These items were found in the game files but have no name or description (not intended for use). They might never be made available in the cash shop, but they are provided here for speculation',
+      textContent: 'These items have no name or description yet and are not currently available in the Cash Shop. They may be added in a future update or remain unused.',
     });
     content.appendChild(disclaimer);
 
@@ -173,7 +173,7 @@ export function renderCashShop(data, options = {}) {
     });
 
     dataDiv.appendChild(
-      makeCollapsible('Unnamed Unavailable Items', items.length, true, null, content)
+      makeCollapsible('Unreleased / Unnamed', items.length, true, null, content)
     );
   }
 

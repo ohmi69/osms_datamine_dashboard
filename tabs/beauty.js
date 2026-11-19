@@ -3,7 +3,7 @@ import { el, normalizeAssetPath, makeCopyableId, padItemId, makeSearchBox, parse
 export function renderBeautyStyles(data, options = {}) {
   const beauty = data.beauty_coupons;
   if (!beauty || (!beauty.hair?.length && !beauty.face?.length)) {
-    return el('div', { textContent: 'No hair/face style data found.' });
+    return el('div', { className: 'empty-state', textContent: 'No hair or face styles are available for this patch.' });
   }
 
   const container = el('div', { className: 'beauty-container' });

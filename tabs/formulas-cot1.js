@@ -78,23 +78,23 @@ const ACCURACY_STEPS = [
     label: 'Base Accuracy & Avoidability',
     wip: false,
     status: 'ok',
-    statusNote: 'Read from the COT1 stat-seeding routine.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'Acc = Dex / 3 + Luk / 6 + 5',
       '',
       'Avoid = Luk / 3 + Dex / 6 + 5',
     ],
     notes: [
-      'One formula for every class - there is no job dispatch and no level term.',
-      'Every stat here is the total including equipment and buffs. Flat accuracy from items and buffs is added on top, and the result is clamped to 0-9999.',
-      'The same routine seeds the base 5% critical rate and 20% critical damage.',
+      'One formula for every class, with no class differences or level scaling.',
+      'Every stat here is the total including equipment and buffs. Flat accuracy from items and buffs is added on top, and the result is clamped to 0–9,999.',
+      'Base critical rate is 5% and base critical damage is 20%.',
     ],
   },
   {
     label: 'Physical Accuracy',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the hit test inlined in the COT1 physical damage routine. The formula the community fitted during COT1 was exactly right.',
+    statusNote: 'Verified from COT1 game mechanics. Matches the formula found by players during COT1.',
     lines: [
       'BaseChance = Acc × 100 / ((max(0, LevelDiff) + 51) × 5)',
       '',
@@ -105,16 +105,16 @@ const ACCURACY_STEPS = [
       'DidHit = Roll × BaseChance ≥ Avoid',
     ],
     notes: [
-      'exp() is the exponential function',
-      'The client also auto-hits when BaseChance − Avoid ≥ 25, a flat cutoff with no level term. A flag on the monster (likely the boss flag) disables the auto-hit.',
-      'There is no forced-miss debuff roll and no always-hit skill property in COT1.',
+      'exp() is the exponential function.',
+      'Attacks also auto-hit when BaseChance − Avoid ≥ 25, regardless of level. Some monsters (likely bosses) are immune to auto-hits.',
+      'COT1 has no miss-chance debuff and no skills that bypass accuracy.',
     ],
   },
   {
     label: 'Magical Accuracy',
     wip: false,
     status: 'ok',
-    statusNote: 'The COT1 magic damage routine contains no accuracy code at all - every exp() call site in the binary is accounted for, and none is reachable from the magic path.',
+    statusNote: 'Verified from COT1 game mechanics: magic attacks have no accuracy check.',
     lines: [
       'Magical skills always hit - there is no accuracy check for magic.',
     ],
@@ -138,7 +138,7 @@ const BASE_DAMAGE_STEPS = [
     label: 'Physical Damage',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 physical damage routine. The old "AttackPower counts once" belief came from the stat-window preview, which really does divide it by 100 - combat always counted it double.',
+    statusNote: 'Verified from COT1 game mechanics. The stat-window preview divided AttackPower by 100, while actual combat counted it double (divided by 50).',
     // Shown by default. StatDiv 100 / AtkDiv 50 covers every attack except Prone Stab
     // and meleeing with a Bow, Crossbow or Claw, so folding them in recovers the plain
     // form. Nothing here is an approximation - it is the general form with the two rare
@@ -151,8 +151,8 @@ const BASE_DAMAGE_STEPS = [
         'Damage = SkillMult × (BaseRoll + (StatRoll × WepMult + SecondaryStat) / 100 + AttackPower / 50) × WeaponAttack',
       ],
       notes: [
-        'StatRoll and BaseRoll are separate draws: a hit can land low on one and high on the other, so damage bunches toward the middle',
-        'WepMult is chosen by the attack action, not by the skill - see the Weapon Multipliers table. Lucky Seven forces a 2.6 weapon multiplier instead of the Claw\'s 2.5',
+        'StatRoll and BaseRoll are separate rolls: a hit can land low on one and high on the other, so damage clusters toward the middle.',
+        'WepMult is chosen by the attack action, not by the skill — see the Weapon Multipliers table. Lucky Seven overrides it to 2.6 instead of the Claw\'s 2.5.',
       ],
     },
     lines: [
@@ -173,19 +173,19 @@ const BASE_DAMAGE_STEPS = [
       'Lucky Seven   forces WepMult = 2.6 in place of the Claw Shoot 2.5',
     ],
     notes: [
-      'StatRoll and BaseRoll are separate draws: a hit can land low on one and high on the other, so damage bunches toward the middle',
-      'With the usual StatDiv of 100 and AtkDiv of 50 this is the simple form',
-      'WepMult is chosen by the attack action, not by the skill - see the Weapon Multipliers table',
-      'AttackPower counts double in combat. The stat window preview divides it by 100 instead - that mismatch is what the community\'s "AttackPower × 1" fit was measuring',
-      'Bows, Crossbows and Claws draw their firing animation from a separate ranged action list, so a normal shot lands on Shoot (2.5, StatDiv 100). The StatDiv 300 rows are what you get meleeing with them - a Claw with no stars left stabs for 1.0',
-      'The old claim that Drain and Normal Attack share Lucky Seven\'s 2.6 has no support in the client',
+      'StatRoll and BaseRoll are separate rolls: a hit can land low on one and high on the other, so damage clusters toward the middle.',
+      'With the usual StatDiv of 100 and AtkDiv of 50, this reduces to the simple form.',
+      'WepMult is chosen by the attack action, not by the skill — see the Weapon Multipliers table.',
+      'AttackPower counts double in combat. The stat window preview divides it by 100 instead.',
+      'Normal Bow, Crossbow, and Claw shots use Shoot (2.5, StatDiv 100). The StatDiv 300 rows apply when meleeing with them — for example, stabbing with a Claw when out of stars (1.0).',
+      'Drain and normal attacks use the standard 2.5 Claw multiplier, not Lucky Seven\'s 2.6.',
     ],
   },
   {
     label: 'Magical Damage',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 magic damage routine. The community formula was exactly right, including the base-Int read - the bracket reads the raw character record, not the equipment-inclusive total.',
+    statusNote: 'Verified from COT1 game mechanics. BaseInt uses base INT from AP only, excluding equipment.',
     lines: [
       'MIN = (BasicAttack + Magic / 7) × ((Magic × 2 × MasteryMult + BaseInt) / 100 + 1)',
       'MAX = (BasicAttack + Magic / 7) × ((Magic × 2 + BaseInt) / 100 + 1)',
@@ -194,14 +194,14 @@ const BASE_DAMAGE_STEPS = [
       'Magic here is the MAGIC stat on your stat window (Total Int / 2 plus gear Magic Attack plus buffs), not the Magic Attack total from your gear on its own.',
     ],
     notes: [
-      'BaseInt really is base Int only - the client reads the raw character record, so Int from equipment and scrolls is skipped in the bracket (it still counts inside Magic)',
+      'BaseInt uses base INT from AP only — INT from equipment and scrolls is excluded from the bracket (though it still counts toward Magic).',
     ],
   },
   {
     label: 'Heal',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the two Heal implementations in the COT1 client - the only two places where the 200 and 3 constants co-occur.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'HealAmount = ((BaseInt × Roll + BaseLuk) / 200 + 3) × Magic × (RecoveryRate / 100) × (TargetsHit × 0.1 + 1)',
       '',
@@ -210,39 +210,39 @@ const BASE_DAMAGE_STEPS = [
       'Damage = trunc(HealAmount) / TargetsHit × 0.5',
     ],
     notes: [
-      'BaseInt and BaseLuk are base stats from AP only, matching the community fit',
-      'TargetsHit counts party members in range (at least 1, at most 6, the caster included) plus undead enemies hit (up to 15)',
-      'The damage side against undead is the heal divided by targets, halved',
+      'BaseInt and BaseLuk are base stats from AP only, excluding equipment.',
+      'TargetsHit counts party members in range (at least 1, at most 6, including the caster) plus undead enemies hit (up to 15).',
+      'Damage against undead is the heal amount divided by targets, then halved.',
     ],
   },
   {
     label: 'Damage Over Time (DoT)',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 damage-over-time routines. The Int divisor is 100.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'TotalDamage = (DoTBasicAttack + Magic / 7) × ((Magic + BaseInt) / 100 + 1)',
       '',
       'DamagePerTick = TotalDamage / DoTDurationSeconds',
     ],
     notes: [
-      'DoT damage ignores all Defense reductions - the routine never reads the enemy\'s defenses',
-      'The level difference penalty only ever uses its linear branch for DoT',
+      'DoT damage ignores all enemy Defense reductions.',
+      'The level difference penalty always uses its linear branch for DoT.',
     ],
   },
   {
     label: 'Physical Damage Over Time (DoT)',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 physical DoT routine (0x1402aeca0), which calls the weapon-multiplier builder with action code 5. This variant is dead code in COT2 but live here.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'TotalDamage = (DoTBasicAttack / 100) × WeaponAttack × ((PrimaryStat × 2 + SecondaryStat) / 100 + AttackPower / 50 + 1)',
       '',
       'DamagePerTick = TotalDamage / DoTDurationSeconds',
     ],
     notes: [
-      'Weapon-attack based, unlike the magic DoT above - PrimaryStat, SecondaryStat and WepMult come from the same weapon table as a normal physical hit',
-      'DoT damage ignores all Defense reductions, uses only the linear branch of the level difference penalty, and its ticks can crit',
+      'Weapon-attack based, unlike the magic DoT above — PrimaryStat, SecondaryStat, and WepMult come from the same weapon table as a normal physical hit.',
+      'DoT damage ignores all Defense reductions, always uses the linear level difference penalty, and its ticks can crit.',
     ],
   },
 ];
@@ -253,14 +253,14 @@ const BASE_DAMAGE_VARS = [
   { name: 'SecondaryStat', desc: 'Set by weapon type:\nDex - Melee Weapons\nStr - Bows and Crossbows\nStr + Dex - Daggers and Claws' },
   { name: 'AttackPower',   desc: 'Attack from all gear other than the weapon and shield, plus buffs' },
   { name: 'WeaponAttack',  desc: 'Attack from the weapon and shield, plus Stars and Arrows' },
-  { name: 'WepMult',       desc: 'Weapon multiplier for the attack action used - see Weapon Multipliers table' },
-  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8. Exception: Lucky Seven reads its own skill data instead, same mechanism as COT2' },
+  { name: 'WepMult',       desc: 'Weapon multiplier for the attack action used — see Weapon Multipliers table' },
+  { name: 'MasteryMult',   desc: '(0.1 + MasteryLevel / 10) × 0.8. Exception: Lucky Seven uses its own fixed mastery multiplier.' },
   { name: 'BasicAttack',   desc: 'Basic Attack damage value listed on the skill, for magic skills only' },
   { name: 'DoTBasicAttack', desc: 'The "deals N Basic Attack over X sec" value listed on the skill' },
-  { name: 'Magic',              desc: 'The MAGIC value on the stat window, and the whole stat rather than the Magic Attack printed on your gear. The client builds it as TotalInt / 2, plus EquipmentMagicAttack, plus buff magic attack. It keeps only this one number, and every magic formula reads it' },
-  { name: 'EquipmentMagicAttack', desc: 'Sum of Magic Attack on all gear (including above/below average and scrolled stats). Feeds into Magic; nothing reads it on its own' },
-  { name: 'BaseInt',       desc: 'BASE Int from AP only - the client reads the raw character record here, skipping equipment' },
-  { name: 'BaseLuk',       desc: 'BASE Luk from AP only - same raw-record read as BaseInt' },
+  { name: 'Magic',              desc: 'The MAGIC value shown on your stat window: Total INT / 2 plus equipment Magic Attack and buffs. Every magic formula uses this combined stat.' },
+  { name: 'EquipmentMagicAttack', desc: 'Total Magic Attack from all gear (including scrolled stats), which feeds into Magic.' },
+  { name: 'BaseInt',       desc: 'Base INT from AP only (excludes equipment and buffs).' },
+  { name: 'BaseLuk',       desc: 'Base LUK from AP only (excludes equipment and buffs).' },
   { name: 'RecoveryRate',  desc: 'Heal skill recovery rate %' },
   { name: 'TargetsHit',    desc: 'Total targets hit: party members in range (min 1, max 6, caster included) + undead enemies hit (max 15)' },
   { name: 'DoTDurationSeconds', desc: 'Duration of the DoT effect in seconds' },
@@ -274,40 +274,39 @@ const MOD_PIPELINE_STEPS = [
     label: 'Weapon Defense',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 physical damage routine and the enemy weapon-defense getter, percent and flat slots included.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'WeaponDefense = max(0, trunc(BaseWeaponDefense × (PercentEffects / 100 + 1)) + FlatEffects)',
       '',
       'Damage = Damage × 100 / (WeaponDefense + 100)',
     ],
     notes: [
-      'trunc() rounds toward zero (down for positive, up for negative)',
-      'Applies to Physical damage only',
-      'This is the monster side only. The damage a player takes uses the same stat names but a completely different formula, see the Damage Taken section',
-      'Percent and flat read slots 2 and 1 of the monster modifier table (7 slots of 48 bytes at mob+0x698)',
-      'Crossbow Mastery rolls its listed Ignore Defense chance (Crossbowman jobs 320-322 only), once per attack; on a proc the whole defense step is skipped. This is the only Ignore Defense in COT1 - Blunt Weapon Mastery is a stun passive instead',
+      'trunc() rounds toward zero (down for positive, up for negative).',
+      'Applies to Physical damage only.',
+      'This is for monsters only. Damage taken by players uses a different formula — see the Damage Taken section.',
+      'Crossbow Mastery (Crossbowman line) rolls its Ignore Defense chance once per attack; when it triggers, this entire defense step is skipped. This is the only Ignore Defense effect in COT1 — Blunt Weapon Mastery is a stun passive instead.',
     ],
   },
   {
     label: 'Magic Defense',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 magic damage routine. Unlike the weapon side there is no percent/flat modifier pipeline - the raw stat feeds straight in.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'Damage = Damage × 100 / (MagicDefense + 100)',
     ],
     notes: [
-      'Applies to Magical damage only',
-      'The raw monster stat with no percent or flat modifier slots',
-      'This is the monster side only. The damage a player takes uses the same stat names but a completely different formula - see the Damage Taken section',
-      'There is no Ignore Defense proc on the magic side, and no equivalent of Armor Crash',
+      'Applies to Magical damage only.',
+      'Uses the monster\'s base Magic Defense directly, with no defense debuffs or modifiers.',
+      'This is for monsters only. Damage taken by players uses a different formula — see the Damage Taken section.',
+      'There is no Ignore Defense proc for magic, and no magic equivalent of Armor Crash.',
     ],
   },
   {
     label: 'Elemental Modifier',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the inline four-way switch in both COT1 damage routines.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'Damage = Damage × ElementalMult',
       '  0.0  - immune',
@@ -316,14 +315,14 @@ const MOD_PIPELINE_STEPS = [
       '  1.25 - weak against element',
     ],
     notes: [
-      'A four-value switch, nothing else. Anything outside the four resistance codes falls back to 1.0. The Element Composition skills and their two-element blend do not exist in COT1',
+      'Only these four single-element values apply (anything else is treated as neutral 1.0). Element Composition and dual-element blending do not exist in COT1.',
     ],
   },
   {
     label: 'Level Difference Penalty',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 client - the same code appears in the physical, magic and DoT routines.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'LevelDiff = EnemyLevel − PlayerLevel',
       '',
@@ -332,30 +331,30 @@ const MOD_PIPELINE_STEPS = [
       '  LevelDiff ≥ 10:  Damage = Damage / (LevelDiff × 0.05 + 1)',
     ],
     notes: [
-      'The two branches meet exactly at LevelDiff 10, where the penalty term is 0.5 either way - the damage is divided by 1.5, so about a third of it is lost',
-      'DoT only ever uses the linear branch',
+      'Both branches meet at LevelDiff 10, where damage is divided by 1.5 (about a third lost).',
+      'DoT always uses the linear branch.',
     ],
   },
   {
     label: 'Critical Hit',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the crit roll in the COT1 physical, magic and damage-over-time routines.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'IsCrit = rand(0, 99) < CritRate',
       '',
       'Damage = Damage × (100 + CritDamage) / 100',
     ],
     notes: [
-      'Always-crit is hard-coded for Power Knockback in both lines, Hunter 3101002 and Crossbowman 3201002 - both named Power Knockback in COT1 strings, adjacent in the damage routine.',
-      'DoT ticks roll crit too, so a burn or a bleed tick can crit',
+      'Power Knockback (both Hunter and Crossbowman versions) always crits.',
+      'DoT ticks can also crit.',
     ],
   },
   {
     label: 'Iron Arrow Falloff (Crossbow only)',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 client, hard-coded to Iron Arrow: Crossbow by skill ID.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'Damage = Damage × clamp(1 − ConsecutiveHits × 0.2, 0, 1)',
       '  1st mob: ×1.0,  2nd: ×0.8,  3rd: ×0.6 …',
@@ -366,25 +365,25 @@ const MOD_PIPELINE_STEPS = [
     label: 'Combo Attack, Elemental Charge, Armor Crash, Element Amplification, Shadow Partner',
     wip: false,
     status: 'ok',
-    statusNote: 'Established by absence: the skill IDs occur nowhere in the COT1 binary and no equivalent code paths exist in the damage routines.',
+    statusNote: 'Not present in COT1.',
     lines: [
       'None of these exist in COT1.',
     ],
     notes: [
-      'The COT1 damage pipeline has no orb multiplier, no charge multiplier, no defense-nullifying branch, no elemental amplification step and no second-half hit split',
+      'COT1 has no Combo Attack orb bonus, Elemental Charge multiplier, Armor Crash defense removal, Element Amplification, or Shadow Partner hit split.',
     ],
   },
   {
     label: 'Clamp',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 client - the 700 billion cap appears as an integer immediate in every damage routine.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'Damage = trunc(Damage)',
       'Damage = clamp(Damage, 1, 700,000,000,000)',
     ],
     notes: [
-      'The cap really is 700,000,000,000 - per-hit damage is stored as a 64-bit integer',
+      'Per-hit damage is capped at 700,000,000,000 and floored at 1.',
     ],
   },
 ];
@@ -392,9 +391,9 @@ const MOD_PIPELINE_STEPS = [
 const MOD_VARS = [
   { name: 'BaseWeaponDefense', desc: "Enemy's weapon defense stat, before modifiers" },
   { name: 'WeaponDefense',   desc: "Enemy's weapon defense after percent and flat modifiers, floored at 0" },
-  { name: 'PercentEffects',  desc: 'A percentage modifier slot on the monster\'s weapon defense. Threaten (1201004) is flagged for it; Disorder (4001000) is not. Per-skill values unchecked - slot attribution unestablished' },
-  { name: 'FlatEffects',     desc: 'A flat modifier slot the monster carries for its weapon defense, added after the percentage' },
-  { name: 'MagicDefense',    desc: "Enemy's raw magic defense stat - no modifier slots in COT1" },
+  { name: 'PercentEffects',  desc: "Percentage modifiers to the monster's weapon defense (such as Threaten)" },
+  { name: 'FlatEffects',     desc: "Flat modifiers to the monster's weapon defense, added after percentage modifiers" },
+  { name: 'MagicDefense',    desc: "Enemy's base magic defense stat (no modifiers in COT1)" },
   { name: 'ElementalMult',   desc: 'Elemental modifier: 0.0, 0.75, 1.0, or 1.25' },
   { name: 'EnemyLevel',      desc: "Enemy's level" },
   { name: 'PlayerLevel',     desc: "Player's level" },
@@ -413,7 +412,7 @@ const GUARD_STEPS = [
     label: 'Monster Accuracy',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 outcome-test routine (0x1402b4ee0), including the 0.11/0.26 spread and both salvage branches.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'LevelGap = PlayerLevel − MonsterLevel, or 0 if the monster is the higher level',
       '',
@@ -429,28 +428,28 @@ const GUARD_STEPS = [
       'A failed roll still lands 8% of the time, with a further 2-3% chance when the avoid is out of roll reach.',
     ],
     notes: [
-      'Avoid is your Avoid stat from the Stats panel, before the diminishing-returns step',
-      'Magic-flagged mob skills skip this check and all guard rolls (always hit). Cannot-miss skills skip this check but can still be guarded.',
-      'Only regular attacks and non-magic mob skills go through this check - see the Result step',
+      'Avoid is your Avoid stat from the Stats panel, before diminishing returns.',
+      'Magic monster skills always hit and cannot be guarded. Unmissable skills skip accuracy but can still be guarded.',
+      'Only regular attacks and non-magic monster skills go through this check — see the Result step.',
     ],
   },
   {
     label: 'Guard Immunity',
     wip: false,
     status: 'partial',
-    statusNote: 'The check is read directly from the COT1 client, but the monster flag it reads has not been matched to a property in the monster data.',
+    statusNote: 'Confirmed as a mechanic in COT1, though which monsters have it is not yet known.',
     lines: [
-      'A flag on the monster can switch guard off entirely for its attacks.',
+      'Certain monsters bypass guard checks entirely.',
     ],
     notes: [
-      'When that flag is set the attack always resolves as a normal hit and the guard roll below is never reached',
+      'Attacks from these monsters always resolve as normal hits and skip the Shield Guard roll below.',
     ],
   },
   {
     label: 'Shield Guard',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 outcome-test routine, including the 500 divisor and the 5% floor.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'ShieldDefense = Weapon Defense on the item in the shield slot',
       '',
@@ -460,51 +459,50 @@ const GUARD_STEPS = [
       'Guarded = GuardChance > rand(0, 1)',
     ],
     notes: [
-      'Only the shield slot counts; a guard fully negates the hit',
-      'Claw Guard does not exist in COT1 - shields are the only source of guards',
+      'Only the shield slot counts; a guard fully negates the hit.',
+      'Claw Guard does not exist in COT1 — shields are the only way to guard.',
     ],
   },
   {
     label: 'Incoming Damage',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the two COT1 damage-taken routines and the monster attack-value getter.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'IncomingDamage = MonsterAttack × (1.1 + 0.4 × rand(0, 1))',
     ],
     notes: [
-      "MonsterAttack is the monster's physical attack for a regular attack, plus its percent modifiers from slot 0 of the monster modifier table. For a skill attack it is the flat magic attack from the mob template, with no modifier slot",
-      'The fixed-damage attack path exists only as an empty stub that returns 0',
+      "MonsterAttack is the monster's physical attack (including buffs/debuffs) for a regular attack, or its base magic attack for a skill attack.",
     ],
   },
   {
     label: 'Player Defense',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from both COT1 damage-taken routines with every constant resolved. There is no level term anywhere in the computation.',
+    statusNote: 'Verified from COT1 game mechanics. Player level does not affect defense in COT1.',
     lines: [
       'Defense = WeaponDefense for a regular attack, MagicDefense for a skill attack',
       '',
       'DamageTaken = IncomingDamage / (1 + Defense / (5 × IncomingDamage))',
     ],
     notes: [
-      'The defense scale is just 5 × the hit itself - there is no level term anywhere in the computation',
-      'Because the scale shrinks with the hit, defense crushes chip damage (small hits get pushed toward the 1-damage floor) but does comparatively little against big hits',
+      'Defense scales purely with 5 × the incoming hit — your character level has no effect.',
+      'Because the scale shrinks with smaller hits, defense heavily reduces chip damage (pushing small hits toward 1 damage) but does much less against big hits.',
     ],
   },
   {
     label: 'Result',
     wip: false,
     status: 'ok',
-    statusNote: 'Read directly from the COT1 client.',
+    statusNote: 'Verified from COT1 game mechanics.',
     lines: [
       'DamageTaken = clamp(DamageTaken, 1, 50000000), truncated',
       '',
       'DamageTaken = 0 if the hit missed or was guarded',
     ],
     notes: [
-      'Guard is a full negation - the client computes the damage and throws it away',
-      'Guard is only rolled for a monster\'s regular attack; magic-flagged monster skill attacks can neither miss nor be guarded',
+      'Guarding fully negates the hit (0 damage taken).',
+      'Guard only applies to regular attacks; magic monster skills cannot miss or be guarded.',
     ],
   },
 ];
@@ -513,13 +511,13 @@ const GUARD_VARS = [
   { name: 'MonsterAcc', desc: "The monster's accuracy stat" },
   { name: 'MonsterLevel', desc: "The monster's level" },
   { name: 'LevelGap', desc: "Your level minus the monster's level, or 0 if the monster is the higher level" },
-  { name: 'Avoid', desc: 'Your Avoid stat from the Stats panel, before the diminishing-returns step' },
-  { name: 'HitRate', desc: "The monster's accuracy scaled against the level gap - what the roll is measured against" },
-  { name: 'AvoidRate', desc: 'Your Avoid after diminishing returns and the level-gap term' },
-  { name: 'ShieldDefense', desc: 'Weapon Defense of the item equipped in the shield slot, scrolls included. Nothing else feeds this value' },
+  { name: 'Avoid', desc: 'Your Avoid stat from the Stats panel, before diminishing returns' },
+  { name: 'HitRate', desc: "The monster's accuracy scaled against the level gap" },
+  { name: 'AvoidRate', desc: 'Your Avoid after diminishing returns and the level-gap scaling' },
+  { name: 'ShieldDefense', desc: 'Weapon Defense of the item equipped in the shield slot, including scrolls' },
   { name: 'GuardChance',   desc: 'Chance for the hit to be negated outright' },
-  { name: 'MonsterAttack', desc: "The monster's physical attack for a regular attack, or its magic attack for a skill attack, after its own percent modifiers" },
-  { name: 'IncomingDamage', desc: 'The rolled damage of the hit, before the player\'s defense is applied' },
+  { name: 'MonsterAttack', desc: "The monster's physical attack (regular attack) or magic attack (skill attack), after modifiers" },
+  { name: 'IncomingDamage', desc: 'The rolled damage of the hit, before player defense is applied' },
   { name: 'Defense',       desc: "The player's Weapon Defense against a regular attack, or Magic Defense against a skill attack, from the Stats panel" },
   { name: 'DamageTaken',   desc: 'HP actually lost from the hit' },
 ];
@@ -601,7 +599,7 @@ function buildPipeline(steps, chapterStarts = {}) {
         box,
         el('span', { textContent: 'Advanced' }),
       );
-      attachTooltip(toggle, 'Off, this shows the formula for the cases that actually come up. On, it adds the two branches that only fire for Prone Stab and for meleeing with a Bow, Crossbow or Claw - the exact form the client implements.');
+      attachTooltip(toggle, 'Off: shows the standard formula for normal attacks. On: includes the edge-case branches for Prone Stab and meleeing with a Bow, Crossbow, or Claw.');
       // Sits directly after the step title, ahead of the status tags. Built here rather
       // than inline above because it needs renderBody() to exist. The class stops the
       // title's flex:1 from growing and pushing the toggle to the far edge - the toggle
@@ -717,10 +715,10 @@ function buildWeaponMultTable() {
 
   container.appendChild(split);
 
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier is picked by the attack animation, not the skill. Swing and Stab are the normal melee actions, and Shoot covers bow, crossbow and claw attacks. There is no Other column here - the COT1 classifier never returns it.' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The Swing/Stab ratio above is the melee animation list, read from the same tables COT2 uses. Bows, Crossbows and Claws normally fire instead, drawing from a separate ranged list that always resolves to Shoot. Their Swing and Stab columns are only reached when meleeing without ammo.' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: '* Bow, Crossbow and Claw melee values: a normal shot lands on Shoot (2.5) - the 1.0 rows are what you get meleeing with them, with the stat terms divided by 300 (see Advanced under Physical Damage).' }));
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most skills roll swing/stab like a plain attack. The groups below never roll: Stab and Shoot use the shown multiplier; the last group takes the weapon default (Swing: axes/blunts/polearms; Stab: daggers/spears; Shoot: bow/xbow/claw - other weapons roll, all columns equal). 3101005 is live skill data with no String entry. Magic skills never use a weapon multiplier.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The multiplier depends on the attack animation, not the skill. Swing and Stab cover normal melee attacks, and Shoot covers bow, crossbow, and claw shots. COT1 has no "Other" category.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'The Swing/Stab ratio applies to melee attacks. Bows, Crossbows, and Claws normally use ranged shots (Shoot); their Swing and Stab columns only apply when meleeing at close range or without ammo.' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: '* Bow, Crossbow, and Claw melee values: normal shots use Shoot (2.5), while meleeing with them uses 1.0 and divides stat terms by 300 (see Advanced under Physical Damage).' }));
+  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Most physical skills randomly roll Swing or Stab like a basic attack. The skills below always use a fixed multiplier instead (Weapon\'s Default uses Swing for axes/blunts/polearms, Stab for daggers/spears, and Shoot for bows/crossbows/claws). Magic skills never use a weapon multiplier.' }));
 
   const exceptions = el('div', { className: 'formulas-exceptions' });
   ACTION_EXCEPTIONS.forEach(([column, skills]) => {
@@ -728,8 +726,6 @@ function buildWeaponMultTable() {
     exceptions.appendChild(el('span', { className: 'formulas-exc-skills', textContent: skills.length ? skills.join(', ') : '' }));
   });
   container.appendChild(exceptions);
-
-  container.appendChild(el('div', { className: 'formulas-note formulas-note--padded', textContent: 'Weapon types 34-36 are unused - their multiplier is 0, so damage zeroes out.' }));
 
   return container;
 }
@@ -753,7 +749,7 @@ function buildModsSection() {
   container.appendChild(buildPipeline(MOD_PIPELINE_STEPS, {
     0: { key: 'defense-elements', label: 'Defense & Elements', description: 'The target’s defenses, elemental response, and level-based scaling.' },
     4: { key: 'hit-effects', label: 'Hit Effects', description: 'Criticals and skill-specific effects that shape individual hits.' },
-    7: { key: 'final-result', label: 'Final Result', description: 'The client’s final lower bound before the hit is applied.' },
+    7: { key: 'final-result', label: 'Final Result', description: 'Final minimum and maximum damage bounds.' },
   }));
   container.appendChild(buildVarLegend(MOD_VARS));
   return container;
@@ -772,11 +768,11 @@ const CALC_CONFIG = {
   scaleTerms: (incoming) => `5 × ${incoming.toLocaleString()}`,
   useLevel: false,
   notes: (magic) => [
-    'Assumes the attack lands. A miss deals 0, and the accuracy roll is not modelled here',
+    'Assumes the attack lands. Misses deal 0 damage and are not modeled here.',
     magic
-      ? 'Monster skill attacks cannot miss or be guarded, and they read your Magic Defense'
-      : 'Regular attacks read your Weapon Defense and can be missed or guarded',
-    'Your level does not appear anywhere in the COT1 defense step, so there is no level input',
+      ? 'Monster skill attacks cannot miss or be guarded, and use your Magic Defense.'
+      : 'Regular attacks use your Weapon Defense and can be missed or guarded.',
+    'Character level has no effect on COT1 player defense.',
   ],
 };
 
@@ -786,7 +782,7 @@ function buildGuardSection() {
     0: { key: 'hit-check', label: 'Hit Check', description: 'Whether an ordinary monster attack reaches the player.' },
     1: { key: 'guard-resolution', label: 'Guard Resolution', description: 'Immunity and shield guard checks.' },
     3: { key: 'damage-reduction', label: 'Damage Reduction', description: 'Incoming roll, player defense, and additional reductions.' },
-    5: { key: 'incoming-result', label: 'Result', description: 'The final outcome returned by the incoming-hit routine.' },
+    5: { key: 'incoming-result', label: 'Result', description: 'Final damage taken after hit, guard, and defense checks.' },
   }));
   if (CALC_MONSTERS.length) container.appendChild(buildCalcLauncher(CALC_CONFIG));
   container.appendChild(buildVarLegend(GUARD_VARS));
@@ -802,7 +798,7 @@ export function renderFormulasCot1(data, options = {}) {
   const disclaimer = el('div', { className: 'formulas-disclaimer' });
   const disclaimerText = el('span');
   disclaimerText.appendChild(el('strong', { textContent: 'Archived: ' }));
-  disclaimerText.append('Formulas as they stood in Closed Online Test 1, read directly out of the COT1 client binary. See the current Formulas tab for the live game.');
+  disclaimerText.append('Formulas from Closed Online Test 1. Switch to the latest version in Time Travel for current formulas.');
   disclaimer.appendChild(disclaimerText);
 
   const section = (title, key, bodyFn) => markFormulaSection(makeCollapsibleSection(title, '', bodyFn), key);
@@ -879,7 +875,7 @@ export function renderFormulasCot1(data, options = {}) {
       },
       {
         key: 'progression', label: 'Tables & Progression', kicker: 'Archived character milestones',
-        description: 'Look up COT1 experience requirements. Later crafting and citizenship tables are not part of this snapshot.',
+        description: 'Look up COT1 experience requirements. Crafting and citizenship tables were added in later versions.',
         sections: [{ key: 'experience', label: 'Experience' }], render: buildProgressionPage,
       },
     ],

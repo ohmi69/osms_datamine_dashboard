@@ -44,7 +44,7 @@ function section(title, key, tooltip, build) {
 function buildGuide(monsters) {
   const page = el('div', { className: 'formulas-full spawn-reference' });
   page.appendChild(section('Meso Drop Amount', 'meso-amount',
-    'Confirmed against captured meso drops.', body => {
+    'Verified in-game.', body => {
       body.appendChild(el('div', { className: 'formulas-warn-notes' },
         el('div', { className: 'formulas-note', textContent: 'This formula has only been verified on mobs from level 1 to 22. If you see a drop outside the predicted range, reach out to @ohmi on the CW Discord!' })));
       paragraph(body, 'The mob\'s level determines the base drop. Each drop is a random 90–110% of the base, rounded down.');
@@ -53,7 +53,7 @@ function buildGuide(monsters) {
     }));
 
   page.appendChild(section('Party Meso Share', 'meso-share',
-    'Confirmed against captured party pickups.', body => {
+    'Verified in-game.', body => {
       paragraph(body, 'The looter takes 20% off the top. The other 80% is split evenly between everyone, looter included, and the looter also keeps whatever is lost to rounding.');
       formula(body, 'EqualCut    = floor(0.8 × Amount / Members)\nLooterShare = Amount − (Members − 1) × EqualCut\n            ≈ 20% of Amount + EqualCut\nOtherShare  = EqualCut');
       table(body, [['Input', ''], ['Meaning', '']], [
@@ -92,7 +92,7 @@ function buildMesoCalc(monsters) {
 
   const setLevel = setter('level', () => levelField);
   const levelField = numberField('Monster level', state.level, { short: 'Level', min: 1, max: 255, range: 100,
-    hint: 'Picking a monster fills this in.',
+    hint: 'Monster level (auto-filled when you pick a monster).',
     onChange: value => {
       // A typed level no longer describes the picked monster, so drop the pick.
       if (mob && value !== mob.level) { mob = null; picker?._setValue(null); }
@@ -119,7 +119,7 @@ function buildMesoCalc(monsters) {
   });
   const roleField = el('div', { className: 'formulas-meso-role' },
     el('span', { className: 'formulas-calc-label', textContent: 'Looted by' }), rolePills);
-  const membersField = numberField('Party members counted', state.members, { short: 'Members (incl. you)', min: 1, max: 6, range: 6,
+  const membersField = numberField('Party members on map', state.members, { short: 'Members (incl. you)', min: 1, max: 6, range: 6,
     hint: 'You plus the party members on your map when the drop is picked up.', onChange: setter('members', () => membersField) });
 
   controls.append(buildCalcGroup('Monster', ...[mobField, levelField].filter(Boolean)),
@@ -136,7 +136,7 @@ function buildMesoCalc(monsters) {
     const bad = [...invalid].find(field => shared || field !== membersField);
     const problem = bad
       ? `Enter ${bad._label.toLowerCase()} from ${bad._min} to ${bad._max}, using whole numbers.`
-      : state.role === 'other' && state.members < 2 ? 'Another member can only pick up the drop with at least two members counted.' : '';
+      : state.role === 'other' && state.members < 2 ? 'Set at least 2 party members when another member loots the drop.' : '';
     if (problem) {
       // The rows' display: grid overrides the hidden attribute, so empty them instead.
       breakdown.replaceChildren();
@@ -171,7 +171,10 @@ function buildMesoCalc(monsters) {
     breakdown.replaceChildren(
       row(`Base (level ${state.level})`, result.base.toLocaleString()),
       row('Drop', drop),
-      ...(party ? [row('Looter gets', looter), row(`Each of the other ${state.members - 1} party members`, other)] : []));
+      ...(party ? [
+        row('Looter gets', looter),
+        row(state.members === 2 ? 'Other party member' : `Each of the other ${state.members - 1} party members`, other),
+      ] : []));
   }
   draw();
   return wrap;
@@ -180,7 +183,7 @@ function buildMesoCalc(monsters) {
 export function createMesoPage(monsters = []) {
   return {
     key: 'mesos', label: 'Mesos', kicker: 'Reference · Drop amounts and party sharing',
-    description: 'Estimate a monster’s meso drop and see how the picker and party divide it.',
+    description: 'Estimate a monster’s meso drop and see how the looter and party divide it.',
     credit: () => ['Derived by ', el('strong', { textContent: 'azzy' }), ' on Discord'],
     sections: [
       { key: 'meso-amount', label: 'Drop amount' }, { key: 'meso-share', label: 'Party share' },

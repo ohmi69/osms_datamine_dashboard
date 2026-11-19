@@ -118,7 +118,7 @@ function entryMeta(entry) {
   const parts = [];
   if (entry.count > 1) parts.push(`×${entry.count}`);
   if (entry.chancePct != null) parts.push(`${formatPercent(entry.chancePct)}%`);
-  else if (entry.weighted) parts.push('weighted');
+  else if (entry.weighted) parts.push('random');
   if (entry.choice) {
     parts.push(entry.jobName && entry.jobName !== 'Any Class' ? `pick one (${entry.jobName})` : 'pick one');
   }
@@ -165,7 +165,7 @@ function makeRewardChip(entry, npcByName, tooltip, formatMeta = entryMeta) {
   const chip = makeTabLink('quests', `id:${quest.id}`, {
     className: 'quest-chip item-quest-reward-chip',
     stopPropagation: true,
-    title: [quest.name, quest.npc_name, where, meta].filter(Boolean).join(' — '),
+    title: [quest.name, quest.npc_name, where, meta].filter(Boolean).join(' · '),
   });
   chip.append(
     makeThumbnail(npc?.thumbnail || '', `${quest.npc_name || 'NPC'} portrait`, {

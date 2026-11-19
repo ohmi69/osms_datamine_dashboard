@@ -6,19 +6,19 @@ import { attachCustomTooltip } from '../lib/tooltip.js';
 
 const MECHANIC_EXPLANATIONS = {
   attack: 'Deals damage to one or more monsters.',
-  passive: 'Always active once learned; it does not need to be cast.',
-  self_buff: 'Temporarily applies an effect to the character using the skill.',
-  summon: 'Creates a summoned ally or object that acts for a limited time.',
-  mobility: 'Moves or repositions the character instead of directly attacking.',
-  party_support: 'Applies a beneficial effect to eligible party members.',
-  weapon_projectile: 'Launches a weapon-based projectile, such as an arrow or throwing star, to deliver the attack.',
-  magic_projectile: 'Launches a magic projectile to deliver the attack to its target.',
-  action_hitbox: 'Hits monsters that overlap the active area of the character\'s weapon animation.',
-  special: 'Uses a skill-specific mechanic that does not fit the standard attack or buff handlers.',
-  target_routed: 'Selects a monster first, then routes the attack toward that selected target.',
-  ranged_corridor: 'Finds targets inside a widening area that extends forward from the character.',
-  piercing: 'A single projectile continues through multiple selected monsters.',
-  ignores_terrain: 'Walls, ledges, and slopes do not block this skill from reaching its target.',
+  passive: 'Always active once learned.',
+  self_buff: 'Applies a temporary buff to your character.',
+  summon: 'Summons an ally or object for a limited time.',
+  mobility: 'Moves or repositions your character.',
+  party_support: 'Applies a buff to nearby party members.',
+  weapon_projectile: 'Fires an arrow, bolt, or throwing star.',
+  magic_projectile: 'Fires a magic projectile at the target.',
+  action_hitbox: 'Hits monsters within your weapon swing.',
+  special: 'Uses a unique skill effect.',
+  target_routed: 'Locks onto a monster before striking it.',
+  ranged_corridor: 'Hits targets in a cone in front of you.',
+  piercing: 'Pierces through multiple monsters in a line.',
+  ignores_terrain: 'Hits targets through walls, ledges, and slopes.',
 };
 
 function makeLevelRow(className, label, text) {
@@ -108,8 +108,7 @@ function makeMechanicBadges(skill) {
   const wrap = el('div', { className: 'skill-mechanics', 'aria-label': 'Skill mechanics' });
 
   function makeBadge(key, label, className) {
-    const explanation = MECHANIC_EXPLANATIONS[key]
-      || 'Describes how the game processes this skill.';
+    const explanation = MECHANIC_EXPLANATIONS[key] || label;
     const badge = el('span', {
       className,
       textContent: label,
@@ -229,7 +228,7 @@ export function renderSkills(data, options = {}) {
   const toolbar = el('div', { className: 'sticky-toolbar skills-toolbar' });
 
   let searchBox;
-  searchBox = wireSearch(toolbar, 'Search all skills by name, description, or mechanic...', options, (query) => {
+  searchBox = wireSearch(toolbar, 'Search skills by name or description...', options, (query) => {
     searchQuery = query;
     // Typing replaces the current entry, so Back returns to this search.
     Router.updateFilter('skills', currentFilterParams());
@@ -331,10 +330,11 @@ export function renderSkills(data, options = {}) {
     });
     const trail = el('span', { className: 'skill-path-trail' });
     trail.style.setProperty('--skill-path-steps', path.members.length);
+    const tierFallbacks = ['2nd Job', '3rd Job', '4th Job'];
     path.members.forEach((member, index) => {
       const cls = pathClasses.find(item => item.class_name === member);
       const node = el('span', { className: 'skill-path-node' });
-      node.append(el('span', { className: 'skill-path-tier', textContent: cls?.job || `${index + 2}nd Job` }), el('strong', { textContent: member }));
+      node.append(el('span', { className: 'skill-path-tier', textContent: cls?.job || tierFallbacks[index] || `${index + 2}th Job` }), el('strong', { textContent: member }));
       trail.appendChild(node);
     });
     button.appendChild(trail);
@@ -344,7 +344,7 @@ export function renderSkills(data, options = {}) {
 
   function renderClassDirectory() {
     const intro = el('div', { className: 'skills-browser-heading' });
-    intro.append(el('div', { className: 'skills-eyebrow', textContent: 'Job advancement' }), el('h2', { textContent: 'Choose a class' }),);
+    intro.append(el('div', { className: 'skills-eyebrow', textContent: 'Classes' }), el('h2', { textContent: 'Choose a class' }));
     dataDiv.appendChild(intro);
 
     const grid = el('div', { className: 'skill-class-grid' });
@@ -383,8 +383,7 @@ export function renderSkills(data, options = {}) {
     const definition = classDefinition(classFilter);
     dataDiv.appendChild(makeBreadcrumb());
     const heading = el('div', { className: 'skills-browser-heading skills-browser-heading--compact' });
-    heading.append(el('div', { className: 'skills-eyebrow', textContent: subclassFilter ? 'Selected advancement path' : 'Class overview' }), el('h2', { textContent: subclassFilter ? pathLabel((PATHS_BY_CLASS[classFilter] || []).find(path => path.value === subclassFilter) || { members: [subclassFilter] }) : definition?.label || classFilter }));
-    if (!subclassFilter) heading.appendChild(el('p', { textContent: 'Browse every advancement below, or choose a path to focus the list.' }));
+    heading.append(el('div', { className: 'skills-eyebrow', textContent: subclassFilter ? 'Job path' : 'Class' }), el('h2', { textContent: subclassFilter ? pathLabel((PATHS_BY_CLASS[classFilter] || []).find(path => path.value === subclassFilter) || { members: [subclassFilter] }) : definition?.label || classFilter }));
     dataDiv.appendChild(heading);
 
     const paths = PATHS_BY_CLASS[classFilter] || [];
@@ -435,7 +434,7 @@ export function renderSkills(data, options = {}) {
     } else if (viewAll) {
       dataDiv.appendChild(makeBreadcrumb());
       const heading = el('div', { className: 'skills-browser-heading skills-browser-heading--compact' });
-      heading.append(el('div', { className: 'skills-eyebrow', textContent: 'Complete index' }), el('h2', { textContent: 'All skills' }), el('p', { textContent: 'Every job is listed below. Sections stay closed until you need them.' }));
+      heading.append(el('div', { className: 'skills-eyebrow', textContent: 'All classes' }), el('h2', { textContent: 'All skills' }));
       dataDiv.appendChild(heading);
     } else if (classFilter) {
       renderClassHeader();

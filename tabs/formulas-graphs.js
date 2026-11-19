@@ -132,14 +132,14 @@ function buildGraph({ title, note, fields, evaluate, percent = false, extra }) {
 
 export function buildShieldGraph(items = [], graphData) {
   return buildGraph({
-    title: 'Explore shield block chance', percent: true,
-    note: 'Only Weapon Defense on the shield counts, including scrolls. Zero defense gives no shield guard; positive defense has a 5% floor. Applies to guardable attacks.',
-    fields: [{ key: 'defense', label: 'Shield Weapon Defense', hint: 'Use the number on your shield, including scrolls. Slider range includes the strongest listed DEF scroll in every slot.', ...graphData.shield }],
+    title: 'Shield block chance calculator', percent: true,
+    note: 'Only Weapon Defense on your shield counts (including scrolls). Minimum 5% block chance with any shield defense.',
+    fields: [{ key: 'defense', label: 'Shield Weapon Defense', hint: 'Weapon Defense on your shield, including scrolls.', ...graphData.shield }],
     evaluate: s => [shieldBlockPercent(s.defense)],
     extra: setValue => {
       const details = el('details', { className: 'formulas-graph-presets' });
       details.append(el('summary', { textContent: 'Choose a shield' }));
-      details.append(el('p', { className: 'formulas-graph-hint', textContent: 'These are unscrolled shields. Pick one to load its defense, or edit the number below to match your own.' }));
+      details.append(el('p', { className: 'formulas-graph-hint', textContent: 'Pick a base shield to load its defense, or enter your own value above.' }));
       const shields = items.filter(i => i.sub_category === 'Shield' && Number.isFinite(i.stats?.incPDD))
         .sort((a, b) => a.stats.incPDD - b.stats.incPDD || a.name.localeCompare(b.name));
       if (!shields.length) details.append(el('p', { textContent: 'No shield presets available. Enter the shield’s Weapon Defense above.' }));
@@ -159,25 +159,25 @@ export function buildDamageGraph(magic = false, graphData, masteryFactor = 0.8, 
   const profile = magic ? graphData.magical : graphData.physical;
   const field = (key, label, hint) => ({ key, label, hint, ...profile[key] });
   const fields = magic ? [
-    field('int', 'Total INT', 'Total INT from base stats, equipment and buffs. Also contributes half its value, rounded down, to MAGIC.'),
-    field('magicAttack', 'Magic Attack', 'Total Magic Attack from equipment, scrolls and buffs, excluding INT. Scales both minimum and maximum damage.'),
-    field('basic', 'Skill Basic Attack', 'The Basic Attack listed on your spell. Doubling it doubles damage.'),
-    field('mastery', 'Mastery level', `Raises minimum damage only. MasteryMult = (0.1 + level/10) × ${masteryFactor}.`),
+    field('int', 'Total INT', 'Total INT from base stats, equipment, and buffs. Also adds half its value (rounded down) to total Magic.'),
+    field('magicAttack', 'Magic Attack', 'Magic Attack from equipment, scrolls, and buffs (excluding INT).'),
+    field('basic', 'Skill Basic Attack', 'The Basic Attack listed on the spell.'),
+    field('mastery', 'Mastery level', 'Raises minimum damage only.'),
   ] : [
-    field('primary', 'Primary stat', 'Raises both ends of the range. STR for melee, DEX for bows, LUK for daggers and claws.'),
-    field('secondary', 'Secondary stat', 'Raises both ends equally. DEX for melee, STR for bows, STR + DEX for daggers and claws.'),
-    field('attack', 'Weapon Attack', 'Weapon + shield + stars or arrows. With other stats fixed, 10% more means 10% more damage.'),
-    field('power', 'AttackPower', 'The AttackPower term in the formula: attack from buffs and equipment other than your weapon and shield. Appears as AttackPower × 2 in the simplified formula.'),
-    field('mastery', 'Mastery level', `Raises minimum damage only. MasteryMult = (0.1 + level/10) × ${masteryFactor}.`),
-    field('skill', 'Skill Damage (%)', 'The damage percentage on your skill. 100% is a basic attack; 200% doubles damage.'),
+    field('primary', 'Primary stat', 'STR for melee, DEX for bows/crossbows, LUK for daggers and claws.'),
+    field('secondary', 'Secondary stat', 'DEX for melee, STR for bows/crossbows, STR + DEX for daggers and claws.'),
+    field('attack', 'Weapon Attack', 'Attack from your weapon, shield, and stars or arrows.'),
+    field('power', 'Bonus Attack', 'Attack from buffs and non-weapon gear (gloves, capes, potions, etc.).'),
+    field('mastery', 'Mastery level', 'Raises minimum damage only.'),
+    field('skill', 'Skill Damage (%)', 'Skill damage percentage (100% is a basic attack).'),
     { key: 'mult', label: 'Weapon multiplier', value: profile.mult.value, min: 0, max: 1000, step: 0.01,
-      numberOnly: true, hint: 'Enter a custom multiplier. Selecting a weapon or action loads its preset again.' },
+      numberOnly: true, hint: 'Enter a custom multiplier, or pick a weapon and action to load its preset.' },
   ];
   const current = Object.fromEntries(fields.map(f => [f.key, f.value]));
   if (!magic) current.mult = profile.mult.value;
   const evaluate = state => (magic ? magicalRange : physicalRange)({ ...state,
     mastery: (0.1 + state.mastery / 10) * masteryFactor * 100, statDivisor });
-  const title = `Explore ${magic ? 'magical' : 'physical'} base damage`;
+  const title = `${magic ? 'Magical' : 'Physical'} base damage calculator`;
   const wrap = el('section', { className: 'formulas-graph formulas-chart-wrap formulas-damage-graph', 'aria-label': title });
   wrap.append(el('div', { className: 'formulas-chart-head' }, el('strong', { textContent: title })));
   const layout = el('div', { className: 'formulas-damage-layout' });
@@ -213,7 +213,7 @@ export function buildDamageGraph(magic = false, graphData, masteryFactor = 0.8, 
       current.atkDiv = ranged && [1, 4].includes(action) ? 150 : 50;
       summary.textContent = weapon[0];
       preset.textContent = `Weapon multiplier`;
-      info.textContent = ranged && action !== 3 ? 'Melee attack; reduced stat contribution' : '';
+      info.textContent = ranged && action !== 3 ? 'Melee hit with a ranged weapon (reduced damage)' : '';
       info.hidden = !info.textContent;
       [...options.children].forEach(button => button.setAttribute('aria-pressed', String(button.textContent === weapon[0])));
       [...actions.children].forEach(button => {
@@ -277,8 +277,9 @@ export function buildDamageGraph(magic = false, graphData, masteryFactor = 0.8, 
   result.append(output, plot);
   layout.append(controls, result);
   wrap.append(layout);
-  wrap.append(el('p', { className: 'formulas-graph-note', textContent:
-    `Uses MasteryMult = (0.1 + MasteryLevel/10) × ${masteryFactor}; Lucky Seven uses its own skill-data multiplier.` }));
+  wrap.append(el('p', { className: 'formulas-graph-note', textContent: magic
+    ? `Mastery scales minimum damage using (0.1 + Mastery Level / 10) × ${masteryFactor}.`
+    : `Mastery scales minimum damage using (0.1 + Mastery Level / 10) × ${masteryFactor}. Lucky Seven uses its own skill multiplier.` }));
   // Keep the scale steady when stats decrease, so shorter bars show the loss.
   let chartMax = 0;
   function draw() {

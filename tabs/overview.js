@@ -347,7 +347,7 @@ function tabLink(tabId, options, className, text = '', target = null) {
 function buildHero(data, options, historical) {
   const meta = data.patchMeta;
   const version = meta?.label || meta?.version
-    || new URLSearchParams(window.location.search).get('patch') || 'Historical snapshot';
+    || new URLSearchParams(window.location.search).get('patch') || 'Archived patch';
   const hero = el('section', {
     className: `field-guide-hero${historical ? ' field-guide-hero--historical' : ''}`,
     'aria-labelledby': 'field-guide-title',
@@ -360,7 +360,7 @@ function buildHero(data, options, historical) {
   const copy = el('div', { className: 'field-guide-hero__copy' },
     el('h1', { id: 'field-guide-title', textContent: historical ? `Explore ${version}` : 'Welcome back.\nA new adventure awaits.' }),
     el('p', { textContent: historical
-      ? 'Take a walk through memory lane.'
+      ? 'Take a walk down memory lane.'
       : 'MapleStory Classic World is (finally) out' }),
   );
   hero.appendChild(copy);
@@ -384,10 +384,10 @@ function buildRelease(options, data) {
     el('span', { textContent: 'Updated November 18, 2026 · 10:55 PT' }));
   // if (data.patchNotes) row.appendChild(tabLink('patchnotes', options, '', 'Patch notes →'));
   const details = el('details', { className: 'field-guide-release__details' },
-    el('summary', { textContent: 'About this data' }),
+    el('summary', { textContent: 'Version info' }),
     el('div', { className: 'field-guide-release__disclosure' },
-      el('p', { textContent: 'Extracted directly from the game client. Content may be cut, delayed, or changed and is not guaranteed to appear in game.' }),
-      el('p', {}, 'Client version: ', el('code', { textContent: 'v2.0.0' }), ' · hash ', el('code', { textContent: '9edb6979' })),
+      el('p', { textContent: 'Some listed content may be unreleased, delayed, or changed before appearing in-game.' }),
+      el('p', {}, 'Game version: ', el('code', { textContent: 'v2.0.0' })),
     ));
   row.appendChild(details);
   return row;
@@ -395,11 +395,12 @@ function buildRelease(options, data) {
 
 function sectionHeader(title, subtitle) {
   return el('div', { className: 'field-guide-section-head' },
-    el('h2', { textContent: title }), el('p', { textContent: subtitle }));
+    el('h2', { textContent: title }),
+    subtitle ? el('p', { textContent: subtitle }) : null);
 }
 
 function buildNavSection(stats, options, artwork, historical) {
-  const section = el('section', { className: 'field-guide-explore', 'aria-label': 'Explore the datamine' },
+  const section = el('section', { className: 'field-guide-explore', 'aria-label': 'Browse categories' },
     sectionHeader('How does your story begin?', ''));
   const grid = el('div', { className: 'nav-grid' });
   [
@@ -421,7 +422,7 @@ function buildNavSection(stats, options, artwork, historical) {
     card.append(visual,
       el('div', { className: 'nav-card__body' },
         el('div', { className: 'nav-label', textContent: label }),
-        el('div', { className: 'nav-desc', textContent: desc }),
+        desc ? el('div', { className: 'nav-desc', textContent: desc }) : null,
         el('div', { className: 'nav-count', textContent: `${Number(count || 0).toLocaleString()} ${unit}` })),
       el('span', { className: 'nav-card__arrow', textContent: '↗', 'aria-hidden': 'true' }));
     grid.appendChild(card);
@@ -440,9 +441,9 @@ export function renderOverview(data, options) {
   page.appendChild(buildNavSection(stats, options, artwork, historical));
   if (!historical) {
     page.appendChild(tabLink('portal-runner', options, 'field-guide-game',
-      'Take the scenic route · Play Portal Runner →'));
+      'Play Portal Runner →'));
     page.appendChild(el('p', { className: 'field-guide-footnote', textContent:
-      'A peek into the game files. Content may change.' }));
+      'Unofficial MapleStory Classic World reference. Game content is subject to change.' }));
   }
   return page;
 }
