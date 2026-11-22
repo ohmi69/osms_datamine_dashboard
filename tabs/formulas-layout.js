@@ -1,6 +1,6 @@
 import { el, tabHref, startDeepLinkJump } from '../lib/utils.js';
 
-const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'damage-taken', 'progression', 'mob-spawning', 'exp', 'mesos']);
+const PAGE_KEYS = new Set(['accuracy', 'hit-detection', 'dealing-damage', 'stat-equivalency', 'damage-taken', 'progression', 'mob-spawning', 'exp', 'mesos']);
 const REFERENCE_PAGE_KEYS = ['progression', 'mob-spawning', 'exp', 'mesos'];
 
 function routeTarget(page, section = null) {

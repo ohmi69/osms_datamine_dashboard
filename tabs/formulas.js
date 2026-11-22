@@ -9,6 +9,7 @@ import { createFormulaBrowser, markFormulaSection, buildDamageFlow } from './for
 import { createMobSpawningPage } from './formulas-mob-spawning.js';
 import { createExpPage } from './formulas-exp.js';
 import { createMesoPage } from './formulas-mesos.js';
+import { createStatEquivalencyPage } from './formulas-stat-equivalency.js';
 
 // Experience requirements re-derived from the current version. The startup builder fills
 // levels 1-99; level 100 is the cap. See tmp/steam-tables.md.
@@ -2415,6 +2416,7 @@ export function renderFormulas(data, options = {}) {
         ],
         render: buildDamagePage,
       },
+      createStatEquivalencyPage(CALC_MONSTERS),
       {
         key: 'damage-taken', label: 'Damage Taken', kicker: 'What happens when a monster attacks?',
         description: 'Follow the hit check, guard roll, player defense formula, reductions, and final incoming result.',
