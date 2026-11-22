@@ -36,13 +36,8 @@ export function deriveGraphData(data, weaponMultipliers) {
   // Requirements are not player totals. Twice the highest weapon requirement is
   // an explicitly estimated initial window; typed totals can expand it.
   const intRange = rounded(maxRequirement('reqINT') * 2);
-  const nonWeapon = equipment.filter(item => !['Weapon', 'Shield'].includes(item.sub_category));
-  // A per-slot envelope, not a promise these pieces/buffs can all be equipped together.
-  const slots = [...new Set(nonWeapon.map(item => item.sub_category))];
-  const gearAttack = slots.reduce((sum, slot) => sum + max(nonWeapon.filter(item => item.sub_category === slot)
-    .map(item => stat(item, 'incPAD'))), 0);
-  const gloveScroll = scrollBonus(/Weapon Attack \+(\d+)/g, scroll => /glove/i.test(scroll.equip_slot));
-  const gloveBonus = max(nonWeapon.filter(item => item.sub_category === 'Glove').map(item => stat(item, 'tuc'))) * gloveScroll;
+  // Attack Power comes only from buffs: equipment attack, glove attack scrolls included, is
+  // Weapon Attack (incWAT). See tmp/weapon-attack-vs-attack-power-binary.md.
   const buffAttack = max(matches(lines, /Attack Power \+(\d+)/g));
   const maxMagicAttack = max(weapons.map(item => scrolled(item, 'incMAD', magicScroll)), 100);
   const physicalMastery = max(matches(last(swordMastery), /Mastery level (\d+)/gi)) || masteryMax;
@@ -54,8 +49,8 @@ export function deriveGraphData(data, weaponMultipliers) {
     physical: {
       primary: field(Math.min(1000, stat(sword, 'reqSTR')), 1000, 1000),
       secondary: field(Math.min(1000, stat(sword, 'reqDEX')), 1000, 1000),
-      attack: field(Math.min(1000, stat(sword, 'incPAD')), 1000, 1000),
-      power: field(0, rounded(Math.max(10, gearAttack + gloveBonus + buffAttack))),
+      attack: field(Math.min(1000, stat(sword, 'incWAT') || stat(sword, 'incPAD')), 1000, 1000),
+      power: field(0, rounded(Math.max(10, buffAttack))),
       mult: field(weaponMultipliers.find(row => row[0] === '1H Sword')?.[1] ?? 1.8,
         max(weaponMultipliers.flatMap(row => row.slice(1)), 1), max(weaponMultipliers.flatMap(row => row.slice(1)), 1), 1, 0.1),
       mastery: field(physicalMastery, masteryMax, masteryMax),

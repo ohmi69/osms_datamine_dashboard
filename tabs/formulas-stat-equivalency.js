@@ -124,8 +124,8 @@ export function getStatDefinitions(mode, stats, includeHitChance = false) {
   } else {
     const profile = getWeaponProfile(stats.weaponId);
     defs.push(
-      { key: 'weaponAttack',  label: 'Weapon Attack',   sub: 'Weapon, shield, ammo',   unit: '',  step: 1, defaultDelta: 1, maxTotal: null, decimals: 2, hint: 'Attack on your weapon (incl. weapon scrolls), shield, and stars/arrows' },
-      { key: 'attackPower',   label: 'Attack Power',    sub: 'Non-weapon gear & buffs', unit: '', step: 1, defaultDelta: 1, maxTotal: null, decimals: 2, hint: 'Attack from non-weapon gear (e.g. scrolled gloves) and buffs' },
+      { key: 'weaponAttack',  label: 'Weapon Attack',   sub: 'All gear + stars/arrows', unit: '', step: 1, defaultDelta: 1, maxTotal: null, decimals: 2, hint: 'Weapon Attack from all equipment (weapon and attack-scrolled gloves alike) plus stars/arrows' },
+      { key: 'attackPower',   label: 'Attack Power',    sub: 'Buffs (Rage, potions)',   unit: '', step: 1, defaultDelta: 1, maxTotal: null, decimals: 2, hint: 'Attack Power from buffs such as Rage and the Warrior Potion' },
       { key: 'primaryStat',   label: profile.primary,   sub: '',                     unit: '',  step: 1, defaultDelta: 5, maxTotal: null, decimals: 2, hint: `Primary stat (${profile.primary}) for ${profile.label}` },
       { key: 'secondaryStat', label: profile.secondary, sub: '',                     unit: '',  step: 1, defaultDelta: 5, maxTotal: null, decimals: 2, hint: `Secondary stat (${profile.secondary}) for ${profile.label}` },
       { key: 'critRate',      label: 'Crit Rate',       sub: '',                     unit: '%', step: 1, defaultDelta: 2, maxTotal: 100,  decimals: 2, hint: 'Critical hit rate from your Stats panel (caps at 100%)' },
@@ -431,7 +431,7 @@ export function buildStatEquivalencyCalculator(monsters = []) {
   notesDetails.appendChild(el('summary', { textContent: 'How this works' }));
   const notesWrap = el('div', { className: 'stat-equiv-details-body' });
   [
-    'Weapon Att vs. Att Power: In-game tooltips call both "Weapon Attack", but the formula splits them by slot — weapon (incl. weapon scrolls), shield, and stars/arrows go in Weapon Att, while non-weapon gear (e.g. scrolled gloves) and buffs go in Att Power.',
+    'Weapon Att vs. Att Power: Separate stats, split by stat and not by slot. Every "Weapon Attack" on equipment, including attack scrolls on gloves, plus stars/arrows goes in Weapon Att. Attack Power comes from buffs such as Rage and the Warrior Potion.',
     'Magic Att (Magical): Use gear, scrolls, and buffs only — not the Stats panel MAGIC total, which already includes floor(INT / 2).',
     'Skill %, Monster Defense, Elemental Modifier, Combo Attack, and Elemental Charge multiply every hit equally and cancel out of % damage gain (below the 99,999 cap).',
     'Damage per +1 point: expected damage gain from one more point of each stat at your current stats, independent of the gain entered above. Mastery is per level and has no bar.',
@@ -566,8 +566,8 @@ export function buildStatEquivalencyCalculator(monsters = []) {
           makeBaselineNumberField(profile.secondary, 'secondaryStat', { min: 0, max: 9999, hint: `Secondary stat. ${secHint}` }),
         ),
         makeGroup('Attack',
-          makeBaselineNumberField('Weapon Att', 'weaponAttack', { min: 0, max: 9999, hint: 'Attack on your weapon (incl. weapon scrolls), shield, and stars/arrows (5 if barehanded).' }),
-          makeBaselineNumberField('Att Power', 'attackPower', { min: 0, max: 9999, hint: 'Attack from non-weapon gear (e.g. scrolled gloves) + buffs/potions — even though tooltips call it "Weapon Attack".' }),
+          makeBaselineNumberField('Weapon Att', 'weaponAttack', { min: 0, max: 9999, hint: 'Sum of "Weapon Attack" on all your equipment (weapon, attack-scrolled gloves, etc.) plus stars/arrows (5 if barehanded).' }),
+          makeBaselineNumberField('Att Power', 'attackPower', { min: 0, max: 9999, hint: 'Attack Power from buffs such as Rage and the Warrior Potion.' }),
         ),
         makeGroup('Crit & Mastery',
           ...critFields(

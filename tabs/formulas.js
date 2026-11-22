@@ -214,6 +214,7 @@ const BASE_DAMAGE_STEPS = [
         'StatRoll and BaseRoll are separate rolls: a hit can land low on one and high on the other, so damage clusters toward the middle.',
         'WepMult is chosen by the attack action, not by the skill — see the Weapon Multipliers table. Lucky Seven overrides it to 3.0.',
         'Combo Attack and Elemental Charge raise Skill Damage % before anything else happens — see Damage Modifications.',
+        'Weapon Attack and Attack Power are separate equipment stats, split by stat, not by slot. Gloves Attack scrolls add Weapon Attack, the same stat as weapon scrolls, so they multiply the whole formula.',
       ],
     },
     lines: [
@@ -366,8 +367,8 @@ const BASE_DAMAGE_VARS = [
   { name: 'SkillMult',     desc: 'Skill Damage % as a decimal (e.g. 120% → 1.2)' },
   { name: 'PrimaryStat',   desc: 'Set by weapon type:\nStr - Melee Weapons (1H/2H Swords, Axes, Blunt Weapons, Spears, Polearms, Barehands, and Staves/Wands while whacking)\nDex - Bows and Crossbows\nLuk - Daggers and Claws' },
   { name: 'SecondaryStat', desc: 'Set by weapon type:\nDex - Melee Weapons\nStr - Bows and Crossbows\nStr + Dex - Daggers and Claws' },
-  { name: 'AttackPower',   desc: 'Attack from all gear other than the weapon and shield, plus buffs' },
-  { name: 'WeaponAttack',  desc: 'Attack from the weapon and shield (5 if barehanded), plus Stars and Arrows' },
+  { name: 'AttackPower',   desc: 'Attack Power from buffs such as Rage and the Warrior Potion, plus any equipment listing "Attack Power" on its tooltip. No current equipment does' },
+  { name: 'WeaponAttack',  desc: 'Weapon Attack from all equipment, whatever the slot: the weapon, and gloves or other gear scrolled for attack. Plus Stars and Arrows, and 5 if barehanded' },
   { name: 'WepMult',       desc: 'Weapon multiplier for the attack action used — see Weapon Multipliers table' },
   { name: 'StatDiv',       desc: 'Divides both stat terms. Determined by weapon type and attack action — see Physical Damage (Advanced)' },
   { name: 'AtkDiv',        desc: 'Divides the AttackPower term. Determined the same way as StatDiv — see Physical Damage (Advanced)' },

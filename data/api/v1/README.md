@@ -6,7 +6,7 @@ This is an unofficial dataset and is not affiliated with Nexon.
 | | |
 | --- | --- |
 | Client build | `9edb6979db11216d5d887700de1ab91d1373ea19` |
-| Data last modified | 2026-11-18T18:54:44Z (UTC) |
+| Data last modified | 2026-11-22T21:45:44Z (UTC) |
 
 These match `client_build` and `data_updated_at` in `meta.json`, which also has
 a hash and modified time for each file.
@@ -33,7 +33,7 @@ Every file can be fetched directly. GitHub Pages allows cross-origin requests, s
   `map_id`, `npc_id`, `skill_id`, `quest_id`), never by name.
 - A field that has no value is left out rather than set to `null`.
 - `stats`, `spec` and skill `levels` keep the client's own WZ key names
-  (`incPAD`, `PADamage`, `mpCon`, `damage`, ...), the same names used
+  (`incWAT`, `PADamage`, `mpCon`, `damage`, ...), the same names used
   by other MapleStory tools.
 - Classes are names, not job masks: `Beginner`, `Warrior`, `Magician`,
   `Bowman`, `Thief`. A record with no `classes` / `req_classes` applies to every
@@ -178,7 +178,8 @@ These keys are the client's own names, kept as-is.
 **Equipment** (`items[].stats`):
 `reqLevel`, `reqSTR`, `reqDEX`, `reqINT`, `reqLUK` level and stat requirements ·
 `reqPOP` fame requirement · `incSTR`, `incDEX`, `incINT`, `incLUK` stat bonuses ·
-`incPAD` attack · `incMAD` magic attack · `incPDD` weapon defense ·
+`incWAT` weapon attack (the damage multiplier) · `incPAD` attack power (a separate
+stat added by buffs; no current equipment has it) · `incMAD` magic attack · `incPDD` weapon defense ·
 `incMDD` magic defense · `incACC` accuracy · `incEVA` avoidability ·
 `incMHP`, `incMMP` max HP / MP · `incSpeed`, `incJump` speed / jump ·
 `incCRT` critical rate % · `incCRD` critical damage % · `knockback` knockback
