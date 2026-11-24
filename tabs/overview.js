@@ -381,7 +381,7 @@ function buildHero(data, options, historical) {
 function buildRelease(options, data) {
   const row = el('div', { className: 'field-guide-release' },
     el('span', { className: 'field-guide-release__badge', textContent: 'Public Release' }),
-    el('span', { textContent: 'Updated November 18, 2026 · 10:55 PT' }));
+    el('span', { textContent: 'Updated November 24, 2026 · 11:06 PT' }));
   // if (data.patchNotes) row.appendChild(tabLink('patchnotes', options, '', 'Patch notes →'));
   const details = el('details', { className: 'field-guide-release__details' },
     el('summary', { textContent: 'Version info' }),
