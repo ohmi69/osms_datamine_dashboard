@@ -3,6 +3,7 @@ import { el, makeCollapsible, makeCopyableId, makeThumbnail,
          enableMobileFilterDrawer } from '../lib/utils.js';
 import { attachTooltip } from '../lib/tooltip.js';
 import { loadPatchNotesFile } from '../lib/data.js';
+import { composePatchNotes, extractBuilds, findDiffRange } from '../lib/patch-diff-compose.js';
 import { startDeepLinkJump } from '../lib/utils.js';
 
 const BUCKETS = [
@@ -125,6 +126,12 @@ function buildHeader(notes) {
   card.appendChild(side(notes.before));
   card.appendChild(el('div', { className: 'pn-arrow', textContent: '→' }));
   card.appendChild(side(notes.after));
+  if (notes.composed && notes.step_count > 1) {
+    card.appendChild(el('span', {
+      className: 'pn-composed-badge',
+      textContent: `${notes.step_count} patches combined`,
+    }));
+  }
 
   // Whole-patch scale, so the size of the update reads without expanding
   // every section and adding up their headings.
@@ -1349,88 +1356,84 @@ function buildSectionBody(section, entries, onNavigate, ctx) {
   return body;
 }
 
-// Patch picker: a custom listbox rather than a <select>, so each entry can show its
-// title and date at different weights, grouped by game phase. Index labels read
-// "<title> · <Mon d>", the title being the new client version, or "Patch <hash>" when
-// the version didn't change (see patch_label in run_pipeline.py).
-function splitDiffLabel(d) {
-  const [title, ...rest] = String(d.label || d.id).split(' · ');
-  // "COT2 → Founders Access" belongs to the phase it enters; "COT1 patch" to COT1.
-  // Titles are versions ("v1.1.0 · Oct 28"), so entries carry their phase explicitly.
-  const phase = d.phase || title.split('→').pop().replace(/\s+(patch|launch)$/i, '').trim();
-  let date = rest.join(' · ');
-  if (d.date) {
-    const parsed = new Date(`${d.date}T00:00:00`);
-    if (!Number.isNaN(parsed.getTime())) {
-      date = parsed.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    }
-  }
-  // Versioned entries already name the build in their title ("v1.1.0" or
-  // "Patch 71eb67bc"), so only unversioned ones get a builds line.
-  const builds = d.after_version ? '' : buildsText(d);
-  return { title, phase, date, builds, crossing: d.phase_change ?? title.includes('→') };
-}
-
-// "v1.0.1 → v1.1.0"; build hashes only for entries without versions.
-function buildsText(d) {
-  if (d.before_version && d.after_version) return `v${d.before_version} → v${d.after_version}`;
-  return d.before && d.after ? `${d.before} → ${d.after}` : '';
-}
-
+// Patch pickers: two custom listboxes (From -> To) grouped by game phase.
+// Picking any build in To defaults From to its immediate predecessor when
+// viewing a single-step patch (or when From would no longer be older than To);
+// picking an earlier build in From composes all intermediate patches client-side.
 let diffPickerCount = 0;
 
-function makeDiffPicker(diffs, activeId, onChange) {
+function formatBuildDate(iso, fallback = '') {
+  if (iso) {
+    const parsed = new Date(`${iso}T00:00:00`);
+    if (!Number.isNaN(parsed.getTime())) {
+      return parsed.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+  }
+  return fallback;
+}
+
+function makeBuildPicker(labelText, builds, initialBuild, { isDisabled, onChange }) {
   const id = `pn-patch-list-${++diffPickerCount}`;
-  const items = diffs.map((d) => ({ diff: d, ...splitDiffLabel(d) }));
-  const wrap = el('div', { className: 'pn-patch-picker' });
-  wrap.appendChild(el('span', { className: 'pill-group-label', textContent: 'Patch:' }));
+  const cleanLabel = labelText.replace(/:$/, '');
+  const wrap = el('div', { className: 'pn-patch-picker pn-range-picker' });
 
   const trigger = el('button', {
     type: 'button', className: 'pn-patch-trigger',
     'aria-haspopup': 'listbox', 'aria-expanded': 'false', 'aria-controls': id,
+    'aria-label': cleanLabel,
   });
+  const triggerEyebrow = el('span', { className: 'pn-range-eyebrow', textContent: cleanLabel });
+  const triggerBuild = el('span', { className: 'pn-range-build' });
   const triggerTitle = el('span', { className: 'pn-patch-trigger-title' });
   const triggerMeta = el('span', { className: 'pn-patch-trigger-meta' });
   trigger.append(
-    el('span', { className: 'pn-patch-trigger-text' }, triggerTitle, triggerMeta),
+    el('span', { className: 'pn-patch-trigger-text' },
+      el('span', { className: 'pn-range-top' }, triggerEyebrow, triggerBuild),
+      el('span', { className: 'pn-range-main' }, triggerTitle, triggerMeta)),
     el('span', { className: 'pn-patch-chevron', 'aria-hidden': 'true' }),
   );
 
-  const panel = el('div', { className: 'pn-patch-panel', id, role: 'listbox', tabindex: '-1', 'aria-label': 'Patch' });
+  const panel = el('div', {
+    className: 'pn-patch-panel', id, role: 'listbox', tabindex: '-1',
+    'aria-label': cleanLabel,
+  });
   const options = [];
   let lastPhase = null;
-  items.forEach((item, i) => {
-    if (item.phase !== lastPhase) {
-      panel.appendChild(el('div', { className: 'pn-patch-group', role: 'presentation', textContent: item.phase }));
-      lastPhase = item.phase;
+  builds.forEach((b, i) => {
+    if (b.phase && b.phase !== lastPhase) {
+      panel.appendChild(el('div', { className: 'pn-patch-group', role: 'presentation', textContent: b.phase }));
+      lastPhase = b.phase;
     }
-    const { builds } = item;
+    const dateText = formatBuildDate(b.date, b.date ? b.date : '');
     const option = el('div', {
-      className: `pn-patch-option${item.crossing ? ' pn-patch-option-major' : ''}`,
+      className: `pn-patch-option${b.crossing ? ' pn-patch-option-major' : ''}`,
       role: 'option', id: `${id}-${i}`, 'aria-selected': 'false',
     },
     el('span', { className: 'pn-patch-option-main' },
-      el('span', { className: 'pn-patch-option-title', textContent: item.title }),
-      el('span', { className: 'pn-patch-option-date', textContent: item.date })),
-    builds ? el('span', { className: 'pn-patch-option-builds', textContent: builds }) : null);
-    option.addEventListener('mousedown', (e) => e.preventDefault()); // keep focus on the list
+      el('span', { className: 'pn-patch-option-title', textContent: b.title }),
+      dateText ? el('span', { className: 'pn-patch-option-date', textContent: dateText }) : null),
+    el('span', { className: 'pn-patch-option-builds', textContent: `Build ${b.build}` }));
+    option.addEventListener('mousedown', (e) => e.preventDefault());
     option.addEventListener('click', () => choose(i));
     panel.appendChild(option);
     options.push(option);
   });
-  // The list hangs from the button, not the "Patch:" label beside it.
   wrap.appendChild(el('div', { className: 'pn-patch-anchor' }, trigger, panel));
 
-  let selected = Math.max(0, items.findIndex((it) => it.diff.id === activeId));
+  let selected = Math.max(0, builds.findIndex((b) => b.build === initialBuild));
   let active = selected;
+  const disabledAt = (i) => Boolean(isDisabled?.(builds[i], i));
 
   function paint() {
-    const item = items[selected];
-    triggerTitle.textContent = item.title;
-    triggerMeta.textContent = [item.date, item.builds].filter(Boolean).join(' · ');
+    const b = builds[selected];
+    triggerBuild.textContent = b.build;
+    triggerTitle.textContent = b.title;
+    triggerMeta.textContent = formatBuildDate(b.date);
     options.forEach((o, i) => {
+      const dis = disabledAt(i);
       o.setAttribute('aria-selected', String(i === selected));
-      o.classList.toggle('active', i === active);
+      o.setAttribute('aria-disabled', String(dis));
+      o.classList.toggle('active', i === active && !dis);
     });
     panel.setAttribute('aria-activedescendant', options[active]?.id || '');
   }
@@ -1445,12 +1448,19 @@ function makeDiffPicker(diffs, activeId, onChange) {
     }
   }
   function choose(i) {
+    if (disabledAt(i)) return;
     const changed = i !== selected;
     selected = active = i;
     paint();
     setOpen(false);
     trigger.focus();
-    if (changed) onChange(items[i].diff.id);
+    if (changed) onChange(builds[i].build);
+  }
+  function step(from, delta) {
+    const dir = delta >= 0 ? 1 : -1;
+    let next = Math.min(builds.length - 1, Math.max(0, from + delta));
+    while (next >= 0 && next < builds.length && disabledAt(next)) next += dir;
+    return next >= 0 && next < builds.length ? next : from;
   }
 
   trigger.addEventListener('click', () => setOpen(!wrap.classList.contains('open')));
@@ -1458,13 +1468,23 @@ function makeDiffPicker(diffs, activeId, onChange) {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); setOpen(true); }
   });
   panel.addEventListener('keydown', (e) => {
-    const last = options.length - 1;
-    const move = { ArrowDown: active + 1, ArrowUp: active - 1, Home: 0, End: last, PageDown: active + 5, PageUp: active - 5 }[e.key];
-    if (move !== undefined) {
+    const last = builds.length - 1;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'PageDown' || e.key === 'PageUp') {
       e.preventDefault();
-      active = Math.min(last, Math.max(0, move));
+      const delta = { ArrowDown: 1, ArrowUp: -1, PageDown: 5, PageUp: -5 }[e.key];
+      active = step(active, delta);
       paint();
-      options[active].scrollIntoView({ block: 'nearest' });
+      options[active]?.scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Home' || e.key === 'End') {
+      e.preventDefault();
+      const idx = e.key === 'Home'
+        ? builds.findIndex((_, i) => !disabledAt(i))
+        : builds.length - 1 - [...builds].reverse().findIndex((_, i) => !disabledAt(last - i));
+      if (idx >= 0 && idx <= last) {
+        active = idx;
+        paint();
+        options[active]?.scrollIntoView({ block: 'nearest' });
+      }
     } else if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       choose(active);
@@ -1478,46 +1498,112 @@ function makeDiffPicker(diffs, activeId, onChange) {
   });
 
   paint();
-  const host = el('div', { className: 'pn-diff-picker-wrap' }, wrap);
-  host.setActive = (diffId) => {
-    const i = items.findIndex((it) => it.diff.id === diffId);
-    if (i >= 0) { selected = active = i; paint(); }
+  wrap.setBuild = (build) => {
+    const i = builds.findIndex((b) => b.build === build);
+    if (i >= 0) selected = active = i;
+    paint();
   };
-  return host;
+  wrap.refresh = paint;
+  return wrap;
 }
 
 // `patchNotes` is either one notes object or { diffs, initial } from
-// loadPatchNotes when the dataset carries several diffs. In the latter case a
-// picker above the header swaps the page between them; `?diff=<id>` in the
-// tab's deep link selects one.
+// loadPatchNotes when the dataset carries several diffs. In the latter case
+// From -> To build pickers above the header let the user view any single patch
+// (`?diff=<id>`) or compose any non-consecutive range (`?from=<a>&to=<b>`).
 export function renderPatchNotes(patchNotes, options = {}) {
   lookups = buildLookups(options.data);
   const diffs = patchNotes?.diffs;
   if (!diffs) return buildNotesPage(patchNotes, options);
 
+  const builds = extractBuilds(diffs);
   const cache = new Map([[diffs[0].id, patchNotes.initial]]);
   const host = el('div', { className: 'pn-host' });
-  let picker = null;
 
-  const show = async (id, { push = false, params = null } = {}) => {
-    // `aliases` keeps links to retired diff ids (the old milestone pills) working.
-    const diff = diffs.find((d) => d.id === id || d.aliases?.includes(id)) || diffs[0];
-    picker.setActive(diff.id);
+  let rangeFrom = diffs[0].before;
+  let rangeTo = diffs[0].after;
+  let requestSeq = 0;
+
+  const buildIdx = (hash) => builds.findIndex((b) => b.build === hash);
+  const fromPicker = makeBuildPicker('From', builds, rangeFrom, {
+    isDisabled: (_, i) => i <= buildIdx(rangeTo),
+    onChange: (b) => {
+      rangeFrom = b;
+      showRange(rangeFrom, rangeTo, { push: true });
+    },
+  });
+  const toPicker = makeBuildPicker('To', builds, rangeTo, {
+    // Any build except the earliest base build can be chosen as To.
+    isDisabled: (_, i) => i >= builds.length - 1,
+    onChange: (b) => {
+      const prevFromIdx = buildIdx(rangeFrom);
+      const prevToIdx = buildIdx(rangeTo);
+      const nextToIdx = buildIdx(b);
+      const wasSingleStep = prevFromIdx === prevToIdx + 1;
+      rangeTo = b;
+      // When stepping through single patches (or if From is no longer older than To),
+      // move From to the build directly before the newly chosen To.
+      if (wasSingleStep || prevFromIdx <= nextToIdx) {
+        rangeFrom = builds[nextToIdx + 1].build;
+      }
+      showRange(rangeFrom, rangeTo, { push: true });
+    },
+  });
+  const controls = el('div', { className: 'pn-diff-picker-wrap' },
+    el('div', { className: 'pn-range-row' },
+      fromPicker,
+      el('span', { className: 'pn-range-arrow', 'aria-hidden': 'true', textContent: '→' }),
+      toPicker,
+    ),
+  );
+
+  async function ensureLoaded(diffList) {
+    const missing = diffList.filter((d) => !cache.has(d.id));
+    if (missing.length) {
+      host.replaceChildren(el('div', { className: 'empty-state', textContent: 'Loading patch notes…' }));
+      const loaded = await Promise.all(missing.map((d) => loadPatchNotesFile(d.file)));
+      missing.forEach((d, i) => cache.set(d.id, loaded[i]));
+    }
+    return diffList.map((d) => cache.get(d.id));
+  }
+
+  const showRange = async (fromBuild, toBuild, { push = false, params = null } = {}) => {
+    const chain = findDiffRange(diffs, fromBuild, toBuild) || [diffs[0]];
+    const actualFrom = chain[0].before;
+    const actualTo = chain[chain.length - 1].after;
+    const seq = ++requestSeq;
+    rangeFrom = actualFrom;
+    rangeTo = actualTo;
+    fromPicker.setBuild(rangeFrom);
+    toPicker.setBuild(rangeTo);
     if (push) {
-      const hash = diff.id === diffs[0].id ? '#patchnotes' : `#patchnotes?diff=${encodeURIComponent(diff.id)}`;
+      let hash = '#patchnotes';
+      if (chain.length === 1) {
+        if (chain[0].id !== diffs[0].id) {
+          hash = `#patchnotes?diff=${encodeURIComponent(chain[0].id)}`;
+        }
+      } else {
+        hash = `#patchnotes?from=${encodeURIComponent(actualFrom)}&to=${encodeURIComponent(actualTo)}`;
+      }
       history.replaceState(history.state, '', `${location.pathname}${location.search}${hash}`);
     }
-    if (!cache.has(diff.id)) {
-      host.replaceChildren(el('div', { className: 'empty-state', textContent: 'Loading patch notes…' }));
-      cache.set(diff.id, await loadPatchNotesFile(diff.file));
-    }
-    host.replaceChildren(buildNotesPage(cache.get(diff.id), { ...options, initialParams: params }, picker));
+    const loaded = await ensureLoaded(chain);
+    if (seq !== requestSeq) return;
+    const notes = loaded.every(Boolean) ? composePatchNotes(loaded) : null;
+    host.replaceChildren(buildNotesPage(notes, { ...options, initialParams: params }, controls));
   };
 
-  picker = makeDiffPicker(diffs, diffs[0].id, (id) => show(id, { push: true }));
-
   const params = options.initialParams;
-  show(params?.get?.('diff') || diffs[0].id, { params });
+  const initFrom = params?.get?.('from');
+  const initTo = params?.get?.('to');
+  if (initFrom && initTo && findDiffRange(diffs, initFrom, initTo)) {
+    showRange(initFrom, initTo, { params });
+  } else {
+    const initDiffId = params?.get?.('diff');
+    // `aliases` keeps links to retired diff ids (the old milestone pills) working.
+    const diff = diffs.find((d) => d.id === initDiffId || d.aliases?.includes(initDiffId)) || diffs[0];
+    showRange(diff.before, diff.after, { params });
+  }
   return host;
 }
 

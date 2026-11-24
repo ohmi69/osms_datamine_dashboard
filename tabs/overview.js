@@ -387,7 +387,7 @@ function buildRelease(options, data) {
     el('summary', { textContent: 'Version info' }),
     el('div', { className: 'field-guide-release__disclosure' },
       el('p', { textContent: 'Some listed content may be unreleased, delayed, or changed before appearing in-game.' }),
-      el('p', {}, 'Game version: ', el('code', { textContent: 'v2.0.0' })),
+      el('p', {}, 'Game version: ', el('code', { textContent: 'v2.1.0' }), ' · hash ', el('code', { textContent: '697c569e' })),
     ));
   row.appendChild(details);
   return row;

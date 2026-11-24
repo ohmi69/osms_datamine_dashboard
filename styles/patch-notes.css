@@ -780,6 +780,8 @@ a.pn-chip-link:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .pn-diff-picker-wrap {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
   margin-bottom: 12px;
 }
 .pn-patch-picker {
@@ -788,6 +790,67 @@ a.pn-chip-link:focus-visible { outline: 2px solid var(--accent); outline-offset:
   align-items: center;
   gap: 10px;
   max-width: 100%;
+}
+.pn-range-row {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+}
+.pn-range-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 99px;
+  background: var(--accent-bg);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+}
+.pn-range-picker .pn-patch-trigger {
+  min-width: 230px;
+  padding: 6px 12px 6px 13px;
+}
+.pn-range-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 1px;
+}
+.pn-range-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.pn-range-build {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 10.5px;
+  color: var(--dim);
+  opacity: .8;
+}
+.pn-range-main {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 0;
+}
+.pn-composed-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 2px 9px;
+  white-space: nowrap;
 }
 .pn-patch-anchor {
   position: relative;
@@ -895,6 +958,11 @@ a.pn-chip-link:focus-visible { outline: 2px solid var(--accent); outline-offset:
   border-left-color: var(--accent);
   background: var(--accent-bg);
 }
+.pn-patch-option[aria-disabled="true"] {
+  opacity: .35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 .pn-patch-option-main {
   display: flex;
   align-items: baseline;
@@ -920,7 +988,10 @@ a.pn-chip-link:focus-visible { outline: 2px solid var(--accent); outline-offset:
 
 @media (max-width: 600px) {
   .pn-patch-picker { width: 100%; }
+  .pn-range-row { width: 100%; }
+  .pn-range-arrow { display: none; }
   .pn-patch-anchor { flex: 1; min-width: 0; }
-  .pn-patch-trigger { min-width: 0; width: 100%; }
+  .pn-patch-trigger,
+  .pn-range-picker .pn-patch-trigger { min-width: 0; width: 100%; }
   .pn-patch-panel { width: 100%; }
 }
